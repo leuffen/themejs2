@@ -1,0 +1,9 @@
+@use "@nextrap/style-base" as *;
+@use "@nextrap/style-reset" as *;
+
+
+body {
+  --mt-text-color: var(--mt-text-on-primary);
+  --mt-background-color: var(--mt-primary);
+  --mt-border-color: var(--mt-primary);
+}

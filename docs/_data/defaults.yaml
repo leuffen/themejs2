@@ -1,0 +1,34 @@
+default_icon_class: bi bi-pen
+
+footers:
+    - logo_url: /assets/leuffen-logo-white.svg
+      logo_alt: "Webdesign & Websites für Ärzte und Arztpraxen von leuffen.de"
+      logo_label: "Webdesign & Websites für Ärzte und Arztpraxen von leuffen.de"
+      logo_href: https://leuffen.de
+      text: Webdesign für Ärzte
+      text_href: https://med.leuffen.de
+
+    - logo_url: /assets/leuffen-logo-white.svg
+      logo_alt: "Websites für Hausärzte von leuffen.de"
+      logo_label: "Websites für Hausärzte von leuffen.de"
+      logo_href: https://www.website-für-ärzte.de
+      text: Website für Ärzte
+      text_href: https://www.website-für-ärzte.de
+
+    - logo_url: /assets/leuffen-logo-white.svg
+      logo_alt: "Systemwebsite Webdesign & Websites für Ärzte und Arztpraxen von leuffen.de"
+      logo_label: "Websites für Hausärzte von leuffen.de"
+      logo_href: https://www.systemwebsite.de
+      text: Webdesign & Online-Marketing für Ärzte
+      text_href: https://www.systemwebsite.de
+
+    -   logo_url: /assets/leuffen-logo-white.svg
+        logo_alt: "Websites für Ärzte von leuffen.de"
+        logo_label: "Websites für Ärzte von leuffen.de"
+        logo_href: https://leuffen.de
+        text: Websites für Ärzte
+        text_href: https://med.leuffen.de
+
+
+logo256: /assets/logo256.jpg
+logo256_type: image/jpeg

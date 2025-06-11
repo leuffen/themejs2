@@ -1,0 +1,48 @@
+{
+  "name": "@leuffen/themejs2",
+  "version": "1.0.0",
+  "description": "",
+  "license": "proprietary",
+  "main": "./index.js",
+  "module": "./index.js",
+  "directories": {
+    "doc": "docs",
+    "themes": "themes"
+  },
+  "files": [
+    "/dist",
+    "/src",
+    "/templates",
+    "/themes",
+    "/docs",
+    "/font",
+    "/elements",
+    "/sections",
+    "/_tpl",
+    "*.scss",
+    "*.json",
+    "*.js",
+    "*.md"
+  ],
+  "workspaces": [
+    "workspaces/nextrap-monorepo/nextrap-*/*",
+    "workspaces/*"
+  ],
+  "author": "",
+  "dependencies": {
+    "@nextrap/style-base": "^1.0.0",
+    "@nextrap/style-reset": "^1.0.0",
+    "sass": "^1.89.2",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5"
+  },
+  "scripts": {
+    "make.mjs": "tsc -d",
+    "build": "npm run make.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "jsdom": "^26.0.0"
+  }
+}

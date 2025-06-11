@@ -1,0 +1,140 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Website Configuration",
+    "description": "JSON schema for website configuration. Use data from context to fill in the values.",
+    "type": "object",
+    "properties": {
+        "pagebuilder": {
+            "type": "string",
+            "description": "Just replace the subscriptio_id (like name-k123) with the actual data from context"
+        },
+        "site_base_url": {
+            "type": "string",
+            "description": "Base URL of the site (load from context) - if not defined, use undefined-domain.de as fallback"
+        },
+        "subscription_id": {
+            "type": "string",
+            "description": "The subscription_id has the format name-k123. Look for some-text-k<number>"
+        },
+        "title": {
+            "type": "string",
+            "description": "Title of the website"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the practice"
+        },
+        "name2": {
+            "type": "string",
+            "description": "Secondary name of the practice",
+            "nullable": true
+        },
+        "desc": {
+            "type": "string",
+            "description": "Short description"
+        },
+        "fachrichtung": {
+            "type": "string",
+            "description": "Specialty"
+        },
+        "logoalt": {
+            "type": "string",
+            "description": "Alt text for the logo"
+        },
+        "street": {
+            "type": "string",
+            "description": "Street address"
+        },
+        "zip": {
+            "type": "string",
+            "description": "ZIP code"
+        },
+        "city": {
+            "type": "string",
+            "description": "City"
+        },
+        "termin_url": {
+            "type": "string",
+            "description": "URL for appointments. If not provided in context use /termin as fallback"
+        },
+        "map_url": {
+            "type": "string",
+            "description": "Embedded map URL"
+        },
+        "map_link": {
+            "type": "string",
+            "description": "Link to the map"
+        },
+        "datenschutzbeauftragter": {
+            "type": "string",
+            "description": "Output null if no data available, otherwise the name of the data protection officer"
+        },
+        "bildnachweise": {
+            "type": "string",
+            "description": "Image credits"
+        },
+        "phone1_text": {
+            "type": "string",
+            "description": "Displayed phone number Format: (123) 456-7890"
+        },
+        "phone1": {
+            "type": "string",
+            "description": "Phone number with country code without spaces or dashes Format: +1234567890"
+        },
+        "fax1_text": {
+            "type": "string",
+            "description": "Displayed fax number: Format: (123) 456-7890",
+        },
+        "email": {
+            "type": "string",
+            "description": "Email address"
+        },
+        "domain": {
+            "type": "string",
+            "description": "Domain. In unspecified use undefined-domain.de as fallback",
+            "nullable": true
+        },
+        "tools": {
+            "type": "object",
+            "description": "Tools configuration",
+            "properties": {
+                "googlemaps": {
+                    "type": "boolean",
+                    "description": "Google Maps enabled"
+                },
+                "jameda": {
+                    "type": "boolean",
+                    "description": "Jameda enabled: Default is false"
+                },
+                "recaptcha": {
+                    "type": "boolean",
+                    "description": "reCAPTCHA enabled: Default is false"
+                }
+            },
+            "required": ["googlemaps", "jameda", "recaptcha"]
+        }
+    },
+    "required": [
+        "pagebuilder",
+        "site_base_url",
+        "subscription_id",
+        "title",
+        "name",
+        "desc",
+        "fachrichtung",
+        "logoalt",
+        "street",
+        "zip",
+        "city",
+        "termin_url",
+        "map_url",
+        "map_link",
+        "datenschutzbeauftragter",
+        "bildnachweise",
+        "phone1_text",
+        "phone1",
+        "fax1_text",
+        "email",
+        "tools"
+    ]
+}

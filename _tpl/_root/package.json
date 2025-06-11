@@ -1,0 +1,16 @@
+{
+    "main": "src/index.ts",
+    "directories": {
+        "doc": "docs",
+        "lib": "lib"
+    },
+    "workspaces": [
+        "workspaces/*"
+    ],
+    "author": "",
+    "dependencies": {
+        "@leuffen/themejs1": "^8.0.6"
+    },
+    "devDependencies": {
+    }
+}

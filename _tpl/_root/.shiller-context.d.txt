@@ -1,0 +1,198 @@
+
+Website für [Praxistyp] [unbekannt] in [unbekannt]
+
+## Praxisname, Praxisart, Anschrift, Telefon, Telefax, E-Mail, Website etc.
+
+[hier einfügen]
+
+## SEO Keywords (Vorschläge generieren - Texte sollten sich daran orientieren)
+
+[hier einfügen]
+
+## Öffnungszeiten
+
+[hier einfügen]
+
+## Berufsbezeichnung der Ärzte, Facharztausbildungen, Approbationen (achte darauf, dass Titel nur dann und exakt wie im Context genannt werden)
+
+[hier einfügen]
+
+## Subscription ID
+
+[hier einfügen]
+
+## Domain (mit https://www)
+
+[hier einfügen]
+
+## Leistungen
+
+[hier einfügen]
+
+## Mitarbeiter
+
+[hier einfügen]
+
+## Hinweise zur Praxis (z.B. Barrierefreiheit, Parkplätze, Anfahrt, Fahrradstellplätze)
+
+[hier einfügen]
+
+## Bearbeitungshinweise
+
+Schreibe professionelle Texte für die Website. Sprich den Leser mit "Sie" direkt an. Sprich
+von "wir" als Praxis. Schreibe professionell, freundlich und informativ. Schreibe Titel wie "Dr." nur dann, wenn diese
+explizit vor Namen im Context genannt wurden.
+
+
+
+Gliederung der Leistungen: (Onkologie)
+- Diagnostik und Bewertung
+- Behandlung
+- Nachsorge und Support
+
+Gliederung für Leistungen: (Allgemeinmediziner)
+- Vorsorge
+- Diagnostik
+- Therapie
+
+Gliederung für Leistungen: (Zahnarzt)
+- Prophylaxe
+- Zahnerhaltung
+- Zahnersatz
+
+Gliederung für Leistungen: (Psychologen & Psychotherapeuten)
+- Psychische Erkrankungen und Störungen
+- [ggf Schwerpunktthema]
+- Therapieansätze und Begleitung
+
+[Für andere Fachbereiche entwickle eine eigene Gliederung, die für die angegebenen Leistungen Sinn ergeben. Falls
+keine Leistungen angegeben sind, nimm ein Standard-Leistungsspektrum für den Fachbereich an.]
+
+Teile die Leitungen in die 3 Gliederungsbereiche ein. Ordne die Leistungen den Bereichen zu.
+Erstelle einen kurzen Text zu jeder Leistung als Accordion.
+
+[Alle weiteren verfügbaren Informationen aus dem Context hier einbauen]
+
+Folgende Bilder stehen zur Verfügung (alle generischen Bilder und Titelbilder immer mit drin stehen lassen):
+
+Titelbilder für Startseite:
+![Generisch Titelbild für Ärzte](https://cdn.leuffen.de//leu-stock/v2/212/125-58_gfedcba/AdobeStock_437404171.webp)
+![Generisch Titelbild für Ärzte2](https://cdn.leuffen.de//leu-stock/v2/211/167-69_gfedcba/AdobeStock_412929752.webp)
+![Generisch Titelbild für Ärzte2](https://cdn.leuffen.de//leu-stock/v2/210/c_gfedcba/AdobeStock_285562393.webp)
+![Blumenwiese](https://cdn.leuffen.de//leu-stock/v2/225/91-51_gfedcba/AdobeStock_746751829.webp)
+![Himmel mit Pusteblume](https://cdn.leuffen.de//leu-stock/v2/138/75-32_gfedcba/AdobeStock_133673854.webp)
+![Blauer Farbverlauf Gemälde](https://cdn.leuffen.de//leu-stock/v2/103/51-23_gfedcba/AdobeStock_615106897.webp)
+![Joggendes Paar](https://cdn.leuffen.de//leu-stock/v2/31/c_gfedcba/AdobeStock_114414482.webp)
+![Für Zahnärzte](https://cdn.leuffen.de//leu-stock/v2/25/c_gfedcba/AdobeStock_277374944.webp)
+![Für Zahnärzte2](https://cdn.leuffen.de//leu-stock/v2/19/83-24_gfedcba/AdobeStock_585153469.webp)
+![Hintergrund mit rotem Herz](https://cdn.leuffen.de//leu-stock/v2/111/158-67_gfedcba/AdobeStock_336838919.webp)
+
+Generische Bilder:
+![Kalender mit groß Vorsorgeuntersuchung](https://cdn.leuffen.de//leu-stock/v2/70/77-51_gfedcba/AdobeStock_87378997.webp)
+![Terminkalender mit Stift](https://cdn.leuffen.de//leu-stock/v2/58/140-89_gfedcba/calendar-2022-11-14-06-54-22-utc.webp)
+![Foto eines Wartezimmers](https://cdn.leuffen.de//leu-stock/v2/32/304-205_gfedcba/AdobeStock_138200241.webp)
+![Hintergrund bunte Farbexplosion](https://cdn.leuffen.de//leu-stock/v2/115/91-51_gfedcba/AdobeStock_611165970.webp)
+![Headerbild: Hände halten Smiley](https://cdn.leuffen.de//leu-stock/v2/211/167-69_gfedcba/AdobeStock_412929752.webp)
+![Headerbild: Hände halten Herz](https://cdn.leuffen.de//leu-stock/v2/210/c_gfedcba/AdobeStock_285562393.webp)
+![Platzhalter Ärztin - kein Bild vorhanden](https://cdn.leuffen.de//leu-stock/v2/165/91-87_ba/default-person-female.webp)
+![Platzhalter Arzt - kein Bild vorhanden](https://cdn.leuffen.de//leu-stock/v2/164/107-92_ba/default-person-male.webp)
+![Generischer Platzhalter - kein Bild vorhanden](https://cdn.leuffen.de//leu-stock/v2/24/c_gfedcba/AdobeStock_570703983.webp)
+![Lächelder Mann in Großaufnahme](https://cdn.leuffen.de//leu-stock/v2/195/c_gfedcba/AdobeStock_513258614.webp)
+![Symbolbild Tabletten mit Blumen - Naturheilkunde](https://cdn.leuffen.de//leu-stock/v2/187/2-1_gfedcba/AdobeStock_718558029.webp)
+
+Kinderarzt:
+![Titelbild - Girl child with stethoscope listens to toy in background sits doctor. Children medicine pediatrics and insurance](https://cdn.leuffen.de//leu-stock/v2/288/4349-1450_gfedcba/AdobeStock_615479641.webp)
+![Unrecognizable male pediatrician examining curly little patient with help of stethoscope, blurred background](https://cdn.leuffen.de//leu-stock/v2/289/460-307_gfedcba/AdobeStock_171984243.webp)
+![Cute knitted elephant, small heart and stethoscope on white wooden background. Concept of visiting children's doctor](https://cdn.leuffen.de//leu-stock/v2/290/206-135_gfedcba/AdobeStock_197740438.webp)
+![Audiologist doing impedance audiometry or diagnosis of hearing impairment. A teenage girl getting an auditory test at a hearing clinic. Healthcare and medicine concept.](https://cdn.leuffen.de//leu-stock/v2/291/c_gfedcba/AdobeStock_620656866.webp)
+
+
+Für Augenärzte:
+![Großaufnahme Auge Blickrichtung links](https://cdn.leuffen.de//leu-stock/v2/99/c_gfedcba/AdobeStock_472045717.webp)
+![Aufnahme der Retina](https://cdn.leuffen.de//leu-stock/v2/100/113-120_gfedcba/AdobeStock_331242303.webp)
+![Augenarzt und Patient bei der Untersuchung](https://cdn.leuffen.de//leu-stock/v2/84/c_gfedcba/AdobeStock_294550992.webp)
+![Retinascanner](https://cdn.leuffen.de//leu-stock/v2/80/77-51_gfedcba/AdobeStock_386634192_Editorial_Use_Only.webp)
+![Großaufnahme Augentropfen ins Auge](https://cdn.leuffen.de//leu-stock/v2/88/c_gfedcba/AdobeStock_141288425.webp)
+![Großaufnahme Auge Frau Blickrichtung unten links](https://cdn.leuffen.de//leu-stock/v2/18/c_gfedcba/close-up-view-of-beautiful-blue-female-eye-2021-08-26-22-25-43-utc.webp)
+![Frau zeigt auf ihr Auge](https://cdn.leuffen.de//leu-stock/v2/77/360-229_gfedcba/AdobeStock_249283116.webp)
+
+Für Psychologen & Psychotherapeuten:
+![Tafel mit Aufschrift ADHS](https://cdn.leuffen.de//leu-stock/v2/124/77-51_gfedcba/AdobeStock_43055447.webp)
+![Therapeut mit Klemmbrett spricht mit Patient](https://cdn.leuffen.de//leu-stock/v2/65/91-54_gfedcba/AdobeStock_263023711.webp)
+![Hände halten Steine mit der Aufschrift Mut, Harmonie, Glück, Freude, Balance, Kraft, Liebe](https://cdn.leuffen.de//leu-stock/v2/66/88-59_gfedcba/AdobeStock_80589382.webp)
+![Zwei Sessel und ein Klemmbrett (Therapie)](https://cdn.leuffen.de//leu-stock/v2/87/c_gfedcba/AdobeStock_500877419.webp)
+![Illustration: Bäume in Kopfform steigen aus Wasser empor](https://cdn.leuffen.de//leu-stock/v2/85/75-58_gfedcba/AdobeStock_188302167.webp)
+![Kind frustriert über aufgeschlagenem Buch](https://cdn.leuffen.de//leu-stock/v2/120/c_gfedcba/AdobeStock_653286890.webp)
+
+Für Hausärzte und Allgmeinmediziner:
+![Blutzuckeruntersuchung am Finger](https://cdn.leuffen.de//leu-stock/v2/9/1024-683_gfedcba/AdobeStock_417585744.webp)
+![Blutdruckmessung bei Mann mit Maske](https://cdn.leuffen.de//leu-stock/v2/21/c_gfedcba/AdobeStock_349906385.webp)
+![Ultraschall des Halses](https://cdn.leuffen.de//leu-stock/v2/21/c_gfedcba/AdobeStock_349906385.webp)
+![Rezept wird überreicht](https://cdn.leuffen.de//leu-stock/v2/62/c_gfedcba/AdobeStock_57857048.webp)
+![Arzt füllt Impfpass aus](https://cdn.leuffen.de//leu-stock/v2/76/c_gfedcba/AdobeStock_79790308.webp)
+![Hinweistext zur Vorsorgeuntersuchung](https://cdn.leuffen.de//leu-stock/v2/76/c_gfedcba/AdobeStock_79790308.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/89/c_gfedcba/glucometer-for-checking-sugar-level-and-fresh-bake-2021-12-09-17-10-57-utc.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/90/95-63_gfedcba/closeup-of-obese-elderly-woman-2022-12-16-00-04-29-utc.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/91/71-24_gfedcba/obese-woman-with-fat-belly-in-dieting-concept-2023-01-18-01-36-31-utc.webp)
+![Sportliches Paar beim Jogging](https://cdn.leuffen.de//leu-stock/v2/31/c_gfedcba/AdobeStock_114414482.webp)
+![Insulin Injektion in Bauch](https://cdn.leuffen.de//leu-stock/v2/92/d_gfedcba/AdobeStock_501320379.webp)
+
+
+Für Zahnärzte:
+![Frau in Kieferröntgengerät](https://cdn.leuffen.de//leu-stock/v2/11/188-133_gfedcba/female-dentist-and-patient-using-x-ray-machine-2022-03-13-03-47-25-utc.webp)
+![Teamfoto Zahnarztpraxis](https://cdn.leuffen.de//leu-stock/v2/14/251-167_gfedcba/professional-team-of-dentists-and-assistants-posin-2022-05-30-22-50-17-utc.webp)
+![Zahnärztin erklärt Unterkiefer](https://cdn.leuffen.de//leu-stock/v2/12/c_gfedcba/smiling-dentist-explaining-tooth-implantation-2021-09-24-03-53-51-utc.webp)
+![Zahnarzt](https://cdn.leuffen.de//leu-stock/v2/25/c_gfedcba/AdobeStock_277374944.webp)
+![Zahnärztin lächelt in Kammera](https://cdn.leuffen.de//leu-stock/v2/37/991-661_gfedcba/AdobeStock_276575002.webp)
+![Foto Anmeldungsbereich einer Praxis](https://cdn.leuffen.de//leu-stock/v2/38/c_gfedcba/AdobeStock_103737562.webp)
+![Untersuchung der Zähne (Prophylaxe)](https://cdn.leuffen.de//leu-stock/v2/132/1123-702_gfedcba/AdobeStock_84092269.webp)
+![Kind auf Behandlungsstuhl lacht in Kamera](https://cdn.leuffen.de//leu-stock/v2/133/c_gfedcba/AdobeStock_701655408.webp)
+![Auswahl der passenden Farbtöne für Zahnersatz](https://cdn.leuffen.de//leu-stock/v2/134/c_gfedcba/AdobeStock_631666941.webp)
+![Digitaler Abdruck - Arzt zeigt 3D Scan des Kiefers](https://cdn.leuffen.de//leu-stock/v2/261/c_gfedcba/AdobeStock_524673460.webp)
+![Mund mit fester Zahnspange](https://cdn.leuffen.de//leu-stock/v2/262/77-51_gfedcba/AdobeStock_136250513.webp)
+![Kindermund mit herausnehmbarer Spange](https://cdn.leuffen.de//leu-stock/v2/263/c_gfedcba/AdobeStock_1055938896.webp)
+![Mund mit Aligner](https://cdn.leuffen.de//leu-stock/v2/265/c_gfedcba/AdobeStock_538424790.webp)
+![Symbolbild für linguale Brackets](https://cdn.leuffen.de//leu-stock/v2/267/b_gfedcba/AdobeStock_320969157.webp)
+![Kiefer wird mit Dentalspiegel untersucht](https://cdn.leuffen.de//leu-stock/v2/266/c_gfedcba/AdobeStock_867819587.webp)
+
+
+Für Orthopäden und Unfallchirurgen:
+![Young Woman from the back in a physiotherapy clinic, illustrating spinal scoliosis. Osteopathic medicine and physiotherapy. With blurred background of modern hospital or clinic](https://cdn.leuffen.de//leu-stock/v2/273/138-61_gfedcba/AdobeStock_1061031656.webp)
+![Chiropractic treatment, Back pain relief. Physiotherapy for senior male patient, Kinesiology](https://cdn.leuffen.de//leu-stock/v2/274/62-41_gfedcba/AdobeStock_309254478.webp)
+![Akupunktur](https://cdn.leuffen.de//leu-stock/v2/177/121-81_gfedcba/AdobeStock_4843944.webp)
+![A dark amber glass bottle with hyaluronic acid or facial serum, on a beige background.Copy space for your design. Front look.](https://cdn.leuffen.de//leu-stock/v2/275/c_gfedcba/AdobeStock_1132657049.webp)
+![Stoßwellentherapie](https://cdn.leuffen.de//leu-stock/v2/276/52-35_gfedcba/AdobeStock_84942601.webp)
+![Holistic medicine approach. Healthy food eating, dietary supplements, healing herbs and flowers. wooden background,](https://cdn.leuffen.de//leu-stock/v2/277/c_gfedcba/AdobeStock_390312995.webp)
+![Beautiful woman in white bathrobe drink water during medical procedure in beauty clinic. Infustionstherapie](https://cdn.leuffen.de//leu-stock/v2/278/c_gfedcba/AdobeStock_529026930.webp)
+![acte médical,injection chez le médecin ou l'infirmière](https://cdn.leuffen.de//leu-stock/v2/279/155-114_gfedcba/AdobeStock_57226207.webp)
+![Lumbar spine displaced herniated disc fragment, spinal nerve and bone. Model for treatment medical in the orthopedic department.](https://cdn.leuffen.de//leu-stock/v2/280/c_gfedcba/AdobeStock_1051530780.webp)
+
+
+Allergologie und Ästhetik:
+![Frau bekommt Laserbehandlung im Gesicht](https://cdn.leuffen.de//leu-stock/v2/271/790-527_gfedcba/AdobeStock_316276354.webp)
+![Generisches Allergie / Heuschnupfen Bild Frau mit Taschentuch](https://cdn.leuffen.de//leu-stock/v2/270/c_gfedcba/AdobeStock_198299642.webp)
+![Frau bekommt Hautkrebs-Screening](https://cdn.leuffen.de//leu-stock/v2/269/430-287_gfedcba/AdobeStock_317303090.webp)
+![Allergietest auf der Haut am Arm](https://cdn.leuffen.de//leu-stock/v2/268/c_gfedcba/AdobeStock_42903070.webp)
+![Botox Spritze](https://cdn.leuffen.de//leu-stock/v2/55/c_gfedcba/equipment-for-injections-and-drug-in-medical-offic-2023-02-02-01-23-39-utc.webp)
+
+Für HNO-Ärzte:
+![Untersuchung des Ohrs durch Arzt](https://cdn.leuffen.de//leu-stock/v2/145/c_gfedcba/AdobeStock_176115459.webp)
+![Untersuchung der Nase durch Arzt](https://cdn.leuffen.de//leu-stock/v2/146/92-63_gfedcba/AdobeStock_10636763.webp)
+![Symbolbild Frau seitlich mit Ohr und Wellen](https://cdn.leuffen.de//leu-stock/v2/137/211-98_gfedcba/AdobeStock_170518761.webp)
+
+Für Onkologen:
+![Ambulante Chemotherapie](https://cdn.leuffen.de//leu-stock/v2/168/c_gfedcba/AdobeStock_158928583.webp)
+![Untersuchung in der Radiologie](https://cdn.leuffen.de//leu-stock/v2/169/d_gfedcba/AdobeStock_236237534.webp)
+![Titelbild mit Schleife](https://cdn.leuffen.de//leu-stock/v2/170/17-7_gfedcba/AdobeStock_225991855.webp)
+![Patientin mit Kopftuch vor blauem Hintergrund](https://cdn.leuffen.de//leu-stock/v2/171/c_gfedcba/AdobeStock_432408903.webp)
+
+Für Hebammen und Frauenärzte:
+![Säugling in Windeln im Bett hell](https://cdn.leuffen.de//leu-stock/v2/175/c_gfedcba/AdobeStock_100664610.webp)
+![Schwangere Frauen im Kursraum](https://cdn.leuffen.de//leu-stock/v2/176/201-106_gfedcba/AdobeStock_616406996.webp)
+![Lachende Frauen von jung bis alt stehen zusammen](https://cdn.leuffen.de//leu-stock/v2/300/1163-1628_fedcba/AdobeStock_660421479.webp)
+![Portrait einer Frau mit geschlossenen Augen - Beauty Foto](https://cdn.leuffen.de//leu-stock/v2/299/c_gfedcba/AdobeStock_641812390.webp)
+![Bild eines schlafenden Babys](https://cdn.leuffen.de//leu-stock/v2/297/c_gfedcba/AdobeStock_269043563.webp)
+![Hand hält Naturheilmittel und Pflanzen](https://cdn.leuffen.de//leu-stock/v2/298/c_gfedcba/AdobeStock_841886831.webp)
+![Lachendes strahlendes Frauengesicht](https://cdn.leuffen.de//leu-stock/v2/295/c_gfedcba/AdobeStock_1073255945.webp)
+
+Nutze generische Bilder, wenn kein passendes Bild zum Inhalt vorliegt. Übersetze die Beschreibung immer ins Deutsche.

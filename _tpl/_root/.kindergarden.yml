@@ -1,0 +1,21 @@
+version: 1.0
+
+environments:
+    coder:
+        files:
+            -   name: "project files"
+                include:
+                    - "./docs/**/*.(md|yml|yaml)"
+                instructions: |
+                    These are all project files. You can edit them as you like.
+            -   name: "context"
+                include:
+                    - "./shiller-context.txt"
+                instructions: |
+                    This file contains all information about the project. Take names, profession etc. from this file.
+            -   name: "editor instructions"
+                include:
+                    - "./node_modules/@leuffen/themejs1/edit_instructions.txt"
+                instructions: |
+                    This file contains information about how to edit markdown or yaml. files. Befolge die Anweisungen
+                    in dieser Datei.

@@ -1,0 +1,11 @@
+.idea
+composer.lock
+/vendor/
+libs/
+/.sass-cache
+/node_modules
+/workspaces
+.keystore.yml
+/backup_html.tar.gz
+.pnpm-store
+pnpm-lock.yaml
