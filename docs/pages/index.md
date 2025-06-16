@@ -11,7 +11,7 @@ image: ""
 keywords: ~
 layout: website
 order: 0
-permalink: /
+permalink: /demo2
 ptags:
 - nav
 published: true
