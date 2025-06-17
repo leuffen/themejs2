@@ -1,20 +1,116 @@
 <header id="epraxis-header" class="header bg-soft-info p-3">
-  <div class="header-container container d-flex align-items-center justify-content-center">
-    <div class="header-bar">
-      <span class="header-logo">
-        <span class="text-primary">e</span><span class="text-dark">praxis.digital.</span>
-      </span>
-      <nav class="header-nav">
-        <a href="#" class="header-link">Magazin</a>
-        <a href="#" class="header-link">Über uns</a>
-        <a href="#" class="header-link">Kontakt</a>
-      </nav>
-      <span class="header-search">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2"/>
-          <line x1="14.2929" y1="14.7071" x2="18" y2="18.4142" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </span>
+    <div
+        class="header-container container d-flex align-items-center justify-content-center"
+    >
+        <div class="header-bar">
+            <span class="header-logo">
+                <span class="text-primary">e</span
+                ><span class="text-dark">praxis.digital.</span>
+            </span>
+            <nav class="header-nav">
+                <a href="#" class="header-link">Magazin</a>
+                <a href="#" class="header-link">Über uns</a>
+                <a href="#" class="header-link">Kontakt</a>
+            </nav>
+            <span class="header-search">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="9"
+                        cy="9"
+                        r="7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+                    <line
+                        x1="14.2929"
+                        y1="14.7071"
+                        x2="18"
+                        y2="18.4142"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    />
+                </svg>
+            </span>
+        </div>
     </div>
-  </div>
 </header>
+
+<style>
+    /* Header main background and padding handled by utility classes */
+
+    #epraxis-header .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #epraxis-header .header-bar {
+        background: var(--nt-color-ffffff);
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        width: 80%;
+        padding: 0 1.5rem;
+        height: 48px;
+        box-shadow: 0 1px 4px rgba(32, 54, 86, 0.04);
+    }
+
+    #epraxis-header .header-logo {
+        font-size: 1.5rem;
+        font-family: var(--nt-font-family-heading);
+        font-weight: 500;
+        margin-right: 2rem;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+    }
+
+    #epraxis-header .header-nav {
+        display: flex;
+        gap: 1.5rem;
+        margin-right: auto;
+    }
+
+    #epraxis-header .header-link {
+        color: var(--nt-header-color);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.2s;
+    }
+    #epraxis-header .header-link:hover {
+        color: var(--nt-primary);
+    }
+
+    #epraxis-header .header-search {
+        margin-left: 1.5rem;
+        color: var(--nt-header-color);
+        font-size: 1.3rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 900px) {
+        #epraxis-header .header-bar {
+            width: 100%;
+            padding: 0 1rem;
+        }
+        #epraxis-header .header-logo {
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+        #epraxis-header .header-nav {
+            gap: 1rem;
+        }
+        #epraxis-header .header-search {
+            margin-left: 1rem;
+        }
+    }
+</style>
