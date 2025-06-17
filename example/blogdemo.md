@@ -15,7 +15,7 @@ seoScore: 8
 short_title: Barrierefreiheitsbverstärkungsgesetz (BFSG)
 title: Das neue Gesetz und seine Bedeutung für Praxen
 type: website
-layout: default
+layout: epraxis/default
 ---
 
 
