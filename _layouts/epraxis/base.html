@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include shared/head-general.html %}
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/classes.css' | relative_url }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/ids.css' | relative_url }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/tags.css' | relative_url }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/variables.css' | relative_url }}"
+        />
+    </head>
+    <body>
+        {{ content }}
+    </body>
+</html>
