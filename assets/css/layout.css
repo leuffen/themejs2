@@ -1,0 +1,15 @@
+/* Layout styles */
+header {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+main {
+    padding: 2rem 0;
+}
+
+footer {
+    padding: 1rem 0;
+    border-top: 1px solid var(--secondary-color);
+    margin-top: 2rem;
+}
