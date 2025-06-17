@@ -4,23 +4,7 @@
         {% include shared/head-general.html %}
         <link
             rel="stylesheet"
-            href="{{ '/assets/epraxis/css/classes.css' | relative_url }}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{ '/assets/epraxis/css/ids.css' | relative_url }}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{ '/assets/epraxis/css/tags.css' | relative_url }}"
-        />
-        <link
-            rel="stylesheet"
             href="{{ '/assets/epraxis/css/variables.css' | relative_url }}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{ '/assets/epraxis/css/xd.css' | relative_url }}"
         />
         <!-- include-specific css files and inline classes from md directives-->
         <link
@@ -28,9 +12,13 @@
             href="{{ '/assets/epraxis/css/includes/header.css' | relative_url }}"
         />
         <link
-        rel="stylesheet"
-        href="{{ '/assets/epraxis/css/inline-classes/info-box.css' | relative_url }}"
-    />
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/inline-classes/info-box.css' | relative_url }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/inline-classes/blockquote.css' | relative_url }}"
+        />
     </head>
     <body>
         {% include epraxis/header.html %} Content: {{ content }}

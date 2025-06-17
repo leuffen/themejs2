@@ -1,0 +1,22 @@
+blockquote, .blockquote {
+  position: relative;
+  margin: 1.5em 0;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  border-left: 3px solid var(--nt-primary);
+  background: var(--nt-color-ffffff);
+  font-family: var(--nt-font-family-base);
+  font-style: italic;
+  color: var(--nt-info);
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+blockquote p:last-child {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--nt-color-3e4242);
+  font-weight: 500;
+  margin-top: 1em;
+  letter-spacing: 0.01em;
+}
+
