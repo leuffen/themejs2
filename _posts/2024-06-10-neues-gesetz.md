@@ -55,11 +55,10 @@ Das BFSG gibt Ihnen Zeit zur Anpassung – aber die Fristen laufen. Praxen und m
 Grundsätzlich sind alle Praxen, die eine Website haben verpflichtet, den Anforderungen des Gesetzes nachzukommen. Es gibt jedoch Ausnahmen, zum Beispiel für Kleinstunternehmer (unter 10 Mitarbeitende, unter 2 Millionen Euro Jahresumsatz). Da digitale Barrierefreiheit aber insgesamt dazu dient, Menschen teilhaben zu lassen, die aufgrund körperlicher Einschränkungen benachteiligt sein könnte, wäre es auch immer zu bedenken, ob sich eine Praxis nicht aus Gründen der Wertschätzung oder der gesellschaftlichen Verantwortung um digitale Barrierefreiheit bemühen sollte.
 
 
----
-{: layout="2;use: #bildbox"}
 
 ![Alt Text zu Bild](https://cdn.leuffen.de//leu-stock/v2/337/2-1_gfedcba/AdobeStock_881988558.webp)
 Dies ist eine Bildunterschrift
+{: class="bildbox"}
 
 
 
@@ -76,12 +75,11 @@ Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Si
 
 
 
----
-{: layout="2;use: #bildbox; .cols"}
+![Alt Text zu Bild](https://cdn.leuffen.de//leu-stock/v2/337/2-1_gfedcba/AdobeStock_881988558.webp)
+![Alt Text zu Bild](https://cdn.leuffen.de//leu-stock/v2/337/2-1_gfedcba/AdobeStock_881988558.webp)
+Das ist eine Bildunterschrift und beschreibt das abgebildete Foto und gibt weitere Informationen. Der Text kann auch schon mal etwas länger werden. (Foto: Bildnachweis)
+{: class="bildbox"}
 
-![Alt Text zu Bild](https://cdn.leuffen.de//leu-stock/v2/337/2-1_gfedcba/AdobeStock_881988558.webp)
-![Alt Text zu Bild](https://cdn.leuffen.de//leu-stock/v2/337/2-1_gfedcba/AdobeStock_881988558.webp)
-Dies ist eine Bildunterschrift
 
 ## Was passiert, wenn Sie die Vorgaben nicht umsetzen? 
 
@@ -90,17 +88,12 @@ Wenn Ärzt:innen und Therapeut:innen die Anforderungen nicht erfüllen, können 
 Zuständig ist hier die [Marktüberwachungsbehörde] der jeweiligen Bundesländer1. Im Falle eines Verstoßes werden Nachbesserungen eingefordert und sollte diese nicht, oder nicht innerhalb der gesetzten Frist umgesetzt werden, kann es Strafen, wie der Einschränkung der Ausübung der Tätigkeiten kommen.
 
 
----
-{: layout="2;use: #karussel; .cols"}
 
 ![Alt Text zu Bild](https://cdn.leuffen.de//leu-stock/v2/337/2-1_gfedcba/AdobeStock_881988558.webp)
 ![Alt Text zu Bild](https://cdn.leuffen.de//leu-stock/v2/337/2-1_gfedcba/AdobeStock_881988558.webp)
 Dies ist eine Bildunterschrift
+{: class="carousel"}
 
-
-
----
-{: layout="2;.text"}
 
 Verbraucher:innen können selbst die Marktüberwachungsbehörde auffordern, Maßnahmen gegen ein Unternehmen zu ergreifen, wenn sie glauben, dass das Unternehmen gegen ein Gesetz verstößt und sie das betroffene Produkt oder die Dienstleistung deshalb nicht richtig nutzen können. Verbraucher:innen können dafür auch anerkannte Verbände oder qualifizierte Organisationen beauftragen, die das Verfahren in ihrem Namen beantragen. Menschen mit Hör- oder Sprachbehinderungen haben das Recht, im Verfahren barrierefrei zu kommunizieren, und die Kosten dafür übernimmt die Behörde. E
 

@@ -19,9 +19,12 @@
             rel="stylesheet"
             href="{{ '/assets/epraxis/css/inline-classes/blockquote.css' | relative_url }}"
         />
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/inline-classes/bildbox.css' | relative_url }}"
+        />
     </head>
     <body>
-        {% include epraxis/header.html %}
-        {{ content }}
+        {% include epraxis/header.html %} {{ content }}
     </body>
 </html>

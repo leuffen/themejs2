@@ -1,0 +1,41 @@
+.bildbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(var(--nt-base-space) * 1.5) var(--nt-base-space) var(--nt-base-space) var(--nt-base-space);
+  overflow: hidden;
+}
+
+.bildbox img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 1em;
+  margin-bottom: 1em;
+  display: block;
+}
+
+.bildbox:not(:has(img)) {
+  padding-top: var(--nt-base-space);
+}
+
+.bildbox,
+.bildbox p {
+  font-family: var(--nt-font-family-base, sans-serif);
+  color: var(--nt-text-color, #3E4242);
+  font-size: 0.98em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.bildbox p,
+.bildbox br,
+.bildbox span {
+  margin: 0;
+  padding: 0;
+}
+
+.bildbox {
+  font-size: 0.98em;
+  color: var(--nt-text-color, #3E4242);
+  text-align: left;
+}
