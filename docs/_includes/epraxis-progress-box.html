@@ -1,0 +1,41 @@
+<div class="epraxis-progress-box">
+  <div class="epraxis-progress-header">
+    <strong>INFOS ZUM ARTIKEL</strong>
+    <h2>{{ include.title }}</h2>
+    <div class="epraxis-progress-meta">
+      <span>Autor: {{ include.author }}</span>
+      <span>Datum: {{ include.date }}</span>
+    </div>
+    <div class="epraxis-progress-reading">
+      <span>Lesezeit: ca. {{ include.reading_time }} Minuten</span>
+      <div class="epraxis-progress-bar">
+        <div class="epraxis-progress-bar-inner" style="width: {{ include.reading_progress }}%; background: #ff6600; height: 12px; border-radius: 8px;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="epraxis-progress-ai-info">
+    <p>Dieser Artikel wurde mit Hilfe von<br>Künstlicher Intelligenz (KI) erstellt:</p>
+    <div class="epraxis-progress-ai-roles">
+      <div class="epraxis-progress-ai-role">
+        <img src="/assets/research.svg" alt="Recherche">
+        <div>Recherche:<br><strong>{{ include.research }}</strong></div>
+      </div>
+      <div class="epraxis-progress-ai-role">
+        <img src="/assets/writing.svg" alt="Schreiben">
+        <div>Schreiben:<br><strong>{{ include.writing }}</strong></div>
+      </div>
+      <div class="epraxis-progress-ai-role">
+        <img src="/assets/formatting.svg" alt="Formatierung">
+        <div>Formatierung:<br><strong>{{ include.formatting }}</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="epraxis-progress-terms">
+    <span>Relevante Begriffe im Artikel:</span>
+    <div class="epraxis-progress-terms-list">
+      {% for term in include.terms %}
+        <span class="epraxis-progress-term">{{ term }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -2,8 +2,17 @@
 layout: 3_3_1_content
 ---
 
-<joda-split class="{{ page.layout }}">
-    {{ content }}
-</joda-split>
+{% include epraxis-progress-box.html
+  title=page.title
+  author="Max Mustermann"
+  date="20.02.2025"
+  reading_time=7
+  reading_progress=30
+  research="100% Mensch"
+  writing="50% Mensch 50% KI"
+  formatting="100% KI"
+  terms="[ 'BFSG', 'Barrierefreiheit', 'Gesetz', 'Barrierefreiheitsstärkungsgesetz' ]"
+%}
+{{ content }}
 
 
