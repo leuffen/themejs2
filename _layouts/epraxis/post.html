@@ -3,13 +3,20 @@ layout: epraxis/base
 ---
 
 <main id="epraxis-layout">
+    <div id="epraxis-mobile-box">
+        {% include epraxis/article-progress-box-mobile.html %}
+    </div>
     <article id="epraxis-article">{{ content }}</article>
     <aside id="epraxis-sticky-sidebar">
-        {% include epraxis/epraxis-progress-box.html %}
-        <h2>Share: Share this article</h2>
-        <h2>Also Related: Lot's of things</h2>
+        {% include epraxis/article-progress-box-desktop.html %}
+        {% include epraxis/share-widget.html %}
+        {% include epraxis/related-articles.html %}
     </aside>
 
+    <div id="expraxis-mobile-related-and-share">
+        {% include epraxis/share-widget.html %}
+        {% include epraxis/related-articles.html %}
+    </div>
 </main>
 
 <style>
@@ -58,4 +65,31 @@ layout: epraxis/base
         margin-top: 1rem;
     }
 
+    /* Hide mobile elements on desktop */
+    #epraxis-mobile-box,
+    #expraxis-mobile-related-and-share {
+        display: none;
+    }
+
+    /* Mobile styles */
+    @media screen and (max-width: 768px) {
+        #epraxis-layout {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        #epraxis-sticky-sidebar {
+            display: none;
+        }
+
+        #epraxis-article {
+            grid-column: 1;
+        }
+
+        #epraxis-mobile-box,
+        #expraxis-mobile-related-and-share {
+            display: block;
+            margin-top: 2rem;
+        }
+    }
 </style>
