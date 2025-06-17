@@ -18,9 +18,17 @@
             rel="stylesheet"
             href="{{ '/assets/epraxis/css/variables.css' | relative_url }}"
         />
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/xd.css' | relative_url }}"
+        />
+        <!-- include-specific css files -->
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/epraxis/css/includes/header.css' | relative_url }}"
+        />
     </head>
     <body>
-        Content:
-        {{ content }}
+        {% include epraxis/header.html %} Content: {{ content }}
     </body>
 </html>

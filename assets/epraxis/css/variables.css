@@ -1,28 +1,28 @@
 :root {
   /* Colors */
-  --nt-primary: #2563eb;
-  --nt-accent: #7c3aed;
+  --nt-primary: #FE6606;
+  --nt-accent: #ED8E50;
   --nt-success: #059669;
-  --nt-info: #0284c7;
-  --nt-warning: #d97706;
-  --nt-danger: #dc2626;
-  --nt-light: #f8fafc;
-  --nt-dark: #1e293b;
+  --nt-info: #203656;
+  --nt-warning: #D8D9E3;
+  --nt-danger: #DC2626;
+  --nt-light: #FFEFE6;
+  --nt-dark: #0F1723;
+  --nt-text-color: #3E4242;
+  --nt-header-color: #222222;
+  --nt-link-color: #FE6606;
+  --nt-link-on-dark: #FFFFFF;
+  --nt-text-decoration-link: underline;
 
   /* Typography */
-  --nt-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --nt-font-family-heading: 'Playfair Display', serif;
-  --nt-font-size-base: 1rem;
+  --nt-font-family-base: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --nt-font-family-heading: 'Work Sans', sans-serif;
+  --nt-font-size-base: 16px;
   --nt-type-scale-ratio: 1.2;
   --nt-type-scale-ratio-mobile: 1.1;
   --nt-type-scale-ratio-desktop: 1.25;
-  --nt-line-height-base: 1.5;
+  --nt-line-height-base: 1.375;
   --nt-line-height-heading: 1.2;
-  --nt-text-color: var(--nt-dark);
-  --nt-header-color: var(--nt-dark);
-  --nt-link-color: var(--nt-primary);
-  --nt-link-on-dark: var(--nt-light);
-  --nt-text-decoration-link: underline;
 
   /* Spacing */
   --nt-base-space: 1rem;
@@ -32,4 +32,16 @@
 
   /* Soft Colors */
   --nt-lighten-factor: 40%;
+
+  /* Additional XD Colors */
+  --nt-color-182234: #182234;
+  --nt-color-57657d: #57657D;
+  --nt-color-d8d9e3: #D8D9E3;
+  --nt-color-e4e6ef: #E4E6EF;
+  --nt-color-313434: #313434;
+  --nt-color-222222: #222222;
+  --nt-color-203656: #203656;
+  --nt-color-ffffff: #FFFFFF;
+  --nt-color-3e4242: #3E4242;
+  --nt-color-1f3655: #1F3655;
 }

@@ -1,0 +1,172 @@
+/* Typography Styles */
+
+/* Base Text Styles */
+body {
+  font-family: var(--nt-font-family-base);
+  font-size: var(--nt-font-size-base);
+  line-height: 1.375;
+  color: var(--nt-text-color);
+}
+
+/* Headings */
+h1 {
+  font-family: var(--nt-font-family-heading);
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 49px;
+  letter-spacing: -0.42px;
+  color: var(--nt-color-222222);
+}
+
+h2 {
+  font-family: var(--nt-font-family-heading);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.32px;
+  color: var(--nt-color-1f3655);
+}
+
+h3 {
+  font-family: var(--nt-font-family-heading);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 26px;
+  letter-spacing: -0.24px;
+  color: var(--nt-color-3e4242);
+}
+
+/* Text Styles */
+.fließtext {
+  font-family: var(--nt-font-family-base);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.18px;
+  color: var(--nt-color-3e4242);
+}
+
+.fließtext-bold {
+  font-family: var(--nt-font-family-base);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.18px;
+  color: var(--nt-color-3e4242);
+}
+
+.fließtext-link {
+  font-family: var(--nt-font-family-base);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+  color: var(--nt-primary);
+}
+
+/* Section Headlines */
+.section-headline {
+  font-family: var(--nt-font-family-base);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: var(--nt-color-313434);
+}
+
+/* Intro Styles */
+.intro-headline {
+  font-family: var(--nt-font-family-base);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 57px;
+  letter-spacing: -0.48px;
+  color: var(--nt-color-222222);
+}
+
+.intro-topheadline-grey {
+  font-family: var(--nt-font-family-base);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: var(--nt-color-3e4242);
+  text-transform: uppercase;
+}
+
+.intro-topheadline-orange {
+  font-family: var(--nt-font-family-base);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: var(--nt-primary);
+  text-transform: uppercase;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .mobile-main-headline {
+    font-family: var(--nt-font-family-base);
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: -0.21px;
+    color: var(--nt-color-1f3655);
+  }
+
+  .mobile-main-text {
+    font-family: var(--nt-font-family-base);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.16px;
+    color: var(--nt-color-313434);
+  }
+
+  .mobile-main-text-bold {
+    font-family: var(--nt-font-family-base);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.16px;
+    color: var(--nt-color-313434);
+  }
+
+  .mobile-section-headline {
+    font-family: var(--nt-font-family-base);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.18px;
+    color: var(--nt-color-313434);
+  }
+
+  .mobile-text-link {
+    font-family: var(--nt-font-family-base);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.16px;
+    color: var(--nt-primary);
+  }
+
+  .mobile-bildunterschrift {
+    font-family: var(--nt-font-family-base);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.14px;
+    color: var(--nt-color-313434);
+  }
+}
+
+/* Image Captions */
+.bildunterschrift {
+  font-family: var(--nt-font-family-base);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  color: var(--nt-color-313434);
+}
