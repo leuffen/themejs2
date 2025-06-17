@@ -6,12 +6,12 @@ ports: "80:80;4000:4000;4100:4100"
 
 command:
   build:
-    - "jekyll build -s /opt/docs -d /var/www/html"
+    - "jekyll build -s /opt/example -d /var/www/html"
 
   run:
 
   jekyll: |
-    jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0
+    jekyll serve -s /opt/example -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0
 
   dev:
     - killall jekyll ||  echo "no job"
