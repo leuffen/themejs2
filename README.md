@@ -1,7 +1,7 @@
 # themejs2
 
 > [!IMPORTANT] 
-> *Note: At some point, I decided to split this project in two
+> *At some point, I decided to split this project in two:*
 > 
 > - a) this repository, a **gem-based jekyll theme**
 > - b) an (example) blog which merely consumes this theme
