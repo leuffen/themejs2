@@ -1,0 +1,56 @@
+{% assign hero_image = include.image %}
+{% assign hero_subtitle = include.subtitle %}
+{% assign hero_title = include.title %}
+
+<div class="epraxis-hero-header">
+  <div class="epraxis-hero-header__image-wrapper">
+    <img src="{{ hero_image }}" alt="" class="epraxis-hero-header__image" />
+  </div>
+  <div class="epraxis-hero-header__text">
+    <div class="epraxis-hero-header__subtitle">{{ hero_subtitle }}</div>
+    <h1 class="epraxis-hero-header__title">{{ hero_title }}</h1>
+  </div>
+</div>
+
+<style>
+.epraxis-hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.epraxis-hero-header__image-wrapper {
+  width: 100%;
+  aspect-ratio: 16/7;
+  overflow: hidden;
+  border-radius: 2rem;
+  position: relative;
+}
+.epraxis-hero-header__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.epraxis-hero-header__text {
+  padding-top: 1rem;
+}
+.epraxis-hero-header__subtitle {
+  padding-left: 1rem;
+
+  color: var(--nt-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.2rem;
+  border-left: 3px solid var(--nt-primary);
+}
+.epraxis-hero-header__title {
+  color: var(--nt-header-color);
+  font-family: var(--nt-font-family-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+</style>

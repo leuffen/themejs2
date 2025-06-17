@@ -6,7 +6,14 @@ layout: epraxis/base
     <div id="epraxis-mobile-box">
         {% include epraxis/article-progress-box-mobile.html %}
     </div>
-    <article id="epraxis-article">{{ content }}</article>
+    <article id="epraxis-article">
+        {% include epraxis/hero-header.html
+            image="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            subtitle="BARRIEREFREIHEITSSTÄRKUNGSGESETZ (BFSG)"
+            title="Das neue Gesetz und seine Bedeutung für Praxen"
+         %}
+        {{ content }}
+    </article>
     <aside id="epraxis-sticky-sidebar">
         {% include epraxis/article-progress-box-desktop.html %}
         {% include epraxis/share-widget.html %}
@@ -31,7 +38,7 @@ layout: epraxis/base
         position: relative;
     }
 
-    h2,  h3,  h4,  h5,  h6 {
+    h1, h2,  h3,  h4,  h5,  h6 {
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
