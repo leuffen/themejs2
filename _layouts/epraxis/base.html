@@ -22,11 +22,15 @@
             rel="stylesheet"
             href="{{ '/assets/epraxis/css/xd.css' | relative_url }}"
         />
-        <!-- include-specific css files -->
+        <!-- include-specific css files and inline classes from md directives-->
         <link
             rel="stylesheet"
             href="{{ '/assets/epraxis/css/includes/header.css' | relative_url }}"
         />
+        <link
+        rel="stylesheet"
+        href="{{ '/assets/epraxis/css/inline-classes/info-box.css' | relative_url }}"
+    />
     </head>
     <body>
         {% include epraxis/header.html %} Content: {{ content }}

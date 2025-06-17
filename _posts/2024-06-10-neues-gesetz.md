@@ -23,13 +23,12 @@ Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz?
 
 
 ## EPRAXIS.DIGITAL KOMPAKT
-{: layout="2;.box .box-pimary"}
-
 - **Das Barrierefreiheitsstärkungsgesetz (BFSG)** verpflichtet ab 28. Juni 2025 auch Arztpraxen, ihre digitalen Angebote – insbesondere Websites und Apps – barrierefrei zu gestalten, damit alle Menschen uneingeschränkt darauf zugreifen können. 
 - **Betroffen sind alle Praxen mit Website**, außer Kleinstunternehmen (weniger als 10 Mitarbeitende & unter 2 Mio. € Umsatz). Dennoch ist digitale Barrierefreiheit ein wichtiges Zeichen für Inklusion und gesellschaftliche Verantwortung. 
 - **Wichtige Maßnahmen:** Hoher Farbkontrast, gut lesbare Texte, Alt-Texte für Bilder, Tastaturbedienbarkeit, einfache Sprache und Untertitel bei Videos – das verbessert die Nutzerfreundlichkeit für alle. 
 - **Tools wie WAVE, Google Lighthouse und Screenreader** helfen bei der Prüfung, alternativ kann professionelle Unterstützung durch Expert*innen sinnvoll sein. 
 - **Wer nicht handelt, riskiert Sanktionen, Beschwerden und Imageverluste** – wer frühzeitig umsetzt, zeigt Empathie, gewinnt Vertrauen und positioniert sich zukunftsfähig.
+{: class="info-box"}
 
 
 --
