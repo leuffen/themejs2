@@ -2,6 +2,60 @@
 layout: epraxis/base
 ---
 
-{% include epraxis/epraxis-progress-box.html %}
+<main id="epraxis-layout">
+    <article id="epraxis-article">{{ content }}</article>
+    <aside id="epraxis-sticky-sidebar">
+        {% include epraxis/epraxis-progress-box.html %}
+        <h2>Share: Share this article</h2>
+        <h2>Also Related: Lot's of things</h2>
+    </aside>
 
-{{ content }}
+</main>
+
+<style>
+    #epraxis-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    #epraxis-sticky-sidebar {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+        height: fit-content;
+    }
+
+    #epraxis-sticky-sidebar h2:not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    #epraxis-article {
+        grid-column: 1;
+    }
+
+    #epraxis-progress-box {
+        grid-column: 2;
+    }
+
+    #expraxis-share-and-related {
+        grid-column: 2;
+    }
+
+    /* Right column container */
+    #epraxis-progress-box,
+    #expraxis-share-and-related {
+        position: sticky;
+        top: 2rem;
+    }
+
+    #expraxis-share-and-related {
+        margin-top: 1rem;
+    }
+
+</style>
