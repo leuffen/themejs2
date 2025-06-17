@@ -2,8 +2,9 @@
 
 > [!IMPORTANT] 
 > *Note: At some point, I decided to split this project in two
-> a) this repository, a **gem-based jekyll theme**
-> b) an (example) blog which merely consumes this theme
+> 
+> - a) this repository, a **gem-based jekyll theme**
+> - b) an (example) blog which merely consumes this theme
 > 
 > If you want to undo this structure, revert this repo back to [commit caabf7b33141ad78e625c87f662269d0008edfdc](https://github.com/leuffen/themejs2/commit/caabf7b33141ad78e625c87f662269d0008edfdc)
 
