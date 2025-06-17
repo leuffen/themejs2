@@ -1,12 +1,14 @@
 # themejs2
 
+![Screenshot of epraxis theme](/docs/img/screenshot-24-06-17.png)
+
 > [!IMPORTANT] 
-> *At some point, I simplified the project's structure to a basic jekyll setup and removed all dead code.
+> *At some point, I simplified the project's structure to a basic jekyll setup and removed all dead code.*
 > 
 > If you want to undo this structural change or see the old files, revert this repo back to [commit caabf7b33141ad78e625c87f662269d0008edfdc](https://github.com/leuffen/themejs2/commit/caabf7b33141ad78e625c87f662269d0008edfdc)
 
 
-## Goal
+## Goals
 
 - To make a jekyll theme powering a range of sites which also utilize [nextrap](https://github.com/nextrap/nextrap-monorepo) components
 
