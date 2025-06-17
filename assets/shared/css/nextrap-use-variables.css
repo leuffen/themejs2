@@ -1,0 +1,95 @@
+/* Base styles */
+body {
+  font-family: var(--nt-font-family-base);
+  font-size: var(--nt-font-size-base);
+  line-height: var(--nt-line-height-base);
+  color: var(--nt-text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--nt-font-family-heading);
+  line-height: var(--nt-line-height-heading);
+  color: var(--nt-header-color);
+}
+
+a {
+  color: var(--nt-link-color);
+  text-decoration: var(--nt-text-decoration-link);
+}
+
+/* Color utilities */
+.bg-primary { background-color: var(--nt-primary); }
+.bg-accent { background-color: var(--nt-accent); }
+.bg-success { background-color: var(--nt-success); }
+.bg-info { background-color: var(--nt-info); }
+.bg-warning { background-color: var(--nt-warning); }
+.bg-danger { background-color: var(--nt-danger); }
+.bg-light { background-color: var(--nt-light); }
+.bg-dark { background-color: var(--nt-dark); }
+
+.text-primary { color: var(--nt-primary); }
+.text-accent { color: var(--nt-accent); }
+.text-success { color: var(--nt-success); }
+.text-info { color: var(--nt-info); }
+.text-warning { color: var(--nt-warning); }
+.text-danger { color: var(--nt-danger); }
+.text-light { color: var(--nt-light); }
+.text-dark { color: var(--nt-dark); }
+
+/* Soft color variants */
+.bg-soft-primary { background-color: color-mix(in srgb, var(--nt-primary) var(--nt-lighten-factor), white); }
+.bg-soft-accent { background-color: color-mix(in srgb, var(--nt-accent) var(--nt-lighten-factor), white); }
+.bg-soft-success { background-color: color-mix(in srgb, var(--nt-success) var(--nt-lighten-factor), white); }
+.bg-soft-info { background-color: color-mix(in srgb, var(--nt-info) var(--nt-lighten-factor), white); }
+.bg-soft-warning { background-color: color-mix(in srgb, var(--nt-warning) var(--nt-lighten-factor), white); }
+.bg-soft-danger { background-color: color-mix(in srgb, var(--nt-danger) var(--nt-lighten-factor), white); }
+
+/* Typography utilities */
+.fs-1 { font-size: calc(var(--nt-font-size-base) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio)); }
+.fs-2 { font-size: calc(var(--nt-font-size-base) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio)); }
+.fs-3 { font-size: calc(var(--nt-font-size-base) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio)); }
+.fs-4 { font-size: calc(var(--nt-font-size-base) * var(--nt-type-scale-ratio) * var(--nt-type-scale-ratio)); }
+.fs-5 { font-size: calc(var(--nt-font-size-base) * var(--nt-type-scale-ratio)); }
+.fs-6 { font-size: var(--nt-font-size-base); }
+
+/* Line height utilities */
+.lh-sm { line-height: 1.2; }
+.lh-base { line-height: var(--nt-line-height-base); }
+.lh-lg { line-height: 1.8; }
+.lh-heading { line-height: var(--nt-line-height-heading); }
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--nt-container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--nt-base-space);
+  padding-right: var(--nt-base-space);
+}
+
+/* Spacing utilities */
+.m-1 { margin: calc(var(--nt-base-space) * 0.25); }
+.m-2 { margin: calc(var(--nt-base-space) * 0.5); }
+.m-3 { margin: var(--nt-base-space); }
+.m-4 { margin: calc(var(--nt-base-space) * 1.5); }
+.m-5 { margin: calc(var(--nt-base-space) * 3); }
+
+.p-1 { padding: calc(var(--nt-base-space) * 0.25); }
+.p-2 { padding: calc(var(--nt-base-space) * 0.5); }
+.p-3 { padding: var(--nt-base-space); }
+.p-4 { padding: calc(var(--nt-base-space) * 1.5); }
+.p-5 { padding: calc(var(--nt-base-space) * 3); }
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  :root {
+    --nt-type-scale-ratio: var(--nt-type-scale-ratio-mobile);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nt-type-scale-ratio: var(--nt-type-scale-ratio-desktop);
+  }
+}

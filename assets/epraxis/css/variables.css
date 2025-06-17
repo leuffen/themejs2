@@ -1,0 +1,35 @@
+:root {
+  /* Colors */
+  --nt-primary: #2563eb;
+  --nt-accent: #7c3aed;
+  --nt-success: #059669;
+  --nt-info: #0284c7;
+  --nt-warning: #d97706;
+  --nt-danger: #dc2626;
+  --nt-light: #f8fafc;
+  --nt-dark: #1e293b;
+
+  /* Typography */
+  --nt-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --nt-font-family-heading: 'Playfair Display', serif;
+  --nt-font-size-base: 1rem;
+  --nt-type-scale-ratio: 1.2;
+  --nt-type-scale-ratio-mobile: 1.1;
+  --nt-type-scale-ratio-desktop: 1.25;
+  --nt-line-height-base: 1.5;
+  --nt-line-height-heading: 1.2;
+  --nt-text-color: var(--nt-dark);
+  --nt-header-color: var(--nt-dark);
+  --nt-link-color: var(--nt-primary);
+  --nt-link-on-dark: var(--nt-light);
+  --nt-text-decoration-link: underline;
+
+  /* Spacing */
+  --nt-base-space: 1rem;
+
+  /* Container */
+  --nt-container-width: 1200px;
+
+  /* Soft Colors */
+  --nt-lighten-factor: 40%;
+}
