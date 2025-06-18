@@ -17,7 +17,7 @@ command:
     - killall jekyll ||  echo "no job"
     - killall vite ||  echo "no job"
     - "D:setsid kick jekyll"
-    - "D:vite -c vite.config.demo.ts build --watch"
+    - "D:vite -c vite.config.ts build --watch"
 
   init-workspaces:
     - "mkdir -p workspaces"

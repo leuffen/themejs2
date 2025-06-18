@@ -1,29 +1,28 @@
 import { defineConfig } from 'vite';
+// @ts-ignore
+import path from 'path';
 
 export default defineConfig({
-    server: {
-        port: 4000,
-        host: "0.0.0.0",
-        hmr: true
-
-    },
-    resolve : {
-        alias: {
-            '@': '/src'
-        }
-    },
-    root: './',
-    publicDir: './public/www',
+    plugins: [],
     build: {
+
+        cssCodeSplit: false,
         rollupOptions: {
-            input: './public/main.ts'
-        }
+            input: {
+                index: path.resolve(__dirname, 'docs/_src/index.ts'),
+                embed: path.resolve(__dirname, 'docs/_src/embed.ts'),
+            },
+            output: {
+
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+                        return '[name][extname]';
+                    }
+                    return '[name][extname]';
+                },
+                entryFileNames: '[name].js',
+                dir: 'docs/assets/dist',
+            },
+        },
     },
-
-    test: {
-        globals: true,
-        inspect: "0.0.0.0:9229",
-
-        environment: 'jsdom'
-    }
 });
