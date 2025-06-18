@@ -3,8 +3,7 @@
 @use "../../src/epraxis-theme/index" as *;
 
 
-body {
-  --mt-text-color: var(--mt-text-on-primary);
-  --mt-background-color: var(--mt-primary);
-  --mt-border-color: var(--mt-primary);
+
+p {
+    background-color: green;
 }
