@@ -4,8 +4,9 @@
 
 ## Development
 
-- If you are new to the project, the following two discussions may be of interest to you:
-  - 
+If you are new to the project, the following two discussions may be of interest to you:
+- https://github.com/leuffen/themejs2/issues/2
+- https://github.com/leuffen/themejs2/issues/1
 
 ### Setup
 
