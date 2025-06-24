@@ -36,7 +36,8 @@ Das BFSG gibt Ihnen Zeit zur Anpassung – aber die Fristen laufen. Praxen und m
 
 
 > „Je früher Sie starten, desto besser sind Sie vorbereitet und vermeiden Stress.“
-> - Dr. Meyer Wagenfeld
+>
+> — Dr. Meyer Wagenfeld
 
 ## Welche Praxen unterliegen dem BFSG 
 

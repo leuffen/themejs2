@@ -4,7 +4,7 @@
     $accent: #ed8e50,
     $secondary: #313434,
     $success: #28a745,
-    $info: #17a2b8,
+    $info: #EDF1F8,
     $warning: #ffc107,
     $danger: #dc3545,
     $light: #ffffff,
@@ -65,7 +65,7 @@ footer {
         font-weight: 500;
     }
 
-    p {
+    p, ul, ol {
         margin-top: $base-space * 2;
     }
 
@@ -73,6 +73,36 @@ footer {
     @media (min-width: 768px) {
         p:first-child {
             font-weight: 600;
+        }
+    }
+
+
+    ul {
+        background-color: $info;
+        padding: $base-space;
+        border-radius: 0.5rem;
+
+        li {
+            list-style-type: square;
+            margin-left: $base-space;
+            margin-bottom: $base-space;
+        }
+    }
+
+    blockquote {
+        border-left: 4px solid $primary;
+        color: $dark;
+        padding-left: $base-space;
+        font-style: italic;
+
+        p:not(:last-of-type) {
+            font-weight: 300;
+            font-size: 1.6rem;
+        }
+
+        p:last-child {
+            font-weight: 400;
+            font-size: 1rem;
         }
     }
 }
