@@ -21,7 +21,6 @@ type: website
 
 Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
 
-
 Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren? 
 
 Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle zugänglich zu machen – es geht um Teilhabe! Das Recht von Menschen mit Behinderungen auf gesellschaftliche Teilhabe wird mit dem BFSG gestärkt. Um das zu erreichen, tritt ab dem kommenden Jahr das Barrierefreiheitsstärkungsgesetz in Kraft. Auch in Ihrer Arztpraxis können Sie dazu beitragen: Sei es ein klar strukturierter Online-Auftritt, durchdachte Hinweise zur Erreichbarkeit oder eine Umgebung, die Mobilitätshürden überwindet. Das BFSG hilft, die Arztpraxis auf diese Anforderungen auszurichten. 

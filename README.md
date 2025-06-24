@@ -1,5 +1,7 @@
 # themejs2
 
+![demo screenshot](/doc/img/demo.png)
+
 ## Development
 
 - If you are new to the project, the following two discussions may be of interest to you:
