@@ -4,6 +4,7 @@ composer.lock
 libs/
 /.sass-cache
 /node_modules
-/workspaces
 /dist
 /docs/assets/dist
+
+/workspaces
