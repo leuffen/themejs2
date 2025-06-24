@@ -9,9 +9,13 @@ layout: 3_3_1_content
 <!-- TODO: Remove and replace with useful, flexible font system -->
 
 
-<div id="epraxis-blog">
+<div id="epraxis-blog-mobile">
     <div class="expraxis-post-image">
         <img src="{{ page.image }}" alt="{{ page.title }}" />
+    </div>
+    <div id="expraxis-infobox" class="placeholder-box">
+        <p>Infos zum Artikel</p>
+        <p>Lesezeit: ca. 5 Minuten</p>
     </div>
     <article class="epraxis-post">
         {{ content }}
@@ -19,11 +23,30 @@ layout: 3_3_1_content
     <div id="expraxis-share" class="placeholder-box">
         <p>Artikel teilen</p>
     </div>
-    <div id="expraxis-infobox" class="placeholder-box">
-        <p>Infos zum Artikel</p>
-        <p>Lesezeit: ca. 5 Minuten</p>
-    </div>
     <div id="expraxis-related-articles" class="placeholder-box">
         <p>Das könnte Sie auch interessieren</p>
+    </div>
+</div>
+
+<div id="epraxis-blog-desktop">
+    <div class="left-column">
+        <div class="expraxis-post-image">
+            <img src="{{ page.image }}" alt="{{ page.title }}" />
+        </div>
+        <article class="epraxis-post">
+            {{ content }}
+        </article>
+    </div>
+    <div class="right-column">
+        <div id="expraxis-infobox" class="placeholder-box">
+            <p>Infos zum Artikel</p>
+            <p>Lesezeit: ca. 5 Minuten</p>
+        </div>
+        <div id="expraxis-share" class="placeholder-box">
+            <p>Artikel teilen</p>
+        </div>
+        <div id="expraxis-related-articles" class="placeholder-box">
+            <p>Das könnte Sie auch interessieren</p>
+        </div>
     </div>
 </div>

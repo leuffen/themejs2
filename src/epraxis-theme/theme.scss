@@ -1,0 +1,132 @@
+@use "@nextrap/style-reset" as *;
+@forward "@nextrap/style-base" with (
+  $primary: #fe6606,
+  $accent: #ed8e50,
+  $secondary: #313434,
+  $success: #28a745,
+  $info: #17a2b8,
+  $warning: #ffc107,
+  $danger: #dc3545,
+  $light: #ffffff,
+  $dark: #0f1723,
+  $black: #222222,
+  $white: #ffffff,
+  $text: #313434,
+  $font-size-base: 1rem,
+  $line-height-base: 1.375,
+  $link-color: #fe6606,
+  $font-family-base: "Work Sans"
+);
+@use "@nextrap/style-base" as *;
+
+// TODO: Remove this once we have a styled header
+// and it actually looks nice
+nav, footer {
+    display: none;
+}
+
+// TODO: Remove — this is just for elements like the share box
+// that are not yet components
+.placeholder-box {
+    padding: $base-space;
+    border: 1px solid $secondary;
+    border-radius: 0.5rem;
+    margin-bottom: $base-space;
+}
+
+// Mobile layout (default)
+#epraxis-blog-mobile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $base-space;
+    display: flex;
+    flex-direction: column;
+}
+
+#epraxis-blog-desktop {
+    display: none;
+}
+
+.expraxis-post-image {
+    margin-bottom: $base-space;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.epraxis-post {
+    margin-bottom: $base-space;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $text;
+}
+
+#expraxis-infobox {
+    margin-bottom: $base-space;
+}
+
+#expraxis-share {
+    margin-bottom: $base-space;
+}
+
+#expraxis-related-articles {
+    margin-bottom: $base-space;
+}
+
+// Desktop layout (768px and up)
+@media (min-width: 768px) {
+    #epraxis-blog-mobile {
+        display: none;
+    }
+
+    #epraxis-blog-desktop {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: $base-space;
+        gap: $base-space * 2;
+        align-items: flex-start;
+    }
+
+    // Left column container
+    .left-column {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Right column container
+    .right-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Left column: image, post (in that exact order)
+    .expraxis-post-image {
+        order: 1;
+    }
+
+    .epraxis-post {
+        order: 2;
+    }
+
+    // Right column: infobox, share, related articles (in that exact order)
+    #expraxis-infobox {
+        order: 1;
+    }
+
+    #expraxis-share {
+        order: 2;
+    }
+
+    #expraxis-related-articles {
+        order: 3;
+    }
+}
