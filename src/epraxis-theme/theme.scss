@@ -1,31 +1,30 @@
 @use "@nextrap/style-reset" as *;
 @forward "@nextrap/style-base" with (
-  $primary: #fe6606,
-  $accent: #ed8e50,
-  $secondary: #313434,
-  $success: #28a745,
-  $info: #17a2b8,
-  $warning: #ffc107,
-  $danger: #dc3545,
-  $light: #ffffff,
-  $dark: #1f3455,
-  $black: #222222,
-  $white: #ffffff,
-  $text: #313434,
-  $font-size-base: 1rem,
-  $line-height-base: 1.375,
-  $link-color: #fe6606,
-  $font-family-base: "Work Sans"
+    $primary: #fe6606,
+    $accent: #ed8e50,
+    $secondary: #313434,
+    $success: #28a745,
+    $info: #17a2b8,
+    $warning: #ffc107,
+    $danger: #dc3545,
+    $light: #ffffff,
+    $dark: #1f3455,
+    $black: #222222,
+    $white: #ffffff,
+    $text: #313434,
+    $font-size-base: 1rem,
+    $line-height-base: 1.375,
+    $link-color: #fe6606,
+    $font-family-base: "Work Sans"
 );
 @use "@nextrap/style-base" as *;
 
-
 // ----------------------- TEMPORARY SETUP ----------------------- //
-
 
 // TODO: Remove this once we have a styled header
 // and it actually looks nice
-nav, footer {
+nav,
+footer {
     display: none;
 }
 
@@ -38,10 +37,7 @@ nav, footer {
     margin-bottom: $base-space;
 }
 
-
-
 // ----------------------- BLOG ----------------------- //
-
 
 .epraxis-blog-title {
     color: $dark;
@@ -62,9 +58,26 @@ nav, footer {
     text-transform: uppercase;
 }
 
+.expraxis-blog-content {
+    h2 {
+        margin-top: $base-space * 3;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    p {
+        margin-top: $base-space * 2;
+    }
+
+    // on desktop, make the first paragraph bold
+    @media (min-width: 768px) {
+        p:first-child {
+            font-weight: 600;
+        }
+    }
+}
+
 // ----------------------- BLOG LAYOUT ----------------------- //
-
-
 
 // Mobile layout (default)
 #epraxis-blog-mobile {
