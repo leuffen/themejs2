@@ -3,11 +3,13 @@ layout: 3_3_1_content
 ---
 
 <!-- Pasted in Google Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+/>
 <!-- TODO: Remove and replace with useful, flexible font system -->
-
 
 <div id="epraxis-blog-mobile">
     <div class="expraxis-post-image">
@@ -18,6 +20,8 @@ layout: 3_3_1_content
         <p>Lesezeit: ca. 5 Minuten</p>
     </div>
     <article class="epraxis-post">
+        <h3 class="epraxis-blog-subtitle">— {{ page.short_title }}</h3>
+        <h2 class="epraxis-blog-title">{{ page.title }}</h2>
         {{ content }}
     </article>
     <div id="expraxis-share" class="placeholder-box">
@@ -34,6 +38,8 @@ layout: 3_3_1_content
             <img src="{{ page.image }}" alt="{{ page.title }}" />
         </div>
         <article class="epraxis-post">
+            <h3 class="epraxis-blog-subtitle">— {{ page.short_title }}</h3>
+            <h2 class="epraxis-blog-title">{{ page.title }}</h2>
             {{ content }}
         </article>
     </div>

@@ -8,7 +8,7 @@
   $warning: #ffc107,
   $danger: #dc3545,
   $light: #ffffff,
-  $dark: #0f1723,
+  $dark: #1f3455,
   $black: #222222,
   $white: #ffffff,
   $text: #313434,
@@ -18,6 +18,10 @@
   $font-family-base: "Work Sans"
 );
 @use "@nextrap/style-base" as *;
+
+
+// ----------------------- TEMPORARY SETUP ----------------------- //
+
 
 // TODO: Remove this once we have a styled header
 // and it actually looks nice
@@ -33,6 +37,34 @@ nav, footer {
     border-radius: 0.5rem;
     margin-bottom: $base-space;
 }
+
+
+
+// ----------------------- BLOG ----------------------- //
+
+
+.epraxis-blog-title {
+    color: $dark;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+    .epraxis-blog-title {
+        font-size: 2.5rem;
+    }
+}
+
+.epraxis-blog-subtitle {
+    color: $primary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+// ----------------------- BLOG LAYOUT ----------------------- //
+
+
 
 // Mobile layout (default)
 #epraxis-blog-mobile {
