@@ -1,5 +1,18 @@
 
+// TODO: Remove this once we have a styled header
+// and it actually looks nice
+nav {
+    display: none;
+}
 
-.blog-epraxis {
+// TODO: Remove — this is just for elements like the share box
+// that are not yet components
+.placeholder-box {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.epraxis-post {
 
 }

@@ -2,8 +2,28 @@
 layout: 3_3_1_content
 ---
 
-<joda-split class="{{ page.layout }}">
-    {{ content }}
-</joda-split>
+<!-- Pasted in Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- TODO: Remove and replace with useful, flexible font system -->
 
 
+<div id="epraxis-blog">
+    <div class="expraxis-post-image">
+        <img src="{{ page.image }}" alt="{{ page.title }}" />
+    </div>
+    <article class="epraxis-post">
+        {{ content }}
+    </article>
+    <div id="expraxis-share" class="placeholder-box">
+        <p>Artikel teilen</p>
+    </div>
+    <div id="expraxis-infobox" class="placeholder-box">
+        <p>Infos zum Artikel</p>
+        <p>Lesezeit: ca. 5 Minuten</p>
+    </div>
+    <div id="expraxis-related-articles" class="placeholder-box">
+        <p>Das könnte Sie auch interessieren</p>
+    </div>
+</div>
