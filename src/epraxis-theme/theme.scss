@@ -109,22 +109,31 @@ footer {
 
 // ----------------------- BLOG LAYOUT ----------------------- //
 
-// Mobile layout (default)
-#epraxis-blog-mobile {
+// Main blog container
+#epraxis-blog {
     max-width: 1200px;
     margin: 0 auto;
     padding: $base-space;
     display: flex;
     flex-direction: column;
+    gap: $base-space;
 }
 
-#epraxis-blog-desktop {
+// Main column - contains all elements in mobile, only img and content in desktop
+.main-column {
+    display: flex;
+    flex-direction: column;
+    gap: $base-space;
+}
+
+// Sidebar - hidden on mobile, visible on desktop
+.sidebar {
     display: none;
+    flex-direction: column;
+    gap: $base-space;
 }
 
 .expraxis-post-image {
-    margin-bottom: $base-space;
-
     img {
         width: 100%;
         height: auto;
@@ -135,73 +144,38 @@ footer {
 }
 
 .epraxis-post {
-    margin-bottom: $base-space;
     font-family: $font-family-base;
     font-size: $font-size-base;
     line-height: $line-height-base;
     color: $text;
 }
 
-#expraxis-infobox {
-    margin-bottom: $base-space;
-}
-
-#expraxis-share {
-    margin-bottom: $base-space;
-}
-
-#expraxis-related-articles {
-    margin-bottom: $base-space;
-}
-
 // Desktop layout (768px and up)
 @media (min-width: 768px) {
-    #epraxis-blog-mobile {
-        display: none;
-    }
-
-    #epraxis-blog-desktop {
-        display: flex;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: $base-space;
+    #epraxis-blog {
+        flex-direction: row;
         gap: $base-space * 2;
         align-items: flex-start;
     }
 
-    // Left column container
-    .left-column {
+    // Main column takes 2/3 of the space
+    .main-column {
         flex: 2;
-        display: flex;
-        flex-direction: column;
+
+        // Hide sidebar elements in main column on desktop
+        #expraxis-infobox,
+        #expraxis-share,
+        #expraxis-related-articles {
+            display: none;
+        }
     }
 
-    // Right column container
-    .right-column {
+    // Sidebar takes 1/3 of the space and is sticky
+    .sidebar {
+        display: flex;
         flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    // Left column: image, post (in that exact order)
-    .expraxis-post-image {
-        order: 1;
-    }
-
-    .epraxis-post {
-        order: 2;
-    }
-
-    // Right column: infobox, share, related articles (in that exact order)
-    #expraxis-infobox {
-        order: 1;
-    }
-
-    #expraxis-share {
-        order: 2;
-    }
-
-    #expraxis-related-articles {
-        order: 3;
+        position: sticky;
+        top: $base-space;
+        align-self: flex-start;
     }
 }
