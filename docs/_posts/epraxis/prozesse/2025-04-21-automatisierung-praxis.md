@@ -3,7 +3,7 @@ title: "Automatisierung in der Hausarztpraxis"
 subtitle: "Intelligente Systeme für effizientere Abläufe"
 description: "Wie Hausärzt:innen durch Automatisierung repetitive Aufgaben reduzieren und sich auf die Patientenversorgung konzentrieren können."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["Automatisierung", "Praxissoftware", "Effizienz", "Digitalisierung", "Prozessoptimierung"]
 image: /assets/images/automatisierung-praxis.jpg
 article_next: /epraxis/prozesse/dokumentation-digital

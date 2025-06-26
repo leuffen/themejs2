@@ -3,15 +3,9 @@ title: "SMS-Kommunikation in der Hausarztpraxis"
 subtitle: "Schneller mit Patient:innen kommunizieren mit moderner Infrastruktur"
 description: "Wie Hausärzt:innen SMS effektiv zur Patientenkommunikation nutzen können – Chancen, Grenzen und praktische Tipps."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["Hausarzt", "SMS", "Patientenkommunikation", "digitale Gesundheit", "Praxisorganisation"]
 image: /assets/images/sms-patientenkommunikation.jpg
-article_next: /digitale-gesundheit/automatisierung-praxisablauf
-article_previous: /digitale-gesundheit/terminbuchung-online
-articles_related:
-  - /digitale-gesundheit/patientenportal-einfuehrung
-  - /digitale-gesundheit/chatbots-im-einsatz
-  - /digitale-gesundheit/datenschutz-niedergelassen
 ---
 
 In vielen Hausarztpraxen ist die Kommunikation mit Patient:innen nach wie vor zeitaufwendig. Telefonleitungen sind belegt, Rückrufe verzögern sich, und einfache Informationen wie Terminbestätigungen oder Laborergebnisse binden unnötig Ressourcen. Hier bietet die SMS eine pragmatische Lösung: Sie ist niedrigschwellig, nahezu jeder besitzt ein Mobiltelefon, und der Aufwand auf Praxisseite ist minimal. Besonders bei kurzen, nicht sensiblen Informationen eignet sich SMS ideal zur Entlastung des Praxisteams.

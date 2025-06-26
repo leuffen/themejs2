@@ -3,7 +3,7 @@ title: "Praxisabläufe digital optimieren"
 subtitle: "Effiziente Prozesse für mehr Zeit bei den Patient:innen"
 description: "Wie Hausärzt:innen ihre Praxisabläufe durch Digitalisierung optimieren und mehr Zeit für die Patientenversorgung gewinnen."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["Praxisabläufe", "Prozessoptimierung", "Digitalisierung", "Effizienz", "Praxisorganisation"]
 image: /assets/images/praxisablaeufe-optimierung.jpg
 article_next: /epraxis/prozesse/automatisierung-praxis

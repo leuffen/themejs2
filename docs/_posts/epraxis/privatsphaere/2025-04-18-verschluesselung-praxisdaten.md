@@ -3,7 +3,7 @@ title: "Verschlüsselung von Praxisdaten"
 subtitle: "Sichere Übertragung und Speicherung sensibler Patientendaten"
 description: "Wie Hausärzt:innen ihre Patientendaten durch Verschlüsselung vor unbefugtem Zugriff schützen können."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["Verschlüsselung", "Datensicherheit", "Patientendaten", "IT-Sicherheit", "Datenschutz"]
 image: /assets/images/verschluesselung-daten.jpg
 article_next: /epraxis/prozesse/terminbuchung-optimierung

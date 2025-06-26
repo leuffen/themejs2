@@ -3,7 +3,7 @@ title: "DSGVO-konforme Datenverarbeitung in der Praxis"
 subtitle: "Rechtssichere Umgang mit Patientendaten im digitalen Zeitalter"
 description: "Wie Hausärzt:innen die DSGVO-Anforderungen in ihrer Praxis umsetzen und Patientendaten sicher verarbeiten können."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["DSGVO", "Datenschutz", "Patientendaten", "Datenverarbeitung", "Rechtssicherheit"]
 image: /assets/images/dsgvo-praxis.jpg
 article_next: /epraxis/privatsphaere/datenschutzbeauftragter-praxis

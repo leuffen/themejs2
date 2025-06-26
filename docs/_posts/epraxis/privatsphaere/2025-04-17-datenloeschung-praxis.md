@@ -3,7 +3,7 @@ title: "Datenlöschung in der Hausarztpraxis"
 subtitle: "Rechtssichere Aufbewahrung und Löschung von Patientendaten"
 description: "Wie Hausärzt:innen die gesetzlichen Aufbewahrungsfristen einhalten und Daten rechtssicher löschen können."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["Datenlöschung", "Aufbewahrungsfristen", "Patientendaten", "Datenschutz", "Praxisorganisation"]
 image: /assets/images/datenloeschung.jpg
 article_next: /epraxis/privatsphaere/verschluesselung-praxisdaten

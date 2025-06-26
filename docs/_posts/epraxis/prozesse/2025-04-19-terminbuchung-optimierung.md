@@ -3,7 +3,7 @@ title: "Terminbuchung in der Praxis optimieren"
 subtitle: "Effiziente Terminvergabe für mehr Patientenzufriedenheit"
 description: "Wie Hausärzt:innen ihre Terminbuchung digitalisieren und optimieren können für bessere Praxisabläufe."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["Terminbuchung", "Online-Termine", "Praxisorganisation", "Patientenzufriedenheit", "Digitalisierung"]
 image: /assets/images/terminbuchung-optimierung.jpg
 article_next: /epraxis/prozesse/ablauf-optimierung

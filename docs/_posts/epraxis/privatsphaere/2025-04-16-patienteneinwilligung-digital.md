@@ -3,7 +3,7 @@ title: "Digitale Patienteneinwilligung in der Praxis"
 subtitle: "Rechtssichere Einholung von Einverständniserklärungen per E-Mail und Portal"
 description: "Wie Hausärzt:innen digitale Einwilligungen von Patient:innen rechtssicher einholen und dokumentieren können."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melina Musterfrau"
 keywords: ["Patienteneinwilligung", "digitale Einwilligung", "Einverständniserklärung", "Rechtssicherheit", "Dokumentation"]
 image: /assets/images/digitale-einwilligung.jpg
 article_next: /epraxis/privatsphaere/datenloeschung-praxis

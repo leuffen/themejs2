@@ -3,15 +3,11 @@ title: "Videosprechstunde erfolgreich einführen"
 subtitle: "Digitale Arzt-Patienten-Gespräche als Ergänzung zur Praxis"
 description: "Wie Hausärzt:innen Videosprechstunden in ihre Praxis integrieren können – Technik, Ablauf und rechtliche Aspekte."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melina Musterfrau"
 keywords: ["Videosprechstunde", "Telemedizin", "digitale Praxis", "Arzt-Patienten-Kommunikation", "Online-Sprechstunde"]
 image: /assets/images/videosprechstunde-praxis.jpg
 article_next: /digitale-gesundheit/patientenportal-einfuehrung
 article_previous: /digitale-gesundheit/sms-kommunikation-hausarztpraxis
-articles_related:
-  - /digitale-gesundheit/sms-kommunikation-hausarztpraxis
-  - /digitale-gesundheit/chatbots-im-einsatz
-  - /digitale-gesundheit/datenschutz-niedergelassen
 ---
 
 Die Videosprechstunde hat sich während der Pandemie als wertvolle Ergänzung zur klassischen Praxisarbeit etabliert. Besonders für Follow-up-Termine, Medikamentenverordnungen oder einfache Beratungsgespräche bietet sie eine zeitsparende Alternative für Patient:innen und Praxisteam. Die technischen Anforderungen sind mittlerweile überschaubar: Eine stabile Internetverbindung, eine DSGVO-konforme Videoplattform und eine ruhige Umgebung reichen aus, um qualitativ hochwertige digitale Sprechstunden durchzuführen. Viele Patient:innen schätzen die Flexibilität, Termine auch außerhalb der regulären Praxiszeiten wahrnehmen zu können.

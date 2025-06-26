@@ -3,7 +3,7 @@ title: "Patientenportal optimal nutzen"
 subtitle: "Digitale Selbstverwaltung für mehr Patientenzufriedenheit"
 description: "Wie Hausärzt:innen Patientenportale zur Entlastung des Praxisteams und Verbesserung der Patientenversorgung einsetzen können."
 published: true
-author: "Digitale Medizin Redaktion"
+author: "Melchor Mustermann"
 keywords: ["Patientenportal", "digitale Patientenverwaltung", "Online-Terminbuchung", "Befundabfrage", "Praxisorganisation"]
 image: /assets/images/patientenportal-optimierung.jpg
 article_next: /digitale-gesundheit/automatisierung-praxisablauf
