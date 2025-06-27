@@ -16,6 +16,7 @@ layout: 3_3_1_content
             <section class="expraxis-blog-content">
                 {{ content }}
             </section>
+
         </article>
         <div id="expraxis-share" class="placeholder-box">
             <p>Artikel teilen</p>
@@ -23,6 +24,7 @@ layout: 3_3_1_content
         <div id="expraxis-related-articles" class="placeholder-box">
             <p>Das könnte Sie auch interessieren</p>
         </div>
+        {% include epraxis/post-next-prev-nav.html %}
     </div>
     <aside class="sidebar">
         {% include epraxis/post-info.html %}

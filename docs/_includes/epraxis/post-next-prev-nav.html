@@ -1,0 +1,38 @@
+{% assign prev_post = nil %}
+{% assign next_post = nil %}
+
+{%- comment -%}
+  1. Try to resolve article_previous/article_next from frontmatter (by filename)
+  2. Fallback to Jekyll's page.previous/page.next
+{%- endcomment -%}
+
+{%- if page.article_previous -%}
+  {% assign prev_post = site.posts | where: "basename", page.article_previous | first %}
+{%- endif -%}
+{%- if prev_post == nil and page.previous -%}
+  {% assign prev_post = page.previous %}
+{%- endif -%}
+
+{%- if page.article_next -%}
+  {% assign next_post = site.posts | where: "basename", page.article_next | first %}
+{%- endif -%}
+{%- if next_post == nil and page.next -%}
+  {% assign next_post = page.next %}
+{%- endif -%}
+
+{%- if prev_post or next_post -%}
+<div class="epraxis-post-nav">
+  {%- if prev_post -%}
+  <a class="epraxis-post-nav-card prev" href="{{ prev_post.url }}">
+    <div class="epraxis-post-nav-label"><span class="epraxis-post-nav-arrow">&#8592;</span> VORHERIGER ARTIKEL</div>
+    <div class="epraxis-post-nav-title">{{ prev_post.title }}</div>
+  </a>
+  {%- endif -%}
+  {%- if next_post -%}
+  <a class="epraxis-post-nav-card next" href="{{ next_post.url }}">
+    <div class="epraxis-post-nav-label">NÄCHSTER ARTIKEL <span class="epraxis-post-nav-arrow">&#8594;</span></div>
+    <div class="epraxis-post-nav-title">{{ next_post.title }}</div>
+  </a>
+  {%- endif -%}
+</div>
+{%- endif -%}
