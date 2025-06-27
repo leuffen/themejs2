@@ -22,3 +22,4 @@ type: website
 ---
 
 - [Blog Demo EPraxis Digital](/pages/blogdemo.html)
+- [Blog Overview Demo](/pages/latest-posts.html)

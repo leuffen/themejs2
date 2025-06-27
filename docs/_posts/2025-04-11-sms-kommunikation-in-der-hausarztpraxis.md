@@ -1,4 +1,5 @@
 ---
+layout: epraxis/blog.html
 title: "SMS-Kommunikation in der Hausarztpraxis"
 subtitle: "Schneller mit Patient:innen kommunizieren mit moderner Infrastruktur"
 description: "Wie Hausärzt:innen SMS effektiv zur Patientenkommunikation nutzen können – Chancen, Grenzen und praktische Tipps."
