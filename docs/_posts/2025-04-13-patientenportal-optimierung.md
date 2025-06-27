@@ -1,4 +1,5 @@
 ---
+layout: epraxis/blog
 title: "Patientenportal optimal nutzen"
 subtitle: "Digitale Selbstverwaltung für mehr Patientenzufriedenheit"
 description: "Wie Hausärzt:innen Patientenportale zur Entlastung des Praxisteams und Verbesserung der Patientenversorgung einsetzen können."
@@ -12,7 +13,8 @@ articles_related:
   - 2025-04-12-videosprechstunde-implementierung
   - 2025-04-14-dsgvo-konforme-datenverarbeitung
   - 2025-04-19-terminbuchung-optimierung
-categories: organisation
+categories: 
+  - organisation
 researched-by: human
 written-by: shared
 formatted-by: ai

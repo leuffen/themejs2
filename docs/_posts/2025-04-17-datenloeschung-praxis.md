@@ -1,4 +1,5 @@
 ---
+layout: epraxis/blog
 title: "Datenlöschung in der Hausarztpraxis"
 subtitle: "Rechtssichere Aufbewahrung und Löschung von Patientendaten"
 description: "Wie Hausärzt:innen die gesetzlichen Aufbewahrungsfristen einhalten und Daten rechtssicher löschen können."
@@ -12,7 +13,8 @@ articles_related:
   - 2025-04-14-dsgvo-konforme-datenverarbeitung
   - 2025-04-15-datenschutzbeauftragter-praxis
   - 2025-04-18-verschluesselung-praxisdaten
-categories: datenschutz
+categories: 
+  - datenschutz
 researched-by: human
 written-by: shared
 formatted-by: ai

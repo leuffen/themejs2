@@ -1,5 +1,6 @@
 ---
-layout: epraxis/blog.html
+layout: epraxis/blog
+
 title: "SMS-Kommunikation in der Hausarztpraxis"
 subtitle: "Schneller mit Patient:innen kommunizieren mit moderner Infrastruktur"
 description: "Wie Hausärzt:innen SMS effektiv zur Patientenkommunikation nutzen können – Chancen, Grenzen und praktische Tipps."
@@ -13,7 +14,9 @@ articles_related:
   - 2025-04-12-videosprechstunde-implementierung
   - 2025-04-13-patientenportal-optimierung
   - 2025-04-14-dsgvo-konforme-datenverarbeitung
-categories: kommunikation, praxisorganisation
+categories: 
+  - kommunikation
+  - praxisorganisation
 researched-by: human
 written-by: shared
 formatted-by: ai

@@ -1,4 +1,5 @@
 ---
+layout: epraxis/blog
 title: "Verschlüsselung von Praxisdaten"
 subtitle: "Sichere Übertragung und Speicherung sensibler Patientendaten"
 description: "Wie Hausärzt:innen ihre Patientendaten durch Verschlüsselung vor unbefugtem Zugriff schützen können."
@@ -12,7 +13,8 @@ articles_related:
   - 2025-04-14-dsgvo-konforme-datenverarbeitung
   - 2025-04-15-datenschutzbeauftragter-praxis
   - 2025-04-19-terminbuchung-optimierung
-categories: datenschutz
+categories: 
+  - datenschutz
 researched-by: human
 written-by: shared
 formatted-by: ai

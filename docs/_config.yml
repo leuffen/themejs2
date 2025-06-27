@@ -28,15 +28,13 @@ defaults:
     values:
       layout: "post"
 
-
 collections:
     elements:
         output: false
     snippets:
         output: false
 
-    
-collections_dir: .
+# collections_dir: .
 
 plugins:
 - jekyll-optional-front-matter

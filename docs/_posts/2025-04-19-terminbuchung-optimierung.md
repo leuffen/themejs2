@@ -1,4 +1,5 @@
 ---
+layout: epraxis/blog
 title: "Terminbuchung in der Praxis optimieren"
 subtitle: "Effiziente Terminvergabe für mehr Patientenzufriedenheit"
 description: "Wie Hausärzt:innen ihre Terminbuchung digitalisieren und optimieren können für bessere Praxisabläufe."
@@ -12,7 +13,8 @@ articles_related:
   - 2025-04-13-patientenportal-optimierung
   - 2025-04-20-ablauf-optimierung
   - 2025-04-21-automatisierung-praxis
-categories: organisation
+categories:
+  - organisation
 researched-by: human
 written-by: shared
 formatted-by: ai

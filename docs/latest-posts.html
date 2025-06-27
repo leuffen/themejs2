@@ -4,10 +4,12 @@ layout: 3_3_main
 
 Welcome to the blog.
 
+<p>Total posts: {{ site.posts.size }}</p>
+
 <ul>
     {% for post in site.posts %}
     <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        Post: <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
     {% endfor %}
 </ul>

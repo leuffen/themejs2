@@ -1,4 +1,5 @@
 ---
+layout: epraxis/blog
 title: "Praxisabläufe digital optimieren"
 subtitle: "Effiziente Prozesse für mehr Zeit bei den Patient:innen"
 description: "Wie Hausärzt:innen ihre Praxisabläufe durch Digitalisierung optimieren und mehr Zeit für die Patientenversorgung gewinnen."
@@ -12,7 +13,8 @@ articles_related:
   - 2025-04-19-terminbuchung-optimierung
   - 2025-04-21-automatisierung-praxis
   - 2025-04-14-dsgvo-konforme-datenverarbeitung
-categories: prozesse
+categories: 
+  - prozesse
 researched-by: human
 written-by: shared
 formatted-by: ai

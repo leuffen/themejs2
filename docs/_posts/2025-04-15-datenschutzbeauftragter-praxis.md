@@ -1,4 +1,5 @@
 ---
+layout: epraxis/blog
 title: "Datenschutzbeauftragter in der Hausarztpraxis"
 subtitle: "Wann ist ein DSB verpflichtend und wie wird er eingebunden?"
 description: "Alles über die Pflichten und Aufgaben eines Datenschutzbeauftragten in der medizinischen Praxis."
@@ -12,7 +13,8 @@ articles_related:
   - 2025-04-14-dsgvo-konforme-datenverarbeitung
   - 2025-04-16-patienteneinwilligung-digital
   - 2025-04-17-datenloeschung-praxis
-categories: datenschutz
+categories: 
+  - datenschutz
 researched-by: human
 written-by: shared
 formatted-by: ai
