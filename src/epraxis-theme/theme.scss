@@ -189,3 +189,21 @@ footer {
     padding: $base-space;
     border-radius: 0.5rem;
 }
+
+// ----------------------- posts.html ----------------------- //
+
+.epraxis-posts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $base-space;
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+}
+
+// Desktop layout - 2 columns
+@media (min-width: 768px) {
+    .epraxis-posts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $base-space * 2;
+    }
+}

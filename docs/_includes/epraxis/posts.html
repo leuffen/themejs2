@@ -1,8 +1,8 @@
-
 <h2>Posts</h2>
 Content List:{{ content_list}}
 <div class="epraxis-posts">
-    {% for post in posts %}
+    {% assign post_limit = include.limit | default: posts.size %}
+    {% for post in posts limit: post_limit %}
     {% include epraxis/post.html post=post %}
     {% endfor %}
 </div>
