@@ -6,7 +6,7 @@ description: "Wie Hausärzt:innen ihre Praxisabläufe durch Digitalisierung opti
 published: true
 author: "Melchor Mustermann"
 keywords: ["Praxisabläufe", "Prozessoptimierung", "Digitalisierung", "Effizienz", "Praxisorganisation"]
-image: https://images.pexels.com/photos/5452300/pexels-photo-5452300.jpeg
+image: https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7
 article_next: 2025-04-21-automatisierung-praxis
 article_previous: 2025-04-19-terminbuchung-optimierung
 articles_related:

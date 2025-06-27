@@ -198,6 +198,11 @@ footer {
     gap: $base-space;
     max-width: var(--nt-container-width);
     margin: 0 auto;
+
+    // Hide excerpt for all posts except the first one
+    .epraxis-post-include:not(:first-child) .epraxis-post-include-excerpt {
+        display: none;
+    }
 }
 
 // Desktop layout - 2 columns
@@ -205,5 +210,10 @@ footer {
     .epraxis-posts {
         grid-template-columns: repeat(2, 1fr);
         gap: $base-space * 2;
+
+        // Make the first post span 2 rows
+        .epraxis-post-include:first-child {
+            grid-row: span 2;
+        }
     }
 }
