@@ -28,15 +28,14 @@ defaults:
     values:
       layout: "post"
 
+
 collections:
     elements:
         output: false
     snippets:
         output: false
-    epraxis:
-        output: true
-        permalink: /epraxis/:categories/:title/
 
+    
 collections_dir: .
 
 plugins:
