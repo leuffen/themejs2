@@ -10,7 +10,10 @@
         {% assign render_count = content_size %}
     {% endif %}
     {% for post in include.content_list limit: render_count %}
-    {% if render_count == 2 %}
+    {% if render_count == 1 %}
+        {% assign is_highlighted = true %}
+        {% assign is_wide = true %}
+    {% elsif render_count == 2 %}
         {% assign is_highlighted = true %}
         {% assign is_wide = false %}
     {% else %}

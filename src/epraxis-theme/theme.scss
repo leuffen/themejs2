@@ -188,6 +188,9 @@ footer {
     background-color: $info;
     padding: $base-space;
     border-radius: 0.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 // ----------------------- posts.html ----------------------- //
@@ -198,7 +201,7 @@ footer {
     gap: $base-space;
     max-width: var(--nt-container-width);
     margin: 0 auto;
-
+    align-items: stretch;
 }
 
 // Desktop layout - 2 columns
@@ -206,11 +209,14 @@ footer {
     .epraxis-posts {
         grid-template-columns: repeat(2, 1fr);
         gap: $base-space * 2;
+        align-items: stretch;
+    }
+    .epraxis-post-include.highlighted_post {
+        grid-row: span 2;
+    }
 
-        // Make the first post span 2 rows
-        .epraxis-post-include:first-child {
-            grid-row: span 2;
-        }
+    .epraxis-post-include.wide_post {
+        grid-column: 1 / -1;
     }
 }
 
@@ -280,9 +286,5 @@ footer {
         margin-bottom: 0.5rem;
         text-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
-}
-
-.epraxis-post-include.wide_post {
-    grid-column: 1 / -1;
 }
 
