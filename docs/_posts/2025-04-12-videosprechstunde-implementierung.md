@@ -7,12 +7,12 @@ published: true
 author: "Melina Musterfrau"
 keywords: ["Videosprechstunde", "Telemedizin", "digitale Praxis", "Arzt-Patienten-Kommunikation", "Online-Sprechstunde"]
 image: https://images.pexels.com/photos/4989145/pexels-photo-4989145.jpeg
-article_next: 2025-04-13-patientenportal-optimierung
-article_previous: 2025-04-11-sms-kommunikation-in-der-hausarztpraxis
+article_next: 2025/04/13/patientenportal-optimierung
+article_previous: 2025/04/11/sms-kommunikation-in-der-hausarztpraxis
 articles_related:
-  - 2025-04-11-sms-kommunikation-in-der-hausarztpraxis
-  - 2025-04-13-patientenportal-optimierung
-  - 2025-04-14-dsgvo-konforme-datenverarbeitung
+  - 2025/04/11/sms-kommunikation-in-der-hausarztpraxis
+  - 2025/04/13/patientenportal-optimierung
+  - 2025/04/14/dsgvo-konforme-datenverarbeitung
 categories: 
   - digitale-praxis
   - digitalisierung

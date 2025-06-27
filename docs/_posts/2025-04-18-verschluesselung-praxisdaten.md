@@ -1,18 +1,18 @@
 ---
 layout: epraxis/blog
-title: "Verschlüsselung von Praxisdaten"
+title: "Verschlüsselung von Praxisdaten."
 subtitle: "Sichere Übertragung und Speicherung sensibler Patientendaten"
 description: "Wie Hausärzt:innen ihre Patientendaten durch Verschlüsselung vor unbefugtem Zugriff schützen können."
 published: true
 author: "Melchor Mustermann"
 keywords: ["Verschlüsselung", "Datensicherheit", "Patientendaten", "IT-Sicherheit", "Datenschutz"]
 image: https://images.pexels.com/photos/5793950/pexels-photo-5793950.jpeg
-article_next: 2025-04-19-terminbuchung-optimierung
-article_previous: 2025-04-17-datenloeschung-praxis
+article_next: 2025/04/19/terminbuchung-optimierung
+article_previous: 2025/04/17/datenloeschung-praxis
 articles_related:
-  - 2025-04-14-dsgvo-konforme-datenverarbeitung
-  - 2025-04-15-datenschutzbeauftragter-praxis
-  - 2025-04-19-terminbuchung-optimierung
+  - 2025/04/14/dsgvo-konforme-datenverarbeitung
+  - 2025/04/15/datenschutzbeauftragter-praxis
+  - 2025/04/19/terminbuchung-optimierung
 categories: 
   - datenschutz
 researched-by: human

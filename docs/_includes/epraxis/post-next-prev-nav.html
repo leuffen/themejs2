@@ -1,24 +1,39 @@
 {% assign prev_post = nil %}
 {% assign next_post = nil %}
 
+<!-- DEBUG: Print the values being searched for -->
+<p>Looking for prev: '{{ page.article_previous }}'</p>
+<p>Looking for next: '{{ page.article_next }}'</p>
+
+<!-- DEBUG: List all post URLs and titles -->
+<ul>
+{% for p in site.posts %}
+  <li>'{{ p.url }}' — {{ p.title }}</li>
+{% endfor %}
+</ul>
+
 {%- comment -%}
-  1. Try to resolve article_previous/article_next from frontmatter (by filename)
+  1. Try to resolve article_previous/article_next from frontmatter (by url, no normalization)
   2. Fallback to Jekyll's page.previous/page.next
 {%- endcomment -%}
 
 {%- if page.article_previous -%}
-  {% assign prev_post = site.posts | where: "basename", page.article_previous | first %}
+  {% assign prev_post = site.posts | where: "url", page.article_previous | first %}
 {%- endif -%}
 {%- if prev_post == nil and page.previous -%}
   {% assign prev_post = page.previous %}
 {%- endif -%}
 
 {%- if page.article_next -%}
-  {% assign next_post = site.posts | where: "basename", page.article_next | first %}
+  {% assign next_post = site.posts | where: "url", page.article_next | first %}
 {%- endif -%}
 {%- if next_post == nil and page.next -%}
   {% assign next_post = page.next %}
 {%- endif -%}
+
+Test: {{ prev_post.title }}
+<br>
+Test: {{ next_post.title }}
 
 {%- if prev_post or next_post -%}
 <div class="epraxis-post-nav">

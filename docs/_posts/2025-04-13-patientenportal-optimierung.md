@@ -7,12 +7,12 @@ published: true
 author: "Melchor Mustermann"
 keywords: ["Patientenportal", "digitale Patientenverwaltung", "Online-Terminbuchung", "Befundabfrage", "Praxisorganisation"]
 image: https://images.pexels.com/photos/8413387/pexels-photo-8413387.jpeg
-article_next: 2025-04-14-dsgvo-konforme-datenverarbeitung
-article_previous: 2025-04-12-videosprechstunde-implementierung
+article_next: 2025/04/14/dsgvo-konforme-datenverarbeitung
+article_previous: 2025/04/12/videosprechstunde-implementierung
 articles_related:
-  - 2025-04-12-videosprechstunde-implementierung
-  - 2025-04-14-dsgvo-konforme-datenverarbeitung
-  - 2025-04-19-terminbuchung-optimierung
+  - 2025/04/12/videosprechstunde-implementierung
+  - 2025/04/14/dsgvo-konforme-datenverarbeitung
+  - 2025/04/19/terminbuchung-optimierung
 categories: 
   - organisation
 researched-by: human

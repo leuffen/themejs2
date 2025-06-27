@@ -7,12 +7,12 @@ published: true
 author: "Melchor Mustermann"
 keywords: ["Terminbuchung", "Online-Termine", "Praxisorganisation", "Patientenzufriedenheit", "Digitalisierung"]
 image: https://images.pexels.com/photos/5452300/pexels-photo-5452300.jpeg
-article_next: 2025-04-20-ablauf-optimierung
-article_previous: 2025-04-18-verschluesselung-praxisdaten
+article_next: 2025/04/20/ablauf-optimierung
+article_previous: 2025/04/18/verschluesselung-praxisdaten
 articles_related:
-  - 2025-04-13-patientenportal-optimierung
-  - 2025-04-20-ablauf-optimierung
-  - 2025-04-21-automatisierung-praxis
+  - 2025/04/13/patientenportal-optimierung
+  - 2025/04/20/ablauf-optimierung
+  - 2025/04/21/automatisierung-praxis
 categories:
   - organisation
 researched-by: human

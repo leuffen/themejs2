@@ -7,12 +7,12 @@ published: true
 author: "Melchor Mustermann"
 keywords: ["Datenlöschung", "Aufbewahrungsfristen", "Patientendaten", "Datenschutz", "Praxisorganisation"]
 image: https://images.pexels.com/photos/7469493/pexels-photo-7469493.jpeg
-article_next: 2025-04-18-verschluesselung-praxisdaten
-article_previous: 2025-04-16-patienteneinwilligung-digital
+article_next: 2025/04/18/verschluesselung-praxisdaten
+article_previous: 2025/04/16/patienteneinwilligung-digital
 articles_related:
-  - 2025-04-14-dsgvo-konforme-datenverarbeitung
-  - 2025-04-15-datenschutzbeauftragter-praxis
-  - 2025-04-18-verschluesselung-praxisdaten
+  - 2025/04/14/dsgvo-konforme-datenverarbeitung
+  - 2025/04/15/datenschutzbeauftragter-praxis
+  - 2025/04/18/verschluesselung-praxisdaten
 categories: 
   - datenschutz
 researched-by: human
