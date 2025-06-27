@@ -18,6 +18,7 @@
     $font-family-base: "Work Sans"
 );
 @use "@nextrap/style-base" as *;
+@use "@nextrap/style-button" as *;
 
 // ----------------------- TEMPORARY SETUP ----------------------- //
 
@@ -37,6 +38,15 @@ footer {
     margin-bottom: $base-space;
 }
 
+// ----------------------- SHARED/THEME-WIDE ----------------------- //
+
+.epraxis-small-title {
+    color: $primary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
 // ----------------------- BLOG ----------------------- //
 
 .epraxis-blog-title {
@@ -49,13 +59,6 @@ footer {
     .epraxis-blog-title {
         font-size: 2.5rem;
     }
-}
-
-.epraxis-blog-subtitle {
-    color: $primary;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
 }
 
 .expraxis-blog-content {
@@ -193,6 +196,14 @@ footer {
     flex-direction: column;
 }
 
+.epraxis-post-include-header {
+    margin-bottom: $base-space;
+}
+
+.epraxis-post-include-image {
+    margin-bottom: $base-space;
+}
+
 // ----------------------- posts.html ----------------------- //
 
 .epraxis-posts {
@@ -276,8 +287,7 @@ footer {
     }
 
     // Text overlay
-    .epraxis-post-include-subtitle,
-    .epraxis-post-include-title {
+    .epraxis-post-include-header {
         position: relative;
         z-index: 2;
         color: #fff;

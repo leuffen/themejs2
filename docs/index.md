@@ -21,4 +21,4 @@ title: ~
 type: website
 ---
 
-- [Blog Overview Demo](/latest-posts.html)
+- [Blog Overview Demo](/post-demo.html)
