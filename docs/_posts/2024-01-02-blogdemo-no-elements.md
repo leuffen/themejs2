@@ -19,7 +19,6 @@ title: Das neue Gesetz und seine Bedeutung für Praxen (OHNE ELEMENTE)
 type: website
 ---
 
-
 Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
 
 Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren? 

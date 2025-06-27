@@ -7,12 +7,12 @@ published: true
 author: "Melchor Mustermann"
 keywords: ["DSGVO", "Datenschutz", "Patientendaten", "Datenverarbeitung", "Rechtssicherheit"]
 image: https://images.pexels.com/photos/5215022/pexels-photo-5215022.jpeg
-article_next: 2025/04/15/datenschutzbeauftragter-praxis
-article_previous: 2025/04/13/patientenportal-optimierung
+article_next: datenschutzbeauftragter-praxis
+article_previous: patientenportal-optimierung
 articles_related:
-  - 2025/04/11/sms-kommunikation-in-der-hausarztpraxis
-  - 2025/04/12/videosprechstunde-implementierung
-  - 2025/04/15/datenschutzbeauftragter-praxis
+  - sms-kommunikation-in-der-hausarztpraxis
+  - videosprechstunde-implementierung
+  - datenschutzbeauftragter-praxis
 categories: 
   - datenschutz
 researched-by: human

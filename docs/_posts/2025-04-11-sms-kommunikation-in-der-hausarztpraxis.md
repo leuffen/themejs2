@@ -8,12 +8,12 @@ published: true
 author: "Melchor Mustermann"
 keywords: ["Hausarzt", "SMS", "Patientenkommunikation", "digitale Gesundheit", "Praxisorganisation"]
 image: https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg
-article_next: 2025/04/12/videosprechstunde-implementierung
+article_next: videosprechstunde-implementierung
 article_previous: 
 articles_related:
-  - 2025/04/12/videosprechstunde-implementierung
-  - 2025/04/13/patientenportal-optimierung
-  - 2025/04/14/dsgvo-konforme-datenverarbeitung
+  - videosprechstunde-implementierung
+  - patientenportal-optimierung
+  - dsgvo-konforme-datenverarbeitung
 categories: 
   - kommunikation
   - praxisorganisation

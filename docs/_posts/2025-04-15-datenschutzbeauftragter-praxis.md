@@ -7,12 +7,12 @@ published: true
 author: "Melchor Mustermann"
 keywords: ["Datenschutzbeauftragter", "DSB", "DSGVO", "Praxisorganisation", "Rechtspflichten"]
 image: https://images.pexels.com/photos/4270960/pexels-photo-4270960.jpeg
-article_next: 2025/04/16/patienteneinwilligung-digital
-article_previous: 2025/04/14/dsgvo-konforme-datenverarbeitung
+article_next: patienteneinwilligung-digital
+article_previous: dsgvo-konforme-datenverarbeitung
 articles_related:
-  - 2025/04/14/dsgvo-konforme-datenverarbeitung
-  - 2025/04/16/patienteneinwilligung-digital
-  - 2025/04/17/datenloeschung-praxis
+  - dsgvo-konforme-datenverarbeitung
+  - patienteneinwilligung-digital
+  - datenloeschung-praxis
 categories: 
   - datenschutz
 researched-by: human

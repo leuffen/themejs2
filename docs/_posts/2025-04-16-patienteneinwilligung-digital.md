@@ -7,12 +7,12 @@ published: true
 author: "Melina Musterfrau"
 keywords: ["Patienteneinwilligung", "digitale Einwilligung", "Einverständniserklärung", "Rechtssicherheit", "Dokumentation"]
 image: https://images.pexels.com/photos/8413205/pexels-photo-8413205.jpeg
-article_next: 2025/04/17/datenloeschung-praxis
-article_previous: 2025/04/15/datenschutzbeauftragter-praxis
+article_next: datenloeschung-praxis
+article_previous: datenschutzbeauftragter-praxis
 articles_related:
-  - 2025/04/14/dsgvo-konforme-datenverarbeitung
-  - 2025/04/15/datenschutzbeauftragter-praxis
-  - 2025/04/17/datenloeschung-praxis
+  - dsgvo-konforme-datenverarbeitung
+  - datenschutzbeauftragter-praxis
+  - datenloeschung-praxis
 categories: 
   - datenschutz
   - organisation
