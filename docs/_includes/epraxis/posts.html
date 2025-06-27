@@ -16,8 +16,12 @@
     {% else %}
         {% assign is_highlighted = forloop.first %}
         {% assign is_last = forloop.last %}
-        {% assign is_odd = render_count | modulo: 2 %}
-        {% assign is_wide = is_last and is_odd and render_count > 3 %}
+        {% assign is_even = render_count | modulo: 2 == 0 %}
+        {% if is_last and is_even and render_count >= 4 %}
+            {% assign is_wide = true %}
+        {% else %}
+            {% assign is_wide = false %}
+        {% endif %}
     {% endif %}
     {% include epraxis/post.html post=post is_highlighted=is_highlighted is_wide=is_wide %}
     {% endfor %}
