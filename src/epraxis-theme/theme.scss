@@ -199,10 +199,6 @@ footer {
     max-width: var(--nt-container-width);
     margin: 0 auto;
 
-    // Hide excerpt for all posts except the first one
-    .epraxis-post-include:not(:first-child) .epraxis-post-include-excerpt {
-        display: none;
-    }
 }
 
 // Desktop layout - 2 columns
@@ -257,8 +253,9 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
 
-    // Hide the <img>
-    .epraxis-post-include-image {
+    // Hide the <img> and the excerpt
+    .epraxis-post-include-image,
+    .epraxis-post-include-excerpt {
         display: none;
     }
 
@@ -283,5 +280,9 @@ footer {
         margin-bottom: 0.5rem;
         text-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
+}
+
+.epraxis-post-include.wide_post {
+    grid-column: 1 / -1;
 }
 

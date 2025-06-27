@@ -1,7 +1,24 @@
 <div class="epraxis-posts">
-    {% assign post_limit = include.limit | default: include.content_list.size %}
-    {% for post in include.content_list limit: post_limit %}
-    {% assign should_be_highlighted = forloop.first == true %}
-    {% include epraxis/post.html post=post test="hi" is_highlighted=should_be_highlighted  %}
+    {% assign has_limit = include.limit %}
+    {% assign content_size = include.content_list.size %}
+    {% if has_limit %}
+        {% assign render_count = include.limit | plus: 0 %}
+        {% if render_count > content_size %}
+            {% assign render_count = content_size %}
+        {% endif %}
+    {% else %}
+        {% assign render_count = content_size %}
+    {% endif %}
+    {% for post in include.content_list limit: render_count %}
+    {% if render_count == 2 %}
+        {% assign is_highlighted = true %}
+        {% assign is_wide = false %}
+    {% else %}
+        {% assign is_highlighted = forloop.first %}
+        {% assign is_last = forloop.last %}
+        {% assign is_odd = render_count | modulo: 2 %}
+        {% assign is_wide = is_last and is_odd and render_count > 3 %}
+    {% endif %}
+    {% include epraxis/post.html post=post is_highlighted=is_highlighted is_wide=is_wide %}
     {% endfor %}
 </div>
