@@ -2,7 +2,7 @@
   {% for slug in page.articles_related %}
     {% assign related_post = site.posts | where: "slug", slug | first %}
     {% if related_post %}
-      {% include epraxis/post.html slug=slug %}
+      {% include epraxis/post.html slug=slug is_mini=true %}
     {% endif %}
   {% endfor %}
 </div>

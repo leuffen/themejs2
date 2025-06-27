@@ -6,9 +6,13 @@
     {% endif %}
     <a href="{{ post.url }}" class="epraxis-post-include-header">
         <h4 class="epraxis-small-title">
-        {{ post.subtitle }}
+            {% if include.is_mini %}
+                — {{ post.categories | first  }}
+            {% else %}
+                — {{ post.subtitle }}
+            {% endif %}
         </h4>
-        <h3 class="epraxis-post-include-title">
+        <h3 class="epraxis-post-include-title {% if include.is_mini %}epraxis-title-mini{% endif %}">
         {{ post.title }}
         </h3>
     </a>
