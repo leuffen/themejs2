@@ -1,27 +1,15 @@
 <!-- preview of posts, for example on overview pages -->
-{% if include.is_highlighted %}
-<div class="epraxis-post-include highlighted_post">
+<div class="epraxis-post-include {% if include.is_highlighted %}highlighted_post{% else %}not_highlighted_post{% endif %}"{% unless include.is_highlighted %} style="background-image: url('{{ post.image }}')"{% endunless %}>
     <h4 class="epraxis-post-include-subtitle">
         {{ post.subtitle }}
     </h4>
     <h3 class="epraxis-post-include-title">
         {{ post.title }}
     </h3>
+    {% if include.is_highlighted %}
     <img src="{{ post.image }}" class="epraxis-post-include-image" />
+    {% endif %}
     <div class="epraxis-post-include-excerpt">
         {{ post.excerpt }}
     </div>
 </div>
-{% else %}
-<div class="epraxis-post-include not_highlighted_post" style="background-image: url('{{ post.image }}')">
-    <h4 class="epraxis-post-include-subtitle">
-        {{ post.subtitle }}
-    </h4>
-    <h3 class="epraxis-post-include-title">
-        {{ post.title }}
-    </h3>
-    <div class="epraxis-post-include-excerpt">
-        {{ post.excerpt }}
-    </div>
-</div>
-{% endif %}
