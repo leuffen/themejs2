@@ -8,8 +8,6 @@ Welcome to the blog.
 
 <ul>
     {% for post in site.posts %}
-    <li>
-        Post: <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
+    {% include epraxis/post.html post=post %}
     {% endfor %}
 </ul>

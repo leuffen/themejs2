@@ -179,3 +179,13 @@ footer {
         align-self: flex-start;
     }
 }
+
+
+// ----------------------- INCLUDES ----------------------- //
+// ----------------------- post.html ----------------------- //
+
+.epraxis-post-include {
+    background-color: $info;
+    padding: $base-space;
+    border-radius: 0.5rem;
+}

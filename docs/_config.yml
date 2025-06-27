@@ -34,7 +34,13 @@ collections:
     snippets:
         output: false
 
+
+# TODO: I'm not sure if this is doing anything infrastructure-wise
+# sometimes commenting this out prevents jekyll from building, but sometimes not
+# however, uncommenting this line prevent jekyll from finding _posts
+
 # collections_dir: .
+
 
 plugins:
 - jekyll-optional-front-matter
