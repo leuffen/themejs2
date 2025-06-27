@@ -1,6 +1,6 @@
 ---
 layout: epraxis/blog
-title: "Praxisabläufe digital optimieren"
+title: "Praxisabläufe digital optimieren."
 subtitle: "Effiziente Prozesse für mehr Zeit bei den Patient:innen"
 description: "Wie Hausärzt:innen ihre Praxisabläufe durch Digitalisierung optimieren und mehr Zeit für die Patientenversorgung gewinnen."
 published: true
