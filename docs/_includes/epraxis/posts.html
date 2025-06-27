@@ -1,0 +1,8 @@
+
+<h2>Posts</h2>
+Content List:{{ content_list}}
+<div class="epraxis-posts">
+    {% for post in posts %}
+    {% include epraxis/post.html post=post %}
+    {% endfor %}
+</div>

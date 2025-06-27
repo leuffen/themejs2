@@ -4,10 +4,5 @@ layout: 3_3_main
 
 Welcome to the blog.
 
-<p>Total posts: {{ site.posts.size }}</p>
-
-<ul>
-    {% for post in site.posts %}
-    {% include epraxis/post.html post=post %}
-    {% endfor %}
-</ul>
+{% assign posts = site.posts %}
+{% include epraxis/posts.html content_list=posts %}
