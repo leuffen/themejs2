@@ -5,13 +5,17 @@ description: "Wie Hausärzt:innen die gesetzlichen Aufbewahrungsfristen einhalte
 published: true
 author: "Melchor Mustermann"
 keywords: ["Datenlöschung", "Aufbewahrungsfristen", "Patientendaten", "Datenschutz", "Praxisorganisation"]
-image: /assets/images/datenloeschung.jpg
-article_next: /epraxis/privatsphaere/verschluesselung-praxisdaten
-article_previous: /epraxis/privatsphaere/patienteneinwilligung-digital
+image: https://images.pexels.com/photos/7469493/pexels-photo-7469493.jpeg
+article_next: 2025-04-18-verschluesselung-praxisdaten
+article_previous: 2025-04-16-patienteneinwilligung-digital
 articles_related:
-  - /epraxis/privatsphaere/dsgvo-konforme-datenverarbeitung
-  - /epraxis/privatsphaere/datenschutzbeauftragter-praxis
-  - /epraxis/privatsphaere/verschluesselung-praxisdaten
+  - 2025-04-14-dsgvo-konforme-datenverarbeitung
+  - 2025-04-15-datenschutzbeauftragter-praxis
+  - 2025-04-18-verschluesselung-praxisdaten
+categories: datenschutz
+researched-by: human
+written-by: shared
+formatted-by: ai
 ---
 
 Die Löschung von Patientendaten muss sorgfältig geplant und dokumentiert werden, da verschiedene gesetzliche Aufbewahrungsfristen zu beachten sind. Für medizinische Unterlagen gelten in der Regel Aufbewahrungsfristen von zehn Jahren, für Abrechnungsdaten sogar bis zu 30 Jahre. Die Praxis muss ein systematisches Verfahren etablieren, das sowohl die gesetzlichen Anforderungen als auch die DSGVO-Vorgaben berücksichtigt. Dazu gehört die regelmäßige Überprüfung der Datenbestände und die automatische Kennzeichnung von Daten, deren Aufbewahrungsfrist abgelaufen ist. Besonders wichtig ist die Unterscheidung zwischen verschiedenen Datentypen – nicht alle Daten unterliegen den gleichen Fristen.

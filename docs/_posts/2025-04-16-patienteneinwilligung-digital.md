@@ -5,13 +5,19 @@ description: "Wie Hausärzt:innen digitale Einwilligungen von Patient:innen rech
 published: true
 author: "Melina Musterfrau"
 keywords: ["Patienteneinwilligung", "digitale Einwilligung", "Einverständniserklärung", "Rechtssicherheit", "Dokumentation"]
-image: /assets/images/digitale-einwilligung.jpg
-article_next: /epraxis/privatsphaere/datenloeschung-praxis
-article_previous: /epraxis/privatsphaere/datenschutzbeauftragter-praxis
+image: https://images.pexels.com/photos/8413205/pexels-photo-8413205.jpeg
+article_next: 2025-04-17-datenloeschung-praxis
+article_previous: 2025-04-15-datenschutzbeauftragter-praxis
 articles_related:
-  - /epraxis/privatsphaere/dsgvo-konforme-datenverarbeitung
-  - /epraxis/privatsphaere/datenschutzbeauftragter-praxis
-  - /epraxis/privatsphaere/datenloeschung-praxis
+  - 2025-04-14-dsgvo-konforme-datenverarbeitung
+  - 2025-04-15-datenschutzbeauftragter-praxis
+  - 2025-04-17-datenloeschung-praxis
+categories: 
+  - datenschutz
+  - organisation
+researched-by: human
+written-by: shared
+formatted-by: ai
 ---
 
 Die digitale Einholung von Patienteneinwilligungen bietet praktische Vorteile, erfordert aber besondere Sorgfalt bei der Umsetzung. E-Mail-basierte Einwilligungen müssen eindeutig identifizierbar sein und alle erforderlichen Informationen enthalten. Wichtig ist die Verwendung einer eindeutigen Betreffzeile und die klare Kennzeichnung als Einwilligungserklärung. Die Patient:innen müssen die Möglichkeit haben, ihre Einwilligung jederzeit zu widerrufen, und dieser Widerruf muss genauso einfach sein wie die ursprüngliche Einwilligung. Besonders bei sensiblen medizinischen Daten sollte eine zweifache Bestätigung erfolgen, etwa durch einen Link in der E-Mail und eine separate Bestätigung.

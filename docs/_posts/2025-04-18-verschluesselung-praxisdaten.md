@@ -5,13 +5,17 @@ description: "Wie Hausärzt:innen ihre Patientendaten durch Verschlüsselung vor
 published: true
 author: "Melchor Mustermann"
 keywords: ["Verschlüsselung", "Datensicherheit", "Patientendaten", "IT-Sicherheit", "Datenschutz"]
-image: /assets/images/verschluesselung-daten.jpg
-article_next: /epraxis/prozesse/terminbuchung-optimierung
-article_previous: /epraxis/privatsphaere/datenloeschung-praxis
+image: https://images.pexels.com/photos/5793950/pexels-photo-5793950.jpeg
+article_next: 2025-04-19-terminbuchung-optimierung
+article_previous: 2025-04-17-datenloeschung-praxis
 articles_related:
-  - /epraxis/privatsphaere/dsgvo-konforme-datenverarbeitung
-  - /epraxis/privatsphaere/datenschutzbeauftragter-praxis
-  - /epraxis/prozesse/terminbuchung-optimierung
+  - 2025-04-14-dsgvo-konforme-datenverarbeitung
+  - 2025-04-15-datenschutzbeauftragter-praxis
+  - 2025-04-19-terminbuchung-optimierung
+categories: datenschutz
+researched-by: human
+written-by: shared
+formatted-by: ai
 ---
 
 Die Verschlüsselung von Patientendaten ist ein zentraler Baustein der IT-Sicherheit in der Hausarztpraxis. Sowohl bei der Übertragung als auch bei der Speicherung sensibler Daten müssen moderne Verschlüsselungsstandards zum Einsatz kommen. Bei der Datenübertragung ist HTTPS mit TLS 1.3 der Mindeststandard, bei der lokalen Speicherung sollten Festplatten und USB-Sticks vollständig verschlüsselt werden. Besonders wichtig ist die Verschlüsselung von Backups und die sichere Übertragung von Daten an andere medizinische Einrichtungen. Die Verschlüsselungsschlüssel müssen sicher verwaltet und regelmäßig erneuert werden, um die Sicherheit zu gewährleisten.

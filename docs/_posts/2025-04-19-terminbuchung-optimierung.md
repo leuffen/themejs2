@@ -5,13 +5,17 @@ description: "Wie Hausärzt:innen ihre Terminbuchung digitalisieren und optimier
 published: true
 author: "Melchor Mustermann"
 keywords: ["Terminbuchung", "Online-Termine", "Praxisorganisation", "Patientenzufriedenheit", "Digitalisierung"]
-image: /assets/images/terminbuchung-optimierung.jpg
-article_next: /epraxis/prozesse/ablauf-optimierung
-article_previous: /epraxis/privatsphaere/verschluesselung-praxisdaten
+image: https://images.pexels.com/photos/5452300/pexels-photo-5452300.jpeg
+article_next: 2025-04-20-ablauf-optimierung
+article_previous: 2025-04-18-verschluesselung-praxisdaten
 articles_related:
-  - /epraxis/kommunikation/patientenportal-optimierung
-  - /epraxis/prozesse/ablauf-optimierung
-  - /epraxis/prozesse/automatisierung-praxis
+  - 2025-04-13-patientenportal-optimierung
+  - 2025-04-20-ablauf-optimierung
+  - 2025-04-21-automatisierung-praxis
+categories: organisation
+researched-by: human
+written-by: shared
+formatted-by: ai
 ---
 
 Die digitale Terminbuchung revolutioniert die Praxisorganisation und bietet Patient:innen mehr Flexibilität. Online-Terminbuchungssysteme ermöglichen es Patient:innen, rund um die Uhr Termine zu vereinbaren, ohne auf die Praxiszeiten angewiesen zu sein. Das entlastet das Praxisteam erheblich und reduziert Wartezeiten am Telefon. Moderne Systeme bieten zudem intelligente Funktionen wie automatische Erinnerungen, Terminbestätigungen und die Möglichkeit, Termine kurzfristig zu verschieben. Besonders bei chronisch kranken Patient:innen oder regelmäßigen Kontrollen kann die automatische Terminvergabe die Compliance verbessern.

@@ -5,9 +5,17 @@ description: "Wie Hausärzt:innen Patientenportale zur Entlastung des Praxisteam
 published: true
 author: "Melchor Mustermann"
 keywords: ["Patientenportal", "digitale Patientenverwaltung", "Online-Terminbuchung", "Befundabfrage", "Praxisorganisation"]
-image: /assets/images/patientenportal-optimierung.jpg
-article_next: /digitale-gesundheit/automatisierung-praxisablauf
-article_previous: /digitale-gesundheit/videosprechstunde-implementierung
+image: https://images.pexels.com/photos/8413387/pexels-photo-8413387.jpeg
+article_next: 2025-04-14-dsgvo-konforme-datenverarbeitung
+article_previous: 2025-04-12-videosprechstunde-implementierung
+articles_related:
+  - 2025-04-12-videosprechstunde-implementierung
+  - 2025-04-14-dsgvo-konforme-datenverarbeitung
+  - 2025-04-19-terminbuchung-optimierung
+categories: organisation
+researched-by: human
+written-by: shared
+formatted-by: ai
 ---
 
 Patientenportale bieten eine effiziente Möglichkeit, administrative Aufgaben zu digitalisieren und Patient:innen mehr Selbstbestimmung zu ermöglichen. Terminbuchungen, Befundabfragen, Medikamentenlisten oder die Übermittlung von Dokumenten können rund um die Uhr über das Portal abgewickelt werden. Dies entlastet das Praxisteam erheblich und reduziert Wartezeiten am Telefon. Besonders bei jüngeren Patient:innen ist die Nutzung digitaler Angebote selbstverständlich geworden, während ältere Patient:innen oft eine Einführung und Unterstützung benötigen. Eine benutzerfreundliche Oberfläche und klare Anweisungen sind daher entscheidend für den Erfolg des Portals.

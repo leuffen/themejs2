@@ -5,7 +5,17 @@ description: "Wie Hausärzt:innen SMS effektiv zur Patientenkommunikation nutzen
 published: true
 author: "Melchor Mustermann"
 keywords: ["Hausarzt", "SMS", "Patientenkommunikation", "digitale Gesundheit", "Praxisorganisation"]
-image: /assets/images/sms-patientenkommunikation.jpg
+image: https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg
+article_next: 2025-04-12-videosprechstunde-implementierung
+article_previous: 
+articles_related:
+  - 2025-04-12-videosprechstunde-implementierung
+  - 2025-04-13-patientenportal-optimierung
+  - 2025-04-14-dsgvo-konforme-datenverarbeitung
+categories: kommunikation, praxisorganisation
+researched-by: human
+written-by: shared
+formatted-by: ai
 ---
 
 In vielen Hausarztpraxen ist die Kommunikation mit Patient:innen nach wie vor zeitaufwendig. Telefonleitungen sind belegt, Rückrufe verzögern sich, und einfache Informationen wie Terminbestätigungen oder Laborergebnisse binden unnötig Ressourcen. Hier bietet die SMS eine pragmatische Lösung: Sie ist niedrigschwellig, nahezu jeder besitzt ein Mobiltelefon, und der Aufwand auf Praxisseite ist minimal. Besonders bei kurzen, nicht sensiblen Informationen eignet sich SMS ideal zur Entlastung des Praxisteams.

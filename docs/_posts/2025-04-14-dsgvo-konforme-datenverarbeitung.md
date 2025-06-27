@@ -5,13 +5,17 @@ description: "Wie Hausärzt:innen die DSGVO-Anforderungen in ihrer Praxis umsetz
 published: true
 author: "Melchor Mustermann"
 keywords: ["DSGVO", "Datenschutz", "Patientendaten", "Datenverarbeitung", "Rechtssicherheit"]
-image: /assets/images/dsgvo-praxis.jpg
-article_next: /epraxis/privatsphaere/datenschutzbeauftragter-praxis
-article_previous: /epraxis/kommunikation/patientenportal-optimierung
+image: https://images.pexels.com/photos/5215022/pexels-photo-5215022.jpeg
+article_next: 2025-04-15-datenschutzbeauftragter-praxis
+article_previous: 2025-04-13-patientenportal-optimierung
 articles_related:
-  - /epraxis/kommunikation/sms-kommunikation-hausarztpraxis
-  - /epraxis/kommunikation/videosprechstunde-implementierung
-  - /epraxis/privatsphaere/datenschutzbeauftragter-praxis
+  - 2025-04-11-sms-kommunikation-in-der-hausarztpraxis
+  - 2025-04-12-videosprechstunde-implementierung
+  - 2025-04-15-datenschutzbeauftragter-praxis
+categories: datenschutz
+researched-by: human
+written-by: shared
+formatted-by: ai
 ---
 
 Die DSGVO stellt Hausärzt:innen vor besondere Herausforderungen bei der Verarbeitung sensibler Gesundheitsdaten. Jede Praxis muss eine rechtssichere Grundlage für die Datenverarbeitung schaffen, beginnend mit einer detaillierten Dokumentation aller Verarbeitungsvorgänge. Dazu gehören nicht nur die klassischen Patientendaten in der Praxissoftware, sondern auch digitale Kommunikationskanäle wie E-Mail, SMS oder Patientenportale. Eine klare Einwilligungserklärung, die transparent über Art und Umfang der Datenverarbeitung informiert, ist dabei unerlässlich. Besonders wichtig ist die Festlegung von Löschfristen und die regelmäßige Überprüfung der Datenbestände.
