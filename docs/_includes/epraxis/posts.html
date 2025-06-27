@@ -1,8 +1,7 @@
-<h2>Posts</h2>
-Content List:{{ content_list}}
 <div class="epraxis-posts">
-    {% assign post_limit = include.limit | default: posts.size %}
-    {% for post in posts limit: post_limit %}
-    {% include epraxis/post.html post=post %}
+    {% assign post_limit = include.limit | default: include.content_list.size %}
+    {% for post in include.content_list limit: post_limit %}
+    {% assign should_be_highlighted = forloop.first == true %}
+    {% include epraxis/post.html post=post test="hi" is_highlighted=should_be_highlighted  %}
     {% endfor %}
 </div>

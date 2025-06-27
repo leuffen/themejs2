@@ -1,4 +1,5 @@
 <!-- preview of posts, for example on overview pages -->
+{% if include.is_highlighted %}
 <div class="epraxis-post-include">
     <h4 class="epraxis-post-include-subtitle">
         {{ post.subtitle }}
@@ -11,3 +12,16 @@
         {{ post.excerpt }}
     </div>
 </div>
+{% else %}
+<div class="epraxis-post-include" style="background-image: url('{{ post.image }}')">
+    <h4 class="epraxis-post-include-subtitle">
+        {{ post.subtitle }}
+    </h4>
+    <h3 class="epraxis-post-include-title">
+        {{ post.title }}
+    </h3>
+    <div class="epraxis-post-include-excerpt">
+        {{ post.excerpt }}
+    </div>
+</div>
+{% endif %}
