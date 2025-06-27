@@ -16,8 +16,8 @@
     {% else %}
         {% assign is_highlighted = forloop.first %}
         {% assign is_last = forloop.last %}
-        {% assign is_even = render_count | modulo: 2 == 0 %}
-        {% if is_last and is_even and render_count >= 4 %}
+        {% assign mod = render_count | modulo: 2 %}
+        {% if is_last and mod == 0 and render_count >= 4 %}
             {% assign is_wide = true %}
         {% else %}
             {% assign is_wide = false %}
