@@ -136,6 +136,12 @@ footer {
     gap: $base-space;
 }
 
+.epraxis-related-articles {
+    display: flex;
+    flex-direction: column;
+    gap: $base-space;
+}
+
 .epraxis-post-image {
     img {
         width: 100%;

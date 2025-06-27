@@ -26,6 +26,6 @@
             {% assign is_wide = false %}
         {% endif %}
     {% endif %}
-    {% include epraxis/post.html post=post is_highlighted=is_highlighted is_wide=is_wide %}
+    {% include epraxis/post.html slug=post.slug is_highlighted=is_highlighted is_wide=is_wide %}
     {% endfor %}
 </div>
