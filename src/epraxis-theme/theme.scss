@@ -218,8 +218,8 @@ footer {
     }
 }
 
-// Tall (first) post: show image as normal, image covers container
-.epraxis-posts .epraxis-post-include:first-child {
+// Highlighted (tall) post: show image as normal, image covers container
+.epraxis-post-include.highlighted_post {
     position: relative;
     background: $info; // fallback
     height: 100%;
@@ -245,8 +245,8 @@ footer {
     }
 }
 
-// Small posts: use image as background, cover widget
-.epraxis-posts .epraxis-post-include:not(:first-child) {
+// Not highlighted (small) posts: use image as background, cover widget
+.epraxis-post-include.not_highlighted_post {
     position: relative;
     background-size: cover;
     background-position: center;
@@ -285,7 +285,3 @@ footer {
     }
 }
 
-// Set background image from data attribute (set via JS or inline style)
-.epraxis-posts .epraxis-post-include:not(:first-child)[data-bg] {
-    background-image: attr(data-bg url);
-}
