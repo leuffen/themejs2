@@ -61,7 +61,7 @@ footer {
     }
 }
 
-.expraxis-blog-content {
+.epraxis-blog-content {
     h2 {
         margin-top: $base-space * 3;
         font-size: 1.2rem;
@@ -136,7 +136,7 @@ footer {
     gap: $base-space;
 }
 
-.expraxis-post-image {
+.epraxis-post-image {
     img {
         width: 100%;
         height: auto;
@@ -167,8 +167,8 @@ footer {
 
         // Hide sidebar elements in main column on desktop
         .epraxis-post-info,
-        #expraxis-share,
-        #expraxis-related-articles {
+        #epraxis-share,
+        .epraxis-related-articles {
             display: none;
         }
     }

@@ -58,8 +58,8 @@
 (function() {
   // Find all post-info widgets
   var widgets = document.querySelectorAll('.epraxis-post-info');
-  // Find the main content for word count (use first .expraxis-blog-content on page)
-  var content = document.querySelector('.expraxis-blog-content');
+  // Find the main content for word count (use first .epraxis-blog-content on page)
+  var content = document.querySelector('.epraxis-blog-content');
   var text = content ? (content.innerText || content.textContent || '') : '';
   var words = text.trim().split(/\s+/).length;
   var minutes = Math.max(1, Math.round(words / 200));

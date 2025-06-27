@@ -4,34 +4,30 @@ layout: 3_3_1_content
 
 <div id="epraxis-blog">
     <div class="main-column">
-        <div class="expraxis-post-image">
+        <div class="epraxis-post-image">
             <img src="{{ page.image }}" alt="{{ page.title }}" />
         </div>
         {% include epraxis/post-info.html %}
         <article class="epraxis-post">
             <h3 class="epraxis-small-title">— {{ page.subtitle }}</h3>
             <h2 class="epraxis-blog-title">{{ page.title }}</h2>
-            <section class="expraxis-blog-content">
+            <section class="epraxis-blog-content">
                 {{ content }}
             </section>
 
         </article>
-        <div id="expraxis-share" class="placeholder-box">
+        <div id="epraxis-share" class="placeholder-box">
             <p>Artikel teilen</p>
         </div>
-        <div id="expraxis-related-articles" class="placeholder-box">
-            <p>Das könnte Sie auch interessieren</p>
-        </div>
+        {% include epraxis/post-related.html %}
         {% include epraxis/post-next-prev-nav.html %}
     </div>
     <aside class="sidebar">
         {% include epraxis/post-info.html %}
-        <div id="expraxis-share-sidebar" class="placeholder-box">
+        <div id="epraxis-share-sidebar" class="placeholder-box">
             <p>Artikel teilen</p>
         </div>
-        <div id="expraxis-related-articles-sidebar" class="placeholder-box">
-            <p>Das könnte Sie auch interessieren</p>
-        </div>
+        {% include epraxis/post-related.html %}
     </aside>
 </div>
 

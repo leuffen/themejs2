@@ -1,0 +1,10 @@
+<div class="epraxis-related-articles">
+  {% for slug in page.articles_related %}
+  DEBUG SLUG: {{ slug}} <br>
+    {% assign related_post = site.posts | where: "slug", slug | first %}
+    DEBUG POST: {{ related_post.title }} <br>
+    {% if related_post %}
+      {% include epraxis/post-by-slug.html slug=slug %}
+    {% endif %}
+  {% endfor %}
+</div>
