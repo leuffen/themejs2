@@ -8,6 +8,11 @@ If you are new to the project, the following two discussions may be of interest 
 - https://github.com/leuffen/themejs2/issues/2
 - https://github.com/leuffen/themejs2/issues/1
 
+## Uses
+
+- [Responsive CSS design system from TrunkJS](https://github.com/trunkjs/tj-alpha/blob/main/src/responsive/README.md)
+- [TrunkJS Content Area](https://github.com/trunkjs/tj-alpha/blob/main/src/content-area/README.md)
+
 ### Setup
 
 *This Project uses [kickstart](https://nfra.infracamp.org/)*
