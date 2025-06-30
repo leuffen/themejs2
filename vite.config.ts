@@ -5,7 +5,7 @@ import path from 'path';
 export default defineConfig({
     plugins: [],
     build: {
-
+        minify: false,
         cssCodeSplit: false,
         rollupOptions: {
             input: {

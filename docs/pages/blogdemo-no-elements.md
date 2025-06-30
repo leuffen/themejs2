@@ -12,6 +12,7 @@ order: 0
 ptags:
 - nav
 published: true
+body-class: epraxis blog
 seoScore: 8
 short_title: Barrierefreiheitsbverstärkungsgesetz (BFSG)
 title: Das neue Gesetz und seine Bedeutung für Praxen (OHNE ELEMENTE)
@@ -43,7 +44,8 @@ Das BFSG gibt Ihnen Zeit zur Anpassung – aber die Fristen laufen. Praxen und m
 Grundsätzlich sind alle Praxen, die eine Website haben verpflichtet, den Anforderungen des Gesetzes nachzukommen. Es gibt jedoch Ausnahmen, zum Beispiel für Kleinstunternehmer (unter 10 Mitarbeitende, unter 2 Millionen Euro Jahresumsatz). Da digitale Barrierefreiheit aber insgesamt dazu dient, Menschen teilhaben zu lassen, die aufgrund körperlicher Einschränkungen benachteiligt sein könnte, wäre es auch immer zu bedenken, ob sich eine Praxis nicht aus Gründen der Wertschätzung oder der gesellschaftlichen Verantwortung um digitale Barrierefreiheit bemühen sollte.
 
 
-## Wie gelingt die Umsetzung? 
+## Wie gelingt die Umsetzung?
+{: layout=".box"}
 
 Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Sie die Barrierefreiheit sicherstellen können:
 

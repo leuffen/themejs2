@@ -31,6 +31,10 @@ Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz?
 - **Tools wie WAVE, Google Lighthouse und Screenreader** helfen bei der Prüfung, alternativ kann professionelle Unterstützung durch Expert*innen sinnvoll sein. 
 - **Wer nicht handelt, riskiert Sanktionen, Beschwerden und Imageverluste** – wer frühzeitig umsetzt, zeigt Empathie, gewinnt Vertrauen und positioniert sich zukunftsfähig.
 
+<div class="text-box text-box-secondary">
+  <h2>EPRaxis Digi</h2>
+  <p>Das Barrierefreiheitsstärkungsgesetz (BFSG) ist ein wichtiger Schritt in Richtung Inklusion und Chancengleichheit für Menschen mit Behinderungen. Es verpflichtet auch Arztpraxen, ihre digitalen Angebote barrierefrei zu gestalten.</p>
+</div>
 
 --
 {: layout="2;.text"}

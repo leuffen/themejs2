@@ -21,4 +21,4 @@ title: ~
 type: website
 ---
 
-- [Blog Demo EPraxis Digital](/pages/blogdemo.html)
+- [Blog Demo EPraxis Digital](/pages/blogdemo-no-elements.html)

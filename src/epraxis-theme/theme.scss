@@ -1,23 +1,12 @@
-@use "@nextrap/style-reset" as *;
-@forward "@nextrap/style-base" with (
-    $primary: #fe6606,
-    $accent: #ed8e50,
-    $secondary: #313434,
-    $success: #28a745,
-    $info: #EDF1F8,
-    $warning: #ffc107,
-    $danger: #dc3545,
-    $light: #ffffff,
-    $dark: #1f3455,
-    $black: #222222,
-    $white: #ffffff,
-    $text: #313434,
-    $font-size-base: 1rem,
-    $line-height-base: 1.375,
-    $link-color: #fe6606,
-    $font-family-base: "Work Sans"
-);
-@use "@nextrap/style-base" as *;
+@forward "@nextrap/style-base";
+@use "@nextrap/style-reset";
+
+
+body.theme-epraxis {
+    // Theme specific variables
+
+}
+
 
 // ----------------------- TEMPORARY SETUP ----------------------- //
 
@@ -31,42 +20,36 @@ footer {
 // TODO: Remove — this is just for elements like the share box
 // that are not yet components
 .placeholder-box {
-    padding: $base-space;
-    border: 1px solid $secondary;
-    border-radius: 0.5rem;
-    margin-bottom: $base-space;
+    padding: var(--nt-space);
+    border: 1px solid var(--nt-secondary);
+    border-radius: var(--nt-border-radius);
+    margin-bottom: var(--nt-space);
 }
 
 // ----------------------- BLOG ----------------------- //
 
-.epraxis-blog-title {
-    color: $dark;
-    font-weight: 500;
-    font-size: 1.4rem;
-}
 
-@media (min-width: 768px) {
-    .epraxis-blog-title {
-        font-size: 2.5rem;
-    }
-}
+
+
 
 .epraxis-blog-subtitle {
-    color: $primary;
+    color: var(--nt-secondary);
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
 }
 
 .expraxis-blog-content {
+    // Hier Variablen für den Blog-Inhalt definieren
+
     h2 {
-        margin-top: $base-space * 3;
+        margin-top: var(--nt-space-5) ;
         font-size: 1.2rem;
         font-weight: 500;
     }
 
     p, ul, ol {
-        margin-top: $base-space * 2;
+        margin-top: var(--nt-space-5) ;
     }
 
     // on desktop, make the first paragraph bold
@@ -76,23 +59,27 @@ footer {
         }
     }
 
+    .box {
+        background-color: var(--nt-soft-info);
+        padding: var(--nt-space);
+        border-radius: var(--nt-border-radius);
+        ul {
 
-    ul {
-        background-color: $info;
-        padding: $base-space;
-        border-radius: 0.5rem;
 
-        li {
-            list-style-type: square;
-            margin-left: $base-space;
-            margin-bottom: $base-space;
+            li {
+                list-style-type: square;
+                margin-left: var(--nt-space);
+                margin-bottom: var(--nt-space);
+            }
         }
     }
 
+
+
     blockquote {
-        border-left: 4px solid $primary;
-        color: $dark;
-        padding-left: $base-space;
+        border-left: 4px solid var(--nt-primary);
+        color: var(-nt-dark);
+        padding-left: var(--nt-space);
         font-style: italic;
 
         p:not(:last-of-type) {
@@ -113,24 +100,24 @@ footer {
 #epraxis-blog {
     max-width: 1200px;
     margin: 0 auto;
-    padding: $base-space;
+    padding: var(--nt-space);
     display: flex;
     flex-direction: column;
-    gap: $base-space;
+    gap: var(--nt-space);
 }
 
 // Main column - contains all elements in mobile, only img and content in desktop
 .main-column {
     display: flex;
     flex-direction: column;
-    gap: $base-space;
+    gap: var(--nt-space);
 }
 
 // Sidebar - hidden on mobile, visible on desktop
 .sidebar {
     display: none;
     flex-direction: column;
-    gap: $base-space;
+    gap: var(--nt-space);
 }
 
 .expraxis-post-image {
@@ -143,18 +130,13 @@ footer {
     }
 }
 
-.epraxis-post {
-    font-family: $font-family-base;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
-    color: $text;
-}
+
 
 // Desktop layout (768px and up)
 @media (min-width: 768px) {
     #epraxis-blog {
         flex-direction: row;
-        gap: $base-space * 2;
+        gap: var(--nt-space-5);
         align-items: flex-start;
     }
 
@@ -175,7 +157,7 @@ footer {
         display: flex;
         flex: 1;
         position: sticky;
-        top: $base-space;
+        top: var(--nt-space);
         align-self: flex-start;
     }
 }

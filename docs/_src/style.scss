@@ -1,1 +1,32 @@
-@use "../../src/epraxis-theme/theme" as *;
+
+
+@forward "../../src/epraxis-theme/theme" with (
+    $primary: #fe6606,
+    $accent: #ed8e50,
+    $secondary: #036868,
+    $success: #28a745,
+    $warning: #ffc107,
+    $danger: #dc3545,
+    $light: #ffffff,
+    $dark: #1f3455,
+    $black: #222222,
+    $white: #ffffff,
+    $text: #313434,
+    $font-family-base: "sans-serif"
+);
+
+//@use "../../src/epraxis-theme/theme" with (
+//    $primary: #fe6606,
+//    $accent: #ed8e50,
+//    $secondary: #036868,
+//    $success: #28a745,
+//    $warning: #ffc107,
+//    $danger: #dc3545,
+//    $light: #ffffff,
+//    $dark: #1f3455,
+//    $black: #222222,
+//    $white: #ffffff,
+//    $text: #313434,
+//    $font-family-base: "Inter"
+//);
+//
