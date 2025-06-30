@@ -1,0 +1,27 @@
+<div class="epraxis-posts">
+    {% assign slugs_array = include.posts | split: "," %}
+    {% assign content_size = slugs_array.size %}
+    {% for slug in slugs_array %}
+    {% assign clean_slug = slug | strip %}
+    {% assign post = site.posts | where: "slug", clean_slug | first %}
+    {% if post %}
+    {% if content_size == 1 %}
+        {% assign is_highlighted = true %}
+        {% assign is_wide = true %}
+    {% elsif content_size == 2 %}
+        {% assign is_highlighted = true %}
+        {% assign is_wide = false %}
+    {% else %}
+        {% assign is_highlighted = forloop.first %}
+        {% assign is_last = forloop.last %}
+        {% assign mod = content_size | modulo: 2 %}
+        {% if is_last and mod == 0 and content_size >= 4 %}
+            {% assign is_wide = true %}
+        {% else %}
+            {% assign is_wide = false %}
+        {% endif %}
+    {% endif %}
+    {% include epraxis/post.html slug=post.slug is_highlighted=is_highlighted is_wide=is_wide %}
+    {% endif %}
+    {% endfor %}
+</div>

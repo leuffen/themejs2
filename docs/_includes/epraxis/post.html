@@ -1,5 +1,6 @@
 <!-- preview of posts, for example on overview pages -->
 {% assign post = site.posts | where: "slug", include.slug | first %}
+
 <div class="epraxis-post-include {% if include.is_highlighted %}highlighted_post{% else %}not_highlighted_post{% endif %}{% if include.is_wide %} wide_post{% endif %}"{% unless include.is_highlighted %} style="background-image: url('{{ post.image }}')"{% endunless %}>
     {% if include.is_highlighted %}
     <img src="{{ post.image }}" class="epraxis-post-include-image" />

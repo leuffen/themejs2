@@ -21,6 +21,5 @@ title: ~
 type: website
 ---
 
-Test Site.
 
-- [Blog Overview Demo](/post-demo.html)
+- [Category Page](/demo-category.html)
