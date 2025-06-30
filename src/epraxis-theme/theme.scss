@@ -32,10 +32,10 @@ footer {
 // TODO: Remove — this is just for elements like the share box
 // that are not yet components
 .placeholder-box {
-    padding: $base-space;
+    padding: $space;
     border: 1px solid $secondary;
     border-radius: 0.5rem;
-    margin-bottom: $base-space;
+    margin-bottom: $space;
 }
 
 // ----------------------- SHARED/THEME-WIDE ----------------------- //
@@ -63,13 +63,13 @@ footer {
 
 .epraxis-blog-content {
     h2 {
-        margin-top: $base-space * 3;
+        margin-top: $space * 3;
         font-size: 1.2rem;
         font-weight: 500;
     }
 
     p, ul, ol {
-        margin-top: $base-space * 2;
+        margin-top: $space * 2;
     }
 
     // on desktop, make the first paragraph bold
@@ -82,20 +82,20 @@ footer {
 
     ul {
         background-color: $info;
-        padding: $base-space;
+        padding: $space;
         border-radius: 0.5rem;
 
         li {
             list-style-type: square;
-            margin-left: $base-space;
-            margin-bottom: $base-space;
+            margin-left: $space;
+            margin-bottom: $space;
         }
     }
 
     blockquote {
         border-left: 4px solid $primary;
         color: $dark;
-        padding-left: $base-space;
+        padding-left: $space;
         font-style: italic;
 
         p:not(:last-of-type) {
@@ -116,30 +116,30 @@ footer {
 #epraxis-blog {
     max-width: 1200px;
     margin: 0 auto;
-    padding: $base-space;
+    padding: $space;
     display: flex;
     flex-direction: column;
-    gap: $base-space;
+    gap: $space;
 }
 
 // Main column - contains all elements in mobile, only img and content in desktop
 .main-column {
     display: flex;
     flex-direction: column;
-    gap: $base-space;
+    gap: $space;
 }
 
 // Sidebar - hidden on mobile, visible on desktop
 .sidebar {
     display: none;
     flex-direction: column;
-    gap: $base-space;
+    gap: $space;
 }
 
 .epraxis-related-articles {
     display: flex;
     flex-direction: column;
-    gap: $base-space;
+    gap: $space;
 }
 
 .epraxis-post-image {
@@ -163,7 +163,7 @@ footer {
 @media (min-width: 768px) {
     #epraxis-blog {
         flex-direction: row;
-        gap: $base-space * 2;
+        gap: $space * 2;
         align-items: flex-start;
     }
 
@@ -184,7 +184,7 @@ footer {
         display: flex;
         flex: 1;
         position: sticky;
-        top: $base-space;
+        top: $space;
         align-self: flex-start;
         width: 340px;
         min-width: 340px;
@@ -203,7 +203,7 @@ footer {
 
 .epraxis-post-include {
     background-color: $info;
-    padding: $base-space;
+    padding: $space;
     border-radius: 0.5rem;
     height: 100%;
     display: flex;
@@ -211,11 +211,11 @@ footer {
 }
 
 .epraxis-post-include-header {
-    margin-bottom: $base-space;
+    margin-bottom: $space;
 }
 
 .epraxis-post-include-image {
-    margin-bottom: $base-space;
+    margin-bottom: $space;
 }
 
 .epraxis-title-mini {
@@ -228,7 +228,7 @@ footer {
 .epraxis-posts {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $base-space;
+    gap: $space;
     max-width: var(--nt-container-width);
     margin: 0 auto;
     align-items: stretch;
@@ -238,7 +238,7 @@ footer {
 @media (min-width: 768px) {
     .epraxis-posts {
         grid-template-columns: repeat(2, 1fr);
-        gap: $base-space * 2;
+        gap: $space * 2;
         align-items: stretch;
     }
     .epraxis-post-include.highlighted_post {
@@ -326,7 +326,7 @@ footer {
   box-shadow: 0 2px 8px rgba(31,52,85,0.06);
   font-family: $font-family-base;
   color: $text;
-  margin-bottom: $base-space;
+  margin-bottom: $space;
   font-size: 1rem;
 }
 .epraxis-post-info-header {
