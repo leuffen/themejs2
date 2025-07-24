@@ -5,8 +5,16 @@
 body.theme-epraxis {
     // Theme specific variables
 
+    --layout: "wurst";
 }
 
+* {
+    --layout: none;
+}
+
+tj-content-area > *  {
+    --layout: "nimm mich";
+}
 
 // ----------------------- TEMPORARY SETUP ----------------------- //
 
