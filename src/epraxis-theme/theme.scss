@@ -1,9 +1,13 @@
 @forward "@nextrap/style-base";
 @use "@nextrap/style-reset";
+@use "@nextrap/style-utils";
+@use "@nextrap/style-typography";
+
+@use "../style/table" as *;
 
 body.theme-epraxis {
     // Theme specific variables
-
+}
 // ----------------------- TEMPORARY SETUP ----------------------- //
 
 // TODO: Remove this once we have a styled header
