@@ -1,4 +1,4 @@
-import "@trunkjs/alpha/index";
-import {TjResponsive} from "@trunkjs/alpha";
+// import "@trunkjs/alpha/index";
+// import {TjResponsive} from "@trunkjs/alpha";
 
-(new TjResponsive()).observe(document);
+// (new TjResponsive()).observe(document);

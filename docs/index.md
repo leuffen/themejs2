@@ -21,4 +21,6 @@ title: ~
 type: website
 ---
 
-- [Blog Demo EPraxis Digital](/pages/blogdemo-no-elements.html)
+
+- [Demo Category Page](/demo-category.html)
+- [Demo Post](/organisation/2025/04/13/patientenportal-optimierung.html)
