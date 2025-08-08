@@ -30,6 +30,8 @@ Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle z
 
 Das Gesetz fordert, dass Dienstleistungen „ohne besondere Erschwernis und grundsätzlich ohne fremde Hilfe auffindbar“1 sein sollen. Das bedeutet für Sie, dass Websites und mobile Apps, die Sie nutzen, um Patient*innen Informationen zur Verfügung zu stellen, Kontakt aufzunehmen oder Termine zu buchen, für alle zugänglich und nutzbar sein sollen – auch für Menschen, mit körperlichen oder kognitiven Einschränkungen. 
 
+
+
 ## Bis wann muss das umgesetzt sein? 
 
 Das BFSG gibt Ihnen Zeit zur Anpassung – aber die Fristen laufen. Praxen und medizinische Einrichtungen haben bis zum 28. Juni 2025 Zeit, sich an die Vorgaben zu halten. Klingt erstmal nach viel Zeit? In der Praxis heißt es aber:

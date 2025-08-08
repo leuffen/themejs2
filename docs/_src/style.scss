@@ -1,6 +1,7 @@
 
 
-@forward "../../src/epraxis-theme/theme" with (
+
+@use "../../src/epraxis-theme/theme" with (
     $primary: #fe6606,
     $accent: #ed8e50,
     $secondary: #036868,
@@ -12,7 +13,9 @@
     $black: #222222,
     $white: #ffffff,
     $text: #313434,
-    $font-family-base: "sans-serif"
+    $font-family-base: "sans-serif",
+    $enableRcs: true, // Reactive Font Size
+    $enableFontConfig: true // Enable Font Configuration
 );
 
 //@use "../../src/epraxis-theme/theme" with (
