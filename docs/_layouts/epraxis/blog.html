@@ -13,20 +13,174 @@ layout: 3_3_1_content
             <section class="epraxis-blog-content">
                 {{ content }}
             </section>
-
         </article>
         <div id="epraxis-share" class="placeholder-box">
             <p>Artikel teilen</p>
         </div>
-        {% include epraxis/post-related.html %}
-        {% include epraxis/post-next-prev-nav.html %}
+
+        <!-- Inlined post-related.html -->
+        <div class="epraxis-related-articles">
+          {% for slug in page.articles_related %}
+            {% assign related_post = site.posts | where: "slug", slug | first %}
+            {% if related_post %}
+              {% include epraxis/post.html slug=slug is_mini=true %}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- Inlined post-next-prev-nav.html -->
+        {% assign prev_post = nil %}
+        {% assign next_post = nil %}
+
+        {%- if page.article_previous -%}
+          {% assign prev_post = site.posts | where: "slug", page.article_previous | first %}
+        {%- endif -%}
+        {%- if prev_post == nil and page.previous -%}
+          {% assign prev_post = page.previous %}
+        {%- endif -%}
+
+        {%- if page.article_next -%}
+          {% assign next_post = site.posts | where: "slug", page.article_next | first %}
+        {%- endif -%}
+        {%- if next_post == nil and page.next -%}
+          {% assign next_post = page.next %}
+        {%- endif -%}
+
+        {%- if prev_post or next_post -%}
+        <div class="epraxis-post-nav">
+          {%- if prev_post -%}
+          <a class="epraxis-post-nav-card prev" href="{{ prev_post.url }}">
+            <div class="epraxis-post-nav-label"><span class="epraxis-post-nav-arrow">&#8592;</span> VORHERIGER ARTIKEL</div>
+            <div class="epraxis-post-nav-title">{{ prev_post.title }}</div>
+          </a>
+          {%- endif -%}
+          {%- if next_post -%}
+          <a class="epraxis-post-nav-card next" href="{{ next_post.url }}">
+            <div class="epraxis-post-nav-label">NÄCHSTER ARTIKEL <span class="epraxis-post-nav-arrow">&#8594;</span></div>
+            <div class="epraxis-post-nav-title">{{ next_post.title }}</div>
+          </a>
+          {%- endif -%}
+        </div>
+        {%- endif -%}
     </div>
     <aside class="sidebar">
-        {% include epraxis/post-info2.html %}
+        <!-- Inlined post-info2.html -->
+        <div style="background: var(--nt-soft-info); border-radius: 1.2rem; padding: 1.5rem 1.2rem 1.2rem 1.2rem; box-shadow: 0 2px 8px rgba(31, 52, 85, 0.06); font-family: var(--nt-font-family-base); color: var(--nt-text); margin-bottom: var(--nt-space); font-size: 1rem;">
+            <div class="mb-3">
+                <div class="fw-bold text-uppercase text-secondary mb-1 fs-6">INFOS ZUM ARTIKEL</div>
+                <hr />
+                <div class="mb-3">
+                    <div class="fs-5 fw-semibold text-dark mb-1">{{ page.title }}</div>
+                    <div class="fs-6 text-secondary mb-2">
+                        <span>Autor:</span> <span>{{ page.author }}</span><br />
+                        <span>Datum:</span> <span>{% if page.date %}{{ page.date | date: "%d.%m.%Y" }}{% endif %}</span>
+                    </div>
+                    <div class="fs-6 mb-2">
+                        Lesezeit: <span class="epraxis-lesezeit">ca. 0 Minuten</span>
+                        <div class="bg-light rounded-pill mt-1 mb-2 overflow-hidden border border-info">
+                            <div class="bg-primary h-100 w-0 rounded-pill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="mb-3">
+                    <div class="fs-6 text-secondary mb-2">Dieser Artikel wurde mit Hilfe von Künstlicher Intelligenz (KI) erstellt:</div>
+                    <div class="d-flex gap-2 mb-2">
+                        <div class="bg-white rounded-3 shadow-sm p-3 flex-fill d-flex flex-column align-items-center">
+                            <div class="fs-4 mb-1 human">👤</div>
+                            <div class="fs-6 text-secondary mb-1">Recherche:</div>
+                            <div class="fs-6 fw-medium text-center">
+                                {% if page.researched-by == "human" %}100% Mensch{% elsif page.researched-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-3 shadow-sm p-3 flex-fill d-flex flex-column align-items-center">
+                            <div class="fs-4 mb-1 shared">🤝</div>
+                            <div class="fs-6 text-secondary mb-1">Schreiben:</div>
+                            <div class="fs-6 fw-medium text-center">
+                                {% if page.written-by == "human" %}100% Mensch{% elsif page.written-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-3 shadow-sm p-3 flex-fill d-flex flex-column align-items-center">
+                            <div class="fs-4 mb-1 ai">🤖</div>
+                            <div class="fs-6 text-secondary mb-1">Formatierung:</div>
+                            <div class="fs-6 fw-medium text-center">
+                                {% if page.formatted-by == "human" %}100% Mensch{% elsif page.formatted-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="fs-6 text-secondary mb-1">Relevante Begriffe im Artikel:</div>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for tag in page.keywords %}
+                        <span class="bg-white text-primary border border-primary rounded-pill px-3 py-1 fs-6 fw-medium mb-1 d-inline-block">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <button class="bg-transparent border-0 text-primary fs-6 fw-semibold cursor-pointer px-2 rounded transition" type="button">Mehr anzeigen</button>
+        </div>
+        <script>
+        (function() {
+          // Find all post-info widgets
+          var widgets = document.querySelectorAll('.epraxis-post-info');
+          // Find the main content for word count (use first .epraxis-blog-content on page)
+          var content = document.querySelector('.epraxis-blog-content');
+          var text = content ? (content.innerText || content.textContent || '') : '';
+          var words = text.trim().split(/\s+/).length;
+          var minutes = Math.max(1, Math.round(words / 200));
+
+          widgets.forEach(function(widget) {
+            // Reading time
+            var lesezeit = widget.querySelector('.epraxis-lesezeit');
+            if (lesezeit) {
+              lesezeit.textContent = 'ca. ' + minutes + ' Minuten';
+            }
+            // Collapsible logic
+            var collapsible = widget.querySelector('.epraxis-post-info-collapsible');
+            var toggleBtn = widget.querySelector('.epraxis-post-info-toggle');
+            var expanded = false;
+            function setCollapsed(state) {
+              expanded = state;
+              if (collapsible) collapsible.style.display = expanded ? 'block' : 'none';
+              if (toggleBtn) toggleBtn.textContent = expanded ? 'Weniger anzeigen' : 'Mehr anzeigen';
+            }
+            if (toggleBtn) {
+              toggleBtn.addEventListener('click', function() {
+                setCollapsed(!expanded);
+              });
+              setCollapsed(false);
+            }
+          });
+          // Scroll progress bar logic (sync all bars to page scroll)
+          var bars = document.querySelectorAll('.epraxis-post-info-progressbar');
+          function updateProgressBar() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            bars.forEach(function(bar) {
+              bar.style.width = percent + '%';
+            });
+          }
+          window.addEventListener('scroll', updateProgressBar);
+          updateProgressBar();
+        })();
+        </script>
+
         <div id="epraxis-share-sidebar" class="placeholder-box">
             <p>Artikel teilen</p>
         </div>
-        {% include epraxis/post-related.html %}
+
+        <!-- Inlined post-related.html (second instance) -->
+        <div class="epraxis-related-articles">
+          {% for slug in page.articles_related %}
+            {% assign related_post = site.posts | where: "slug", slug | first %}
+            {% if related_post %}
+              {% include epraxis/post.html slug=slug is_mini=true %}
+            {% endif %}
+          {% endfor %}
+        </div>
     </aside>
 </div>
 
