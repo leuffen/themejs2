@@ -25,8 +25,7 @@
     "*.md"
   ],
   "workspaces": [
-    "---workspaces/nextrap-monorepo/nextrap-*/*",
-    "workspaces/tj-alpha"
+
   ],
   "author": "",
   "dependencies": {
@@ -34,7 +33,9 @@
     "@nextrap/style-reset": "^0.1.1",
     "@nextrap/style-typography": "^1.0.0",
     "@nextrap/style-utils": "^1.0.0",
-    "@trunkjs/alpha": "^1.0.0",
+
+    "@trunkjs/responsive": "^1.0.0",
+    "@trunkjs/content-pane": "^1.0.0",
     "sass": "^1.89.2",
     "vite": "^6.1.0",
     "vitest": "^3.0.5"

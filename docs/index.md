@@ -22,6 +22,12 @@ type: website
 ---
 
 
-- [Demo Category Page](/pages/demo-category.html)
-- [Demo Post](/organisation/2025/04/13/patientenportal-optimierung.html)
+
+- [Demo Category Page](/demo-category.html)
+- [Demo Post](/pages/demo-blog-page-layout)
+
 {% include el/sitemap-table.html %}
+
+
+
+

@@ -2,16 +2,12 @@
 
 ![demo screenshot](/doc/img/demo.png)
 
-## Development
+## Build on:
 
-If you are new to the project, the following two discussions may be of interest to you:
-- https://github.com/leuffen/themejs2/issues/2
-- https://github.com/leuffen/themejs2/issues/1
+Reference to the Projects that are used to build this project:
 
-## Uses
-
-- [Responsive CSS design system from TrunkJS](https://github.com/trunkjs/tj-alpha/blob/main/src/responsive/README.md)
-- [TrunkJS Content Area](https://github.com/trunkjs/tj-alpha/blob/main/src/content-area/README.md)
+- [Responsive CSS design system from TrunkJS](https://github.com/trunkjs/trunkjs-monorepo/blob/main/packages/responsive/README.md)
+- [TrunkJS Content Area](https://github.com/trunkjs/trunkjs-monorepo/blob/main/packages/content-pane/README.md)
 
 ### Setup
 

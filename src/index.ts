@@ -1,4 +1,2 @@
-// import "@trunkjs/alpha/index";
-// import {TjResponsive} from "@trunkjs/alpha";
-
-// (new TjResponsive()).observe(document);
+import "@trunkjs/content-pane";
+import "@trunkjs/responsive";

@@ -1,7 +1,7 @@
 ---
 availLangs:
 - de
-body_class: ~
+body_class: theme-epraxis
 description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam Genné in
   Senftenberg. Wir bieten individuelle medizinische Versorgung, klassische HNO-Leistungen
   und Naturheilverfahren. \U0001F33F"
@@ -22,7 +22,7 @@ type: website
 Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
 
 ## EPRAXIS.DIGITAL KOMPAKT
-{: layout="2;.box .box-pimary"}
+{: layout=".box.box-primary"}
 
 - **Das Barrierefreiheitsstärkungsgesetz (BFSG)** verpflichtet ab 28. Juni 2025 auch Arztpraxen, ihre digitalen Angebote – insbesondere Websites und Apps – barrierefrei zu gestalten, damit alle Menschen uneingeschränkt darauf zugreifen können. 
 - **Betroffen sind alle Praxen mit Website**, außer Kleinstunternehmen (weniger als 10 Mitarbeitende & unter 2 Mio. € Umsatz). Dennoch ist digitale Barrierefreiheit ein wichtiges Zeichen für Inklusion und gesellschaftliche Verantwortung. 
@@ -30,10 +30,13 @@ Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz?
 - **Tools wie WAVE, Google Lighthouse und Screenreader** helfen bei der Prüfung, alternativ kann professionelle Unterstützung durch Expert*innen sinnvoll sein. 
 - **Wer nicht handelt, riskiert Sanktionen, Beschwerden und Imageverluste** – wer frühzeitig umsetzt, zeigt Empathie, gewinnt Vertrauen und positioniert sich zukunftsfähig.
 
-<div class="text-box text-box-secondary">
-  <h2>EPRaxis Digi</h2>
-  <p>Das Barrierefreiheitsstärkungsgesetz (BFSG) ist ein wichtiger Schritt in Richtung Inklusion und Chancengleichheit für Menschen mit Behinderungen. Es verpflichtet auch Arztpraxen, ihre digitalen Angebote barrierefrei zu gestalten.</p>
-</div>
+
+
+## EPraxis Digi
+{: layout="span.first.text-box.text-box-secondary"}
+as Barrierefreiheitsstärkungsgesetz (BFSG) ist ein wichtiger Schritt in Richtung Inklusion und Chancengleichheit für Menschen mit Behinderungen. Es verpflichtet auch Arztpraxen, ihre digitalen Angebote barrierefrei zu gestalten.
+
+
 
 --
 {: layout="2;.text"}

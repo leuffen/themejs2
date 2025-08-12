@@ -11,7 +11,10 @@ layout: 3_3_1_content
             <h3 class="epraxis-small-title">— {{ page.subtitle }}</h3>
             <h2 class="epraxis-blog-title">{{ page.title }}</h2>
             <section class="epraxis-blog-content">
-                {{ content }}
+                <!------ INCLUDES THE CONTENT  --------->
+                <tj-content-pane>
+                    {{ content }}
+                </tj-content-pane>
             </section>
         </article>
         <div id="epraxis-share" class="placeholder-box">
