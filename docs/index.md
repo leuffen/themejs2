@@ -23,8 +23,8 @@ type: website
 
 
 
-- [Demo Category Page](/demo-category.html)
-- [Demo Post](/pages/demo-blog-page-layout)
+- [Demo Category Page](/demo-category.html){: .btn .btn-primary .text-center .m-1}
+- [Demo Post](/pages/demo-blog-page-layout){: .btn .btn-primary .text-center .m-1}
 
 {% include el/sitemap-table.html %}
 

@@ -33,6 +33,7 @@
     "@nextrap/style-reset": "^0.1.1",
     "@nextrap/style-typography": "^1.0.0",
     "@nextrap/style-utils": "^1.0.0",
+    "@nextrap/style-button": "^0.0.6",
 
     "@trunkjs/responsive": "^1.0.0",
     "@trunkjs/content-pane": "^1.0.0",
