@@ -34,6 +34,7 @@ Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz?
 
 ## EPraxis Digi
 {: layout="span.first.text-box.text-box-secondary"}
+
 as Barrierefreiheitsstärkungsgesetz (BFSG) ist ein wichtiger Schritt in Richtung Inklusion und Chancengleichheit für Menschen mit Behinderungen. Es verpflichtet auch Arztpraxen, ihre digitalen Angebote barrierefrei zu gestalten.
 
 
