@@ -32,95 +32,103 @@ footer {
 
     .info {
         background: var(--nt-soft-info);
-        border-radius: 1.2rem;
-        padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+        border-radius: var(--nt-border-radius-lg);
+        padding: var(--nt-space-4) var(--nt-space-3) var(--nt-space-3) var(--nt-space-3);
         box-shadow: 0 2px 8px rgba(31, 52, 85, 0.06);
         font-family: var(--nt-font-family-base);
         color: var(--nt-text);
         margin-bottom: var(--nt-space);
-        font-size: 1rem;
+        font-size: var(--nt-font-size-base);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .info-separator {
+        border-color: var(--nt-light);
+        margin: var(--nt-space-2) 0;
     }
 
     .info-header {
-        margin-bottom: 1.2rem;
+        margin-bottom: var(--nt-space-3);
     }
 
     .info-title {
         font-weight: 700;
-        font-size: 0.95rem;
+        font-size: var(--nt-font-size-small);
         color: var(--nt-secondary);
         letter-spacing: 0.02em;
         text-transform: uppercase;
-        margin-bottom: 0.2rem;
+        margin-bottom: var(--nt-space-1);
     }
 
     .info-main {
-        margin-bottom: 1.2rem;
+        margin-bottom: var(--nt-space-3);
     }
 
     .info-headline {
-        font-size: 1.15rem;
+        font-size: var(--nt-fs-3);
         font-weight: 600;
-        color: var(--nt-dark);
-        margin-bottom: 0.3rem;
+        color: var(--nt-primary);
+        margin-bottom: var(--nt-space-1);
     }
 
     .info-meta {
-        font-size: 0.95rem;
+        font-size: var(--nt-font-size-small);
         color: var(--nt-secondary);
-        margin-bottom: 0.7rem;
+        margin-bottom: var(--nt-space-2);
     }
 
     .info-lesezeit {
-        font-size: 0.98rem;
-        margin-bottom: 0.7rem;
+        font-size: var(--nt-font-size-base);
+        color: var(--nt-text);
+        margin-bottom: var(--nt-space-2);
     }
 
     .info-progressbar-bg {
         background: var(--nt-light);
-        border-radius: 0.5rem;
-        height: 0.7rem;
+        border-radius: var(--nt-border-radius);
+        height: var(--nt-space-2);
         width: 100%;
-        margin-top: 0.3rem;
-        margin-bottom: 0.5rem;
+        margin-top: var(--nt-space-1);
+        margin-bottom: var(--nt-space-2);
         overflow: hidden;
-        border: 1px solid var(--nt-soft-info);
+        border: 1px solid var(--nt-info);
     }
 
     .info-progressbar {
         background: var(--nt-primary);
         height: 100%;
         width: 0%;
-        border-radius: 0.5rem;
+        border-radius: var(--nt-border-radius);
         transition: width 0.2s;
     }
 
     .info-collapsible {
-        margin-bottom: 1.1rem;
+        margin-bottom: var(--nt-space-3);
     }
 
 
     .tags-title {
-        font-size: 0.98rem;
+        font-size: var(--nt-font-size-small);
         color: var(--nt-secondary);
-        margin-bottom: 0.3rem;
+        margin-bottom: var(--nt-space-1);
     }
 
     .tags-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: var(--nt-space-2);
     }
 
     .tag {
         background: var(--nt-white);
         color: var(--nt-primary);
         border: 1px solid var(--nt-primary);
-        border-radius: 2rem;
-        padding: 0.2rem 1.1rem;
-        font-size: 0.95rem;
+        border-radius: var(--nt-border-radius-pill);
+        padding: var(--nt-space-1) var(--nt-space-3);
+        font-size: var(--nt-font-size-small);
         font-weight: 500;
-        margin-bottom: 0.2rem;
+        margin-bottom: var(--nt-space-1);
         display: inline-block;
     }
 
@@ -128,11 +136,11 @@ footer {
         background: none;
         border: none;
         color: var(--nt-primary);
-        font-size: 1rem;
+        font-size: var(--nt-font-size-base);
         font-weight: 600;
         cursor: pointer;
-        padding: 0.2rem 0.5rem;
-        border-radius: 0.5rem;
+        padding: var(--nt-space-1) var(--nt-space-2);
+        border-radius: var(--nt-border-radius);
         transition: background 0.15s;
     }
 

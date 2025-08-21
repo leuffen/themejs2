@@ -154,15 +154,15 @@
     }
 
     .nav-label {
-        font-size: 0.92rem;
+        font-size: var(--nt-font-size-small);
         color: var(--nt-secondary);
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.02em;
-        margin-bottom: 0.5rem;
+        margin-bottom: var(--nt-space-2);
         display: flex;
         align-items: center;
-        gap: 0.3em;
+        gap: var(--nt-space-1);
     }
 
     .nav-arrow {
@@ -171,7 +171,7 @@
     }
 
     .nav-title {
-        font-size: 1.13rem;
+        font-size: var(--nt-fs-3);
         font-weight: 500;
         color: var(--nt-text);
         line-height: 1.3;
