@@ -5,7 +5,7 @@
   Parameters:
     - posts: Comma-separated list of post slugs (required)
 -->
-<div class="epraxis-posts">
+<div class="posts-grid">
     {% assign slugs_array = include.posts | split: "," %}
     {% assign content_size = slugs_array.size %}
     {% for slug in slugs_array %}

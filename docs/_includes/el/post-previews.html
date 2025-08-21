@@ -7,7 +7,7 @@
     - limit: Maximum number of posts to display (optional)
   Layout Logic: First post highlighted, even total gets wide last post, responsive 1-2 columns
 -->
-<div class="epraxis-posts">
+<div class="posts-grid">
     {% assign has_limit = include.limit %}
     {% assign content_size = include.content_list.size %}
     {% if has_limit %}
