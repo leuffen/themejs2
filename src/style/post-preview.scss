@@ -1,7 +1,5 @@
-// Generic component styles - theme-agnostic
-// These components can be used across different themes
-
-// ----------------------- POST COMPONENTS ----------------------- //
+// Post Preview Component Styles
+// Used by: docs/_includes/el/post-preview.html
 
 .post-card {
     background-color: var(--nt-soft-info);
@@ -27,50 +25,22 @@
 
 .post-subtitle {
     color: var(--nt-primary);
-    font-size: 0.875rem;
+    font-size: var(--nt-font-size-small);
     font-weight: 600;
     text-transform: uppercase;
 }
 
 .post-title {
-    font-size: 1.1rem;
+    font-size: var(--nt-fs-3);
     font-weight: 500;
 }
 
 .post-title.mini {
-    font-size: 1rem;
+    font-size: var(--nt-font-size-base);
 }
 
 .post-excerpt {
     margin-top: var(--nt-space-5);
-}
-
-.posts-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--nt-space);
-    max-width: var(--nt-container-width);
-    margin: 0 auto;
-    align-items: stretch;
-
-    // Desktop layout - 2 columns
-    @media (min-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--nt-space-2);
-        align-items: stretch;
-    }
-}
-
-.post-card.highlighted {
-    @media (min-width: 768px) {
-        grid-row: span 2;
-    }
-}
-
-.post-card.wide {
-    @media (min-width: 768px) {
-        grid-column: 1 / -1;
-    }
 }
 
 // Highlighted (tall) post: show image as normal, image covers container
