@@ -26,7 +26,7 @@ layout: 3_3_1_content
           {% for slug in page.articles_related %}
             {% assign related_post = site.posts | where: "slug", slug | first %}
             {% if related_post %}
-              {% include epraxis/post.html slug=slug is_mini=true %}
+              {% include el/post-preview.html slug=slug is_mini=true %}
             {% endif %}
           {% endfor %}
         </div>
@@ -204,7 +204,7 @@ layout: 3_3_1_content
           {% for slug in page.articles_related %}
             {% assign related_post = site.posts | where: "slug", slug | first %}
             {% if related_post %}
-              {% include epraxis/post.html slug=slug is_mini=true %}
+              {% include el/post-preview.html slug=slug is_mini=true %}
             {% endif %}
           {% endfor %}
         </div>

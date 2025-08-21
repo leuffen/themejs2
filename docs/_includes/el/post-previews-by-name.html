@@ -1,3 +1,10 @@
+<!--
+  Post Previews by Name
+  Purpose: Renders specific post previews by their slugs
+  Usage: Related articles, curated post collections
+  Parameters:
+    - posts: Comma-separated list of post slugs (required)
+-->
 <div class="epraxis-posts">
     {% assign slugs_array = include.posts | split: "," %}
     {% assign content_size = slugs_array.size %}
@@ -21,7 +28,7 @@
             {% assign is_wide = false %}
         {% endif %}
     {% endif %}
-    {% include epraxis/post.html slug=post.slug is_highlighted=is_highlighted is_wide=is_wide %}
+    {% include el/post-preview.html slug=post.slug is_highlighted=is_highlighted is_wide=is_wide %}
     {% endif %}
     {% endfor %}
 </div>

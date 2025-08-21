@@ -1,4 +1,13 @@
-<!-- preview of posts, for example on overview pages -->
+<!--
+  Post Preview Component
+  Purpose: Renders a single post preview card with configurable styling
+  Usage: Used in post grids, category listings, and related articles sections
+  Parameters:
+    - slug: Post slug to render (required)
+    - is_highlighted: Shows excerpt and image (optional)
+    - is_wide: Spans full width in grid (optional) 
+    - is_mini: Compact version for sidebars (optional)
+-->
 {% assign post = site.posts | where: "slug", include.slug | first %}
 
 <div class="epraxis-post-include {% if include.is_highlighted %}highlighted_post{% else %}not_highlighted_post{% endif %}{% if include.is_wide %} wide_post{% endif %}"{% unless include.is_highlighted %} style="background-image: url('{{ post.image }}')"{% endunless %}>
