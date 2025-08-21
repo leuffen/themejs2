@@ -88,16 +88,19 @@ layout: 3_3_1_content
             </div>
             <div class="mb-3">
                 <div class="assisted-by-ai-info">
-                    <div class="ai-title">Dieser Artikel wurde mit Hilfe von Künstlicher Intelligenz (KI) erstellt:</div>
+                    <div class="ai-header">
+                        <div class="ai-title">Dieser Artikel wurde mit Hilfe von Künstlicher Intelligenz (KI) erstellt:</div>
+                        <div class="ai-info-icon">ⓘ</div>
+                    </div>
                     <div class="ai-cards">
                         <div class="ai-card">
-                            <div class="ai-icon human">
+                            <div class="ai-icon">
                                 {% if page.researched-by == "human" %}
-                                    <img src="/assets/human.svg" alt="Human" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/human.svg" alt="Human" />
                                 {% elsif page.researched-by == "shared" %}
-                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
                                 {% else %}
-                                    <img src="/assets/robot.svg" alt="Robot" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/robot.svg" alt="Robot" />
                                 {% endif %}
                             </div>
                             <div class="ai-label">Recherche:</div>
@@ -106,28 +109,28 @@ layout: 3_3_1_content
                             </div>
                         </div>
                         <div class="ai-card">
-                            <div class="ai-icon shared">
+                            <div class="ai-icon">
                                 {% if page.written-by == "human" %}
-                                    <img src="/assets/human.svg" alt="Human" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/human.svg" alt="Human" />
                                 {% elsif page.written-by == "shared" %}
-                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
                                 {% else %}
-                                    <img src="/assets/robot.svg" alt="Robot" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/robot.svg" alt="Robot" />
                                 {% endif %}
                             </div>
                             <div class="ai-label">Schreiben:</div>
                             <div class="ai-value">
-                                {% if page.written-by == "human" %}100% Mensch{% elsif page.written-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                                {% if page.written-by == "human" %}50% Mensch<br>50% KI{% elsif page.written-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
                             </div>
                         </div>
                         <div class="ai-card">
-                            <div class="ai-icon ai">
+                            <div class="ai-icon">
                                 {% if page.formatted-by == "human" %}
-                                    <img src="/assets/human.svg" alt="Human" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/human.svg" alt="Human" />
                                 {% elsif page.formatted-by == "shared" %}
-                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
                                 {% else %}
-                                    <img src="/assets/robot.svg" alt="Robot" style="width: 100%; height: 100%;" />
+                                    <img src="/assets/robot.svg" alt="Robot" />
                                 {% endif %}
                             </div>
                             <div class="ai-label">Formatierung:</div>
