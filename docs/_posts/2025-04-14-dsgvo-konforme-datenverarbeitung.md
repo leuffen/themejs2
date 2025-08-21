@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "DSGVO-konforme Datenverarbeitung in der Praxis"
 subtitle: "Rechtssichere Umgang mit Patientendaten im digitalen Zeitalter"
 description: "Wie Hausärzt:innen die DSGVO-Anforderungen in ihrer Praxis umsetzen und Patientendaten sicher verarbeiten können."

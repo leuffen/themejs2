@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "Videosprechstunde erfolgreich einführen"
 subtitle: "Digitale Arzt-Patienten-Gespräche als Ergänzung zur Praxis"
 description: "Wie Hausärzt:innen Videosprechstunden in ihre Praxis integrieren können – Technik, Ablauf und rechtliche Aspekte."

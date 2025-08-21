@@ -7,7 +7,7 @@ description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam G
   und Naturheilverfahren. \U0001F33F"
 image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
 keywords: ~
-layout: epraxis/blog
+layout: blog-article-epraxis
 order: 0
 ptags:
 - nav

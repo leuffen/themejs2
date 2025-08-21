@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "Datenlöschung in der Hausarztpraxis"
 subtitle: "Rechtssichere Aufbewahrung und Löschung von Patientendaten"
 description: "Wie Hausärzt:innen die gesetzlichen Aufbewahrungsfristen einhalten und Daten rechtssicher löschen können."

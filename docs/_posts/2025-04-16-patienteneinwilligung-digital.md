@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "Digitale Patienteneinwilligung in der Praxis"
 subtitle: "Rechtssichere Einholung von Einverständniserklärungen per E-Mail und Portal"
 description: "Wie Hausärzt:innen digitale Einwilligungen von Patient:innen rechtssicher einholen und dokumentieren können."
