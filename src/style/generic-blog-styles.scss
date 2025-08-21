@@ -1,0 +1,210 @@
+// Generic blog layout styles - theme-agnostic
+// These styles can be used across different blog themes
+
+.blog-article {
+    // Main blog container
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--nt-space);
+    display: flex;
+    flex-direction: column;
+    gap: var(--nt-space);
+
+    // Typography components
+    .small-title {
+        color: var(--nt-primary);
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .subtitle {
+        color: var(--nt-secondary);
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .title {
+        color: var(--nt-text);
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    // Content area styling
+    .content {
+        h2 {
+            margin-top: var(--nt-space-3);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        p,
+        ul,
+        ol {
+            margin-top: var(--nt-space-5);
+        }
+
+        // on desktop, make the first paragraph bold
+        @media (min-width: 768px) {
+            p:first-child {
+                font-weight: 600;
+            }
+        }
+
+        .box {
+            background-color: var(--nt-soft-info);
+            padding: var(--nt-space);
+            border-radius: var(--nt-border-radius);
+
+            ul {
+                li {
+                    list-style-type: square;
+                    margin-left: var(--nt-space);
+                    margin-bottom: var(--nt-space);
+                }
+            }
+        }
+
+        blockquote {
+            border-left: 4px solid var(--nt-primary);
+            color: var(--nt-dark);
+            padding-left: var(--nt-space);
+            font-style: italic;
+
+            p:not(:last-of-type) {
+                font-weight: 300;
+                font-size: 1.6rem;
+            }
+
+            p:last-child {
+                font-weight: 400;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    // Layout components
+    .main-column {
+        display: flex;
+        flex-direction: column;
+        gap: var(--nt-space);
+    }
+
+    .sidebar {
+        display: none;
+        flex-direction: column;
+        gap: var(--nt-space);
+    }
+
+    .image {
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--nt-border-radius);
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .related {
+        display: flex;
+        flex-direction: column;
+        gap: var(--nt-space);
+    }
+
+    // Navigation components
+    .nav {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin: 2.5rem 0 0 0;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: stretch;
+        }
+    }
+
+    .nav-card {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 0;
+        min-width: 260px;
+        max-width: 340px;
+        background: var(--nt-white);
+        border: 1.5px solid var(--nt-soft-info);
+        border-radius: 1.5rem;
+        box-shadow: 0 2px 8px rgba(31, 52, 85, 0.04);
+        padding: 1.1rem 1.2rem 1.2rem 1.2rem;
+        text-decoration: none;
+        color: var(--nt-text);
+        transition: box-shadow 0.15s, border-color 0.15s;
+
+        &:hover {
+            border-color: var(--nt-primary);
+            box-shadow: 0 4px 16px rgba(254, 102, 6, 0.1);
+        }
+
+        @media (max-width: 767px) {
+            max-width: 100%;
+            min-width: 0;
+        }
+    }
+
+    .nav-label {
+        font-size: 0.92rem;
+        color: var(--nt-secondary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+    }
+
+    .nav-arrow {
+        font-size: 1.1em;
+        color: var(--nt-primary);
+    }
+
+    .nav-title {
+        font-size: 1.13rem;
+        font-weight: 500;
+        color: var(--nt-text);
+        line-height: 1.3;
+        word-break: break-word;
+    }
+
+    // Desktop layout (768px and up)
+    @media (min-width: 768px) {
+        flex-direction: row;
+        gap: var(--nt-space-5);
+        align-items: flex-start;
+
+        // Main column takes 2/3 of the space
+        .main-column {
+            flex: 2;
+
+            // Hide sidebar elements in main column on desktop
+            .related {
+                display: none;
+            }
+        }
+
+        // Sidebar takes 1/3 of the space and is sticky
+        .sidebar {
+            display: flex;
+            flex: 1;
+            position: sticky;
+            top: var(--nt-space);
+            align-self: flex-start;
+            width: 340px;
+            min-width: 340px;
+            max-width: 340px;
+            box-sizing: border-box;
+        }
+    }
+}

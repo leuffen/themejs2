@@ -2,15 +2,15 @@
 layout: 3_3_1_content
 ---
 
-<div class="epraxis-blog-article">
+<div class="blog-article">
     <div class="main-column">
-        <div class="epraxis-post-image">
+        <div class="image">
             <img src="{{ page.image }}" alt="{{ page.title }}" />
         </div>
-        <article class="epraxis-post">
-            <h3 class="epraxis-small-title">— {{ page.subtitle }}</h3>
-            <h2 class="epraxis-blog-title">{{ page.title }}</h2>
-            <section class="epraxis-blog-content">
+        <article class="post">
+            <h3 class="small-title">— {{ page.subtitle }}</h3>
+            <h2 class="title">{{ page.title }}</h2>
+            <section class="content">
                 <!------ INCLUDES THE CONTENT  --------->
                 <tj-content-pane>
                     {{ content }}
@@ -22,7 +22,7 @@ layout: 3_3_1_content
         </div>
 
         <!-- Inlined post-related.html -->
-        <div class="epraxis-related-articles">
+        <div class="related">
           {% for slug in page.articles_related %}
             {% assign related_post = site.posts | where: "slug", slug | first %}
             {% if related_post %}
@@ -50,17 +50,17 @@ layout: 3_3_1_content
         {%- endif -%}
 
         {%- if prev_post or next_post -%}
-        <div class="epraxis-post-nav">
+        <div class="nav">
           {%- if prev_post -%}
-          <a class="epraxis-post-nav-card prev" href="{{ prev_post.url }}">
-            <div class="epraxis-post-nav-label"><span class="epraxis-post-nav-arrow">&#8592;</span> VORHERIGER ARTIKEL</div>
-            <div class="epraxis-post-nav-title">{{ prev_post.title }}</div>
+          <a class="nav-card prev" href="{{ prev_post.url }}">
+            <div class="nav-label"><span class="nav-arrow">&#8592;</span> VORHERIGER ARTIKEL</div>
+            <div class="nav-title">{{ prev_post.title }}</div>
           </a>
           {%- endif -%}
           {%- if next_post -%}
-          <a class="epraxis-post-nav-card next" href="{{ next_post.url }}">
-            <div class="epraxis-post-nav-label">NÄCHSTER ARTIKEL <span class="epraxis-post-nav-arrow">&#8594;</span></div>
-            <div class="epraxis-post-nav-title">{{ next_post.title }}</div>
+          <a class="nav-card next" href="{{ next_post.url }}">
+            <div class="nav-label">NÄCHSTER ARTIKEL <span class="nav-arrow">&#8594;</span></div>
+            <div class="nav-title">{{ next_post.title }}</div>
           </a>
           {%- endif -%}
         </div>
@@ -200,7 +200,7 @@ layout: 3_3_1_content
         </div>
 
         <!-- Inlined post-related.html (second instance) -->
-        <div class="epraxis-related-articles">
+        <div class="related">
           {% for slug in page.articles_related %}
             {% assign related_post = site.posts | where: "slug", slug | first %}
             {% if related_post %}
