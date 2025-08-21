@@ -74,7 +74,7 @@ layout: 3_3_1_content
                 <hr class="info-separator" />
                 <div class="mb-3">
                     <div class="info-headline">{{ page.title }}</div>
-                    <div class="fs-6 text-secondary mb-2" style="color: #6c757d;">
+                    <div class="info-meta">
                         <span>Autor:</span> <span>{{ page.author }}</span><br />
                         <span>Datum:</span> <span>{% if page.date %}{{ page.date | date: "%d.%m.%Y" }}{% endif %}</span>
                     </div>
@@ -150,37 +150,37 @@ layout: 3_3_1_content
         </div>
         <script>
         (function() {
-          // Find all post-info widgets
-          var widgets = document.querySelectorAll('.epraxis-post-info');
-          // Find the main content for word count (use first .epraxis-blog-content on page)
-          var content = document.querySelector('.epraxis-blog-content');
+          // Find the main content for word count (use .content class)
+          var content = document.querySelector('.content');
           var text = content ? (content.innerText || content.textContent || '') : '';
           var words = text.trim().split(/\s+/).length;
           var minutes = Math.max(1, Math.round(words / 200));
 
-          widgets.forEach(function(widget) {
-            // Reading time
-            var lesezeit = widget.querySelector('.epraxis-lesezeit');
-            if (lesezeit) {
-              lesezeit.textContent = 'ca. ' + minutes + ' Minuten';
-            }
-            // Collapsible logic
-            var collapsible = widget.querySelector('.epraxis-post-info-collapsible');
-            var toggleBtn = widget.querySelector('.epraxis-post-info-toggle');
-            var expanded = false;
-            function setCollapsed(state) {
-              expanded = state;
-              if (collapsible) collapsible.style.display = expanded ? 'block' : 'none';
-              if (toggleBtn) toggleBtn.textContent = expanded ? 'Weniger anzeigen' : 'Mehr anzeigen';
-            }
-            if (toggleBtn) {
-              toggleBtn.addEventListener('click', function() {
-                setCollapsed(!expanded);
-              });
-              setCollapsed(false);
-            }
-          });
-          // Scroll progress bar logic (sync all bars to page scroll)
+          // Update reading time
+          var lesezeit = document.querySelector('.epraxis-lesezeit');
+          if (lesezeit) {
+            lesezeit.textContent = 'ca. ' + minutes + ' Minuten';
+          }
+
+          // Collapsible logic for toggle button
+          var toggleBtn = document.querySelector('.epraxis-post-info-toggle');
+          var collapsible = document.querySelector('.assisted-by-ai-info');
+          var expanded = true; // Start expanded
+          
+          function setCollapsed(state) {
+            expanded = state;
+            if (collapsible) collapsible.style.display = expanded ? 'block' : 'none';
+            if (toggleBtn) toggleBtn.textContent = expanded ? 'Weniger anzeigen' : 'Mehr anzeigen';
+          }
+          
+          if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+              setCollapsed(!expanded);
+            });
+            setCollapsed(true); // Start expanded
+          }
+
+          // Scroll progress bar logic
           var bars = document.querySelectorAll('.epraxis-post-info-progressbar');
           function updateProgressBar() {
             var scrollTop = window.scrollY;
