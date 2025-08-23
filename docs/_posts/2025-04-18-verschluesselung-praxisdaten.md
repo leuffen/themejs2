@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "Verschlüsselung von Praxisdaten."
 subtitle: "Sichere Übertragung und Speicherung sensibler Patientendaten"
 description: "Wie Hausärzt:innen ihre Patientendaten durch Verschlüsselung vor unbefugtem Zugriff schützen können."

@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 
 title: "SMS-Kommunikation in der Hausarztpraxis"
 subtitle: "Schneller mit Patient:innen kommunizieren mit moderner Infrastruktur"

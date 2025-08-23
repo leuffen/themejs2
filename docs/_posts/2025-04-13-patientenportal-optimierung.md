@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "Patientenportal optimal nutzen"
 subtitle: "Digitale Selbstverwaltung für mehr Patientenzufriedenheit"
 description: "Wie Hausärzt:innen Patientenportale zur Entlastung des Praxisteams und Verbesserung der Patientenversorgung einsetzen können."

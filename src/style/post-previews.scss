@@ -1,0 +1,30 @@
+// Post Previews Grid Component Styles  
+// Used by: docs/_includes/el/post-previews.html
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--nt-space);
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+    align-items: stretch;
+
+    // Desktop layout - 2 columns
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--nt-space-2);
+        align-items: stretch;
+    }
+}
+
+.post-card.highlighted {
+    @media (min-width: 768px) {
+        grid-row: span 2;
+    }
+}
+
+.post-card.wide {
+    @media (min-width: 768px) {
+        grid-column: 1 / -1;
+    }
+}

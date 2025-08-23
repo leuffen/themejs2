@@ -1,7 +1,7 @@
 # Blog Post Metadata Documentation
 
 ## Required Fields
-- `layout`: Template to use (`epraxis/blog`)
+- `layout`: Template to use (`blog-article-epraxis`)
 - `title`
 - `subtitle`: Secondary title/description
 - `description`: Meta description for SEO

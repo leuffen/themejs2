@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "Terminbuchung in der Praxis optimieren"
 subtitle: "Effiziente Terminvergabe für mehr Patientenzufriedenheit"
 description: "Wie Hausärzt:innen ihre Terminbuchung digitalisieren und optimieren können für bessere Praxisabläufe."

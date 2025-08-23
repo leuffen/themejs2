@@ -4,526 +4,150 @@
 @use "@nextrap/style-typography";
 @use "@nextrap/style-button";
 @use "../style/table";
+@use "../style/generic-blog-styles";
+@use "../style/assisted-by-ai-info";
+@use "../style/post-preview";
+@use "../style/post-previews";
 
-body.theme-epraxis {
-    // Theme specific variables
 
 
+// TODO: Remove this once we have a styled header
+// and it actually looks nice
+nav,
+footer {
+    display: none;
+}
 
-    // TODO: Remove this once we have a styled header
-    // and it actually looks nice
-    nav,
-    footer {
-        display: none;
-    }
+// TODO: Remove — this is just for elements like the share box
+// that are not yet components
+.placeholder-box {
+    padding: var(--nt-space);
+    border: 1px solid var(--nt-secondary);
+    border-radius: var(--nt-border-radius);
+    margin-bottom: var(--nt-space);
+}
 
-    // TODO: Remove — this is just for elements like the share box
-    // that are not yet components
-    .placeholder-box {
-        padding: var(--nt-space);
-        border: 1px solid var(--nt-secondary);
-        border-radius: var(--nt-border-radius);
-        margin-bottom: var(--nt-space);
-    }
+// ----------------------- EPRAXIS THEME-SPECIFIC STYLES ----------------------- //
 
-    // ----------------------- SHARED/THEME-WIDE ----------------------- //
+.blog-article {
 
-    .epraxis-small-title {
-        color: var(--nt-primary);
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
-    // ----------------------- BLOG ----------------------- //
-
-    .epraxis-blog-subtitle {
-        color: var(--nt-secondary);
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
-    // Hier Variablen für den Blog-Inhalt definieren
-    .epraxis-blog-content {
-        h2 {
-            margin-top: var(--nt-space-3);
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        p,
-        ul,
-        ol {
-            margin-top: var(--nt-space-5);
-        }
-
-        // on desktop, make the first paragraph bold
-        @media (min-width: 768px) {
-            p:first-child {
-                font-weight: 600;
-            }
-        }
-
-        .box {
-            background-color: var(--nt-soft-info);
-            padding: var(--nt-space);
-            border-radius: var(--nt-border-radius);
-
-            ul {
-                li {
-                    list-style-type: square;
-                    margin-left: var(--nt-space);
-                    margin-bottom: var(--nt-space);
-                }
-            }
-        }
-
-        blockquote {
-            border-left: 4px solid var(--nt-primary);
-            color: var(-nt-dark);
-            padding-left: var(--nt-space);
-            font-style: italic;
-
-            p:not(:last-of-type) {
-                font-weight: 300;
-                font-size: 1.6rem;
-            }
-
-            p:last-child {
-                font-weight: 400;
-                font-size: 1rem;
-            }
-        }
-    }
-
-    // ----------------------- BLOG LAYOUT ----------------------- //
-
-    // Main blog container
-    #epraxis-blog {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: var(--nt-space);
-        display: flex;
-        flex-direction: column;
-        gap: var(--nt-space);
-    }
-
-    // Main column - contains all elements in mobile, only img and content in desktop
-    .main-column {
-        display: flex;
-        flex-direction: column;
-        gap: var(--nt-space);
-    }
-
-    // Sidebar - hidden on mobile, visible on desktop
-    .sidebar {
-        display: none;
-        flex-direction: column;
-        gap: var(--nt-space);
-    }
-
-    .epraxis-related-articles {
-        display: flex;
-        flex-direction: column;
-        gap: var(--nt-space);
-    }
-
-    .epraxis-post-image {
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            object-fit: cover;
-            display: block;
-        }
-    }
-
-    // Desktop layout (768px and up)
-    @media (min-width: 768px) {
-        #epraxis-blog {
-            flex-direction: row;
-            gap: var(--nt-space-5);
-            align-items: flex-start;
-        }
-
-        // Main column takes 2/3 of the space
-        .main-column {
-            flex: 2;
-
-            // Hide sidebar elements in main column on desktop
-            .epraxis-post-info,
-            #epraxis-share,
-            .epraxis-related-articles {
-                display: none;
-            }
-        }
-
-        // Sidebar takes 1/3 of the space and is sticky
-        .sidebar {
-            display: flex;
-            flex: 1;
-            position: sticky;
-            top: var(--nt-space);
-            align-self: flex-start;
-            width: 340px;
-            min-width: 340px;
-            max-width: 340px;
-            box-sizing: border-box;
-        }
-    }
-
-    .epraxis-post-info {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    // ----------------------- INCLUDES ----------------------- //
-    // ----------------------- post.html ----------------------- //
-
-    .epraxis-post-include {
-        background-color: var(--nt-soft-info);
-        padding: var(--nt-space);
-        border-radius: 0.5rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .epraxis-post-include-header {
-        margin-bottom: var(--nt-space);
-    }
-
-    .epraxis-post-include-image {
-        margin-bottom: var(--nt-space);
-    }
-
-    .epraxis-title-mini {
-        font-size: 1.1rem;
-        font-weight: 500;
-    }
-
-    // ----------------------- posts.html ----------------------- //
-
-    .epraxis-posts {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: var(--nt-space);
-        max-width: var(--nt-container-width);
-        margin: 0 auto;
-        align-items: stretch;
-    }
-
-    // Desktop layout - 2 columns
-    @media (min-width: 768px) {
-        .epraxis-posts {
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--nt-space-2);
-            align-items: stretch;
-        }
-        .epraxis-post-include.highlighted_post {
-            grid-row: span 2;
-        }
-
-        .epraxis-post-include.wide_post {
-            grid-column: 1 / -1;
-        }
-    }
-
-    // Highlighted (tall) post: show image as normal, image covers container
-    .epraxis-post-include.highlighted_post {
-        position: relative;
-        background: var(--nt-soft-info); // fallback
-        height: 100%;
-        min-height: 300px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        .epraxis-post-include-image {
-            display: block;
-            width: 100%;
-            height: 100%;
-            max-height: 320px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
-
-        .epraxis-post-include-subtitle,
-        .epraxis-post-include-title,
-        .epraxis-post-include-excerpt {
-            position: static;
-            color: var(--nt-text);
-            text-shadow: none;
-        }
-    }
-
-    // Not highlighted (small) posts: use image as background, cover widget
-    .epraxis-post-include.not_highlighted_post {
-        position: relative;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        min-height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        // Hide the <img> and the excerpt
-        .epraxis-post-include-image,
-        .epraxis-post-include-excerpt {
-            display: none;
-        }
-
-        // Overlay for darkening the image
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                    180deg,
-                    rgba(31, 52, 85, 0.5) 0%,
-                    rgba(31, 52, 85, 0.7) 100%
-            );
-            z-index: 1;
-            border-radius: 0.5rem;
-        }
-
-        // Text overlay
-        .epraxis-post-include-header {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            margin-left: 1.2rem;
-            margin-right: 1.2rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-        }
-    }
-
-    // ----------------------- post-info.html ----------------------- //
-
-    .epraxis-post-info {
+    .info {
         background: var(--nt-soft-info);
-        border-radius: 1.2rem;
-        padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+        border-radius: var(--nt-border-radius-lg);
+        padding: var(--nt-space-4) var(--nt-space-3) var(--nt-space-3) var(--nt-space-3);
         box-shadow: 0 2px 8px rgba(31, 52, 85, 0.06);
         font-family: var(--nt-font-family-base);
         color: var(--nt-text);
         margin-bottom: var(--nt-space);
-        font-size: 1rem;
+        font-size: var(--nt-font-size-base);
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .epraxis-post-info-header {
-        margin-bottom: 1.2rem;
+    .info-separator {
+        border-color: var(--nt-light);
+        margin: var(--nt-space-2) 0;
     }
 
-    .epraxis-post-info-title {
+    .info-header {
+        margin-bottom: var(--nt-space-3);
+    }
+
+    .info-title {
         font-weight: 700;
-        font-size: 0.95rem;
+        font-size: var(--nt-font-size-small);
         color: var(--nt-secondary);
         letter-spacing: 0.02em;
         text-transform: uppercase;
-        margin-bottom: 0.2rem;
+        margin-bottom: var(--nt-space-1);
     }
 
-    .epraxis-post-info-main {
-        margin-bottom: 1.2rem;
+    .info-main {
+        margin-bottom: var(--nt-space-3);
     }
 
-    .epraxis-post-info-headline {
-        font-size: 1.15rem;
+    .info-headline {
+        font-size: var(--nt-fs-3);
         font-weight: 600;
-        color: var(--nt-dark);
-        margin-bottom: 0.3rem;
+        color: var(--nt-primary);
+        margin-bottom: var(--nt-space-1);
     }
 
-    .epraxis-post-info-meta {
-        font-size: 0.95rem;
+    .info-meta {
+        font-size: var(--nt-font-size-small);
         color: var(--nt-secondary);
-        margin-bottom: 0.7rem;
+        margin-bottom: var(--nt-space-2);
     }
 
-    .epraxis-post-info-lesezeit {
-        font-size: 0.98rem;
-        margin-bottom: 0.7rem;
+    .info-lesezeit {
+        font-size: var(--nt-font-size-base);
+        color: var(--nt-text);
+        margin-bottom: var(--nt-space-2);
     }
 
-    .epraxis-post-info-progressbar-bg {
+    .info-progressbar-bg {
         background: var(--nt-light);
-        border-radius: 0.5rem;
-        height: 0.7rem;
+        border-radius: var(--nt-border-radius);
+        height: var(--nt-space-2);
         width: 100%;
-        margin-top: 0.3rem;
-        margin-bottom: 0.5rem;
+        margin-top: var(--nt-space-1);
+        margin-bottom: var(--nt-space-2);
         overflow: hidden;
-        border: 1px solid var(--nt-soft-info);
+        border: 1px solid var(--nt-info);
     }
 
-    .epraxis-post-info-progressbar {
+    .info-progressbar {
         background: var(--nt-primary);
         height: 100%;
         width: 0%;
-        border-radius: 0.5rem;
+        border-radius: var(--nt-border-radius);
         transition: width 0.2s;
     }
 
-    .epraxis-post-info-collapsible {
-        margin-bottom: 1.1rem;
+    .info-collapsible {
+        margin-bottom: var(--nt-space-3);
     }
 
-    .epraxis-post-info-ai {
-        margin-bottom: 1.1rem;
-    }
 
-    .epraxis-post-info-ai-title {
-        font-size: 0.98rem;
+    .tags-title {
+        font-size: var(--nt-font-size-small);
         color: var(--nt-secondary);
-        margin-bottom: 0.5rem;
+        margin-bottom: var(--nt-space-1);
     }
 
-    .epraxis-post-info-ai-cards {
-        display: flex;
-        gap: 0.7rem;
-        margin-bottom: 0.7rem;
-    }
-
-    .epraxis-post-info-ai-card {
-        background: var(--nt-white);
-        border-radius: 0.7rem;
-        box-shadow: 0 1px 4px rgba(31, 52, 85, 0.07);
-        padding: 0.7rem 0.9rem;
-        flex: 1 1 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 0;
-    }
-
-    .epraxis-post-info-ai-icon {
-        font-size: 1.7rem;
-        margin-bottom: 0.2rem;
-    }
-
-    .epraxis-post-info-ai-label {
-        font-size: 0.93rem;
-        color: var(--nt-secondary);
-        margin-bottom: 0.1rem;
-    }
-
-    .epraxis-post-info-ai-value {
-        font-size: 0.98rem;
-        font-weight: 500;
-        text-align: center;
-    }
-
-    .epraxis-post-info-tags-title {
-        font-size: 0.98rem;
-        color: var(--nt-secondary);
-        margin-bottom: 0.3rem;
-    }
-
-    .epraxis-post-info-tags-list {
+    .tags-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: var(--nt-space-2);
     }
 
-    .epraxis-post-info-tag {
+    .tag {
         background: var(--nt-white);
         color: var(--nt-primary);
         border: 1px solid var(--nt-primary);
-        border-radius: 2rem;
-        padding: 0.2rem 1.1rem;
-        font-size: 0.95rem;
+        border-radius: var(--nt-border-radius-pill);
+        padding: var(--nt-space-1) var(--nt-space-3);
+        font-size: var(--nt-font-size-small);
         font-weight: 500;
-        margin-bottom: 0.2rem;
+        margin-bottom: var(--nt-space-1);
         display: inline-block;
     }
 
-    .epraxis-post-info-toggle {
+    .toggle {
         background: none;
         border: none;
         color: var(--nt-primary);
-        font-size: 1rem;
+        font-size: var(--nt-font-size-base);
         font-weight: 600;
         cursor: pointer;
-        padding: 0.2rem 0.5rem;
-        border-radius: 0.5rem;
+        padding: var(--nt-space-1) var(--nt-space-2);
+        border-radius: var(--nt-border-radius);
         transition: background 0.15s;
     }
 
-    .epraxis-post-info-toggle:hover {
+    .toggle:hover {
         background: var(--nt-accent);
         color: var(--nt-white);
     }
 
-    // ----------------------- post-next-prev-nav.html ----------------------- //
-
-    .epraxis-post-nav {
-        display: flex;
-        gap: 2rem;
-        justify-content: center;
-        margin: 2.5rem 0 0 0;
-    }
-
-    .epraxis-post-nav-card {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 0;
-        min-width: 260px;
-        max-width: 340px;
-        background: var(--nt-white);
-        border: 1.5px solid var(--nt-soft-info);
-        border-radius: 1.5rem;
-        box-shadow: 0 2px 8px rgba(31, 52, 85, 0.04);
-        padding: 1.1rem 1.2rem 1.2rem 1.2rem;
-        text-decoration: none;
-        color: var(--nt-text);
-        transition: box-shadow 0.15s,
-        border-color 0.15s;
-    }
-
-    .epraxis-post-nav-card:hover {
-        border-color: var(--nt-primary);
-        box-shadow: 0 4px 16px rgba(254, 102, 6, 0.1);
-    }
-
-    .epraxis-post-nav-label {
-        font-size: 0.92rem;
-        color: var(--nt-secondary);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.3em;
-    }
-
-    .epraxis-post-nav-arrow {
-        font-size: 1.1em;
-        color: var(--nt-primary);
-    }
-
-    .epraxis-post-nav-title {
-        font-size: 1.13rem;
-        font-weight: 500;
-        color: var(--nt-text);
-        line-height: 1.3;
-        word-break: break-word;
-    }
-
-    @media (max-width: 767px) {
-        .epraxis-post-nav {
-            flex-direction: column;
-            gap: 1.2rem;
-            align-items: stretch;
-        }
-        .epraxis-post-nav-card {
-            max-width: 100%;
-            min-width: 0;
-        }
-    }
 }

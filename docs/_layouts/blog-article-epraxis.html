@@ -1,0 +1,216 @@
+---
+layout: 3_3_1_content
+---
+
+<div class="blog-article">
+    <div class="main-column">
+        <div class="image">
+            <img src="{{ page.image }}" alt="{{ page.title }}" />
+        </div>
+        <article class="post">
+            <h3 class="small-title">— {{ page.subtitle }}</h3>
+            <h2 class="title">{{ page.title }}</h2>
+            <section class="content">
+                <!------ INCLUDES THE CONTENT  --------->
+                <tj-content-pane>
+                    {{ content }}
+                </tj-content-pane>
+            </section>
+        </article>
+        <div id="epraxis-share" class="placeholder-box">
+            <p>Artikel teilen</p>
+        </div>
+
+        <!-- Inlined post-related.html -->
+        <div class="related">
+          {% for slug in page.articles_related %}
+            {% assign related_post = site.posts | where: "slug", slug | first %}
+            {% if related_post %}
+              {% include el/post-preview.html slug=slug is_mini=true %}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- Inlined post-next-prev-nav.html -->
+        {% assign prev_post = nil %}
+        {% assign next_post = nil %}
+
+        {%- if page.article_previous -%}
+          {% assign prev_post = site.posts | where: "slug", page.article_previous | first %}
+        {%- endif -%}
+        {%- if prev_post == nil and page.previous -%}
+          {% assign prev_post = page.previous %}
+        {%- endif -%}
+
+        {%- if page.article_next -%}
+          {% assign next_post = site.posts | where: "slug", page.article_next | first %}
+        {%- endif -%}
+        {%- if next_post == nil and page.next -%}
+          {% assign next_post = page.next %}
+        {%- endif -%}
+
+        {%- if prev_post or next_post -%}
+        <div class="nav">
+          {%- if prev_post -%}
+          <a class="nav-card prev" href="{{ prev_post.url }}">
+            <div class="nav-label"><span class="nav-arrow">&#8592;</span> VORHERIGER ARTIKEL</div>
+            <div class="nav-title">{{ prev_post.title }}</div>
+          </a>
+          {%- endif -%}
+          {%- if next_post -%}
+          <a class="nav-card next" href="{{ next_post.url }}">
+            <div class="nav-label">NÄCHSTER ARTIKEL <span class="nav-arrow">&#8594;</span></div>
+            <div class="nav-title">{{ next_post.title }}</div>
+          </a>
+          {%- endif -%}
+        </div>
+        {%- endif -%}
+    </div>
+    <aside class="sidebar">
+        <!-- Inlined post-info2.html -->
+        <div class="info">
+            <div class="mb-3">
+                <div class="info-title">INFOS ZUM ARTIKEL</div>
+                <hr class="info-separator" />
+                <div class="mb-3">
+                    <div class="info-headline">{{ page.title }}</div>
+                    <div class="info-meta">
+                        <span>Autor:</span> <span>{{ page.author }}</span><br />
+                        <span>Datum:</span> <span>{% if page.date %}{{ page.date | date: "%d.%m.%Y" }}{% endif %}</span>
+                    </div>
+                    <div class="info-lesezeit">
+                        Lesezeit: <span class="epraxis-lesezeit">ca. 0 Minuten</span>
+                        <div class="info-progressbar-bg">
+                            <div class="info-progressbar epraxis-post-info-progressbar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="assisted-by-ai-info">
+                    <div class="ai-header">
+                        <div class="ai-title">Dieser Artikel wurde mit Hilfe von Künstlicher Intelligenz (KI) erstellt:</div>
+                        <div class="ai-info-icon">ⓘ</div>
+                    </div>
+                    <div class="ai-cards">
+                        <div class="ai-card">
+                            <div class="ai-icon">
+                                {% if page.researched-by == "human" %}
+                                    <img src="/assets/human.svg" alt="Human" />
+                                {% elsif page.researched-by == "shared" %}
+                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                {% else %}
+                                    <img src="/assets/robot.svg" alt="Robot" />
+                                {% endif %}
+                            </div>
+                            <div class="ai-label">Recherche:</div>
+                            <div class="ai-value">
+                                {% if page.researched-by == "human" %}100% Mensch{% elsif page.researched-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                            </div>
+                        </div>
+                        <div class="ai-card">
+                            <div class="ai-icon">
+                                {% if page.written-by == "human" %}
+                                    <img src="/assets/human.svg" alt="Human" />
+                                {% elsif page.written-by == "shared" %}
+                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                {% else %}
+                                    <img src="/assets/robot.svg" alt="Robot" />
+                                {% endif %}
+                            </div>
+                            <div class="ai-label">Schreiben:</div>
+                            <div class="ai-value">
+                                {% if page.written-by == "human" %}50% Mensch<br>50% KI{% elsif page.written-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                            </div>
+                        </div>
+                        <div class="ai-card">
+                            <div class="ai-icon">
+                                {% if page.formatted-by == "human" %}
+                                    <img src="/assets/human.svg" alt="Human" />
+                                {% elsif page.formatted-by == "shared" %}
+                                    <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                {% else %}
+                                    <img src="/assets/robot.svg" alt="Robot" />
+                                {% endif %}
+                            </div>
+                            <div class="ai-label">Formatierung:</div>
+                            <div class="ai-value">
+                                {% if page.formatted-by == "human" %}100% Mensch{% elsif page.formatted-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tags-title">Relevante Begriffe im Artikel:</div>
+                    <div class="tags-list">
+                        {% for tag in page.keywords %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <button class="toggle epraxis-post-info-toggle" type="button">Weniger anzeigen</button>
+        </div>
+        <script>
+        (function() {
+          // Find the main content for word count (use .content class)
+          var content = document.querySelector('.content');
+          var text = content ? (content.innerText || content.textContent || '') : '';
+          var words = text.trim().split(/\s+/).length;
+          var minutes = Math.max(1, Math.round(words / 200));
+
+          // Update reading time
+          var lesezeit = document.querySelector('.epraxis-lesezeit');
+          if (lesezeit) {
+            lesezeit.textContent = 'ca. ' + minutes + ' Minuten';
+          }
+
+          // Collapsible logic for toggle button
+          var toggleBtn = document.querySelector('.epraxis-post-info-toggle');
+          var collapsible = document.querySelector('.assisted-by-ai-info');
+          var expanded = true; // Start expanded
+          
+          function setCollapsed(state) {
+            expanded = state;
+            if (collapsible) collapsible.style.display = expanded ? 'block' : 'none';
+            if (toggleBtn) toggleBtn.textContent = expanded ? 'Weniger anzeigen' : 'Mehr anzeigen';
+          }
+          
+          if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+              setCollapsed(!expanded);
+            });
+            setCollapsed(true); // Start expanded
+          }
+
+          // Scroll progress bar logic
+          var bars = document.querySelectorAll('.epraxis-post-info-progressbar');
+          function updateProgressBar() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            bars.forEach(function(bar) {
+              bar.style.width = percent + '%';
+            });
+          }
+          window.addEventListener('scroll', updateProgressBar);
+          updateProgressBar();
+        })();
+        </script>
+
+        <div id="epraxis-share-sidebar" class="placeholder-box">
+            <p>Artikel teilen</p>
+        </div>
+
+        <!-- Inlined post-related.html (second instance) -->
+        <div class="related">
+          {% for slug in page.articles_related %}
+            {% assign related_post = site.posts | where: "slug", slug | first %}
+            {% if related_post %}
+              {% include el/post-preview.html slug=slug is_mini=true %}
+            {% endif %}
+          {% endfor %}
+        </div>
+    </aside>
+</div>
+

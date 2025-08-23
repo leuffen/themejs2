@@ -1,5 +1,5 @@
 ---
-layout: epraxis/blog
+layout: blog-article-epraxis
 title: "Datenschutzbeauftragter in der Hausarztpraxis"
 subtitle: "Wann ist ein DSB verpflichtend und wie wird er eingebunden?"
 description: "Alles über die Pflichten und Aufgaben eines Datenschutzbeauftragten in der medizinischen Praxis."
