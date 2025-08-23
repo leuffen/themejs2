@@ -1,6 +1,7 @@
 # themejs2
 
-![demo screenshot](/doc/img/demo.png)
+- [Jekyll Includes Doc](README_INCLUDES.md)
+- [Best Practices](BEST_PRACTICE.md)
 
 ## Build on:
 
