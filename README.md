@@ -40,9 +40,9 @@ kick dev
 
 > Kunde: Ich möchte auf allen Blog-Seiten unter der Infotext den Hintergrund blau haben!
 > 
-> Designer mit zu viel Zeit: Klar, ich füge eine Klasse `info-box-blog` hinzu und setze den Hintergrund auf blau.
+> Bisher: Klar, ich füge eine Klasse `info-box-blog` hinzu und setze den Hintergrund auf blau.
 > 
-> Designer mit wenig Zeit: Ich ängere das drekt in der `_layout/blog.html` Datei.
+> Wir wollen dahin: Ich ängere das drekt in der `_layout/blog.html` Datei.
 
 In order to keep the CSS small and maintainable, we do not allow legacy CSS in this project. This means:
 
