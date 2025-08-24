@@ -13,43 +13,54 @@ layout: 2_script
         {% include el/navbar.html ptag="nav" %}
     </ul>
 </nav-->
+<nte-navbar class="fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 125px;">
+    <nte-navbar-line style="--brand-height: 64px">
 
 
-<nav layout="use: #navbar-switch1">
 
-    <div class="brand" style="margin-right: 20px;z-index: 0">
-        <a href="/">
-            <!--img src="/assets/logo256.svg" alt="{{ site.data.general.logoalt }}" height="64" class="p-1 loader-image" style="float:left"-->
-            <div style="font-size: 1.1em;float:right" class="m-2 text-black">
-                <div style="font-size: 1.1em">{{ site.data.general.fachrichtung}}</div>
-                <div style="font-size: 1.6em">{{ site.data.general.logoalt }}</div>
-            </div>
+       <a slot="brand" href="/">
+            <img
+                src="/assets/epraxis-digital-logo.svg"
+                alt="{{ site.data.general.logoalt }}"
+                height="34"
+                class="p-3 loader-image"
+                style="float: left"
+            />
+            <!-- div style="font-size: 1.1em; float: right" class="m-2 text-black">
+              <div style="font-size: 1.6em">{{ site.data.general.logoalt }}</div>
+              <div style="font-size: 1.1em">{{ site.data.general.fachrichtung}}</div>
+            </div-->
         </a>
-    </div>
-    <!-- Brand mit Überhöhe -->
-    <!--div class="brand position-absolute" style="margin-right: 20px;top:20px; z-index: 0;">
-        <a href="/">
-            <img src="/assets/logo128t.svg" alt="{{ site.data.general.logoalt }}" height="135" class="p-1" style="float:left;margin-top: -15px">
 
-        </a>
-    </div-->
+        <nte-nav
+            class="nav-horizontal"
+            mode="master"
+            data-group-name="nav1"
+            breakpoint="600px"
+            transfer-to="#navSidebar"
+            style="--text-color: blue"
+        >
+            <span slot="menu-text">Menü</span>
+            <ul>
+                {% include el/navbar.html ptag="nav" %}
+            </ul>
+        </nte-nav>
+    </nte-navbar-line>
+</nte-navbar>
 
-    <ul class="navbar-top">
-        <li>
-            <a href="/kontakt" aria-label="Anschrift"><i class="bi bi-geo-alt-fill text-primary"></i><span class=":: d-none :xl:"> {{ site.data.general.street }}, {{ site.data.general.city }}</span></a>
-        </li>
-        <li>
-            <a href="tel:{{site.data.general.phone1 }}" aria-label="Telefonnummer - jetzt anrufen"><i class="bi bi-phone-fill text-primary"></i><span class=":: d-none :xl:"> {{ site.data.general.phone1_text }}</span></a>
-        </li>
-        <li>
-            <a href="{% if site.data.general.termin_url %}{{site.data.general.termin_url}}{% else %}/online-termin{% endif %}" target="_blank" aria-label="Termin vereinbaren"><i class="bi bi-calendar-check-fill text-primary"></i><span class=":: d-none :xl:"> Termin vereinbaren</span></a>
-        </li>
-    </ul>
 
-    <ul class="navbar-main">
-        {% include el/navbar.html ptag="nav" %}
-    </ul>
-</nav>
+
+<nte-offcanvas id="navSidebar" data-group-name="nav1">
+    <nte-burger
+        slot="header"
+        data-nt-dismiss="offcanvas"
+        data-group-name="nav1"
+        onclick="this.open = false"
+    ></nte-burger>
+    <!--nte-nav class="nav-vertical"></nte-nav-->
+    <nte-nav slot="footer" class="nav-horizontal pos-stretch" style="width: 100%">
+    </nte-nav>
+</nte-offcanvas>
 
 
 {{ content }}

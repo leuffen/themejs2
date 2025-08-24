@@ -25,7 +25,7 @@
     "*.md"
   ],
   "workspaces": [
-
+    "workspaces/nextrap-monorepo/nextrap-base/style-utils"
   ],
   "author": "",
   "dependencies": {
@@ -34,6 +34,8 @@
     "@nextrap/style-typography": "^1.0.0",
     "@nextrap/style-utils": "^1.0.0",
     "@nextrap/style-button": "^0.0.6",
+
+    "@nextrap/nte-nav": "^1.0.0",
 
     "@trunkjs/responsive": "^1.0.0",
     "@trunkjs/content-pane": "^1.0.0",

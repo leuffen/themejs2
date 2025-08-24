@@ -1,0 +1,102 @@
+---
+layout: 3_3_1_content
+---
+
+<div class="container">
+    <div class="row gx-2">
+        <div class="-xl:col-12 xl:col-8">
+            <main>
+                {{ content }}
+            </main>
+        </div>
+        <div class="-xl:col-12 xl:col-4">
+            <aside class="bg-light p-3 rounded-3 border border-1 border-primary" style="position: sticky; top: 2rem;">
+                <!-- Inlined post-info2.html -->
+                <div class="info">
+                    <div class="mb-3">
+                        <div class="">INFOS ZUM ARTIKEL</div>
+                        <hr class="" />
+                        <div class="mb-3">
+                            <div class="">{{ page.title }}</div>
+                            <div class="">
+                                <span>Autor:</span> <span>{{ page.author }}</span><br />
+                                <span>Datum:</span> <span>{% if page.date %}{{ page.date | date: "%d.%m.%Y" }}{% endif %}</span>
+                            </div>
+                            <div class="">
+                                Lesezeit: <span class="">ca. 0 Minuten</span>
+                                <div class="info-progressbar-bg">
+                                    <div class="info-progressbar epraxis-post-info-progressbar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="">
+                            <div class="">
+                                <div class="">Dieser Artikel wurde mit Hilfe von Künstlicher Intelligenz (KI) erstellt:</div>
+                                <div class="">ⓘ</div>
+                            </div>
+                            <div class="row row-cols-3">
+                                <div class="">
+                                    <div class="">
+                                        {% if page.researched-by == "human" %}
+                                        <img src="/assets/human.svg" alt="Human" />
+                                        {% elsif page.researched-by == "shared" %}
+                                        <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                        {% else %}
+                                        <img src="/assets/robot.svg" alt="Robot" />
+                                        {% endif %}
+                                    </div>
+                                    <div class="ai-label">Recherche:</div>
+                                    <div class="ai-value">
+                                        {% if page.researched-by == "human" %}100% Mensch{% elsif page.researched-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                                    </div>
+                                </div>
+                                <div class="ai-card">
+                                    <div class="ai-icon">
+                                        {% if page.written-by == "human" %}
+                                        <img src="/assets/human.svg" alt="Human" />
+                                        {% elsif page.written-by == "shared" %}
+                                        <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                        {% else %}
+                                        <img src="/assets/robot.svg" alt="Robot" />
+                                        {% endif %}
+                                    </div>
+                                    <div class="ai-label">Schreiben:</div>
+                                    <div class="ai-value">
+                                        {% if page.written-by == "human" %}50% Mensch<br>50% KI{% elsif page.written-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                                    </div>
+                                </div>
+                                <div class="ai-card">
+                                    <div class="ai-icon">
+                                        {% if page.formatted-by == "human" %}
+                                        <img src="/assets/human.svg" alt="Human" />
+                                        {% elsif page.formatted-by == "shared" %}
+                                        <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                        {% else %}
+                                        <img src="/assets/robot.svg" alt="Robot" />
+                                        {% endif %}
+                                    </div>
+                                    <div class="ai-label">Formatierung:</div>
+                                    <div class="ai-value">
+                                        {% if page.formatted-by == "human" %}100% Mensch{% elsif page.formatted-by == "shared" %}50% Mensch<br>50% KI{% else %}100% KI{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tags-title">Relevante Begriffe im Artikel:</div>
+                            <div class="tags-list">
+                                {% for tag in page.keywords %}
+                                <span class="tag">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <button class="toggle epraxis-post-info-toggle" type="button">Weniger anzeigen</button>
+                </div>
+        </div>
+    </div>
+
+
+</div>

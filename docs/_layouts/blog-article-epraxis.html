@@ -2,7 +2,10 @@
 layout: 3_3_1_content
 ---
 
-<div class="blog-article">
+
+<!-- Eresetzen durch _layouts/page/blog-epraxis.html -->
+
+<div class="blog-article" style="width: var(--nt-container-width);">
     <div class="main-column">
         <div class="image">
             <img src="{{ page.image }}" alt="{{ page.title }}" />
@@ -169,13 +172,13 @@ layout: 3_3_1_content
           var toggleBtn = document.querySelector('.epraxis-post-info-toggle');
           var collapsible = document.querySelector('.assisted-by-ai-info');
           var expanded = true; // Start expanded
-          
+
           function setCollapsed(state) {
             expanded = state;
             if (collapsible) collapsible.style.display = expanded ? 'block' : 'none';
             if (toggleBtn) toggleBtn.textContent = expanded ? 'Weniger anzeigen' : 'Mehr anzeigen';
           }
-          
+
           if (toggleBtn) {
             toggleBtn.addEventListener('click', function() {
               setCollapsed(!expanded);
