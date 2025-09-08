@@ -2,8 +2,11 @@
 layout: 3_3_1_content
 ---
 
-<joda-split class="{{ page.layout }}">
-    {{ content }}
-</joda-split>
+<!-- Prose class from nextrap/style-typography -->
+<div class="prose">
+    <tj-content-pane class="{{ page.layout }} prose">
+        {{ content }}
+    </tj-content-pane>
+</div>
 
 
