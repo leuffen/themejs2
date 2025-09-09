@@ -24,32 +24,32 @@
     "*.js",
     "*.md"
   ],
-  "workspaces": [
+  "workspaces--": [
     "workspaces/nextrap-monorepo/nextrap-base/style-*"
   ],
   "author": "",
   "dependencies": {
+    "@nextrap/nte-nav": "^1.0.0",
     "@nextrap/style-base": "^1.1.8",
+    "@nextrap/style-button": "^0.0.6",
     "@nextrap/style-reset": "^0.1.1",
     "@nextrap/style-typography": "^1.0.0",
     "@nextrap/style-utils": "^1.0.0",
-    "@nextrap/style-button": "^0.0.6",
-
-    "@nextrap/nte-nav": "^1.0.0",
-
-    "@trunkjs/responsive": "^1.0.0",
     "@trunkjs/content-pane": "^1.0.0",
+    "@trunkjs/responsive": "^1.0.0"
+
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "jsdom": "^26.0.0",
     "sass": "^1.89.2",
     "vite": "^6.1.0",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.5"
   },
   "scripts": {
     "make.mjs": "tsc -d",
     "build": "npm run make.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "@types/jsdom": "^21.1.7",
-    "jsdom": "^26.0.0"
   }
 }

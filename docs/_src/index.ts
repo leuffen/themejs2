@@ -1,5 +1,5 @@
 import  "./style.scss";
 
 
-import "../../src/index";
+import "@leuffen/themejs2";
 

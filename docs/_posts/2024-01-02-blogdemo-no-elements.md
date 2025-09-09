@@ -7,7 +7,7 @@ description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam G
   und Naturheilverfahren. \U0001F33F"
 image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
 keywords: ~
-layout: blog-article-epraxis
+layout: page/blog-epraxis
 order: 0
 ptags:
 - nav
@@ -47,7 +47,7 @@ Grundsätzlich sind alle Praxen, die eine Website haben verpflichtet, den Anford
 
 
 ## Wie gelingt die Umsetzung?
-{: layout=".box"}
+{: layout="section.box"}
 
 Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Sie die Barrierefreiheit sicherstellen können:
 
@@ -61,6 +61,9 @@ Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Si
 
 ## Was passiert, wenn Sie die Vorgaben nicht umsetzen? 
 
+![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
+{: .img-start}
+
 Wenn Ärzt:innen und Therapeut:innen die Anforderungen nicht erfüllen, können Strafen oder sogar Klagen die Folge sein. Das BFSG sieht klare Sanktionen vor, wenn es zu Beschwerden kommt – das sollten Sie vermeiden! 
 
 Zuständig ist hier die [Marktüberwachungsbehörde] der jeweiligen Bundesländer1. Im Falle eines Verstoßes werden Nachbesserungen eingefordert und sollte diese nicht, oder nicht innerhalb der gesetzten Frist umgesetzt werden, kann es Strafen, wie der Einschränkung der Ausübung der Tätigkeiten kommen.
@@ -69,6 +72,10 @@ Verbraucher:innen können selbst die Marktüberwachungsbehörde auffordern, Maß
 
 in weiteres Risiko, Ärzt:innen und Therapeut:innen eingehen, die die Vorgaben nicht umsetzen, kann es zu einem Image-Schaden oder zum Verlust von Patient:innen führen, wenn die Webangebote von medizinischen Praxen nicht ausreichend zugänglich sind.
 
+
+![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
+![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
+{: .img-grid}
 
 ## Fazit: Früh handeln lohnt sich 
 
@@ -87,6 +94,7 @@ Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die
 
 Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle zugänglich zu machen – es geht um Teilhabe! Das Recht von Menschen mit Behinderungen auf gesellschaftliche Teilhabe wird mit dem BFSG gestärkt. Um das zu erreichen, tritt ab dem kommenden Jahr das Barrierefreiheitsstärkungsgesetz in Kraft. Auch in Ihrer Arztpraxis können Sie dazu beitragen: Sei es ein klar strukturierter Online-Auftritt, durchdachte Hinweise zur Erreichbarkeit oder eine Umgebung, die Mobilitätshürden überwindet. Das BFSG hilft, die Arztpraxis auf diese Anforderungen auszurichten. 
 
+![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 
 ## Quellen
 

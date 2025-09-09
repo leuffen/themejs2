@@ -23,7 +23,7 @@ type: website
 
 
 ## Übersicht über das Theme
-{: layout=".container"}
+
 
 - [Demo Post](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary .text-center .m-1}
 

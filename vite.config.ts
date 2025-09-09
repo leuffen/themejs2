@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
+import tsconfigPaths from "vite-tsconfig-paths";
 // @ts-ignore
 import path from 'path';
 
 export default defineConfig({
-    plugins: [],
+    plugins: [tsconfigPaths()],
     build: {
         minify: false,
         cssCodeSplit: false,
