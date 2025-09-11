@@ -1,0 +1,133 @@
+// Sizing Utilities - Generated with SCSS loops
+
+// Percentage-based sizing
+$percentage-values: (
+  "0": 0,
+  "25": 25%,
+  "50": 50%,
+  "75": 75%,
+  "100": 100%
+);
+
+$percentage-properties: (
+  "w": width,
+  "h": height,
+  "mw": max-width,
+  "mh": max-height,
+  "min-w": min-width,
+  "min-h": min-height
+);
+
+@each $prop, $css-prop in $percentage-properties {
+  @each $name, $value in $percentage-values {
+    .#{$prop}-#{$name} {
+      #{$css-prop}: $value !important;
+    }
+  }
+}
+
+// Auto and none values
+$auto-properties: (
+  "w": (width, auto),
+  "h": (height, auto),
+  "mw": (max-width, none),
+  "mh": (max-height, none)
+);
+
+@each $prop, $values in $auto-properties {
+  $css-prop: nth($values, 1);
+  $css-value: nth($values, 2);
+  .#{$prop}-#{if($css-value == auto, auto, none)} {
+    #{$css-prop}: $css-value !important;
+  }
+}
+
+// Viewport units
+$viewport-values: (
+  "25": 25vw,
+  "50": 50vw,
+  "75": 75vw,
+  "100": 100vw
+);
+
+$viewport-height-values: (
+  "25": 25vh,
+  "50": 50vh,
+  "75": 75vh,
+  "100": 100vh
+);
+
+$viewport-properties: (
+  "vw": (width, $viewport-values),
+  "vh": (height, $viewport-height-values),
+  "min-vh": (min-height, $viewport-height-values),
+  "max-vw": (max-width, $viewport-values),
+  "max-vh": (max-height, $viewport-height-values)
+);
+
+@each $prop, $values in $viewport-properties {
+  $css-prop: nth($values, 1);
+  $value-map: nth($values, 2);
+  @each $name, $value in $value-map {
+    .#{$prop}-#{$name} {
+      #{$css-prop}: $value !important;
+    }
+  }
+}
+
+// Fixed sizing (rem values)
+$fixed-sizes: (
+  "0": 0,
+  "1": 0.25rem,  // 4px
+  "2": 0.5rem,   // 8px
+  "3": 0.75rem,  // 12px
+  "4": 1rem,     // 16px
+  "5": 1.25rem,  // 20px
+  "6": 1.5rem,   // 24px
+  "8": 2rem,     // 32px
+  "10": 2.5rem,  // 40px
+  "12": 3rem,    // 48px
+  "16": 4rem,    // 64px
+  "20": 5rem,    // 80px
+  "24": 6rem,    // 96px
+  "32": 8rem,    // 128px
+  "40": 10rem,   // 160px
+  "48": 12rem,   // 192px
+  "56": 14rem,   // 224px
+  "64": 16rem    // 256px
+);
+
+$fixed-properties: (
+  "w": width,
+  "h": height
+);
+
+@each $prop, $css-prop in $fixed-properties {
+  @each $name, $value in $fixed-sizes {
+    .#{$prop}-#{$name} {
+      #{$css-prop}: $value !important;
+    }
+  }
+}
+
+// Content sizing
+$content-sizes: (
+  "fit": fit-content,
+  "min": min-content,
+  "max": max-content,
+  "available": available,
+  "intrinsic": intrinsic
+);
+
+$content-properties: (
+  "w": width,
+  "h": height
+);
+
+@each $prop, $css-prop in $content-properties {
+  @each $name, $value in $content-sizes {
+    .#{$prop}-#{$name} {
+      #{$css-prop}: $value !important;
+    }
+  }
+}

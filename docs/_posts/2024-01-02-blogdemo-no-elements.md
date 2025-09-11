@@ -15,8 +15,15 @@ published: true
 body-class: epraxis blog
 seoScore: 8
 short_title: Barrierefreiheitsbverstärkungsgesetz (BFSG)
-title: Das neue Gesetz und seine Bedeutung für Praxen (OHNE ELEMENTE)
+title: Das neue Gesetz und seine Bedeutung für Praxen
+author: Max Mustermann
 type: website
+
+researched-by: human
+written-by: shared
+formatted-by: ai
+
+keywords: [BSFG, Barrierefreiheit, Gesetz, Barrierefreiheitsstärkungsgesetz]
 ---
 
 

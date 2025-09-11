@@ -1,0 +1,106 @@
+// Alignment Utilities - Generated with SCSS loops
+
+// Text Alignment
+$text-alignments: (
+  "left": left,
+  "center": center,
+  "right": right,
+  "justify": justify
+);
+
+@each $name, $value in $text-alignments {
+  .text-#{$name} {
+    text-align: $value !important;
+  }
+}
+
+// Flexbox Properties
+$flex-properties: (
+  "justify": justify-content,
+  "align": align-items,
+  "content": align-content,
+  "self": align-self
+);
+
+$flex-values: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "stretch": stretch,
+  "baseline": baseline,
+  "between": space-between,
+  "around": space-around,
+  "evenly": space-evenly
+);
+
+@each $prop, $css-prop in $flex-properties {
+  @each $name, $value in $flex-values {
+    .#{$prop}-#{$name} {
+      #{$css-prop}: $value !important;
+    }
+  }
+}
+
+// Grid Properties
+$grid-properties: (
+  "justify-items": justify-items,
+  "items": align-items,
+  "justify-self": justify-self,
+  "self": align-self
+);
+
+$grid-values: (
+  "start": start,
+  "center": center,
+  "end": end,
+  "stretch": stretch
+);
+
+@each $prop, $css-prop in $grid-properties {
+  @each $name, $value in $grid-values {
+    .#{$prop}-#{$name} {
+      #{$css-prop}: $value !important;
+    }
+  }
+}
+
+// Place Properties (Grid shorthand)
+$place-properties: (
+  "place-items": place-items,
+  "place-content": place-content,
+  "place-self": place-self
+);
+
+$place-values: (
+  "start": start,
+  "center": center,
+  "end": end,
+  "stretch": stretch,
+  "between": space-between,
+  "around": space-around,
+  "evenly": space-evenly
+);
+
+@each $prop, $css-prop in $place-properties {
+  @each $name, $value in $place-values {
+    .#{$prop}-#{$name} {
+      #{$css-prop}: $value !important;
+    }
+  }
+}
+
+// Vertical Alignment
+$vertical-alignments: (
+  "top": top,
+  "middle": middle,
+  "bottom": bottom,
+  "baseline": baseline,
+  "text-top": text-top,
+  "text-bottom": text-bottom
+);
+
+@each $name, $value in $vertical-alignments {
+  .align-#{$name} {
+    vertical-align: $value !important;
+  }
+}

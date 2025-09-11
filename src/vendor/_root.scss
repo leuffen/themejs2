@@ -1,0 +1,15 @@
+@use './variables' as *;
+
+:root {
+    // =============== FONT WEIGHTS =============== //
+    // Font weight variables
+    --nt-fw-thin: $font-weight-thin;
+    --nt-fw-extralight: $font-weight-extralight;
+    --nt-fw-light: $font-weight-light;
+    --nt-fw-normal: $font-weight-normal;
+    --nt-fw-medium: $font-weight-medium;
+    --nt-fw-semibold: $font-weight-semibold;
+    --nt-fw-bold: $font-weight-bold;
+    --nt-fw-extrabold: $font-weight-extrabold;
+    --nt-fw-black: $font-weight-black;
+}
