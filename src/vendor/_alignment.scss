@@ -14,6 +14,12 @@ $text-alignments: (
   }
 }
 
+@each $name, $value in $text-alignments {
+  .text-v-#{$name} {
+    text-align: $value !important;
+  }
+}
+
 // Flexbox Properties
 $flex-properties: (
   "justify": justify-content,
