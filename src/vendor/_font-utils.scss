@@ -3,6 +3,10 @@
 // Import variables
 @use "./variables" as *;
 
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
 // Create a map of all font weight variables for easy iteration
 $font-weight-map: (
   "thin": $font-weight-thin,
@@ -42,5 +46,85 @@ $font-weight-map: (
   .fs-#{$i} {
     font-size: var(--nt-fs-#{$i}) !important;
     line-height: var(--nt-line-height) !important;
+  }
+}
+
+// Generate marker color utilities for bullet-primary using all colors from _variables.scss
+$marker-colors: (
+  // Gray Scale
+  gray-50: $gray-50,
+  gray-100: $gray-100,
+  gray-200: $gray-200,
+  gray-300: $gray-300,
+  gray-400: $gray-400,
+  gray-500: $gray-500,
+  gray-600: $gray-600,
+  gray-700: $gray-700,
+  gray-800: $gray-800,
+  gray-900: $gray-900,
+  // Navy/Blue Colors
+  navy-100: $navy-100,
+  navy-200: $navy-200,
+  navy-300: $navy-300,
+  navy-900: $navy-900,
+  // Orange Colors
+  orange-400: $orange-400,
+  orange-500: $orange-500,
+  // Base Colors
+  white: $white
+);
+
+@each $name, $color in $marker-colors {
+  .bullet-marker-#{$name} li::marker {
+    color: #{$color} !important;
+  }
+}
+
+// Bullet size utility classes
+// Usage: .bullet-size-{value} on <ul> or <ol> to set bullet/number size
+@for $i from 1 through 8 {
+  .bullet-size-#{$i} li::marker {
+    font-size: #{$i}em !important;
+  }
+}
+
+// Also allow custom rem-based sizes for more granularity
+@each $size in (0.75, 1, 1.25, 1.5, 2, 2.5, 3) {
+  $class: if($size == 0.75, "0-75", if($size == 1.25, "1-25", if($size == 1.5, "1-5", if($size == 2.5, "2-5", "#{$size}"))));
+  .bullet-size-#{$class} li::marker {
+    font-size: #{$size}rem !important;
+  }
+}
+
+
+// List of common list-style-type values
+$list-style-types: (
+  "disc",
+  "circle",
+  "square",
+  "decimal",
+  "decimal-leading-zero",
+  "lower-roman",
+  "upper-roman",
+  "lower-alpha",
+  "upper-alpha",
+  "lower-latin",
+  "upper-latin",
+  "armenian",
+  "georgian",
+  "lower-greek",
+  "lower-hexadecimal",
+  "upper-hexadecimal",
+  "cjk-ideographic",
+  "hiragana",
+  "hiragana-iroha",
+  "katakana",
+  "katakana-iroha",
+  "none"
+);
+
+@each $type in $list-style-types {
+  .list-style-#{$type} {
+    list-style-type: #{$type} !important;
   }
 }

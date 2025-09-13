@@ -22,6 +22,24 @@
 //   <div class="bg-scroll">...</div> - Scrolls with content
 //   <div class="bg-local">...</div>  - Scrolls with element's content
 //
+// Object-fit utilities (for img, video elements):
+//   <img class="object-cover">...</img>     - Image covers entire container (may crop)
+//   <img class="object-contain">...</img>   - Image fits within container (no cropping)
+//   <img class="object-fill">...</img>      - Image stretches to fill container (may distort)
+//   <img class="object-none">...</img>      - Image keeps original size
+//   <img class="object-scale-down">...</img> - Image scales down if too large, otherwise original size
+//
+// Object-position utilities (for img, video elements):
+//   <img class="object-center">...</img>      - Image centered in container
+//   <img class="object-top">...</img>         - Image positioned at top
+//   <img class="object-bottom">...</img>      - Image positioned at bottom
+//   <img class="object-left">...</img>        - Image positioned at left
+//   <img class="object-right">...</img>       - Image positioned at right
+//   <img class="object-top-left">...</img>    - Image positioned at top-left corner
+//   <img class="object-top-right">...</img>   - Image positioned at top-right corner
+//   <img class="object-bottom-left">...</img> - Image positioned at bottom-left corner
+//   <img class="object-bottom-right">...</img> - Image positioned at bottom-right corner
+//
 // Background overlays:
 //   <div class="bg-overlay-black-50">...</div>  - 50% black overlay
 //   <div class="bg-overlay-white-25">...</div>  - 25% white overlay
@@ -69,6 +87,30 @@ $bg-attachments: (
     "fixed": fixed,
     "scroll": scroll,
     "local": local,
+);
+
+// Object-fit options
+// Used to generate .object-{fit} classes (e.g., .object-cover, .object-contain, .object-fill)
+$object-fits: (
+    "cover": cover,
+    "contain": contain,
+    "fill": fill,
+    "none": none,
+    "scale-down": scale-down,
+);
+
+// Object-position options
+// Used to generate .object-{position} classes (e.g., .object-center, .object-top, .object-bottom)
+$object-positions: (
+    "center": center,
+    "top": top,
+    "bottom": bottom,
+    "left": left,
+    "right": right,
+    "top-left": top left,
+    "top-right": top right,
+    "bottom-left": bottom left,
+    "bottom-right": bottom right,
 );
 
 // Overlay opacity options
@@ -126,6 +168,24 @@ $gradient-directions: (
 @each $name, $value in $bg-attachments {
     .bg-#{$name} {
         background-attachment: $value !important;
+    }
+}
+
+// Generate object-fit utilities
+// Generates: .object-cover, .object-contain, .object-fill, .object-none, .object-scale-down
+// These classes control how replaced elements (img, video) fit within their container
+@each $name, $value in $object-fits {
+    .object-#{$name} {
+        object-fit: $value !important;
+    }
+}
+
+// Generate object-position utilities
+// Generates: .object-center, .object-top, .object-bottom, .object-left, .object-right, etc.
+// These classes control the positioning of replaced elements within their container
+@each $name, $value in $object-positions {
+    .object-#{$name} {
+        object-position: $value !important;
     }
 }
 

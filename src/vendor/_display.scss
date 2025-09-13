@@ -8,7 +8,11 @@
     display: table-cell !important;
 }
 
-/* OLD - somehow not loading */
+.d-overflow-hidden {
+    overflow: hidden !important;
+}
+
+/* OLD - somehow not loading from nextrap-base*/
 .d-none {
     display: none !important;
 }
