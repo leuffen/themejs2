@@ -12,4 +12,21 @@
     --nt-fw-bold: $font-weight-bold;
     --nt-fw-extrabold: $font-weight-extrabold;
     --nt-fw-black: $font-weight-black;
+
+
+
+
+
+    $fontSizeMap: (
+        '7': 0.65,
+        '8': 0.6,
+        '9': 0.55,
+        '10': 0.5,
+        '11': 0.45,
+        '12': 0.4,
+    ) !default; // Font size map for utility classes
+  
+  @each $i, $val in $fontSizeMap {
+    --nt-fs-#{$i}: calc(var(--nt-font-size-base) * #{$val});
+  }
 }

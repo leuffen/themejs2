@@ -37,3 +37,10 @@ $font-weight-map: (
     --font-weight: #{$weight} !important;
   }
 }
+
+@for $i from 7 through 12 {
+  .fs-#{$i} {
+    font-size: var(--nt-fs-#{$i}) !important;
+    line-height: var(--nt-line-height) !important;
+  }
+}

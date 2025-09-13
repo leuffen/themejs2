@@ -33,3 +33,45 @@ $hover-color-map: (
     border-color: #{rgba($color, .6)} !important;
   }
 }
+
+// Transition utility classes
+$transition-properties: (
+  "all": all,
+  "color": color,
+  "background": background-color,
+  "border": border-color,
+  "opacity": opacity,
+  "transform": transform,
+  "height": height,
+  "width": width,
+  "margin": margin,
+  "padding": padding,
+  "font-size": font-size,
+  "font-weight": font-weight,
+  "text-align": text-align,
+  "text-transform": text-transform,
+  "text-decoration": text-decoration,
+  "visibility": visibility,
+  "shadow": box-shadow
+);
+
+$transition-durations: (
+  "fast": 0.15s,
+  "normal": 0.3s,
+  "slow": 0.5s
+);
+
+@each $prop-name, $prop in $transition-properties {
+  .transition-#{$prop-name} {
+    transition-property: #{$prop};
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+  @each $speed, $duration in $transition-durations {
+    .transition-#{$prop-name}-#{$speed} {
+      transition-property: #{$prop};
+      transition-duration: #{$duration};
+      transition-timing-function: ease;
+    }
+  }
+}

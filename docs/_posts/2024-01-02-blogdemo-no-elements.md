@@ -29,6 +29,10 @@ facebook_url: https://www.facebook.com/
 instagram_url: https://www.instagram.com/
 whatsapp_url: https://www.whatsapp.com/
 linkedin_url: https://www.linkedin.com/
+
+articles_related: 
+  - TEST1
+  - TEST2
 ---
 
 

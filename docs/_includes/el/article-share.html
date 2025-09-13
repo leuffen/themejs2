@@ -1,0 +1,19 @@
+<aside class="mt-5 p-4 bg-gray-200 rounded-6 d-flex flex-column">
+    <div class="fs-5 text-navy-200 fw-600 d-flex align-center" style="text-transform: uppercase; flex: 1;">
+        Artikel teilen:
+    </div>
+    <div class="d-flex flex-wrap flexg-12">
+        {% assign social_icons = site.data.social_icons %}
+        {% for icon in social_icons %}
+            {% assign url_key = icon.name | append: '_url' %}
+            {% assign icon_url = page[url_key] | default: site[url_key] %}
+            {% if icon_url and icon_url != '' %}
+                <a href="{{ icon_url }}" target="_blank" rel="noopener" 
+                   class="text-navy-200 hover-anim-color-navy-200" 
+                   title="{{ icon.title }}">
+                    {{ icon.svg }}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</aside>
