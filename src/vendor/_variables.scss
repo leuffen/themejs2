@@ -1,3 +1,53 @@
+@use 'sass:color';
+
+$text: #313434 !default;
+
+$lighten-factor: 40% !default;
+
+$primary: #FE6606 !default;
+$primary-subtle: color.adjust($primary, $lightness: $lighten-factor) !default;
+$primary-emphasis: color.adjust($primary, $lightness: -$lighten-factor / 2) !default;
+
+$accent: #ED8E50 !default;
+$accent-subtle: color.adjust($accent, $lightness: $lighten-factor) !default;
+$accent-emphasis: color.adjust($accent, $lightness: -$lighten-factor / 2) !default;
+
+$secondary: #1F3655 !default;
+$secondary-subtle: color.adjust($secondary, $lightness: $lighten-factor) !default;
+$secondary-emphasis: color.adjust($secondary, $lightness: -$lighten-factor / 2) !default;
+
+$success: #28a745 !default;
+$success-subtle: color.adjust($success, $lightness: $lighten-factor) !default;
+$success-emphasis: color.adjust($success, $lightness: -$lighten-factor / 2) !default;
+
+$info: #17a2b8 !default;
+$info-subtle: color.adjust($info, $lightness: $lighten-factor) !default;
+$info-emphasis: color.adjust($info, $lightness: -$lighten-factor / 2) !default;
+
+$warning: #ffc107 !default;
+$warning-subtle: color.adjust($warning, $lightness: $lighten-factor) !default;
+$warning-emphasis: color.adjust($warning, $lightness: -$lighten-factor / 2) !default;
+
+$danger: #dc3545 !default;
+$danger-subtle: color.adjust($danger, $lightness: $lighten-factor) !default;
+$danger-emphasis: color.adjust($danger, $lightness: -$lighten-factor / 2) !default;
+
+$light: #f8f9fa !default;
+$light-subtle: color.adjust($light, $lightness: 1%) !default;
+$light-emphasis: color.adjust($light, $lightness: -$lighten-factor * 2) !default;
+
+$dark: #212529 !default;
+$dark-subtle: color.adjust($dark, $lightness: $lighten-factor) !default;
+$dark-emphasis: color.adjust($dark, $lightness: -$lighten-factor / 2) !default;
+
+$white: #fff !default;
+$black: #000 !default;
+
+$body: color.adjust($dark, $lightness: 90%) !default;
+$body-secondary: color.adjust($dark, $lightness: 60%) !default;
+$body-tertiary: color.adjust($dark, $lightness: 80%) !default;
+
+
 // Gray Scale
 $gray-50: #FFEFE6 !default;  // Light cream
 $gray-100: #EDF1F8 !default;

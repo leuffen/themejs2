@@ -1,8 +1,9 @@
+@use "sass:list";
+
 // Sizing Utilities - Generated with SCSS loops
 
 // Percentage-based sizing
 $percentage-values: (
-  "0": 0,
   "25": 25%,
   "50": 50%,
   "75": 75%,
@@ -35,8 +36,8 @@ $auto-properties: (
 );
 
 @each $prop, $values in $auto-properties {
-  $css-prop: nth($values, 1);
-  $css-value: nth($values, 2);
+  $css-prop: list.nth($values, 1);
+  $css-value: list.nth($values, 2);
   .#{$prop}-#{if($css-value == auto, auto, none)} {
     #{$css-prop}: $css-value !important;
   }
@@ -66,8 +67,8 @@ $viewport-properties: (
 );
 
 @each $prop, $values in $viewport-properties {
-  $css-prop: nth($values, 1);
-  $value-map: nth($values, 2);
+  $css-prop: list.nth($values, 1);
+  $value-map: list.nth($values, 2);
   @each $name, $value in $value-map {
     .#{$prop}-#{$name} {
       #{$css-prop}: $value !important;

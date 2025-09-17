@@ -69,9 +69,7 @@ $marker-colors: (
   navy-900: $navy-900,
   // Orange Colors
   orange-400: $orange-400,
-  orange-500: $orange-500,
-  // Base Colors
-  white: $white
+  orange-500: $orange-500
 );
 
 @each $name, $color in $marker-colors {
@@ -89,8 +87,17 @@ $marker-colors: (
 }
 
 // Also allow custom rem-based sizes for more granularity
-@each $size in (0.75, 1, 1.25, 1.5, 2, 2.5, 3) {
-  $class: if($size == 0.75, "0-75", if($size == 1.25, "1-25", if($size == 1.5, "1-5", if($size == 2.5, "2-5", "#{$size}"))));
+$rem-sizes: (
+  0.75: "0-75",
+  1: "1",
+  1.25: "1-25", 
+  1.5: "1-5",
+  2: "2",
+  2.5: "2-5",
+  3: "3"
+);
+
+@each $size, $class in $rem-sizes {
   .bullet-size-#{$class} li::marker {
     font-size: #{$size}rem !important;
   }
