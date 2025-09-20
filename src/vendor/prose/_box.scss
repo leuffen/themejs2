@@ -30,4 +30,25 @@
         border-color: var(--nt-tertiary) !important;
     }
 
+    .advertise {
+        margin-top: var(--nt-space-5) !important;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: calc(var(--nt-space-4) * -1);
+            left: 0;
+            right: 0;
+            content: "Anzeige";
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            font-size: var(--nt-fs-5) !important;
+            font-weight: 400 !important;
+            color: var(--nt-dark-subtle) !important;
+        }
+    }
+
+
+
 }

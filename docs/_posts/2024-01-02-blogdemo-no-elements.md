@@ -103,6 +103,15 @@ Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Si
 - Strukturierter Inhalt: Nutzen Sie klare Überschriften, Listen und Strukturmarkierungen. Das erleichtert den Überblick und die Nutzung der Website. Untertitel für Videos: Bieten Sie Untertitel in Bewegtbildinhalten an, damit auch hörgeschädigte Nutzer die Inhalte verstehen können. 
 - Texte in einfacher Sprache: Bieten Sie Textinformationen zusätzlich in einfacher Sprache an, um diese auch Menschen, die beispielsweise keine Muttersprachler sind oder kognitiv nicht im Stande sind, komplexe Texte zu verstehen, zugänglich zu machen.
 
+## Ist Ihre Webseite schon barrierefrei? Machen Sie den Test!
+{: layout="section.box.box-primary.subtle.advertise"}
+
+Das ist ein Platzhalter
+
+---
+{: layout="2"}
+
+
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 {: .img-grid}
