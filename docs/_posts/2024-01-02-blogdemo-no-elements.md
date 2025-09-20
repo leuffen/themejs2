@@ -33,9 +33,18 @@ linkedin_url: https://www.linkedin.com/
 articles_related: 
   - TEST1
   - TEST2
+
+references:
+  - "1. § 3 BFSG Barrierefreiheit, Verordnungsermächtigung - Barrierefreiheitsstärkungsgesetz (BFSG)"
+  - "2. § 20 BFSG Aufgaben der Marktüberwachungsbehörden - Barrierefreiheitsstärkungsgesetz (BFSG)"
+  - "3. § 32 BFSG Rechte von Verbrauchern, anerkannten Verbänden und qualifizierten Einrichtungen im Verwaltungsverfahren - Barrierefreiheitsstärkungsgesetz (BFSG)"
+
+author_meta:
+  description: "Hallo, ich bin ein Content-Autor, der von den Themen Medizin, Marketing und Technologie fasziniert ist. Ich helfe, die richtigen Inhalte an die richtigen Leute zu bringen."
+  image: https://www.svgrepo.com/show/384670/account-avatar-profile-user.svg
 ---
 
-![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
+![]({{ page.image }})
 
 # Das neue Gesetz und seine Bedeutung für Praxen
 
@@ -114,3 +123,6 @@ Ein weiteres Risiko, Ärzt:innen und Therapeut:innen eingehen, die die Vorgaben 
 {: layout=".box.box-primary.subtle"}
 
 Barrierefreiheit ist kein „Nice to have“, sondern ein „Must have“ für die Praxis der Zukunft. Werden Sie aktiv und sichern Sie sich einen Wettbewerbsvorteil. Setzen Sie ein starkes Zeichen für Inklusion und Wertschätzung Ihrer Patient*innen. „Bei Fragen oder Unsicherheiten stehen wir Ihnen gerne für ein persönliches und unverbindliches Gespräch zur Verfügung.“
+
+---
+{: layout="2"}

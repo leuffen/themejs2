@@ -1,6 +1,7 @@
 @use 'sass:color';
 
 $text: #313434 !default;
+$text-secondary: #203656 !default;
 
 $lighten-factor: 40% !default;
 
@@ -15,6 +16,10 @@ $accent-emphasis: color.adjust($accent, $lightness: -$lighten-factor / 2) !defau
 $secondary: #1F3655 !default;
 $secondary-subtle: color.adjust($secondary, $lightness: $lighten-factor) !default;
 $secondary-emphasis: color.adjust($secondary, $lightness: -$lighten-factor / 2) !default;
+
+$tertiary: #EDF1F8 !default;
+$tertiary-subtle: color.adjust($tertiary, $lightness: $lighten-factor) !default;
+$tertiary-emphasis: color.adjust($tertiary, $lightness: -$lighten-factor / 2) !default;
 
 $success: #28a745 !default;
 $success-subtle: color.adjust($success, $lightness: $lighten-factor) !default;
@@ -42,6 +47,8 @@ $dark-emphasis: color.adjust($dark, $lightness: -$lighten-factor / 2) !default;
 
 $white: #fff !default;
 $black: #000 !default;
+
+$border: #BBC3D0 !default;
 
 $body: color.adjust($dark, $lightness: 90%) !default;
 $body-secondary: color.adjust($dark, $lightness: 60%) !default;

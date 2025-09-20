@@ -11,6 +11,10 @@
     --nt-secondary-subtle: #{$secondary-subtle};
     --nt-secondary-emphasis: #{$secondary-emphasis};
   
+    --nt-tertiary: #{$tertiary};
+    --nt-tertiary-subtle: #{$tertiary-subtle};
+    --nt-tertiary-emphasis: #{$tertiary-emphasis};
+  
     --nt-accent: #{$accent};
     --nt-accent-subtle: #{$accent-subtle};
     --nt-accent-emphasis: #{$accent-emphasis};
@@ -48,4 +52,6 @@
   
     // Text colors
     --nt-text: #{$text};
+    --nt-text-secondary: #{$text-secondary};
+    --nt-border: #{$border};
 }
