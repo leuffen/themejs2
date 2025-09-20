@@ -46,9 +46,15 @@ author_meta:
 
 ![]({{ page.image }})
 
-# Das neue Gesetz und seine Bedeutung für Praxen
+Barrierefreiheitsbverstärkungsgesetz (BFSG)
+{: .short-title}
+
+# {{ page.title }}
 
 Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
+
+## Inhaltsverzeichnis (Platzhalter)
+{: layout=".box.box-secondary"}
 
 ## EPRAXIS.DIGITAL KOMPAKT
 {: layout=".box.box-primary"}
