@@ -1,0 +1,36 @@
+@mixin main {
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--nt-secondary);
+  }
+
+  h1 {
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: var(--nt-fs-1) !important;
+  }
+
+  h1:first-child {
+    margin-top: 0 !important;
+  }
+  
+  .short-title {
+    color: var(--nt-primary) !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--nt-fs-7) !important;
+    margin-bottom: 0 !important;
+
+    &::before {
+      content: "—";
+      margin-right: 0.5em;
+    }
+  }
+}

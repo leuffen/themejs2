@@ -15,39 +15,78 @@ published: true
 body-class: epraxis blog
 seoScore: 8
 short_title: Barrierefreiheitsbverstärkungsgesetz (BFSG)
-title: Das neue Gesetz und seine Bedeutung für Praxen (OHNE ELEMENTE)
+title: Das neue Gesetz und seine Bedeutung für Praxen
+summary: Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
+author: Max Mustermann
 type: website
+
+reading_time: 2
+
+researched-by: human
+written-by: shared
+formatted-by: ai
+
+keywords: [BSFG, Barrierefreiheit, Gesetz, Barrierefreiheitsstärkungsgesetz]
+
+facebook_url: https://www.facebook.com/
+instagram_url: https://www.instagram.com/
+whatsapp_url: https://www.whatsapp.com/
+linkedin_url: https://www.linkedin.com/
+
+articles_related: 
+  - TEST1
+  - TEST2
+
+references:
+  - "1. § 3 BFSG Barrierefreiheit, Verordnungsermächtigung - Barrierefreiheitsstärkungsgesetz (BFSG)"
+  - "2. § 20 BFSG Aufgaben der Marktüberwachungsbehörden - Barrierefreiheitsstärkungsgesetz (BFSG)"
+  - "3. § 32 BFSG Rechte von Verbrauchern, anerkannten Verbänden und qualifizierten Einrichtungen im Verwaltungsverfahren - Barrierefreiheitsstärkungsgesetz (BFSG)"
+
+author_meta:
+  description: "Hallo, ich bin ein Content-Autor, der von den Themen Medizin, Marketing und Technologie fasziniert ist. Ich helfe, die richtigen Inhalte an die richtigen Leute zu bringen."
+  image: https://www.svgrepo.com/show/384670/account-avatar-profile-user.svg
 ---
 
+## Inhaltsverzeichnis (Platzhalter)
+{: layout=".box.box-secondary"}
 
-Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
+## EPRAXIS.DIGITAL KOMPAKT
+{: layout=".box.box-primary"}
+- **Das Barrierefreiheitsstärkungsgesetz (BFSG)** verpflichtet ab 28. Juni 2025 auch Arztpraxen, ihre digitalen Angebote – insbesondere Websites und Apps – barrierefrei zu gestalten, damit alle Menschen uneingeschränkt darauf zugreifen können.
+- **Betroffen sind alle Praxen mit Website,** außer Kleinstunternehmen (weniger als 10 Mitarbeitende & unter 2 Mio. € Umsatz). Dennoch ist digitale Barrierefreiheit ein wichtiges Zeichen für Inklusion und gesellschaftliche Verantwortung.
+- **Wichtige Maßnahmen:** Hoher Farbkontrast, gut lesbare Texte, Alt-Texte für Bilder, Tastaturbedienbarkeit, einfache Sprache und Untertitel bei Videos – das verbessert die Nutzerfreundlichkeit für alle.
+- **Tools wie WAVE, Google Lighthouse und Screenreader** helfen bei der Prüfung, alternativ kann professionelle Unterstützung durch Expert*innen sinnvoll sein.
+- **Wer nicht handelt, riskiert Sanktionen, Beschwerden und Imageverluste** – wer frühzeitig umsetzt, zeigt Empathie, gewinnt Vertrauen und positioniert sich zukunftsfähig.
 
-Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren? 
+---
+{: layout="2"}
 
-Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle zugänglich zu machen – es geht um Teilhabe! Das Recht von Menschen mit Behinderungen auf gesellschaftliche Teilhabe wird mit dem BFSG gestärkt. Um das zu erreichen, tritt ab dem kommenden Jahr das Barrierefreiheitsstärkungsgesetz in Kraft. Auch in Ihrer Arztpraxis können Sie dazu beitragen: Sei es ein klar strukturierter Online-Auftritt, durchdachte Hinweise zur Erreichbarkeit oder eine Umgebung, die Mobilitätshürden überwindet. Das BFSG hilft, die Arztpraxis auf diese Anforderungen auszurichten. 
+Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren?
 
-## Was genau fordert das BFSG? 
+Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle zugänglich zu machen – es geht um Teilhabe! Das Recht von Menschen mit Behinderungen auf gesellschaftliche Teilhabe wird mit dem BFSG gestärkt. Um das zu erreichen, tritt ab dem kommenden Jahr das **Barrierefreiheitsstärkungsgesetz** in Kraft. Auch in Ihrer Arztpraxis können Sie dazu beitragen: Sei es ein klar strukturierter Online-Auftritt, durchdachte Hinweise zur Erreichbarkeit oder eine Umgebung, die Mobilitätshürden überwindet. Das BFSG hilft, die Arztpraxis auf diese Anforderungen auszurichten.
 
-Das Gesetz fordert, dass Dienstleistungen „ohne besondere Erschwernis und grundsätzlich ohne fremde Hilfe auffindbar“1 sein sollen. Das bedeutet für Sie, dass Websites und mobile Apps, die Sie nutzen, um Patient*innen Informationen zur Verfügung zu stellen, Kontakt aufzunehmen oder Termine zu buchen, für alle zugänglich und nutzbar sein sollen – auch für Menschen, mit körperlichen oder kognitiven Einschränkungen. 
+## Was genau fordert das BFSG?
 
+Das Gesetz fordert, dass Dienstleistungen „ohne besondere Erschwernis und grundsätzlich ohne fremde Hilfe auffindbar“ sein sollen. Das bedeutet für Sie, dass Websites und mobile Apps, die Sie nutzen, um Patient*innen Informationen zur Verfügung zu stellen, Kontakt aufzunehmen oder Termine zu buchen, für alle zugänglich und nutzbar sein sollen – auch für Menschen, mit körperlichen oder kognitiven Einschränkungen.
 
-
-## Bis wann muss das umgesetzt sein? 
+## Bis wann muss das umgesetzt sein?
 
 Das BFSG gibt Ihnen Zeit zur Anpassung – aber die Fristen laufen. Praxen und medizinische Einrichtungen haben bis zum 28. Juni 2025 Zeit, sich an die Vorgaben zu halten. Klingt erstmal nach viel Zeit? In der Praxis heißt es aber:
 
-
 > „Je früher Sie starten, desto besser sind Sie vorbereitet und vermeiden Stress.“
 >
-> — Dr. Meyer Wagenfeld
+> Dr. Meyer Wagenfeld
 
 ## Welche Praxen unterliegen dem BFSG 
 
 Grundsätzlich sind alle Praxen, die eine Website haben verpflichtet, den Anforderungen des Gesetzes nachzukommen. Es gibt jedoch Ausnahmen, zum Beispiel für Kleinstunternehmer (unter 10 Mitarbeitende, unter 2 Millionen Euro Jahresumsatz). Da digitale Barrierefreiheit aber insgesamt dazu dient, Menschen teilhaben zu lassen, die aufgrund körperlicher Einschränkungen benachteiligt sein könnte, wäre es auch immer zu bedenken, ob sich eine Praxis nicht aus Gründen der Wertschätzung oder der gesellschaftlichen Verantwortung um digitale Barrierefreiheit bemühen sollte.
 
 
+![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
+Das ist eine Bildunterschrift und beschreibt das abgebildete Foto und gibt weitere Informationen. Der Text kann auch schon mal etwas länger werden. (Foto: Bildnachweis)
+{: .img-caption}
+
 ## Wie gelingt die Umsetzung?
-{: layout="section.box"}
 
 Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Sie die Barrierefreiheit sicherstellen können:
 
@@ -58,46 +97,41 @@ Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Si
 - Strukturierter Inhalt: Nutzen Sie klare Überschriften, Listen und Strukturmarkierungen. Das erleichtert den Überblick und die Nutzung der Website. Untertitel für Videos: Bieten Sie Untertitel in Bewegtbildinhalten an, damit auch hörgeschädigte Nutzer die Inhalte verstehen können. 
 - Texte in einfacher Sprache: Bieten Sie Textinformationen zusätzlich in einfacher Sprache an, um diese auch Menschen, die beispielsweise keine Muttersprachler sind oder kognitiv nicht im Stande sind, komplexe Texte zu verstehen, zugänglich zu machen.
 
+## Ist Ihre Webseite schon barrierefrei? Machen Sie den Test!
+{: layout="section.box.box-primary.subtle.advertise"}
 
-## Was passiert, wenn Sie die Vorgaben nicht umsetzen? 
+Das ist ein Platzhalter
 
-![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
-{: .img-start}
-
-Wenn Ärzt:innen und Therapeut:innen die Anforderungen nicht erfüllen, können Strafen oder sogar Klagen die Folge sein. Das BFSG sieht klare Sanktionen vor, wenn es zu Beschwerden kommt – das sollten Sie vermeiden! 
-
-Zuständig ist hier die [Marktüberwachungsbehörde] der jeweiligen Bundesländer1. Im Falle eines Verstoßes werden Nachbesserungen eingefordert und sollte diese nicht, oder nicht innerhalb der gesetzten Frist umgesetzt werden, kann es Strafen, wie der Einschränkung der Ausübung der Tätigkeiten kommen.
-
-Verbraucher:innen können selbst die Marktüberwachungsbehörde auffordern, Maßnahmen gegen ein Unternehmen zu ergreifen, wenn sie glauben, dass das Unternehmen gegen ein Gesetz verstößt und sie das betroffene Produkt oder die Dienstleistung deshalb nicht richtig nutzen können. Verbraucher:innen können dafür auch anerkannte Verbände oder qualifizierte Organisationen beauftragen, die das Verfahren in ihrem Namen beantragen. Menschen mit Hör- oder Sprachbehinderungen haben das Recht, im Verfahren barrierefrei zu kommunizieren, und die Kosten dafür übernimmt die Behörde. E
-
-in weiteres Risiko, Ärzt:innen und Therapeut:innen eingehen, die die Vorgaben nicht umsetzen, kann es zu einem Image-Schaden oder zum Verlust von Patient:innen führen, wenn die Webangebote von medizinischen Praxen nicht ausreichend zugänglich sind.
+---
+{: layout="2"}
 
 
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 {: .img-grid}
+Das ist eine Bildunterschrift und beschreibt das abgebildete Foto und gibt weitere Informationen. Der Text kann auch schon mal etwas länger werden. (Fotos: Nachweis 1 / Nachweis 2)
+{: .img-caption}
 
-## Fazit: Früh handeln lohnt sich 
+## Was passiert, wenn Sie die Vorgaben nicht umsetzen? 
+
+Wenn Ärzt:innen und Therapeut:innen die Anforderungen nicht erfüllen, können Strafen oder sogar Klagen die Folge sein. Das BFSG sieht klare Sanktionen vor, wenn es zu Beschwerden kommt – das sollten Sie vermeiden! 
+
+Zuständig ist hier die **Marktüberwachungsbehörde** der jeweiligen Bundesländer. Im Falle eines Verstoßes werden Nachbesserungen eingefordert und sollte diese nicht, oder nicht innerhalb der gesetzten Frist umgesetzt werden, kann es Strafen, wie der Einschränkung der Ausübung der Tätigkeiten kommen.
+
+
+<!-- TODO: Kann ich hier irgendwie einen Slider einbinden?? -->
+![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
+Das ist eine Bildunterschrift und beschreibt das abgebildete Foto und gibt weitere Informationen. Der Text kann auch schon mal etwas länger werden. (Fotos: Nachweis 1 / Nachweis 2)
+{: .img-caption}
+
+Verbraucher:innen können selbst die Marktüberwachungsbehörde auffordern, Maßnahmen gegen ein Unternehmen zu ergreifen, wenn sie glauben, dass das Unternehmen gegen ein Gesetz verstößt und sie das betroffene Produkt oder die Dienstleistung deshalb nicht richtig nutzen können. Verbraucher:innen können dafür auch anerkannte Verbände oder qualifizierte Organisationen beauftragen, die das Verfahren in ihrem Namen beantragen. Menschen mit Hör- oder Sprachbehinderungen haben das Recht, im Verfahren barrierefrei zu kommunizieren, und die Kosten dafür übernimmt die Behörde.
+
+Ein weiteres Risiko, Ärzt:innen und Therapeut:innen eingehen, die die Vorgaben nicht umsetzen, kann es zu einem Image-Schaden oder zum Verlust von Patient:innen führen, wenn die Webangebote von medizinischen Praxen nicht ausreichend zugänglich sind.
+
+## Fazit: Früh handeln lohnt sich
+{: layout=".box.box-primary.subtle"}
 
 Barrierefreiheit ist kein „Nice to have“, sondern ein „Must have“ für die Praxis der Zukunft. Werden Sie aktiv und sichern Sie sich einen Wettbewerbsvorteil. Setzen Sie ein starkes Zeichen für Inklusion und Wertschätzung Ihrer Patient*innen. „Bei Fragen oder Unsicherheiten stehen wir Ihnen gerne für ein persönliches und unverbindliches Gespräch zur Verfügung.“
 
-
-Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
-
-Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren? 
-
-Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle zugänglich zu machen – es geht um Teilhabe! Das Recht von Menschen mit Behinderungen auf gesellschaftliche Teilhabe wird mit dem BFSG gestärkt. Um das zu erreichen, tritt ab dem kommenden Jahr das Barrierefreiheitsstärkungsgesetz in Kraft. Auch in Ihrer Arztpraxis können Sie dazu beitragen: Sei es ein klar strukturierter Online-Auftritt, durchdachte Hinweise zur Erreichbarkeit oder eine Umgebung, die Mobilitätshürden überwindet. Das BFSG hilft, die Arztpraxis auf diese Anforderungen auszurichten. 
-
-Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
-
-Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren? 
-
-Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle zugänglich zu machen – es geht um Teilhabe! Das Recht von Menschen mit Behinderungen auf gesellschaftliche Teilhabe wird mit dem BFSG gestärkt. Um das zu erreichen, tritt ab dem kommenden Jahr das Barrierefreiheitsstärkungsgesetz in Kraft. Auch in Ihrer Arztpraxis können Sie dazu beitragen: Sei es ein klar strukturierter Online-Auftritt, durchdachte Hinweise zur Erreichbarkeit oder eine Umgebung, die Mobilitätshürden überwindet. Das BFSG hilft, die Arztpraxis auf diese Anforderungen auszurichten. 
-
-![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
-
-## Quellen
-
-<!-- Wie können hier Quellen einfach angegeben werden? -->
-
-<!-- Include des Author Textes sollte im Layout passieren -->
+---
+{: layout="2"}

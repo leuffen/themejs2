@@ -1,0 +1,288 @@
+// Background Image Utilities - Generated with SCSS loops
+// ======================================================
+//
+// This file generates utility classes for background images, overlays, and gradients
+// using SCSS loops. All classes use !important to ensure they override other styles.
+//
+// Usage Examples:
+// ===============
+// Basic background sizing:
+//   <div class="bg-cover">...</div>     - Background covers entire element
+//   <div class="bg-contain">...</div>   - Background fits within element
+//
+// Background positioning with cover:
+//   <div class="bg-cover-center">...</div>  - Centered background
+//   <div class="bg-cover-top">...</div>    - Background positioned at top
+//   <div class="bg-cover-bottom">...</div> - Background positioned at bottom
+//   <div class="bg-cover-left">...</div>   - Background positioned at left
+//   <div class="bg-cover-right">...</div>  - Background positioned at right
+//
+// Background attachment:
+//   <div class="bg-fixed">...</div>  - Fixed background (parallax effect)
+//   <div class="bg-scroll">...</div> - Scrolls with content
+//   <div class="bg-local">...</div>  - Scrolls with element's content
+//
+// Object-fit utilities (for img, video elements):
+//   <img class="object-cover">...</img>     - Image covers entire container (may crop)
+//   <img class="object-contain">...</img>   - Image fits within container (no cropping)
+//   <img class="object-fill">...</img>      - Image stretches to fill container (may distort)
+//   <img class="object-none">...</img>      - Image keeps original size
+//   <img class="object-scale-down">...</img> - Image scales down if too large, otherwise original size
+//
+// Object-position utilities (for img, video elements):
+//   <img class="object-center">...</img>      - Image centered in container
+//   <img class="object-top">...</img>         - Image positioned at top
+//   <img class="object-bottom">...</img>      - Image positioned at bottom
+//   <img class="object-left">...</img>        - Image positioned at left
+//   <img class="object-right">...</img>       - Image positioned at right
+//   <img class="object-top-left">...</img>    - Image positioned at top-left corner
+//   <img class="object-top-right">...</img>   - Image positioned at top-right corner
+//   <img class="object-bottom-left">...</img> - Image positioned at bottom-left corner
+//   <img class="object-bottom-right">...</img> - Image positioned at bottom-right corner
+//
+// Background overlays:
+//   <div class="bg-overlay-black-50">...</div>  - 50% black overlay
+//   <div class="bg-overlay-white-25">...</div>  - 25% white overlay
+//   <div class="bg-overlay-gray-75">...</div>   - 75% gray overlay
+//   <div class="bg-overlay-navy-100">...</div>  - 100% navy overlay
+//
+// Gradient overlays (transparent to color):
+//   <div class="bg-gradient-top-black-50">...</div>    - Gradient from top, transparent to 50% black
+//   <div class="bg-gradient-bottom-white-25">...</div> - Gradient from bottom, transparent to 25% white
+//   <div class="bg-gradient-left-gray-75">...</div>    - Gradient from left, transparent to 75% gray
+//   <div class="bg-gradient-right-navy-100">...</div>  - Gradient from right, transparent to 100% navy
+//
+// Gradient overlays (color to color):
+//   <div class="bg-gradient-top-black-25-75">...</div>  - Gradient from top, 25% black to 75% black
+//   <div class="bg-gradient-bottom-white-0-50">...</div> - Gradient from bottom, transparent to 50% white
+//   <div class="bg-gradient-left-gray-50-100">...</div>  - Gradient from left, 50% gray to 100% gray
+//   <div class="bg-gradient-right-navy-0-25">...</div>   - Gradient from right, transparent to 25% navy
+//
+// Note: All overlay and gradient classes create a pseudo-element (::before) that
+//       covers the entire element. Child elements are automatically positioned
+//       above the overlay using z-index.
+
+@use "./variables" as *;
+
+// Background size options
+// Used to generate .bg-cover and .bg-contain classes
+$bg-sizes: (
+    "cover": cover,
+    "contain": contain,
+);
+
+// Background position options
+// Used to generate .bg-cover-{position} classes (e.g., .bg-cover-center, .bg-cover-top)
+$bg-positions: (
+    "center": center,
+    "top": top center,
+    "bottom": bottom center,
+    "left": left center,
+    "right": right center,
+);
+
+// Background attachment options
+// Used to generate .bg-{attachment} classes (e.g., .bg-fixed, .bg-scroll, .bg-local)
+$bg-attachments: (
+    "fixed": fixed,
+    "scroll": scroll,
+    "local": local,
+);
+
+// Object-fit options
+// Used to generate .object-{fit} classes (e.g., .object-cover, .object-contain, .object-fill)
+$object-fits: (
+    "cover": cover,
+    "contain": contain,
+    "fill": fill,
+    "none": none,
+    "scale-down": scale-down,
+);
+
+// Object-position options
+// Used to generate .object-{position} classes (e.g., .object-center, .object-top, .object-bottom)
+$object-positions: (
+    "center": center,
+    "top": top,
+    "bottom": bottom,
+    "left": left,
+    "right": right,
+    "top-left": top left,
+    "top-right": top right,
+    "bottom-left": bottom left,
+    "bottom-right": bottom right,
+);
+
+// Overlay opacity options
+// Used in overlay and gradient classes (e.g., -25, -50, -75, -100)
+$overlay-opacities: (
+    "25": 0.25,
+    "50": 0.5,
+    "75": 0.75,
+    "100": 1,
+);
+
+// Overlay color options using variables
+// Used in overlay and gradient classes (e.g., -black, -white, -gray, -navy)
+$overlay-colors: (
+    "black": $gray-900,
+    "white": $white,
+    "gray": $gray-500,
+    "navy": $navy-300,
+);
+
+// Gradient directions
+// Used in gradient classes (e.g., -top, -bottom, -left, -right)
+$gradient-directions: (
+    "top": to top,
+    "bottom": to bottom,
+    "left": to left,
+    "right": to right,
+);
+
+// Generate background size utilities
+// Generates: .bg-cover, .bg-contain
+// These classes set the background size and automatically center the background
+@each $name, $value in $bg-sizes {
+    .bg-#{$name} {
+        background-size: $value !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+}
+
+// Generate background position utilities for cover
+// Generates: .bg-cover-center, .bg-cover-top, .bg-cover-bottom, .bg-cover-left, .bg-cover-right
+// These classes combine background-size: cover with specific positioning
+@each $name, $value in $bg-positions {
+    .bg-cover-#{$name} {
+        background-size: cover !important;
+        background-position: $value !important;
+        background-repeat: no-repeat !important;
+    }
+}
+
+// Generate background attachment utilities
+// Generates: .bg-fixed, .bg-scroll, .bg-local
+// These classes control how the background behaves when scrolling
+@each $name, $value in $bg-attachments {
+    .bg-#{$name} {
+        background-attachment: $value !important;
+    }
+}
+
+// Generate object-fit utilities
+// Generates: .object-cover, .object-contain, .object-fill, .object-none, .object-scale-down
+// These classes control how replaced elements (img, video) fit within their container
+@each $name, $value in $object-fits {
+    .object-#{$name} {
+        object-fit: $value !important;
+    }
+}
+
+// Generate object-position utilities
+// Generates: .object-center, .object-top, .object-bottom, .object-left, .object-right, etc.
+// These classes control the positioning of replaced elements within their container
+@each $name, $value in $object-positions {
+    .object-#{$name} {
+        object-position: $value !important;
+    }
+}
+
+// Generate background overlay utilities
+// Generates: .bg-overlay-{color}-{opacity} (e.g., .bg-overlay-black-50, .bg-overlay-white-25)
+// These classes create a colored overlay on top of the background using a pseudo-element
+// Child elements are automatically positioned above the overlay
+@each $color-name, $color-value in $overlay-colors {
+    @each $opacity-name, $opacity-value in $overlay-opacities {
+        .bg-overlay-#{$color-name}-#{$opacity-name} {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba($color-value, $opacity-value);
+                z-index: 1;
+            }
+
+            > * {
+                position: relative;
+                z-index: 2;
+            }
+        }
+    }
+}
+
+// Generate gradient overlay utilities (transparent to color)
+// Generates: .bg-gradient-{direction}-{color}-{opacity} (e.g., .bg-gradient-top-black-50)
+// These classes create a gradient overlay from transparent to a colored opacity
+// Useful for creating fade effects on backgrounds
+@each $color-name, $color-value in $overlay-colors {
+    @each $opacity-name, $opacity-value in $overlay-opacities {
+        @each $direction-name, $direction-value in $gradient-directions {
+            .bg-gradient-#{$direction-name}-#{$color-name}-#{$opacity-name} {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(
+                        $direction-value,
+                        transparent,
+                        rgba($color-value, $opacity-value)
+                    );
+                    z-index: 1;
+                }
+
+                > * {
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}
+
+// Generate gradient overlay utilities (color to color)
+// Generates: .bg-gradient-{direction}-{color}-{opacity-from}-{opacity-to} (e.g., .bg-gradient-top-black-25-75)
+// These classes create a gradient overlay between two different opacity values of the same color
+// Useful for creating more complex fade effects with specific start and end opacities
+@each $color-name, $color-value in $overlay-colors {
+    @each $opacity-from, $opacity-value-from in $overlay-opacities {
+        @each $opacity-to, $opacity-value-to in $overlay-opacities {
+            @each $direction-name, $direction-value in $gradient-directions {
+                .bg-gradient-#{$direction-name}-#{$color-name}-#{$opacity-from}-#{$opacity-to} {
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: linear-gradient(
+                            $direction-value,
+                            rgba($color-value, $opacity-value-from),
+                            rgba($color-value, $opacity-value-to)
+                        );
+                        z-index: 1;
+                    }
+
+                    > * {
+                        position: relative;
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+// Animation Utilities - Generated with SCSS loops
+@use "./variables" as *;
+
+// Color accent utilities for glow/underline
+$hover-color-map: (
+  "gray-50": $gray-50,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+  "navy-100": $navy-100,
+  "navy-200": $navy-200,
+  "navy-300": $navy-300,
+  "navy-900": $navy-900,
+  "orange-400": $orange-400,
+  "orange-500": $orange-500,
+  "white": $white
+);
+
+@each $name, $color in $hover-color-map {
+  .hover-anim-color-#{$name}:hover {
+    color: #{rgba($color, .6)} !important;
+  }
+  .hover-anim-bg-color-#{$name}:hover {
+    background-color: #{rgba($color, .6)} !important;
+  }
+  .hover-anim-border-color-#{$name}:hover {
+    border-color: #{rgba($color, .6)} !important;
+  }
+}
+
+// Transition utility classes
+$transition-properties: (
+  "all": all,
+  "color": color,
+  "background": background-color,
+  "border": border-color,
+  "opacity": opacity,
+  "transform": transform,
+  "height": height,
+  "width": width,
+  "margin": margin,
+  "padding": padding,
+  "font-size": font-size,
+  "font-weight": font-weight,
+  "text-align": text-align,
+  "text-transform": text-transform,
+  "text-decoration": text-decoration,
+  "visibility": visibility,
+  "shadow": box-shadow
+);
+
+$transition-durations: (
+  "fast": 0.15s,
+  "normal": 0.3s,
+  "slow": 0.5s
+);
+
+@each $prop-name, $prop in $transition-properties {
+  .transition-#{$prop-name} {
+    transition-property: #{$prop};
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+  @each $speed, $duration in $transition-durations {
+    .transition-#{$prop-name}-#{$speed} {
+      transition-property: #{$prop};
+      transition-duration: #{$duration};
+      transition-timing-function: ease;
+    }
+  }
+}

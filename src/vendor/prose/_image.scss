@@ -1,0 +1,19 @@
+@mixin main {
+    img {
+        object-fit: cover !important;
+        margin-bottom: var(--nt-space-1) !important;
+    }
+
+    .img-caption {
+        text-align: left !important;
+        margin-block: var(--nt-space-5) !important;
+    }
+
+    p.img-caption {
+        margin-top: 0 !important;
+    }
+
+    .img-grid {
+        margin-bottom: 0 !important;
+    }
+}

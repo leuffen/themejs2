@@ -1,0 +1,54 @@
+@mixin main {
+    .box-primary {
+        background-color: var(--nt-primary-subtle) !important;
+        border-color: var(--nt-primary-subtle) !important;
+
+        &.subtle {
+            h2 {
+                font-size: var(--nt-fs-2) !important;
+                font-weight: 600 !important;
+                color: var(--nt-text) !important;
+                border-bottom: none !important;
+                margin-bottom: 0 !important;
+                padding: 0 !important;
+            }
+        }
+
+        h2 {
+            color: var(--nt-text) !important;
+            border-color: var(--nt-primary) !important;
+            border-bottom: var(--nt-border-width) solid var(--nt-primary) !important;
+            padding-top: var(--nt-space-2) !important;
+            padding-bottom: var(--nt-space-1) !important;
+            font-size: var(--nt-fs-4) !important;
+        }
+
+    }
+
+    .box-secondary {
+        background-color: var(--nt-tertiary) !important;
+        border-color: var(--nt-tertiary) !important;
+    }
+
+    .advertise {
+        margin-top: var(--nt-space-5) !important;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: calc(var(--nt-space-4) * -1);
+            left: 0;
+            right: 0;
+            content: "Anzeige";
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            font-size: var(--nt-fs-5) !important;
+            font-weight: 400 !important;
+            color: var(--nt-dark-subtle) !important;
+        }
+    }
+
+
+
+}

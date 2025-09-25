@@ -1,0 +1,13 @@
+@for $i from 0 through 64 {
+  .flexg-#{$i} {
+    gap: calc(#{$i} * 1px);
+  }
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}

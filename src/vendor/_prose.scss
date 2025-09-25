@@ -1,0 +1,49 @@
+@use "./prose/box" as box;
+@use "./prose/image" as image;
+@use "./prose/headings" as headings;
+
+.prose {
+    @include box.main;
+    @include image.main;
+    @include headings.main;
+
+    p strong {
+        color: var(--nt-accent);
+    }
+
+    ::marker {
+        color: var(--nt-primary) !important;
+        font-size: 1.5rem !important;
+    }
+
+    ul {
+        list-style: square !important;
+    }
+
+    li {
+        margin-top: var(--nt-space-2) !important;
+        margin-bottom: var(--nt-space-2) !important;
+    } 
+
+    /* Blockquote */
+    blockquote {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        border-left: 0.125rem solid var(--nt-primary) !important;
+        margin: var(--nt-space-4) 0;
+        color: var(--nt-secondary);
+        font-size: var(--nt-fs-2) !important;
+        font-weight: 300 !important;
+        font-style: italic !important;
+
+        p {
+            margin-bottom: var(--nt-space-2) !important;
+
+            &:last-child {
+                font-size: var(--nt-fs-4) !important;
+            }
+        }
+
+        
+    }
+}

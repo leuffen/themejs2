@@ -1,0 +1,56 @@
+@use "sass:map";
+
+// Import variables
+@use "./variables" as *;
+
+// Create a map of all color variables for easy iteration
+$color-map: (
+  "gray-50": $gray-50,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+  "navy-100": $navy-100,
+  "navy-200": $navy-200,
+  "navy-300": $navy-300,
+  "navy-900": $navy-900,
+  "orange-400": $orange-400,
+  "orange-500": $orange-500,
+  "white": $white
+);
+
+// Generate utility classes for each color
+@each $name, $color in $color-map {
+  // Background color utilities
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+  
+  // Text color utilities
+  .text-#{$name} {
+    color: $color !important;
+  }
+  
+  // Border color utilities
+  .border-#{$name} {
+    border-color: $color !important;
+  }
+  
+  // CSS custom property utilities
+  .bg-#{$name}-var {
+    --background-color: #{$color} !important;
+  }
+  
+  .text-#{$name}-var {
+    --text-color: #{$color} !important;
+  }
+  
+  .border-#{$name}-var {
+    --border-color: #{$color} !important;
+  }
+}
