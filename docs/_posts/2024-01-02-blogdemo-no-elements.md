@@ -16,8 +16,11 @@ body-class: epraxis blog
 seoScore: 8
 short_title: Barrierefreiheitsbverstärkungsgesetz (BFSG)
 title: Das neue Gesetz und seine Bedeutung für Praxen
+summary: Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
 author: Max Mustermann
 type: website
+
+reading_time: 2
 
 researched-by: human
 written-by: shared
@@ -43,15 +46,6 @@ author_meta:
   description: "Hallo, ich bin ein Content-Autor, der von den Themen Medizin, Marketing und Technologie fasziniert ist. Ich helfe, die richtigen Inhalte an die richtigen Leute zu bringen."
   image: https://www.svgrepo.com/show/384670/account-avatar-profile-user.svg
 ---
-
-![]({{ page.image }})
-
-Barrierefreiheitsbverstärkungsgesetz (BFSG)
-{: .short-title}
-
-# {{ page.title }}
-
-Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
 
 ## Inhaltsverzeichnis (Platzhalter)
 {: layout=".box.box-secondary"}

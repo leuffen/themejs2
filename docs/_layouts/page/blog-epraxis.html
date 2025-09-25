@@ -3,11 +3,68 @@ layout: 3_3_1_content
 ---
 
 <div class="container">
+
+    <div style="height: 4px; position: sticky; top: 70px; z-index: 10;" style-xl="display: none;">
+        <div id="epraxis-progressbar-container-mobile" class="bg-gray-100 d-overflow-hidden"
+            style="height: 4px; border-radius: calc(0.25rem * 5); display: none;">
+            <div class="epraxis-post-info-progressbar bg-orange-500" style="height: 100%; width: 0%; transition: width 0.1s ease-out;"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('scroll', function() {
+            var progressBarContainer = document.getElementById('epraxis-progressbar-container-mobile');
+            if (window.scrollY > 70) {
+                progressBarContainer.style.display = 'block';
+            } else {
+                progressBarContainer.style.display = 'none';
+            }
+        });
+    </script>
+
     <div class="row gx-2">
         <div class="-xl:col-12 xl:col-8">
             <main>
                 <tj-content-pane class="prose prose-xl">
+                    {% if page.image %}
+                    <div>
+                        <img src="{{page.image}}" alt="{{page.title}}">
+                    </div>
+                    {% endif %}
+                    
+                    {% if page.short_title %}
+                    <p class="short-title">{{ page.short_title }}</p>
+                    {% endif %}
+
+                    <section>
+                        <h1>{{ page.title }}</h1>
+                        <p>{{ page.summary }}</p>
+                    </section>
+
+                    <div class="fw-300 fs-3" style="letter-spacing: 0.05em;" style-xl="display: none;">
+                        {% if page.author %}
+                        <p class="m-0">Von {{ page.author }}</p>
+                        {% endif %}
+                        <div class="d-flex flexg-8">
+                            {% if page.date %}
+                            <p class="m-0">{{ page.date | date: "%d.%m.%Y" }}</p>
+                            {% endif %}
+
+                            {% if page.reading_time %}
+                            <div class="d-flex align-center flexg-2 m-0">
+                                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                <svg class="m-0" width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="16" height="16" fill="white"/>
+                                    <circle cx="12" cy="12" r="9" stroke="var(--nt-text-secondary)" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 6V12L16.5 16.5" stroke="var(--nt-text-secondary)" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p class="m-0">{{ page.reading_time }} Min.</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
                     {{ content }}
+                    
                     <div style="border-top: 2px solid var(--nt-border)" class="mt-3 mb-4"></div>
                     {% if page.references %}
                     <div class="references mx-3">
@@ -64,22 +121,31 @@ layout: 3_3_1_content
                         <div class="border-gray-300 border-bottom my-2"></div>
                         <div class="mb-3">
                             <div class="text-navy-100 fw-600 fs-4 my-2 pt-2 pb-2">{{ page.title }}</div>
+                            {% if page.author or page.date or page.reading_time %}
                             <div class="fs-6 text-gray-600">
                                 <table class="table-borderless">
+                                    {% if page.author %}
                                     <tr>
                                         <td class="pe-2">Autor:</td>
                                         <td>{{ page.author }}</td>
                                     </tr>
+                                    {% endif %}
+                                    {% if page.date %}
                                     <tr>
                                         <td class="pe-2">Datum:</td>
                                         <td>{% if page.date %}{{ page.date | date: "%d.%m.%Y" }}{% endif %}</td>
                                     </tr>
+                                    {% endif %}
+                                    {% if page.reading_time %}
                                     <tr>
                                         <td class="pt-3 pe-2">Lesezeit:</td>
-                                        <td class="pt-3">ca. 0 Minuten</td>
+                                        <td class="pt-3">ca. {{ page.reading_time }} Minuten</td>
+                                    </tr>
+                                    {% endif %}
                                     </tr>
                                 </table>
                             </div>
+                            {% endif %}
                             <div>
                                 <div class="my-2 bg-gray-100 d-overflow-hidden"
                                     style="height: var(--nt-space-3); border-radius: calc(0.25rem * 5);">
@@ -143,8 +209,12 @@ layout: 3_3_1_content
                     Weniger anzeigen
                 </button>
             </aside>
-            <aside class="mt-5 p-4 bg-gray-200 rounded d-flex">
-                <div class="fs-5 text-navy-200 fw-600 d-flex align-center text-uppercase" style="flex: 1;">
+            <aside class="mt-5 p-4 bg-gray-200 rounded d-flex aside-share" 
+            style="flex-direction: column; gap: var(--nt-space-3); align-items: center; margin-top: var(--nt-space-3) !important;"
+            style-xl="flex-direction: row;">
+                <div class="fs-5 text-navy-200 d-flex align-center text-uppercase"
+                    style="flex: 1; font-size: var(--nt-fs-2) !important; font-weight: 600 !important;"
+                    style-xl="font-size: var(--nt-fs-5) !important;">
                     Artikel teilen:
                 </div>
                 <div class="d-flex flex-wrap flexg-12">
