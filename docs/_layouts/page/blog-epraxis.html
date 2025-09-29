@@ -172,7 +172,7 @@ layout: 3_3_1_content
                             {% for type in ai_types %}
                             {% assign type_key = type | append: "-by" %}
                             {% assign type_value = page[type_key] %}
-                            <div class="col justify-items-center bg-gray-100 p-1 pt-2 pb-3" style="border-radius: calc(0.25rem * 5);">
+                            <div class="col justify-items-center bg-gray-100 p-1 pt-2 pb-3" style="border-radius: calc(0.25rem * 5); display: inline-grid;">
                                 {% if type_value == "human" %}
                                 <img src="/assets/human.svg" alt="Human" />
                                 {% elsif type_value == "shared" %}
