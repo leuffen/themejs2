@@ -24,8 +24,16 @@ export class ProgressBar extends LitElement {
   @property({ type: Number, attribute: 'transition-duration' })
   transitionDuration: number = 0.1;
 
+  @property({ type: String, attribute: 'offset-selector' })
+  offsetSelector: string = '';
+
+  @property({ type: Number, attribute: 'offset-top' })
+  offsetTop: number = 70;
+
   private progress: number = 0;
   private isVisible: boolean = false;
+  private computedOffsetTop: number = 70;
+  private resizeObserver?: ResizeObserver;
 
   static styles = css`
     :host {
@@ -45,7 +53,6 @@ export class ProgressBar extends LitElement {
 
     .mobile-variant {
       position: sticky;
-      top: 70px;
       z-index: 10;
     }
 
@@ -61,11 +68,13 @@ export class ProgressBar extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.setupScrollListener();
+    this.setupOffsetObservers();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     this.removeScrollListener();
+    this.teardownOffsetObservers();
   }
 
   private setupScrollListener() {
@@ -76,6 +85,49 @@ export class ProgressBar extends LitElement {
 
   private removeScrollListener() {
     window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  private setupOffsetObservers() {
+    this.recomputeOffsetTop();
+    window.addEventListener('resize', this.recomputeOffsetTop as EventListener, { passive: true } as unknown as AddEventListenerOptions);
+
+    if (this.offsetSelector && 'ResizeObserver' in window) {
+      const target = document.querySelector(this.offsetSelector) as HTMLElement | null;
+      if (target) {
+        this.resizeObserver = new ResizeObserver(() => this.recomputeOffsetTop());
+        this.resizeObserver.observe(target);
+      }
+    }
+  }
+
+  private teardownOffsetObservers() {
+    window.removeEventListener('resize', this.recomputeOffsetTop as EventListener);
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = undefined;
+    }
+  }
+
+  private recomputeOffsetTop = () => {
+    let next = this.offsetTop;
+    if (this.offsetSelector) {
+      const el = document.querySelector(this.offsetSelector) as HTMLElement | null;
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        next = Math.max(0, Math.round(rect.height));
+      }
+    }
+    if (next !== this.computedOffsetTop) {
+      this.computedOffsetTop = next;
+      this.requestUpdate();
+    }
+  };
+
+  protected updated(changed: Map<string, unknown>) {
+    if (changed.has('offsetSelector')) {
+      this.teardownOffsetObservers();
+      this.setupOffsetObservers();
+    }
   }
 
   private isTickScheduled = false;
@@ -124,7 +176,7 @@ export class ProgressBar extends LitElement {
     const baseStyles = this.getProgressBarStyles();
     
     if (this.variant === 'mobile') {
-      return `${baseStyles} display: ${this.isVisible ? 'block' : 'none'};`;
+      return `${baseStyles} display: ${this.isVisible ? 'block' : 'none'}; top: ${this.computedOffsetTop}px; position: sticky;`;
     }
     
     return baseStyles;
