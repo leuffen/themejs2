@@ -7,7 +7,7 @@ body_class: ~
 description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam Genné in
   Senftenberg. Wir bieten individuelle medizinische Versorgung, klassische HNO-Leistungen
   und Naturheilverfahren. \U0001F33F"
-image: ""
+image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
 keywords: ~
 layout: page/homepage
 order: 0
@@ -16,9 +16,16 @@ ptags:
 - nav
 published: true
 seoScore: 8
-short_title: Home
-title: ~
+company: epraxis.digital
+short_title: DAS MAGAZIN FÜR DIE DIGITALISIERUNG IN DER GESUNDHEITSBRANCHE
+title: Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
+headline_image: /assets/header-bg.svg
 type: website
+
+articles_related:
+  - MAIN
+  - TEST1
+  - TEST2
 ---
 
 
