@@ -9,7 +9,7 @@ description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam G
   und Naturheilverfahren. \U0001F33F"
 image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
 keywords: ~
-layout: page/homepage
+layout: website
 order: 0
 permalink: /
 ptags:
@@ -30,14 +30,14 @@ articles_related:
 
 
 ## Übersicht über das Theme
-
+{: layout=".container"}
 
 - [Startseite](/homepage.html){: .btn .btn-primary .text-center .m-1}
 - [Demo Post](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary .text-center .m-1}
 
 ### Sitemap
 
-{% include el/sitemap-table.html %}
+{% include el/sitemap-table.html dir="/" %}
 
 
 Hier außerdem eine Demo von nützlichen `includes`.
