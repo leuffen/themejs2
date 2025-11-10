@@ -32,7 +32,7 @@ articles_related:
 ## Übersicht über das Theme
 {: layout=".container"}
 
-- [Startseite](/homepage.html){: .btn .btn-primary .text-center .m-1}
+- [Startseite](/pages/startseite.html){: .btn .btn-primary .text-center .m-1}
 - [Demo Post](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary .text-center .m-1}
 
 ### Sitemap

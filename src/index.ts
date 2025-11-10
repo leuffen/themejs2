@@ -6,3 +6,7 @@ import "@nextrap/nte-nav";
 
 // Import custom elements
 import "./elements/progress-bar";
+
+
+// Import NTL components
+import "@nextrap/ntl-2col";

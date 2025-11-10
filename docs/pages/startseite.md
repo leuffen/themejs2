@@ -9,7 +9,7 @@ description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam G
   und Naturheilverfahren. \U0001F33F"
 image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
 keywords: ~
-layout: page/homepage
+layout: website
 order: 0
 ptags:
 - nav
@@ -29,7 +29,7 @@ articles_related:
 
 
 # EPraxis.Digital - Das Magazin für die Digitalisierung im Gesundheitswesen
-{: layout="2@.header"}
+{: layout="2;.header"}
 
 
 ### Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
@@ -43,8 +43,14 @@ Effizient,  Effizient, präziser, patientenorientierter
 - der moderne Zahnarzt 2.0
 
 
+### Hello World
+{: layout="ntl-2col.box"}
+
+Hello World
+
+
 ---
-{: layout="2@.container"}
+{: layout="2;.container"}
 
 {% include el/post-previews-by-name.html posts="zahnarztpraxis-der-zukunft,ki-in-der-zahnmedizin,patientendaten-sicher-verwalten" %}
 
