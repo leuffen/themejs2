@@ -28,6 +28,9 @@ articles_related:
 ---
 
 
+
+
+
 # EPraxis.Digital - Das Magazin für die Digitalisierung im Gesundheitswesen
 {: layout="2;.header"}
 
