@@ -28,55 +28,172 @@ articles_related:
 ---
 
 
-# EPraxis.Digital - Das Magazin für die Digitalisierung im Gesundheitswesen
-{: layout="2;.header"}
+---
+{: layout="1;ntl-hero"}
 
 
-### Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
-{: layout=".text-center .h1"}
-
-### Top Thema
-
-> Die Zunkut der Zahnarztpraxis.
-
-Effizient,  Effizient, präziser, patientenorientierter
-- der moderne Zahnarzt 2.0
+![](../assets/header-bg.svg)
+{: layout="2;ntl-parallax-bg" slot="bg"}
 
 
+###### <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
+
+# Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
+
+
+---
+{: layout="2" slot="slider"}
+
+
+<nte-image slot="slider" data-features="slideshow arrows indicators fullsize round-borders" interval="4000">
+    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
+    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
+    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
+    <img src="https://picsum.photos/1155/775?seed=1" alt="Slide 2" />
+    <img src="https://picsum.photos/1155/775?seed=2" alt="Slide 3" />
+</nte-image>
+
+[//]: # (![]&#40;https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg&#41;)
+
+[//]: # (![]&#40;https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg&#41;)
+
+[//]: # (![]&#40;https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg&#41;)
+
+[//]: # ({: layout="nte-image" data-features="slideshow arrows indicators fullsize round-borders"})
+
+
+
+[//]: # (### Top Thema)
+
+[//]: # ()
+[//]: # (> Die Zunkut der Zahnarztpraxis.)
+
+[//]: # ()
+[//]: # (Effizient,  Effizient, präziser, patientenorientierter)
+
+[//]: # (- der moderne Zahnarzt 2.0)
+
+
+---
+{: layout="1;.container.grid-container.rows-2.cols-2"}
+
+
+---
+{: layout="1.5;nte-card.c1.rs2"}
+
+![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+{: slot="image"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+[Weiterlesen](/2024/01/02/blogdemo-no-elements.html)
 
 
 
 ---
-{: layout="2;ntl-2col.container"}
-
-
-### Kommunikation, Praxisorganistation
-
->  Das ist eine längere Überschrift, die in zwei Zeilen steht.
+{: layout="1.5;nte-card.c2.r1.small"}
 
 ![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+{: slot="image"}
+
+> Kategorie
+
+## Das ist eine kürzere Überschhrift
+
+---
+{: layout="1.5;nte-card.c2.r2.small"}
+
+
+![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+{: slot="image"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+{: layout="3"}
+
+---
+{: layout="1;.box-primary"}
+
+---
+{: layout="1.5;ntl-2col.container"}
+
+# Empfehlung der Redaktion
+{: layout="2"}
+
+> Top Themen
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
-[Weiterlesen](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary .mt-3}
+[Alle Top-Artikel anzeigen](/2024/01/02/blogdemo-no-elements.html)
 
-### Kommunik und Praxisorganistation
-{: layout=".aside[slot='aside']"}
+---
+{: layout="2;.aside" slot="aside"}
 
-> SMS-Kommunikation in der Hausarztpraxis
-
-![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
-
-
-### Kommunik und Praxisorganistation
-{: layout=".aside" slot="aside"}
-
-> SMS-Kommunikation in der Hausarztpraxis
-
-![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+<nte-image slot="slider" data-features="slideshow arrows indicators fullsize round-borders" interval="4000">
+    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
+    <img src="https://picsum.photos/1155/775?seed=1" alt="Slide 2" />
+    <img src="https://picsum.photos/1155/775?seed=2" alt="Slide 3" />
+</nte-image>
 
 
+---
+{: layout="1;.container.grid-container.gap-1.rows-2.cols-3"}
 
-{% include el/post-previews-by-name.html posts="zahnarztpraxis-der-zukunft,ki-in-der-zahnmedizin,patientendaten-sicher-verwalten" %}
+---
+{: layout="1.5;nte-card.secondary.r1.c1"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+---
+{: layout="1.5;nte-card.secondary.r1.c2"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
 
+---
+{: layout="1.5;nte-card.secondary.r2.c1"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+---
+{: layout="1.5;nte-card.secondary.r2.c2"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+---
+{: layout="1.5;.box.box-secondary.secondary.r1.c3.rs2.mb-0"}
+
+## Beliebte Artikel:
+
+### Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen
+
+---
+
+### Günstige Websites für niedergelassene Arztpraxen zum Festpreis
+
+### Marketing für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar
+
+### Digitale Lösungen für Ihre Zahnarztpraxis
+
+### Starke Kampagnen für Zahnarztpraxen von Online-Marketing-Experten

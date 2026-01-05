@@ -1,0 +1,208 @@
+/* Category mixin */
+@mixin category-label {
+    border-left: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    p {
+        /* Text styling */
+        color: var(--nt-primary); /* orange-500 */
+        font-size: var(--nt-fs-5);
+        font-weight: 600;
+        text-transform: uppercase;
+
+        /* Layout */
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px;
+
+        /* Icon decoration using ::before pseudo-element */
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 1.5em;
+            border-bottom: 2px solid currentColor;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+    }
+}
+
+/* Primary Button */
+@mixin primary-button {
+    display: block;
+    cursor: pointer;
+    background-color: var(--nt-primary);
+    width: fit-content;
+    padding: 16px 30px;
+    border-radius: 30px;
+    color: var(--nt-light) !important;
+    text-decoration: none !important;
+
+    &:hover {
+        background-color: var(--nt-primary-emphasis);
+    }
+}
+
+/* grid container */
+.grid-container {
+    display: grid;
+    gap: 8px;
+    grid-auto-flow: row;
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: start;
+    align-content: start;
+
+    // Column templates: .cols-1, .cols-2, .cols-3, etc.
+    @for $i from 1 through 6 {
+        &.cols-#{$i} {
+            grid-template-columns: repeat(#{$i}, 1fr);
+        }
+    }
+
+    // Row templates: .rows-1, .rows-2, .rows-3, etc.
+    @for $i from 1 through 6 {
+        &.rows-#{$i} {
+            grid-template-rows: repeat(#{$i}, auto);
+        }
+    }
+
+    // Row positions: .r1, .r2, .r3, etc.
+    @for $i from 1 through 6 {
+        .r#{$i} {
+            grid-row: $i;
+        }
+    }
+
+    // Column positions: .c1, .c2, .c3, etc.
+    @for $i from 1 through 6 {
+        .c#{$i} {
+            grid-column: $i;
+        }
+    }
+
+    // Row span: .rs2, .rs3, etc.
+    @for $i from 2 through 6 {
+        .rs#{$i} {
+            grid-row: span $i;
+        }
+    }
+
+    // Column span: .cs2, .cs3, etc.
+    @for $i from 2 through 6 {
+        .cs#{$i} {
+            grid-column: span $i;
+        }
+    }
+
+    // Gap sizes: .gap-1, .gap-2, .gap-3, etc.
+    @for $i from 1 through 6 {
+        &.gap-#{$i} {
+            gap: calc(var(--nt-gap) * $i);
+        }
+    }
+}
+
+/* box-primary container */
+.box-primary {
+    padding: 20px 0;
+
+    /* Category */
+    blockquote {
+        @include category-label;
+    }
+
+    p:has(a) > a {
+        @include primary-button;
+    }
+}
+
+/* ntl-hero */
+ntl-hero {
+    --ntl-hero-height-offset: 20vh;
+}
+
+/* nte-card */
+nte-card {
+    --card-bg: var(--nt-body-teritary, #e4e6ef);
+    --card-border-color: var(--nt-body-teritary, #e4e6ef);
+    --card-border-radius: 20px;
+    --card-box-shadow: none;
+    --image-aspect-ratio: 11/6;
+
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: var(--card-bg);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--nt-secondary);
+        margin-top: 0 !important;
+    }
+
+    /* Category */
+    blockquote {
+        @include category-label;
+    }
+
+    img {
+        border-radius: 20px;
+    }
+
+    section:has(h1, h2, h3, h4, h5, h6) p:first-of-type {
+        margin-top: 20px;
+        color: var(--nt-text);
+    }
+
+    section:has(h1, h2, h3, h4, h5, h6) p:has(a) > a {
+        @include primary-button;
+    }
+
+    &.small {
+        position: relative;
+
+        > p::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent
+                linear-gradient(
+                    0deg,
+                    var(--nt-secondary) 0%,
+                    rgb(from var(--nt-secondary) r g b / 0) 100%
+                )
+                0% 0% no-repeat padding-box;
+        }
+
+        &::part(body) {
+            position: absolute;
+            bottom: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--nt-light);
+            z-index: 5;
+            margin-top: 0 !important;
+        }
+    }
+
+    &.secondary {
+        --card-bg: var(--nt-body, #ffffff);
+        padding: 0;
+        margin: 0;
+    }
+}

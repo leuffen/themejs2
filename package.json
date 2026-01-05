@@ -30,13 +30,17 @@
   "author": "",
   "dependencies": {
     "lit": "^3.2.1",
-    "@nextrap/nte-nav": "^1.0.0",
     "@nextrap/style-base": "^1.1.8",
     "@nextrap/style-button": "^0.0.6",
     "@nextrap/style-reset": "^0.1.1",
     "@nextrap/style-typography": "^1.0.0",
     "@nextrap/style-utils": "^1.0.0",
+    "@nextrap/nte-nav": "^1.0.0",
+    "@nextrap/nte-card": "^1.0.3",
+    "@nextrap/nte-image": "^1.2.3",
     "@nextrap/ntl-2col": "^1.0.0",
+    "@nextrap/ntl-hero": "^1.0.0",
+    "@nextrap/ntl-parallax-bg": "^1.0.0",
     "@trunkjs/content-pane": "^1.0.0",
     "@trunkjs/responsive": "^1.0.0",
 
