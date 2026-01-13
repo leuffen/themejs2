@@ -31,6 +31,13 @@ articles_related:
 ---
 {: layout="1;ntl-hero"}
 
+<nte-nav slot="nav">
+  <span slot="brand">epraxis.digital</span>
+  <a slot="links" href="/">Magazin</a>
+  <a slot="links" href="/">Über uns</a>
+  <a slot="links" href="/">Kontakt</a>
+</nte-nav>
+
 
 ![](../assets/header-bg.svg)
 {: layout="2;ntl-parallax-bg" slot="bg"}
@@ -42,27 +49,15 @@ articles_related:
 
 
 ---
-{: layout="2" slot="slider"}
+{: layout="2" slot="slider" style="height: 100%;"}
+
+![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+![](https://picsum.photos/1155/775?seed=1)
+![](https://picsum.photos/1155/775?seed=2)
+{: layout="nte-image" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
 
 
-<nte-image slot="slider" data-features="slideshow arrows indicators fullsize round-borders" interval="4000">
-    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
-    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
-    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
-    <img src="https://picsum.photos/1155/775?seed=1" alt="Slide 2" />
-    <img src="https://picsum.photos/1155/775?seed=2" alt="Slide 3" />
-</nte-image>
-
-[//]: # (![]&#40;https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg&#41;)
-
-[//]: # (![]&#40;https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg&#41;)
-
-[//]: # (![]&#40;https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg&#41;)
-
-[//]: # ({: layout="nte-image" data-features="slideshow arrows indicators fullsize round-borders"})
-
-
-
+<!-- TODO: Hier nochmal checken, wie das in die image component rein soll. Image component anpassen??? -->
 [//]: # (### Top Thema)
 
 [//]: # ()
@@ -77,7 +72,6 @@ articles_related:
 ---
 {: layout="1;.container.grid-container.rows-2.cols-2"}
 
-
 ---
 {: layout="1.5;nte-card.c1.rs2"}
 
@@ -91,8 +85,6 @@ articles_related:
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
 [Weiterlesen](/2024/01/02/blogdemo-no-elements.html)
-
-
 
 ---
 {: layout="1.5;nte-card.c2.r1.small"}
@@ -134,11 +126,10 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 ---
 {: layout="2;.aside" slot="aside"}
 
-<nte-image slot="slider" data-features="slideshow arrows indicators fullsize round-borders" interval="4000">
-    <img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg" alt="Slide 1" />
-    <img src="https://picsum.photos/1155/775?seed=1" alt="Slide 2" />
-    <img src="https://picsum.photos/1155/775?seed=2" alt="Slide 3" />
-</nte-image>
+![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+![](https://picsum.photos/1155/775?seed=1)
+![](https://picsum.photos/1155/775?seed=2)
+{: layout="3;nte-image" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
 
 
 ---
@@ -149,7 +140,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 > Kategorie
 
-## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
@@ -158,7 +149,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 > Kategorie
 
-## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
@@ -168,7 +159,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 > Kategorie
 
-## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
@@ -177,7 +168,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 > Kategorie
 
-## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
@@ -188,8 +179,6 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 ### Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen
 
----
-
 ### Günstige Websites für niedergelassene Arztpraxen zum Festpreis
 
 ### Marketing für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar
@@ -197,3 +186,24 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 ### Digitale Lösungen für Ihre Zahnarztpraxis
 
 ### Starke Kampagnen für Zahnarztpraxen von Online-Marketing-Experten
+
+
+---
+{: layout="1;.container.badges"}
+
+Digitalisierung
+
+Künstliche Intelligenz
+
+Webseiten
+
+Digitale Transformation
+
+Cyber Security
+
+Datensicherheit
+
+Interviews
+
+<!-- ---
+{: layout="1;ntl-footer"} -->

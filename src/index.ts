@@ -5,8 +5,6 @@ import "@trunkjs/responsive";
 import "@nextrap/nte-nav";
 import "@nextrap/nte-card";
 import "@nextrap/nte-image";
-import "@nextrap/ntl-hero";
-import "@nextrap/ntl-parallax-bg";
 
 // Import custom elements
 import "./elements/progress-bar";
@@ -14,3 +12,6 @@ import "./elements/progress-bar";
 
 // Import NTL components
 import "@nextrap/ntl-2col";
+import "@nextrap/ntl-hero";
+//import "@nextrap/ntl-footer";
+import "@nextrap/ntl-parallax-bg";

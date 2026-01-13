@@ -13,10 +13,25 @@
     $black: #222222,
     $white: #ffffff,
     $text: #313434,
-    $font-family-base: "sans-serif",
+    
+    $font-family-base: "Work Sans",
+    $font-family-header: "Work Sans",
+    $font-size-base: 16px,
+    $font-size-header: 16px,
+    $line-height-base: 26px,
+    $line-height-header: 38px,
+    $headerFontSizeMap: (
+        '1': 2.75,      // h1 = 3 × font-size-header
+        '2': 2,    // h2 = 2 × font-size-header
+        '3': 1.5,      // etc.
+        '4': 1.25,
+        '5': 1,
+        '6': 1,
+    ),
+
+
     $enableRcs: true, // Reactive Font Size
     $enableFontConfig: true // Enable Font Configuration
-
 );
 
 //@use "../../src/epraxis-theme/theme" with (

@@ -9,18 +9,11 @@
     color: var(--nt-secondary);
   }
 
-  h1 {
-    font-weight: 500;
-  }
-
-  h2 {
-    font-size: var(--nt-fs-1) !important;
-  }
 
   h1:first-child {
     margin-top: 0 !important;
   }
-  
+
   .short-title {
     color: var(--nt-primary) !important;
     text-transform: uppercase;
