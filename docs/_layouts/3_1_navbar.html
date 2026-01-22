@@ -44,8 +44,23 @@ layout: 2_script
             style="--text-color: blue"
         >
             <span slot="menu-text">Menü</span>
+
+
+
             <ul>
                 {% include el/navbar.html ptag="nav" %}
+                <li style="order: 30">
+                    <a href="javascript:void(0)" >Magazin</a>
+                    <ul>
+                        {% include el/navbar.html ptag="magazin" %}
+                    </ul>
+                </li>
+                <li style="order: 30">
+                    <a href="javascript:void(0)" >Informationen</a>
+                    <ul>
+                        {% include el/navbar.html ptag="nav_info" %}
+                    </ul>
+                </li>
             </ul>
         </nte-nav>
     </nte-navbar-line>
