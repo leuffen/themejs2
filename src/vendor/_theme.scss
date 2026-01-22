@@ -46,61 +46,29 @@
 
 /* grid container */
 .grid-container {
+    --rows: 1;
+    --cols: 1;
+    --gap: 16px;
+
     display: grid;
-    gap: 8px;
+    gap: var(--gap);
     grid-auto-flow: row;
     justify-items: stretch;
     align-items: stretch;
     justify-content: start;
     align-content: start;
 
-    // Column templates: .cols-1, .cols-2, .cols-3, etc.
-    @for $i from 1 through 100 {
-        &.cols-#{$i} {
-            grid-template-columns: repeat(#{$i}, 1fr);
-        }
-    }
+    grid-template-columns: var(--cols);
+    grid-template-rows: var(--rows);
 
-    // Row templates: .rows-1, .rows-2, .rows-3, etc.
-    @for $i from 1 through 100 {
-        &.rows-#{$i} {
-            grid-template-rows: repeat(#{$i}, auto);
-        }
-    }
+    &>* {
+        --row: 1;
+        --col: 1;
+        --row-span:1;
+        --col-span:1;
 
-    // Row positions: .r1, .r2, .r3, etc.
-    @for $i from 1 through 100 {
-        .r#{$i} {
-            grid-row: $i;
-        }
-    }
-
-    // Column positions: .c1, .c2, .c3, etc.
-    @for $i from 1 through 100 {
-        .c#{$i} {
-            grid-column: $i;
-        }
-    }
-
-    // Row span: .rs2, .rs3, etc.
-    @for $i from 2 through 100 {
-        .rs#{$i} {
-            grid-row: span $i;
-        }
-    }
-
-    // Column span: .cs2, .cs3, etc.
-    @for $i from 2 through 100 {
-        .cs#{$i} {
-            grid-column: span $i;
-        }
-    }
-
-    // Gap sizes: .gap-1, .gap-2, .gap-3, etc.
-    @for $i from 1 through 100 {
-        &.gap-#{$i} {
-            gap: calc(var(--nt-gap) * $i);
-        }
+        grid-column: var(--col) span var(--col-span);
+        grid-row: var(--row) span var(--row-span);
     }
 }
 

@@ -31,14 +31,6 @@ articles_related:
 ---
 {: layout="1;ntl-hero"}
 
-<nte-nav slot="nav">
-  <span slot="brand">epraxis.digital</span>
-  <a slot="links" href="/">Magazin</a>
-  <a slot="links" href="/">Über uns</a>
-  <a slot="links" href="/">Kontakt</a>
-</nte-nav>
-
-
 ![](../assets/header-bg.svg)
 {: layout="2;ntl-parallax-bg" slot="bg"}
 
@@ -57,7 +49,7 @@ articles_related:
 {: layout="nte-image" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
 
 
-<!-- TODO: Hier nochmal checken, wie das in die image component rein soll. Image component anpassen??? -->
+<!-- TODO: Hier nochmal checken, wie das in die image component rein soll. Image component anpassen? -->
 [//]: # (### Top Thema)
 
 [//]: # ()
@@ -133,10 +125,10 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ---
-{: layout="1;.container.grid-container.gap-1.rows-2.cols-3"}
+{: layout="1;.container.grid-container" layout-style="--rows:2;--cols:3;--gap:1rem;"}
 
 ---
-{: layout="1.5;nte-card.secondary.r1.c1"}
+{: layout="1.5;nte-card.secondary" layout-style="--row:1;--col:1;"}
 
 > Kategorie
 
