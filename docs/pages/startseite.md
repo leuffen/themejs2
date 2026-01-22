@@ -62,10 +62,10 @@ articles_related:
 
 
 ---
-{: layout="1;.container.grid-container.rows-2.cols-2"}
+{: layout="1;.container.grid-container" style="--rows:2;--cols:2;"}
 
 ---
-{: layout="1.5;nte-card.c1.rs2"}
+{: layout="1.5;nte-card" style="--col:1;--row-span:2;"}
 
 ![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
 {: slot="image"}
@@ -79,7 +79,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 [Weiterlesen](/2024/01/02/blogdemo-no-elements.html)
 
 ---
-{: layout="1.5;nte-card.c2.r1.small"}
+{: layout="1.5;nte-card.small" style="--col:2;--row:1;--image-aspect-ratio: none;"}
 
 ![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
 {: slot="image"}
@@ -89,7 +89,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 ## Das ist eine kürzere Überschhrift
 
 ---
-{: layout="1.5;nte-card.c2.r2.small"}
+{: layout="1.5;nte-card.small" style="--col:2;--row:2;--image-aspect-ratio: none;"}
 
 
 ![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
@@ -125,10 +125,10 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ---
-{: layout="1;.container.grid-container" layout-style="--rows:2;--cols:3;--gap:1rem;"}
+{: layout="1;.container.grid-container" style="--rows:2;--cols:3;--gap:1rem;"}
 
 ---
-{: layout="1.5;nte-card.secondary" layout-style="--row:1;--col:1;"}
+{: layout="1.5;nte-card.secondary" style="--row:1;--col:1;"}
 
 > Kategorie
 
@@ -137,7 +137,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
 ---
-{: layout="1.5;nte-card.secondary.r1.c2"}
+{: layout="1.5;nte-card.secondary" style="--row:1;--col:2;"}
 
 > Kategorie
 
@@ -147,7 +147,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ---
-{: layout="1.5;nte-card.secondary.r2.c1"}
+{: layout="1.5;nte-card.secondary" style="--row:2;--col:1;"}
 
 > Kategorie
 
@@ -156,7 +156,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
 ---
-{: layout="1.5;nte-card.secondary.r2.c2"}
+{: layout="1.5;nte-card.secondary" style="--row:2;--col:2;"}
 
 > Kategorie
 
@@ -165,7 +165,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
 ---
-{: layout="1.5;.box.box-secondary.secondary.r1.c3.rs2.mb-0"}
+{: layout="1.5;.box.box-secondary.secondary.mb-0" style="--row:1;--col:3;--row-span:2;"}
 
 ## Beliebte Artikel:
 

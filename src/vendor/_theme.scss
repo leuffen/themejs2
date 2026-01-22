@@ -58,17 +58,17 @@
     justify-content: start;
     align-content: start;
 
-    grid-template-columns: var(--cols);
-    grid-template-rows: var(--rows);
+    grid-template-columns: repeat(var(--cols), auto);
+    grid-template-rows: repeat(var(--rows), auto);
 
-    &>* {
+    & > * {
         --row: 1;
         --col: 1;
-        --row-span:1;
-        --col-span:1;
+        --row-span: 1;
+        --col-span: 1;
 
-        grid-column: var(--col) span var(--col-span);
-        grid-row: var(--row) span var(--row-span);
+        grid-column: var(--col) / span var(--col-span);
+        grid-row: var(--row) / span var(--row-span);
     }
 }
 
@@ -92,7 +92,7 @@ ntl-hero {
 }
 
 /* nte-card */
-nte-card {
+nte-carda {
     --card-bg: var(--nt-body-teritary, #e4e6ef);
     --card-border-color: var(--nt-body-teritary, #e4e6ef);
     --card-border-radius: 20px;
@@ -104,12 +104,7 @@ nte-card {
     border-radius: 20px;
     background-color: var(--card-bg);
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
         color: var(--nt-secondary);
         margin-top: 0 !important;
     }
@@ -142,13 +137,15 @@ nte-card {
             left: 0;
             right: 0;
             bottom: 0;
-            background: transparent
-                linear-gradient(
+            background: transparent linear-gradient(
                     0deg,
                     var(--nt-secondary) 0%,
                     rgb(from var(--nt-secondary) r g b / 0) 100%
-                )
-                0% 0% no-repeat padding-box;
+            ) 0% 0% no-repeat padding-box;
+        }
+
+        &::part(card) {
+            height: 100%;
         }
 
         &::part(body) {
@@ -156,12 +153,7 @@ nte-card {
             bottom: 0;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             color: var(--nt-light);
             z-index: 5;
             margin-top: 0 !important;
