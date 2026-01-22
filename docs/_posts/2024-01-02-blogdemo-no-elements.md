@@ -52,6 +52,7 @@ author_meta:
 
 ## EPRAXIS.DIGITAL KOMPAKT
 {: layout=".box.box-primary"}
+
 - **Das Barrierefreiheitsstärkungsgesetz (BFSG)** verpflichtet ab 28. Juni 2025 auch Arztpraxen, ihre digitalen Angebote – insbesondere Websites und Apps – barrierefrei zu gestalten, damit alle Menschen uneingeschränkt darauf zugreifen können.
 - **Betroffen sind alle Praxen mit Website,** außer Kleinstunternehmen (weniger als 10 Mitarbeitende & unter 2 Mio. € Umsatz). Dennoch ist digitale Barrierefreiheit ein wichtiges Zeichen für Inklusion und gesellschaftliche Verantwortung.
 - **Wichtige Maßnahmen:** Hoher Farbkontrast, gut lesbare Texte, Alt-Texte für Bilder, Tastaturbedienbarkeit, einfache Sprache und Untertitel bei Videos – das verbessert die Nutzerfreundlichkeit für alle.
@@ -102,8 +103,9 @@ Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Si
 
 Das ist ein Platzhalter
 
+
 ---
-{: layout="2"}
+{: layout="2;"}
 
 
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
