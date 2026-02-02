@@ -200,3 +200,42 @@ nte-card {
         border-bottom: 1px solid var(--nt-tertiary-emphasis);
     }
 }
+
+/* ntl-slide container */
+ntl-slide {
+    --nt-text: var(--nt-white, #fff);
+
+    /* Category */
+    h3 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        /* Text styling */
+        color: var(--nt-primary) !important;
+        font-size: var(--nt-fs-5);
+        font-weight: 600;
+        text-transform: uppercase;
+
+        /* Layout */
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px !important;
+
+        /* Icon decoration using ::before pseudo-element */
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 1.5em;
+            border-bottom: 2px solid currentColor;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+    }
+
+    .h1 > p {
+        line-height: normal;
+    }
+
+    p:has(a) > a {
+        @include primary-button;
+    }
+}

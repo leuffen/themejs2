@@ -29,37 +29,42 @@ articles_related:
 
 
 ---
-{: layout="1;ntl-hero"}
+{: layout="1;ntl-hero.theme1" style="--brand-height: 64px"}
 
 ![](../assets/header-bg.svg)
 {: layout="2;ntl-parallax-bg" slot="bg"}
 
 
-###### <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
+# <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
+{: layout="[slot='top-title']" .h5}
 
-# Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
-
+## Digitale Transformation im Gesundheitswesen<br/>- verständlich, unabhängig, praxisnah.
+{: layout="[slot='title']" .h1}
 
 ---
-{: layout="2" slot="slider" style="height: 100%;"}
+{: layout="2;ntl-slider.theme1"}
 
-![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
-![](https://picsum.photos/1155/775?seed=1)
-![](https://picsum.photos/1155/775?seed=2)
-{: layout="nte-image" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
+### Top Thema
 
+> Die Zunkut der Zahnarztpraxis
+{: layout=".h1"}
 
-<!-- TODO: Hier nochmal checken, wie das in die image component rein soll. Image component anpassen? -->
-[//]: # (### Top Thema)
+![Bild 1](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
 
-[//]: # ()
-[//]: # (> Die Zunkut der Zahnarztpraxis.)
+Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnarzt 2.0
 
-[//]: # ()
-[//]: # (Effizient,  Effizient, präziser, patientenorientierter)
+[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html)
 
-[//]: # (- der moderne Zahnarzt 2.0)
+### Top Thema 2
 
+> Die Zunkut der Zahnarztpraxis 2
+{: layout=".h1"}
+
+![Bild 2](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+
+2 Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnarzt 2.0
+
+[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html)
 
 ---
 {: layout="1;.container.grid-container" style="--rows:2;--cols:2;"}
@@ -125,7 +130,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ---
-{: layout="1;.container.grid-container" style="--rows:2;--cols:3;--gap:1rem;"}
+{: layout="1;.container.grid-container" style="--rows:2;--cols:2;--gap:1rem;"}
 
 ---
 {: layout="1.5;nte-card.secondary" style="--row:1;--col:1;"}

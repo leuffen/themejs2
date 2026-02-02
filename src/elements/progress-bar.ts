@@ -7,10 +7,10 @@ export class ProgressBar extends LitElement {
   variant: 'mobile' | 'desktop' = 'mobile';
 
   @property({ type: String, attribute: 'color' })
-  color: string = 'orange-500';
+  color: string = 'var(--nt-primary)';
 
   @property({ type: String, attribute: 'background-color' })
-  backgroundColor: string = 'gray-100';
+  backgroundColor: string = 'var(--nt-light)';
 
   @property({ type: String, attribute: 'height' })
   height: string = '';
@@ -174,21 +174,21 @@ export class ProgressBar extends LitElement {
 
   private getContainerStyles() {
     const baseStyles = this.getProgressBarStyles();
-    
+
     if (this.variant === 'mobile') {
       return `${baseStyles} display: ${this.isVisible ? 'block' : 'none'}; top: ${this.computedOffsetTop}px; position: sticky;`;
     }
-    
+
     return baseStyles;
   }
 
   render() {
     return html`
-      <div 
+      <div
         class="progress-container ${this.variant === 'mobile' ? 'mobile-variant' : 'desktop-variant'}"
         style="${this.getContainerStyles()}"
       >
-        <div 
+        <div
           class="progress-bar"
           style="${this.getProgressFillStyles()}"
         ></div>
