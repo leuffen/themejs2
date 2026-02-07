@@ -14,5 +14,7 @@ import "./elements/progress-bar";
 import "@nextrap/ntl-2col";
 import "@nextrap/ntl-hero";
 import "@nextrap/ntl-slider";
+import "@nextrap/ntl-card-row";
+import "@nextrap/ntl-card-grid";
 //import "@nextrap/ntl-footer";
 import "@nextrap/ntl-parallax-bg";

@@ -5,6 +5,12 @@ import path from 'path';
 
 export default defineConfig({
     plugins: [tsconfigPaths()],
+    server: {
+        port: 4000,
+        host: '0.0.0.0',
+        hmr: true,
+    },
+    root: __dirname,
     build: {
         minify: false,
         cssCodeSplit: false,
