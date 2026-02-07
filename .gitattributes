@@ -1,3 +1,4 @@
+package-lock.json merge=ours
 *.png binary
 *.jpg binary
 *.ico binary
