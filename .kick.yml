@@ -30,4 +30,5 @@ command:
     - "webpack build"
 
   killall:
-    - killall jekyll
+    - killall jekyll ||  echo "no job"
+    - killall vite ||  echo "no job"

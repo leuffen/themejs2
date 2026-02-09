@@ -1,51 +1,6 @@
+
 ---
-availLangs:
-- de
-body_class: ~
-description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam Genné in
-  Senftenberg. Wir bieten individuelle medizinische Versorgung, klassische HNO-Leistungen
-  und Naturheilverfahren. \U0001F33F"
-image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
-keywords: ~
-layout: page/blog-epraxis
-order: 0
-ptags:
-- nav
-published: true
-body-class: epraxis blog
-seoScore: 8
-short_title: Barrierefreiheitsbverstärkungsgesetz (BFSG)
-title: Das neue Gesetz und seine Bedeutung für Praxen
-summary: Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
-author: Max Mustermann
-type: website
-
-reading_time: 2
-
-researched-by: human
-written-by: shared
-formatted-by: ai
-
-keywords: [BSFG, Barrierefreiheit, Gesetz, Barrierefreiheitsstärkungsgesetz]
-
-facebook_url: https://www.facebook.com/
-instagram_url: https://www.instagram.com/
-whatsapp_url: https://www.whatsapp.com/
-linkedin_url: https://www.linkedin.com/
-
-articles_related: 
-  - TEST1
-  - TEST2
-
-references:
-  - "1. § 3 BFSG Barrierefreiheit, Verordnungsermächtigung - Barrierefreiheitsstärkungsgesetz (BFSG)"
-  - "2. § 20 BFSG Aufgaben der Marktüberwachungsbehörden - Barrierefreiheitsstärkungsgesetz (BFSG)"
-  - "3. § 32 BFSG Rechte von Verbrauchern, anerkannten Verbänden und qualifizierten Einrichtungen im Verwaltungsverfahren - Barrierefreiheitsstärkungsgesetz (BFSG)"
-
-author_meta:
-  description: "Hallo, ich bin ein Content-Autor, der von den Themen Medizin, Marketing und Technologie fasziniert ist. Ich helfe, die richtigen Inhalte an die richtigen Leute zu bringen."
-  image: https://www.svgrepo.com/show/384670/account-avatar-profile-user.svg
----
+{: layout="1;.container.prose prose-xl"}
 
 ## Inhaltsverzeichnis (Platzhalter)
 {: layout=".box.box-secondary"}
@@ -78,7 +33,7 @@ Das BFSG gibt Ihnen Zeit zur Anpassung – aber die Fristen laufen. Praxen und m
 >
 > Dr. Meyer Wagenfeld
 
-## Welche Praxen unterliegen dem BFSG 
+## Welche Praxen unterliegen dem BFSG
 
 Grundsätzlich sind alle Praxen, die eine Website haben verpflichtet, den Anforderungen des Gesetzes nachzukommen. Es gibt jedoch Ausnahmen, zum Beispiel für Kleinstunternehmer (unter 10 Mitarbeitende, unter 2 Millionen Euro Jahresumsatz). Da digitale Barrierefreiheit aber insgesamt dazu dient, Menschen teilhaben zu lassen, die aufgrund körperlicher Einschränkungen benachteiligt sein könnte, wäre es auch immer zu bedenken, ob sich eine Praxis nicht aus Gründen der Wertschätzung oder der gesellschaftlichen Verantwortung um digitale Barrierefreiheit bemühen sollte.
 
@@ -91,11 +46,11 @@ Das ist eine Bildunterschrift und beschreibt das abgebildete Foto und gibt weite
 
 Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Sie die Barrierefreiheit sicherstellen können:
 
-- **Kontraste und Lesbarkeit:** Verwenden Sie kontrastreiche Farben und eine gut lesbare Schriftgrößen, um älteren Menschen oder Menschen mit eingeschränkter Sehfähigkeit das Lesen auf Ihrer Website erleichtern. Websiten mit wenig Farbkontrast können für Menschen mit Einschränkungen der Seh-Fähigkeit schwierig sein. 
-- **Textalternative für Bilder:** Menschen mit Seh-Behinderungen nutzen häufig Screenreader, um die Inhalte von Websites erfassen zu können. Diese Tools lesen die Texte dann vor. 
-- Bei Bildern kann man Texte einfügen, die dann von den Screenreadern ausgelesen werden und die abgebildeten Inhalte in Worte fasst. Diese sogenannten „Alt-Texte“ sorgen dafür, dass Screenreader die Bildinhalte beschreiben können. 
-- Alt-Texte werden in der Programmierung der Website eingebettet. Tastaturzugänglichkeit: Alle Funktionen sollten über die Tastatur erreichbar sein, da manche Nutzende keine Maus verwenden können. 
-- Strukturierter Inhalt: Nutzen Sie klare Überschriften, Listen und Strukturmarkierungen. Das erleichtert den Überblick und die Nutzung der Website. Untertitel für Videos: Bieten Sie Untertitel in Bewegtbildinhalten an, damit auch hörgeschädigte Nutzer die Inhalte verstehen können. 
+- **Kontraste und Lesbarkeit:** Verwenden Sie kontrastreiche Farben und eine gut lesbare Schriftgrößen, um älteren Menschen oder Menschen mit eingeschränkter Sehfähigkeit das Lesen auf Ihrer Website erleichtern. Websiten mit wenig Farbkontrast können für Menschen mit Einschränkungen der Seh-Fähigkeit schwierig sein.
+- **Textalternative für Bilder:** Menschen mit Seh-Behinderungen nutzen häufig Screenreader, um die Inhalte von Websites erfassen zu können. Diese Tools lesen die Texte dann vor.
+- Bei Bildern kann man Texte einfügen, die dann von den Screenreadern ausgelesen werden und die abgebildeten Inhalte in Worte fasst. Diese sogenannten „Alt-Texte“ sorgen dafür, dass Screenreader die Bildinhalte beschreiben können.
+- Alt-Texte werden in der Programmierung der Website eingebettet. Tastaturzugänglichkeit: Alle Funktionen sollten über die Tastatur erreichbar sein, da manche Nutzende keine Maus verwenden können.
+- Strukturierter Inhalt: Nutzen Sie klare Überschriften, Listen und Strukturmarkierungen. Das erleichtert den Überblick und die Nutzung der Website. Untertitel für Videos: Bieten Sie Untertitel in Bewegtbildinhalten an, damit auch hörgeschädigte Nutzer die Inhalte verstehen können.
 - Texte in einfacher Sprache: Bieten Sie Textinformationen zusätzlich in einfacher Sprache an, um diese auch Menschen, die beispielsweise keine Muttersprachler sind oder kognitiv nicht im Stande sind, komplexe Texte zu verstehen, zugänglich zu machen.
 
 ## Ist Ihre Webseite schon barrierefrei? Machen Sie den Test!
@@ -103,25 +58,24 @@ Für Ihre Website gibt es zum Beispiel folgende Punkte zu beachten, mit denen Si
 
 Das ist ein Platzhalter
 
-
 ---
 {: layout="2;"}
-
 
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 {: .img-grid}
+
 Das ist eine Bildunterschrift und beschreibt das abgebildete Foto und gibt weitere Informationen. Der Text kann auch schon mal etwas länger werden. (Fotos: Nachweis 1 / Nachweis 2)
 {: .img-caption}
 
-## Was passiert, wenn Sie die Vorgaben nicht umsetzen? 
+## Was passiert, wenn Sie die Vorgaben nicht umsetzen?
 
-Wenn Ärzt:innen und Therapeut:innen die Anforderungen nicht erfüllen, können Strafen oder sogar Klagen die Folge sein. Das BFSG sieht klare Sanktionen vor, wenn es zu Beschwerden kommt – das sollten Sie vermeiden! 
+Wenn Ärzt:innen und Therapeut:innen die Anforderungen nicht erfüllen, können Strafen oder sogar Klagen die Folge sein. Das BFSG sieht klare Sanktionen vor, wenn es zu Beschwerden kommt – das sollten Sie vermeiden!
 
 Zuständig ist hier die **Marktüberwachungsbehörde** der jeweiligen Bundesländer. Im Falle eines Verstoßes werden Nachbesserungen eingefordert und sollte diese nicht, oder nicht innerhalb der gesetzten Frist umgesetzt werden, kann es Strafen, wie der Einschränkung der Ausübung der Tätigkeiten kommen.
 
-
 <!-- TODO: Kann ich hier irgendwie einen Slider einbinden?? -->
+
 ![](https://cdn.leuffen.de//leu-stock-free//v2/54/79-59_d/close-up-eye-scanning.webp)
 Das ist eine Bildunterschrift und beschreibt das abgebildete Foto und gibt weitere Informationen. Der Text kann auch schon mal etwas länger werden. (Fotos: Nachweis 1 / Nachweis 2)
 {: .img-caption}

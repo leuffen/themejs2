@@ -25,7 +25,7 @@ class     → CSS-Klasse für <table> (optional, default = "table sitemap")
 {% assign sort_field = include.sort_by | default: "p.url" %}
 {% assign table_class = include.class | default: "table sitemap" %}
 
-{% assign filtered_pages = filtered_pages | where_exp: "p", "p.path endswith '.html'" %}
+{% assign filtered_pages = site.pages | where_exp: "p", "p.url contains '.html'" %}
 {% assign filtered_posts = site.posts | where_exp: "p", "p.url contains target_dir" %}
 {% assign all_pages = filtered_pages | concat: filtered_posts %}
 {% assign sorted_pages = all_pages | sort: sort_field %}

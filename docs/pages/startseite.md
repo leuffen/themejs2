@@ -1,0 +1,206 @@
+---
+_schiller_instructions: ~
+_schiller_template: pages/hausarzt-index-singleleistung
+availLangs:
+- de
+body_class: ~
+description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam Genné in
+  Senftenberg. Wir bieten individuelle medizinische Versorgung, klassische HNO-Leistungen
+  und Naturheilverfahren. \U0001F33F"
+image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
+keywords: ~
+layout: website
+order: 0
+ptags:
+- nav
+published: true
+seoScore: 8
+company: epraxis.digital
+short_title: DAS MAGAZIN FÜR DIE DIGITALISIERUNG IN DER GESUNDHEITSBRANCHE
+title: Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
+headline_image: /assets/header-bg.svg
+type: website
+
+articles_related:
+  - MAIN
+  - TEST1
+  - TEST2
+---
+
+
+---
+{: layout="1;ntl-hero.theme1" style="--brand-height: 64px"}
+
+![](../assets/header-bg.svg)
+{: layout="2;ntl-parallax-bg" slot="bg"}
+
+
+# <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
+{: layout="[slot='top-title']" .h5}
+
+## Digitale Transformation im Gesundheitswesen<br/>- verständlich, unabhängig, praxisnah.
+{: layout="[slot='title']" .h1}
+
+---
+{: layout="2;ntl-slider.theme1"}
+
+### Top Thema
+
+> Die Zunkut der Zahnarztpraxis
+{: layout=".h1"}
+
+![](https://cdn.leuffen.de//leu-stock/v2/378/c_gfedcba/AdobeStock_1308835693.webp)
+
+Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnarzt 2.0
+
+[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html)
+
+### Top Thema 2
+
+> Die Zunkut der Zahnarztpraxis 2
+{: layout=".h1"}
+
+![](https://cdn.leuffen.de//leu-stock/v2/345/91-51_gfedcba/AdobeStock_1085734453.webp)
+
+2 Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnarzt 2.0
+
+[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html)
+
+---
+{: layout="1;.container.grid-container" style="--rows:2;--cols:2;"}
+
+---
+{: layout="1.5;nte-card" style="--col:1;--row-span:2;"}
+
+![](https://cdn.leuffen.de//leu-stock/v2/289/460-307_gfedcba/AdobeStock_171984243.webp)
+{: slot="image"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+[Weiterlesen](/2024/01/02/blogdemo-no-elements.html)
+
+---
+{: layout="1.5;nte-card.small" style="--col:2;--row:1;--image-aspect-ratio: none;"}
+
+![](https://cdn.leuffen.de//leu-stock/v2/339/c_gfedcba/AdobeStock_221783465.webp)
+{: slot="image"}
+
+> Kategorie
+
+## Das ist eine kürzere Überschhrift
+
+---
+{: layout="1.5;nte-card.small" style="--col:2;--row:2;--image-aspect-ratio: none;"}
+
+
+![](https://cdn.leuffen.de//leu-stock/v2/343/a_gfedcba/AdobeStock_1467964789.webp)
+{: slot="image"}
+
+> Kategorie
+
+## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+{: layout="3"}
+
+---
+{: layout="1;.box-primary"}
+
+---
+{: layout="1.5;ntl-2col.container"}
+
+# Empfehlung der Redaktion
+{: layout="2"}
+
+> Top Themen
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+[Alle Top-Artikel anzeigen](/2024/01/02/blogdemo-no-elements.html)
+
+---
+{: layout="2;.aside" slot="aside"}
+
+![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
+![](https://picsum.photos/1155/775?seed=1)
+![](https://picsum.photos/1155/775?seed=2)
+{: layout="3;nte-image" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
+
+
+---
+{: layout="1;.container.grid-container" style="--rows:2;--cols:2;--gap:1rem;"}
+
+---
+{: layout="1.5;nte-card.secondary" style="--row:1;--col:1;"}
+
+> Kategorie
+
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+---
+{: layout="1.5;nte-card.secondary" style="--row:1;--col:2;"}
+
+> Kategorie
+
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+
+---
+{: layout="1.5;nte-card.secondary" style="--row:2;--col:1;"}
+
+> Kategorie
+
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+---
+{: layout="1.5;nte-card.secondary" style="--row:2;--col:2;"}
+
+> Kategorie
+
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+---
+{: layout="1.5;.box.box-secondary.secondary.mb-0" style="--row:1;--col:3;--row-span:2;"}
+
+## Beliebte Artikel:
+
+### Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen
+
+### Günstige Websites für niedergelassene Arztpraxen zum Festpreis
+
+### Marketing für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar
+
+### Digitale Lösungen für Ihre Zahnarztpraxis
+
+### Starke Kampagnen für Zahnarztpraxen von Online-Marketing-Experten
+
+
+---
+{: layout="1;.container.badges"}
+
+Digitalisierung
+
+Künstliche Intelligenz
+
+Webseiten
+
+Digitale Transformation
+
+Cyber Security
+
+Datensicherheit
+
+Interviews
+
+<!-- ---
+{: layout="1;ntl-footer"} -->

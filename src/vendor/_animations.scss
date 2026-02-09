@@ -1,25 +1,10 @@
 // Animation Utilities - Generated with SCSS loops
-@use "./variables" as *;
+@use "@nextrap/style-base" as *;
 
 // Color accent utilities for glow/underline
 $hover-color-map: (
-  "gray-50": $gray-50,
-  "gray-100": $gray-100,
-  "gray-200": $gray-200,
-  "gray-300": $gray-300,
-  "gray-400": $gray-400,
-  "gray-500": $gray-500,
-  "gray-600": $gray-600,
-  "gray-700": $gray-700,
-  "gray-800": $gray-800,
-  "gray-900": $gray-900,
-  "navy-100": $navy-100,
-  "navy-200": $navy-200,
-  "navy-300": $navy-300,
-  "navy-900": $navy-900,
-  "orange-400": $orange-400,
-  "orange-500": $orange-500,
-  "white": $white
+    "D8D9E3": #D8D9E3,
+    "secondary": $secondary
 );
 
 @each $name, $color in $hover-color-map {

@@ -1,0 +1,340 @@
+---
+layout: 3_3_1_content
+---
+<div class="container">
+    <tj-content-pane class="{{ page.layout }} prose prose-xl">
+        <div
+            style="background-color: #E4E6EF; position: absolute; top: 0; left: 0; right: 0; height: 100%; max-height: 950px; z-index: 0; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+            <img style="width: 100%; margin: 40px; max-width: 90vw;" src="{{page.headline_image}}"
+                alt="{{page.title}}" />
+        </div>
+        <div style="position: relative;
+                display: flex;
+                flex-direction:
+                column;
+                gap: 1rem;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                ">
+            <h6 class="text-center">
+                <span style="color: var(--nt-primary); text-transform: uppercase;">{{ page.company }}</span> - {{
+                page.short_title }}
+            </h6>
+            <h1 class="text-center" style="max-width: 940px; margin-top: 0;">
+                {{ page.title }}
+            </h1>
+            <div style="border-radius: 30px; padding: 20px; background-color: #E4E6EF;">
+                <div style="
+                        margin: 0;
+                        position: relative;
+                        height: 560px;
+                        max-height: 560px;
+                        width: 100%;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 20px;
+                        z-index: 2;
+                        ">
+                    <div style="
+                        height: 100%;
+                        width: 100%;
+                        background: linear-gradient(to right,
+                        var(--nt-secondary, #1F3655) 0%,
+                        var(--nt-secondary, #1F3655) 40%,
+                        transparent 60%,
+                        transparent 100%
+                        );
+                        position: absolute;
+                        top: 0; left: 0;
+                        color: var(--nt-white);
+                        ">
+                        <div
+                            style="max-width: 40%; padding: 2rem 0 8rem 4rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                            <p
+                                style="color: var(--nt-primary); text-transform: uppercase; font-weight: 600; font-size: var(--nt-fs-5); margin: 0;">
+                                &#x2015; Top Thema</p>
+                            <h1 style="color: var(--nt-white); margin-top: 0; margin-bottom: 0.5rem;">Die digitale
+                                Zukunft der Zahnarztpraxis</h1>
+                            <p style="color: var(--nt-white);">Effizient, präziser, patientenorientierter<br />- der
+                                moderne Zahnarzt 2.0</p>
+                            <div class="btn btn-primary" style="width: fit-content; color: var(--nt-white);">Jetzt lesen
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{page.image}}" alt="{{page.title}}" />
+                </div>
+            </div>
+        </div>
+    </tj-content-pane>
+</div>
+
+<div class="container">
+    <tj-content-pane class="{{ page.layout }} prose prose-xl">
+        <div class="row gx-2">
+            <div class="-xl:col-12 xl:col-6">
+                <aside class="pb-4">
+                    {% assign articles = page.articles_related %}
+                    {% assign first_article = articles[0] %}
+                    {% assign post = site.posts | where: "slug", first_article | first %}
+                    {% if post %}
+                    <div class="p-3 rounded position-relative" style="cursor: pointer; height: 836px; background-color: var(--nt-body-secondary);"
+                        onclick="window.location='{{ post.url }}'">
+                        <div class="p-4 d-flex flex-column flexg-16 justify-content-end bg-cover justify-end d-overflow-hidden"
+                            style="background-image: url('{{ post.image }}'); border-radius: calc(0.25rem * 5); height: 364px;">
+                        </div>
+                        <div class="fw-600 fs-7 d-flex align-center text-uppercase" style="margin: 0; color: var(--nt-primary);">
+                            <span
+                                style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                            {{ post.categories | join: ", " }}
+                        </div>
+                        <h2 class="fw-500 fs-4" style="margin: 0;">
+                            {{ post.title }}
+                        </h2>
+                        <p class="pt-2 pb-4">
+                            {{ post.description }}
+                        </p>
+                        <div class="btn btn-primary" style="width: fit-content; color: var(--nt-white);"
+                            onclick="window.location='{{ post.url }}'">Weiterlesen</div>
+                    </div>
+                    {% endif %}
+                </aside>
+            </div>
+            <div class="-xl:col-12 xl:col-6">
+                <aside class="pb-4" style="display: flex; flex-direction: column; gap: 2rem;">
+                    {% assign articles = page.articles_related %}
+                    {% assign first_article = articles[0] %}
+                    {% assign remaining_articles = articles | slice: 1, articles.size %}
+                    {% for slug in remaining_articles %}
+                    {% assign post = site.posts | where: "slug", slug | first %}
+                    {% if post %}
+                    <div class="p-3 rounded position-relative"
+                        style="cursor: pointer; height: 400px; margin: 0; background-color: var(--nt-body-secondary);" onclick="window.location='{{ post.url }}'">
+                        <div class="p-4 d-flex flex-column flexg-16 justify-content-end bg-cover bg-gradient-bottom-navy-25-100 justify-end d-overflow-hidden"
+                            style="background-image: url('{{ post.image }}'); border-radius: calc(0.25rem * 5); height: 100%;">
+                            <div class="fw-600 fs-7 d-flex align-center text-uppercase"
+                                style="margin: 0; color: var(--nt-primary);">
+                                <span
+                                    style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                                {{ post.categories | join: ", " }}
+                            </div>
+                            <h2 class="text-light fw-500 fs-4" style="margin: 0;">
+                                {{ post.title }}
+                            </h2>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </aside>
+            </div>
+        </div>
+    </tj-content-pane>
+</div>
+
+
+<div style="background-color: var(--nt-primary-subtle, #FE6606);" class="p-5 my-4">
+    <div class="container">
+        <tj-content-pane class="{{ page.layout }} prose prose-xl">
+            <div class="row gx-2" style="margin: 0;">
+                <div class="-xl:col-12 xl:col-6" style="margin: 0;">
+                    <aside style="margin: 0;">
+                        <div class="fw-600 fs-7 d-flex align-center text-uppercase mt-4"
+                            style="margin: 0; color: var(--nt-primary);">
+                            <span
+                                style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                            TOP THEMEN
+                        </div>
+                        <h2 class="fw-500 fs-4" style="margin: 0;">
+                            Empfehlungen der Redaktion
+                        </h2>
+                        <p class="pt-2 pb-4">
+                            Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie
+                            aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um
+                            Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt
+                            diese Sätze »Pangrams«
+                        </p>
+                        <div class="btn btn-primary" style="width: fit-content; color: var(--nt-white);">Alle
+                            Top-Artikel anzeigen</div>
+                    </aside>
+                </div>
+                <div class="-xl:col-12 xl:col-6" style="margin: 0;">
+                    <aside style="display: flex; flex-direction: row; gap: 2rem; margin: 0;">
+                        <div class="p-3 rounded position-relative"
+                            style="cursor: pointer; height: 400px; margin: 0; background-color: var(--nt-body-secondary);"
+                            onclick="window.location='{{ post.url }}'">
+                            <div class="p-4 d-flex flex-column flexg-16 justify-content-end bg-cover bg-gradient-bottom-navy-25-100 justify-end d-overflow-hidden"
+                                style="background-image: url('{{ post.image }}'); border-radius: calc(0.25rem * 5); height: 100%;">
+                                <div class="fw-600 fs-7 d-flex align-center text-uppercase"
+                                    style="margin: 0; color: var(--nt-primary);">
+                                    <span
+                                        style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                                    {{ post.categories | join: ", " }}
+                                </div>
+                                <h2 class="text-light fw-500 fs-4" style="margin: 0;">
+                                    {{ post.title }}
+                                </h2>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </tj-content-pane>
+    </div>
+</div>
+
+
+<div class="container pt-5">
+    <tj-content-pane class="{{ page.layout }} prose prose-xl">
+        <div class="row gx-2" style="margin: 0;">
+            <div class="-xl:col-12 xl:col-8" style="margin: 0;">
+                <div class="row gx-2" style="margin: 0;">
+                    <div class="-xl:col-12 xl:col-6" style="padding-left: 0; margin: 0;">
+                        <aside>
+                            <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
+                                    <span
+                                        style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                                    Kategorie
+                                </div>
+                                <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
+                                    Das ist eine längere Überschrift, die in zwei Zeilen steht.
+                                    </h5>
+                                    <p class="pt-2" style="margin-bottom: 0;">
+                                        Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
+                                        und
+                                        wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder
+                                        Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des
+                                        Alphabets enthalten - man nennt diese Sätze »Pangrams«
+                                    </p>
+                            </div>
+                        </aside>
+                        <aside>
+                            <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
+                                    <span
+                                        style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                                    Kategorie
+                                </div>
+                                <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
+                                    Das ist eine längere Überschrift, die in zwei Zeilen steht.
+                                    </h5>
+                                    <p class="pt-2" style="margin-bottom: 0;">
+                                        Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
+                                        und
+                                        wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder
+                                        Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des
+                                        Alphabets enthalten - man nennt diese Sätze »Pangrams«
+                                    </p>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="-xl:col-12 xl:col-6" style="padding-right: 0;">
+                        <aside>
+                            <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
+                                    <span
+                                        style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                                    Kategorie
+                                </div>
+                                <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
+                                    Das ist eine längere Überschrift, die in zwei Zeilen steht.
+                                    </h5>
+                                    <p class="pt-2" style="margin-bottom: 0;">
+                                        Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
+                                        und
+                                        wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder
+                                        Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des
+                                        Alphabets enthalten - man nennt diese Sätze »Pangrams«
+                                    </p>
+                            </div>
+                        </aside>
+                        <aside>
+                            <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
+                                    <span
+                                        style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
+                                    Kategorie
+                                </div>
+                                <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
+                                    Das ist eine längere Überschrift, die in zwei Zeilen steht.
+                                    </h5>
+                                    <p class="pt-2" style="margin-bottom: 0;">
+                                        Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
+                                        und
+                                        wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder
+                                        Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des
+                                        Alphabets enthalten - man nennt diese Sätze »Pangrams«
+                                    </p>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <div class="-xl:col-12 xl:col-4">
+                <aside>
+                    <div style="border-radius: 30px; background-color: var(--nt-tertiary);" class="px-4 py-3">
+                        <h2 style="margin-top: 1rem;">Beliebte Artikel</h2>
+                        <a href="#" class="fs-2"
+                            style="text-decoration: none; color: var(--nt-secondary);">Barrierefreiheitsstärkungsgesetz
+                            (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen</a>
+                        <div style="border-top: 1px solid var(--nt-border)" class="mt-3 mb-4"></div>
+                        <a href="#" class="fs-2" style="text-decoration: none; color: var(--nt-secondary);">Günstige
+                            Websites für niedergelassene Arztpraxen zum Festpreis</a>
+                        <div style="border-top: 1px solid var(--nt-border)" class="mt-3 mb-4"></div>
+                        <a href="#" class="fs-2" style="text-decoration: none; color: var(--nt-secondary);">Marketing
+                            für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar</a>
+                        <div style="border-top: 1px solid var(--nt-border)" class="mt-3 mb-4"></div>
+                        <a href="#" class="fs-2" style="text-decoration: none; color: var(--nt-secondary);">Digitale
+                            Lösungen für Ihre Zahnarztpraxis</a>
+                        <div style="border-top: 1px solid var(--nt-border)" class="mt-3 mb-4"></div>
+                        <a href="#" class="fs-2" style="text-decoration: none; color: var(--nt-secondary);">Starke
+                            Kampagnen für Zahnarztpraxen von Online-Marketing-Experten</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <div class="row">
+            <div class="-xl:col-12 xl:col-12">
+                <div class="d-flex flex-wrap" style="justify-content: space-between;">
+                    <div class="rounded-pill"
+                        style="background-color: var(--nt-primary-subtle); padding: 0.5rem 1rem; color: var(--nt-primary); width: fit-content;">
+                        Digitalisierung
+                    </div>
+                    <div class="rounded-pill"
+                        style="background-color: var(--nt-primary-subtle); padding: 0.5rem 1rem; color: var(--nt-primary); width: fit-content;">
+                        Künstliche Intelligenz
+                    </div>
+                    <div class="rounded-pill"
+                        style="background-color: var(--nt-primary-subtle); padding: 0.5rem 1rem; color: var(--nt-primary); width: fit-content;">
+                        Webseiten
+                    </div>
+                    <div class="rounded-pill"
+                        style="background-color: var(--nt-primary-subtle); padding: 0.5rem 1rem; color: var(--nt-primary); width: fit-content;">
+                        Digitale Transformation
+                    </div>
+                    <div class="rounded-pill"
+                        style="background-color: var(--nt-primary-subtle); padding: 0.5rem 1rem; color: var(--nt-primary); width: fit-content;">
+                        Cyber Security
+                    </div>
+                    <div class="rounded-pill"
+                        style="background-color: var(--nt-primary-subtle); padding: 0.5rem 1rem; color: var(--nt-primary); width: fit-content;">
+                        Datensicherheit
+                    </div>
+                    <div class="rounded-pill"
+                        style="background-color: var(--nt-primary-subtle); padding: 0.5rem 1rem; color: var(--nt-primary); width: fit-content;">
+                        Interviews
+                    </div>
+                </div>
+            </div>
+        </div>
+    </tj-content-pane>
+</div>
+
+<script>
+</script>

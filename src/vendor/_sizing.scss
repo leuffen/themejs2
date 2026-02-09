@@ -38,7 +38,13 @@ $auto-properties: (
 @each $prop, $values in $auto-properties {
   $css-prop: list.nth($values, 1);
   $css-value: list.nth($values, 2);
-  .#{$prop}-#{if($css-value == auto, auto, none)} {
+
+  $suffix: none;
+  @if $css-value == auto {
+    $suffix: auto;
+  }
+
+  .#{$prop}-#{$suffix} {
     #{$css-prop}: $css-value !important;
   }
 }

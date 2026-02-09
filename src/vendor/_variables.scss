@@ -1,92 +1,10 @@
+@use "@nextrap/style-base" as *;
 @use 'sass:color';
-
-$text: #313434 !default;
-$text-secondary: #203656 !default;
-
-$lighten-factor: 40% !default;
-
-$primary: #FE6606 !default;
-$primary-subtle: color.adjust($primary, $lightness: $lighten-factor) !default;
-$primary-emphasis: color.adjust($primary, $lightness: -$lighten-factor / 2) !default;
-
-$accent: #ED8E50 !default;
-$accent-subtle: color.adjust($accent, $lightness: $lighten-factor) !default;
-$accent-emphasis: color.adjust($accent, $lightness: -$lighten-factor / 2) !default;
-
-$secondary: #1F3655 !default;
-$secondary-subtle: color.adjust($secondary, $lightness: $lighten-factor) !default;
-$secondary-emphasis: color.adjust($secondary, $lightness: -$lighten-factor / 2) !default;
 
 $tertiary: #EDF1F8 !default;
 $tertiary-subtle: color.adjust($tertiary, $lightness: $lighten-factor) !default;
-$tertiary-emphasis: color.adjust($tertiary, $lightness: -$lighten-factor / 2) !default;
+$tertiary-emphasis: color.adjust($tertiary, $lightness: calc(-1 * $lighten-factor / 2)) !default;
 
-$success: #28a745 !default;
-$success-subtle: color.adjust($success, $lightness: $lighten-factor) !default;
-$success-emphasis: color.adjust($success, $lightness: -$lighten-factor / 2) !default;
-
-$info: #17a2b8 !default;
-$info-subtle: color.adjust($info, $lightness: $lighten-factor) !default;
-$info-emphasis: color.adjust($info, $lightness: -$lighten-factor / 2) !default;
-
-$warning: #ffc107 !default;
-$warning-subtle: color.adjust($warning, $lightness: $lighten-factor) !default;
-$warning-emphasis: color.adjust($warning, $lightness: -$lighten-factor / 2) !default;
-
-$danger: #dc3545 !default;
-$danger-subtle: color.adjust($danger, $lightness: $lighten-factor) !default;
-$danger-emphasis: color.adjust($danger, $lightness: -$lighten-factor / 2) !default;
-
-$light: #f8f9fa !default;
-$light-subtle: color.adjust($light, $lightness: 1%) !default;
-$light-emphasis: color.adjust($light, $lightness: -$lighten-factor * 2) !default;
-
-$dark: #212529 !default;
-$dark-subtle: color.adjust($dark, $lightness: $lighten-factor) !default;
-$dark-emphasis: color.adjust($dark, $lightness: -$lighten-factor / 2) !default;
-
-$white: #fff !default;
-$black: #000 !default;
-
-$border: #BBC3D0 !default;
-
-$body: color.adjust($dark, $lightness: 90%) !default;
-$body-secondary: color.adjust($dark, $lightness: 60%) !default;
-$body-tertiary: color.adjust($dark, $lightness: 80%) !default;
-
-
-// Gray Scale
-$gray-50: #FFEFE6 !default;  // Light cream
-$gray-100: #EDF1F8 !default;
-$gray-200: #E4E6EF !default;
-$gray-300: #D8D9E3 !default;
-$gray-400: #57657D !default; // Blue-gray
-$gray-500: #3E4242 !default;
-$gray-600: #313434 !default;
-$gray-700: #222222 !default;
-$gray-800: #182234 !default; // Dark blue-gray
-$gray-900: #0F1723 !default; // Very dark blue
-
-// Navy/Blue Colors
-$navy-100: #203656 !default;
-$navy-200: #1F3655 !default;
-$navy-300: #182234 !default;
-$navy-900: #0F1723 !default;
-
-// Orange Colors
-$orange-500: #FE6606 !default;
-$orange-400: #ED8E50 !default;
-
-// Base Colors
-$white: #FFFFFF !default;
-
-// Font Weights
-$font-weight-thin: 100 !default;
-$font-weight-extralight: 200 !default;
-$font-weight-light: 300 !default;
-$font-weight-normal: 400 !default;
-$font-weight-medium: 500 !default;
-$font-weight-semibold: 600 !default;
-$font-weight-bold: 700 !default;
-$font-weight-extrabold: 800 !default;
-$font-weight-black: 900 !default;
+$bodyTertiary: #e4e6ef !default;
+$bodyTertiary-subtle: color.adjust($bodyTertiary, $lightness: $lighten-factor) !default;
+$bodyTertiary-emphasis: color.adjust($bodyTertiary, $lightness: calc(-1 * $lighten-factor / 2)) !default;

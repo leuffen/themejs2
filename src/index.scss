@@ -15,17 +15,17 @@
 //@use "./style/post-preview";
 //@use "./style/post-previews";
 //@use "./epraxis-theme/theme";
+@use "./vendor/_theme";
 
 
 // Custom style which will be moved later to nextrap-base
 @use "./vendor/_root";
-@use "./vendor/_colors-utils";
 @use "./vendor/_font-utils";
 @use "./vendor/_display";
 @use "./vendor/_alignment";
 @use "./vendor/_flex";
 @use "./vendor/_sizing";
-@use "./vendor/_borders";
 @use "./vendor/_animations";
 @use "./vendor/_image";
 @use "./vendor/_prose";
+
