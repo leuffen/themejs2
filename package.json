@@ -28,7 +28,7 @@
     "workspaces/nextrap-monorepo/nextrap-base/*",
     "workspaces/nextrap-monorepo/nextrap-layout/*",
     "workspaces/nextrap-monorepo/nextrap-elements/*",
-    "workspaces/*"
+    "--workspaces/*"
   ],
   "author": "",
   "dependencies": {
