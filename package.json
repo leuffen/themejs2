@@ -28,7 +28,7 @@
     "workspaces/nextrap-monorepo/nextrap-base/*",
     "workspaces/nextrap-monorepo/nextrap-layout/*",
     "workspaces/nextrap-monorepo/nextrap-elements/*",
-    "workspaces/trunkjs-monorepo/packages/*"
+    "--workspaces/*"
   ],
   "author": "",
   "dependencies": {
@@ -38,6 +38,7 @@
     "@nextrap/ntl-2col": "^1.0.0",
     "@nextrap/ntl-footer": "^0.0.1",
     "@nextrap/ntl-hero": "^1.0.0",
+    "@nextrap/ntl-accordion": "^1.0.0",
     "@nextrap/ntl-parallax-bg": "^1.0.0",
     "@nextrap/style-base": "^1.1.8",
     "@nextrap/style-button": "^0.0.6",
@@ -46,11 +47,13 @@
     "@nextrap/style-utils": "^1.0.0",
     "@trunkjs/content-pane": "^1.0.0",
     "@trunkjs/responsive": "^1.0.0",
+    "@micx/lib-js": "^1.0.29",
     "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
     "jsdom": "^26.0.0",
+    "rollup-plugin-visualizer": "^6.0.5",
     "sass": "^1.89.2",
     "typescript": "^5.9.2",
     "vite": "^6.1.0",

@@ -1,0 +1,32 @@
+@use "../src/index" with (
+    $primary: #FE6606,
+    $accent: #ED8E50,
+    $secondary: #1F3655,
+    $success: #28a745,
+    $warning: #ffc107,
+    $danger: #dc3545,
+    $light: #ffffff,
+    $dark: #1f3455,
+    $black: #222222,
+    $white: #ffffff,
+    $text: #313434,
+
+    $font-family-base: "Work Sans",
+    $font-family-header: "Work Sans",
+    $font-size-base: 16px,
+    $font-size-header: 16px,
+    $line-height-base: 26px,
+    $line-height-header: 38px,
+    $headerFontSizeMap: (
+        '1': 2.75,      // h1 = 3 × font-size-header
+        '2': 2,    // h2 = 2 × font-size-header
+        '3': 1.5,      // etc.
+        '4': 1.25,
+        '5': 1,
+        '6': 1,
+    ),
+
+
+    $enableRcs: true, // Reactive Font Size
+    $enableFontConfig: true // Enable Font Configuration
+);
