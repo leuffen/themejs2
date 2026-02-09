@@ -8,13 +8,13 @@ layout: 3_3_1_content
             <img style="width: 100%; margin: 40px; max-width: 90vw;" src="{{page.headline_image}}"
                 alt="{{page.title}}" />
         </div>
-        <div style="position: relative; 
-                display: flex; 
-                flex-direction: 
-                column; 
-                gap: 1rem; 
-                align-items: center; 
-                justify-content: center; 
+        <div style="position: relative;
+                display: flex;
+                flex-direction:
+                column;
+                gap: 1rem;
+                align-items: center;
+                justify-content: center;
                 width: 100%;
                 ">
             <h6 class="text-center">
@@ -27,13 +27,13 @@ layout: 3_3_1_content
             <div style="border-radius: 30px; padding: 20px; background-color: #E4E6EF;">
                 <div style="
                         margin: 0;
-                        position: relative; 
-                        height: 560px; 
-                        max-height: 560px; 
-                        width: 100%; 
-                        overflow: hidden; 
-                        display: flex; 
-                        align-items: center; 
+                        position: relative;
+                        height: 560px;
+                        max-height: 560px;
+                        width: 100%;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
                         justify-content: center;
                         border-radius: 20px;
                         z-index: 2;
@@ -41,10 +41,10 @@ layout: 3_3_1_content
                     <div style="
                         height: 100%;
                         width: 100%;
-                        background: linear-gradient(to right, 
-                        var(--nt-secondary, #1F3655) 0%, 
-                        var(--nt-secondary, #1F3655) 40%, 
-                        transparent 60%, 
+                        background: linear-gradient(to right,
+                        var(--nt-secondary, #1F3655) 0%,
+                        var(--nt-secondary, #1F3655) 40%,
+                        transparent 60%,
                         transparent 100%
                         );
                         position: absolute;
@@ -80,12 +80,12 @@ layout: 3_3_1_content
                     {% assign first_article = articles[0] %}
                     {% assign post = site.posts | where: "slug", first_article | first %}
                     {% if post %}
-                    <div class="p-3 bg-gray-300 rounded position-relative" style="cursor: pointer; height: 836px;"
+                    <div class="p-3 rounded position-relative" style="cursor: pointer; height: 836px; background-color: var(--nt-body-secondary);"
                         onclick="window.location='{{ post.url }}'">
                         <div class="p-4 d-flex flex-column flexg-16 justify-content-end bg-cover justify-end d-overflow-hidden"
                             style="background-image: url('{{ post.image }}'); border-radius: calc(0.25rem * 5); height: 364px;">
                         </div>
-                        <div class="text-orange-500 fw-600 fs-7 d-flex align-center text-uppercase" style="margin: 0;">
+                        <div class="fw-600 fs-7 d-flex align-center text-uppercase" style="margin: 0; color: var(--nt-primary);">
                             <span
                                 style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                             {{ post.categories | join: ", " }}
@@ -110,12 +110,12 @@ layout: 3_3_1_content
                     {% for slug in remaining_articles %}
                     {% assign post = site.posts | where: "slug", slug | first %}
                     {% if post %}
-                    <div class="p-3 bg-gray-300 rounded position-relative"
-                        style="cursor: pointer; height: 400px; margin: 0;" onclick="window.location='{{ post.url }}'">
+                    <div class="p-3 rounded position-relative"
+                        style="cursor: pointer; height: 400px; margin: 0; background-color: var(--nt-body-secondary);" onclick="window.location='{{ post.url }}'">
                         <div class="p-4 d-flex flex-column flexg-16 justify-content-end bg-cover bg-gradient-bottom-navy-25-100 justify-end d-overflow-hidden"
                             style="background-image: url('{{ post.image }}'); border-radius: calc(0.25rem * 5); height: 100%;">
-                            <div class="text-orange-500 fw-600 fs-7 d-flex align-center text-uppercase"
-                                style="margin: 0;">
+                            <div class="fw-600 fs-7 d-flex align-center text-uppercase"
+                                style="margin: 0; color: var(--nt-primary);">
                                 <span
                                     style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                                 {{ post.categories | join: ", " }}
@@ -140,8 +140,8 @@ layout: 3_3_1_content
             <div class="row gx-2" style="margin: 0;">
                 <div class="-xl:col-12 xl:col-6" style="margin: 0;">
                     <aside style="margin: 0;">
-                        <div class="text-orange-500 fw-600 fs-7 d-flex align-center text-uppercase mt-4"
-                            style="margin: 0;">
+                        <div class="fw-600 fs-7 d-flex align-center text-uppercase mt-4"
+                            style="margin: 0; color: var(--nt-primary);">
                             <span
                                 style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                             TOP THEMEN
@@ -161,13 +161,13 @@ layout: 3_3_1_content
                 </div>
                 <div class="-xl:col-12 xl:col-6" style="margin: 0;">
                     <aside style="display: flex; flex-direction: row; gap: 2rem; margin: 0;">
-                        <div class="p-3 bg-gray-300 rounded position-relative"
-                            style="cursor: pointer; height: 400px; margin: 0;"
+                        <div class="p-3 rounded position-relative"
+                            style="cursor: pointer; height: 400px; margin: 0; background-color: var(--nt-body-secondary);"
                             onclick="window.location='{{ post.url }}'">
                             <div class="p-4 d-flex flex-column flexg-16 justify-content-end bg-cover bg-gradient-bottom-navy-25-100 justify-end d-overflow-hidden"
                                 style="background-image: url('{{ post.image }}'); border-radius: calc(0.25rem * 5); height: 100%;">
-                                <div class="text-orange-500 fw-600 fs-7 d-flex align-center text-uppercase"
-                                    style="margin: 0;">
+                                <div class="fw-600 fs-7 d-flex align-center text-uppercase"
+                                    style="margin: 0; color: var(--nt-primary);">
                                     <span
                                         style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                                     {{ post.categories | join: ", " }}
@@ -193,15 +193,15 @@ layout: 3_3_1_content
                     <div class="-xl:col-12 xl:col-6" style="padding-left: 0; margin: 0;">
                         <aside>
                             <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
-                                <div class="text-orange-500 fw-600 d-flex align-center text-uppercase"
-                                    style="margin: 0; font-size: var(--nt-fs-5);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
                                     <span
                                         style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                                     Kategorie
                                 </div>
                                 <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
                                     Das ist eine längere Überschrift, die in zwei Zeilen steht.
-                                    </h2>
+                                    </h5>
                                     <p class="pt-2" style="margin-bottom: 0;">
                                         Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
                                         und
@@ -213,15 +213,15 @@ layout: 3_3_1_content
                         </aside>
                         <aside>
                             <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
-                                <div class="text-orange-500 fw-600 d-flex align-center text-uppercase"
-                                    style="margin: 0; font-size: var(--nt-fs-5);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
                                     <span
                                         style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                                     Kategorie
                                 </div>
                                 <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
                                     Das ist eine längere Überschrift, die in zwei Zeilen steht.
-                                    </h2>
+                                    </h5>
                                     <p class="pt-2" style="margin-bottom: 0;">
                                         Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
                                         und
@@ -235,15 +235,15 @@ layout: 3_3_1_content
                     <div class="-xl:col-12 xl:col-6" style="padding-right: 0;">
                         <aside>
                             <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
-                                <div class="text-orange-500 fw-600 d-flex align-center text-uppercase"
-                                    style="margin: 0; font-size: var(--nt-fs-5);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
                                     <span
                                         style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                                     Kategorie
                                 </div>
                                 <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
                                     Das ist eine längere Überschrift, die in zwei Zeilen steht.
-                                    </h2>
+                                    </h5>
                                     <p class="pt-2" style="margin-bottom: 0;">
                                         Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
                                         und
@@ -255,15 +255,15 @@ layout: 3_3_1_content
                         </aside>
                         <aside>
                             <div style="border-radius: 30px; padding: 20px; border: 1px solid var(--nt-border);">
-                                <div class="text-orange-500 fw-600 d-flex align-center text-uppercase"
-                                    style="margin: 0; font-size: var(--nt-fs-5);">
+                                <div class="fw-600 d-flex align-center text-uppercase"
+                                    style="margin: 0; font-size: var(--nt-fs-5); color: var(--nt-primary);">
                                     <span
                                         style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle; padding: 0; margin: 0; margin-right: 0.5rem;"></span>
                                     Kategorie
                                 </div>
                                 <h5 class="fw-500" style="margin-top: 0; margin-bottom: 0.5rem;">
                                     Das ist eine längere Überschrift, die in zwei Zeilen steht.
-                                    </h2>
+                                    </h5>
                                     <p class="pt-2" style="margin-bottom: 0;">
                                         Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind
                                         und

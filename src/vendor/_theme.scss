@@ -1,3 +1,7 @@
+:root {
+    --nt-border-radius: calc(0.25rem * 6);
+}
+
 /* Category mixin */
 @mixin category-label {
     border-left: none !important;
@@ -93,8 +97,8 @@ ntl-hero {
 
 /* nte-card */
 nte-card {
-    --card-bg: var(--nt-body-teritary, #e4e6ef);
-    --card-border-color: var(--nt-body-teritary, #e4e6ef);
+    --card-bg: var(--nt-body-tertiary, #e4e6ef);
+    --card-border-color: var(--nt-body-tertiary, #e4e6ef);
     --card-border-radius: 20px;
     --card-box-shadow: none;
     --image-aspect-ratio: 11/6;

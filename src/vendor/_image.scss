@@ -62,7 +62,7 @@
 //       covers the entire element. Child elements are automatically positioned
 //       above the overlay using z-index.
 
-@use "./variables" as *;
+@use "@nextrap/style-base" as *;
 
 // Background size options
 // Used to generate .bg-cover and .bg-contain classes
@@ -125,10 +125,10 @@ $overlay-opacities: (
 // Overlay color options using variables
 // Used in overlay and gradient classes (e.g., -black, -white, -gray, -navy)
 $overlay-colors: (
-    "black": $gray-900,
-    "white": $white,
-    "gray": $gray-500,
-    "navy": $navy-300,
+    "black": $dark,
+    "white": $light,
+    "gray": $body,
+    "navy": $secondary,
 );
 
 // Gradient directions

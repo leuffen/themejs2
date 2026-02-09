@@ -1,44 +1,15 @@
 @use "sass:map";
 
-// Import variables
-@use "./variables" as *;
-
 .text-uppercase {
   text-transform: uppercase !important;
 }
 
-// Create a map of all font weight variables for easy iteration
-$font-weight-map: (
-  "thin": $font-weight-thin,
-  "extralight": $font-weight-extralight,
-  "light": $font-weight-light,
-  "normal": $font-weight-normal,
-  "medium": $font-weight-medium,
-  "semibold": $font-weight-semibold,
-  "bold": $font-weight-bold,
-  "extrabold": $font-weight-extrabold,
-  "black": $font-weight-black,
-  "100": $font-weight-thin,
-  "200": $font-weight-extralight,
-  "300": $font-weight-light,
-  "400": $font-weight-normal,
-  "500": $font-weight-medium,
-  "600": $font-weight-semibold,
-  "700": $font-weight-bold,
-  "800": $font-weight-extrabold,
-  "900": $font-weight-black
-);
 
 // Generate utility classes for each font weight
-@each $name, $weight in $font-weight-map {
+@for $i from 1 through 9 {
   // Font weight utilities
-  .fw-#{$name} {
-    font-weight: $weight !important;
-  }
-  
-  // Font weight CSS custom property utilities
-  .fw-#{$name}-var {
-    --font-weight: #{$weight} !important;
+  .fw-#{$i + '00'} {
+    font-weight: #{$i + '00'} !important;
   }
 }
 
@@ -46,35 +17,6 @@ $font-weight-map: (
   .fs-#{$i} {
     font-size: var(--nt-fs-#{$i}) !important;
     line-height: var(--nt-line-height) !important;
-  }
-}
-
-// Generate marker color utilities for bullet-primary using all colors from _variables.scss
-$marker-colors: (
-  // Gray Scale
-  gray-50: $gray-50,
-  gray-100: $gray-100,
-  gray-200: $gray-200,
-  gray-300: $gray-300,
-  gray-400: $gray-400,
-  gray-500: $gray-500,
-  gray-600: $gray-600,
-  gray-700: $gray-700,
-  gray-800: $gray-800,
-  gray-900: $gray-900,
-  // Navy/Blue Colors
-  navy-100: $navy-100,
-  navy-200: $navy-200,
-  navy-300: $navy-300,
-  navy-900: $navy-900,
-  // Orange Colors
-  orange-400: $orange-400,
-  orange-500: $orange-500
-);
-
-@each $name, $color in $marker-colors {
-  .bullet-marker-#{$name} li::marker {
-    color: #{$color} !important;
   }
 }
 
@@ -90,7 +32,7 @@ $marker-colors: (
 $rem-sizes: (
   0.75: "0-75",
   1: "1",
-  1.25: "1-25", 
+  1.25: "1-25",
   1.5: "1-5",
   2: "2",
   2.5: "2-5",
@@ -100,38 +42,5 @@ $rem-sizes: (
 @each $size, $class in $rem-sizes {
   .bullet-size-#{$class} li::marker {
     font-size: #{$size}rem !important;
-  }
-}
-
-
-// List of common list-style-type values
-$list-style-types: (
-  "disc",
-  "circle",
-  "square",
-  "decimal",
-  "decimal-leading-zero",
-  "lower-roman",
-  "upper-roman",
-  "lower-alpha",
-  "upper-alpha",
-  "lower-latin",
-  "upper-latin",
-  "armenian",
-  "georgian",
-  "lower-greek",
-  "lower-hexadecimal",
-  "upper-hexadecimal",
-  "cjk-ideographic",
-  "hiragana",
-  "hiragana-iroha",
-  "katakana",
-  "katakana-iroha",
-  "none"
-);
-
-@each $type in $list-style-types {
-  .list-style-#{$type} {
-    list-style-type: #{$type} !important;
   }
 }

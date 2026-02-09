@@ -7,8 +7,6 @@ layout: 3_3_1_content
     <!-- Mobile Progress Bar -->
     <progress-bar
         variant="mobile"
-        color="orange-500"
-        background-color="gray-100"
         height="4px"
         border-radius="5"
         show-after-scroll="70"
@@ -113,7 +111,7 @@ layout: 3_3_1_content
                     <div class="mb-3">
                         <div style="color: var(--nt-text);" class="fw-600 fs-5 text-uppercase">Infos zum Artikel
                         </div>
-                        <div class="border-bottom my-2" style="border-color: var(--nt-dark-subtle) !important;"></div>
+                        <div class="border-bottom my-2" style="border-color: var(--nt-tertiary-emphasis) !important;"></div>
                         <div class="mb-3">
                             <div style="color: var(--nt-secondary);" class="fw-600 fs-4 my-2 pt-2 pb-2">{{ page.title }}</div>
                             {% if page.author or page.date or page.reading_time %}
@@ -145,8 +143,6 @@ layout: 3_3_1_content
                                     style="height: var(--nt-space-3);">
                                     <progress-bar
                                         variant="desktop"
-                                        color="orange-500"
-                                        background-color="gray-100"
                                         border-radius="5">
                                     </progress-bar>
                                 </div>
@@ -159,7 +155,7 @@ layout: 3_3_1_content
                                 von<br />Künstlicher Intelligenz (KI) erstellt:</div>
                             <div class="d-table-cell fs-5" style="vertical-align: bottom; color: var(--nt-text);">ⓘ</div>
                         </div>
-                        <div class="border-bottom my-2" style="border-color: var(--nt-dark-subtle) !important;"></div>
+                        <div class="border-bottom my-2" style="border-color: var(--nt-tertiary-emphasis) !important;"></div>
                         <!-- AI Contribution Cards Loop
                              Required page variables:
                              - page.researched-by: "human", "shared", or "ai"
@@ -172,7 +168,7 @@ layout: 3_3_1_content
                             {% for type in ai_types %}
                             {% assign type_key = type | append: "-by" %}
                             {% assign type_value = page[type_key] %}
-                            <div class="col justify-items-center p-1 pt-2 pb-3" style="border-radius: calc(0.25rem * 5); display: inline-grid; background-color: var(--nt-light-subtle)">
+                            <div class="col justify-items-center p-1 pt-2 pb-3" style="border-radius: calc(0.25rem * 5); display: inline-grid; background-color: var(--nt-tertiary)">
                                 {% if type_value == "human" %}
                                 <img src="/assets/human.svg" alt="Human" />
                                 {% elsif type_value == "shared" %}
@@ -191,7 +187,7 @@ layout: 3_3_1_content
                     </div>
                     <div class="additional-info transition-all" style="height: 100%;">
                         <div class="pt-2 fs-5 fw-500" style="color: var(--nt-text)">Relevante Begriffe im Artikel:</div>
-                        <div class="border-bottom my-2" style="border-color: var(--nt-dark-subtle) !important;"></div>
+                        <div class="border-bottom my-2" style="border-color: var(--nt-tertiary-emphasis) !important;"></div>
                         <div class="d-flex flex-wrap flexg-8 fs-5">
                             {% for tag in page.keywords %}
                             <div style="cursor: default; background-color: var(--nt-body-tertiary); color: var(--nt-text) !important;"
@@ -201,8 +197,8 @@ layout: 3_3_1_content
                         </div>
                     </div>
                 </div>
-                <button style="position: absolute; bottom: 0; left: 0; right: 0; cursor: pointer; background-color: var(--nt-body-secondary); color: var(--nt-text);"
-                    class="additional-info-toggle p-2 fs-6 mt-3 rounded-bottom rounded-top-0 hover-anim-color-gray-600 hover-anim-bg-color-gray-300"
+                <button style="position: absolute; bottom: 0; left: 0; right: 0; cursor: pointer; background-color: #D8D9E3; color: var(--nt-text);"
+                    class="additional-info-toggle p-2 fs-6 mt-3 rounded-bottom rounded-top-0 hover-anim-bg-color-D8D9E3"
                     type="button">
                     Weniger anzeigen
                 </button>
@@ -222,7 +218,7 @@ layout: 3_3_1_content
                         {% assign icon_url = page[url_key] | default: site[url_key] %}
                         {% if icon_url and icon_url != '' %}
                             <a href="{{ icon_url }}" target="_blank" rel="noopener"
-                               class="hover-anim-color-navy-200"
+                               class="hover-anim-color-secondary"
                                style="color: var(--nt-secondary);"
                                title="{{ icon.title }}">
                                 {{ icon.svg }}
@@ -235,7 +231,7 @@ layout: 3_3_1_content
                 <div class="fs-5 fw-600 d-flex align-center text-uppercase" style="flex: 1; color: var(--nt-secondary);">
                     Das könnte Sie auch interessieren:
                 </div>
-                <div class="border-bottom my-2" style="border-color: var(--nt-dark-subtle) !important;"></div>
+                <div class="border-bottom my-2" style="border-color: var(--nt-tertiary) !important;"></div>
                 {% for slug in page.articles_related %}
                 {% assign post = site.posts | where: "slug", slug | first %}
                 {% if post %}
