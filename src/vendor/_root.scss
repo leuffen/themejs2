@@ -1,13 +1,1 @@
-@use "@nextrap/style-base" as *;
-@use "./variables" as *;
 
-:root {
-    // =============== CORE VARIABLES =============== //
-    --nt-tertiary: #{$tertiary};
-    --nt-tertiary-subtle: #{$tertiary-subtle};
-    --nt-tertiary-emphasis: #{$tertiary-emphasis};
-
-    --nt-body-tertiary: #{$bodyTertiary};
-    --nt-body-tertiary-subtle: #{$bodyTertiary-subtle};
-    --nt-body-tertiary-emphasis: #{$bodyTertiary-emphasis};
-}
