@@ -3,6 +3,14 @@ layout: 3_2_footer
 ---
 
 <main id="main" class="mx-auto">
-    {{ content }}
+    {% capture global_include %}
+    {% include global.md %}
+    {% endcapture %}
 
+    {{ global_include | markdownify }}
+
+
+    <!-- Main Content -->
+    {{content}}
+    <!-- /Main Content -->
 </main>
