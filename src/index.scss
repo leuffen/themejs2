@@ -7,7 +7,6 @@
 // All Elements from index.ts
 @use "@nextrap/nte-nav";
 
-
 // Custom styles for the theme
 //@use "./style/table";
 //@use "./style/generic-blog-styles";
@@ -16,7 +15,6 @@
 //@use "./style/post-previews";
 //@use "./epraxis-theme/theme";
 //@use "./vendor/_theme";
-
 
 // Custom style which will be moved later to nextrap-base
 @use "./vendor/_root";
@@ -28,5 +26,3 @@
 //@use "./vendor/_animations";
 @use "./vendor/_image";
 @use "./vendor/_prose";
-
-

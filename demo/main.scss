@@ -1,4 +1,4 @@
-@use "../src/index" with (
+@use "@leuffen/themejs2" with (
     $primary: #FE6606,
     $accent: #ED8E50,
     $secondary: #1F3655,
@@ -30,3 +30,5 @@
     $enableRcs: true, // Reactive Font Size
     $enableFontConfig: true // Enable Font Configuration
 );
+
+@use "@leuffen/themejs2/theme/osman.scss";
