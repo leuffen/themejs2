@@ -31,6 +31,7 @@ articles_related:
 ---
 {: layout="1;ntl-hero.theme1" style="--brand-height: 64px"}
 
+
 ![](../assets/header-bg.svg)
 {: layout="2;ntl-parallax-bg" slot="bg"}
 

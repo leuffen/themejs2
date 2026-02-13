@@ -6,7 +6,7 @@ ports: "4000:4000;4100:4100"
 
 command:
   build:
-    - "jekyll build -s /opt/docs -d /var/www/html"
+    #- "jekyll build -s /opt/docs -d /var/www/html"
 
   run:
 
