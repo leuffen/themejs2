@@ -28,10 +28,8 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 [[i class="bi bi-calendar-plus-fill fs-3"]<br>Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary .text-center}
 
 
-
-
-## Übersicht
-{: layout="ntl-card-row.style-ribbon"}
+---
+{: layout="2;ntl-card-row.style-ribbon"}
 
 ### Aktuelles
 
@@ -45,6 +43,63 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 Wir bitten um eine Terminvereinbarung.
 
 ### Notfälle & Schmerzpatienten
+
+**Schmerzpatienten erhalten einen Termin am selben Tag.** Vereinbaren sie bitte telefonisch einen Termin.
+
+Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen Notdienst oder den Notruf unter [112](tel:112).
+
+
+
+---
+{: layout="2;ntl-card-row.style-ribbon"}
+
+### Aktuelles
+
+<liweco-news>Keine aktuellen Meldungen</liweco-news>
+
+### Standorte
+
+- [Buchen](/kontakt-buchen)
+- [Mosbach](/kontakt-mosbach)
+
+Wir bitten um eine Terminvereinbarung.
+
+### Notfälle & Schmerzpatienten
+
+**Schmerzpatienten erhalten einen Termin am selben Tag.** Vereinbaren sie bitte telefonisch einen Termin.
+
+Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen Notdienst oder den Notruf unter [112](tel:112).
+
+
+### Notfälle & Schmerzpatienten
+
+**Schmerzpatienten erhalten einen Termin am selben Tag.** Vereinbaren sie bitte telefonisch einen Termin.
+
+Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen Notdienst oder den Notruf unter [112](tel:112).
+
+
+
+## Übersicht
+{: layout="ntl-card-row"}
+
+### Aktuelles
+
+![](https://cdn.leuffen.de//osman-k21//v2/54/188-125_b/Diagnostik.webp)
+
+<liweco-news>Keine aktuellen Meldungen</liweco-news>
+
+### Standorte
+
+![](https://cdn.leuffen.de//osman-k21//v2/54/188-125_b/Diagnostik.webp)
+
+- [Buchen](/kontakt-buchen)
+- [Mosbach](/kontakt-mosbach)
+
+Wir bitten um eine Terminvereinbarung.
+
+### Notfälle & Schmerzpatienten
+
+![](https://cdn.leuffen.de//s-haag-k164/v2/1/a_ba/Visitenkarte-Haag.webp)
 
 **Schmerzpatienten erhalten einen Termin am selben Tag.** Vereinbaren sie bitte telefonisch einen Termin.
 

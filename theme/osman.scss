@@ -1,11 +1,15 @@
 @use "./osman/ntl-2col_testimonial" as testimonial;
 @use "./osman/ntl-2col" as ntl-2col;
+@use "./osman/ntl-card-row" as ntl-card-row;
+@use "./osman/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
 @use "./osman/header-style.scss" as header-style;
 
 .theme-osman {
     @include header-style.header-style;
     @include testimonial.testimonial;
     @include ntl-2col.ntl-2col;
+    @include ntl-card-row.ntl-card-row;
+    @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
 
     ntl-2col,
     ntl-card-grid,
