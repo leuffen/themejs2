@@ -2,7 +2,7 @@
 # Run ./kickstart.sh to start a development-container for this project
 version: 1
 from: "ghcr.io/nfra-project/kickstart-flavor-jekyll:unstable"
-ports: "80:80;4000:4000;4100:4100"
+ports: "4000:4000;4100:4100"
 
 command:
   build:
