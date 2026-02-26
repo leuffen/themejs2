@@ -1,12 +1,3 @@
-@forward "@nextrap/style-base";
-@use "@nextrap/style-reset";
-@use "@nextrap/style-utils";
-@use "@nextrap/style-typography";
-@use "@nextrap/style-button";
-
-// All Elements from index.ts
-@use "@nextrap/nte-nav";
-
 // Custom styles for the theme
 //@use "./style/table";
 //@use "./style/generic-blog-styles";

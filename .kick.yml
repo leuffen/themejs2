@@ -22,7 +22,6 @@ command:
   init-workspaces:
     - "mkdir -p workspaces"
     - "git -C ./workspaces/ clone git@github.com:nextrap/nextrap-monorepo.git"
-    - "git -C ./workspaces/ clone git@github.com:trunkjs/tj-alpha.git"
     - "npm install"
 
   update:

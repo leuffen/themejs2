@@ -1,0 +1,27 @@
+@mixin ntl-card-row {
+    ntl-card-row {
+
+        [slot="header"] {
+            text-align: center;
+        }
+
+        ntl-card{
+            --aspect-ratio: 1;
+
+            &::part(content){
+                padding: var(--nt-space-2) var(--nt-space-3);
+            }
+
+            h3{
+                color: var(--nt-primary);
+                font-size: var(--nt-fs-h4);
+            }
+        }
+
+        &[mode="desktop"] {
+            ntl-card {
+                --aspect-ratio: 16/9;
+            }
+        }
+    }
+}

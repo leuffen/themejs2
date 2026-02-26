@@ -1,0 +1,45 @@
+@forward "@nextrap/style-base" with (
+    $primary: red !default
+);
+@use  "@nextrap/style-base" as *;
+@use "./osman2/ntl-2col_testimonial" as testimonial;
+@use "./osman2/ntl-2col" as ntl-2col;
+@use "./osman2/ntl-card-row" as ntl-card-row;
+@use "./osman2/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
+@use "./osman2/header-style.scss" as header-style;
+
+
+.theme-osman2 {
+    @include root;
+    @include header-style.header-style;
+    @include testimonial.testimonial;
+    @include ntl-2col.ntl-2col;
+    @include ntl-card-row.ntl-card-row;
+    @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
+
+    ntl-2col,
+    ntl-card-grid,
+    ntl-card-row {
+        padding: var(--nt-space-5) 0;
+        margin: var(--nt-space-5) 0;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote,
+    code,
+    pre,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: var(--nt-text-gap);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,7 +1,3 @@
-:root {
-    --nt-border-radius: calc(0.25rem * 6);
-}
-
 /* Category mixin */
 @mixin category-label {
     border-left: none !important;

@@ -1,0 +1,57 @@
+// Testimonial
+@mixin testimonial {
+    ntl-2col {
+        &.testimonial {
+            --breakpoint: xl;
+            --section-bg: var(--nt-primary-subtle);
+            --container-bg: transparent;
+
+            --border: none;
+            --cols: 10;
+
+            font-size: var(--nt-fs-2);
+            line-height: 1.5;
+            font-style: italic;
+
+            &::part(main) {
+                order: 2;
+                align-self: center;
+            }
+
+            &::part(aside) {
+                order: 1;
+            }
+
+            [slot="aside"] {
+                aspect-ratio: 1/1;
+
+                img {
+                    border-radius: 100%;
+                    border: 2px solid var(--nt-white);
+                }
+            }
+
+            &[mode="mobile"] {
+                padding-top: 0;
+                padding-bottom: var(--gap);
+                margin-top: 6rem;
+
+                &::part(wrapper) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                &::part(aside) {
+                    width: 12rem;
+                    margin-top: -6rem;
+                }
+
+                [slot="aside"] {
+                    img{
+                        border: 4px solid var(--section-bg);
+                    }
+                }
+            }
+        }
+    }
+}

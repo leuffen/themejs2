@@ -1,7 +1,7 @@
 import "@trunkjs/content-pane";
 import "@trunkjs/responsive";
 
-// Import all web components used in the project (Remember to add them also to index.scss
+// Import all web components used in the project (Remember to add them also to all.scss
 import "@nextrap/nte-nav";
 import "@nextrap/nte-card";
 import "@nextrap/nte-image";
