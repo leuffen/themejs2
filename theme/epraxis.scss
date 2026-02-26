@@ -1,0 +1,10 @@
+@use './epraxis/theme' as epraxis;
+
+.theme-epraxis {
+
+    @include epraxis.category-label;
+    @include epraxis.primary-button;
+
+
+
+}

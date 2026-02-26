@@ -118,11 +118,8 @@ Wir suchen neue Mitarbeiter für unser Team. Werden Sie Teil unserer Praxis und 
 
 [Offene Stellen & Bewerbung](/karriere){: .btn .btn-primary .btn-lg .mb-3}
 
-
-
-
 ## Unsere Leistungen
-{: layout="use: #sec-multi-card; cols:3"}
+{: layout="ntl-card-row"}
 
 ### Prophylaxe & Vorsorge
 
@@ -143,16 +140,13 @@ Unsere modernen Verfahren zur Zahnerhaltung umfassen digitales Röntgen, 3D-Rön
 Wir bieten Ihnen hochwertigen Zahnersatz, Implantologie, Zahnkorrektur (Spange), digitale Planung und feste Zähne an einem Tag – für mehr Lebensqualität und ein sicheres Gefühl beim Kauen und Lächeln.
 
 ---
-{: .section-h2}
-
+{: layout="2"}
 
 [Unsere Leistungen](/leistungen){: .btn .btn-primary .btn-lg .mb-3}
-{: .text-center}
+{: .text-center }
 
-
-
-## Testimonial
-{: layout="use: #sec-testimonial-ribbon"}
+---
+{: layout="2;ntl-2col.testimonial"}
 
 ![](https://cdn.leuffen.de//s-haag-k164/v2/1/a_ba/Visitenkarte-Haag.webp)
 
@@ -164,7 +158,7 @@ Wir bieten Ihnen hochwertigen Zahnersatz, Implantologie, Zahnkorrektur (Spange),
 
 
 ## Lernen Sie uns kennen
-{: layout="use: #sec-card-2col"}
+{: layout="ntl-2col"}
 
 > Ihr vertrauensvolles Team
 
@@ -176,16 +170,16 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 
 
 ## Haben Sie Fragen? Schreiben Sie uns
-{: layout="use: #cta-form"}
+{: layout="ntl-2col"}
 
-
----
+<nte-form></nte-form>
 
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" required data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" .mb-3]
 [input type="tel" name="Telefon" required .mb-3]
 
 ---
+{: .aside}
 
 [textarea name="Ihre Nachricht" required .mb-3 style="height: 120px;"]
 [input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required .mb-3]
