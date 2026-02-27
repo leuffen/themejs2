@@ -73,7 +73,7 @@ Wir suchen neue Mitarbeiter für unser Team. Werden Sie Teil unserer Praxis und 
 Test Test Test
 
 ---
-{: layout="ntl-accordion.aside"}
+{: layout="ntl-accordion" .aside}
 
 ### AaAaaaaaaa
 
