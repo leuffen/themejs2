@@ -1,7 +1,22 @@
+@forward "@nextrap/style-base";
 @use "@nextrap/style-reset";
 @use "@nextrap/style-utils";
 @use "@nextrap/style-typography";
 @use "@nextrap/style-button";
+@use "@nextrap/style-base" as *;
 
 // All Elements from index.ts
 @use "@nextrap/nte-nav";
+
+.align-grid-items {
+    --items-per-row: 3;
+    display: grid;
+    grid-template-columns: repeat(var(--items-per-row), 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+        height: auto;
+    }
+}

@@ -8,7 +8,7 @@
         ntl-card{
             --aspect-ratio: 1;
 
-            &::part(content){
+            &::part(content), &::part(footer) {
                 padding: var(--nt-space-2) var(--nt-space-3);
             }
 

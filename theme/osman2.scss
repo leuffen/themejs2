@@ -1,27 +1,78 @@
-@forward "@nextrap/style-base" with (
-    $primary: red !default
+@use "./../font/opensans-regular" as font;
+@forward "base" with (
+    $primary: #2088C5 !default,
+    $text: #212529 !default,
+    $font-family-base: font.$font-family-base
 );
-@use  "@nextrap/style-base" as *;
+@use "base" as *;
 @use "./osman2/ntl-2col_testimonial" as testimonial;
-@use "./osman2/ntl-2col" as ntl-2col;
 @use "./osman2/ntl-card-row" as ntl-card-row;
 @use "./osman2/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
 @use "./osman2/header-style.scss" as header-style;
-
 
 .theme-osman2 {
     @include root;
     @include header-style.header-style;
     @include testimonial.testimonial;
-    @include ntl-2col.ntl-2col;
     @include ntl-card-row.ntl-card-row;
     @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
+
+    h2, h3 {
+        color: var(--nt-primary);
+    }
+
+    ul {
+        list-style: square;
+
+        li {
+            &::marker {
+                color: var(--nt-primary);
+            }
+        }
+    }
 
     ntl-2col,
     ntl-card-grid,
     ntl-card-row {
         padding: var(--nt-space-5) 0;
         margin: var(--nt-space-5) 0;
+    }
+
+    ntl-2col {
+        --container-border: unset;
+        --container-bg: transparent;
+
+        &.aside-padding {
+            &[mode="desktop"] {
+                &::part(main) {
+                    border-right: 1px solid #e8e8e8;
+                }
+            }
+        }
+
+        [slot="top"] {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border: none;
+        }
+
+        &[mode="desktop"] {
+            [slot="top"] {
+                aspect-ratio: 16/9;
+            }
+        }
+    }
+    ntl-card {
+        --nt-dark: #e8e8e8;
+        --border: unset;
+    }
+
+    ntl-card-row[mode="desktop"] {
+        ntl-card {
+            &:not(:last-of-type) {
+                border-right: 1px solid #e8e8e8;
+            }
+        }
     }
 
     p,
