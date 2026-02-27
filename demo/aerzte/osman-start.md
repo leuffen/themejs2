@@ -20,6 +20,7 @@
 ### Aktuelles
 
 <liweco-news>Keine aktuellen Meldungen</liweco-news>
+[Offene Stellen & Bewerbung](/karriere){: .btn .btn-primary .btn-lg .mb-3}
 
 ### Standorte
 
@@ -34,6 +35,23 @@ Wir bitten um eine Terminvereinbarung.
 
 Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen Notdienst oder den Notruf unter [112](tel:112).
 
+## Herzlich Willkommen in der Augenpraxis Osman
+{: layout="ntl-2col"}
+
+Moderne Augenheilkunde in Wiesbaden –
+für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision und neueste Technologie.
+
+- Abklärung von Sehminderungen und Sehstörungen
+- Spezialisiert auf Netzhaut- und Makulaerkrankungen
+- Konservative Behandlung von Glaukom, Entzündungen und Verletzungen
+- Laser- und operative Verfahren zur Therapie verschiedener Augenerkrankungen
+- Zuverlässig in allen Bereichen der augenärztlichen Vorsorge
+
+Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen und angenehmen Atmosphäre. Unser engagiertes Team steht Ihnen telefonisch, online und vor Ort jederzeit kompetent und vertrauensvoll zur Seite.
+
+![](https://cdn.leuffen.de//osman-k21///v2/17/c_g/DSC06665.webp)
+
+
 ## Jobs & Bewerbung
 {: layout="ntl-2col"}
 
@@ -44,3 +62,23 @@ Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen 
 Wir suchen neue Mitarbeiter für unser Team. Werden Sie Teil unserer Praxis und unterstützen Sie uns bei der zahnmedizinischen Versorgung unserer Patientinnen und Patienten. Wir freuen uns auf Ihre Bewerbung.
 
 [Offene Stellen & Bewerbung](/karriere){: .btn .btn-primary .btn-lg .mb-3}
+
+## Kontakt und Anfahrt
+{: layout="ntl-2col"}
+
+<iframe slot="top"></iframe>
+
+> So finden Sie uns
+
+Test Test Test
+
+---
+{: layout="ntl-accordion.aside"}
+
+### AaAaaaaaaa
+
+Test
+
+### odhoqidjiowqjdioq
+
+dpoqwjdpioqwjdoijqwoid
