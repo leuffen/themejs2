@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Metropolis";
+    src: url("https://cdn.leuffen.de/global/fonts/metropolis/Metropolis-Regular.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* END Light */
+/* BEGIN Light Italic */
+@font-face {
+    font-family: "Metropolis";
+    src: url("https://cdn.leuffen.de/global/fonts/metropolis/Metropolis-Light.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* END Light Italic */
+/* BEGIN Regular */
+@font-face {
+    font-family: "Metropolis";
+    src: url("https://cdn.leuffen.de/global/fonts/metropolis/Metropolis-SemiBold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
