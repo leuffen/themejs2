@@ -4,8 +4,8 @@
             text-transform: uppercase;
             font-weight: bold;
             font-size: var(--nt-fs-3);
-            color: var(--nt-primary) !important;
-            margin: var(--nt-space-3) 0;
+            color: var(--nt-primary);
+            margin: 0;
         }
 
         & + blockquote {

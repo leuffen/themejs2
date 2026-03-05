@@ -1,7 +1,7 @@
 @use "./../font/opensans-regular" as font;
 @forward "base" with (
     $primary: #2088C5 !default,
-    $text: #212529 !default,
+    $text: #707070 !default,
     $font-family-base: font.$font-family-base
 );
 @use "base" as *;
@@ -64,6 +64,7 @@
             }
         }
     }
+
     ntl-card {
         --nt-dark: #e8e8e8;
         --border: unset;

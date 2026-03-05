@@ -1,5 +1,33 @@
 @mixin ntl-accordion {
     ntl-accordion-item {
+        border: 1px solid var(--nt-gray-200);
+        background-color: var(--nt-white);
+
+        &::part(summary) {
+            background-color: var(--nt-gray-100);
+            transition: background-color 0.3s;
+
+            [open] & {
+                background-color: var(--nt-white);
+            }
+
+            &:hover {
+                background-color: var(--nt-gray-200);
+            }
+        }
+
+        &[open] {
+            &::part(summary) {
+                background-color: var(--nt-white);
+            }
+        }
+
+        [slot="title"] {
+            font-size: var(--nt-fs-2);
+            color: var(--nt-text);
+            font-weight: normal;
+        }
+
         [slot="title"] {
             margin-bottom: 0;
         }
