@@ -1,0 +1,7 @@
+@mixin ntl-accordion {
+    ntl-accordion-item {
+        [slot="title"] {
+            margin-bottom: 0;
+        }
+    }
+}
