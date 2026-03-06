@@ -18,5 +18,6 @@ import "@nextrap/ntl-slider";
 import "@nextrap/ntl-card-row";
 import "@nextrap/ntl-card-grid";
 import "@nextrap/ntl-accordion";
+import "@nextrap/ntl-consent-blocker";
 //import "@nextrap/ntl-footer";
 import "@nextrap/ntl-parallax-bg";
