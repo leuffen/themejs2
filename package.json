@@ -40,6 +40,7 @@
     "@nextrap/ntl-hero": "^1.0.0",
     "@nextrap/ntl-accordion": "^1.0.0",
     "@nextrap/ntl-parallax-bg": "^1.0.0",
+    "@nextrap/ntl-consent-blocker": "^1.0.0",
     "@nextrap/style-base": "^1.1.8",
     "@nextrap/style-button": "^0.0.6",
     "@nextrap/style-reset": "^0.1.1",
