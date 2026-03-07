@@ -3,16 +3,13 @@
 {: layout="1;.theme-osman2"}
 
 ---
-{: layout="2;ntl-hero"}
+{: layout="2;ntl-hero.hero-box" }
 
 ![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
-{: layout="ntl-parallax-bg" slot="bg"}
+{: slot="bg"}
 
-# <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
-{: layout="3;[slot='top-title']" .h5}
-
-## Digitale Transformation im Gesundheitswesen<br/>- verständlich, unabhängig, praxisnah.
-{: layout="3;[slot='title']" .h1}
+# Ihr Augenarzt in Wiesbaden <br><small>professionell, menschlich, modern</small>
+{: layout="3;.box"}
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}

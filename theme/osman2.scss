@@ -5,10 +5,11 @@
     $font-family-base: font.$font-family-base
 );
 @use "base" as *;
-@use "./osman2/ntl-2col_testimonial" as testimonial;
-@use "./osman2/ntl-card-row" as ntl-card-row;
-@use "./osman2/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
-@use "./osman2/header-style.scss" as header-style;
+@use "osman2/ntl-2col_testimonial" as testimonial;
+@use "osman2/ntl-card-row" as ntl-card-row;
+@use "osman2/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
+@use "osman2/header-style" as header-style;
+@use "osman2/ntl-hero" as ntl-hero;
 
 .theme-osman2 {
     @include root;
@@ -16,6 +17,7 @@
     @include testimonial.testimonial;
     @include ntl-card-row.ntl-card-row;
     @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
+    @include ntl-hero.ntl-hero;
 
     h2, h3 {
         color: var(--nt-primary);
