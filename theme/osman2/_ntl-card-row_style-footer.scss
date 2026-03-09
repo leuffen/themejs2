@@ -1,0 +1,10 @@
+@mixin ntl-card-row_style-footer {
+    ntl-card-row.style-footer {
+        --separator-color: var(--nt-gray-400);
+        --container-bg: var(--nt-gray-100);
+
+        &::part(container) {
+            padding: var(--nt-space-3) 0;
+        }
+    }
+}
