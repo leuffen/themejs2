@@ -202,4 +202,3 @@ dpoqwjdpioqwjdoijqwoid
 
     </ntl-card-row>
 </footer>
-{ layout="3;" }
