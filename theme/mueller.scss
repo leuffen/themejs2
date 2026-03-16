@@ -1,8 +1,8 @@
-@use "./osman/ntl-2col_testimonial" as testimonial;
-@use "./osman/ntl-2col" as ntl-2col;
-@use "./osman/ntl-card-row" as ntl-card-row;
-@use "./osman/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
-@use "./osman/header-style.scss" as header-style;
+@use "mueller/ntl-2col_testimonial" as testimonial;
+@use "mueller/ntl-2col" as ntl-2col;
+@use "mueller/ntl-card-row" as ntl-card-row;
+@use "mueller/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
+@use "mueller/header-style.scss" as header-style;
 
 .theme-osman {
     @include header-style.header-style;
