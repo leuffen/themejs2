@@ -5,13 +5,13 @@
     $font-family-base: font.$font-family-base
 );
 @use "base" as *;
-@use "osman2/ntl-2col_testimonial" as testimonial;
-@use "osman2/ntl-card-row" as ntl-card-row;
-@use "osman2/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
-@use "osman2/header-style" as header-style;
-@use "osman2/ntl-hero" as ntl-hero;
-@use "osman2/ntl-card-row_style-footer" as ntl-card-row_style-footer;
-@use "osman2/ntl-accordion-item" as ntl-accordion-item;
+@use "osman/ntl-2col_testimonial" as testimonial;
+@use "osman/ntl-card-row" as ntl-card-row;
+@use "osman/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
+@use "osman/header-style" as header-style;
+@use "osman/ntl-hero" as ntl-hero;
+@use "osman/ntl-card-row_style-footer" as ntl-card-row_style-footer;
+@use "osman/ntl-accordion-item" as ntl-accordion-item;
 
 .theme-osman2 {
     @include root;
