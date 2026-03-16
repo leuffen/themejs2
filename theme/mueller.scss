@@ -4,7 +4,7 @@
 @use "mueller/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
 @use "mueller/header-style.scss" as header-style;
 
-.theme-osman {
+.theme-mueller {
     @include header-style.header-style;
     @include testimonial.testimonial;
     @include ntl-2col.ntl-2col;

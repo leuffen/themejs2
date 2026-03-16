@@ -1,6 +1,6 @@
 
 ---
-{: layout="1;.theme-osman2"}
+{: layout="1;.theme-osman"}
 
 ---
 {: layout="2;ntl-hero.hero-box" }

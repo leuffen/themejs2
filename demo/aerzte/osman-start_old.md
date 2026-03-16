@@ -1,6 +1,6 @@
 
 ---
-{: layout="1;.theme-osman"}
+{: layout="1;.theme-mueller"}
 
 ---
 {: layout="2;ntl-2col.testimonial"}

@@ -13,7 +13,7 @@
 @use "osman/ntl-card-row_style-footer" as ntl-card-row_style-footer;
 @use "osman/ntl-accordion-item" as ntl-accordion-item;
 
-.theme-osman2 {
+.theme-osman {
     @include root;
     @include header-style.header-style;
     @include testimonial.testimonial;
