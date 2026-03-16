@@ -11,6 +11,7 @@
 @use "osman2/header-style" as header-style;
 @use "osman2/ntl-hero" as ntl-hero;
 @use "osman2/ntl-card-row_style-footer" as ntl-card-row_style-footer;
+@use "osman2/ntl-accordion-item" as ntl-accordion-item;
 
 .theme-osman2 {
     @include root;
@@ -20,6 +21,7 @@
     @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
     @include ntl-card-row_style-footer.ntl-card-row_style-footer;
     @include ntl-hero.ntl-hero;
+    @include ntl-accordion-item.ntl-accordion-item;
 
     h2, h3 {
         color: var(--nt-primary);
@@ -66,6 +68,7 @@
             }
         }
     }
+
     ntl-card {
         --nt-dark: #e8e8e8;
         --border: unset;
