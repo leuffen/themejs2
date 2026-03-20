@@ -6,6 +6,8 @@
 @use "mueller/ntl-card" as ntl-card;
 @use "mueller/ntl-2col" as ntl-2col;
 @use "mueller/header-style" as header-style;
+@use "mueller/ntl-card-row_style-footer" as ntl-card-row_style-footer;
+@use "mueller/ntl-accordion-item" as ntl-accordion-item;
 
 .theme-mueller {
     @include ntl-hero.ntl-hero;
@@ -14,12 +16,20 @@
     @include ntl-card.ntl-card;
     @include ntl-2col.ntl-2col;
     @include header-style.header-style;
+    @include ntl-card-row_style-footer.ntl-card-row_style-footer;
+    @include ntl-accordion-item.ntl-accordion-item;
 
     --nt-primary-subtle: #707070;
     --nt-text: #444444;
     --nt-primary: #05668c;
+    --nt-text-on-primary: var(--nt-white);
     --nt-accent: #32abe2;
-    --nt-background: var(--nt-white);
+    --nt-border-radius: 0;
+
+    .btn.btn-primary {
+        --btn-txt: var(--nt-white);
+        text-decoration: none;
+    }
 
     h2, h3 {
         color: var(--nt-primary);
@@ -57,6 +67,14 @@
 
         &:last-child {
             margin-bottom: 0;
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
         }
     }
 }

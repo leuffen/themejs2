@@ -1,9 +1,7 @@
 @mixin ntl-card {
     ntl-card {
         --background-color: var(--nt-white);
-
-        .header {
-
-        }
+        --border: 1px solid var(--nt-gray-300);
+        --border-radius: 0;
     }
 }

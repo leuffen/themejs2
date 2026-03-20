@@ -17,8 +17,8 @@
 
             padding: var(--nt-gap) 0;
 
-            h3 {
-                color: var(--nt-primary-subtle);
+            &::part(content) {
+                padding: var(--nt-space-4);
             }
         }
 

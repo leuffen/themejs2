@@ -75,9 +75,6 @@ Moderne Bildgebung mit OCT (Optischer Kohärenztomographie), Fluoreszenzangiogra
 Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfelduntersuchung, Hornhautdickenmessung (Pachymetrie), Gonioskopie sowie OCT-Analyse der Sehnervenpapille – für eine präzise Beurteilung und langfristige Verlaufskontrolle.
 - Katarakt (Grauer Star) und Nachstar
 
-[Mehr erfahren](/karriere){: .btn .btn-primary}
-{: .footer }
-
 ### Therapie
 
 ![](https://cdn.leuffen.de/osman-k21///v2/55/188-125_b/Therapie.webp)
@@ -87,9 +84,6 @@ Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf �
 - Behandlung von Makula- und Netzhauterkrankungen bei altersbedingter Makuladegeneration (AMD), diabetischer Retinopathie und Gefäßverschlüssen mittels intravitrealer Injektionen, Implantaten und Lasertherapie. Zudem führen wir Laserretinopexien (gezielte Laserfixation der Netzhaut) bei Netzhautdegenerationen, Rissen und Netzhautlöchern durch.
 - Glaukombehandlung (Grüner Star) Darunter die selektive Lasertrabekuloplastik (SLT) beim Offenwinkelglaukom und die YAG-Laser-Iridotomie beim Engwinkelglaukom.
 - YAG-Laser-Kapsulotomie bei sekundären Linsentrübung (Nachstar)
-
-[Mehr erfahren](/karriere){: .btn .btn-primary}
-{: .footer }
 
 ## Warnsignale für die Augen – Sofort zum Arzt!
 {: layout="ntl-2col"}
