@@ -1,0 +1,23 @@
+@mixin ntl-hero {
+    ntl-hero {
+
+        > ntl-2col {
+            &::part(container) {
+                background: transparent;
+                border: 0;
+            }
+        }
+
+        &.hero-box {
+            --container-width: 100%;
+
+            .box {
+                position: absolute;
+                left: 0;
+                background: rgba(255, 255, 255, 0.5);
+                color: var(--nt-primary);
+                padding: var(--nt-space-3);
+            }
+        }
+    }
+}

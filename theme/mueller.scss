@@ -1,0 +1,62 @@
+@use "./../font/opensans-regular" as font;
+@use "base" as *;
+@use "mueller/ntl-hero" as ntl-hero;
+@use "mueller/ntl-card-row" as ntl-card-row;
+@use "mueller/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
+@use "mueller/ntl-card" as ntl-card;
+@use "mueller/ntl-2col" as ntl-2col;
+@use "mueller/header-style" as header-style;
+
+.theme-mueller {
+    @include ntl-hero.ntl-hero;
+    @include ntl-card-row.ntl-card-row;
+    @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
+    @include ntl-card.ntl-card;
+    @include ntl-2col.ntl-2col;
+    @include header-style.header-style;
+
+    --nt-primary-subtle: #707070;
+    --nt-text: #444444;
+    --nt-primary: #05668c;
+    --nt-accent: #32abe2;
+    --nt-background: var(--nt-white);
+
+    h2, h3 {
+        color: var(--nt-primary);
+    }
+
+    ul {
+        list-style: square;
+
+        li {
+            &::marker {
+                color: var(--nt-primary);
+            }
+        }
+    }
+
+    ntl-2col,
+    ntl-card-grid,
+    ntl-card-row {
+        padding: var(--nt-space-5) 0;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote,
+    code,
+    pre,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: var(--nt-text-gap);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

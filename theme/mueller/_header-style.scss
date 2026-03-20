@@ -1,0 +1,26 @@
+@mixin header-style {
+    h2 {
+        &:has(+ blockquote) {
+            font-weight: bold;
+            font-size: var(--nt-fs-3);
+            color: var(--nt-accent);
+            margin: var(--nt-space-3) 0;
+        }
+
+        & + blockquote {
+            padding: 0;
+            font-size: var(--nt-fs-h2);
+            color: var(--nt-primary);
+            border: none;
+            margin-top: 0;
+        }
+    }
+
+    :first-child {
+        margin-top: 0;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
