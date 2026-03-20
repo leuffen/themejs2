@@ -8,6 +8,7 @@
 @use "mueller/header-style" as header-style;
 @use "mueller/ntl-card-row_style-footer" as ntl-card-row_style-footer;
 @use "mueller/ntl-accordion-item" as ntl-accordion-item;
+@use "mueller/ntl-consent-blocker" as ntl-consent-block;
 
 .theme-mueller {
     @include ntl-hero.ntl-hero;
@@ -18,6 +19,7 @@
     @include header-style.header-style;
     @include ntl-card-row_style-footer.ntl-card-row_style-footer;
     @include ntl-accordion-item.ntl-accordion-item;
+    @include ntl-consent-block.ntl-consent-blocker;
 
     --nt-primary-subtle: #707070;
     --nt-text: #444444;

@@ -1,6 +1,6 @@
 @mixin ntl-accordion-item {
-    --marker-icon-closed: var(--ntl-icon-minus);
-    --marker-icon-open: var(--ntl-icon-plus);
+    --marker-icon-closed: var(--ntl-icon-plus);
+    --marker-icon-open: var(--ntl-icon-minus);
 
     ntl-accordion-item {
         border: 1px solid var(--nt-gray-200);

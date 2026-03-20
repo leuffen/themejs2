@@ -10,12 +10,28 @@
         }
 
         &::part(main) {
-            padding: var(--nt-space-2) var(--nt-space-3);
+            padding: var(--nt-space-2);
+        }
+
+        [slot="aside"] {
+            padding: var(--nt-space-2);
+
+            &:has(img) {
+                padding: 0;
+            }
         }
 
         &[mode="desktop"] {
             &::part(main) {
-                padding: var(--nt-space-4) var(--nt-space-5);
+                padding: var(--nt-space-5);
+            }
+
+            [slot="aside"] {
+                padding: var(--nt-space-5);
+
+                &:has(> img:first-child) {
+                    padding: 0;
+                }
             }
         }
     }

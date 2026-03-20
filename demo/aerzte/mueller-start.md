@@ -9,18 +9,12 @@
 {: slot="bg"}
 
 ---
-{: layout="2.5;ntl-2col" }
+{: layout="3;.box"}
 
----
-{: layout="3;ntl-card" }
+### Hausarztpraxis am Rhein <br><small>Individuelle und professionelle medizinische Versorgung</small>
+{: layout="3.5"}
 
-### Hausarztpraxis am Rhein<br><small>Internistische Hausarztpraxis & Kardiologische Privatpraxis</small>
-{: layout="3.5" }
-
-hello
-
-### test
-{: layout="3;.aside" .aside }
+[Mehr erfahren](/karriere){: .btn .btn-primary }
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}
@@ -64,6 +58,7 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 {: layout="2;ntl-card-row" section-style="--cols: 6"}
 
 ### Diagnostik
+{: .header }
 
 ![](https://cdn.leuffen.de/osman-k21///v2/54/188-125_b/Diagnostik.webp)
 
@@ -76,6 +71,7 @@ Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfel
 - Katarakt (Grauer Star) und Nachstar
 
 ### Therapie
+{: .header }
 
 ![](https://cdn.leuffen.de/osman-k21///v2/55/188-125_b/Therapie.webp)
 
