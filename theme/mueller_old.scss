@@ -1,8 +1,8 @@
-@use "mueller/ntl-2col_testimonial" as testimonial;
-@use "mueller/ntl-2col" as ntl-2col;
-@use "mueller/ntl-card-row" as ntl-card-row;
-@use "mueller/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
-@use "mueller/header-style.scss" as header-style;
+@use "mueller_old/ntl-2col_testimonial" as testimonial;
+@use "mueller_old/ntl-2col" as ntl-2col;
+@use "mueller_old/ntl-card-row" as ntl-card-row;
+@use "mueller_old/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
+@use "mueller_old/header-style.scss" as header-style;
 
 .theme-mueller {
     @include header-style.header-style;
