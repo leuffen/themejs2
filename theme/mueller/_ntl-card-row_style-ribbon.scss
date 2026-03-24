@@ -3,14 +3,15 @@
         --gutter-y: 0;
         --default-cols: 0; // always grow to full width
 
-        [slot="header"] {
-            text-align: center;
-        }
-
         position: relative;
-        margin: 0 auto;
+        margin: 2rem auto;
         padding: 0;
-        border-bottom: 3px solid var(--nt-primary);
+
+        h1,h2,h3,h4,h5,h6 {
+            font-size: var(--nt-fs-3);
+            color: var(--nt-primary-subtle);
+            text-transform: uppercase;
+        }
 
         ntl-card {
             --border-width: 0;
@@ -18,8 +19,8 @@
 
             padding: var(--nt-gap) 0;
 
-            h3 {
-                color: var(--nt-primary-subtile);
+            &::part(content) {
+                padding: var(--nt-space-4);
             }
         }
 
@@ -45,7 +46,7 @@
             ntl-card {
                 flex-grow: 1;
                 padding: 0;
-                border-right: 1px solid var(--nt-dark);
+                border-right: 1px solid var(--nt-gray-500);
 
                 &:last-child {
                     border-right: none;

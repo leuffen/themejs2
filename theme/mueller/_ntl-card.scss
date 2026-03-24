@@ -1,0 +1,18 @@
+@mixin ntl-card {
+    ntl-card {
+        --background-color: var(--nt-white);
+        --border: 1px solid var(--nt-gray-300);
+        --border-radius: 0;
+
+        .header {
+            margin: 0;
+            text-align: start;
+            padding: 0 var(--nt-space-4);
+            color: var(--nt-primary-subtle);
+        }
+
+        &::part(content), &::part(footer) {
+            padding: var(--nt-space-4);
+        }
+    }
+}

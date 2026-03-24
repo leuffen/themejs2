@@ -1,0 +1,20 @@
+@mixin ntl-hero {
+    ntl-hero {
+        &.hero-box {
+            &::part(content) {
+                width: 100%;
+            }
+            .box {
+                background: var(--nt-white);
+                color: var(--nt-primary);
+                padding: var(--nt-space-3);
+                margin: 0 auto 0 0;
+                width: 50%;
+            }
+
+            h1,h2,h3,h4,h5,h6 {
+                color: var(--nt-primary-subtle);
+            }
+        }
+    }
+}
