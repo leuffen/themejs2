@@ -157,13 +157,13 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 Test Test Test
 
 ---
-{: layout="3;ntl-accordion" .aside}
+{: layout="ntl-accordion" .aside}
 
-#### AaAaaaaaaa
+### AaAaaaaaaa
 
 Test
 
-#### odhoqidjiowqjdioq
+### odhoqidjiowqjdioq
 
 dpoqwjdpioqwjdoijqwoid
 
