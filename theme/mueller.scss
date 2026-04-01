@@ -23,10 +23,11 @@
 
     --nt-primary-subtle: #707070;
     --nt-text: #444444;
-    --nt-primary: #05668c;
+    --nt-primary: #E20E18;
     --nt-text-on-primary: var(--nt-white);
-    --nt-accent: #32abe2;
+    --nt-accent: #107a75;
     --nt-border-radius: 0;
+    --nt-link: var(--nt-primary);
 
     .btn.btn-primary {
         --btn-txt: var(--nt-white);
@@ -69,14 +70,6 @@
 
         &:last-child {
             margin-bottom: 0;
-        }
-    }
-
-    a {
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: none;
         }
     }
 }

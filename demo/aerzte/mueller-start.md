@@ -5,7 +5,7 @@
 ---
 {: layout="2;ntl-hero.hero-box" }
 
-![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
+![](https://cdn.leuffen.de//r-beverungen-k163///v2/39/128-91_f/Eingang_Praxis20025-16.webp)
 {: slot="bg"}
 
 ---
@@ -167,7 +167,8 @@ Test
 
 dpoqwjdpioqwjdoijqwoid
 
-## Footer
+---
+{: layout="2" }
 
 <footer>
     <ntl-card-row class="style-footer" style="--cols: 4">
@@ -195,6 +196,3 @@ dpoqwjdpioqwjdoijqwoid
         </ntl-card>
     </ntl-card-row>
 </footer>
-
-
-## End
