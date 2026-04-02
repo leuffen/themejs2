@@ -28,6 +28,9 @@
     --nt-accent: #107a75;
     --nt-border-radius: 0;
     --nt-link: var(--nt-primary);
+    --nt-body: rgba(217, 217, 217, 0.24);
+
+    background: var(--nt-body);
 
     .btn.btn-primary {
         --btn-txt: var(--nt-white);
