@@ -1,7 +1,7 @@
 @mixin ntl-card-row_style-footer {
     ntl-card-row.style-footer {
         padding: var(--nt-space-4) 0;
-        background: var(--nt-gray-700);
+        background: #3b3b3b;
         --separator-color: var(--nt-gray-400);
 
         ntl-card {
@@ -11,12 +11,15 @@
             h1,h2,h3,h4,h5,h6 {
                 color: var(--nt-white);
                 text-transform: uppercase;
+                font-size: var(--fs-1);
             }
 
             a {
                 color: var(--nt-gray-300);
+                text-decoration: none;
 
                 &:hover {
+                    text-decoration: none;
                     color: var(--nt-white);
                 }
             }

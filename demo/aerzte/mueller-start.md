@@ -5,81 +5,85 @@
 ---
 {: layout="2;ntl-hero.hero-box" }
 
-![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
+![](https://cdn.leuffen.de//r-beverungen-k163///v2/39/128-91_f/Eingang_Praxis20025-16.webp)
 {: slot="bg"}
 
 ---
-{: layout="3;.box"}
+{: layout="2.5;.box"}
 
 ### Hausarztpraxis am Rhein <br><small>Individuelle und professionelle medizinische Versorgung</small>
-{: layout="3.5"}
 
-[Mehr erfahren](/karriere){: .btn .btn-primary }
+[Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary }
+
+[**Rezept** online anfragen / **Rezept-Telefon**](/rezept){: .btn .btn-primary }
+[**Überweisung** an Facharzt](/ueberweisung){: .btn .btn-primary }
+[**Videosprechstunde**](/video){: .btn .btn-primary }
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}
 
 ### Aktuelles
 
-<liweco-news>Keine aktuellen Meldungen</liweco-news>
+__Osterurlaub__ 23.03. - 02.04.2026
+
+__Sommerurlaub__ 20.07. - 07.08.2026
+
+__Fortbildung__ 30.09. - 02.10.2026
+
+__Herbsturlaub__ 09.11. - 20.11.2026
 
 ### Standorte
 
-- [Buchen](/kontakt-buchen)
-- [Mosbach](/kontakt-mosbach)
+__Terminsprechstunde__:
+Mo - Fr: 09:00 - 11:00 Uhr
+Mo + Do: 17:00 - 18:30 Uhr
 
-Wir bitten um eine Terminvereinbarung.
+__Offene Sprechstunde__:
+Mo - Fr: 08:00 - 09:00 Uhr
+Mo & Do: 16:00 - 17:00 Uhr
+
+Wir bitten um eine Terminvereinbarung. Nutzen Sie dazu gerne unsere [Online-Terminvereinbarung](/termin).
+Wir bieten auch eine [Video-Sprechstunde](/video) an.
 
 ### Notfälle & Schmerzpatienten
 
-**Schmerzpatienten erhalten einen Termin am selben Tag.** Vereinbaren sie bitte telefonisch einen Termin.
+Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den KV-Bereitschaftsdienst unter der Telefonnummer [116 117](tel:116 117) oder den Notruf unter [112](tel:112).
 
-Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen Notdienst oder den Notruf unter [112](tel:112).
-
-## Hausarztpraxis am Rhein in Neuss
+## Hausarztpraxis in Höxter-Lüchtringen
 {: layout="ntl-2col" }
 
 > Individuelle und professionelle medizinische Versorgung
 
-Moderne Augenheilkunde in Wiesbaden –
-für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision und neueste Technologie.
+Wir sind Ihre familienfreundliche Hausarztpraxis in Lüchtringen und bieten eine umfassende medizinische Versorgung für alle Altersklassen. Unser Leistungsspektrum umfasst Vorsorgeuntersuchungen, Impfungen, Herz-Kreislauf- und Lungen-Diagnostik, Ultraschall, kleine chirurgische Eingriffe, Hausbesuche und die Betreuung bei chronischen Erkrankungen.
 
-- Abklärung von Sehminderungen und Sehstörungen
-- Spezialisiert auf Netzhaut- und Makulaerkrankungen
-- Konservative Behandlung von Glaukom, Entzündungen und Verletzungen
-- Laser- und operative Verfahren zur Therapie verschiedener Augenerkrankungen
-- Zuverlässig in allen Bereichen der augenärztlichen Vorsorge
+Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gerne!
 
-Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen und angenehmen Atmosphäre. Unser engagiertes Team steht Ihnen telefonisch, online und vor Ort jederzeit kompetent und vertrauensvoll zur Seite.
+![](https://cdn.leuffen.de//r-beverungen-k163//v2/38/b_c/Eingang-Praxis2025.webp)
 
-![](https://cdn.leuffen.de/osman-k21///v2/17/c_g/DSC06665.webp)
+## Unsere Leistungen
+{: layout="ntl-card-row" section-style="--cols: 4"}
 
----
-{: layout="2;ntl-card-row" section-style="--cols: 6"}
+### Vorsorge
+{: .header }
+
+![](https://cdn.leuffen.de//leu-stock//v2/70/77-51_c/AdobeStock_87378997.webp)
+
+Wir führen umfassende Vorsorgeuntersuchungen durch, um Ihre Gesundheit frühzeitig zu schützen und Risiken zu erkennen.
+Wir beraten Sie zu allen empfohlenen Impfungen und führen diese direkt in unserer Praxis durch.
 
 ### Diagnostik
 {: .header }
 
-![](https://cdn.leuffen.de/osman-k21///v2/54/188-125_b/Diagnostik.webp)
+![](https://cdn.leuffen.de//leu-stock//v2/21/c_c/AdobeStock_349906385.webp)
 
-Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
-
-- Netzhauterkrankungen (Medical Retina)
-Moderne Bildgebung mit OCT (Optischer Kohärenztomographie), Fluoreszenzangiographie und Fundusfotografie ermöglicht die Vorsorge, Diagnose und Verlaufskontrolle bei Makulaerkrankungen, diabetischer Retinopathie, Gefäßverschlüssen, epiretinaler Gliose und anderen Netzhautpathologien.
-- Glaukom (Grüner Star)
-Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfelduntersuchung, Hornhautdickenmessung (Pachymetrie), Gonioskopie sowie OCT-Analyse der Sehnervenpapille – für eine präzise Beurteilung und langfristige Verlaufskontrolle.
-- Katarakt (Grauer Star) und Nachstar
+Mit modernen Geräten bieten wir EKG, Belastungs-EKG, Langzeit-EKG, Blutdruckmessung, Langzeit-Blutdruckmessung, Lungenfunktion, ABI-Messung, Ultraschall, Laboruntersuchungen sowie Sehtests und Hörtests an.
 
 ### Therapie
 {: .header }
 
-![](https://cdn.leuffen.de/osman-k21///v2/55/188-125_b/Therapie.webp)
+![](https://cdn.leuffen.de//leu-stock//v2/9/1024-683_c/AdobeStock_417585744.webp)
 
-Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgenden mikroinvasiven Therapieverfahren an:
-
-- Behandlung von Makula- und Netzhauterkrankungen bei altersbedingter Makuladegeneration (AMD), diabetischer Retinopathie und Gefäßverschlüssen mittels intravitrealer Injektionen, Implantaten und Lasertherapie. Zudem führen wir Laserretinopexien (gezielte Laserfixation der Netzhaut) bei Netzhautdegenerationen, Rissen und Netzhautlöchern durch.
-- Glaukombehandlung (Grüner Star) Darunter die selektive Lasertrabekuloplastik (SLT) beim Offenwinkelglaukom und die YAG-Laser-Iridotomie beim Engwinkelglaukom.
-- YAG-Laser-Kapsulotomie bei sekundären Linsentrübung (Nachstar)
+Wir bieten Hausbesuche, kleine chirurgische Eingriffe, Disease Management Programme (DMP) für chronische Erkrankungen, einen Rezeptservice sowie reisemedizinische Beratung für unsere Stammpatient*innen.
 
 ## Warnsignale für die Augen – Sofort zum Arzt!
 {: layout="ntl-2col"}
@@ -93,7 +97,7 @@ Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf �
 
 Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
 
-a**Notfallbehandlung**
+__Notfallbehandlung__
 <br />In akuten Notfällen außerhalb der Sprechzeiten wenden Sie sich bitte an den ärztlichen Bereitschaftsdienst unter der Telefonnummer 116 117.
 
 ---
@@ -126,16 +130,16 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 ![](https://cdn.leuffen.de//osman-k21/v2/8/75-17_a/bdoc-logo_300x68.webp)
 {: .align-grid-items }
 
-## Über uns
+## Lernen Sie uns kennen
 {: layout="ntl-2col.reverse"}
 
-![](https://cdn.leuffen.de//osman-k21///v2/18/c_g/DSC06603.webp)
+> Ihr vertrauensvolles Team
 
-Ihr kompetentes und eingespieltes Praxisteam in Wiesbaden
+![](https://cdn.leuffen.de//r-beverungen-k163//v2/49/b_c/Team-2025-2026.webp)
 
-Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und ein freundliches Miteinander liegen uns besonders am Herzen. Wir nehmen uns sehr gern die Zeit, um all Ihre Fragen verständlich zu erklären.
+Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfahrung und persönlicher Betreuung.
 
-[Mehr erfahren](/karriere){: .btn .btn-primary .mb-3}
+[Erfahren Sie mehr über uns...](/karriere){: .btn .btn-primary .mb-3}
 
 ## Kontakt und Anfahrt
 {: layout="ntl-2col"}
@@ -167,7 +171,8 @@ Test
 
 dpoqwjdpioqwjdoijqwoid
 
-## Footer
+---
+{: layout="2" }
 
 <footer>
     <ntl-card-row class="style-footer" style="--cols: 4">
@@ -195,6 +200,3 @@ dpoqwjdpioqwjdoijqwoid
         </ntl-card>
     </ntl-card-row>
 </footer>
-
-
-## End

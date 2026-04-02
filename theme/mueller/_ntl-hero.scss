@@ -4,9 +4,9 @@
             &::part(content) {
                 width: 100%;
             }
+
             .box {
-                background: var(--nt-white);
-                color: var(--nt-primary);
+                background: rgba(255, 255, 255, 0.8);
                 padding: var(--nt-space-3);
                 margin: 0 auto 0 0;
                 width: 50%;
@@ -14,6 +14,13 @@
 
             h1,h2,h3,h4,h5,h6 {
                 color: var(--nt-primary-subtle);
+            }
+
+            p {
+                display: grid;
+                grid-auto-flow: column;
+                grid-auto-columns: 1fr;
+                gap: var(--nt-space-3);
             }
         }
     }

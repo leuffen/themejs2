@@ -4,8 +4,17 @@
         --default-cols: 0; // always grow to full width
 
         position: relative;
-        margin: 2rem auto;
-        padding: 0;
+        padding-top: 0;
+
+        &::part(container) {
+            margin: 0;
+            width: 100%;
+        }
+
+        &::part(main) {
+            margin: 0;
+            width: 100%;
+        }
 
         h1,h2,h3,h4,h5,h6 {
             font-size: var(--nt-fs-3);
@@ -14,8 +23,10 @@
         }
 
         ntl-card {
+            --border: 0;
             --border-width: 0;
             --border-color: transparent;
+            background: var(--nt-white);
 
             padding: var(--nt-gap) 0;
 
