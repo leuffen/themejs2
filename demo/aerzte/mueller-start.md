@@ -1,6 +1,6 @@
 
 ---
-{: layout="1;.theme-mueller" section-style="background: rgba(217, 217, 217, 0.24)"}
+{: layout="1;.theme-mueller"}
 
 ---
 {: layout="2;ntl-hero.hero-box" }
