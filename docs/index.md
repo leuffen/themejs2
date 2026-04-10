@@ -3,7 +3,7 @@ _schiller_instructions: ~
 _schiller_template: pages/hausarzt-index-singleleistung
 availLangs:
 - de
-body_class: ~
+body_class: theme-mueller
 description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam Genné in
   Senftenberg. Wir bieten individuelle medizinische Versorgung, klassische HNO-Leistungen
   und Naturheilverfahren. \U0001F33F"

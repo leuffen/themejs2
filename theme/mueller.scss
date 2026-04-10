@@ -1,5 +1,6 @@
 @use "./../font/opensans-regular" as font;
-@use "base" as *;
+
+@use "base" as base;
 @use "mueller/ntl-hero" as ntl-hero;
 @use "mueller/ntl-card-row" as ntl-card-row;
 @use "mueller/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
@@ -10,7 +11,19 @@
 @use "mueller/ntl-accordion-item" as ntl-accordion-item;
 @use "mueller/ntl-consent-blocker" as ntl-consent-block;
 
+$theme: () !default;
+
 .theme-mueller {
+
+
+
+    @include base.base($theme, (
+        colors: (
+            primary: #0d325d
+        )
+    ));
+
+
     @include ntl-hero.ntl-hero;
     @include ntl-card-row.ntl-card-row;
     @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
@@ -21,14 +34,6 @@
     @include ntl-accordion-item.ntl-accordion-item;
     @include ntl-consent-block.ntl-consent-blocker;
 
-    --nt-primary-subtle: #707070;
-    --nt-text: #444444;
-    --nt-primary: #E20E18;
-    --nt-text-on-primary: var(--nt-white);
-    --nt-accent: #107a75;
-    --nt-border-radius: 0;
-    --nt-link: var(--nt-primary);
-    --nt-body: rgba(217, 217, 217, 0.24);
 
     background: var(--nt-body);
 

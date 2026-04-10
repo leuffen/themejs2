@@ -18,20 +18,20 @@ layout: 2_script
 
 {% if page.skip-navbar != true %}
 
-<nte-navbar class="fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 0px;">
+<nte-navbar class="fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 64px;">
     <nte-navbar-line style="--brand-height: 64px">
 
 
 
        <a slot="brand" href="/">
             <img
-                src="/assets/epraxis-digital-logo.svg"
+                src="/assets/leuffen-logo-big.svg"
                 alt="{{ site.data.general.logoalt }}"
-                height="34"
-                class="p-3 loader-image"
+                class="py-3 loader-image"
                 style="float: left"
             />
-            <!-- div style="font-size: 1.1em; float: right" class="m-2 text-black">
+           ThemeJs2
+            <!--div style="font-size: 1.1em; float: right" class="m-2 text-black">
               <div style="font-size: 1.6em">{{ site.data.general.logoalt }}</div>
               <div style="font-size: 1.1em">{{ site.data.general.fachrichtung}}</div>
             </div-->
@@ -52,15 +52,15 @@ layout: 2_script
             <ul>
                 {% include el/navbar.html ptag="nav2" %}
                 <li style="order: 30">
-                    <a href="javascript:void(0)" >Magazin</a>
+                    <a href="javascript:void(0)">Pages</a>
                     <ul>
-                        {% include el/navbar.html ptag="magazin" %}
+                        {% include el/navbar.html ptag="pages" %}
                     </ul>
                 </li>
                 <li style="order: 30">
-                    <a href="javascript:void(0)" >Informationen</a>
+                    <a href="javascript:void(0)">Styles</a>
                     <ul>
-                        {% include el/navbar.html ptag="nav_info" %}
+                        {% include el/navbar.html ptag="styles" %}
                     </ul>
                 </li>
             </ul>

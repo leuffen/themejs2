@@ -4,22 +4,15 @@ layout: null
 <!DOCTYPE html>
 <html class="loader" lang="{{ page.lang }}">
 <head>
-
-    <!-- Pasted in Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet"
-    />
-    <!-- TODO: Remove and replace with useful, flexible font system -->
-
     <base href="{% if site.baseurl == '' or site.baseurl == null %}/{% else %}{{ site.baseurl }}{% endif %}">
 
     {% comment %}
        Hier Google Site Verification einfügen:
     {% endcomment %}
+
+    <!-- Google Site Verification for Search Console -->
     <meta name="google-site-verification" content="NN1A2XEV3PkleJTab6JgTUjJxadD8L_j1ZFHXf8D19Y" />
+
 
     <link rel="canonical" href="{{ site.data.general.site_base_url }}{{ page.url }}"/>
     <meta charset="utf-8">
@@ -71,21 +64,6 @@ layout: null
         window.micx_subscription_id = '{{ site.data.general.subscription_id }}';
         window.mapUrl = '{{ site.data.general.map_url }}';
     </script>
-    <script>
-        const isNotSafari = () => {
-            const userAgent = navigator.userAgent.toLowerCase();
-            return userAgent.indexOf('safari') == -1 || userAgent.indexOf('chrome') > -1;
-        }
-        if( ! isNotSafari()) {
-            console.log("Safari Browser detected - loading polyfill...");
-            let node = document.createElement("script");
-            node.setAttribute("src", "/assets/dist/polyfill-custom-elements.js")
-            document.head.append(node)
-        }
-
-
-    </script>
-
 
 
     {% comment %} ======== Liquid script for alternative language links ======= {% endcomment %}

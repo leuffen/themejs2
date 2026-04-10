@@ -1,10 +1,6 @@
 @use "./../font/opensans-regular" as font;
-@forward "base" with (
-    $primary: #2088C5 !default,
-    $text: #212529 !default,
-    $font-family-base: font.$font-family-base
-);
-@use "base" as *;
+
+@use "base" as base;
 @use "osman/ntl-2col_testimonial" as testimonial;
 @use "osman/ntl-card-row" as ntl-card-row;
 @use "osman/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
@@ -13,8 +9,19 @@
 @use "osman/ntl-card-row_style-footer" as ntl-card-row_style-footer;
 @use "osman/ntl-accordion-item" as ntl-accordion-item;
 
+$theme: () !default;
+
 .theme-osman {
-    @include root;
+
+
+    @include base.base($theme, (
+        colors: (
+            primary: #0e31e2,
+            text: #444444,
+            accent: #396b6a,
+        )
+    ));
+
     @include header-style.header-style;
     @include testimonial.testimonial;
     @include ntl-card-row.ntl-card-row;

@@ -44,6 +44,9 @@ export default defineConfig({
                 index: path.resolve(__dirname, "docs/_src/index.ts"),
                 embed: path.resolve(__dirname, "docs/_src/embed.ts"),
             },
+            watch: {
+                exclude: ["**/assets/dist/**", "**/dist/**"],
+            },
             output: {
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name && assetInfo.name.endsWith(".css")) {
