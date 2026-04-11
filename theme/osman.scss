@@ -8,6 +8,7 @@
 @use "osman/ntl-hero" as ntl-hero;
 @use "osman/ntl-card-row_style-footer" as ntl-card-row_style-footer;
 @use "osman/ntl-accordion-item" as ntl-accordion-item;
+@use "general/button-bar" as button-bar;
 
 $theme: () !default;
 
@@ -19,6 +20,10 @@ $theme: () !default;
             primary: #0e31e2,
             text: #444444,
             accent: #396b6a,
+        ),
+        typography: (
+            body: font.$font-family-base,
+            heading: font.$font-size-header
         )
     ));
 
@@ -29,6 +34,7 @@ $theme: () !default;
     @include ntl-card-row_style-footer.ntl-card-row_style-footer;
     @include ntl-hero.ntl-hero;
     @include ntl-accordion-item.ntl-accordion-item;
+    @include button-bar.button-bar;
 
     h2, h3 {
         color: var(--nt-primary);

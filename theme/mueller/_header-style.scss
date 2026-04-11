@@ -10,9 +10,11 @@
         & + blockquote {
             padding: 0;
             font-size: var(--nt-fs-h2);
-            color: var(--nt-primary);
             border: none;
             margin-top: 0;
+            > p {
+                font-size: var(--nt-fs-h2);
+            }
         }
     }
 

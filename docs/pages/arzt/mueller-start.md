@@ -7,22 +7,26 @@ ptags:
 ---
 
 
+
 ---
 {: layout="2;ntl-hero.hero-box" }
 
-![](https://cdn.leuffen.de//r-beverungen-k163///v2/39/128-91_f/Eingang_Praxis20025-16.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/367/74-49_gfedcba/AdobeStock_55241773.webp)
 {: slot="bg"}
 
 ---
-{: layout="2.5;.box"}
+{: layout="2.5;.box.-xl:w-100"}
 
 ### Hausarztpraxis am Rhein <br><small>Individuelle und professionelle medizinische Versorgung</small>
 
-[Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary }
+---
+{: layout=".button-bar.-xl:column"}
 
-[**Rezept** online anfragen / **Rezept-Telefon**](/rezept){: .btn .btn-primary }
-[**Überweisung** an Facharzt](/ueberweisung){: .btn .btn-primary }
-[**Videosprechstunde**](/video){: .btn .btn-primary }
+[<i class="bi bi-calendar-plus-fill"></i> Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary }
+
+[<i class="bi bi-card-heading"></i>**Rezept** online anfragen / **Rezept-Telefon**](/rezept){: .btn .btn-primary }
+[<i class="bi bi-box-arrow-up-right"></i>**Überweisung** an Facharzt](/ueberweisung){: .btn .btn-primary }
+[<i class="bi bi-camera-video-fill"></i>**Videosprechstunde**](/video){: .btn .btn-outline-primary }
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}

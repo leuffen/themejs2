@@ -1,4 +1,5 @@
 @use "./../font/opensans-regular" as font;
+@use "./../font/_vendor/font-bootstrap-icons";
 
 @use "base" as base;
 @use "mueller/ntl-hero" as ntl-hero;
@@ -10,6 +11,7 @@
 @use "mueller/ntl-card-row_style-footer" as ntl-card-row_style-footer;
 @use "mueller/ntl-accordion-item" as ntl-accordion-item;
 @use "mueller/ntl-consent-blocker" as ntl-consent-block;
+@use "general/button-bar" as button-bar;
 
 $theme: () !default;
 
@@ -18,9 +20,15 @@ $theme: () !default;
 
 
     @include base.base($theme, (
-        colors: (
-            primary: #0d325d
-        )
+
+        primary: #b50303,
+
+        font-family-base: font.$font-family-base,
+        font-family-header: font.$font-family-base,
+        font-size-header: font.$font-size-header,
+        font-size-base: font.$font-size-base,
+        enableFontConfig: true,
+        rcs: true
     ));
 
 
@@ -33,17 +41,15 @@ $theme: () !default;
     @include ntl-card-row_style-footer.ntl-card-row_style-footer;
     @include ntl-accordion-item.ntl-accordion-item;
     @include ntl-consent-block.ntl-consent-blocker;
+    @include button-bar.button-bar;
 
 
     background: var(--nt-body);
 
-    .btn.btn-primary {
-        --btn-txt: var(--nt-white);
-        text-decoration: none;
-    }
+
 
     h2, h3 {
-        color: var(--nt-primary);
+
     }
 
     ul {
