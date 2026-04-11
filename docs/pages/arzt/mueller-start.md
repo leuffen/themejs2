@@ -15,12 +15,14 @@ ptags:
 {: slot="bg"}
 
 ---
-{: layout="2.5;.box.-xl:w-100"}
+{: layout="2.5;.box.-lg:w-100.lg-xxl:w-75" }
 
 ### Hausarztpraxis am Rhein <br><small>Individuelle und professionelle medizinische Versorgung</small>
 
 ---
-{: layout=".button-bar.-xl:column"}
+
+---
+{: layout=".button-bar.-lg:column"}
 
 [<i class="bi bi-calendar-plus-fill"></i> Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary }
 

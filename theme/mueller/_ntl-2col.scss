@@ -9,22 +9,19 @@
             --container-border: 1px solid #ddd;
         }
 
-        &::part(main) {
-            padding: var(--nt-space-2);
-        }
+
 
         [slot="aside"] {
-            padding: var(--nt-space-2);
             margin: 0;
         }
 
         &[mode="desktop"] {
             &::part(main) {
-                padding: var(--nt-space-5);
+
             }
 
             [slot="aside"] {
-                padding: var(--nt-space-5);
+
 
                 &:has(> img:first-child) {
                     padding: 0;
