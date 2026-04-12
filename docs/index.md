@@ -37,7 +37,7 @@ articles_related:
 
 ### Sitemap
 
-
+{% include el/sitemap-table.html dir="/" %}
 
 
 Hier außerdem eine Demo von nützlichen `includes`.
