@@ -21,59 +21,28 @@ class     → CSS-Klasse für <table> (optional, default = "table sitemap")
 
 {%- endcomment -%}
 
-{% assign target_dir = include.dir | default: page.dir | default: "/" %}
-{% assign sort_field_raw = include.sort_by | default: "title" %}
-{% assign sort_field = sort_field_raw | split: "." | last %}
+{% assign target_dir = include.dir | default: page.dir %}
+{% assign sort_field = include.sort_by | default: "p.url" %}
 {% assign table_class = include.class | default: "table sitemap" %}
 
-{%- comment -%}
-Hinweis: Liquid/Jekyll kann ohne Plugin keine Dateigrößen aus dem Dateisystem lesen.
-Die bisherige Variante `path | size` misst nur die String-Länge. Wir zeigen daher die Pfadlänge an.
-{%- endcomment -%}
-
-{%- assign target_dir_norm = target_dir | append: "" -%}
-{%- if target_dir_norm == "" -%}{%- assign target_dir_norm = "/" -%}{%- endif -%}
-
-{%- assign pages_in_dir = site.pages
-  | where_exp: "p", "(p.url | default: '') contains target_dir_norm"
-  | where_exp: "p", "(p.url | default: '') contains '.html'"
--%}
-{%- assign posts_in_dir = site.posts
-  | where_exp: "p", "(p.url | default: '') contains target_dir_norm"
--%}
-
-{%- assign all_pages = pages_in_dir | concat: posts_in_dir -%}
-
-{%- comment -%}
-Jekylls `sort` kann bei fehlenden Feldern in einzelnen Objekten intern crashen.
-Darum sortieren wir bevorzugt nach `url` und bieten `sort_by` nur für safe Felder an.
-{%- endcomment -%}
-
-{%- assign safe_sort_field = sort_field -%}
-{%- unless safe_sort_field == "title" or safe_sort_field == "date" or safe_sort_field == "url" -%}
-  {%- assign safe_sort_field = "url" -%}
-{%- endunless -%}
-
-{%- assign sorted_pages = all_pages | sort: safe_sort_field -%}
+{% assign filtered_pages = site.pages | where_exp: "p", "p.url contains '.html'" %}
+{% assign filtered_posts = site.posts | where_exp: "p", "p.url contains target_dir" %}
+{% assign all_pages = filtered_pages | concat: filtered_posts %}
+{% assign sorted_pages = all_pages | sort: sort_field %}
 
 <table class="{{ table_class }}">
     <thead>
     <tr>
         <th>Titel</th>
         <th>Datum</th>
-        <th>Pfadlänge</th>
         <th>Link</th>
     </tr>
     </thead>
     <tbody>
     {% for p in sorted_pages %}
     <tr>
-        <td>{{ p.title | default: p.url | default: p.name | default: "(ohne Titel)" }}</td>
-        <td>{% if p.date %}{{ p.date | date: "%Y-%m-%d" }}{% endif %}</td>
-        <td>
-            {%- assign path_str = p.path | default: p.url | default: "" -%}
-            {{ path_str | size }}
-        </td>
+        <td>{{ p.title }}</td>
+        <td>{{ p.date | date: "%Y-%m-%d" }}</td>
         <td><a href="{{ p.url }}">{{ p.url }}</a></td>
     </tr>
     {% endfor %}
