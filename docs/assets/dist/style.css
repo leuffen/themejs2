@@ -10741,9 +10741,9 @@ nte-navbar-line.zoom-brand.is-scrolled [slot=brand] img {
   --nt-link: #b50303;
   --nt-link-on-dark: #fff;
   --nt-text-decoration-link: underline;
-  --nt-font-family-base: Open Sans, sans-serif;
-  --nt-font-family-header: Open Sans, sans-serif;
-  --nt-font-size-base: 0.9rem;
+  --nt-font-family-base: sans-serif;
+  --nt-font-family-header: sans-serif;
+  --nt-font-size-base: 1rem;
   --nt-font-size-header: 1rem;
   --nt-font-size-small: 0.875rem;
   --nt-font-weight-base: 200;
@@ -10782,7 +10782,7 @@ nte-navbar-line.zoom-brand.is-scrolled [slot=brand] img {
   --nt-fs-h6: calc(var(--nt-font-size-header) * 1);
   --nt-scroll-padding-top: calc(0.33 * 100vh);
   --nt-font-size-root: clamp(16px, 2vw , 20px);
-  font-family: Open Sans, sans-serif;
+  font-family: sans-serif;
 }
 @media (min-width: 576px) {
   .theme-mueller {
