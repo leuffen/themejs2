@@ -11286,6 +11286,23 @@ nte-navbar-line.zoom-brand.is-scrolled [slot=brand] img {
   object-fit: cover;
   display: block;
 }
+.theme-epraxis ntl-card-grid.featured2 {
+  --cols: 2;
+}
+.theme-epraxis ntl-card-grid.featured2 ntl-card {
+  --flex-header-font-size: var(--nt-fs-h4);
+  --border: 1px solid var(--nt-body-secondary);
+  --border-radius: 20px;
+  --card-bg: none;
+  --image-aspect-ratio: 16/9;
+}
+.theme-epraxis ntl-card-grid.featured2 ntl-card.aside {
+  --background-color: var(--nt-body-secondary);
+}
+.theme-epraxis ntl-card-grid.featured2 ntl-card.aside ul > li {
+  display: block;
+  border-bottom: 1px solid var(--nt-body-secondary);
+}
 .theme-epraxis ntl-slider.header-slider {
   --nav-inset: -42px !important;
   --nav-button-size: 50px;

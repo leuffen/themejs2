@@ -7,4 +7,5 @@ ntl-card-grid {
   }
 
     @include meta.load-css("./_featured.scss");
+    @include meta.load-css("./_featured2.scss");
 }

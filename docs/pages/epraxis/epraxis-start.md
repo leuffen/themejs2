@@ -115,7 +115,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ---
-{: layout="2;ntl-card-grid" style="--cols:2;"}
+{: layout="2;ntl-card-grid.featured2"}
 
 ### Kategorie
 
@@ -154,15 +154,13 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 ### Beliebte Artikel:
 {: layout="ntl-card.aside" section-class="aside"}
 
-#### Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen
 
-#### Günstige Websites für niedergelassene Arztpraxen zum Festpreis
-
-#### Marketing für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar
-
-#### Digitale Lösungen für Ihre Zahnarztpraxis
-
-#### Starke Kampagnen für Zahnarztpraxen von Online-Marketing-Experten
+- [Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen]()
+- [Günstige Websites für niedergelassene Arztpraxen zum Festpreis]()
+- Marketing für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar
+- Digitale Lösungen für Ihre Zahnarztpraxis
+- Starke Kampagnen für Zahnarztpraxen von Online-Marketing-Experten
+{: .list-unstyled }
 
 
 ---

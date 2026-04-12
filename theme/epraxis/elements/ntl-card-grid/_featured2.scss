@@ -1,0 +1,31 @@
+@use "./mixins";
+
+&.featured2 {
+  --cols: 2;
+  ntl-card {
+    --flex-header-font-size: var(--nt-fs-h4);
+
+    --border: 1px solid var(--nt-body-secondary);
+    --border-radius: 20px;
+    --card-bg: none;
+    --image-aspect-ratio: 16/9;
+
+
+    &.aside {
+      --background-color: var(--nt-body-secondary);
+
+      ul > li {
+        display: block;
+        border-bottom: 1px solid var(--nt-body-secondary);
+      }
+
+
+
+    }
+
+  }
+
+
+
+
+}
