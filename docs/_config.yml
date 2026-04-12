@@ -20,7 +20,7 @@ exclude:
     - "~*"
     - "stats.html"
     - "_posts/*"
-    - "_pages/*"
+
 
 defaults:
   - scope:
