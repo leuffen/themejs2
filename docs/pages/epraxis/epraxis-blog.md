@@ -27,7 +27,8 @@ researched-by: human
 written-by: shared
 formatted-by: ai
 
-keywords: [BSFG, Barrierefreiheit, Gesetz, Barrierefreiheitsstärkungsgesetz]
+keywords: 
+  - BSFG, Barrierefreiheit, Gesetz, Barrierefreiheitsstärkungsgesetz
 
 facebook_url: https://www.facebook.com/
 instagram_url: https://www.instagram.com/

@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;Praxis Dr. Heike Muster;;;
+FN:Praxis Dr. Heike Muster
+ORG:Praxis Dr. Heike Muster
+TITLE:Fachärztin für Innere Medizin
+TEL;TYPE=WORK,VOICE:+49744181605
+ADR;TYPE=WORK:;;Musterstraße. 13;Musterstadt;;72250;Deutschland
+EMAIL;TYPE=INTERNET:mail@UNKNOWN_DOMAIN.XXX
+URL:https://www.UNKNOWN_DOMAIN.XXX
+END:VCARD
