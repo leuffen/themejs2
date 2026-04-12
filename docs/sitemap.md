@@ -20,6 +20,6 @@ title: Sitemap
 ## Sitemap
 {: layout=".container"}
 
-{% include el/sitemap-table.html dir="/" %}
+
 
 
