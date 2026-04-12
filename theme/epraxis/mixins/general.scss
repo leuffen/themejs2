@@ -1,0 +1,44 @@
+@mixin category-label {
+    border-left: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    p {
+        /* Text styling */
+        color: var(--nt-primary); /* orange-500 */
+        font-size: var(--nt-fs-5);
+        font-weight: 600;
+        text-transform: uppercase;
+
+        /* Layout */
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px;
+
+        /* Icon decoration using ::before pseudo-element */
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 1.5em;
+            border-bottom: 2px solid currentColor;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+    }
+}
+
+/* Primary Button */
+@mixin primary-button {
+    display: block;
+    cursor: pointer;
+    background-color: var(--nt-primary);
+    width: fit-content;
+    padding: 16px 30px;
+    border-radius: 30px;
+    color: var(--nt-light) !important;
+    text-decoration: none !important;
+
+    &:hover {
+        background-color: var(--nt-primary-emphasis);
+    }
+}

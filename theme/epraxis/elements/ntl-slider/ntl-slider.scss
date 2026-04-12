@@ -1,0 +1,10 @@
+@use "sass:meta";
+
+
+ntl-slider {
+
+    @include meta.load-css("./_header-slider.scss");
+
+
+
+}

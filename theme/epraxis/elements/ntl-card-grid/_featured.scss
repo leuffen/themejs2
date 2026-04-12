@@ -1,0 +1,32 @@
+@use "./mixins";
+
+&.featured {
+  ntl-card {
+    --border-color: none;
+    --border-radius: 20px;
+    --card-bg: var(--nt-body-tertiary);
+    --image-aspect-ratio: 16/9;
+
+    &::part(wrapper) {
+      border: none;
+      padding: var(--nt-gap);
+      border-radius: 20px;
+      background-color: var(--nt-body-tertiary);
+    }
+
+  }
+
+
+  ntl-card:nth-of-type(1) {
+    // First element spans 2 rows
+    grid-row: span 2
+
+  }
+
+  ntl-card:nth-of-type(n+2) {
+    aspect-ratio: 16 / 9;
+    // Subsequent element is overlay element
+    @include mixins.overlayCard;
+  }
+
+}

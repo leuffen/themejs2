@@ -4,7 +4,7 @@
      * ## Header
      * > Subheader
      */
-    h2 {
+    h2, h3 {
         &:has(+ blockquote) {
             // the original header becomes normal TEXT
             font-size: var(--nt-font-size-root);

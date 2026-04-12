@@ -1,38 +1,17 @@
 @font-face {
-  font-family: 'Ubuntu-R';
+  font-family: 'Ubuntu';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("https://cdn.leuffen.de/hyperpage-components/v1.0/fonts/ubuntu/Ubuntu-R.ttf");
+  src: url("https://cdn.leuffen.de/global/fonts/ubuntu/Ubuntu-wdth,wght.woff2") format("woff2");
 }
 @font-face {
-  font-family: 'Ubuntu-R';
-  font-style: normal;
-  font-weight: 100;
-  font-display: swap;
-  src: url("https://cdn.leuffen.de/hyperpage-components/v1.0/fonts/ubuntu/Ubuntu-Th.ttf");
-}
-@font-face {
-  font-family: 'Ubuntu-R';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("https://cdn.leuffen.de/hyperpage-components/v1.0/fonts/ubuntu/Ubuntu-M.ttf");
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("https://cdn.leuffen.de/global/fonts/ubuntu/Ubuntu-Italic-wdth,wght.woff2") format("woff2");
 }
 
 
-// Ubuntu Light
-@font-face {
-  font-family: 'Ubuntu-Th';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("https://cdn.leuffen.de/hyperpage-components/v1.0/fonts/ubuntu/Ubuntu-Th.ttf");
-}
-@font-face {
-  font-family: 'Ubuntu-Th';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("https://cdn.leuffen.de/hyperpage-components/v1.0/fonts/ubuntu/Ubuntu-R.ttf");
-}
+

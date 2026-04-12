@@ -1,29 +1,29 @@
-@mixin ntl-hero {
-    ntl-hero {
-        &.hero-box {
-            &::part(content) {
-                width: 100%;
-            }
 
-            .box {
-                border-radius: var(--nt-border-radius);
-                backdrop-filter: blur(40px);
-                background: rgba(255, 255, 255, 0.2);
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                padding: var(--nt-default-gap-x);
-                margin: 0 auto 0 0;
-                width: 50%;
+  ntl-hero {
+      &.hero-box {
+          &::part(content) {
+              width: 100%;
+          }
 
-                hr {
-                    position: relative;
-                    width: calc(100%  + 2*  var(--nt-default-gap-x));
-                    left: calc(-1 * var(--nt-default-gap-x));
-                    opacity: 0.2;
-                }
-            }
+          .box {
+              border-radius: var(--nt-border-radius);
+              backdrop-filter: blur(40px);
+              background: rgba(255, 255, 255, 0.2);
+              box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+              padding: var(--nt-default-gap-x);
+              margin: 0 auto 0 0;
+              width: 50%;
+
+              hr {
+                  position: relative;
+                  width: calc(100%  + 2*  var(--nt-default-gap-x));
+                  left: calc(-1 * var(--nt-default-gap-x));
+                  opacity: 0.2;
+              }
+          }
 
 
 
-        }
-    }
-}
+      }
+  }
+

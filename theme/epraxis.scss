@@ -1,5 +1,5 @@
-@use './epraxis/theme' as epraxis;
-@use "./../font/opensans-regular" as font;
+@use "sass:meta";
+@use "./../font/work-sans" as font;
 @use "./../font/_vendor/font-bootstrap-icons";
 
 
@@ -14,7 +14,9 @@ $theme: () !default;
 .theme-epraxis {
     @include base.base-theme($theme, (
 
-        primary: #b50303,
+        primary: #fe6606,
+        accent: #fe6606,
+        secondary: #1F3655,
 
         font-family-base: font.$font-family-base,
         font-family-header: font.$font-family-base,
@@ -23,10 +25,6 @@ $theme: () !default;
         enableFontConfig: true,
         rcs: true
     ));
-    @include epraxis.theme-epraxis
-    //@include epraxis.category-label;
-    //@include epraxis.primary-button;
-
-
+    @include meta.load-css("./epraxis/_theme.scss");
 
 }

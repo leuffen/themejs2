@@ -1,51 +1,14 @@
+@use "sass:meta";
+
 /* Category mixin */
-@mixin category-label {
-    border-left: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin: 0 !important;
-    p {
-        /* Text styling */
-        color: var(--nt-primary); /* orange-500 */
-        font-size: var(--nt-fs-5);
-        font-weight: 600;
-        text-transform: uppercase;
-
-        /* Layout */
-        display: flex;
-        align-items: center;
-        margin: 0 0 10px;
-
-        /* Icon decoration using ::before pseudo-element */
-        &::before {
-            content: "";
-            display: inline-block;
-            width: 1.5em;
-            border-bottom: 2px solid currentColor;
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-    }
-}
-
-/* Primary Button */
-@mixin primary-button {
-    display: block;
-    cursor: pointer;
-    background-color: var(--nt-primary);
-    width: fit-content;
-    padding: 16px 30px;
-    border-radius: 30px;
-    color: var(--nt-light) !important;
-    text-decoration: none !important;
-
-    &:hover {
-        background-color: var(--nt-primary-emphasis);
-    }
-}
 
 
-@mixin theme-epraxis {
+@include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+@include meta.load-css("./elements/ntl-card/ntl-card.scss");
+@include meta.load-css("./elements/ntl-card-grid/ntl-card-grid.scss");
+@include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
+@include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+
     /* grid container */
     .grid-container {
         --rows: 1;
@@ -80,94 +43,17 @@
 
         /* Category */
         blockquote {
-            @include category-label;
         }
 
         p:has(a) > a {
-            @include primary-button;
+
         }
     }
 
-    /* ntl-hero */
-    ntl-hero {
-        --ntl-hero-height-offset: 20vh;
-    }
+
 
     /* nte-card */
-    nte-card {
-        --card-bg: var(--nt-body-tertiary, #e4e6ef);
-        --card-border-color: var(--nt-body-tertiary, #e4e6ef);
-        --card-border-radius: 20px;
-        --card-box-shadow: none;
-        --image-aspect-ratio: 11/6;
 
-        padding: 20px;
-        margin: 20px;
-        border-radius: 20px;
-        background-color: var(--card-bg);
-
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--nt-secondary);
-            margin-top: 0 !important;
-        }
-
-        /* Category */
-        blockquote {
-            @include category-label;
-        }
-
-        img {
-            border-radius: 20px;
-        }
-
-        section:has(h1, h2, h3, h4, h5, h6) p:first-of-type {
-            margin-top: 20px;
-            color: var(--nt-text);
-        }
-
-        section:has(h1, h2, h3, h4, h5, h6) p:has(a) > a {
-            @include primary-button;
-        }
-
-        &.small {
-            position: relative;
-
-            > p::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: transparent linear-gradient(
-                        0deg,
-                        var(--nt-secondary) 0%,
-                        rgb(from var(--nt-secondary) r g b / 0) 100%
-                ) 0% 0% no-repeat padding-box;
-            }
-
-            &::part(card) {
-                height: 100%;
-            }
-
-            &::part(body) {
-                position: absolute;
-                bottom: 0;
-            }
-
-            h1, h2, h3, h4, h5, h6 {
-                color: var(--nt-light);
-                z-index: 5;
-                margin-top: 0 !important;
-            }
-        }
-
-        &.secondary {
-            --card-bg: var(--nt-body, #ffffff);
-            padding: 0;
-            margin: 0;
-        }
-    }
 
     /* badges */
     .badges {
@@ -203,42 +89,6 @@
         }
     }
 
-    /* ntl-slide container */
-    ntl-slide {
-        --nt-text: var(--nt-white, #fff);
 
-        /* Category */
-        h3 {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            /* Text styling */
-            color: var(--nt-primary) !important;
-            font-size: var(--nt-fs-5);
-            font-weight: 600;
-            text-transform: uppercase;
 
-            /* Layout */
-            display: flex;
-            align-items: center;
-            margin: 0 0 10px !important;
 
-            /* Icon decoration using ::before pseudo-element */
-            &::before {
-                content: "";
-                display: inline-block;
-                width: 1.5em;
-                border-bottom: 2px solid currentColor;
-                margin-right: 0.5rem;
-                vertical-align: middle;
-            }
-        }
-
-        .h1 > p {
-            line-height: normal;
-        }
-
-        p:has(a) > a {
-            @include primary-button;
-        }
-    }
-}

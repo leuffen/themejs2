@@ -11,10 +11,10 @@ $theme: () !default;
 
         primary: #b50303,
 
-      // font-family-base: font.$font-family-base,
-      // font-family-header: font.$font-family-base,
-      // font-size-header: font.$font-size-header,
-      // font-size-base: font.$font-size-base,
+        font-family-base: font.$font-family-base,
+        font-family-header: font.$font-family-base,
+        font-size-header: font.$font-size-header,
+        font-size-base: font.$font-size-base,
         enableFontConfig: true,
         rcs: true
     ));

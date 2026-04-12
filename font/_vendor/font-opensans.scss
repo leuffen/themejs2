@@ -1,97 +1,21 @@
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-Light.woff2?v=1.101") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
+/**
+* Open Sans - Google Font
+* Dynamic font
+ */
 
-/* END Light */
-/* BEGIN Light Italic */
 @font-face {
     font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-LightItalic.woff2?v=1.101") format("woff2");
-    font-weight: 300;
+    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-Italic-VariableFont_wdth,wght.woff2?v=1.101") format("woff2");
+    font-weight: 100 900;
     font-style: italic;
     font-display: swap;
+
 }
 
-/* END Light Italic */
-/* BEGIN Regular */
 @font-face {
     font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-Regular.woff2?v=1.101") format("woff2");
-    font-weight: normal;
+    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-VariableFont_wdth,wght.woff2") format("woff2");
+    font-weight: 100 900;
     font-style: normal;
-    font-display: swap;
-}
-
-/* END Regular */
-/* BEGIN Italic */
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-Italic.woff2?v=1.101") format("woff2");
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* END Italic */
-/* BEGIN Semibold */
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-Semibold.woff2?v=1.101") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* END Semibold */
-/* BEGIN Semibold Italic */
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-SemiboldItalic.woff2?v=1.101") format("woff2");
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* END Semibold Italic */
-/* BEGIN Bold */
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-Bold.woff2?v=1.101") format("woff2");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* END Bold */
-/* BEGIN Bold Italic */
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-BoldItalic.woff2?v=1.101") format("woff2");
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* END Bold Italic */
-/* BEGIN Extrabold */
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-ExtraBold.woff2?v=1.101") format("woff2");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* END Extrabold */
-/* BEGIN Extrabold Italic */
-@font-face {
-    font-family: "Open Sans";
-    src: url("https://cdn.leuffen.de/global/fonts/opensans/OpenSans-ExtraBoldItalic.woff2?v=1.101") format("woff2");
-    font-weight: 800;
-    font-style: italic;
     font-display: swap;
 }

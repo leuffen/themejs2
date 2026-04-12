@@ -1,0 +1,7 @@
+@use "sass:meta";
+
+ntl-card-grid {
+
+
+    @include meta.load-css("./_featured.scss");
+}

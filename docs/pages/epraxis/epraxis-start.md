@@ -21,83 +21,80 @@ articles_related:
 
 
 # <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
-{: layout="[slot='top-title']" .h5}
+{: layout="[slot='title']" .h5}
 
 ## Digitale Transformation im Gesundheitswesen<br/>- verständlich, unabhängig, praxisnah.
 {: layout="[slot='title']" .h1}
 
 ---
-{: layout="2;ntl-slider.theme1"}
+{: layout="2;ntl-slider.header-slider"}
 
 ### Top Thema
 
 > Die Zunkut der Zahnarztpraxis
-{: layout=".h1"}
+
 
 ![](https://cdn.leuffen.de//leu-stock/v2/378/c_gfedcba/AdobeStock_1308835693.webp)
 
 Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnarzt 2.0
 
-[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html)
+[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary}
 
 ### Top Thema 2
 
 > Die Zunkut der Zahnarztpraxis 2
-{: layout=".h1"}
 
 ![](https://cdn.leuffen.de//leu-stock/v2/345/91-51_gfedcba/AdobeStock_1085734453.webp)
 
 2 Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnarzt 2.0
 
-[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html)
+[Jetzt lesen](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary}
 
 ---
-{: layout="1;.container.grid-container" style="--rows:2;--cols:2;"}
+{: layout="1;"}
 
 ---
-{: layout="1.5;nte-card" style="--col:1;--row-span:2;"}
+{: layout="2;ntl-card-grid.featured" style="--rows:2;--cols:2;"}
+
+### Kategorie
+
+> Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 ![](https://cdn.leuffen.de//leu-stock/v2/289/460-307_gfedcba/AdobeStock_171984243.webp)
 {: slot="image"}
-
-> Kategorie
-
-## Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
 [Weiterlesen](/2024/01/02/blogdemo-no-elements.html)
 
----
-{: layout="1.5;nte-card.small" style="--col:2;--row:1;--image-aspect-ratio: none;"}
+### Kategorie
+
+> Dies ist eine längere Überschrift, die in zwei Zeilen steht.
 
 ![](https://cdn.leuffen.de//leu-stock/v2/339/c_gfedcba/AdobeStock_221783465.webp)
 {: slot="image"}
 
-> Kategorie
 
-## Das ist eine kürzere Überschhrift
 
----
-{: layout="1.5;nte-card.small" style="--col:2;--row:2;--image-aspect-ratio: none;"}
+### Kategorie
 
+> Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 ![](https://cdn.leuffen.de//leu-stock/v2/343/a_gfedcba/AdobeStock_1467964789.webp)
 {: slot="image"}
 
-> Kategorie
 
-## Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+
 {: layout="3"}
 
 ---
 {: layout="1;.box-primary"}
 
----
-{: layout="1.5;ntl-2col.container"}
 
-# Empfehlung der Redaktion
-{: layout="2"}
+
+## Empfehlung der Redaktion
+{: layout="ntl-2col.featured"}
 
 > Top Themen
 
@@ -105,13 +102,12 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 [Alle Top-Artikel anzeigen](/2024/01/02/blogdemo-no-elements.html)
 
----
-{: layout="2;.aside" slot="aside"}
+
 
 ![](https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg)
 ![](https://picsum.photos/1155/775?seed=1)
 ![](https://picsum.photos/1155/775?seed=2)
-{: layout="3;nte-image" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
+{: layout="nte-image.aside" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
 
 
 ---

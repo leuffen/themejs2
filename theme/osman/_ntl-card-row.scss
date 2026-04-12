@@ -6,7 +6,7 @@
         }
 
         ntl-card{
-            --aspect-ratio: 1;
+            --image-aspect-ratio: 1;
 
             &::part(content), &::part(footer) {
                 padding: var(--nt-space-2) var(--nt-space-3);
@@ -21,7 +21,7 @@
 
         &[mode="desktop"] {
             ntl-card {
-                --aspect-ratio: 16/9;
+                --image-aspect-ratio: 16/9;
             }
         }
     }

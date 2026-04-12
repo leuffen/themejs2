@@ -1,0 +1,55 @@
+@use "sass:meta";
+@use "../../mixins/general";
+
+ntl-card {
+
+
+  --card-bg: var(--nt-body-tertiary, #e4e6ef);
+  --card-border-color: var(--nt-body-tertiary, #e4e6ef);
+  --card-border-radius: 20px;
+  --card-box-shadow: none;
+  --image-aspect-ratio: 11/6;
+
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--card-bg);
+
+  &.small {
+    position: relative;
+
+    > p::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: transparent linear-gradient(
+          0deg,
+          var(--nt-secondary) 0%,
+          rgb(from var(--nt-secondary) r g b / 0) 100%
+      ) 0% 0% no-repeat padding-box;
+    }
+
+    &::part(card) {
+      height: 100%;
+    }
+
+    &::part(body) {
+      position: absolute;
+      bottom: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--nt-light);
+      z-index: 5;
+      margin-top: 0 !important;
+    }
+  }
+
+  &.secondary {
+    --card-bg: var(--nt-body, #ffffff);
+    padding: 0;
+    margin: 0;
+  }
+}
