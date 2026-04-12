@@ -4,7 +4,7 @@ body_class: theme-mueller
 title: Theme Müller
 theme_classes: "theme-mueller theme-osman"
 ptags:
-  - pages
+  - arzt
 ---
 
 

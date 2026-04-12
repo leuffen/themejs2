@@ -3,7 +3,7 @@ layout: website
 body_class: theme-osman
 title: Osman Startseite
 ptags:
-  - pages
+  - arzt
 ---
 
 ---
