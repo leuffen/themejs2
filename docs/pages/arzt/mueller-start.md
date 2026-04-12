@@ -70,7 +70,7 @@ Wir sind Ihre familienfreundliche Hausarztpraxis in der Region und bieten eine u
 
 Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gerne!
 
-![](https://cdn.leuffen.de//r-beverungen-k163//v2/38/b_c/Eingang-Praxis2025.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/386/c_gfedcba/AdobeStock_222010919.webp)
 
 ## Unsere Leistungen
 {: layout="ntl-card-row" section-style="--cols: 4"}
@@ -78,7 +78,7 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 ### Vorsorge
 {: .header }
 
-![](https://cdn.leuffen.de//leu-stock//v2/70/77-51_c/AdobeStock_87378997.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/360/B_gfedcba/AdobeStock_352102788.webp)
 
 Wir führen umfassende Vorsorgeuntersuchungen durch, um Ihre Gesundheit frühzeitig zu schützen und Risiken zu erkennen.
 Wir beraten Sie zu allen empfohlenen Impfungen und führen diese direkt in unserer Praxis durch.
@@ -86,14 +86,14 @@ Wir beraten Sie zu allen empfohlenen Impfungen und führen diese direkt in unser
 ### Diagnostik
 {: .header }
 
-![](https://cdn.leuffen.de//leu-stock//v2/21/c_c/AdobeStock_349906385.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/266/c_gfedcba/AdobeStock_867819587.webp)
 
 Mit modernen Geräten bieten wir EKG, Belastungs-EKG, Langzeit-EKG, Blutdruckmessung, Langzeit-Blutdruckmessung, Lungenfunktion, ABI-Messung, Ultraschall, Laboruntersuchungen sowie Sehtests und Hörtests an.
 
 ### Therapie
 {: .header }
 
-![](https://cdn.leuffen.de//leu-stock//v2/9/1024-683_c/AdobeStock_417585744.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/331/338-193_gfedcba/AdobeStock_508437308.webp)
 
 Wir bieten Hausbesuche, kleine chirurgische Eingriffe, Disease Management Programme (DMP) für chronische Erkrankungen, einen Rezeptservice sowie reisemedizinische Beratung für unsere Stammpatient*innen.
 
@@ -130,18 +130,12 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit spezialisierten 
 - Retinologische Gesellschaft
 - Europäische Fachgesellschaft
 
-![](https://cdn.leuffen.de//osman-k21/v2/32/196-99_a/retinagesellschaft.webp)
-![](https://cdn.leuffen.de//osman-k21/v2/27/493-112_515/escrs_logo.svg)
-![](https://cdn.leuffen.de//osman-k21/v2/9/86-25_a/bva_logo_17hz.webp)
-![](https://cdn.leuffen.de//osman-k21/v2/8/75-17_a/bdoc-logo_300x68.webp)
-{: .align-grid-items }
-
 ## Lernen Sie uns kennen
 {: layout="ntl-2col.reverse"}
 
 > Ihr vertrauensvolles Team
 
-![](https://cdn.leuffen.de//r-beverungen-k163//v2/49/b_c/Team-2025-2026.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/283/c_gfedcba/AdobeStock_102581039.webp)
 
 Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfahrung und persönlicher Betreuung.
 
@@ -164,7 +158,7 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 ---
 {: layout="2;ntl-2col.testimonial"}
 
-![](https://cdn.leuffen.de//r-beverungen-k163/v2/52/a_gfedcba/Regina-Beverungen1x1.webp)
+![](https://cdn.leuffen.de//leu-stock/v2/299/c_gfedcba/AdobeStock_641812390.webp)
 
 „Wir legen großen Wert auf eine individuelle und professionelle medizinische Versorgung. Unser Ziel ist es, dass Sie sich bei uns gut aufgehoben fühlen – von der Vorsorge bis zur Therapie.“
 
