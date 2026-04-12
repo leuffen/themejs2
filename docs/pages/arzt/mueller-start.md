@@ -1,8 +1,8 @@
 ---
 layout: website
-body_class: theme-mueller
+body_class: theme-medic
 title: Theme Müller
-theme_classes: "theme-mueller theme-osman"
+theme_classes: "default theme-medic-osman"
 ptags:
   - arzt
 ---

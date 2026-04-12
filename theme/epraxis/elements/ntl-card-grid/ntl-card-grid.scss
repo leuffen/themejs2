@@ -2,6 +2,9 @@
 
 ntl-card-grid {
 
+  ntl-card {
+    --flex-header-font-size: var(--nt-fs-h6);
+  }
 
     @include meta.load-css("./_featured.scss");
 }

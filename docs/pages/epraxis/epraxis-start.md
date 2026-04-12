@@ -2,7 +2,7 @@
 layout: website
 body_class: theme-epraxis
 title: ePraxis Start
-theme_classes: "theme-epraxis theme-mueller"
+theme_classes: "theme-epraxis theme-medic"
 ptags:
   - epraxis
 articles_related:
@@ -63,9 +63,11 @@ Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnar
 ![](https://cdn.leuffen.de//leu-stock/v2/289/460-307_gfedcba/AdobeStock_171984243.webp)
 {: slot="image"}
 
+
+
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
-[Weiterlesen](/2024/01/02/blogdemo-no-elements.html)
+[](/2024/01/02/blogdemo-no-elements.html)
 
 ### Kategorie
 
@@ -86,7 +88,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 
-{: layout="3"}
+
 
 ---
 {: layout="1;.box-primary"}
@@ -110,64 +112,61 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 {: layout="nte-image.aside" data-features="slideshow arrows indicators fullsize round-borders" interval="4000"}
 
 
----
-{: layout="1;.container.grid-container"}
+
 
 ---
-{: layout="1.5;nte-card.secondary" style="--row:1;--col:1;"}
+{: layout="2;ntl-card-grid" style="--cols:2;"}
 
-> Kategorie
+### Kategorie
 
-### Das ist eine längere Überschrift, die in zwei Zeilen steht.
+> Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
-Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
-
----
-{: layout="1.5;nte-card.secondary" style="--row:1;--col:2;"}
-
-> Kategorie
-
-### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
 
----
-{: layout="1.5;nte-card.secondary" style="--row:2;--col:1;"}
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 > Kategorie
 
-### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
----
-{: layout="1.5;nte-card.secondary" style="--row:2;--col:2;"}
+
+
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 > Kategorie
 
-### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
+
+### Das ist eine längere Überschrift, die in zwei Zeilen steht.
+
+> Kategorie
+
+
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
+
+
+
+### Beliebte Artikel:
+{: layout="ntl-card.aside" section-class="aside"}
+
+#### Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen
+
+#### Günstige Websites für niedergelassene Arztpraxen zum Festpreis
+
+#### Marketing für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar
+
+#### Digitale Lösungen für Ihre Zahnarztpraxis
+
+#### Starke Kampagnen für Zahnarztpraxen von Online-Marketing-Experten
+
+
 ---
-{: layout="1.5;.box.box-secondary.secondary.mb-0" style="--row:1;--col:3;--row-span:2;"}
-
-## Beliebte Artikel:
-
-### Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen
-
-### Günstige Websites für niedergelassene Arztpraxen zum Festpreis
-
-### Marketing für Ihre Arztpraxis: So wird Ihre neue Webseite sichtbar
-
-### Digitale Lösungen für Ihre Zahnarztpraxis
-
-### Starke Kampagnen für Zahnarztpraxen von Online-Marketing-Experten
-
-
----
-{: layout="1;.container.badges"}
+{: layout="2;.container.badges"}
 
 Digitalisierung
 

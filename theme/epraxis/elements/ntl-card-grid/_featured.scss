@@ -2,6 +2,8 @@
 
 &.featured {
   ntl-card {
+    --flex-header-font-size: var(--nt-fs-h4);
+
     --border-color: none;
     --border-radius: 20px;
     --card-bg: var(--nt-body-tertiary);

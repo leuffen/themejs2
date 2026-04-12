@@ -1,15 +1,15 @@
 
 
 
-@use "@leuffen/themejs2/theme/mueller" with (
+@use "@leuffen/themejs2/theme/medic" with (
         $theme: (
             colors: (
                 primary: #316947
             ))
 );
 
-
-@use "@leuffen/themejs2/theme/osman" with (
+/*
+@use "@leuffen/themejs2/variant/medic-osmen" with (
      $theme: (
         colors: (
             primary: #881361
@@ -17,7 +17,7 @@
         ))
 
 );
-
+*/
 
 @use "@leuffen/themejs2/theme/epraxis" with (
      $theme: (

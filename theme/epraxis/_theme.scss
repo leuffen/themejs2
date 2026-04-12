@@ -3,11 +3,40 @@
 /* Category mixin */
 
 
-@include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
-@include meta.load-css("./elements/ntl-card/ntl-card.scss");
-@include meta.load-css("./elements/ntl-card-grid/ntl-card-grid.scss");
-@include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
-@include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+@use "./../../font/work-sans" as font;
+@use "./../../font/_vendor/font-bootstrap-icons";
+
+@use "@nextrap/style-base/module" as nextrapBase;
+
+@forward "../../src/style/base" ;
+
+
+
+$theme: () !default;
+
+.theme-epraxis {
+  @include nextrapBase.nextrap-theme($theme, (
+
+    primary: #fe6606,
+    accent: #fe6606,
+    secondary: #1F3655,
+
+    font-family-base: font.$font-family-base,
+    font-family-header: font.$font-family-base,
+    font-size-header: font.$font-size-header,
+    font-size-base: font.$font-size-base,
+    enableFontConfig: true,
+    rcs: true
+  ));
+
+  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+  @include meta.load-css("./elements/ntl-card/ntl-card.scss");
+  @include meta.load-css("./elements/ntl-card-grid/ntl-card-grid.scss");
+  @include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
+  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+  @include meta.load-css("./features/_h2-h3-blockquote-header-style.scss");
+}
+
 
     /* grid container */
     .grid-container {
