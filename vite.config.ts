@@ -30,6 +30,7 @@ export default defineConfig({
     build: {
         minify: false,
         cssCodeSplit: false,
+        emptyOutDir: false,
         rollupOptions: {
             plugins: [
                 visualizer({

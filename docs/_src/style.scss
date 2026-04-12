@@ -1,5 +1,5 @@
 
-@use "@nextrap/style-reset";
+
 
 @use "@leuffen/themejs2/theme/mueller" with (
         $theme: (
@@ -13,6 +13,7 @@
      $theme: (
         colors: (
             primary: #881361
+
         ))
 
 );

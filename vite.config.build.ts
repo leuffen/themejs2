@@ -9,12 +9,13 @@ export default defineConfig({
     },
     resolve : {
         alias: {
-            '@': '/src'
+            '@': '/'
         }
     },
     root: './',
     publicDir: './public/www',
     build: {
+        emptyOutDir: false,
         rollupOptions: {
             input: './public/main.ts'
         }

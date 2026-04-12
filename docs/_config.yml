@@ -14,9 +14,11 @@ sass:
 livereload: true
 exclude:
     - "*.bak"
+    - "_src/*"
     - ".*"
     - "*~"
     - "~*"
+    - "stats.html"
 
 defaults:
   - scope:

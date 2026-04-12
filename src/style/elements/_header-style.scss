@@ -1,10 +1,16 @@
 @mixin header-style {
+    /**
+     * This style is for header with
+     * ## Header
+     * > Subheader
+     */
     h2 {
         &:has(+ blockquote) {
-            font-weight: bold;
-            font-size: var(--nt-fs-3);
+            // the original header becomes normal TEXT
+            font-size: var(--nt-font-size-root);
             color: var(--nt-accent);
-            margin: var(--nt-space-3) 0;
+            font-weight: var(--nt-font-weight-header);
+            margin: var(--nt-space-1) 0;
         }
 
         & + blockquote {
@@ -13,7 +19,10 @@
             border: none;
             margin-top: 0;
             > p {
+                // We make it to a H2 header
                 font-size: var(--nt-fs-h2);
+                color: var(--nt-header);
+                font-weight: var(--nt-font-weight-header);
             }
         }
     }

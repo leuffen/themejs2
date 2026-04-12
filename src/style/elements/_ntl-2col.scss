@@ -4,11 +4,7 @@
         --container-bg: var(--nt-white);
         --border: var(--nt-border-width) solid var(--nt-primary);
         --border-radius: var(--nt-border-radius);
-
-        &::part(container) {
-            --container-border: 1px solid #ddd;
-        }
-
+        --container-border: 1px solid #ddd;
 
 
         [slot="aside"] {

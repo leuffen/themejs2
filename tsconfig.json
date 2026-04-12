@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@leuffen/themejs2": ["src/index.ts", "src/index.scss"]
+      "@leuffen/themejs2": ["index.ts", "index.scss"]
     }
   },
   "exclude": ["node_modules", "tmp"],

@@ -2,6 +2,7 @@
 layout: website
 body_class: theme-mueller
 title: Mueller Startseite
+theme_classes: "theme-mueller theme-osman"
 ptags:
   - pages
 ---
@@ -163,6 +164,18 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 
 ---
 {: layout="ntl-consent-blocker.google-maps-consent" .top  }
+
+
+
+---
+{: layout="2;ntl-2col.testimonial"}
+
+![](https://cdn.leuffen.de//r-beverungen-k163/v2/52/a_gfedcba/Regina-Beverungen1x1.webp)
+
+„Wir legen großen Wert auf eine individuelle und professionelle medizinische Versorgung. Unser Ziel ist es, dass Sie sich bei uns gut aufgehoben fühlen – von der Vorsorge bis zur Therapie.“
+
+— Dr. Regina Beverungen, Hausärztin
+
 
 ## Section
 {: layout="ntl-2col" }

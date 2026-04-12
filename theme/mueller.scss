@@ -1,25 +1,13 @@
 @use "./../font/opensans-regular" as font;
 @use "./../font/_vendor/font-bootstrap-icons";
 
-@use "base" as base;
-@use "mueller/ntl-hero" as ntl-hero;
-@use "mueller/ntl-card-row" as ntl-card-row;
-@use "mueller/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
-@use "mueller/ntl-card" as ntl-card;
-@use "mueller/ntl-2col" as ntl-2col;
-@use "mueller/header-style" as header-style;
-@use "mueller/ntl-card-row_style-footer" as ntl-card-row_style-footer;
-@use "mueller/ntl-accordion-item" as ntl-accordion-item;
-@use "mueller/ntl-consent-blocker" as ntl-consent-block;
-@use "general/button-bar" as button-bar;
+
+@use "../src/style/base-theme" as base;
 
 $theme: () !default;
 
 .theme-mueller {
-
-
-
-    @include base.base($theme, (
+    @include base.base-theme($theme, (
 
         primary: #b50303,
 
@@ -32,16 +20,7 @@ $theme: () !default;
     ));
 
 
-    @include ntl-hero.ntl-hero;
-    @include ntl-card-row.ntl-card-row;
-    @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
-    @include ntl-card.ntl-card;
-    @include ntl-2col.ntl-2col;
-    @include header-style.header-style;
-    @include ntl-card-row_style-footer.ntl-card-row_style-footer;
-    @include ntl-accordion-item.ntl-accordion-item;
-    @include ntl-consent-block.ntl-consent-blocker;
-    @include button-bar.button-bar;
+
 
 
     background: var(--nt-body);
