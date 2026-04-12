@@ -111,7 +111,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ---
-{: layout="1;.container.grid-container" style="--rows:2;--cols:2;--gap:1rem;"}
+{: layout="1;.container.grid-container"}
 
 ---
 {: layout="1.5;nte-card.secondary" style="--row:1;--col:1;"}

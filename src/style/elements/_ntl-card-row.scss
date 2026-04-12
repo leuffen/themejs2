@@ -15,13 +15,13 @@
 
         &[mode="desktop"] {
             ntl-card {
-                --aspect-ratio: 16/9;
+                --image-aspect-ratio: 16/9;
             }
         }
 
         &[mode="mobile"] {
             ntl-card {
-                --aspect-ratio: 1;
+                --image-aspect-ratio: 1;
             }
         }
     }

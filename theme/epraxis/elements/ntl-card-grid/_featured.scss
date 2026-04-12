@@ -24,7 +24,7 @@
   }
 
   ntl-card:nth-of-type(n+2) {
-    aspect-ratio: 16 / 9;
+    --image-aspect-ratio: unset;
     // Subsequent element is overlay element
     @include mixins.overlayCard;
   }

@@ -32,9 +32,16 @@ function getBreakpointMinWidth(breakpoint) {
   }
   return breakpointMap[breakpoint];
 }
+function getViewportWidth() {
+  if (window.visualViewport) {
+    return window.visualViewport.width;
+  } else {
+    return window.innerWidth;
+  }
+}
 function getCurrentBreakpoint(width) {
   if (width === void 0) {
-    width = window.innerWidth;
+    width = getViewportWidth();
   }
   for (let i5 = breakpoints$1.length - 1; i5 >= 0; i5--) {
     if (width >= breakpoints$1[i5].minWidth) {
@@ -6625,7 +6632,7 @@ __decorateElement$7(_init$7, 4, "slottedElements", _slottedElements_dec, NtlSlid
 NtlSliderElement = __decorateElement$7(_init$7, 0, "NtlSliderElement", _NtlSliderElement_decorators, NtlSliderElement);
 NtlSliderElement.styles = [r$6(style$8), r$6(resetStyle)];
 __runInitializers$7(_init$7, 1, NtlSliderElement);
-const style$7 = "/* The ShadowDOM Styles */\n:host {\n  --container-bg: transparent;\n  --container-border: none;\n  --container-width: var(--nt-container-width) /* Refer to README.md for style guidelines */;\n  --default-cols: var(--cols);\n  --cols: 6;\n  --gutter-x: var(--nt-gap);\n  --gutter-y: var(--nt-gap);\n  --breakpoint: xl;\n  display: block;\n}\n\n#container {\n  margin: 0 auto;\n  width: var(--container-width);\n  background: var(--container-bg);\n  border: var(--container-border);\n}\n\n#main {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: var(--gutter-y);\n}\n#main ::slotted(*) {\n  width: calc(8.3333333333% * var(--cols, 1) - var(--gutter-x));\n}\n\n:host([mode=desktop]) #main {\n  margin-left: calc(var(--gutter-x) / -2);\n  width: calc(100% + var(--gutter-x));\n  flex-direction: row;\n}\n:host([mode=desktop]) #main ::slotted(*) {\n  --cols: var(--default-cols);\n}\n\n:host([mode=mobile]) #main {\n  flex-direction: column;\n}\n:host([mode=mobile]) #main ::slotted(*) {\n  --cols: 12 !important;\n  --gutter-x: 0;\n}";
+const style$7 = "/* The ShadowDOM Styles */\n:host {\n  --container-bg: transparent;\n  --container-border: none;\n  --container-width: var(--nt-container-width) /* Refer to README.md for style guidelines */;\n  --default-cols: var(--cols);\n  --cols: 6;\n  --gutter-x: var(--nt-gap);\n  --gutter-y: var(--nt-gap);\n  --breakpoint: xl;\n  display: block;\n}\n\n#container {\n  margin: 0 auto;\n  width: var(--container-width);\n  background: var(--container-bg);\n  border: var(--container-border);\n}\n\n#main {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: var(--gutter-y);\n}\n#main ::slotted(*) {\n  width: calc(8.3333333333% * var(--cols, 1) - var(--gutter-x));\n}\n\n:host([mode=desktop]) #main {\n  margin-left: calc(var(--gutter-x) / -2);\n  width: calc(100% + var(--gutter-x));\n  flex-direction: row;\n}\n:host([mode=desktop]) #main ::slotted(*) {\n  --cols: var(--default-cols);\n}\n\n:host([mode=mobile]) #main {\n  flex-direction: column;\n}\n:host([mode=mobile]) #main ::slotted(*) {\n  --cols: 12 !important;\n  --gutter-x: 0px;\n}";
 var __create$6 = Object.create;
 var __defProp$7 = Object.defineProperty;
 var __getOwnPropDesc$7 = Object.getOwnPropertyDescriptor;
@@ -6687,7 +6694,7 @@ let NtlCardRowElement = _NtlCardRowElement;
 _init$6 = __decoratorStart$6(_a$6);
 NtlCardRowElement = __decorateElement$6(_init$6, 0, "NtlCardRowElement", _NtlCardRowElement_decorators, NtlCardRowElement);
 __runInitializers$6(_init$6, 1, NtlCardRowElement);
-const style$6 = "/* The ShadowDOM Styles */\n:host {\n  --border-color: var(--nt-primary);\n  --background-color: unset;\n  --border-radius: var(--nt-border-radius);\n  --border: var(--nt-border-width) solid var(--border-color);\n  --x-padding: var(--nt-default-gap-x);\n  --y-padding: var(--nt-default-gap-y);\n  --image-aspect-ratio: 16/9;\n}\n\n#wrapper {\n  border: var(--border);\n  border-radius: var(--border-radius);\n  background-color: var(--background-color);\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n}\n#wrapper > :has(.slot-empty) {\n  display: none;\n}\n\n#header {\n  order: 2;\n  padding: var(--y-padding) var(--x-padding);\n  padding-bottom: 0;\n}\n#header:has(.slot-empty) {\n  display: none;\n}\n\n#image slot::slotted(p) {\n  display: contents;\n}\n#image {\n  aspect-ratio: var(--image-aspect-ratio);\n  overflow: hidden;\n  order: 1;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  isolation: isolate;\n  position: relative;\n  border-radius: var(--border-radius);\n}\n#image #gradient {\n  border-radius: inherit;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n}\n\n#content {\n  z-index: 3;\n  order: 50;\n  flex-grow: 1;\n  padding: var(--y-padding) var(--x-padding);\n}\n\n#footer {\n  order: 999;\n}";
+const style$6 = "/* The ShadowDOM Styles */\n:host {\n  --border-color: var(--nt-primary);\n  --background-color: unset;\n  --border-radius: var(--nt-border-radius);\n  --border: var(--nt-border-width) solid var(--border-color);\n  --x-padding: var(--nt-default-gap-x);\n  --y-padding: var(--nt-default-gap-y);\n  --image-aspect-ratio: 16/9;\n}\n\n#wrapper {\n  border: var(--border);\n  border-radius: var(--border-radius);\n  background-color: var(--background-color);\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n}\n#wrapper > :has(.slot-empty) {\n  display: none;\n}\n\n#header {\n  order: 2;\n  padding: var(--y-padding) var(--x-padding);\n  padding-bottom: 0;\n}\n#header:has(.slot-empty) {\n  display: none;\n}\n\n#image {\n  aspect-ratio: var(--image-aspect-ratio);\n  width: 100%;\n  height: 100%;\n  display: block;\n}\n#image slot::slotted(p) {\n  display: contents;\n}\n#image {\n  overflow: hidden;\n  order: 1;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  isolation: isolate;\n  position: relative;\n  border-radius: var(--border-radius);\n}\n#image #gradient {\n  border-radius: inherit;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n}\n\n#content {\n  z-index: 3;\n  order: 50;\n  flex-grow: 1;\n  padding: var(--y-padding) var(--x-padding);\n}\n\n#footer {\n  order: 999;\n}";
 var __create$5 = Object.create;
 var __defProp$6 = Object.defineProperty;
 var __getOwnPropDesc$6 = Object.getOwnPropertyDescriptor;
@@ -6776,7 +6783,7 @@ __decorateElement$5(_init$5, 4, "name", _name_dec$1, NtlCardElement, _name$1);
 NtlCardElement = __decorateElement$5(_init$5, 0, "NtlCardElement", _NtlCardElement_decorators, NtlCardElement);
 NtlCardElement.styles = [r$6(style$6), r$6(resetStyle)];
 __runInitializers$5(_init$5, 1, NtlCardElement);
-const style$5 = "/* The ShadowDOM Styles */\n:host {\n  --container-width: var(--nt-container-width) /* Refer to README.md for style guidelines */;\n  --gap: var(--nt-gap);\n  --breakpoint: md, lg;\n  --cols: 3;\n  --cols-tablet: 2;\n  --cols-mobile: 1;\n}\n\n:host([mode=tablet]) {\n  --cols: var(--cols-tablet) !important;\n}\n:host([mode=tablet]) #content-wrapper {\n  flex-direction: column;\n}\n\n:host([mode=mobile]) {\n  --cols: var(--cols-mobile) !important;\n}\n:host([mode=mobile]) #content-wrapper {\n  flex-direction: column;\n}\n\n#wrapper {\n  width: var(--container-width);\n  margin: 0 auto;\n}\n\n#content-wrapper {\n  display: flex;\n  gap: var(--gap);\n  margin-top: var(--gap);\n  margin-bottom: var(--gap);\n  flex-wrap: wrap;\n}\n\n#main {\n  flex: 1;\n  display: grid;\n  gap: var(--gap);\n  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));\n}\n#main > ::slotted(*) {\n  width: 100%;\n  height: 100%;\n}";
+const style$5 = "/* The ShadowDOM Styles */\n:host {\n  --container-width: var(--nt-container-width) /* Refer to README.md for style guidelines */;\n  --gap: var(--nt-gap);\n  --breakpoint: md, lg;\n  --cols: 3;\n  --cols-tablet: 2;\n  --cols-mobile: 1;\n}\n\n:host([mode=tablet]) #main {\n  grid-template-columns: repeat(var(--cols-tablet), minmax(0, 1fr));\n}\n:host([mode=tablet]) #content-wrapper {\n  flex-direction: column;\n}\n\n:host([mode=mobile]) #main {\n  grid-template-columns: repeat(var(--cols-mobile), minmax(0, 1fr));\n}\n:host([mode=mobile]) #content-wrapper {\n  flex-direction: column;\n}\n\n#wrapper {\n  width: var(--container-width);\n  margin: 0 auto;\n}\n\n#content-wrapper {\n  display: flex;\n  gap: var(--gap);\n  margin-top: var(--gap);\n  margin-bottom: var(--gap);\n  flex-wrap: wrap;\n}\n\n#main {\n  flex: 1;\n  display: grid;\n  gap: var(--gap);\n  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));\n}\n#main > ::slotted(*) {\n  width: 100%;\n  height: 100%;\n}";
 var __create$4 = Object.create;
 var __defProp$5 = Object.defineProperty;
 var __getOwnPropDesc$5 = Object.getOwnPropertyDescriptor;
@@ -6827,9 +6834,10 @@ var __privateSet$4 = (obj, member, value, setter) => (__accessCheck$4(obj, membe
 var __privateMethod$4 = (obj, member, method) => (__accessCheck$4(obj, member, "access private method"), method);
 var _name_dec, _childLayout_dec, _a$4, _NtlCardGridElement_decorators, _init$4, _childLayout, _name;
 _NtlCardGridElement_decorators = [t$1("ntl-card-grid")];
-class NtlCardGridElement extends (_a$4 = SlotVisibilityMixin(
-  BreakPointMixin(SubLayoutApplyMixin(EventBindingsMixin(LoggingMixin(i$2))))
-), _childLayout_dec = [n$4({ type: String, reflect: true })], _name_dec = [n$4({ type: String, reflect: true })], _a$4) {
+class NtlCardGridElement extends (_a$4 = nextrap_layout({
+  breakpoints: true,
+  subLayoutApply: true
+}), _childLayout_dec = [n$4({ type: String, reflect: true })], _name_dec = [n$4({ type: String, reflect: true })], _a$4) {
   constructor() {
     super(...arguments);
     __privateAdd$4(this, _childLayout, __runInitializers$4(_init$4, 8, this, "ntl-card")), __runInitializers$4(_init$4, 11, this);
