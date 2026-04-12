@@ -1,9 +1,31 @@
 @use './epraxis/theme' as epraxis;
+@use "./../font/opensans-regular" as font;
+@use "./../font/_vendor/font-bootstrap-icons";
+
+
+@use "../src/style/base-theme" as base;
+
+$theme: () !default;
+
+
+
+
 
 .theme-epraxis {
+    @include base.base-theme($theme, (
 
-    @include epraxis.category-label;
-    @include epraxis.primary-button;
+        primary: #b50303,
+
+        font-family-base: font.$font-family-base,
+        font-family-header: font.$font-family-base,
+        font-size-header: font.$font-size-header,
+        font-size-base: font.$font-size-base,
+        enableFontConfig: true,
+        rcs: true
+    ));
+    @include epraxis.theme-epraxis
+    //@include epraxis.category-label;
+    //@include epraxis.primary-button;
 
 
 
