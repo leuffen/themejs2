@@ -1,0 +1,31 @@
+import { LitElement } from 'lit';
+export declare class ProgressBar extends LitElement {
+    variant: 'mobile' | 'desktop';
+    color: string;
+    backgroundColor: string;
+    height: string;
+    borderRadius: number;
+    showAfterScroll: number;
+    transitionDuration: number;
+    offsetSelector: string;
+    offsetTop: number;
+    private progress;
+    private isVisible;
+    private computedOffsetTop;
+    private resizeObserver?;
+    static styles: any;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    private setupScrollListener;
+    private removeScrollListener;
+    private setupOffsetObservers;
+    private teardownOffsetObservers;
+    private recomputeOffsetTop;
+    protected updated(changed: Map<string, unknown>): void;
+    private isTickScheduled;
+    private handleScroll;
+    private getProgressBarStyles;
+    private getProgressFillStyles;
+    private getContainerStyles;
+    render(): any;
+}
