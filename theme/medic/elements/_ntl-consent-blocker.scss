@@ -1,7 +1,0 @@
-@mixin ntl-consent-blocker {
-    ntl-consent-blocker {
-        &::part(pre-consent) {
-            gap: var(--nt-space-5);
-        }
-    }
-}

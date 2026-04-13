@@ -1,1 +1,0 @@
-import "@nextrap/style-reset";

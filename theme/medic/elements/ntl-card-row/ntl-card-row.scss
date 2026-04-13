@@ -1,0 +1,28 @@
+@use "sass:meta";
+
+ntl-card-row {
+    [slot="header"] {
+        text-align: center;
+    }
+
+    ntl-card {
+        h3 {
+            font-size: var(--nt-fs-h4);
+        }
+    }
+
+    &[mode="desktop"] {
+        ntl-card {
+            --image-aspect-ratio: 16/9;
+        }
+    }
+
+    &[mode="mobile"] {
+        ntl-card {
+            --image-aspect-ratio: 1;
+        }
+    }
+
+    @include meta.load-css("./_style-ribbon.scss");
+    @include meta.load-css("./_style-footer.scss");
+}

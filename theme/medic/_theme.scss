@@ -1,48 +1,33 @@
 @use "sass:meta";
 @use "./../../font/opensans-regular" as font;
 @use "./../../font/_vendor/font-bootstrap-icons";
-
-
-
 @use "@nextrap/style-base/module" as nextrapBase;
-
-// Adjusted nextrap elements
-//@use "elements/ntl-hero" as ntl-hero;
-@use "./elements/ntl-card-row" as ntl-card-row;
-@use "./elements/ntl-card-row_style-ribbon" as ntl-card-row_style-ribbon;
-@use "./elements/ntl-card" as ntl-card;
-@use "./elements/ntl-2col" as ntl-2col;
-@use "./elements/ntl-2col_testimonial" as ntl-2col-testimonial;
-@use "./elements/ntl-card-row_style-footer" as ntl-card-row_style-footer;
-@use "./elements/ntl-accordion-item" as ntl-accordion-item;
-@use "./elements/ntl-consent-blocker" as ntl-consent-block;
-
-// Tools
-@use "../../theme/medic/tools/button-bar" as button-bar;
-
-// Features
-@use "../../theme/medic/features/h2-h3-blockquote-header-style" as header-style;
 
 @forward "../../src/style/base";
 
-@mixin base-theme($theme, $defaults) {
+$theme: () !default;
 
-  @include nextrapBase.nextrap-theme($theme, $defaults);
+.theme-medic {
+  @include nextrapBase.nextrap-theme($theme, (
 
-  // Use meta.load-css to include
-  @include meta.load-css("./elements/ntl-hero.scss");
+    primary: #b50303,
 
+    font-family-base: font.$font-family-base,
+    font-family-header: font.$font-family-base,
+    font-size-header: font.$font-size-header,
+    font-size-base: font.$font-size-base,
+    enableFontConfig: true,
+    rcs: true
+  ));
 
-  @include ntl-card-row.ntl-card-row;
-  @include ntl-card-row_style-ribbon.ntl-card-row_style-ribbon;
-  @include ntl-card.ntl-card;
-  @include ntl-2col.ntl-2col;
-  @include header-style.header-style;
-  @include ntl-card-row_style-footer.ntl-card-row_style-footer;
-  @include ntl-accordion-item.ntl-accordion-item;
-  @include ntl-consent-block.ntl-consent-blocker;
-  @include button-bar.button-bar;
-  @include ntl-2col-testimonial.testimonial;
+  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+  @include meta.load-css("./elements/ntl-card/ntl-card.scss");
+  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+  @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
+  @include meta.load-css("./elements/ntl-consent-blocker/ntl-consent-blocker.scss");
+  @include meta.load-css("./tools/_button-bar.scss");
+  @include meta.load-css("./features/_h2-h3-blockquote-header-style.scss");
 
   .align-grid-items {
     --items-per-row: 3;
@@ -56,26 +41,6 @@
       height: auto;
     }
   }
-}
-
-$theme: () !default;
-
-.theme-medic {
-  @include base-theme($theme, (
-
-    primary: #b50303,
-
-    font-family-base: font.$font-family-base,
-    font-family-header: font.$font-family-base,
-    font-size-header: font.$font-size-header,
-    font-size-base: font.$font-size-base,
-    enableFontConfig: true,
-    rcs: true
-  ));
-
-
-
-
 
   background: var(--nt-body);
 
