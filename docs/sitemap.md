@@ -21,6 +21,17 @@ title: Sitemap
 {: layout=".container"}
 
 
+{% assign docs = site.posts | concat: site.pages %}
+
+
+<table>
+  {% for doc in docs %}
+<tr>
+<td><a href="{{ doc.url }}">{{ doc.title }}</a></td>
+<td>{{ doc.path }}</td>
+</tr>
+  {% endfor %}
+</table>
 
 
 

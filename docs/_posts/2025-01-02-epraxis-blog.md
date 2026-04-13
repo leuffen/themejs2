@@ -11,12 +11,13 @@ order: 0
 ptags:
 - epraxis
 published: true
+
 body-class: theme-epraxis
 theme_classes: "theme-epraxis theme-mueller"
 
 seoScore: 8
 short_title: Blog Artikel
-title: Blog Artikel
+title: Blog Artikel EPRAXIS.DIGITAL
 summary: Ihr Praxisalltag ist schon hektisch genug? Und jetzt auch noch ein neues Gesetz? Keine Sorge! Hier erfahren Sie, was es mit dem neuen Barrierefreiheitsstärkungsgesetz auf sich hat und wie Sie die Anforderungen umsetzen können.
 author: Max Mustermann
 type: website
@@ -29,11 +30,6 @@ formatted-by: ai
 
 keywords: 
   - BSFG, Barrierefreiheit, Gesetz, Barrierefreiheitsstärkungsgesetz
-
-facebook_url: https://www.facebook.com/
-instagram_url: https://www.instagram.com/
-whatsapp_url: https://www.whatsapp.com/
-linkedin_url: https://www.linkedin.com/
 
 articles_related: 
   - TEST1
@@ -49,8 +45,8 @@ author_meta:
   image: https://www.svgrepo.com/show/384670/account-avatar-profile-user.svg
 ---
 
-## Inhaltsverzeichnis (Platzhalter)
-{: layout=".box.box-secondary"}
+
+Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren?
 
 ## EPRAXIS.DIGITAL KOMPAKT
 {: layout=".box.box-primary"}
@@ -64,7 +60,6 @@ author_meta:
 ---
 {: layout="2"}
 
-Wenn Sie an Barrierefreiheit denken, stellen Sie sich vermutlich Rampen vor, die den Zugang zu Gebäuden erleichtern. Ein wichtiger Aspekt – aber längst nicht der einzige. Barrierefreiheit betrifft auch digitale Angebote wie Ihre Website. Ist alles, was dort steht, für jeden zugänglich und verständlich? Oder gibt es vielleicht auch hier Barrieren?
 
 Barrieren zu beseitigen bedeutet, Dienstleistungen und Informationen für alle zugänglich zu machen – es geht um Teilhabe! Das Recht von Menschen mit Behinderungen auf gesellschaftliche Teilhabe wird mit dem BFSG gestärkt. Um das zu erreichen, tritt ab dem kommenden Jahr das **Barrierefreiheitsstärkungsgesetz** in Kraft. Auch in Ihrer Arztpraxis können Sie dazu beitragen: Sei es ein klar strukturierter Online-Auftritt, durchdachte Hinweise zur Erreichbarkeit oder eine Umgebung, die Mobilitätshürden überwindet. Das BFSG hilft, die Arztpraxis auf diese Anforderungen auszurichten.
 

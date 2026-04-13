@@ -19,7 +19,7 @@ exclude:
     - "*~"
     - "~*"
     - "stats.html"
-    - "_posts/*"
+
 
 
 defaults:

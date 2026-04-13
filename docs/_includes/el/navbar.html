@@ -1,5 +1,6 @@
 
-{% assign navi2 = site.pages | where: "lang", page.lang | where: "ptags", include.ptag | sort: "order" %}
+{% assign docs = site.posts | concat: site.pages %}
+{% assign navi2 = docs | where: "ptags", include.ptag | sort: "order" %}
 {%- for it in navi2 -%}
 {%- if it.has_subnav != true -%}
 <li><a href="{{ it.url }}">{% if it.nav_icon != null %}<i class="{{ it.nav_icon }}"></i>{% endif %}{% if it.short_title %}{{ it.short_title }}{% else %}{{ it.title }}{% endif %}</a></li>
