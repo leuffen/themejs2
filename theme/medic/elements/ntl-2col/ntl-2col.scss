@@ -1,0 +1,30 @@
+@use "sass:meta";
+
+ntl-2col {
+    --section-bg: transparent;
+    --container-bg: var(--nt-white);
+    --border: var(--nt-border-width) solid var(--nt-primary);
+    --border-radius: var(--nt-border-radius);
+    --container-border: 1px solid #ddd;
+
+
+    [slot="aside"] {
+        margin: 0;
+    }
+
+    &[mode="desktop"] {
+        &::part(main) {
+
+        }
+
+        [slot="aside"] {
+
+
+            &:has(> img:first-child) {
+                padding: 0;
+            }
+        }
+    }
+
+    @include meta.load-css("./_testimonial.scss");
+}

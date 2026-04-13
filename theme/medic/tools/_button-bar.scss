@@ -1,32 +1,27 @@
+.button-bar {
+    &.column > p {
+        flex-direction: column;
+    }
+    &> p {
+        display: flex;
 
+        flex-direction: row;
 
-@mixin button-bar {
-    .button-bar {
-        &.column > p {
-            flex-direction: column;
-        }
-        &> p {
-            display: flex;
+        flex-wrap: nowrap;
+        justify-content: stretch;
+        align-items: stretch;
+        gap: var(--nt-space-3);
 
-            flex-direction: row;
-
-            flex-wrap: nowrap;
-            justify-content: stretch;
-            align-items: stretch;
-            gap: var(--nt-space-3);
-
-            .btn {
-                min-width: 140px;
-                flex: 1;
-                .bi {
-                    font-size: 1.8rem;
-                    display: block;
-                }
-                text-wrap: auto;
-                text-align: center;
+        .btn {
+            min-width: 140px;
+            flex: 1;
+            .bi {
+                font-size: 1.8rem;
+                display: block;
             }
+            text-wrap: auto;
+            text-align: center;
         }
-
     }
 
 }
