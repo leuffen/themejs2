@@ -1,4 +1,4 @@
-@use "./mixins";
+@use "@nextrap/ntl-card" as ntl-card;
 
 &.featured {
   ntl-card {
@@ -28,7 +28,10 @@
   ntl-card:nth-of-type(n+2) {
     --image-aspect-ratio: unset;
     // Subsequent element is overlay element
-    @include mixins.overlayCard;
+    h2,h3,h4,h5 {
+      color: var(--nt-white);
+    }
+    @include ntl-card.img-overlay;
   }
 
 }

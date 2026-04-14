@@ -1,4 +1,4 @@
-@use "./mixins";
+
 
 &.featured2 {
   --cols: 2;
@@ -10,6 +10,10 @@
     --card-bg: none;
     --image-aspect-ratio: 16/9;
 
+
+    h3 {
+      font-size: var(--nt-fs-h5);
+    }
 
     &.aside {
       --background-color: var(--nt-body-secondary);

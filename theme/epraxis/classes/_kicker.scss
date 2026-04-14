@@ -1,0 +1,30 @@
+/**
+ * This style is for header with
+ * ## Header
+ * > Subheader
+ */
+
+span.kicker {
+  display: block;
+  font-size: var(--nt-font-size-root);
+  color: var(--nt-accent);
+  // make it uppercase:
+  text-transform: uppercase;
+  font-weight: var(--nt-font-weight-header);
+  margin-top: var(--nt-text-gap);
+  margin-bottom: var(--nt-text-gap);
+  &:first-child {
+    margin-top: 0;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    border-bottom: 2px solid currentColor;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+}
+
+
+

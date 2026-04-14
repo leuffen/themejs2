@@ -21,3 +21,8 @@ import "@nextrap/ntl-accordion";
 import "@nextrap/ntl-consent-blocker";
 //import "@nextrap/ntl-footer";
 import "@nextrap/ntl-parallax-bg";
+
+
+
+// Features
+import "./src/features/kicker-generator";

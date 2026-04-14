@@ -1,4 +1,21 @@
 ntl-hero {
+  display: block;
 
+
+  &::part(content) {
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    padding: 40px var(--nt-default-gap-x)
+  }
+
+
+  ntl-slider[slot="footer"] {
+    margin-bottom: -80px;
+    display: block;
+  }
+  &:has(ntl-slider) {
+    margin-bottom: 100px;
+  }
 
 }

@@ -61,10 +61,8 @@ Wir bieten auch eine [Video-Sprechstunde](/video) an.
 
 Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den KV-Bereitschaftsdienst unter der Telefonnummer [116 117](tel:116 117) oder den Notruf unter [112](tel:112).
 
-## Hausarztpraxis in Ihrer Region
-{: layout="ntl-2col" }
-
-> Individuelle und professionelle medizinische Versorgung
+## Individuelle und professionelle medizinische Versorgung
+{: layout="ntl-2col" data-kicker="Hausarztpraxis in Ihrer Region" }
 
 Wir sind Ihre familienfreundliche Hausarztpraxis in der Region und bieten eine umfassende medizinische Versorgung für alle Altersklassen. Unser Leistungsspektrum umfasst Vorsorgeuntersuchungen, Impfungen, Herz-Kreislauf- und Lungen-Diagnostik, Ultraschall, kleine chirurgische Eingriffe, Hausbesuche und die Betreuung bei chronischen Erkrankungen.
 
@@ -130,10 +128,8 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit spezialisierten 
 - Retinologische Gesellschaft
 - Europäische Fachgesellschaft
 
-## Lernen Sie uns kennen
-{: layout="ntl-2col.reverse"}
-
-> Ihr vertrauensvolles Team
+## Ihr vertrauensvolles Team
+{: layout="ntl-2col.reverse" data-kicker="Lernen Sie uns kennen" }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/283/c_gfedcba/AdobeStock_102581039.webp)
 
@@ -165,10 +161,9 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 — Ärztliche Leitung
 
 
-## Section
-{: layout="ntl-2col" }
+## So finden Sie uns
+{: layout="ntl-2col" data-kicker="Weitere Informationen" }
 
-> So finden Sie uns
 
 Test Test Test
 

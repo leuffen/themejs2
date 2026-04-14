@@ -34,7 +34,7 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-card-grid/ntl-card-grid.scss");
   @include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
-  @include meta.load-css("./features/_h2-h3-blockquote-header-style.scss");
+  @include meta.load-css("./classes/kicker");
 }
 
 

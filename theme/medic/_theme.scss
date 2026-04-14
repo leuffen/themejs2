@@ -27,7 +27,10 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
   @include meta.load-css("./elements/ntl-consent-blocker/ntl-consent-blocker.scss");
   @include meta.load-css("./tools/_button-bar.scss");
-  @include meta.load-css("./features/_h2-h3-blockquote-header-style.scss");
+  @include meta.load-css("./classes/kicker.scss");
+
+
+
 
   .align-grid-items {
     --items-per-row: 3;
@@ -66,22 +69,5 @@ $theme: () !default;
     padding: var(--nt-space-5) 0;
   }
 
-  p,
-  ul,
-  ol,
-  blockquote,
-  code,
-  pre,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-bottom: var(--nt-text-gap);
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }

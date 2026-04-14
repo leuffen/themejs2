@@ -1575,6 +1575,8 @@ class ContentAreaElement2 extends (_a$g = EventBindingsMixin(LoggingMixin(y$3)),
     const sectionTreeBuilder = new SectionTreeBuilder(this);
     const children = Array.from(this.children);
     sectionTreeBuilder.arrange(children);
+    this.debug("Firing afterArrange event");
+    this.dispatchEvent(new CustomEvent("afterArrange", { detail: { target: this }, bubbles: true }));
     if (this.skipLayout) {
       this.warn("Skipping layout as per skipLayout property.");
       return;
@@ -3185,7 +3187,10 @@ class NteNav extends (_a$e = nextrap_element(features$1), _mode_dec$1 = [n$4({ t
                 <div id="text" part="menutext"><slot name="menu-text"></slot></div>
                 <nte-burger
                   part="burger"
-                  label="Menu"
+                  aria-label="Menu"
+                  role="button"
+                  aria-haspopup="menu"
+                  aria-controls="main-menu"
                   data-group-name="${this.dataGroupName}"
                   id="open-burger"
                   onclick="this.open = true"
@@ -6299,7 +6304,7 @@ Ntl2Col.styles = [r$6(resetStyle), r$6(style$b)];
 Ntl2Col = __decorateClass$1([
   t$1("ntl-2col")
 ], Ntl2Col);
-const style$a = "/* Shadow DOM Styles for hero */\n:host {\n  --bg-color: var(--nt-body-teritary, #e4e6ef);\n  --container-width: var(--nt-container-width, 100%);\n  --height-offset: 0px;\n  --min-height: 500px;\n}\n\n#root {\n  position: relative;\n  width: 100%;\n  height: calc(100vh - var(--height-offset, 0px));\n  max-height: calc(100vh - var(--height-offset, 0px));\n  display: grid;\n  min-height: var(--min-height);\n  grid-template-rows: 1fr;\n  grid-template-columns: 1fr;\n}\n\n#wrapper {\n  padding-top: var(--top-offset);\n  width: var(--container-width);\n  margin: 0 auto;\n  grid-row: 1;\n  grid-column: 1;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#wrapper #title, #wrapper #top-title {\n  text-align: center;\n}\n#wrapper > #title,\n#wrapper #content {\n  flex-grow: 1;\n}\n#wrapper > * {\n  display: flex;\n  align-items: center;\n}\n#wrapper > :has(.slot-empty) {\n  display: none !important;\n}\n\n#background {\n  grid-row: 1;\n  grid-column: 1;\n  background-color: var(--bg-color);\n  z-index: 0;\n  height: 100%;\n  position: absolute;\n  inset: 0;\n}\n\n.background::slotted(*) {\n  pointer-events: auto;\n}\n\n#content {\n  height: 100%;\n}";
+const style$a = "/* Shadow DOM Styles for hero */\n:host {\n  --bg-color: var(--nt-body-teritary, #e4e6ef);\n  --container-width: var(--nt-container-width, 100%);\n  --height-offset: 0px;\n  --min-height: 500px;\n}\n\n#root {\n  position: relative;\n  width: 100%;\n  height: calc(100vh - var(--height-offset, 0px));\n  max-height: calc(100vh - var(--height-offset, 0px));\n  display: grid;\n  min-height: var(--min-height);\n  grid-template-rows: 1fr;\n  grid-template-columns: 1fr;\n}\n\n#wrapper {\n  padding-top: var(--top-offset);\n  width: var(--container-width);\n  margin: 0 auto;\n  grid-row: 1;\n  grid-column: 1;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#wrapper #title, #wrapper #top-title {\n  text-align: center;\n}\n#wrapper > #title,\n#wrapper #content {\n  flex-grow: 1;\n  justify-content: center;\n}\n#wrapper > * {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#wrapper > :has(.slot-empty) {\n  display: none !important;\n}\n\n#background {\n  grid-row: 1;\n  grid-column: 1;\n  background-color: var(--bg-color);\n  z-index: 0;\n  height: 100%;\n  position: absolute;\n  inset: 0;\n}\n\n.background::slotted(*) {\n  pointer-events: auto;\n}";
 var __create$9 = Object.create;
 var __defProp$a = Object.defineProperty;
 var __getOwnPropDesc$a = Object.getOwnPropertyDescriptor;
@@ -7634,6 +7639,17 @@ __decorateElement(_init, 4, "backgroundColor", _backgroundColor_dec, NtlParallax
 NtlParallaxBg = __decorateElement(_init, 0, "NtlParallaxBg", _NtlParallaxBg_decorators, NtlParallaxBg);
 NtlParallaxBg.styles = [r$6(style$1), r$6(resetStyle)];
 __runInitializers(_init, 1, NtlParallaxBg);
+window.addEventListener("afterArrange", () => {
+  console.log("Generating kickers...");
+  document.querySelectorAll("h1[data-kicker], h2[data-kicker], h3[data-kicker], h4[data-kicker], h5[data-kicker], h6[data-kicker]").forEach((heading) => {
+    const prefix = heading.getAttribute("data-kicker");
+    if (!prefix) {
+      return;
+    }
+    const kicker = create_element("span", { class: "kicker" }, prefix);
+    heading.insertAdjacentElement("beforebegin", kicker);
+  });
+});
 const style = "/* The ShadowDOM Styles - defined inline in the component via css`` tag */\n:host {\n  display: block;\n  position: fixed;\n  bottom: 1rem;\n  left: 1rem;\n  z-index: 9999;\n}\n\n.switcher {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  background: #fff;\n  border: 1px solid #e0e0e0;\n  border-radius: 8px;\n  padding: 0.375rem 0.625rem;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);\n  font-family: system-ui, -apple-system, sans-serif;\n  font-size: 0.8125rem;\n}\n\n.label {\n  color: #666;\n  user-select: none;\n  white-space: nowrap;\n}\n\nselect {\n  appearance: none;\n  -webkit-appearance: none;\n  background: #f5f5f5 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E\") no-repeat right 0.5rem center;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  padding: 0.25rem 1.5rem 0.25rem 0.5rem;\n  font-size: 0.8125rem;\n  font-family: inherit;\n  color: #333;\n  cursor: pointer;\n  min-width: 100px;\n  outline: none;\n  transition: border-color 0.15s ease;\n}\n\nselect:hover {\n  border-color: #bbb;\n}\n\nselect:focus {\n  border-color: #888;\n}";
 var __defProp2 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
