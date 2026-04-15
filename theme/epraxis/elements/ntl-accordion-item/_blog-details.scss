@@ -1,0 +1,26 @@
+@use "@nextrap/ntl-accordion" as acc;
+
+&.blog-details {
+
+  overflow: hidden;
+  @include acc.item-details-end;
+  display: block;
+  width: 100%;
+  border: 1px solid var(--nt-tertiary);
+  border-radius: calc(0.25rem * 5);
+
+
+
+  &::part(content) {
+    padding: 0;
+  }
+  &::part(summary) {
+    border-top: none;
+    padding: var(--nt-space-3);
+    background-color: transparent;background-color: var(--nt-primary-subtle);
+  }
+  &[open]::part(summary) {
+    border-top: 1px solid var(--nt-tertiary);
+
+  }
+}

@@ -15,7 +15,7 @@ layout: default
     </progress-bar>
 
     <!-- Header -->
-    <div class="row gx-2 mb-5">
+    <div class="row gx-3 justify-content-center mb-5">
         <div class="-xl:col-12 xl:col-8">
             <div class="prose prose-xl">
                 {% if page.image %}
@@ -31,16 +31,18 @@ layout: default
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <aside class="p-4 pb-5  rounded"
-                   style-xl="display: block; position: sticky; top: calc(2rem + var(--brand-height, 48px)); z-index: 100; background-color: var(--nt-body-tertiary)">
-                <div>
+        <div class="-sm:col-12 -xl:col-6 xl:col-4">
+            <aside>
+
+
+                <ntl-accordion-item class="blog-details" open>
+
                     <div class="mb-3">
-                        <div style="color: var(--nt-text);" class="fw-600 fs-5 text-uppercase">Infos zum Artikel
+                        <div style="color: var(--nt-text);" class="fw-bold fs-5 p-3 border-bottom border-secondary text-uppercase">Infos zum Artikel
                         </div>
-                        <div class="border-bottom my-2" style="border-color: var(--nt-tertiary-emphasis) !important;"></div>
-                        <div class="mb-3">
-                            <div style="color: var(--nt-secondary);" class="fw-600 fs-4 my-2 pt-2 pb-2">{{ page.title }}</div>
+
+                        <div class="p-3">
+                            <div style="color: var(--nt-secondary);" class="fs-4 ">{{ page.title }}</div>
                             {% if page.author or page.date or page.reading_time %}
                             <div class="fs-6" style="color: var(--nt-text);">
                                 <table class="table-borderless">
@@ -65,7 +67,7 @@ layout: default
                                 </table>
                             </div>
                             {% endif %}
-                            <div>
+                            <!--div>
                                 <div class="my-2 d-overflow-hidden"
                                      style="height: var(--nt-space-3);">
                                     <progress-bar
@@ -73,12 +75,12 @@ layout: default
                                         border-radius="5">
                                     </progress-bar>
                                 </div>
-                            </div>
+                            </div-->
                         </div>
                     </div>
-                    <div class="mb-3 additional-info transition-all" style="height: 100%;">
-                        <div class="pt-2 d-table">
-                            <div class="d-table-cell fs-5 fw-500 w-100" style="color: var(--nt-text);">Dieser Artikel wurde mit Hilfe
+                    <div class="mb-3" style="height: 100%;">
+                        <div class="pt-2 d-table mx-3">
+                            <div class="d-table-cell fs-5 w-100" style="color: var(--nt-text);">Dieser Artikel wurde mit Hilfe
                                 von<br />Künstlicher Intelligenz (KI) erstellt:</div>
                             <div class="d-table-cell fs-5" style="vertical-align: bottom; color: var(--nt-text);">ⓘ</div>
                         </div>
@@ -89,46 +91,50 @@ layout: default
                              - page.written-by: "human", "shared", or "ai"
                              - page.formatted-by: "human", "shared", or "ai"
                         -->
-                        <div class="row row-cols-3 fs-6 text-center flexg-14" style="color: var(--nt-text);">
-                            {% assign ai_types = "researched,written,formatted" | split: "," %}
-                            {% assign ai_labels = "Recherche,Schreiben,Formatierung" | split: "," %}
-                            {% for type in ai_types %}
-                            {% assign type_key = type | append: "-by" %}
-                            {% assign type_value = page[type_key] %}
-                            <div class="col justify-items-center p-1 pt-2 pb-3" style="border-radius: calc(0.25rem * 5); display: inline-grid; background-color: var(--nt-tertiary)">
-                                {% if type_value == "human" %}
-                                <img src="/assets/human.svg" alt="Human" />
-                                {% elsif type_value == "shared" %}
-                                <img src="/assets/human_and_robot.svg" alt="Human and Robot" />
-                                {% else %}
-                                <img src="/assets/robot.svg" alt="Robot" />
-                                {% endif %}
-                                <div class="pt-1">{{ ai_labels[forloop.index0] }}:</div>
-                                <div class="fw-600 pt-1">
-                                    {% if type_value == "human" %}100% Mensch{% elsif type_value == "shared" %}50%
-                                    Mensch<br>50% KI{% else %}100% KI{% endif %}
+                        <div class="px-3">
+                            <div class="row gx-2" style="color: var(--nt-text);">
+                                {% assign ai_types = "researched,written,formatted" | split: "," %}
+                                {% assign ai_labels = "Recherche,Schreiben,Formatierung" | split: "," %}
+                                {% for type in ai_types %}
+                                {% assign type_key = type | append: "-by" %}
+                                {% assign type_value = page[type_key] %}
+                                <div class="col-4">
+                                    <div class="d-flex flex-column fs-6 justify-items-center h-100" style="border-radius: calc(0.25rem * 5);  background-color: var(--nt-tertiary)">
+
+
+                                        {% if type_value == "human" %}
+                                        <img class="p-3" src="/assets/human.svg" alt="Human" />
+                                        {% elsif type_value == "shared" %}
+                                        <img class="p-3" src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                        {% else %}
+                                        <img class="p-3" src="/assets/robot.svg" alt="Robot" />
+                                        {% endif %}
+                                        <div class="px-1 border-bottom border-light text-center">{{ ai_labels[forloop.index0] }}:</div>
+                                        <div class=" p-1 text-center">
+                                            {% if type_value == "human" %}<b>100% Mensch</b>{% elsif type_value == "shared" %}<b>50%
+                                            Mensch</b><br>50% KI{% else %}100% KI{% endif %}
+                                        </div>
+                                    </div>
                                 </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
                         </div>
                     </div>
                     <div class="additional-info transition-all" style="height: 100%;">
-                        <div class="pt-2 fs-5 fw-500" style="color: var(--nt-text)">Relevante Begriffe im Artikel:</div>
-                        <div class="border-bottom my-2" style="border-color: var(--nt-tertiary-emphasis) !important;"></div>
-                        <div class="d-flex flex-wrap flexg-8 fs-5">
-                            {% for tag in page.keywords %}
+                        <div class="p-3 fs-5 border-bottom border-primary" style="color: var(--nt-text)">Relevante Begriffe im Artikel:</div>
+                        <div class="d-flex p-3 flex-wrap g-1 fs-5">
+                            {% assign keywords = page.keywords | default: "" | split: "," %}
+
+                            {% for tag in keywords %}
                             <div style="cursor: default; background-color: var(--nt-body-tertiary); color: var(--nt-text) !important;"
                                  class="border border-dark text-primary rounded-pill p-1 pe-3 ps-3 w-fit">
                                 {{ tag }}</div>
                             {% endfor %}
                         </div>
                     </div>
-                </div>
-                <button style="position: absolute; bottom: 0; left: 0; right: 0; cursor: pointer; background-color: #D8D9E3; color: var(--nt-text);"
-                        class="additional-info-toggle p-2 fs-6 mt-3 rounded-bottom rounded-top-0 hover-anim-bg-color-D8D9E3"
-                        type="button">
-                    Weniger anzeigen
-                </button>
+                    <h3 class="fs-5 p-0">Infos zum Artikel</h3>
+                </ntl-accordion-item>
+
             </aside>
         </div>
     </div>

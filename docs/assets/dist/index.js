@@ -1261,7 +1261,7 @@ function applyLayoutToElement(element, options, layoutOrig) {
     },
     {}
   );
-  const tag = elementDef.tag || "div";
+  const tag = elementDef.tag || "section";
   let skipChildren = false;
   let replacementElement = create_element(tag, { ...origAttrs, layoutOrig });
   if (tag.includes("-") && !customElements.get(tag)) {
@@ -6304,7 +6304,7 @@ Ntl2Col.styles = [r$6(resetStyle), r$6(style$b)];
 Ntl2Col = __decorateClass$1([
   t$1("ntl-2col")
 ], Ntl2Col);
-const style$a = "/* Shadow DOM Styles for hero */\n:host {\n  --bg-color: var(--nt-body-teritary, #e4e6ef);\n  --container-width: var(--nt-container-width, 100%);\n  --height-offset: 0px;\n  --min-height: 500px;\n}\n\n#root {\n  position: relative;\n  width: 100%;\n  height: calc(100vh - var(--height-offset, 0px));\n  max-height: calc(100vh - var(--height-offset, 0px));\n  display: grid;\n  min-height: var(--min-height);\n  grid-template-rows: 1fr;\n  grid-template-columns: 1fr;\n}\n\n#wrapper {\n  padding-top: var(--top-offset);\n  width: var(--container-width);\n  margin: 0 auto;\n  grid-row: 1;\n  grid-column: 1;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#wrapper #title, #wrapper #top-title {\n  text-align: center;\n}\n#wrapper > #title,\n#wrapper #content {\n  flex-grow: 1;\n  justify-content: center;\n}\n#wrapper > * {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#wrapper > :has(.slot-empty) {\n  display: none !important;\n}\n\n#background {\n  grid-row: 1;\n  grid-column: 1;\n  background-color: var(--bg-color);\n  z-index: 0;\n  height: 100%;\n  position: absolute;\n  inset: 0;\n}\n\n.background::slotted(*) {\n  pointer-events: auto;\n}";
+const style$a = "/* Shadow DOM Styles for hero */\n:host {\n  --bg-color: var(--nt-body-teritary, #e4e6ef);\n  --container-width: var(--nt-container-width, 100%);\n  --height-offset: 0px;\n  --min-height: 600px;\n  --max-height: 1800px;\n}\n\n#root {\n  width: 100%;\n  isolation: isolate;\n  min-height: var(--min-height);\n  display: grid;\n  position: relative;\n  height: calc(100vh - var(--height-offset, 0px));\n  max-height: var(--max-height);\n  grid-template-rows: 1fr;\n  grid-template-columns: 1fr;\n}\n\n#wrapper {\n  padding-top: var(--top-offset);\n  width: var(--container-width);\n  margin: 0 auto;\n  grid-row: 1;\n  grid-column: 1;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#wrapper #title, #wrapper #top-title {\n  text-align: center;\n}\n#wrapper > #title,\n#wrapper #content {\n  flex-grow: 1;\n  justify-content: center;\n}\n#wrapper > * {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#wrapper > :has(.slot-empty) {\n  display: none !important;\n}\n\n#background {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  background-color: var(--bg-color);\n  z-index: 0;\n  height: 100%;\n  inset: 0;\n}\n\n.background::slotted(*) {\n  pointer-events: auto;\n}";
 var __create$9 = Object.create;
 var __defProp$a = Object.defineProperty;
 var __getOwnPropDesc$a = Object.getOwnPropertyDescriptor;
@@ -6934,157 +6934,7 @@ __decorateElement$4(_init$4, 4, "name", _name_dec, NtlCardGridElement, _name);
 NtlCardGridElement = __decorateElement$4(_init$4, 0, "NtlCardGridElement", _NtlCardGridElement_decorators, NtlCardGridElement);
 NtlCardGridElement.styles = [r$6(style$5), r$6(resetStyle)];
 __runInitializers$4(_init$4, 1, NtlCardGridElement);
-const style$4 = `@charset "UTF-8";
-/* ShadowDOM Styles for ntl-accordion-item */
-:host {
-  display: block;
-  --border-color: var(--nt-border-color, #e5e7eb);
-  --background-color-heading: var(--nt-light-subtle);
-  --background-color-heading-hover: var(--nt-light);
-  --header-padding: var(--nt-spacing-md, 1rem);
-  --content-padding: var(--nt-spacing-md, 1rem);
-  --marker-size: 1.5rem;
-  --padding: 0.5rem 1rem;
-  interpolate-size: allow-keywords;
-  /* Icon data URLs as CSS variables — reference --ntl-icon-* from :root (index.scss)
-   * with inline SVG fallbacks for standalone usage.
-   * Override these from outside to change individual icons. */
-  --icon-chevron-down: var(
-    --ntl-icon-chevron-down,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")
-  );
-  --icon-chevron-up: var(
-    --ntl-icon-chevron-up,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18 15 12 9 6 15'/%3E%3C/svg%3E")
-  );
-  --icon-plus: var(
-    --ntl-icon-plus,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E")
-  );
-  --icon-minus: var(
-    --ntl-icon-minus,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E")
-  );
-  /* Active icon — defaults to chevron.
-   * --marker-icon-closed / --marker-icon-open can be set from outside
-   * (e.g. via section-style in markdown) to override with custom SVG URLs. */
-  --active-marker-icon: var(--marker-icon-closed, var(--icon-chevron-down));
-}
-
-:host([open]) {
-  --active-marker-icon: var(--marker-icon-open, var(--icon-chevron-up));
-}
-
-details {
-  overflow: hidden;
-}
-
-/* Fallback for browsers without ::details-content support */
-details:not([open]) #content {
-  display: none;
-}
-
-details[open] #content {
-  display: block;
-}
-
-/* Progressive enhancement: Smooth animation for browsers that support ::details-content */
-@supports selector(::details-content) {
-  details::details-content {
-    block-size: 0;
-    overflow: hidden;
-    transition: block-size 0.5s, content-visibility 0.5s;
-    transition-behavior: allow-discrete;
-    padding-inline: var(--content-padding);
-  }
-  details[open]::details-content {
-    block-size: auto;
-  }
-  /* When using ::details-content, let it handle visibility */
-  details:not([open]) #content,
-  details[open] #content {
-    display: block;
-  }
-}
-details * {
-  margin: 0;
-}
-
-summary {
-  display: flex;
-  align-items: center;
-  line-height: 1.3;
-  padding: var(--header-padding);
-  list-style-position: outside;
-  gap: 0.75rem;
-  cursor: pointer;
-  user-select: none;
-  list-style: none;
-  background-color: var(--background-color-heading);
-}
-summary::-webkit-details-marker {
-  display: none;
-}
-summary::marker {
-  display: none;
-  content: "";
-}
-summary:hover {
-  background-color: var(--background-color-heading-hover);
-}
-
-#content {
-  padding-block: 1rem;
-}
-
-#title {
-  flex: 1;
-  font-weight: 500;
-}
-
-/* Marker icon using CSS mask-image */
-#marker {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--marker-size);
-  height: var(--marker-size);
-  flex-shrink: 0;
-}
-#marker::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: currentColor;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-image: var(--active-marker-icon);
-  -webkit-mask-image: var(--active-marker-icon);
-}
-
-/* Marker icon variants */
-:host([marker-icon=plus]) {
-  --active-marker-icon: var(--marker-icon-closed, var(--icon-plus));
-}
-
-:host([marker-icon=plus][open]) {
-  --active-marker-icon: var(--marker-icon-open, var(--icon-minus));
-}
-
-/* Marker position */
-:host([marker-position=start]) #summary {
-  flex-direction: row-reverse;
-}
-
-summary:focus-visible {
-  outline: 2px solid var(--nt-focus-ring-color, #3b82f6);
-  outline-offset: -2px;
-}`;
+const style$4 = '@charset "UTF-8";\n/* ShadowDOM Styles for ntl-accordion-item */\n:host {\n  display: block;\n  --border-color: var(--nt-border-color, #e5e7eb);\n  --background-color-heading: var(--nt-light-subtle);\n  --background-color-heading-hover: var(--nt-light);\n  --marker-size: 1.5rem;\n  --padding: var(--nt-text-gap, 1rem);\n  interpolate-size: allow-keywords;\n  /* Active icon — defaults to chevron.\n   * --marker-icon-closed / --marker-icon-open can be set from outside\n   * (e.g. via section-style in markdown) to override with custom SVG URLs. */\n  --marker-icon-closed: var(--ntl-icon-chevron-down);\n  --marker-icon-open: var(--ntl-icon-chevron-up);\n  --active-marker-icon: var(--marker-icon-closed);\n}\n\n:host([open]) {\n  --active-marker-icon: var(--marker-icon-open);\n}\n\n/* Fallback for browsers without ::details-content support */\n#details {\n  display: flex;\n  overflow: hidden;\n  flex-direction: column;\n}\n#details #content {\n  display: block;\n  padding: var(--padding);\n}\n#details:not([open]) #content {\n  display: none;\n}\n#details #summary {\n  order: 0;\n  display: flex;\n  align-items: center;\n  line-height: 1.3;\n  padding: var(--padding);\n  list-style-position: outside;\n  gap: 0.75rem;\n  cursor: pointer;\n  user-select: none;\n  list-style: none;\n  background-color: var(--background-color-heading);\n}\n#details #summary::-webkit-details-marker {\n  display: none;\n}\n#details #summary::marker {\n  display: none;\n  content: "";\n}\n#details #summary:hover {\n  background-color: var(--background-color-heading-hover);\n}\n\n/* Progressive enhancement: Smooth animation for browsers that support ::details-content */\n@supports selector(::details-content) {\n  details::details-content {\n    block-size: 0;\n    overflow: hidden;\n    transition: block-size 0.5s, content-visibility 0.5s;\n    transition-behavior: allow-discrete;\n  }\n  details[open]::details-content {\n    block-size: auto;\n  }\n  /* When using ::details-content, let it handle visibility */\n  details:not([open]) #content,\n  details[open] #content {\n    display: block;\n  }\n}\n#title {\n  flex: 1;\n  font-weight: 500;\n}\n\n/* Marker icon using CSS mask-image */\n#marker {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: var(--marker-size);\n  height: var(--marker-size);\n  flex-shrink: 0;\n}\n#marker::before {\n  content: "";\n  display: block;\n  width: 100%;\n  height: 100%;\n  background-color: currentColor;\n  mask-size: contain;\n  mask-repeat: no-repeat;\n  mask-position: center;\n  -webkit-mask-size: contain;\n  -webkit-mask-repeat: no-repeat;\n  -webkit-mask-position: center;\n  mask-image: var(--active-marker-icon);\n  -webkit-mask-image: var(--active-marker-icon);\n}\n\n#summary:focus-visible {\n  outline: 2px solid var(--nt-focus-ring-color, #3b82f6);\n  outline-offset: -2px;\n}';
 var __create$3 = Object.create;
 var __defProp$4 = Object.defineProperty;
 var __getOwnPropDesc$4 = Object.getOwnPropertyDescriptor;
@@ -7173,7 +7023,7 @@ class NtlAccordionItemElement extends (_a$3 = SubLayoutApplyMixin(LoggingMixin(i
   }
   render() {
     return b`
-      <details @toggle="${this._onToggle}">
+      <details part="details" id="details" @toggle="${this._onToggle}">
         <summary id="summary" part="summary">
           <span id="title" part="title">
             <slot
