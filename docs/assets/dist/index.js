@@ -1648,7 +1648,6 @@ function SubLayoutApplyMixin(Base) {
   }
   return SubLayoutApply;
 }
-const autoAddedClassNamesMap = /* @__PURE__ */ new WeakMap();
 function parseBreakpointRange(spec) {
   const s2 = spec.trim();
   if (!s2) return { from: 0, till: Infinity };
@@ -1671,40 +1670,76 @@ function parseBreakpointRange(spec) {
   return { from: getBreakpointMinWidth(s2), till: Infinity };
 }
 function getObservedClasses(input) {
-  const parts = input.split(" ");
+  var _a3, _b2, _c2, _d2;
+  const parts = input;
+  const observedClassNames = /* @__PURE__ */ new Set();
   const retArr = [];
+  const addClasses = (from, till, classNames) => {
+    for (const className of classNames.split(".")) {
+      observedClassNames.add(className);
+      retArr.push({ from, till, className });
+    }
+  };
   for (const part of parts) {
     if (!part.includes(":")) {
       continue;
     }
-    let [bp, className] = part.split(":");
-    if (!bp || !className) {
+    const segments = part.split(":");
+    if (segments.length === 2) {
+      const [bp, className] = segments;
+      if (!bp || !className) {
+        continue;
+      }
+      const def = parseBreakpointRange(bp);
+      addClasses(def.from, def.till, className);
       continue;
     }
-    const def = parseBreakpointRange(bp);
-    const ret = { from: def.from, till: def.till, className };
-    retArr.push(ret);
-  }
-  return retArr;
-}
-function getAdjustetClassString(input, breakpoint, addedClasses) {
-  if (!input.includes(":")) return input;
-  const minWidth = getBreakpointMinWidth(breakpoint);
-  let splitClasses = input.split(" ");
-  const observedClasses = getObservedClasses(input);
-  for (const cls of addedClasses) {
-    splitClasses = splitClasses.filter((c2) => c2 !== cls);
-  }
-  for (const observed of observedClasses) {
-    splitClasses = splitClasses.filter((c2) => c2 !== observed.className);
-  }
-  for (const observed of observedClasses) {
-    if (minWidth >= observed.from && minWidth < observed.till) {
-      splitClasses.push(observed.className);
-      addedClasses.add(observed.className);
+    const partWitLeadingBp = part.startsWith(":") ? part : "::" + part;
+    const segmentsWithLeadingBp = partWitLeadingBp.split(":");
+    let lastBp = (_a3 = segmentsWithLeadingBp[1]) == null ? void 0 : _a3.trim();
+    let lastClass = (_b2 = segmentsWithLeadingBp[2]) == null ? void 0 : _b2.trim();
+    for (let i5 = 3; i5 + 1 < segmentsWithLeadingBp.length; i5 += 2) {
+      const bp = (_c2 = segmentsWithLeadingBp[i5]) == null ? void 0 : _c2.trim();
+      let className = (_d2 = segmentsWithLeadingBp[i5 + 1]) == null ? void 0 : _d2.trim();
+      if (bp && !className) {
+        className = "";
+      }
+      try {
+        const def = parseBreakpointRange(`${lastBp}-${bp}`);
+        addClasses(def.from, def.till, lastClass);
+      } catch (e2) {
+        throw new Error(
+          `Error parsing breakpoint range "${bp}" in part "${part}": ${e2 instanceof Error ? e2.message : String(e2)}`
+        );
+      }
+      lastBp = bp;
+      lastClass = className;
+    }
+    try {
+      const def = parseBreakpointRange(`${lastBp}`);
+      addClasses(def.from, def.till, lastClass);
+    } catch (e2) {
+      throw new Error(
+        `Error parsing breakpoint range "${lastBp}" in part "${part}": ${e2 instanceof Error ? e2.message : String(e2)}`
+      );
     }
   }
-  return splitClasses.join(" ");
+  return { data: retArr, observedClassNames };
+}
+function getAdjustetClassString(input, breakpoint) {
+  if (!input.includes(":")) return input;
+  const minWidth = getBreakpointMinWidth(breakpoint);
+  let splitClasses = new Set(input.split(" "));
+  const observedClasses = getObservedClasses(splitClasses);
+  for (const cls of observedClasses.observedClassNames) {
+    splitClasses.delete(cls);
+  }
+  for (const observed of observedClasses.data) {
+    if (minWidth >= observed.from && minWidth < observed.till) {
+      splitClasses.add(observed.className);
+    }
+  }
+  return Array.from(splitClasses).join(" ");
 }
 function adjustElementClasses(element, breakpoint, logger) {
   const origClasses = element.getAttribute("class") || "";
@@ -1716,12 +1751,7 @@ function adjustElementClasses(element, breakpoint, logger) {
     return;
   }
   logger.debug("Adujsted class for element:", element);
-  let addedClasses = autoAddedClassNamesMap.get(element);
-  if (!addedClasses) {
-    addedClasses = /* @__PURE__ */ new Set();
-    autoAddedClassNamesMap.set(element, addedClasses);
-  }
-  const newClasses = getAdjustetClassString(origClasses, breakpoint, addedClasses);
+  const newClasses = getAdjustetClassString(origClasses, breakpoint);
   if (newClasses !== origClasses) {
     element.setAttribute("class", newClasses);
   }

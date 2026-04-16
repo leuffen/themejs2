@@ -15,23 +15,25 @@ layout: default
     </progress-bar>
 
     <!-- Header -->
-    <div class="row gx-3 justify-content-center mb-5">
-        <div class="-xl:col-12 xl:col-8">
-            <div class="prose prose-xl">
+    <div class="d-flex flex-column:xl:flex-row gap-3 flex-nowrap mb-5 mx-3">
+        <div class="w-100:xl:w-auto">
+            <div class="prose prose-xl ">
+                <h1 class="h2">{{page.title}}</h1>
+
+                <div class="fs-2 text-black">
+                    {{ page.excerpt }}
+                </div>
+
                 {% if page.image %}
                 <div>
                     <img src="{{page.image}}" alt="{{page.title}}">
                 </div>
                 {% endif %}
 
-                <h1>{{page.title}}</h1>
 
-                <div class="fs-2 text-black">
-                    {{ page.excerpt }}
-                </div>
             </div>
         </div>
-        <div class="-sm:col-12 -xl:col-6 xl:col-4">
+        <div class="w-100:xl:mt-5" style-xl="flex: 0 0 33.3%">
             <aside>
 
 
@@ -42,7 +44,7 @@ layout: default
                         </div>
 
                         <div class="p-3">
-                            <div style="color: var(--nt-secondary);" class="fs-4 ">{{ page.title }}</div>
+                            <div style="" class="fs-4 fw-medium">{{ page.title }}</div>
                             {% if page.author or page.date or page.reading_time %}
                             <div class="fs-6" style="color: var(--nt-text);">
                                 <table class="table-borderless">
@@ -94,12 +96,12 @@ layout: default
                         <div class="px-3">
                             <div class="row gx-2" style="color: var(--nt-text);">
                                 {% assign ai_types = "researched,written,formatted" | split: "," %}
-                                {% assign ai_labels = "Recherche,Schreiben,Formatierung" | split: "," %}
+                                {% assign ai_labels = "Recherche,Schreiben,Layout" | split: "," %}
                                 {% for type in ai_types %}
                                 {% assign type_key = type | append: "-by" %}
                                 {% assign type_value = page[type_key] %}
                                 <div class="col-4">
-                                    <div class="d-flex flex-column fs-6 justify-items-center h-100" style="border-radius: calc(0.25rem * 5);  background-color: var(--nt-tertiary)">
+                                    <div class="d-flex flex-column fs-6 justify-items-center h-100 bg-gray-200" style="border-radius: calc(0.25rem * 5);">
 
 
                                         {% if type_value == "human" %}
@@ -132,7 +134,24 @@ layout: default
                             {% endfor %}
                         </div>
                     </div>
-                    <h3 class="fs-5 p-0">Infos zum Artikel</h3>
+                    <p class="-xl:d-none" slot="title">Infos zum Artikel</p>
+                    <div class="xl:d-none fs-5 p-0" slot="title">
+                        <table class="table gap-1">
+                            <tr>
+                                <td class="p-0 pe-2">Datum:</td>
+                                <td class="p-0">{{ page.date | date: "%d.%m.%Y" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="p-0 pe-2">Autor:</td>
+                                <td class="p-0">{{ page.author }}</td>
+                            </tr>
+                            <tr>
+                                <td class="p-0 pe-2">Lesezeit:</td>
+                                <td class="p-0">ca. {{ page.reading_time }} Minuten</td>
+                            </tr>
+                        </table>
+                    </div>
+
                 </ntl-accordion-item>
 
             </aside>
@@ -141,8 +160,8 @@ layout: default
 
 
 
-    <div class="row gx-2">
-        <div class="-xl:col-12 xl:col-8">
+    <div class="d-flex flex-column:xl:flex-row gap-3 flex-nowrap mb-5 mx-3">
+        <div class="w-100:xl:w-auto">
             <main>
                 <style>
                     .skip-first-p > p:first-child {
@@ -197,7 +216,7 @@ layout: default
 
             </main>
         </div>
-        <div class="-xl:col-12 xl:col-4">
+        <div class="w-100:xl:mt-5" style-xl="flex: 0 0 33.3%">
 
             <aside class="mt-5 p-4 rounded d-flex aside-share"
             style="flex-direction: column; gap: var(--nt-space-3); align-items: center; margin-top: var(--nt-space-3) !important; background-color: var(--nt-body-tertiary)"
