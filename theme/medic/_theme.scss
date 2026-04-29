@@ -1,6 +1,6 @@
 @use "sass:meta";
 @use "./../../font/opensans-regular" as font;
-//@use "./../../font/_vendor/font-bootstrap-icons";
+@use "./../../font/_vendor/font-bootstrap-icons";
 @use "@nextrap/style-base/module" as nextrapBase;
 
 @forward "../../src/style/base";
