@@ -3,7 +3,10 @@
 
 @use "@leuffen/themejs2/theme/medic" with (
         $theme: (
+            font-family-base: sans-serif,
+            font-family-header: sans-serif,
             colors: (
+
                 primary: #316947
             ))
 );
