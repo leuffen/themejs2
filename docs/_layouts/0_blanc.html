@@ -66,6 +66,12 @@ layout: null
     </script>
 
 
+    <script>
+        {% include dist/embed.js %}
+
+    </script>
+
+
     {% comment %} ======== Liquid script for alternative language links ======= {% endcomment %}
     {%- assign alt_lang_pages = site.pages | where: "pid", page.pid | where_exp: "item", "item.lang != page.lang" -%}
     {%- for alt_page in alt_lang_pages -%}

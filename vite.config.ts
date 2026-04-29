@@ -3,6 +3,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // @ts-ignore
 import path from "path";
 import visualizer from "rollup-plugin-visualizer";
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+import fs from "fs-extra";
 
 export default defineConfig({
     plugins: [
@@ -15,6 +17,13 @@ export default defineConfig({
                 }
             },
         },
+      {
+        name: 'copy-after-build',
+        closeBundle: async () => {
+          await fs.copy('docs/assets/dist/embed.js', 'docs/_includes/dist/embed.js')
+          console.log('Copied build to Jekyll assets')
+        }
+      }
     ],
     server: {
         port: 4000,
@@ -28,7 +37,7 @@ export default defineConfig({
         },
     },
     build: {
-        minify: false,
+        minify: true,
         cssCodeSplit: false,
         emptyOutDir: false,
         rollupOptions: {
@@ -39,7 +48,7 @@ export default defineConfig({
                     gzipSize: true,
                     brotliSize: true,
                     template: "treemap", // or: "sunburst", "network"
-                }),
+                })
             ],
             input: {
                 index: path.resolve(__dirname, "docs/_src/index.ts"),

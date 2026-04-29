@@ -3,11 +3,13 @@ layout: 0_blanc
 ---
 
 <body>
+<tj-loader class="stay-open--">
 <micx-cdn-image-loader default-size-adjust=":1.2;1200:1">
 <tj-responsive>
 {{ content }}
 </tj-responsive>
 </micx-cdn-image-loader>
+</tj-loader>
 <nte-theme-switcher themes="{{ page.theme_classes}}"></nte-theme-switcher>
 
 </body>
