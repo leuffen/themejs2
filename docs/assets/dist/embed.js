@@ -19,7 +19,7 @@ class LoaderElement extends HTMLElement {
     const shadowRoot = this.shadowRoot;
     shadowRoot.appendChild(styleElement);
     const rootElement = document.createElement("div");
-    rootElement.innerHTML = `<div id="wrapper"><slot name="loader"><div id="window"><div id="image"><img src="" loading="eager"></div><div id="loadbar"></div></div></slot></div><slot id="main"></slot>`;
+    rootElement.innerHTML = `<div id="wrapper"><slot name="loader"><div id="window"><div id="image"><img src="" loading="eager" fetchpriority="high"></div><div id="loadbar"></div></div></slot></div><slot id="main"></slot>`;
     shadowRoot.appendChild(rootElement);
   }
   connectedCallback() {
