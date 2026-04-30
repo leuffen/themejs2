@@ -2,6 +2,7 @@
 layout: website
 body_class: theme-medic
 title: Theme Müller
+description: "Meta Description Text"
 theme_classes: "default theme-medic-osman"
 ptags:
   - arzt

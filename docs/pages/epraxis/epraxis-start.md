@@ -3,6 +3,8 @@ layout: website
 body_class: theme-epraxis
 title: ePraxis Start
 theme_classes: "theme-epraxis theme-medic"
+description: "Meta Description Text"
+
 ptags:
   - epraxis
 articles_related:
