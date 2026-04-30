@@ -3201,17 +3201,17 @@ var __decorateElement$b = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$b[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$f(k2 < 4 ? target : { get [name]() {
-    return __privateGet$a(this, extra);
+    return __privateGet$8(this, extra);
   }, set [name](x2) {
-    return __privateSet$a(this, extra, x2);
+    return __privateSet$8(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$b(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$b(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$b(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$a(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$a : __privateMethod$a)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$a(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$8(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$8 : __privateMethod$8)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$8(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$b(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -3220,12 +3220,12 @@ var __decorateElement$b = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$b(array, target), desc && __defProp$e(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$a = (obj, member, msg) => member.has(obj) || __typeError$b("Cannot " + msg);
-var __privateIn$a = (member, obj) => Object(obj) !== obj ? __typeError$b('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$a = (obj, member, getter) => (__accessCheck$a(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$8 = (obj, member, msg) => member.has(obj) || __typeError$b("Cannot " + msg);
+var __privateIn$8 = (member, obj) => Object(obj) !== obj ? __typeError$b('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$8 = (obj, member, getter) => (__accessCheck$8(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$9 = (obj, member, value) => member.has(obj) ? __typeError$b("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$a = (obj, member, value, setter) => (__accessCheck$a(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$a = (obj, member, method) => (__accessCheck$a(obj, member, "access private method"), method);
+var __privateSet$8 = (obj, member, value, setter) => (__accessCheck$8(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$8 = (obj, member, method) => (__accessCheck$8(obj, member, "access private method"), method);
 var _listenEvents_dec, _dataGroupName_dec, _text_dec, _open_dec$1, _a$b, _NteBurger_decorators, _init$b, _open$1, _text, _dataGroupName;
 _NteBurger_decorators = [t$1("nte-burger")];
 class NteBurger extends (_a$b = nextrap_element({
@@ -3253,6 +3253,17 @@ class NteBurger extends (_a$b = nextrap_element({
       return;
     }
     this.open = event.detail.open;
+  }
+  firstUpdated(_changedProperties) {
+    super.firstUpdated(_changedProperties);
+    const button = this.renderRoot.querySelector("#button");
+    if (button) {
+      Array.from(this.attributes).forEach((attr) => {
+        if (attr.name.startsWith("aria-")) {
+          button.setAttribute(attr.name, attr.value);
+        }
+      });
+    }
   }
   update(changedProperties) {
     super.update(changedProperties);
