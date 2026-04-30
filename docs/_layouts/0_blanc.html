@@ -2,7 +2,7 @@
 layout: null
 ---
 <!DOCTYPE html>
-<html class="{{page.body_class}}" lang="{{ page.lang }}">
+<html class="{{page.body_class}}" lang="{{ page.lang | default: 'de' }}">
 <head>
     <base href="{% if site.baseurl == '' or site.baseurl == null %}/{% else %}{{ site.baseurl }}{% endif %}">
 
