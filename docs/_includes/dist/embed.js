@@ -27,7 +27,7 @@ class LoaderElement extends HTMLElement {
     this.addEventListener("init:child-waitreq", (e) => this.#handleChildWaitReq(e));
     this.addEventListener("init:child-ready", (e) => this.#handleChildReady(e));
     this.#interval = window.setInterval(this.#checkReadyState, 2e3);
-    window.addEventListener("load", () => {
+    window.addEventListener("DOMContentLoaded", () => {
       this.#onAfterLoad = true;
       console.debug(`Window load event received after ${Date.now() - this.#startTime}ms`);
       this.#checkReadyState();
