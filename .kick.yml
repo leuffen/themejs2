@@ -15,10 +15,12 @@ command:
     jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4999 --livereload-port 4100 --host 0.0.0.0
 
   dev:
-    - killall jekyll ||  echo "no job"
-    - killall vite ||  echo "no job"
-    - "D:setsid kick jekyll"
-    - "D:vite -c vite.config.ts dev"
+    - 'kick killall'
+    - "D:npm run dev"
+
+  dev-b:
+    - 'kick killall'
+    - "D:npm run dev-b"
 
   init-workspaces:
     - "mkdir -p workspaces"
@@ -30,5 +32,6 @@ command:
     - "webpack build"
 
   killall:
-    - killall jekyll ||  echo "no job"
-    - killall vite ||  echo "no job"
+    - 'killall  "npm run dev" ||  true'
+    - 'killall  "npm run dev-b" || true'
+    - sleep 1

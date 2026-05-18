@@ -33,7 +33,7 @@ layout: null
     <meta property="og:url" content="{{ site.data.general.site_base_url }}{{ page.dir }}">
     <meta property="og:type" content="{{ page.type | default: 'article' }}">
     <meta property="og:site_name" content="{{ site.data.general.title }}">
-    <meta property="og:title" content="{% if page.type != 'website' %}{{ page.title | strip_html | escape }}} - {%endif%}{{ site.data.general.title }}">
+    <meta property="og:title" content="{% if page.type != 'website' %}{{ page.title | strip_html | escape }} - {%endif%}{{ site.data.general.title }}">
     <meta property="og:description" content="{{ page.description  | strip_html | strip_newlines | escape | replace: "  ", " " | replace: "  ", " "  | replace: "  ", " " | lstrip }}">
 
     <meta property="og:image" itemprop="image" content="/assets/logo256.png">

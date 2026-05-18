@@ -38,7 +38,7 @@ export default defineConfig({
         },
     },
     build: {
-        minify: false,
+        minify: true,
         cssCodeSplit: false,
         emptyOutDir: false,
         rollupOptions: {
