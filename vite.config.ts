@@ -8,15 +8,7 @@ import fs from "fs-extra";
 
 export default defineConfig({
     plugins: [
-        tsconfigPaths(),
-        {
-            name: "watch-md-reload",
-            handleHotUpdate({ file, server }) {
-                if (file.endsWith(".md")) {
-                    server.ws.send({ type: "full-reload" });
-                }
-            },
-        },
+      tsconfigPaths(),
       {
         name: 'copy-after-build',
         closeBundle: async () => {
@@ -27,7 +19,16 @@ export default defineConfig({
     ],
     server: {
         port: 4000,
+        strictPort: true,
         host: "0.0.0.0",
+        proxy: {
+          // alles, was Vite nicht selbst bedient, an Jekyll weiterreichen
+          // /assets muss zu Jekyll gehen, da die Dateien unter docs/assets liegen
+          '^(?!/@vite|/docs/_src/|/node_modules|/workspaces|.*\\.(js|css|ts|tsx|vue|svelte|scss|sass|less|map)$).*': {
+            target: 'http://localhost:4999',
+            changeOrigin: true,
+          },
+        },
         hmr: true,
     },
     root: __dirname,

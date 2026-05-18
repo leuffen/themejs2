@@ -36,9 +36,12 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
+  @include meta.load-css("./elements/tj-loader/tj-loader.scss");
 
 
   @include meta.load-css("./classes/kicker");
+
+
 }
 
 

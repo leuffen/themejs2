@@ -28,8 +28,7 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-consent-blocker/ntl-consent-blocker.scss");
   @include meta.load-css("./tools/_button-bar.scss");
   @include meta.load-css("./classes/kicker.scss");
-
-
+  @include meta.load-css("./elements/tj-loader/tj-loader.scss");
 
 
   .align-grid-items {

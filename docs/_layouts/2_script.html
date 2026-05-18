@@ -6,7 +6,6 @@ layout: 1_body
 
 <!-- Templates from /_elements -->
 
-
 {% for template in site.elements %}
     <template id="{{ template.slug }}">
         {{ template.content  | strip_newlines | whitespace_strip }}
@@ -15,4 +14,3 @@ layout: 1_body
 
 <!-- # Put <script> here -->
 <liweco-vacation-modal></liweco-vacation-modal>
-

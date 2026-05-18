@@ -85,6 +85,10 @@ let Debouncer$1 = class Debouncer {
       }, this.delay);
     });
   }
+  /**
+   * @deprecated Use wait() instead and handle the callback logic in the caller function for better control and flexibility.
+   * @param callback
+   */
   debounce(callback) {
     const now = Date.now();
     if (this.startTimeWithMs === 0) {
@@ -391,7 +395,7 @@ function BreakPointMixin(Base) {
 }
 const LISTENER_DEFS = /* @__PURE__ */ Symbol("listenerDefs");
 const MIXIN_FLAG = /* @__PURE__ */ Symbol("withEventBindings");
-function Listen$1(type, opts) {
+function Listen(type, opts) {
   const evts = Array.isArray(type) ? type : [type];
   return function(value, context) {
     if (context.kind !== "method") throw new Error("@Listen nur für Methoden");
@@ -505,37 +509,43 @@ function LoggingMixin(Base) {
 function LoaderMixin(Base) {
   class LoaderClass extends Base {
     connectedCallback() {
-      this.dispatchEvent(new CustomEvent("init:child-waitreq", {
-        detail: {
-          element: this,
-          state: "connected"
-        },
-        bubbles: true,
-        composed: true
-      }));
+      this.dispatchEvent(
+        new CustomEvent("init:child-waitreq", {
+          detail: {
+            element: this,
+            state: "connected"
+          },
+          bubbles: true,
+          composed: true
+        })
+      );
       super.connectedCallback();
     }
     firstUpdated(changedProperties) {
       super.firstUpdated?.(changedProperties);
-      this.dispatchEvent(new CustomEvent("init:child-ready", {
-        detail: {
-          element: this,
-          state: "ready"
-        },
-        bubbles: true,
-        composed: true
-      }));
+      this.dispatchEvent(
+        new CustomEvent("init:child-ready", {
+          detail: {
+            element: this,
+            state: "ready"
+          },
+          bubbles: true,
+          composed: true
+        })
+      );
     }
     disconnectedCallback() {
       super.disconnectedCallback();
-      this.dispatchEvent(new CustomEvent("init:child-ready", {
-        detail: {
-          element: this,
-          state: "disconnected"
-        },
-        bubbles: true,
-        composed: true
-      }));
+      this.dispatchEvent(
+        new CustomEvent("init:child-ready", {
+          detail: {
+            element: this,
+            state: "disconnected"
+          },
+          bubbles: true,
+          composed: true
+        })
+      );
     }
   }
   return LoaderClass;
@@ -1033,7 +1043,7 @@ class Z {
   }
 }
 const B = t$2.litHtmlPolyfillSupport;
-B?.(S, k), (t$2.litHtmlVersions ??= []).push("3.3.2");
+B?.(S, k), (t$2.litHtmlVersions ??= []).push("3.3.3");
 const D = (t2, i4, s2) => {
   const e4 = s2?.renderBefore ?? i4;
   let h3 = e4._$litPart$;
@@ -1139,17 +1149,17 @@ var __decorateElement$j = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$j[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$n(k2 < 4 ? target : { get [name]() {
-    return __privateGet$h(this, extra);
+    return __privateGet$g(this, extra);
   }, set [name](x2) {
-    return __privateSet$h(this, extra, x2);
+    return __privateSet$g(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$i(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$i(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$j(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$g(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$h : __privateMethod$g)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$h(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$f(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$g : __privateMethod$f)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$g(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$j(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -1158,12 +1168,12 @@ var __decorateElement$j = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$j(array, target), desc && __defProp$m(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$h = (obj, member, msg) => member.has(obj) || __typeError$j("Cannot " + msg);
-var __privateIn$g = (member, obj) => Object(obj) !== obj ? __typeError$j('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$h = (obj, member, getter) => (__accessCheck$h(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$g = (obj, member, msg) => member.has(obj) || __typeError$j("Cannot " + msg);
+var __privateIn$f = (member, obj) => Object(obj) !== obj ? __typeError$j('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$g = (obj, member, getter) => (__accessCheck$g(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$g = (obj, member, value) => member.has(obj) ? __typeError$j("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$h = (obj, member, value, setter) => (__accessCheck$h(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$g = (obj, member, method) => (__accessCheck$h(obj, member, "access private method"), method);
+var __privateSet$g = (obj, member, value, setter) => (__accessCheck$g(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$f = (obj, member, method) => (__accessCheck$g(obj, member, "access private method"), method);
 var _message_dec, _a$j, _TjErrorElement_decorators, _init$j, _message;
 _TjErrorElement_decorators = [t$1("tj-error-element")];
 class TjErrorElement extends (_a$j = i$2, _message_dec = [n$4({ type: String, reflect: true })], _a$j) {
@@ -1451,17 +1461,17 @@ var __decorateElement$i = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$i[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$m(k2 < 4 ? target : { get [name]() {
-    return __privateGet$g(this, extra);
+    return __privateGet$f(this, extra);
   }, set [name](x2) {
-    return __privateSet$g(this, extra, x2);
+    return __privateSet$f(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$h(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$h(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$i(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$f(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$g : __privateMethod$f)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$g(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$e(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$f : __privateMethod$e)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$f(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$i(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -1470,82 +1480,31 @@ var __decorateElement$i = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$i(array, target), desc && __defProp$l(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$g = (obj, member, msg) => member.has(obj) || __typeError$i("Cannot " + msg);
-var __privateIn$f = (member, obj) => Object(obj) !== obj ? __typeError$i('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$g = (obj, member, getter) => (__accessCheck$g(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$f = (obj, member, msg) => member.has(obj) || __typeError$i("Cannot " + msg);
+var __privateIn$e = (member, obj) => Object(obj) !== obj ? __typeError$i('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$f = (obj, member, getter) => (__accessCheck$f(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$f = (obj, member, value) => member.has(obj) ? __typeError$i("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$g = (obj, member, value, setter) => (__accessCheck$g(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$f = (obj, member, method) => (__accessCheck$g(obj, member, "access private method"), method);
-var _onScroll_dec$1, _skipLayout_dec, _a$i, _ContentAreaElement2_decorators, _init$i, _skipLayout, _afterScrolling;
-const tjSessionStage = session_storage("tj_sess_state", {
+var __privateSet$f = (obj, member, value, setter) => (__accessCheck$f(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$e = (obj, member, method) => (__accessCheck$f(obj, member, "access private method"), method);
+var _skipLayout_dec, _a$i, _ContentAreaElement2_decorators, _init$i, _skipLayout;
+session_storage("tj_sess_state", {
   lhref: "",
   // The last Page that was loaded
   scrollpos: 0,
   sessstart: Date.now(),
   pages: 0
 });
-const scrollDebouncer = new Debouncer$1(100, 200);
 _ContentAreaElement2_decorators = [t$1("tj-content-pane")];
-class ContentAreaElement2 extends (_a$i = EventBindingsMixin(LoggingMixin(y$1)), _skipLayout_dec = [n$4({ type: Boolean, reflect: true, attribute: "skip-layout" })], _onScroll_dec$1 = [Listen$1("scroll", { target: "window", options: { passive: true } })], _a$i) {
+class ContentAreaElement2 extends (_a$i = EventBindingsMixin(LoggingMixin(LoaderMixin(y$1))), _skipLayout_dec = [n$4({ type: Boolean, reflect: true, attribute: "skip-layout" })], _a$i) {
   constructor() {
     super();
-    __runInitializers$i(_init$i, 5, this);
     __privateAdd$f(this, _skipLayout, __runInitializers$i(_init$i, 8, this, false)), __runInitializers$i(_init$i, 11, this);
-    __privateAdd$f(this, _afterScrolling, false);
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
   }
   static get is() {
     return "tj-content-pane";
   }
   createRenderRoot() {
     return this;
-  }
-  async onScroll() {
-    if (!__privateGet$g(this, _afterScrolling)) {
-      return;
-    }
-    await scrollDebouncer.wait();
-    const pos = Math.round(window.scrollY || window.pageYOffset);
-    console.log("Saving scroll position:", pos);
-    tjSessionStage.scrollpos = pos;
-  }
-  async scrollToPosition() {
-    await waitForLoad();
-    console.log("Scrolling to position, session state:", tjSessionStage.scrollpos);
-    const curUrl = window.location.href;
-    let reload = true;
-    if (tjSessionStage.lhref !== curUrl) {
-      reload = false;
-      tjSessionStage.lhref = curUrl;
-      tjSessionStage.pages += 1;
-      tjSessionStage.scrollpos = 0;
-    }
-    if (reload) {
-      const scrollToIndex = tjSessionStage.scrollpos;
-      for (let i4 = 0; i4 < 10; i4++) {
-        window.scrollTo({ top: scrollToIndex, behavior: "auto" });
-        if (scrollToIndex <= document.documentElement.scrollHeight - window.innerHeight + 1) {
-          console.log("Scrolled to position:", scrollToIndex);
-          break;
-        }
-        await sleep$1(i4 * 150);
-      }
-      await sleep$1(2e3);
-      __privateSet$g(this, _afterScrolling, true);
-      return;
-    }
-    let hashElement = null;
-    const hash = window.location.hash;
-    if (hash) {
-      hashElement = document.getElementById(hash.substring(1));
-      if (hashElement) {
-        hashElement.scrollIntoView({ behavior: "smooth" });
-        __privateSet$g(this, _afterScrolling, true);
-        return;
-      }
-    }
   }
   arrange() {
     const sw = new Stopwatch("SectionTreeBuilder");
@@ -1563,7 +1522,6 @@ class ContentAreaElement2 extends (_a$i = EventBindingsMixin(LoggingMixin(y$1)),
     }
     applyLayout(Array.from(this.children), { recursive: true });
     sw.lap("after arrange");
-    this.scrollToPosition();
   }
   async connectedCallback() {
     await waitForDomContentLoaded$1();
@@ -1573,9 +1531,7 @@ class ContentAreaElement2 extends (_a$i = EventBindingsMixin(LoggingMixin(y$1)),
 }
 _init$i = __decoratorStart$i(_a$i);
 _skipLayout = /* @__PURE__ */ new WeakMap();
-_afterScrolling = /* @__PURE__ */ new WeakMap();
 __decorateElement$i(_init$i, 4, "skipLayout", _skipLayout_dec, ContentAreaElement2, _skipLayout);
-__decorateElement$i(_init$i, 1, "onScroll", _onScroll_dec$1, ContentAreaElement2);
 ContentAreaElement2 = __decorateElement$i(_init$i, 0, "ContentAreaElement2", _ContentAreaElement2_decorators, ContentAreaElement2);
 __runInitializers$i(_init$i, 1, ContentAreaElement2);
 function multiQuerySelectAll(qurey, element) {
@@ -1979,12 +1935,12 @@ var __decorateElement$h = (array, flags, name, decorators, target, extra) => {
   }
   return desc && __defProp$k(target, name, desc), target;
 };
-var __accessCheck$f = (obj, member, msg) => member.has(obj) || __typeError$h("Cannot " + msg);
-var __privateGet$f = (obj, member, getter) => (__accessCheck$f(obj, member, "read from private field"), member.get(obj));
+var __accessCheck$e = (obj, member, msg) => member.has(obj) || __typeError$h("Cannot " + msg);
+var __privateGet$e = (obj, member, getter) => (__accessCheck$e(obj, member, "read from private field"), member.get(obj));
 var __privateAdd$e = (obj, member, value) => member.has(obj) ? __typeError$h("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$f = (obj, member, value, setter) => (__accessCheck$f(obj, member, "write to private field"), member.set(obj, value), value);
+var __privateSet$e = (obj, member, value, setter) => (__accessCheck$e(obj, member, "write to private field"), member.set(obj, value), value);
 var _onResize_dec, _a$h, _breakpoint$1, _elementObserver, _init$h;
-class TjResponsiveElement extends (_a$h = EventBindingsMixin(LoggingMixin(HTMLElement)), _onResize_dec = [Listen$1("resize", { target: "window" })], _a$h) {
+class TjResponsiveElement extends (_a$h = EventBindingsMixin(LoggingMixin(HTMLElement)), _onResize_dec = [Listen("resize", { target: "window" })], _a$h) {
   constructor() {
     super();
     __runInitializers$h(_init$h, 5, this);
@@ -1998,27 +1954,27 @@ class TjResponsiveElement extends (_a$h = EventBindingsMixin(LoggingMixin(HTMLEl
   async onResize(ev) {
     await this.resizeDebouncer.wait();
     const newBreakpoint = getCurrentBreakpoint();
-    if (newBreakpoint !== __privateGet$f(this, _breakpoint$1)) {
-      __privateSet$f(this, _breakpoint$1, newBreakpoint);
-      this.log(`Breakpoint changed to ${__privateGet$f(this, _breakpoint$1)}, adjusting layout.`);
-      __privateGet$f(this, _elementObserver).breakpoint = __privateGet$f(this, _breakpoint$1);
-      __privateGet$f(this, _elementObserver).queueAll();
+    if (newBreakpoint !== __privateGet$e(this, _breakpoint$1)) {
+      __privateSet$e(this, _breakpoint$1, newBreakpoint);
+      this.log(`Breakpoint changed to ${__privateGet$e(this, _breakpoint$1)}, adjusting layout.`);
+      __privateGet$e(this, _elementObserver).breakpoint = __privateGet$e(this, _breakpoint$1);
+      __privateGet$e(this, _elementObserver).queueAll();
     }
   }
   attributeChangedCallback(_name2, oldValue, newValue) {
   }
   async connectedCallback() {
     super.connectedCallback?.();
-    __privateSet$f(this, _breakpoint$1, getCurrentBreakpoint());
-    __privateGet$f(this, _elementObserver).breakpoint = __privateGet$f(this, _breakpoint$1);
-    this.debug("Initializing ElementObserver for responsive adjustments.", __privateGet$f(this, _breakpoint$1));
-    __privateGet$f(this, _elementObserver).startObserving(this);
-    __privateGet$f(this, _elementObserver).queueAll();
+    __privateSet$e(this, _breakpoint$1, getCurrentBreakpoint());
+    __privateGet$e(this, _elementObserver).breakpoint = __privateGet$e(this, _breakpoint$1);
+    this.debug("Initializing ElementObserver for responsive adjustments.", __privateGet$e(this, _breakpoint$1));
+    __privateGet$e(this, _elementObserver).startObserving(this);
+    __privateGet$e(this, _elementObserver).queueAll();
   }
   disconnectedCallback() {
     super.disconnectedCallback?.();
     this.debug("TjResponsiveElement disconnected from the DOM.");
-    __privateGet$f(this, _elementObserver).stopObserving();
+    __privateGet$e(this, _elementObserver).stopObserving();
   }
 }
 _init$h = __decoratorStart$h(_a$h);
@@ -2335,17 +2291,17 @@ var __decorateElement$g = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$g[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$k(k2 < 4 ? target : { get [name]() {
-    return __privateGet$e(this, extra);
+    return __privateGet$d(this, extra);
   }, set [name](x2) {
-    return __privateSet$e(this, extra, x2);
+    return __privateSet$d(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$g(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$g(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$g(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$e(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$e : __privateMethod$e)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$e(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$d(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$d : __privateMethod$d)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$d(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$g(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -2354,12 +2310,12 @@ var __decorateElement$g = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$g(array, target), desc && __defProp$j(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$e = (obj, member, msg) => member.has(obj) || __typeError$g("Cannot " + msg);
-var __privateIn$e = (member, obj) => Object(obj) !== obj ? __typeError$g('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$e = (obj, member, getter) => (__accessCheck$e(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$d = (obj, member, msg) => member.has(obj) || __typeError$g("Cannot " + msg);
+var __privateIn$d = (member, obj) => Object(obj) !== obj ? __typeError$g('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$d = (obj, member, getter) => (__accessCheck$d(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$d = (obj, member, value) => member.has(obj) ? __typeError$g("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$e = (obj, member, value, setter) => (__accessCheck$e(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$e = (obj, member, method) => (__accessCheck$e(obj, member, "access private method"), method);
+var __privateSet$d = (obj, member, value, setter) => (__accessCheck$d(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$d = (obj, member, method) => (__accessCheck$d(obj, member, "access private method"), method);
 var _closedClass_dec, _dataGroupName_dec$2, _opened_dec, _backdrop_dec, _a$g, _NteOffcanvas_decorators, _init$g, _backdrop, _opened, _dataGroupName$2, _closedClass;
 _NteOffcanvas_decorators = [t$1("nte-offcanvas")];
 class NteOffcanvas extends (_a$g = i$2, _backdrop_dec = [n$4({ type: Boolean, reflect: true })], _opened_dec = [n$4({ type: Boolean, reflect: true })], _dataGroupName_dec$2 = [n$4({ type: String, attribute: "data-group-name" })], _closedClass_dec = [r$2()], _a$g) {
@@ -2477,17 +2433,17 @@ var __decorateElement$f = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$f[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$j(k2 < 4 ? target : { get [name]() {
-    return __privateGet$d(this, extra);
+    return __privateGet$c(this, extra);
   }, set [name](x2) {
-    return __privateSet$d(this, extra, x2);
+    return __privateSet$c(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$f(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$f(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$f(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$d(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$d : __privateMethod$d)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$d(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$c(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$c : __privateMethod$c)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$c(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$f(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -2496,19 +2452,19 @@ var __decorateElement$f = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$f(array, target), desc && __defProp$i(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$d = (obj, member, msg) => member.has(obj) || __typeError$f("Cannot " + msg);
-var __privateIn$d = (member, obj) => Object(obj) !== obj ? __typeError$f('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$d = (obj, member, getter) => (__accessCheck$d(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$c = (obj, member, msg) => member.has(obj) || __typeError$f("Cannot " + msg);
+var __privateIn$c = (member, obj) => Object(obj) !== obj ? __typeError$f('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$c = (obj, member, getter) => (__accessCheck$c(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$c = (obj, member, value) => member.has(obj) ? __typeError$f("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$d = (obj, member, value, setter) => (__accessCheck$d(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$d = (obj, member, method) => (__accessCheck$d(obj, member, "access private method"), method);
+var __privateSet$c = (obj, member, value, setter) => (__accessCheck$c(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$c = (obj, member, method) => (__accessCheck$c(obj, member, "access private method"), method);
 var _handleClickOutside_dec, _handleClickOnSubmenu_dec, __isTransferred_dec, _dataGroupName_dec$1, _transferTo_dec, _breakpoint_dec, _mode_dec$1, _a$f, _NteNav_decorators, _init$f, _mode$1, _breakpoint, _transferTo, _dataGroupName$1, __isTransferred, _curClickLi;
 const features$2 = {
   eventBinding: true,
   logging: true
 };
 _NteNav_decorators = [t$1("nte-nav")];
-class NteNav extends (_a$f = nextrap_element(features$2), _mode_dec$1 = [n$4({ type: String, reflect: true })], _breakpoint_dec = [n$4({ type: String, reflect: true })], _transferTo_dec = [n$4({ type: String, reflect: true, attribute: "transfer-to" })], _dataGroupName_dec$1 = [n$4({ type: String, reflect: false, attribute: "data-group-name" })], __isTransferred_dec = [r$2()], _handleClickOnSubmenu_dec = [Listen$1("click", { target: "host" })], _handleClickOutside_dec = [Listen$1("click", { target: "window" })], _a$f) {
+class NteNav extends (_a$f = nextrap_element(features$2), _mode_dec$1 = [n$4({ type: String, reflect: true })], _breakpoint_dec = [n$4({ type: String, reflect: true })], _transferTo_dec = [n$4({ type: String, reflect: true, attribute: "transfer-to" })], _dataGroupName_dec$1 = [n$4({ type: String, reflect: false, attribute: "data-group-name" })], __isTransferred_dec = [r$2()], _handleClickOnSubmenu_dec = [Listen("click", { target: "host" })], _handleClickOutside_dec = [Listen("click", { target: "window" })], _a$f) {
   constructor() {
     super();
     __runInitializers$f(_init$f, 5, this);
@@ -2521,24 +2477,24 @@ class NteNav extends (_a$f = nextrap_element(features$2), _mode_dec$1 = [n$4({ t
   }
   handleClickOnSubmenu(e4) {
     const clickLi = e4.target?.closest("li:has(ul)");
-    if (__privateGet$d(this, _curClickLi)) {
-      __privateGet$d(this, _curClickLi).classList.remove("is-open");
-      __privateSet$d(this, _curClickLi, null);
+    if (__privateGet$c(this, _curClickLi)) {
+      __privateGet$c(this, _curClickLi).classList.remove("is-open");
+      __privateSet$c(this, _curClickLi, null);
     }
     if (!clickLi) {
       return;
     }
-    __privateSet$d(this, _curClickLi, clickLi);
+    __privateSet$c(this, _curClickLi, clickLi);
     clickLi.classList.add("is-open");
   }
   handleClickOutside(e4) {
-    if (!__privateGet$d(this, _curClickLi)) {
+    if (!__privateGet$c(this, _curClickLi)) {
       return;
     }
-    const clickInside = __privateGet$d(this, _curClickLi).contains(e4.target);
+    const clickInside = __privateGet$c(this, _curClickLi).contains(e4.target);
     if (!clickInside) {
-      __privateGet$d(this, _curClickLi).classList.remove("is-open");
-      __privateSet$d(this, _curClickLi, null);
+      __privateGet$c(this, _curClickLi).classList.remove("is-open");
+      __privateSet$c(this, _curClickLi, null);
     }
   }
   getOffcanvas() {
@@ -2725,10 +2681,10 @@ const o$2 = /* @__PURE__ */ new WeakMap(), n$2 = e$2(class extends f {
   }
   update(i4, [s2]) {
     const e4 = s2 !== this.G;
-    return e4 && void 0 !== this.G && this.rt(void 0), (e4 || this.lt !== this.ct) && (this.G = s2, this.ht = i4.options?.host, this.rt(this.ct = i4.element)), A;
+    return e4 && this.rt(void 0), (e4 || this.lt !== this.ct) && (this.G = s2, this.ht = i4.options?.host, this.rt(this.ct = i4.element)), A;
   }
   rt(t2) {
-    if (this.isConnected || (t2 = void 0), "function" == typeof this.G) {
+    if (void 0 !== this.G) if (this.isConnected || (t2 = void 0), "function" == typeof this.G) {
       const i4 = this.ht ?? globalThis;
       let s2 = o$2.get(i4);
       void 0 === s2 && (s2 = /* @__PURE__ */ new WeakMap(), o$2.set(i4, s2)), void 0 !== s2.get(this.G) && this.G.call(this.ht, void 0), s2.set(this.G, t2), void 0 !== t2 && this.G.call(this.ht, t2);
@@ -2768,17 +2724,17 @@ var __decorateElement$e = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$e[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$i(k2 < 4 ? target : { get [name]() {
-    return __privateGet$c(this, extra);
+    return __privateGet$b(this, extra);
   }, set [name](x2) {
-    return __privateSet$c(this, extra, x2);
+    return __privateSet$b(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$e(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$e(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$e(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$c(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$c : __privateMethod$c)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$c(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$b(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$b : __privateMethod$b)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$b(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$e(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -2787,12 +2743,12 @@ var __decorateElement$e = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$e(array, target), desc && __defProp$h(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$c = (obj, member, msg) => member.has(obj) || __typeError$e("Cannot " + msg);
-var __privateIn$c = (member, obj) => Object(obj) !== obj ? __typeError$e('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$c = (obj, member, getter) => (__accessCheck$c(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$b = (obj, member, msg) => member.has(obj) || __typeError$e("Cannot " + msg);
+var __privateIn$b = (member, obj) => Object(obj) !== obj ? __typeError$e('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$b = (obj, member, getter) => (__accessCheck$b(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$b = (obj, member, value) => member.has(obj) ? __typeError$e("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$c = (obj, member, value, setter) => (__accessCheck$c(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$c = (obj, member, method) => (__accessCheck$c(obj, member, "access private method"), method);
+var __privateSet$b = (obj, member, value, setter) => (__accessCheck$b(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$b = (obj, member, method) => (__accessCheck$b(obj, member, "access private method"), method);
 var _scrollThreshold_dec, _a$e, _NteNavbar_decorators, _init$e, _scrollThreshold;
 _NteNavbar_decorators = [t$1("nte-navbar")];
 class NteNavbar extends (_a$e = i$2, _scrollThreshold_dec = [n$4({ type: Number, attribute: "scroll-threshold", reflect: true })], _a$e) {
@@ -3003,17 +2959,17 @@ var __decorateElement$c = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$c[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$g(k2 < 4 ? target : { get [name]() {
-    return __privateGet$b(this, extra);
+    return __privateGet$a(this, extra);
   }, set [name](x2) {
-    return __privateSet$b(this, extra, x2);
+    return __privateSet$a(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$c(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$c(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$c(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$b(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$b : __privateMethod$b)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$b(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$a(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$a : __privateMethod$a)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$a(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$c(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -3022,15 +2978,15 @@ var __decorateElement$c = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$c(array, target), desc && __defProp$f(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$b = (obj, member, msg) => member.has(obj) || __typeError$c("Cannot " + msg);
-var __privateIn$b = (member, obj) => Object(obj) !== obj ? __typeError$c('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$b = (obj, member, getter) => (__accessCheck$b(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$a = (obj, member, msg) => member.has(obj) || __typeError$c("Cannot " + msg);
+var __privateIn$a = (member, obj) => Object(obj) !== obj ? __typeError$c('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$a = (obj, member, getter) => (__accessCheck$a(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$a = (obj, member, value) => member.has(obj) ? __typeError$c("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$b = (obj, member, value, setter) => (__accessCheck$b(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$b = (obj, member, method) => (__accessCheck$b(obj, member, "access private method"), method);
+var __privateSet$a = (obj, member, value, setter) => (__accessCheck$a(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$a = (obj, member, method) => (__accessCheck$a(obj, member, "access private method"), method);
 var _onScroll_dec, _initialized_dec, _done_dec, _mode_dec, _active_dec, _brandSelector_dec, _a$c, _NteNavBrandRelocator_decorators, _init$c, _brandSelector, _active, _mode, _done, _initialized, _brandElement;
 _NteNavBrandRelocator_decorators = [t$1("nte-nav-brand-relocator")];
-class NteNavBrandRelocator extends (_a$c = EventBindingsMixin(LoggingMixin(i$2)), _brandSelector_dec = [n$4({ type: String, reflect: true })], _active_dec = [n$4({ type: Boolean, reflect: true })], _mode_dec = [n$4({ type: String, reflect: true })], _done_dec = [r$2()], _initialized_dec = [r$2()], _onScroll_dec = [Listen$1("scroll", { target: "window", options: { passive: true } })], _a$c) {
+class NteNavBrandRelocator extends (_a$c = EventBindingsMixin(LoggingMixin(i$2)), _brandSelector_dec = [n$4({ type: String, reflect: true })], _active_dec = [n$4({ type: Boolean, reflect: true })], _mode_dec = [n$4({ type: String, reflect: true })], _done_dec = [r$2()], _initialized_dec = [r$2()], _onScroll_dec = [Listen("scroll", { target: "window", options: { passive: true } })], _a$c) {
   constructor() {
     super(...arguments);
     __runInitializers$c(_init$c, 5, this);
@@ -3059,13 +3015,13 @@ class NteNavBrandRelocator extends (_a$c = EventBindingsMixin(LoggingMixin(i$2))
     }
   }
   get brandElement() {
-    if (!__privateGet$b(this, _brandElement)) {
-      __privateSet$b(this, _brandElement, document.querySelector(this.brandSelector));
-      if (!__privateGet$b(this, _brandElement)) {
+    if (!__privateGet$a(this, _brandElement)) {
+      __privateSet$a(this, _brandElement, document.querySelector(this.brandSelector));
+      if (!__privateGet$a(this, _brandElement)) {
         this.warn(`Brand element not found using selector: ${this.brandSelector}`);
       }
     }
-    return __privateGet$b(this, _brandElement);
+    return __privateGet$a(this, _brandElement);
   }
   render() {
     const brandRect = this.brandElement?.getBoundingClientRect();
@@ -3094,7 +3050,7 @@ class NteNavBrandRelocator extends (_a$c = EventBindingsMixin(LoggingMixin(i$2))
   update(changedProperties) {
     if (changedProperties.has("active")) {
       if (this.active === true) {
-        __privateGet$b(this, _brandElement)?.style.setProperty("visibility", "hidden");
+        __privateGet$a(this, _brandElement)?.style.setProperty("visibility", "hidden");
         this.done = false;
       }
     }
@@ -3201,17 +3157,17 @@ var __decorateElement$b = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$b[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$f(k2 < 4 ? target : { get [name]() {
-    return __privateGet$8(this, extra);
+    return __privateGet$9(this, extra);
   }, set [name](x2) {
-    return __privateSet$8(this, extra, x2);
+    return __privateSet$9(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$b(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$b(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$b(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$8(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$8 : __privateMethod$8)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$8(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$9(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$9 : __privateMethod$9)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$9(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$b(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -3220,17 +3176,17 @@ var __decorateElement$b = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$b(array, target), desc && __defProp$e(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$8 = (obj, member, msg) => member.has(obj) || __typeError$b("Cannot " + msg);
-var __privateIn$8 = (member, obj) => Object(obj) !== obj ? __typeError$b('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$8 = (obj, member, getter) => (__accessCheck$8(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$9 = (obj, member, msg) => member.has(obj) || __typeError$b("Cannot " + msg);
+var __privateIn$9 = (member, obj) => Object(obj) !== obj ? __typeError$b('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$9 = (obj, member, getter) => (__accessCheck$9(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$9 = (obj, member, value) => member.has(obj) ? __typeError$b("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$8 = (obj, member, value, setter) => (__accessCheck$8(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$8 = (obj, member, method) => (__accessCheck$8(obj, member, "access private method"), method);
+var __privateSet$9 = (obj, member, value, setter) => (__accessCheck$9(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$9 = (obj, member, method) => (__accessCheck$9(obj, member, "access private method"), method);
 var _listenEvents_dec, _dataGroupName_dec, _text_dec, _open_dec$1, _a$b, _NteBurger_decorators, _init$b, _open$1, _text, _dataGroupName;
 _NteBurger_decorators = [t$1("nte-burger")];
 class NteBurger extends (_a$b = nextrap_element({
   eventBinding: true
-}), _open_dec$1 = [n$4({ type: Boolean, attribute: "open", reflect: true })], _text_dec = [n$4({ type: String, reflect: true })], _dataGroupName_dec = [n$4({ type: String, reflect: false, attribute: "data-group-name" })], _listenEvents_dec = [Listen$1(EVENT_NAME_GROUP_OPEN_CLOSE, { target: "document" })], _a$b) {
+}), _open_dec$1 = [n$4({ type: Boolean, attribute: "open", reflect: true })], _text_dec = [n$4({ type: String, reflect: true })], _dataGroupName_dec = [n$4({ type: String, reflect: false, attribute: "data-group-name" })], _listenEvents_dec = [Listen(EVENT_NAME_GROUP_OPEN_CLOSE, { target: "document" })], _a$b) {
   constructor() {
     super();
     __runInitializers$b(_init$b, 5, this);
@@ -3310,17 +3266,17 @@ var __decorateElement$a = (array, flags, name, decorators, target, extra) => {
   var j = k2 > 3 ? array.length + 1 : k2 ? s2 ? 1 : 2 : 0, key = __decoratorStrings$a[k2 + 5];
   var initializers = k2 > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
   var desc = k2 && (!p2 && !s2 && (target = target.prototype), k2 < 5 && (k2 > 3 || !p2) && __getOwnPropDesc$e(k2 < 4 ? target : { get [name]() {
-    return __privateGet$9(this, extra);
+    return __privateGet$8(this, extra);
   }, set [name](x2) {
-    return __privateSet$9(this, extra, x2);
+    return __privateSet$8(this, extra, x2);
   } }, name));
   k2 ? p2 && k2 < 4 && __name$a(extra, (k2 > 2 ? "set " : k2 > 1 ? "get " : "") + name) : __name$a(target, name);
   for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
     ctx = __decoratorContext$a(k2, name, done = {}, array[3], extraInitializers);
     if (k2) {
-      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$9(target, x2) : (x2) => name in x2 };
-      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$9 : __privateMethod$9)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
-      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$9(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
+      ctx.static = s2, ctx.private = p2, access = ctx.access = { has: p2 ? (x2) => __privateIn$8(target, x2) : (x2) => name in x2 };
+      if (k2 ^ 3) access.get = p2 ? (x2) => (k2 ^ 1 ? __privateGet$8 : __privateMethod$8)(x2, target, k2 ^ 4 ? extra : desc.get) : (x2) => x2[name];
+      if (k2 > 2) access.set = p2 ? (x2, y3) => __privateSet$8(x2, target, y3, k2 ^ 4 ? extra : desc.set) : (x2, y3) => x2[name] = y3;
     }
     it = (0, decorators[i4])(k2 ? k2 < 4 ? p2 ? extra : desc[key] : k2 > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
     if (k2 ^ 4 || it === void 0) __expectFn$a(it) && (k2 > 4 ? initializers.unshift(it) : k2 ? p2 ? extra = it : desc[key] = it : target = it);
@@ -3329,12 +3285,12 @@ var __decorateElement$a = (array, flags, name, decorators, target, extra) => {
   }
   return k2 || __decoratorMetadata$a(array, target), desc && __defProp$d(target, name, desc), p2 ? k2 ^ 4 ? extra : desc : target;
 };
-var __accessCheck$9 = (obj, member, msg) => member.has(obj) || __typeError$a("Cannot " + msg);
-var __privateIn$9 = (member, obj) => Object(obj) !== obj ? __typeError$a('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet$9 = (obj, member, getter) => (__accessCheck$9(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __accessCheck$8 = (obj, member, msg) => member.has(obj) || __typeError$a("Cannot " + msg);
+var __privateIn$8 = (member, obj) => Object(obj) !== obj ? __typeError$a('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$8 = (obj, member, getter) => (__accessCheck$8(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd$8 = (obj, member, value) => member.has(obj) ? __typeError$a("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet$9 = (obj, member, value, setter) => (__accessCheck$9(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod$9 = (obj, member, method) => (__accessCheck$9(obj, member, "access private method"), method);
+var __privateSet$8 = (obj, member, value, setter) => (__accessCheck$8(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$8 = (obj, member, method) => (__accessCheck$8(obj, member, "access private method"), method);
 var __ariaLabel_dec, __role_dec, __hasFooter_dec, __hasImage_dec, __hasHeader_dec, _fill_dec, _a$a, _NteCardElement_decorators, _init$a, _fill, __hasHeader, __hasImage, __hasFooter, __role, __ariaLabel, _aHrefElmeent, _click, _onHeaderSlot, _onFooterSlot, _onImageSlot, _onLinkSlot, _NteCardElement_instances, isRenderableNode_fn;
 _NteCardElement_decorators = [t$1("nte-card")];
 class NteCardElement extends (_a$a = LoggingMixin(i$2), _fill_dec = [n$4({ type: Boolean, reflect: true })], __hasHeader_dec = [r$2()], __hasImage_dec = [r$2()], __hasFooter_dec = [r$2()], __role_dec = [r$2()], __ariaLabel_dec = [r$2()], _a$a) {
@@ -3349,16 +3305,16 @@ class NteCardElement extends (_a$a = LoggingMixin(i$2), _fill_dec = [n$4({ type:
     __privateAdd$8(this, __ariaLabel, __runInitializers$a(_init$a, 28, this, null)), __runInitializers$a(_init$a, 31, this);
     __privateAdd$8(this, _aHrefElmeent, null);
     __privateAdd$8(this, _click, () => {
-      __privateGet$9(this, _aHrefElmeent)?.click();
+      __privateGet$8(this, _aHrefElmeent)?.click();
     });
     __privateAdd$8(this, _onHeaderSlot, (e4) => {
       const slot = e4.target;
-      const assigned = slot.assignedNodes({ flatten: true }).filter((n3) => __privateMethod$9(this, _NteCardElement_instances, isRenderableNode_fn).call(this, n3));
+      const assigned = slot.assignedNodes({ flatten: true }).filter((n3) => __privateMethod$8(this, _NteCardElement_instances, isRenderableNode_fn).call(this, n3));
       this._hasHeader = assigned.length > 0;
     });
     __privateAdd$8(this, _onFooterSlot, (e4) => {
       const slot = e4.target;
-      const assigned = slot.assignedNodes({ flatten: true }).filter((n3) => __privateMethod$9(this, _NteCardElement_instances, isRenderableNode_fn).call(this, n3));
+      const assigned = slot.assignedNodes({ flatten: true }).filter((n3) => __privateMethod$8(this, _NteCardElement_instances, isRenderableNode_fn).call(this, n3));
       this._hasFooter = assigned.length > 0;
     });
     __privateAdd$8(this, _onImageSlot, (e4) => {
@@ -3373,7 +3329,7 @@ class NteCardElement extends (_a$a = LoggingMixin(i$2), _fill_dec = [n$4({ type:
         this._role = "button";
         const el = assigned[0];
         if (el instanceof HTMLAnchorElement) {
-          __privateSet$9(this, _aHrefElmeent, el);
+          __privateSet$8(this, _aHrefElmeent, el);
           console.log("Found link element in slot:", el, el.getAttribute("aria-label"), el.textContent);
           this._ariaLabel = el.getAttribute("aria-label") || el.textContent?.trim() || "";
         } else {
@@ -3381,7 +3337,7 @@ class NteCardElement extends (_a$a = LoggingMixin(i$2), _fill_dec = [n$4({ type:
             "nte-card: The element assigned to the 'link' slot is not an anchor (<a>) element. Element found:",
             el
           );
-          __privateSet$9(this, _aHrefElmeent, null);
+          __privateSet$8(this, _aHrefElmeent, null);
         }
       }
     });
@@ -3392,22 +3348,22 @@ class NteCardElement extends (_a$a = LoggingMixin(i$2), _fill_dec = [n$4({ type:
         class="card"
         part="card"
         role=${this._role}
-        @click=${() => __privateGet$9(this, _click).call(this)}
+        @click=${() => __privateGet$8(this, _click).call(this)}
         @keydown=${(e4) => {
       if (e4.key === "Enter" || e4.key === " ") {
         e4.preventDefault();
-        __privateGet$9(this, _click).call(this);
+        __privateGet$8(this, _click).call(this);
       }
     }}
         aria-label=${this._ariaLabel}
         tabindex=${this._role === "button" ? "0" : "-1"}
       >
         <div class="card-header" part="header" ?hidden=${!this._hasHeader}>
-          <slot name="header" @slotchange=${__privateGet$9(this, _onHeaderSlot)}></slot>
+          <slot name="header" @slotchange=${__privateGet$8(this, _onHeaderSlot)}></slot>
         </div>
 
         <div class="card-img-top" part="image" ?hidden=${!this._hasImage}>
-          <slot name="image" @slotchange=${__privateGet$9(this, _onImageSlot)}></slot>
+          <slot name="image" @slotchange=${__privateGet$8(this, _onImageSlot)}></slot>
         </div>
 
         <div class="card-body" part="body">
@@ -3415,10 +3371,10 @@ class NteCardElement extends (_a$a = LoggingMixin(i$2), _fill_dec = [n$4({ type:
         </div>
 
         <div class="card-footer" part="footer" ?hidden=${!this._hasFooter}>
-          <slot name="footer" @slotchange=${__privateGet$9(this, _onFooterSlot)}></slot>
+          <slot name="footer" @slotchange=${__privateGet$8(this, _onFooterSlot)}></slot>
         </div>
         <div hidden>
-          <slot name="link" @slotchange=${__privateGet$9(this, _onLinkSlot)}></slot>
+          <slot name="link" @slotchange=${__privateGet$8(this, _onLinkSlot)}></slot>
         </div>
       </div>
     `;
@@ -5409,8 +5365,9 @@ var p = class e2 {
   }
   static decode(t2) {
     let n3 = t2.split("/");
-    if (n3.length < 4) throw Error("Invalid url format");
+    if (n3.length < 4) throw Error("Invalid url format" + this.url);
     let r2 = n3[1], [i4, a2] = n3[2].split("_"), [o2, s2] = n3[3].split(".");
+    if (!i4 || !a2 || !o2 || !s2) throw Error("Invalid url format: " + this.url);
     return a2 = a2.replaceAll(/([a-zA-Z])/g, (t3) => "-" + (e2.WIDTH_SHORTCUTS[t3] ?? t3) + "-"), i4 = i4.replaceAll(/([a-zA-Z])/g, (t3) => e2.RATIO_SHORTCUTS[t3] ?? t3), {
       id: r2,
       aspectRatio: i4.split("-").join("/"),
@@ -5659,7 +5616,7 @@ function nextrap_layout(features2 = {}) {
   }
   return c2;
 }
-const style$b = ":host {\n  --gap: var(--nt-gap);\n  --container-width: var(--nt-container-width, 100%);\n  --container-border: var(--nt-border-width) solid var(--nt-primary-subtle);\n  --container-bg: var(--nt-light);\n  --padding-x: var(--nt-default-gap-x);\n  --padding-y: var(--nt-default-gap-y);\n  --cols: 6;\n  --breakpoint: md;\n  display: block;\n}\n\n#container {\n  margin: 0 auto;\n  width: var(--container-width);\n  background: var(--container-bg);\n  border: var(--container-border);\n}\n\n#wrapper {\n  display: flex;\n  flex-direction: column;\n  gap: var(--gap);\n  align-items: stretch;\n}\n\n#main {\n  order: 2;\n  padding: var(--padding-y) var(--padding-x);\n}\n\n#aside {\n  order: 1;\n}\n\n:host([mode=desktop]) #wrapper {\n  position: relative;\n  flex-direction: row;\n}\n:host([mode=desktop]) #wrapper:has(#aside > .slot-empty) {\n  flex-direction: column;\n}\n:host([mode=desktop]) #wrapper:has(#aside > .slot-empty) #main {\n  width: 100%;\n}\n:host([mode=desktop]) #main {\n  order: 1;\n  width: calc(100% * var(--cols, 1) / 12);\n}\n:host([mode=desktop]) #aside {\n  order: 2;\n  width: calc(100% * (12 - var(--cols, 1)) / 12);\n}\n:host([mode=desktop]) #aside:has(.slot-empty) {\n  display: none;\n}\n:host([mode=desktop]):host(.reverse) #main {\n  order: 2;\n}\n:host([mode=desktop]):host(.reverse) #aside {\n  order: 1;\n}";
+const style$b = ":host {\n  --gap: var(--nt-gap);\n  --container-width: var(--nt-container-width, 100%);\n  --container-bg: var(--nt-light);\n  --cols: 6;\n  --breakpoint: md;\n  display: block;\n}\n\n#container {\n  margin: 0 auto;\n  width: var(--container-width);\n  background: var(--container-bg);\n}\n\n#wrapper {\n  --aside-width: 100%;\n  display: flex;\n  flex-direction: column;\n  gap: var(--gap);\n  align-items: stretch;\n}\n#wrapper #main {\n  order: 2;\n}\n#wrapper #aside {\n  order: 1;\n}\n\n:host([mode=desktop]) #wrapper {\n  position: relative;\n  flex-direction: row;\n  --aside-width: calc(100% * (12 - var(--cols, 1)) / 12);\n}\n:host([mode=desktop]) #wrapper:has(#aside > .slot-empty) {\n  flex-direction: column;\n}\n:host([mode=desktop]) #wrapper:has(#aside > .slot-empty) #main {\n  width: 100%;\n}\n:host([mode=desktop]) #wrapper #main {\n  order: 1;\n  width: calc(100% - var(--aside-width));\n}\n:host([mode=desktop]) #aside {\n  order: 2;\n  width: var(--aside-width);\n}\n:host([mode=desktop]) #aside:has(.slot-empty) {\n  display: none;\n}";
 var __getOwnPropDesc$b = Object.getOwnPropertyDescriptor;
 var __decorateClass$1 = (decorators, target, key, kind) => {
   var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc$b(target, key) : target;
@@ -6655,7 +6612,7 @@ function stripQuotes(str) {
   return str.replace(/^['"]|['"]$/g, "");
 }
 _NtlConsentBlockerElement_decorators = [t$1("ntl-consent-blocker")];
-class NtlConsentBlockerElement extends (_a$1 = nextrap_layout(features), _onClick_dec = [Listen$1("click", { target: "host" })], _consentGiven_dec = [n$4({ reflect: true })], _a$1) {
+class NtlConsentBlockerElement extends (_a$1 = nextrap_layout(features), _onClick_dec = [Listen("click", { target: "host" })], _consentGiven_dec = [n$4({ reflect: true })], _a$1) {
   constructor() {
     super(...arguments);
     __runInitializers$1(_init$1, 5, this);

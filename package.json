@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
+    "concurrently": "^8.2.0",
     "fs-extra": "^11.1.1",
     "jsdom": "^26.0.0",
     "rollup-plugin-visualizer": "^6.0.5",
@@ -65,8 +66,11 @@
     "vitest": "^4.1.5"
   },
   "scripts": {
-    "make.mjs": "tsc -d",
-    "build": "npm run make.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "vite-prox": "vite dev",
+    "vite-build": "vite build --watch",
+    "jekyll-prox": "JEKYLL_ENV=development jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4999 --livereload-port 4100 --host 0.0.0.0",
+    "jekyll-build": "JEKYLL_ENV=production jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0",
+    "dev": "concurrently 'npm run vite-prox' 'npm run jekyll-prox'",
+    "dev-real": "concurrently 'npm run vite-build' 'npm run jekyll-build'"
   }
 }
