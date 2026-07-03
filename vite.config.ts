@@ -21,6 +21,7 @@ export default defineConfig({
         port: 4000,
         strictPort: true,
         host: "0.0.0.0",
+        allowedHosts: ['localhost', '.local', 'main'],
         proxy: {
           // alles, was Vite nicht selbst bedient, an Jekyll weiterreichen
           // /assets muss zu Jekyll gehen, da die Dateien unter docs/assets liegen
