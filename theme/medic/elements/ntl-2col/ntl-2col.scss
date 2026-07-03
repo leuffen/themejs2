@@ -1,5 +1,7 @@
 @use "sass:meta";
 
+@use "@nextrap/ntl-2col" as ntl2col;
+
 ntl-2col {
     --section-bg: transparent;
     --container-bg: var(--nt-white);
@@ -26,5 +28,6 @@ ntl-2col {
         }
     }
 
+    @include ntl2col.default-style();
     @include meta.load-css("./_testimonial.scss");
 }

@@ -13,7 +13,7 @@ ptags:
 {: slot="bg"}
 
 # Ihr Augenarzt in Wiesbaden <br><small>professionell, menschlich, modern</small>
-{: layout="3;.box"}
+{: layout="3;.box" data-kicker="Professionell, Menschlich, Modern"}
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}

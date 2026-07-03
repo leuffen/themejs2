@@ -24,7 +24,7 @@ export default defineConfig({
         proxy: {
           // alles, was Vite nicht selbst bedient, an Jekyll weiterreichen
           // /assets muss zu Jekyll gehen, da die Dateien unter docs/assets liegen
-          '^(?!/@vite|/docs/_src/|/node_modules|/workspaces|.*\\.(js|css|ts|tsx|vue|svelte|scss|sass|less|map)$).*': {
+          '^(?!/@vite|/@fs/|/@id/|/docs/_src/|/node_modules/|/workspaces/|.*\\.(?:js|css|ts|tsx|vue|svelte|scss|sass|less|map)(?:\\?.*)?$).*': {
             target: 'http://localhost:4999',
             changeOrigin: true,
           },

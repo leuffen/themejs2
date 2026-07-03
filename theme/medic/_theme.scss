@@ -20,6 +20,8 @@ $theme: () !default;
     rcs: true
   ));
 
+  @include meta.load-css("./../../src/features/_data-kicker.scss");
+
   @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
   @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   @include meta.load-css("./elements/ntl-card/ntl-card.scss");
@@ -27,7 +29,6 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
   @include meta.load-css("./elements/ntl-consent-blocker/ntl-consent-blocker.scss");
   @include meta.load-css("./tools/_button-bar.scss");
-  @include meta.load-css("./classes/kicker.scss");
   @include meta.load-css("./elements/tj-loader/tj-loader.scss");
 
 

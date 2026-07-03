@@ -67,7 +67,8 @@ layout: null
 
 
     {% if jekyll.environment == "development" %}
-    <script src="/docs/_src/index.ts" type="module" defer></script>
+    <script src="/@vite/client" type="module"></script>
+    <script src="/docs/_src/index.ts" type="module"></script>
     {% else %}
     <script>
     {% include dist/embed.js %}
@@ -82,10 +83,7 @@ layout: null
 
 </head>
 {{ content }}
-{% if jekyll.environment == "development" %}
-<script src="/@vite/client" type="module"></script>
-<script src="/docs/_src/index.ts" type="module" defer></script>
-{% else %}
+{% if jekyll.environment != "development" %}
 <link rel="stylesheet" href="/assets/dist/style.css?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="text/css" media="all">
 <script src="/assets/dist/index.js?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="module" defer></script>
 {% endif %}

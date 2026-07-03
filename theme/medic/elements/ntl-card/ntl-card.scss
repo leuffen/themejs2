@@ -1,3 +1,5 @@
+@use "@nextrap/ntl-card" as ntl-card;
+
 ntl-card {
     --background-color: var(--nt-white);
     --border: 1px solid var(--nt-gray-300);

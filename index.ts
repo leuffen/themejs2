@@ -1,5 +1,6 @@
 import "@trunkjs/content-pane";
 import "@trunkjs/responsive";
+import "@trunkjs/loader";
 
 // Import all web components used in the project (Remember to add them also to all.scss
 import "@nextrap/nte-nav";
@@ -25,4 +26,4 @@ import "@nextrap/ntl-parallax-bg";
 
 
 // Features
-import "./src/features/kicker-generator";
+

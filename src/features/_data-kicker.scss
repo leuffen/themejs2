@@ -1,0 +1,17 @@
+/*
+ * Displays a kicker from the data-kicker attribute directly above headings.
+ * Works with either `.data-kicker` or just `data-kicker` on h1-h6.
+ */
+:is(h1, h2, h3, h4, h5, h6).data-kicker,
+:is(h1, h2, h3, h4, h5, h6)[data-kicker] {
+  &::before {
+    content: attr(data-kicker);
+    display: block;
+    margin-bottom: 0.25em;
+    color: var(--nt-primary);
+    font-size: var(--nt-font-size-root);
+    line-height: var(--nt-line-height-base);
+    font-weight: var(--nt-font-weight-header);
+    text-transform: uppercase;
+  }
+}
