@@ -1,0 +1,48 @@
+&.style-noborder {
+  --gutter-y: 0;
+
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  ntl-card {
+    --border: 1px solid color-mix(in srgb, var(--nt-primary) 30%, white 70%);
+    --background-color: #fff;
+
+    &::part(wrapper) {
+      justify-content: flex-start;
+      padding: clamp(1.25rem, 1.8vw, 1.8rem);
+    }
+
+    &::part(content) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0 1.1rem;
+      color: var(--nt-primary);
+      font-size: clamp(2.2rem, 3vw, 3rem);
+      line-height: 1;
+    }
+  }
+
+  &[mode="mobile"] {
+    --gutter-y: 1rem;
+
+    ntl-card {
+      &::part(wrapper) {
+        padding: 1.1rem 1rem;
+      }
+
+      .feature-icon {
+        margin: 0.8rem 0 1rem;
+        font-size: 2.2rem;
+      }
+    }
+  }
+}

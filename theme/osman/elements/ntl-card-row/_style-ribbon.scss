@@ -44,33 +44,7 @@
       flex: 1 1 auto;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin: 0 0 0.95rem;
-      color: #43464d;
-      font-size: clamp(1.22rem, 1.15vw, 1.55rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-    }
-
-    p,
-    li,
-    liweco-news,
-    .opening-hours {
-      color: #585b63;
-      font-size: 0.98rem;
-      line-height: 1.45;
-    }
-
-    p {
-      margin: 0 0 0.7rem;
-    }
+    color: #585b63;
 
     strong {
       color: #43464d;
@@ -152,25 +126,6 @@
       &::part(wrapper) {
         min-height: 0;
         padding: 2.1rem 1rem 2rem;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin-bottom: 1rem;
-        font-size: 1.08rem;
-        line-height: 1.18;
-      }
-
-      p,
-      li,
-      liweco-news,
-      .opening-hours {
-        font-size: 0.98rem;
-        line-height: 1.52;
       }
 
       .opening-hours {

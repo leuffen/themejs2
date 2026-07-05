@@ -68,24 +68,6 @@ ntl-hero {
     }
   }
 
-  h1 {
-    margin: 0;
-    color: var(--nt-header);
-    font-size: clamp(3.7rem, 4.9vw, 5.1rem);
-    font-weight: 400;
-    line-height: 0.96;
-    letter-spacing: -0.05em;
-
-    &::before {
-      margin-bottom: 0.9rem;
-      color: var(--nt-primary);
-      font-size: clamp(1.05rem, 0.9vw + 0.55rem, 1.3rem);
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-  }
-
   &[mode="mobile"] {
     --height-offset: 10.5rem !important;
     min-height: 0;
@@ -148,24 +130,6 @@ ntl-hero {
         display: none;
       }
 
-      p {
-        margin: 1rem 0 0;
-        color: var(--nt-text);
-        font-size: 1.02rem;
-        line-height: 1.45;
-      }
-    }
-
-    h1 {
-      font-size: clamp(2.15rem, 7.8vw, 2.85rem);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
-
-      &::before {
-        margin-bottom: 0.6rem;
-        font-size: 0.98rem;
-        line-height: 1.2;
-      }
     }
   }
 }

@@ -51,6 +51,7 @@ For Containers the `--nt-container-width` should be used.
 
 - Ersetzte Bilder, Icons, Logos in Vorlagen-Screenshots durch Platzhalterbilder (falls nicht anders angegeben). Nutze
   für Bilder object-fit: cover und aspect-ratio (wenn nötig), damit diese responsive bleiben.
+- Du kannst Bootstrap Icons nutzen. Ersetze custom Icons durch Bootstrap Icons falls die Icons nicht im Design vorgegeben sind.
 - Nutze ausschließlich den Text-Style von nextrap/typography. Erstelle keine eigenen styles für a, p, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, etc. Nutze die Styles von nextrap/typography. (Außer explizit gewünscht)
 
 ## Dont's
@@ -60,3 +61,4 @@ For Containers the `--nt-container-width` should be used.
 - Do not edit files inside the workspaces folder. If you need to change something there, ask the user to do it or ask for permission to do it.
 - Do not modify the overall structure of the theme folder. If you need to change something there, ask the user to do it
 - Do not add any content into content css attributes. If you need to modify a section inside the docs/_includes or docs/_layouts folder, ask the user to do it
+- Do not add universal selectors like p, a, .btn, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, etc. into into element styles. They should be adjusted using either style="" attribute or helper classes like mt-1, (see nextrap/style-tools)

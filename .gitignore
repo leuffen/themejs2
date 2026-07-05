@@ -5,6 +5,7 @@ libs/
 /.sass-cache
 /node_modules
 /dist
+/.tmp/
 ##/docs/assets/dist
 
 /workspaces

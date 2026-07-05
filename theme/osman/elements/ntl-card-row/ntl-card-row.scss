@@ -19,5 +19,6 @@ ntl-card-row {
     }
   }
 
+  @include meta.load-css("./_style-no-border.scss");
   @include meta.load-css("./_style-ribbon.scss");
 }

@@ -1,3 +1,4 @@
+@use "sass:meta";
 @use "@nextrap/ntl-2col" as ntl2col;
 
 ntl-2col {
@@ -48,31 +49,6 @@ ntl-2col {
     aspect-ratio: 1.14;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin: 0 0 1.35rem;
-    color: var(--nt-header);
-    font-size: clamp(2.25rem, 2.5vw, 3.55rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    text-wrap: balance;
-  }
-
-  p,
-  li,
-  blockquote {
-    color: var(--nt-text);
-    font-size: clamp(1.02rem, 0.25vw + 0.98rem, 1.16rem);
-    line-height: 1.58;
-  }
-
-  p {
-    margin: 0 0 1rem;
-  }
-
   blockquote {
     margin: 0 0 1rem;
     padding-left: 1rem;
@@ -112,8 +88,6 @@ ntl-2col {
     flex-direction: column;
     gap: 0.85rem;
     height: 100%;
-    padding: clamp(1.4rem, 2.2vw, 2rem);
-    background: color-mix(in srgb, var(--nt-body-tertiary) 80%, white 20%);
   }
 
   .align-grid-items {
@@ -144,6 +118,8 @@ ntl-2col {
     }
   }
 
+  @include meta.load-css("./_style-bg-primary.scss");
+
   &[mode="mobile"] {
     --gap: 1.35rem;
 
@@ -163,23 +139,6 @@ ntl-2col {
 
     p[slot="aside"].auto > img {
       aspect-ratio: 1.18;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      margin-bottom: 1rem;
-      font-size: clamp(2rem, 7.2vw, 2.6rem);
-      line-height: 1.08;
-      text-wrap: pretty;
-    }
-
-    p,
-    li,
-    blockquote {
-      font-size: 1rem;
-      line-height: 1.5;
     }
 
     ul {

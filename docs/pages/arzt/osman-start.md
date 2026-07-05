@@ -32,7 +32,7 @@ ptags:
 
 ### Spezielle Makulauntersuchungen
 
-<p>Hinweis - Spezielle Makulauntersuchung für Privatpatienten und Selbstzahler.</p>
+Hinweis - Spezielle Makulauntersuchung für Privatpatienten und Selbstzahler.
 
 [Jetzt Termin buchen](/karriere){: .btn .btn-outline-primary}
 {: .footer }
@@ -62,63 +62,86 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 ![](https://cdn.leuffen.de/osman-k21///v2/17/c_g/DSC06665.webp)
 
 ---
-{: layout="2;ntl-card-row" section-style="--cols: 6"}
+{: layout="1.5;ntl-card-row.style-noborder" section-style="--cols: 6"}
 
 ### Diagnostik
 
-![](https://cdn.leuffen.de/osman-k21///v2/54/188-125_b/Diagnostik.webp)
+<i class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></i>
 
 Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
 
-- Netzhauterkrankungen (Medical Retina)
-Moderne Bildgebung mit OCT (Optischer Kohärenztomographie), Fluoreszenzangiographie und Fundusfotografie ermöglicht die Vorsorge, Diagnose und Verlaufskontrolle bei Makulaerkrankungen, diabetischer Retinopathie, Gefäßverschlüssen, epiretinaler Gliose und anderen Netzhautpathologien.
-- Glaukom (Grüner Star)
-Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfelduntersuchung, Hornhautdickenmessung (Pachymetrie), Gonioskopie sowie OCT-Analyse der Sehnervenpapille – für eine präzise Beurteilung und langfristige Verlaufskontrolle.
-- Katarakt (Grauer Star) und Nachstar
+---
+{: layout="ntl-accordion"}
 
-[Mehr erfahren](/karriere){: .btn .btn-primary}
-{: .footer }
+#### Netzhauterkrankungen (Medical Retina)
+
+Moderne Bildgebung mit OCT (Optischer Kohärenztomographie), Fluoreszenzangiographie und Fundusfotografie ermöglicht die Vorsorge, Diagnose und Verlaufskontrolle bei Makulaerkrankungen, diabetischer Retinopathie, Gefäßverschlüssen, epiretinaler Gliose und anderen Netzhautpathologien.
+
+#### Glaukom (Grüner Star)
+
+Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfelduntersuchung, Hornhautdickenmessung (Pachymetrie), Gonioskopie sowie die OCT-Analyse der Sehnervenpapille – für eine präzise Beurteilung und langfristige Verlaufskontrolle.
+
+#### Katarakt (Grauer Star) und Nachstar
+
+Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine weiterführende Behandlung sinnvoll ist.
 
 ### Therapie
 
-![](https://cdn.leuffen.de/osman-k21///v2/55/188-125_b/Therapie.webp)
+<i class="bi bi-eye feature-icon" aria-hidden="true"></i>
 
-Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgenden mikroinvasiven Therapieverfahren an:
-
-- Behandlung von Makula- und Netzhauterkrankungen bei altersbedingter Makuladegeneration (AMD), diabetischer Retinopathie und Gefäßverschlüssen mittels intravitrealer Injektionen, Implantaten und Lasertherapie. Zudem führen wir Laserretinopexien (gezielte Laserfixation der Netzhaut) bei Netzhautdegenerationen, Rissen und Netzhautlöchern durch.
-- Glaukombehandlung (Grüner Star) Darunter die selektive Lasertrabekuloplastik (SLT) beim Offenwinkelglaukom und die YAG-Laser-Iridotomie beim Engwinkelglaukom.
-- YAG-Laser-Kapsulotomie bei sekundären Linsentrübung (Nachstar)
-
-[Mehr erfahren](/karriere){: .btn .btn-primary}
-{: .footer }
-
-## Warnsignale für die Augen – Sofort zum Arzt!
-{: layout="ntl-2col"}
-
-- Plötzliche Sehstörungen oder Sehverlust 
-- Lichtblitze und bunte Ringe um Lichtquellen 
-- Unerwartetes Doppeltsehen 
-- Starke Augenschmerzen oder extreme Rötung 
-- Fremdkörper im Auge 
-- Verätzungen, Verbrennungen oder Verletzungen 
-
-Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
-
-a**Notfallbehandlung**
-<br />In akuten Notfällen außerhalb der Sprechzeiten wenden Sie sich bitte an den ärztlichen Bereitschaftsdienst unter der Telefonnummer 116 117.
+Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:
 
 ---
-{: layout="2;ntl-2col.aside-padding"}
+{: layout="ntl-accordion"}
 
-### Kooperationen
+#### Behandlung von Makula- und Netzhauterkrankungen
 
-Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Augenkliniken der Region zusammen – darunter:
+Bei altersbedingter Makuladegeneration (AMD), diabetischer Retinopathie und Gefäßverschlüssen mittels intravitrealer Injektionen, Implantaten und Lasertherapie. Zudem führen wir Laserretinopexien (gezielte Laserfixation der Netzhaut) bei Netzhautdegenerationen, Rissen und Netzhautlöchern durch.
 
-- die Universitäts-Augenklinik Mainz
-- das Artemis Augenzentrum Wiesbaden
-- die HSK Augenklinik Wiesbaden
-- die Universitäts-Augenklinik Frankfurt
-- die Augenklinik Frankfurt-Höchst
+#### Glaukombehandlung (Grüner Star)
+
+Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenwinkelglaukom sowie die YAG-Laser-Iridotomie beim Engwinkelglaukom.
+
+#### YAG-Laser-Kapsulotomie bei sekundären Linsentrübung (Nachstar)
+
+---
+{: layout="1.5" section-style="--cols: 6"}
+
+
+## <span class="warning-heading"><i class="bi bi-eye" aria-hidden="true"></i><span>Warnsignale für die Augen – sofort zum Arzt!</span></span>
+{: layout="ntl-2col.style-bg-primary"}
+
+- Plötzliche Sehstörungen oder Sehverlust
+- Lichtblitze und bunte Ringe um Lichtquellen
+- Unerwartetes Doppeltsehen
+- Starke Augenschmerzen oder extreme Rötung
+- Fremdkörper im Auge
+- Verätzungen, Verbrennungen oder Verletzungen
+
+### Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
+{: layout=".aside"}
+
+**Notfallbehandlung**
+{: .warning-emergency}
+
+In akuten Notfällen außerhalb der Sprechzeiten wenden Sie sich bitte an den ärztlichen Bereitschaftsdienst unter der Telefonnummer 116 117.
+
+
+
+
+
+
+
+## Kooperationen
+{: layout="2;ntl-2col"}
+
+Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Augenkliniken der Region zusammen:
+
+- [Universitäts-Augenklinik, Mainz](/karriere)
+- [Artemis Augenzentrum, Wiesbaden,](/karriere)
+- [HSK Augenklinik, Wiesbaden](/karriere)
+- [Universitäts-Augenklinik, Frankfurt](/karriere)
+- [Augenklinik, Frankfurt-Höchst](/karriere)
 
 ### Mitgliedschaften
 {: section-class="aside" }
@@ -128,7 +151,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 - Bundesverband Deutscher Ophthalmochirurgen (BDOC)
 - Berufsverband der Augenärzte Deutschlands (BVA)
 - Deutsche Ophthalmologische Gesellschaft (DOG)
-- Deutche Retinologische Gesellschaft
+- Deutsche Retinologische Gesellschaft
 - European Society of Cataract and Refractive Surgeons (ESCRS)
 
 ![](https://cdn.leuffen.de//osman-k21/v2/32/196-99_a/retinagesellschaft.webp)
