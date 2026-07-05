@@ -1,0 +1,54 @@
+ntl-accordion {
+  display: grid;
+  gap: 0.6rem;
+}
+
+ntl-accordion-item {
+  --border-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%);
+  --background-color-heading: color-mix(in srgb, var(--nt-body-tertiary) 78%, white 22%);
+  --background-color-heading-hover: color-mix(in srgb, var(--nt-body-tertiary) 72%, white 28%);
+  --marker-size: 1.15rem;
+  --padding: 1.05rem 1.25rem;
+
+  border: 1px solid var(--border-color);
+  background: #fff;
+
+  > [slot="title"] {
+    margin-bottom: 0;
+    color: var(--nt-header);
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  &::part(summary) {
+    gap: 1rem;
+    color: var(--nt-header);
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  &::part(marker) {
+    color: color-mix(in srgb, var(--nt-header) 70%, white 30%);
+  }
+
+  &::part(content) {
+    padding-top: 0.95rem;
+    color: var(--nt-text);
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  &[open] {
+    border-color: color-mix(in srgb, var(--nt-body-secondary) 90%, white 10%);
+
+    &::part(summary) {
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+}

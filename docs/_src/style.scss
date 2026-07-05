@@ -1,32 +1,51 @@
-
-
-
 @use "@leuffen/themejs2/theme/medic" with (
-        $theme: (
-
-            colors: (
-
-                primary: #316947
-            ))
+  $theme: (
+    colors: (
+      primary: #316947
+    )
+  )
 );
 
-/*
-@use "@leuffen/themejs2/variant/medic-osmen" with (
-     $theme: (
-        colors: (
-            primary: #881361
-
-        ))
-
+@use "@leuffen/themejs2/font/opensans-regular" as osmanFont;
+@use "@leuffen/themejs2/theme/osman" with (
+  $theme: (
+    primary: #2b94d6,
+    accent: #2b94d6,
+    secondary: #4c4c4c,
+    gray: #6f6f6f,
+    text: #4b4b4b,
+    header: #404040,
+    body: #ffffff,
+    body-secondary: #efedeb,
+    body-tertiary: #f4f4f2,
+    font-family-base: osmanFont.$font-family-base,
+    font-family-header: osmanFont.$font-family-base,
+    font-size-header: osmanFont.$font-size-header,
+    font-size-base: osmanFont.$font-size-base,
+    content-space: clamp(3rem, 5vw, 5rem),
+    enableFontConfig: true,
+    rcs: true
+  )
 );
-*/
+
 
 @use "@leuffen/themejs2/theme/epraxis" with (
-     $theme: (
-        colors: (
-            primary: #1b8c47
-
-        ))
-
+  $theme: (
+    colors: (
+      primary: #1b8c47
+    )
+  )
 );
 
+.theme-osman {
+  --nt-container-width: min(1280px, calc(100vw - clamp(2rem, 6vw, 6rem)));
+  --osman-navbar-height: 120px;
+  --osman-navbar-brand-height: 88px;
+}
+
+@media (max-width: 991.98px) {
+  .theme-osman {
+    --osman-navbar-height: 64px;
+    --osman-navbar-brand-height: 64px;
+  }
+}

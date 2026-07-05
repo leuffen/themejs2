@@ -12,36 +12,37 @@ ptags:
 ![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
 {: slot="bg"}
 
-# Ihr Augenarzt in Wiesbaden <br><small>professionell, menschlich, modern</small>
-{: layout="3;.box" data-kicker="Professionell, Menschlich, Modern"}
+# Ihr Augenarzt in Wiesbaden
+{: layout="3;.box" data-kicker="Professionell, Menschlich & Modern"}
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}
 
-### Aktuelles
+### Sprechstundenzeiten
 
-<liweco-news>Keine aktuellen Meldungen</liweco-news>
+<div class="opening-hours">
+  <p><span>Mo, Di, Do</span><strong>08:00–15:30 Uhr</strong></p>
+  <p><span>Mi, Fr</span><strong>08:00–12:00 Uhr</strong></p>
+</div>
+
+<p>Nachmittags geschlossen</p>
 
 [Termin online buchen](/karriere){: .btn .btn-primary }
 {: .footer }
 
-### Standorte
+### Spezielle Makulauntersuchungen
 
-- [Buchen](/kontakt-buchen)
-- [Mosbach](/kontakt-mosbach)
+<p>Hinweis - Spezielle Makulauntersuchung für Privatpatienten und Selbstzahler.</p>
 
-Wir bitten um eine Terminvereinbarung.
-
-[Privattermin für Makulauntersuchung buchen](/karriere){: .btn .btn-primary}
+[Jetzt Termin buchen](/karriere){: .btn .btn-outline-primary}
 {: .footer }
 
-### Notfälle & Schmerzpatienten
+### Aktuelle Meldungen
 
-**Schmerzpatienten erhalten einen Termin am selben Tag.** Vereinbaren sie bitte telefonisch einen Termin.
+<p>Momentan keine Meldungen.</p>
+<p><strong>Ihre Meinung ist uns wichtig!</strong></p>
 
-Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen Notdienst oder den Notruf unter [112](tel:112).
-
-[Online bewerten](/karriere){: .btn .btn-primary}
+[Bewerten Sie uns](/karriere){: .btn .btn-outline-primary}
 {: .footer }
 
 ## Herzlich Willkommen in der Augenpraxis Osman

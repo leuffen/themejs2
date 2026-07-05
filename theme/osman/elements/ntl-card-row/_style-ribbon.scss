@@ -1,0 +1,195 @@
+&.style-ribbon {
+  --gutter-y: 0;
+  --default-cols: 0;
+
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  margin-top: -4.1rem;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-top: 0;
+
+  &::part(container) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    background: #fff;
+  }
+
+  &::part(main) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+    gap: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  ntl-card {
+    --border: 0;
+    --border-width: 0;
+    --border-color: transparent;
+
+    background: #fff;
+
+    &::part(wrapper) {
+      display: flex;
+      flex-direction: column;
+      min-height: 15.25rem;
+      padding: 1.8rem clamp(1.35rem, 1.6vw, 2.2rem) 1.55rem;
+    }
+
+    &::part(content) {
+      flex: 1 1 auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0 0 0.95rem;
+      color: #43464d;
+      font-size: clamp(1.22rem, 1.15vw, 1.55rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    p,
+    li,
+    liweco-news,
+    .opening-hours {
+      color: #585b63;
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+
+    p {
+      margin: 0 0 0.7rem;
+    }
+
+    strong {
+      color: #43464d;
+      font-weight: 700;
+    }
+
+    .opening-hours {
+      margin-bottom: 0.75rem;
+
+      p {
+        display: grid;
+        grid-template-columns: minmax(7rem, 1fr) auto;
+        gap: 1rem;
+        margin: 0 0 0.35rem;
+      }
+
+      span {
+        font-weight: 600;
+      }
+
+      strong {
+        font-weight: 400;
+      }
+    }
+
+    [slot="footer"],
+    .footer {
+      margin-top: auto;
+      padding-top: 0.7rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.9rem;
+      font-size: 0.92rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+  }
+
+  &[mode="desktop"] {
+    ntl-card {
+      flex-grow: 1;
+      padding: 0;
+      border-right: 1px solid var(--nt-gray-300);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  &[mode="mobile"] {
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 1.85rem 0 0;
+
+    &::part(container),
+    &::part(main) {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    &::part(main) {
+      background: transparent;
+    }
+
+    ntl-card {
+      border-bottom: 1px solid #e7e4e1;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::part(wrapper) {
+        min-height: 0;
+        padding: 2.1rem 1rem 2rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 1rem;
+        font-size: 1.08rem;
+        line-height: 1.18;
+      }
+
+      p,
+      li,
+      liweco-news,
+      .opening-hours {
+        font-size: 0.98rem;
+        line-height: 1.52;
+      }
+
+      .opening-hours {
+        p {
+          grid-template-columns: minmax(7rem, 1fr) auto;
+          gap: 0.9rem;
+        }
+      }
+
+      [slot="footer"],
+      .footer {
+        padding-top: 1.05rem;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 3rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,221 @@
+nte-navbar,
+nte-navbar-line {
+  display: block;
+}
+
+nte-navbar {
+  position: relative;
+  z-index: 20;
+
+  &::part(navbar) {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(230, 230, 230, 0.92);
+    box-shadow: none;
+    backdrop-filter: blur(12px);
+  }
+}
+
+nte-navbar-line {
+  &::part(main) {
+    background: transparent;
+  }
+
+  &::part(container) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    min-height: var(--osman-navbar-height, 120px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &::part(brand) {
+    flex: 0 0 auto;
+  }
+
+  [slot="brand"] {
+    display: flex;
+    align-items: center;
+    min-height: var(--osman-navbar-height, 120px);
+    color: inherit;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+
+    img {
+      display: block;
+      width: auto;
+      max-height: var(--osman-navbar-brand-height, 88px);
+      padding: 0;
+    }
+  }
+}
+
+nte-nav.nav-horizontal {
+  width: auto;
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 2vw, 3rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  > ul > li > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--osman-navbar-height, 120px);
+    color: var(--nt-header);
+    font-size: clamp(1.02rem, 0.8vw + 0.55rem, 1.25rem);
+    font-weight: 600;
+    border-bottom: 0.22rem solid transparent;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+
+  > ul > li.active > a,
+  > ul > li > a[aria-current="page"],
+  > ul > li:hover > a,
+  > ul > li:focus-within > a {
+    color: var(--nt-primary);
+    border-bottom-color: var(--nt-primary);
+  }
+
+  li > ul {
+    position: absolute;
+    top: calc(100% - 1.5rem);
+    left: 0;
+    display: none;
+    min-width: 16rem;
+    padding: 0.75rem 0;
+    border: 1px solid var(--nt-gray-300);
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(50, 50, 50, 0.12);
+  }
+
+  li:hover > ul,
+  li:focus-within > ul {
+    display: block;
+  }
+
+  li > ul a {
+    display: block;
+    padding: 0.5rem 1.25rem;
+    color: var(--nt-text);
+    font-size: 1rem;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(43, 148, 214, 0.08);
+      color: var(--nt-primary);
+    }
+  }
+}
+
+nte-offcanvas {
+  color: var(--nt-header);
+
+  &::part(offcanvas) {
+    width: min(26rem, 100vw);
+    background: #fff;
+  }
+
+  &::part(header) {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  &::part(main) {
+    padding: 1rem 1.25rem 1.5rem;
+  }
+
+  .nav-vertical ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-vertical > ul > li > a {
+    display: block;
+    padding: 0.85rem 0;
+    color: var(--nt-header);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #ece8e4;
+  }
+}
+
+@media (max-width: 991.98px) {
+  nte-navbar {
+    &::part(navbar) {
+      backdrop-filter: none;
+    }
+  }
+
+  nte-navbar-line {
+    &::part(container) {
+      width: calc(100vw - 2.5rem);
+      min-height: 7.5rem;
+      gap: 1rem;
+    }
+
+    &::part(brand) {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    [slot="brand"] {
+      min-height: 7.5rem;
+      max-width: min(16rem, calc(100vw - 9rem));
+      overflow: hidden;
+      font-size: 0;
+
+      img {
+        max-height: 4.25rem;
+        max-width: 100%;
+      }
+    }
+  }
+
+  nte-nav.nav-horizontal {
+    flex: 0 0 auto;
+
+    &::part(main) {
+      display: none;
+    }
+
+    &::part(menutext) {
+      display: none;
+    }
+
+    &::part(burger) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--nt-primary);
+    }
+
+    > ul > li > a {
+      min-height: 7.5rem;
+      font-size: 0.98rem;
+    }
+  }
+
+  nte-offcanvas {
+    &::part(offcanvas) {
+      width: 100vw;
+    }
+  }
+}

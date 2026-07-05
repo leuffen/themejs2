@@ -19,16 +19,28 @@ If the screenshot failes, ask the user to check if the stack is available and if
 
 ## Parameters
 
---device <desktop|mobile|tablet>
+- `--device <desktop|mobile|tablet>`
+- `--html-output-filename <datei>` speichert zusätzlich einen HTML-Snapshot des aktuellen DOMs inklusive offenem Shadow DOM von Components.
 
 ## Example 
 
 Make screenshot of the current page:
 
 ```
-node /opt/.pi/tmp/take-project-screenshot.mjs http://main:4000 --device desktop /tmp/screenshot.png
+node /opt/.pi/skills/browser-sceenshot-with-puppeteer/scripts/screenshot.js --url http://main:4000 --device desktop --output-filename /tmp/screenshot.png
 ```
 
+Make screenshot and save DOM + Shadow DOM snapshot:
+
+```
+node /opt/.pi/skills/browser-sceenshot-with-puppeteer/scripts/screenshot.js --url http://main:4000 --device desktop --output-filename /tmp/screenshot.png --html-output-filename /tmp/page-snapshot.html
+```
+
+
+## Hinweise
+
+- Der HTML-Snapshot enthält das aktuelle DOM der Seite und bettet offenes Shadow DOM als declarative Shadow DOM (`<template shadowrootmode="...">`) ein.
+- Geschlossene Shadow Roots können technisch nicht ausgelesen werden.
 
 ## Dont`s
 

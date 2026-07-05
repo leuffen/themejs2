@@ -1,0 +1,56 @@
+@use "sass:meta";
+@use "./../../font/_vendor/font-bootstrap-icons";
+@use "@nextrap/style-base/module" as nextrapBase;
+
+@forward "../../src/style/base";
+
+$theme: () !default;
+
+.theme-osman {
+  @include nextrapBase.nextrap-theme($theme, ());
+
+  @include meta.load-css("./../../src/features/_data-kicker.scss");
+  @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
+  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+  @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
+
+  background: var(--nt-background);
+  color: var(--nt-text);
+
+  main#main {
+    max-width: 100%;
+  }
+
+  tj-content-pane {
+    display: block;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--nt-header);
+  }
+
+  a {
+    color: var(--nt-primary);
+    text-decoration: none;
+  }
+
+  p,
+  li {
+    line-height: 1.65;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+
+    li::marker {
+      color: var(--nt-primary);
+    }
+  }
+
+  ntl-2col,
+  ntl-card-row {
+    padding: var(--nt-content-space) 0;
+  }
+}

@@ -64,6 +64,7 @@ function printUsage() {
       "  node screenshot.js --url <url> --device <desktop|mobile|tablet> --output-filename <datei>",
       "",
       "Optional:",
+      "  --html-output-filename <datei>",
       "  PUPPETEER_BROWSER_WS_ENDPOINT=ws://chromium:3000",
     ].join("\n")
   );
@@ -73,6 +74,7 @@ function validateArgs(args) {
   const url = args.url;
   const device = args.device;
   const outputFilename = args["output-filename"];
+  const htmlOutputFilename = args["html-output-filename"];
 
   if (!url || !device || !outputFilename) {
     printUsage();
@@ -96,6 +98,7 @@ function validateArgs(args) {
     url,
     device,
     outputFilename,
+    htmlOutputFilename,
   };
 }
 
@@ -172,14 +175,113 @@ async function connectBrowser(puppeteer) {
   throw lastError || new Error("Browser-Verbindung konnte nicht hergestellt werden.");
 }
 
+async function createHtmlSnapshot(page) {
+  return page.evaluate(() => {
+    const VOID_ELEMENTS = new Set([
+      "area",
+      "base",
+      "br",
+      "col",
+      "embed",
+      "hr",
+      "img",
+      "input",
+      "link",
+      "meta",
+      "param",
+      "source",
+      "track",
+      "wbr",
+    ]);
+
+    const escapeText = (value) =>
+      String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+    const escapeAttribute = (value) =>
+      escapeText(value).replace(/"/g, "&quot;");
+
+    const serializeNode = (node) => {
+      if (!node) {
+        return "";
+      }
+
+      switch (node.nodeType) {
+        case Node.ELEMENT_NODE: {
+          const tagName = node.tagName.toLowerCase();
+          const attributes = Array.from(node.attributes)
+            .map((attribute) => ` ${attribute.name}="${escapeAttribute(attribute.value)}"`)
+            .join("");
+
+          let html = `<${tagName}${attributes}>`;
+
+          if (node.shadowRoot) {
+            const shadowRootMode = node.shadowRoot.mode || "open";
+            const shadowContent = Array.from(node.shadowRoot.childNodes)
+              .map(serializeNode)
+              .join("");
+            html += `<template shadowrootmode="${escapeAttribute(shadowRootMode)}">${shadowContent}</template>`;
+          }
+
+          const childNodes =
+            tagName === "template"
+              ? Array.from(node.content.childNodes)
+              : Array.from(node.childNodes);
+
+          html += childNodes.map(serializeNode).join("");
+
+          if (!VOID_ELEMENTS.has(tagName)) {
+            html += `</${tagName}>`;
+          }
+
+          return html;
+        }
+        case Node.TEXT_NODE:
+          return escapeText(node.textContent || "");
+        case Node.CDATA_SECTION_NODE:
+          return `<![CDATA[${node.textContent || ""}]]>`;
+        case Node.COMMENT_NODE:
+          return `<!--${node.textContent || ""}-->`;
+        case Node.DOCUMENT_FRAGMENT_NODE:
+          return Array.from(node.childNodes).map(serializeNode).join("");
+        default:
+          return "";
+      }
+    };
+
+    const doctype = document.doctype
+      ? `<!DOCTYPE ${document.doctype.name}${
+          document.doctype.publicId ? ` PUBLIC \"${document.doctype.publicId}\"` : ""
+        }${
+          !document.doctype.publicId && document.doctype.systemId
+            ? " SYSTEM"
+            : ""
+        }${
+          document.doctype.systemId ? ` \"${document.doctype.systemId}\"` : ""
+        }>`
+      : "";
+
+    return `${doctype}\n${serializeNode(document.documentElement)}\n`;
+  });
+}
+
 async function main() {
   const rawArgs = parseArgs(process.argv.slice(2));
-  const { url, device, outputFilename } = validateArgs(rawArgs);
+  const { url, device, outputFilename, htmlOutputFilename } = validateArgs(rawArgs);
   const outputPath = resolveOutputPath(outputFilename);
+  const htmlOutputPath = htmlOutputFilename
+    ? resolveOutputPath(htmlOutputFilename)
+    : null;
   const viewport = VIEWPORTS[device];
   const puppeteer = loadPuppeteer();
 
   ensureOutputDirectory(outputPath);
+
+  if (htmlOutputPath) {
+    ensureOutputDirectory(htmlOutputPath);
+  }
 
   let browser;
   let page;
@@ -201,6 +303,12 @@ async function main() {
     });
 
     console.log(`Screenshot gespeichert: ${outputPath}`);
+
+    if (htmlOutputPath) {
+      const htmlSnapshot = await createHtmlSnapshot(page);
+      fs.writeFileSync(htmlOutputPath, htmlSnapshot, "utf8");
+      console.log(`DOM inkl. Shadow DOM gespeichert: ${htmlOutputPath}`);
+    }
   } finally {
     if (page) {
       await page.close().catch(() => {});
