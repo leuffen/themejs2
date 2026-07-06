@@ -1,0 +1,30 @@
+---
+layout: 2_script
+---
+
+
+{%if page.use_navbar != false %}
+    {% assign navbar_file = "_styles/" | append: page.use_navbar | append: "/navbar.html" %}
+    {% include {{navbar_file}} %}
+{% endif %}
+
+<main id="main" class="mx-auto">
+    {% capture global_include %}
+    {% include global.md %}
+    {% endcapture %}
+
+    {{ global_include | markdownify }}
+
+
+    <!-- Main Content -->
+    {{content}}
+    <!-- /Main Content -->
+</main>
+
+
+{%if page.use_footer != false %}
+    {% assign footer_file = "_styles/" | append: page.use_footer | append: "/navbar.html" %}
+    {% include {{footer_file}} %}
+{% endif %}
+
+

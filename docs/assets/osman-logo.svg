@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="94" viewBox="0 0 320 94" fill="none">
+  <rect width="320" height="94" fill="white"/>
+  <g transform="translate(8 10)">
+    <circle cx="28" cy="28" r="27" stroke="#2394D5" stroke-width="3"/>
+    <circle cx="28" cy="28" r="10" stroke="#2394D5" stroke-width="2"/>
+  </g>
+  <g fill="#3E434A" font-family="Open Sans, Arial, sans-serif">
+    <text x="72" y="34" font-size="28" font-weight="700" letter-spacing="0.5">AUGENPRAXIS</text>
+    <text x="72" y="62" font-size="33" font-weight="800" letter-spacing="0.4">B. OSMAN</text>
+    <text x="73" y="81" font-size="12" font-weight="700" letter-spacing="1.8">FACHARZT FÜR AUGENHEILKUNDE</text>
+  </g>
+</svg>

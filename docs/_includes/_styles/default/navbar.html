@@ -1,21 +1,3 @@
----
-layout: 2_script
----
-<!-- Genne Layout: -->
-<!--nav layout="use: #navbar-centerlogo; zoom-ratio-mobile: 2; translatey-mobile: 35px; zoom-ratio: 2.5; translatey: 80px;">
-    <div class="brand">
-        <a href="/">
-            <img src="assets/logo.svg" class="">
-
-        </a>
-    </div>
-    <ul class="navbar-main">
-        {% include el/navbar.html ptag="nav" %}
-    </ul>
-</nav-->
-
-<!-- TODO: Commented out, as the styling seems to be broken -->
-
 {% if page.skip-navbar != true %}
 
 <nte-navbar class="fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: var(--osman-navbar-height, 64px);">
@@ -23,7 +5,7 @@ layout: 2_script
 
 
 
-       <a slot="brand" href="/">
+        <a slot="brand" href="/">
             <img
                 src="/assets/leuffen-logo-big.svg"
                 alt="{{ site.data.general.logoalt }}"
@@ -31,7 +13,7 @@ layout: 2_script
                 height="64"
                 style="float: left"
             />
-           ThemeJs2
+            ThemeJs2
             <!--div style="font-size: 1.1em; float: right" class="m-2 text-black">
               <div style="font-size: 1.6em">{{ site.data.general.logoalt }}</div>
               <div style="font-size: 1.1em">{{ site.data.general.fachrichtung}}</div>
@@ -87,4 +69,3 @@ layout: 2_script
 
 
 {{ content }}
-

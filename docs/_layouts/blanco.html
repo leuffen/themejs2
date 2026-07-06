@@ -1,7 +1,6 @@
 ---
-layout: 3_2_footer
+layout: 1_body
 ---
-
 
 <main id="main" class="mx-auto">
     {% capture global_include %}
@@ -10,10 +9,7 @@ layout: 3_2_footer
 
     {{ global_include | markdownify }}
 
-
-    <!-- Main Content -->
-    {{content}}
-    <!-- /Main Content -->
+    <tj-content-pane class="">
+        {{ content }}
+    </tj-content-pane>
 </main>
-
-

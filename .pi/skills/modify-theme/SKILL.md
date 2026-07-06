@@ -9,6 +9,9 @@ This skill is used to create or modify the themes inside the `theme/` folder.
 
 For each theme a dedicated directory is created inside the `theme/` folder (theme folder). The name of the directory is the name of the theme.
 
+Jeder Theme enthält mindestens eine `.md` datei in `docs/pages`. Wenn Du die entsprechende Datei nicht findest, frage den User.
+Die Datei ist über das Screenshot-Tool unter der entpspechenden URL erreichbar.
+
 ## Rules inside a theme folder
 
 Keep new themes aligned with `theme/medic/` and `theme/epraxis/`:
@@ -38,6 +41,13 @@ to analyze the current screenshot and html structure and compare it to the provi
 Farben, Schriftarten und Abstände werden ausschließlich in der `docs/_src/style.scss` definiert. Siehe nextrap/styles.
 Definiere diese dort per overrides. 
 
+## HTML Sections
+
+In HTML Dateien oder embedded HTML in Markdown Datein gelten folgende Regeln:
+
+- Lege keine spezifischen CSS Klassen für einzelne Elemente an (außer diese wiederholen sich auch in anderen Dateien).
+- Nutze die responsive API von @trunkjs/responsive.
+
 
 ## Breakpoints
 
@@ -46,6 +56,18 @@ breakpoint can be adjusted by adding a "--breakpoint: sm|md|lg|xl|xxl" css varia
 
 For Containers the `--nt-container-width` should be used.
 
+
+## Navigationsleisten und Footer
+
+Betrachte die Elemente in Navbar und Footer als vorschläge. Die korrekten Element werden immer von Jekyll eingesetzt.
+Orientiere dich bei der Navbar an `docs/_includes/_styles/default/navbar.scss` und bei Footer an `docs/_includes/_styles/default/footer.scss`.
+
+Wenn ein Footer|Navbar vom default abweicht und die Abweichung nicht per CSS umgesetzt werden kann - dann leg eine
+eigene _styles/<theme>/navbar.scss oder _styles/<theme>/footer.scss an. Benutze diese in der Markdown-Datei indem 
+du `use_navbar: <theme>` oder `use_footer: <theme>` in der Frontmatter angibst.
+
+Kümmer dich nicht drum, wenn entwickerfooter oder entwicklernavbar oder sonstige tools im screenshot zu sehen sind. Diese werden später
+ausgeblendet.
 
 ## Do's
 
