@@ -40,10 +40,6 @@ ntl-accordion-item {
     line-height: 1.55;
   }
 
-  p:last-child {
-    margin-bottom: 0;
-  }
-
   &[open] {
     border-color: color-mix(in srgb, var(--nt-body-secondary) 90%, white 10%);
 

@@ -1,0 +1,41 @@
+.icon-grid {
+  --icon-grid-cell-min: 9rem;
+  --icon-grid-gap: 1.25rem;
+  --icon-grid-item-max-width: 12rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--icon-grid-cell-min)), 1fr));
+  gap: var(--icon-grid-gap);
+  align-items: center;
+  width: 100%;
+
+  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  > :first-child {
+    justify-content: flex-start;
+  }
+
+  > :last-child {
+    justify-content: flex-end;
+  }
+
+  > :first-child:last-child {
+    justify-content: center;
+  }
+
+  > img,
+  > * > img {
+    display: block;
+    width: 100%;
+    max-width: var(--icon-grid-item-max-width);
+    max-height: 5rem;
+    object-fit: contain;
+  }
+}

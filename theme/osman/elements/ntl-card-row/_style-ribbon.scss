@@ -46,28 +46,13 @@
 
     color: #585b63;
 
-    strong {
+    .text-strong {
       color: #43464d;
       font-weight: 700;
     }
 
     .opening-hours {
       margin-bottom: 0.75rem;
-
-      p {
-        display: grid;
-        grid-template-columns: minmax(7rem, 1fr) auto;
-        gap: 1rem;
-        margin: 0 0 0.35rem;
-      }
-
-      span {
-        font-weight: 600;
-      }
-
-      strong {
-        font-weight: 400;
-      }
     }
 
     [slot="footer"],
@@ -126,13 +111,6 @@
       &::part(wrapper) {
         min-height: 0;
         padding: 2.1rem 1rem 2rem;
-      }
-
-      .opening-hours {
-        p {
-          grid-template-columns: minmax(7rem, 1fr) auto;
-          gap: 0.9rem;
-        }
       }
 
       [slot="footer"],

@@ -21,8 +21,8 @@ ptags:
 ### Sprechstundenzeiten
 
 <div class="opening-hours">
-  <p><span>Mo, Di, Do</span><strong>08:00–15:30 Uhr</strong></p>
-  <p><span>Mi, Fr</span><strong>08:00–12:00 Uhr</strong></p>
+  <div style="display:grid;grid-template-columns:minmax(7rem,1fr) auto;gap:1rem;margin:0 0 .35rem;"><span style="font-weight:600;">Mo, Di, Do</span><span style="font-weight:400;">08:00–15:30 Uhr</span></div>
+  <div style="display:grid;grid-template-columns:minmax(7rem,1fr) auto;gap:1rem;margin:0 0 .35rem;"><span style="font-weight:600;">Mi, Fr</span><span style="font-weight:400;">08:00–12:00 Uhr</span></div>
 </div>
 
 <p>Nachmittags geschlossen</p>
@@ -39,8 +39,9 @@ Hinweis - Spezielle Makulauntersuchung für Privatpatienten und Selbstzahler.
 
 ### Aktuelle Meldungen
 
-<p>Momentan keine Meldungen.</p>
-<p><strong>Ihre Meinung ist uns wichtig!</strong></p>
+Momentan keine Meldungen.
+
+<p class="text-strong">Ihre Meinung ist uns wichtig!</p>
 
 [Bewerten Sie uns](/karriere){: .btn .btn-outline-primary}
 {: .footer }
@@ -56,6 +57,7 @@ für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision u
 - Konservative Behandlung von Glaukom, Entzündungen und Verletzungen
 - Laser- und operative Verfahren zur Therapie verschiedener Augenerkrankungen
 - Zuverlässig in allen Bereichen der augenärztlichen Vorsorge
+{: .list-diamond }
 
 Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen und angenehmen Atmosphäre. Unser engagiertes Team steht Ihnen telefonisch, online und vor Ort jederzeit kompetent und vertrauensvoll zur Seite.
 
@@ -64,9 +66,9 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 ---
 {: layout="1.5;ntl-card-row.style-noborder" section-style="--cols: 6"}
 
-### Diagnostik
+### <i class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></i> Diagnostik
 
-<i class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></i>
+
 
 Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
 
@@ -85,9 +87,9 @@ Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfel
 
 Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine weiterführende Behandlung sinnvoll ist.
 
-### Therapie
+### <i class="bi bi-eye feature-icon" aria-hidden="true"></i> Therapie
 
-<i class="bi bi-eye feature-icon" aria-hidden="true"></i>
+
 
 Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:
 
@@ -117,6 +119,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 - Starke Augenschmerzen oder extreme Rötung
 - Fremdkörper im Auge
 - Verätzungen, Verbrennungen oder Verletzungen
+{: .list-diamond }
 
 ### Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
 {: layout=".aside"}
@@ -142,23 +145,18 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 - [HSK Augenklinik, Wiesbaden](/karriere)
 - [Universitäts-Augenklinik, Frankfurt](/karriere)
 - [Augenklinik, Frankfurt-Höchst](/karriere)
+{: .list-diamond }
 
 ### Mitgliedschaften
 {: section-class="aside" }
 
-- Landesärztekammer Hessen
-- Euretina
-- Bundesverband Deutscher Ophthalmochirurgen (BDOC)
-- Berufsverband der Augenärzte Deutschlands (BVA)
-- Deutsche Ophthalmologische Gesellschaft (DOG)
-- Deutsche Retinologische Gesellschaft
-- European Society of Cataract and Refractive Surgeons (ESCRS)
 
-![](https://cdn.leuffen.de//osman-k21/v2/32/196-99_a/retinagesellschaft.webp)
-![](https://cdn.leuffen.de//osman-k21/v2/27/493-112_515/escrs_logo.svg)
-![](https://cdn.leuffen.de//osman-k21/v2/9/86-25_a/bva_logo_17hz.webp)
-![](https://cdn.leuffen.de//osman-k21/v2/8/75-17_a/bdoc-logo_300x68.webp)
-{: .align-grid-items }
+<div class="icon-grid" style="--icon-grid-cell-min: 10rem; --icon-grid-item-max-width: 11rem;">
+  <img src="https://cdn.leuffen.de//osman-k21/v2/32/196-99_a/retinagesellschaft.webp" alt="Retinologische Gesellschaft">
+  <img src="https://cdn.leuffen.de//osman-k21/v2/27/493-112_515/escrs_logo.svg" alt="ESCRS">
+  <img src="https://cdn.leuffen.de//osman-k21/v2/9/86-25_a/bva_logo_17hz.webp" alt="BVA">
+  <img src="https://cdn.leuffen.de//osman-k21/v2/8/75-17_a/bdoc-logo_300x68.webp" alt="BDOC">
+</div>
 
 ## Über uns
 {: layout="ntl-2col.reverse"}
@@ -186,7 +184,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 ## Section
 {: layout="ntl-2col" }
 
-> So finden Sie uns
+So finden Sie uns
 
 Test Test Test
 

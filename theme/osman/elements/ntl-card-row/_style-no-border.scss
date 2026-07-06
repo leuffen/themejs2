@@ -6,7 +6,9 @@
   }
 
   ntl-card {
-    --border: 1px solid color-mix(in srgb, var(--nt-primary) 30%, white 70%);
+    --border: 0;
+    --border-width: 0;
+    --border-color: transparent;
     --background-color: #fff;
 
     &::part(wrapper) {
