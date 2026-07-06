@@ -16,6 +16,7 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
   @include meta.load-css("./tools/_icon-grid.scss");
+  @include meta.load-css("./classes/_site-shell.scss");
 
   background: var(--nt-background);
   color: var(--nt-text);

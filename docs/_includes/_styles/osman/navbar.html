@@ -1,23 +1,37 @@
 {% if page.skip-navbar != true %}
 
 <nte-navbar class="fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: var(--osman-navbar-height, 64px);">
+    <div class="site-topbar">
+        <div class="site-topbar__inner">
+            <div class="site-topbar__info">
+                {% if site.data.general.phone1_text %}
+                    <span>Tel. {{ site.data.general.phone1_text }}</span>
+                {% endif %}
+                {% if site.data.general.email %}
+                    <span class="site-topbar__sep">|</span>
+                    <a href="mailto:{{ site.data.general.email }}">{{ site.data.general.email }}</a>
+                {% endif %}
+                {% if site.data.general.street or site.data.general.zip or site.data.general.city %}
+                    <span class="site-topbar__sep">|</span>
+                    <span>{{ site.data.general.street }}{% if site.data.general.zip or site.data.general.city %}, {% endif %}{{ site.data.general.zip }} {{ site.data.general.city }}</span>
+                {% endif %}
+            </div>
+
+            <div class="site-topbar__actions">
+                <a href="{{ site.data.general.termin_url | default: '/online-termin' }}" class="btn btn-primary">Termin online buchen</a>
+                <span class="site-topbar__lang"><i class="bi bi-globe2" aria-hidden="true"></i> DE</span>
+            </div>
+        </div>
+    </div>
+
     <nte-navbar-line style="--brand-height: var(--osman-navbar-brand-height, 64px)">
-
-
-
-        <a slot="brand" href="/">
+        <a slot="brand" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
             <img
-                src="/assets/leuffen-logo-big.svg"
-                alt="{{ site.data.general.logoalt }}"
+                src="/assets/osman-logo.svg"
+                alt="{{ site.data.general.logoalt | default: site.data.general.name }}"
                 class="loader-image"
                 height="64"
-                style="float: left"
             />
-            ThemeJs2
-            <!--div style="font-size: 1.1em; float: right" class="m-2 text-black">
-              <div style="font-size: 1.6em">{{ site.data.general.logoalt }}</div>
-              <div style="font-size: 1.1em">{{ site.data.general.fachrichtung}}</div>
-            </div-->
         </a>
 
         <nte-nav
@@ -26,37 +40,15 @@
             data-group-name="nav1"
             breakpoint="xl"
             transfer-to="#navSidebar"
-            style="--text-color: blue"
         >
             <span slot="menu-text">Menü</span>
 
-
-
             <ul>
                 {% include el/navbar.html ptag="nav2" %}
-                <li style="order: 30">
-                    <a href="javascript:void(0)">Arzt</a>
-                    <ul>
-                        {% include el/navbar.html ptag="arzt" %}
-                    </ul>
-                </li>
-                <li style="order: 30">
-                    <a href="javascript:void(0)">EPraxis</a>
-                    <ul>
-                        {% include el/navbar.html ptag="epraxis" %}
-                    </ul>
-                </li>
-                <li style="order: 30">
-                    <a href="javascript:void(0)">Styles</a>
-                    <ul>
-                        {% include el/navbar.html ptag="styles" %}
-                    </ul>
-                </li>
             </ul>
         </nte-nav>
     </nte-navbar-line>
 </nte-navbar>
-
 
 <nte-offcanvas id="navSidebar" data-group-name="nav1">
     <nte-burger slot="header" data-group-name="nav1" data-nt-dismiss="offcanvas" open></nte-burger>
@@ -64,8 +56,3 @@
 </nte-offcanvas>
 
 {% endif %}
-
-
-
-
-{{ content }}

@@ -47,7 +47,8 @@ In HTML Dateien oder embedded HTML in Markdown Datein gelten folgende Regeln:
 
 - Lege keine spezifischen CSS Klassen für einzelne Elemente an (außer diese wiederholen sich auch in anderen Dateien).
 - Nutze die responsive API von @trunkjs/responsive.
-
+- Wenn Du Farben aus dem Theme oder Abstände referenzierst, nutze entweder direkt die util-klassen aus nextrap/style-utils oder die CSS Variablen aus nextrap/styles, die du direkt in den style="" Attributen referenzierst.
+- Für wiederkehrende Elemente, die nur in einer Datei vorkommen, lege eine eiegene <style> Sektion in der HTML Datei an und nutze diese für die wiederkehrenden CSS Klassen. Diese CSS Klassen aollten nur in dieser Datei genutzt werden. (z.B. für die Abstände zwischen den einzelnen Elementen, die nur in dieser Datei vorkommen). Nutze dabei CSS Nesting, um die Klassen auf ein z.B. <footer> element zu bescrhänken.
 
 ## Breakpoints
 
