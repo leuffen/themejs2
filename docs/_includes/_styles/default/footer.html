@@ -1,42 +1,122 @@
-<footer style="">
+<style>
+    #footer-default {
+        --footer-background: rgb(from var(--nt-dark) r g b / 0.90);
+        --footer-text-color: var(--nt-text-on-dark);
+        --footer-border-color: rgb(from var(--footer-text-color) r g b / 0.12);
 
-    ### {% include do/trans.html val="Kontakt" %}
+        --subfooter-background: rgb(from var(--footer-background) r g b / 0.50);
+        --subfooter-text-color: var(--nt-text-on-secondary);
+        --subfooter-border-color: rgb(from var(--subfooter-text-color) r g b / 0.18);
 
-    {% include el/address.html %}
+        --minifooter-background:  var(--nt-black);
+        --minifooter-text-color: rgb(from var(--nt-text-on-secondary) r g b / 0.72);
+        --minifooter-border-color: rgb(from var(--subfooter-text-color) r g b / 0.18);
+    }
 
-    ### Info
+  #footer-default a, #footer-default h2 {
+    color: inherit;
+  }
 
-    {{page.description}}
+  #footer-default .openhours {
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-    ### Links
+  #footer-default .openhours td {
+    padding: 0.12rem 0.4rem 0.12rem 0;
+    vertical-align: top;
+  }
 
-    {% assign navi2 = site.pages | where: "lang", "de" | where: "ptags", "footernav" | sort: "order" %}
-    {%- for it in navi2 -%}
-    {%- assign title = it.short_title | default: it.title -%}
-    - [{{title}}]({%- include do/link.html pid=it.pid -%})
-    {% endfor %}
+  #footer-default .openhours td:first-child {
+    white-space: nowrap;
+    font-weight: 600;
+  }
 
+  @media (min-width: 992px) {
+    #footer-default .default-footer__subnav li {
+      line-height: 1;
+      padding-right: 0.7rem;
+      margin-right: 0.7rem;
+      border-right: 1px solid var(--subfooter-border-color);
+    }
 
+    #footer-default .default-footer__subnav li:last-child {
+      padding-right: 0;
+      margin-right: 0;
+      border-right: 0;
+    }
+  }
+</style>
 
-    <h2>Öffnungszeiten</h2>
-    <p id="minifooter">
+{% assign footer_version = page.url | size | modulo: site.data.defaults.footers.size %}
+{% assign selected_footer = site.data.defaults.footers[footer_version] %}
 
-        {% assign footer_version = page.url | size | modulo: site.data.defaults.footers.size %}
-        {% assign selected_footer = site.data.defaults.footers[footer_version] %}
+<footer
+  id="footer-default"
+  class="mt-5"
+  style="position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--footer-background);color:var(--footer-text-color);border-top:1px solid var(--footer-border-color);"
+>
+  <div class="container py-4 xl:py-5">
+    <div class="row gy-4">
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-contact">
+        <h2 id="footer-contact" class="h5 mb-3">{% include do/trans.html val="Kontakt" %}</h2>
+        <div class="small">
+          {% include el/address.html %}
+        </div>
+      </section>
 
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-info">
+        <h2 id="footer-info" class="h5 mb-3">Info</h2>
+        <p class="small mb-0">{{ site.data.general.desc | default: site.data.general.fachrichtung | default: page.description }}</p>
+      </section>
 
-        <a class="text-decoration-none" href="{{ selected_footer.logo_href }}" label="{{ selected_footer.logo_label }}">
-            <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height: 22px; margin-top:-8px;" alt="{{ selected_footer.logo_alt }}">
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-links">
+        <h2 id="footer-links" class="h5 mb-3">Links</h2>
+        <ul class="list-unstyled d-flex flex-column gap-2 small mb-0">
+          {% include el/navbar.html ptag="footernav" %}
+        </ul>
+      </section>
+
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-hours">
+        <h2 id="footer-hours" class="h5 mb-3">Öffnungszeiten</h2>
+        <div class="small">
+          {% include el/openhours.html %}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div style="background:var(--subfooter-background);color:var(--subfooter-text-color);border-top:1px solid var(--subfooter-border-color);">
+    <div class="container py-3">
+      <div class="d-flex flex-column xl:flex-row xl:align-items-center xl:justify-content-between gap-3 small">
+        <nav aria-label="Subfooter Navigation">
+          <ul class="default-footer__subnav list-unstyled d-flex flex-column xl:flex-row gap-2 xl:gap-0 mb-0">
+            {% include el/navbar.html ptag="subfooter" %}
+          </ul>
+        </nav>
+
+        <div class="d-flex flex-column xl:flex-row xl:align-items-center gap-2 xl:gap-3 xl:text-end">
+          <span>© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+          <span>{{ site.data.general.domain }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--minifooter-background);color:var(--minifooter-text-color);border-top:1px solid var(--minifooter-border-color);">
+    <div class="container py-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 small text-center">
+        <a class="d-inline-flex align-items-center text-decoration-none" href="{{ selected_footer.logo_href }}" aria-label="{{ selected_footer.logo_label }}">
+          <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height:22px;" alt="{{ selected_footer.logo_alt }}">
         </a>
         <a class="text-decoration-none" href="{{ selected_footer.text_href }}">{{ selected_footer.text }}</a>
-
-        <a class="ps-5" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-            </svg>
+        <a class="d-inline-flex align-items-center text-decoration-none" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
         </a>
-    </p>
-
-
+      </div>
+    </div>
+  </div>
 </footer>

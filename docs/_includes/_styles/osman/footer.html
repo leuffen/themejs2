@@ -1,99 +1,114 @@
 <style>
-  footer#footer {
-    .osman-footer-links {
-      gap: 0.65rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+  #footer-osman {
+    --footer-background: var(--nt-body-secondary);
+    --footer-text-color: var(--nt-text);
+    --footer-border-color: rgb(from var(--footer-text-color) r g b / 0.08);
 
-    .osman-footer-links li {
-      margin: 0;
-      padding: 0;
-      padding-right: var(--osman-footer-separator-space, 0);
-      margin-right: var(--osman-footer-separator-space, 0);
-      border-right: var(--osman-footer-separator-width, 0) solid rgb(from var(--nt-text) r g b / 0.28);
+    --subfooter-background: var(--nt-body-secondary);
+    --subfooter-text-color: rgb(from var(--footer-text-color) r g b / 0.55);
+    --subfooter-border-color: rgb(from var(--footer-text-color) r g b / 0.08);
+
+    --footer-link-color: var(--footer-text-color);
+    --footer-icon-color: rgb(from var(--footer-text-color) r g b / 0.65);
+    --footer-separator-color: rgb(from var(--footer-text-color) r g b / 0.28);
+  }
+
+  #footer-osman a {
+    color: inherit;
+  }
+
+  #footer-osman .osman-footer__nav,
+  #footer-osman .osman-footer__credit {
+    --nt-primary: currentColor;
+  }
+
+  #footer-osman .osman-footer__nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #footer-osman .osman-footer__nav-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  #footer-osman .osman-footer__nav-list a,
+  #footer-osman .osman-footer__icons a,
+  #footer-osman .osman-footer__credit a {
+    text-decoration: none;
+  }
+
+  #footer-osman .osman-footer__nav-list a:hover,
+  #footer-osman .osman-footer__icons a:hover,
+  #footer-osman .osman-footer__credit a:hover {
+    text-decoration: underline;
+  }
+
+  #footer-osman .osman-footer__icons {
+    font-size: 1.35rem;
+  }
+
+  #footer-osman .osman-footer__icons a {
+    color: var(--footer-icon-color);
+  }
+
+  @media (min-width: 1200px) {
+    #footer-osman .osman-footer__nav-list li {
       line-height: 1;
+      padding-right: 0.7rem;
+      margin-right: 0.7rem;
+      border-right: 1px solid var(--footer-separator-color);
     }
 
-    .osman-footer-links li:last-child {
+    #footer-osman .osman-footer__nav-list li:last-child {
       padding-right: 0;
       margin-right: 0;
       border-right: 0;
     }
-
-    .osman-footer-links a {
-      color: var(--nt-text);
-      text-decoration: none;
-    }
-
-    .osman-footer-icons {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      font-size: 1.35rem;
-    }
-
-    .osman-footer-icons a {
-      color: rgb(from var(--nt-text) r g b / 0.65);
-      text-decoration: none;
-    }
-
   }
 </style>
 
-<footer
-  id="footer"
-  style="position:relative;width:100vw;margin-top:clamp(2.5rem,5vw,4rem);margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--nt-body-secondary);border-top:1px solid rgb(from var(--nt-text) r g b / .08);"
->
-  <div
-    class="container d-grid"
-    style="gap:1rem;padding:1.1rem 0;"
-    style-lg="display:flex !important;align-items:center;justify-content:space-between;gap:1rem;padding:.95rem 0;"
-  >
-    <nav aria-label="Footer Navigation" style="font-size:.92rem;color:var(--nt-text);--nt-primary:var(--nt-text);">
-      <ul
-        class="d-grid osman-footer-links"
-        style="--osman-footer-separator-space:0;--osman-footer-separator-width:0;grid-template-columns:1fr;gap:.7rem;"
-        style-lg="--osman-footer-separator-space:.7rem;--osman-footer-separator-width:1px;display:flex !important;align-items:center;gap:0;grid-template-columns:none;"
-      >
-        {% include el/navbar.html ptag="footernav" %}
-      </ul>
-    </nav>
+{% assign footer_version = page.url | size | modulo: site.data.defaults.footers.size %}
+{% assign selected_footer = site.data.defaults.footers[footer_version] %}
 
-    <div
-      class="d-grid"
-      style="gap:.7rem;color:var(--nt-text);font-size:.92rem;"
-      style-lg="display:flex !important;align-items:center;gap:1rem;"
-    >
-      <span>© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
-      <div class="osman-footer-icons" aria-label="Social Links">
-        <a href="#" aria-label="Teilen"><i class="bi bi-share-fill" aria-hidden="true"></i></a>
-        <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+<footer
+  id="footer-osman"
+  class="mt-5"
+  style="position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--footer-background);color:var(--footer-text-color);border-top:1px solid var(--footer-border-color);"
+>
+  <div class="container py-3">
+    <div class="d-flex flex-column xl:flex-row xl:align-items-center xl:justify-content-between gap-3">
+      <nav class="osman-footer__nav small" aria-label="Footer Navigation">
+        <ul class="osman-footer__nav-list d-flex flex-column xl:flex-row gap-3 xl:gap-0 mb-0">
+          {% include el/navbar.html ptag="subfooter" %}
+        </ul>
+      </nav>
+
+      <div class="d-flex flex-column xl:flex-row xl:align-items-center gap-3 small">
+        <span>© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <div class="osman-footer__icons d-flex align-items-center gap-3" aria-label="Social Links">
+          <a href="#" aria-label="Teilen"><i class="bi bi-share-fill" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
   </div>
 
-  <div style="border-top:1px solid rgb(from var(--nt-text) r g b / .08);">
-    <div
-      class="container d-flex align-items-center justify-content-center"
-      style="color:rgb(from var(--nt-text) r g b / .55);font-size:.78rem;text-align:center;padding:.7rem 0 .8rem;"
-    >
-        {% assign footer_version = page.url | size | modulo: site.data.defaults.footers.size %}
-        {% assign selected_footer = site.data.defaults.footers[footer_version] %}
-
-
-        <a class="text-decoration-none" href="{{ selected_footer.logo_href }}" label="{{ selected_footer.logo_label }}">
-            <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height: 22px;" alt="{{ selected_footer.logo_alt }}">
+  <div style="background:var(--subfooter-background);color:var(--subfooter-text-color);border-top:1px solid var(--subfooter-border-color);">
+    <div class="container py-3">
+      <div class="osman-footer__credit d-flex flex-wrap align-items-center justify-content-center gap-3 small text-center">
+        <a class="d-inline-flex align-items-center" href="{{ selected_footer.logo_href }}" aria-label="{{ selected_footer.logo_label }}">
+          <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height:22px;" alt="{{ selected_footer.logo_alt }}">
         </a>
-        <a class="text-decoration-none" href="{{ selected_footer.text_href }}">{{ selected_footer.text }}</a>
-
-        <a class="ps-5" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-            </svg>
+        <a href="{{ selected_footer.text_href }}">{{ selected_footer.text }}</a>
+        <a class="d-inline-flex align-items-center ps-5" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
         </a>
+      </div>
     </div>
   </div>
 </footer>

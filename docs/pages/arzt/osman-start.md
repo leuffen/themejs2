@@ -69,6 +69,7 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 {: layout="1.5;ntl-card-row.style-noborder" section-style="--cols: 6"}
 
 ### <i class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></i> Diagnostik
+{: .header}
 
 
 
@@ -90,7 +91,7 @@ Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfel
 Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine weiterführende Behandlung sinnvoll ist.
 
 ### <i class="bi bi-eye feature-icon" aria-hidden="true"></i> Therapie
-
+{: .header}
 
 
 Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:

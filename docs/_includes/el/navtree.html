@@ -1,0 +1,183 @@
+{%- comment -%}
+USAGE:
+
+{% include el/navtree.html %}
+{% include el/navtree.html ptags="nav,footer" %}
+{% include el/navtree.html ptags="nav" start=1 depth=2 %}
+
+PARAMETER:
+- ptags → optionale, komma-separierte Liste von ptags; ohne Angabe werden alle Seiten berücksichtigt
+- depth → wie viele Ebenen ab start ausgegeben werden sollen (default: 99)
+- start → ab welcher Ebene die Ausgabe beginnen soll (root = 0, default: 0)
+
+HINWEIS:
+- Die Baumstruktur wird aus der Jekyll-Seitenstruktur bzw. dem Dateipfad abgeleitet.
+- Standard-Label ist `title`, alternativ `nav_title`.
+- Seiten ohne eigenes Index-Dokument in einem Verzeichnis werden über einen nicht klickbaren Ordner-Knoten gruppiert.
+{%- endcomment -%}
+
+{%- assign start_level = include.start | default: 0 | plus: 0 -%}
+{%- assign max_depth = include.depth | default: 99 | plus: 0 -%}
+{%- assign current_level = include._level | default: 0 | plus: 0 -%}
+{%- assign next_level = current_level | plus: 1 -%}
+{%- assign base_path = include._base | default: "" -%}
+{%- assign skip_root = include._skip_root | default: false -%}
+{%- assign end_level = start_level | plus: max_depth -%}
+{%- assign max_render_level = end_level | minus: 1 -%}
+
+{%- if max_depth > 0 -%}
+    {%- assign tree_pages = site.pages | sort: 'path' | sort: 'order' -%}
+    {%- capture tree_items -%}
+        {%- assign seen_children = '|' -%}
+
+        {%- for node in tree_pages -%}
+            {%- assign matches_ptag = true -%}
+            {%- if include.ptags -%}
+                {%- assign matches_ptag = false -%}
+                {%- if node.ptags -%}
+                    {%- assign requested_tags = include.ptags | append: '' | split: ',' -%}
+                    {%- for requested_tag in requested_tags -%}
+                        {%- assign requested_tag = requested_tag | strip -%}
+                        {%- if requested_tag != '' and node.ptags contains requested_tag -%}
+                            {%- assign matches_ptag = true -%}
+                            {%- break -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+                {%- endif -%}
+            {%- endif -%}
+
+            {%- if matches_ptag -%}
+                {%- assign node_key = node.path | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
+                {%- if node_key == 'index' -%}
+                    {%- assign node_key = '' -%}
+                {%- elsif node_key contains '/index' -%}
+                    {%- assign node_key = node_key | replace: '/index', '' -%}
+                {%- endif -%}
+
+                {%- if skip_root and base_path == '' and node_key == '' -%}
+                    {%- continue -%}
+                {%- endif -%}
+
+                {%- if base_path != '' and node_key == base_path -%}
+                    {%- continue -%}
+                {%- endif -%}
+
+                {%- assign child_key = '' -%}
+
+                {%- if base_path == '' -%}
+                    {%- if node_key == '' -%}
+                        {%- assign child_key = '' -%}
+                    {%- else -%}
+                        {%- assign child_key = node_key | split: '/' | first -%}
+                    {%- endif -%}
+                {%- else -%}
+                    {%- assign base_prefix = base_path | append: '/' -%}
+                    {%- assign node_prefix = node_key | slice: 0, base_prefix.size -%}
+                    {%- if node_prefix == base_prefix -%}
+                        {%- assign relative_key = node_key | remove_first: base_prefix -%}
+                        {%- assign child_key = relative_key | split: '/' | first -%}
+                    {%- endif -%}
+                {%- endif -%}
+
+                {%- if base_path != '' and child_key == '' -%}
+                    {%- continue -%}
+                {%- endif -%}
+
+                {%- if child_key != blank -%}
+                    {%- assign seen_token = '|' | append: child_key | append: '|' -%}
+                {%- else -%}
+                    {%- assign seen_token = '|__root__|' -%}
+                {%- endif -%}
+
+                {%- unless seen_children contains seen_token -%}
+                    {%- assign seen_children = seen_children | append: seen_token -%}
+                    {%- if base_path == '' -%}
+                        {%- assign child_path = child_key -%}
+                    {%- elsif child_key != '' -%}
+                        {%- assign child_path = base_path | append: '/' | append: child_key -%}
+                    {%- else -%}
+                        {%- assign child_path = base_path -%}
+                    {%- endif -%}
+
+                    {%- assign has_descendants = false -%}
+                    {%- assign child_page = nil -%}
+                    {%- assign child_prefix = child_path | append: '/' -%}
+
+                    {%- for candidate in tree_pages -%}
+                        {%- assign candidate_matches_ptag = true -%}
+                        {%- if include.ptags -%}
+                            {%- assign candidate_matches_ptag = false -%}
+                            {%- if candidate.ptags -%}
+                                {%- assign requested_tags = include.ptags | append: '' | split: ',' -%}
+                                {%- for requested_tag in requested_tags -%}
+                                    {%- assign requested_tag = requested_tag | strip -%}
+                                    {%- if requested_tag != '' and candidate.ptags contains requested_tag -%}
+                                        {%- assign candidate_matches_ptag = true -%}
+                                        {%- break -%}
+                                    {%- endif -%}
+                                {%- endfor -%}
+                            {%- endif -%}
+                        {%- endif -%}
+
+                        {%- if candidate_matches_ptag -%}
+                            {%- assign candidate_key = candidate.path | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
+                            {%- if candidate_key == 'index' -%}
+                                {%- assign candidate_key = '' -%}
+                            {%- elsif candidate_key contains '/index' -%}
+                                {%- assign candidate_key = candidate_key | replace: '/index', '' -%}
+                            {%- endif -%}
+
+                            {%- if candidate_key == child_path -%}
+                                {%- assign child_page = candidate -%}
+                            {%- endif -%}
+
+                            {%- if child_prefix != '/' -%}
+                                {%- assign candidate_prefix = candidate_key | slice: 0, child_prefix.size -%}
+                                {%- if candidate_prefix == child_prefix -%}
+                                    {%- assign has_descendants = true -%}
+                                {%- endif -%}
+                            {%- elsif candidate_key != '' -%}
+                                {%- assign has_descendants = true -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+
+                    {%- if current_level < start_level -%}
+                        {%- if has_descendants -%}
+                            {%- if child_path == '' -%}
+                                {%- include el/navtree.html ptags=include.ptags start=start_level depth=max_depth _base=child_path _level=next_level _skip_root=true -%}
+                            {%- else -%}
+                                {%- include el/navtree.html ptags=include.ptags start=start_level depth=max_depth _base=child_path _level=next_level -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                    {%- else -%}
+                        <li>
+                            {%- if child_page -%}
+                                {%- assign nav_label = child_page.nav_title | default: child_page.title -%}
+                                <a href="{{ child_page.url }}">{{ nav_label }}</a>
+                            {%- else -%}
+                                {%- assign folder_label = child_key | replace: '-', ' ' | replace: '_', ' ' | capitalize -%}
+                                <span>{{ folder_label }}</span>
+                            {%- endif -%}
+
+                            {%- if has_descendants and current_level < max_render_level -%}
+                                {%- if child_path == '' -%}
+                                    {%- include el/navtree.html ptags=include.ptags start=start_level depth=max_depth _base=child_path _level=next_level _skip_root=true -%}
+                                {%- else -%}
+                                    {%- include el/navtree.html ptags=include.ptags start=start_level depth=max_depth _base=child_path _level=next_level -%}
+                                {%- endif -%}
+                            {%- endif -%}
+                        </li>
+                    {%- endif -%}
+                {%- endunless -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endcapture -%}
+
+    {%- assign tree_items = tree_items | strip -%}
+    {%- if tree_items != '' -%}
+        <ul>
+            {{- tree_items -}}
+        </ul>
+    {%- endif -%}
+{%- endif -%}

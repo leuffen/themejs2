@@ -1,15 +1,11 @@
 ---
-layout: 1_body
+layout: 3_main
+use_navbar: false
+use_footer: false
 ---
 
-<main id="main" class="mx-auto">
-    {% capture global_include %}
-    {% include global.md %}
-    {% endcapture %}
 
-    {{ global_include | markdownify }}
 
-    <tj-content-pane class="">
-        {{ content }}
-    </tj-content-pane>
-</main>
+<tj-content-pane class="">
+    {{ content }}
+</tj-content-pane>
