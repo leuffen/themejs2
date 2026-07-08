@@ -1,0 +1,6 @@
+@use "sass:meta";
+
+nte-nav {
+  @include meta.load-css("./_nav-horizontal.scss");
+  @include meta.load-css("./_nav-vertical.scss");
+}

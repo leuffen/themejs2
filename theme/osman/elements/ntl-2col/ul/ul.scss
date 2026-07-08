@@ -12,6 +12,6 @@ ul {
 
 &[mode="mobile"] {
   ul.style-diamond {
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--nt-text-gap);
   }
 }

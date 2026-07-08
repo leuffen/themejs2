@@ -1,117 +1,42 @@
 @use "sass:meta";
 @use "./../../font/_vendor/font-bootstrap-icons";
 @use "@nextrap/style-base/module" as nextrapBase;
-@use "./elements/nte-navbar/nte-navbar" as navbar;
-@use "./elements/ntl-hero/ntl-hero" as hero;
-@use "./elements/ntl-card-row/ntl-card-row" as cardRow;
-@use "./elements/ntl-accordion-item/ntl-accordion-item" as accordion;
 
 @forward "../../src/style/base";
 
 $theme: () !default;
 
-.theme-osman {
+// Always wrap themes classes in where() to avoid specificity issues when using multiple themes on the same page.
+:where(.theme-osman) {
   @include nextrapBase.nextrap-theme($theme, ());
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
+  @include meta.load-css("./elements/main/main.scss");
+  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
+  @include meta.load-css("./elements/a/a.scss");
+  @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
+  @include meta.load-css("./elements/nte-navbar-line/nte-navbar-line.scss");
+  @include meta.load-css("./elements/nte-nav/nte-nav.scss");
+  @include meta.load-css("./elements/nte-offcanvas/nte-offcanvas.scss");
+  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+  @include meta.load-css("./elements/ntl-accordion/ntl-accordion.scss");
   @include meta.load-css("./tools/_icon-grid.scss");
   @include meta.load-css("./classes/_site-shell.scss");
+  @include meta.load-css("./classes/_opening-hours.scss");
+  @include meta.load-css("./classes/_text-strong.scss");
+  @include meta.load-css("./classes/_footer.scss");
+  @include meta.load-css("./classes/_feature-icon.scss");
+  @include meta.load-css("./classes/_header.scss");
+  @include meta.load-css("./classes/_warning-heading.scss");
+  @include meta.load-css("./classes/_warning-emergency.scss");
+  @include meta.load-css("./classes/_aside.scss");
 
-  nte-navbar.style-default {
-    @include navbar.navbar-default;
-
-    nte-nav.nav-horizontal {
-      @include navbar.nav-horizontal-default;
-    }
-  }
-
-  nte-navbar-line.style-default {
-    @include navbar.navbar-line-default;
-  }
-
-  nte-offcanvas.style-default {
-    @include navbar.offcanvas-default;
-  }
-
-  ntl-hero.style-default {
-    @include hero.style-default;
-  }
-
-  ntl-card-row.style-default,
-  ntl-card-row.style-noborder,
-  ntl-card-row.style-ribbon,
-  ntl-card-row.style-ribbon-top {
-    @include cardRow.style-default;
-  }
-
-  ntl-card-row.style-noborder {
-    @include cardRow.style-noborder;
-  }
-
-  ntl-card-row.style-ribbon,
-  ntl-card-row.style-ribbon-top {
-    @include cardRow.style-ribbon;
-  }
-
-  ntl-card-row.style-ribbon-top {
-    @include cardRow.style-ribbon-top;
-  }
-
-  ntl-accordion.style-default {
-    @include accordion.accordion-default;
-
-    ntl-accordion-item {
-      @include accordion.accordion-item-default;
-    }
-  }
-
-  ntl-accordion-item.style-default {
-    @include accordion.accordion-item-default;
-  }
-
-  background: var(--nt-background);
-  color: var(--nt-text);
-
-  main#main {
-    max-width: 100%;
-  }
-
-  tj-content-pane {
-    display: block;
-  }
-
-  a {
-    color: var(--nt-primary);
-    text-decoration: none;
-  }
-
-  .warning-heading {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-
-    i {
-      color: var(--nt-primary);
-      font-size: clamp(2.35rem, 3vw, 3rem);
-      line-height: 1;
-    }
-  }
-
-  .warning-emergency {
-    margin: 0;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  section.aside {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    height: 100%;
-  }
-
-  ntl-card-row:is(.style-default, .style-noborder, .style-ribbon, .style-ribbon-top) {
-    padding: var(--nt-content-space) 0;
+  ntl-2col,
+  ntl-card-row,
+  ntl-card-grid {
+    margin-top: var(--nt-content-space);
+    margin-bottom: var(--nt-content-space);
   }
 }

@@ -126,7 +126,7 @@
 }
 
 .hero-kicker {
-  margin: 0 0 0.35rem;
+  margin: 0 0 var(--nt-text-gap);
   color: var(--nt-primary);
   font-size: 1.02rem;
   font-weight: 800;
@@ -136,7 +136,7 @@
 
 .hero-contact {
   display: none;
-  margin: 0 0 0.2rem;
+  margin: 0 0 var(--nt-text-gap);
   color: #666;
   font-size: 0.95rem;
   line-height: 1.45;
@@ -144,11 +144,11 @@
 
 .hero-mobile-cta {
   display: none;
-  margin-top: 1.1rem;
+  margin-top: var(--nt-text-gap);
 }
 
 .section-kicker {
-  margin: 0 0 0.45rem;
+  margin: 0 0 var(--nt-text-gap);
   color: #333;
   font-size: 0.86rem;
   font-weight: 800;

@@ -1,0 +1,24 @@
+&.style-default {
+  color: var(--nt-header);
+
+  &::part(offcanvas) {
+    width: min(26rem, 100vw);
+    background: #fff;
+  }
+
+  &::part(header) {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  &::part(main) {
+    padding: 1rem 1.25rem 1.5rem;
+  }
+
+  @media (max-width: 991.98px) {
+    &::part(offcanvas) {
+      width: 100vw;
+    }
+  }
+}

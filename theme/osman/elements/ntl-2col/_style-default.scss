@@ -5,10 +5,8 @@
   --gap: clamp(1.75rem, 3vw, 3.5rem);
   --section-divider-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%);
 
-  padding: var(--nt-content-space) 0;
-
   @include ntl2col.default-style(
-    $innerPadding: 0,
+    $innerPadding: var(--nt-text-gap),
     $gap: clamp(1.75rem, 3vw, 3.5rem),
     $background: transparent,
     $border: 0,
@@ -71,13 +69,5 @@
       aspect-ratio: 7 / 5;
     }
 
-    .warning-heading {
-      align-items: flex-start;
-      gap: 0.8rem;
-
-      i {
-        font-size: 2rem;
-      }
-    }
   }
 }

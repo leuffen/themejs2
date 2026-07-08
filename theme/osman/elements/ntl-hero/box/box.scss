@@ -1,0 +1,37 @@
+.box {
+  position: absolute;
+  left: clamp(4rem, 6.25vw, 7.25rem);
+  bottom: clamp(5rem, 7vw, 7rem);
+  z-index: 1;
+  width: min(45rem, calc(100vw - 11rem));
+  margin: 0;
+  padding: var(--nt-text-gap) var(--nt-text-gap) var(--nt-text-gap) 0;
+  background: transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -100vw;
+    background: rgba(255, 255, 255, 0.76);
+    z-index: -1;
+  }
+}
+
+&[mode="mobile"] {
+  .box {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    margin: 0 1rem;
+    padding: var(--nt-text-gap);
+    transform: none;
+    background: transparent;
+
+    &::before {
+      display: none;
+    }
+  }
+}

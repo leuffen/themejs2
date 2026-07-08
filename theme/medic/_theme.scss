@@ -7,7 +7,7 @@
 
 $theme: () !default;
 
-.theme-medic {
+:where(.theme-medic) {
   @include nextrapBase.nextrap-theme($theme, (
 
     primary: #b50303,

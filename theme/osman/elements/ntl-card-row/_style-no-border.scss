@@ -1,18 +1,39 @@
 @use "@nextrap/ntl-card-row" as cardRow;
 
-@mixin style-noborder {
+&.style-noborder {
   --gutter-y: 0;
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $gap: clamp(1rem, 2vw, 1.5rem),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: none,
+    $container-border-radius: 0
+  );
 
   @include cardRow.with-item-separators(
     $separator-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%),
     $separator-inset: clamp(0.25rem, 1.2vw, 0.75rem)
   );
 
+  &::part(container) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+  }
+
+  &::part(header),
+  &::part(footer) {
+    display: none;
+  }
+
   &::part(main) {
     align-items: stretch;
   }
 
   ntl-card {
+    --image-aspect-ratio: 16/9;
     --border: 0;
     --border-width: 0;
     --border-color: transparent;
@@ -20,7 +41,7 @@
 
     &::part(wrapper) {
       justify-content: flex-start;
-      padding: clamp(1.25rem, 1.8vw, 1.8rem);
+      padding: var(--nt-text-gap);
     }
 
     &::part(content) {
@@ -29,38 +50,18 @@
       align-items: flex-start;
     }
 
-    .feature-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 0 1.1rem;
-      color: var(--nt-primary);
-      font-size: clamp(2.2rem, 3vw, 3rem);
-      line-height: 1;
-    }
-  }
-
-  &[mode="desktop"] {
-    ntl-card {
-      &::part(wrapper) {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-      }
-    }
   }
 
   &[mode="mobile"] {
     --gutter-y: 1rem;
 
     ntl-card {
+      --image-aspect-ratio: 1;
+
       &::part(wrapper) {
-        padding: 1.1rem 1rem;
+        padding: var(--nt-text-gap);
       }
 
-      .feature-icon {
-        margin: 0 0 0.9rem;
-        font-size: 2.2rem;
-      }
     }
   }
 }

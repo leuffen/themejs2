@@ -1,0 +1,37 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&.style-default {
+  --gutter-y: clamp(1rem, 2vw, 1.5rem);
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $gap: clamp(1rem, 2vw, 1.5rem),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: none,
+    $container-border-radius: 0
+  );
+
+  &::part(container) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+  }
+
+  &::part(header),
+  &::part(footer) {
+    display: none;
+  }
+
+  &[mode="desktop"] {
+    ntl-card {
+      --image-aspect-ratio: 16/9;
+    }
+  }
+
+  &[mode="mobile"] {
+    ntl-card {
+      --image-aspect-ratio: 1;
+    }
+  }
+}

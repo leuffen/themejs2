@@ -1,0 +1,17 @@
+&.nav-vertical {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  > ul > li > a {
+    display: block;
+    padding: 0.85rem 0;
+    color: var(--nt-header);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #ece8e4;
+  }
+}

@@ -1,22 +1,22 @@
 &.style-diamond {
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--nt-text-gap);
   padding: 0;
   list-style: none;
 
   > * {
     position: relative;
-    margin: 0 0 0.35rem;
-    padding-left: 1.25rem;
+    margin: 0 0 calc(var(--nt-text-gap) * 0.35);
+    padding-left: 0.75lh;
 
     &::before {
-      content: "◆";
+      content: "";
       position: absolute;
-      top: 0.72em;
-      left: 0;
-      color: var(--nt-primary);
-      font-size: 0.52em;
-      line-height: 1;
-      transform: translateY(-50%);
+      inset-inline-start: 0;
+      inset-block-start: calc((1lh - 0.5em) / 2);
+      inline-size: 0.5em;
+      block-size: 0.5em;
+      background: var(--nt-primary);
+      transform: rotate(45deg);
     }
   }
 }

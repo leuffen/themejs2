@@ -27,7 +27,9 @@ Keep new themes aligned with `theme/medic/` and `theme/epraxis/`:
 For `theme/**/elements/**` use these rules strictly:
 
 - `_theme.scss` only loads element entry files via `@include meta.load-css(...)`.
-- All theme styles must be loaded inside `.theme-<theme-name>` so theme switching works reliably.
+- The only direct CSS rule allowed in `_theme.scss` is main-content spacing for `ntl-2col`, `ntl-card-row`, and `ntl-card-grid` using `margin-top: var(--nt-content-space)` and `margin-bottom: var(--nt-content-space)`.
+- Always wrap the main theme selector in `:where(.theme-<theme-name>)` like in `theme/osman/_theme.scss` to keep specificity low.
+- All theme styles must be loaded inside `:where(.theme-<theme-name>)` so theme switching works reliably.
 - Never create unscoped global styles.
 - Every element has one entry file: `elements/<element>/<element>.scss`.
 - The entry file only contains `meta.load-css(...)`, no own styles.
@@ -41,6 +43,37 @@ For `theme/**/elements/**` use these rules strictly:
 - Example: `elements/ntl-2col/ul/ul.scss` and not `elements/ntl-2col/_style-diamond.scss`.
 - If a class is applied to `ul`, its styles belong into `ul/`.
 - Even child pairings are never global; they are always loaded through `_theme.scss` and therefore prefixed by `.theme-<theme-name>`.
+- Child pairings belong into `elements/<parent>/<child>/**` only if they are specific to that parent-child relationship. Otherwise, prefer a reusable class in `classes/`.
+
+## Reusability across elements
+
+Design reusable styles across elements by default.
+
+- If a style is not tied to a specific element structure, move it to `classes/`.
+- Use `classes/` for reusable semantic classes like:
+  - `.opening-hours`
+  - `.text-strong`
+  - `.feature-icon`
+  - `.footer`
+  - `.aside`
+- Only keep styles inside `elements/<element>/**` when they depend on:
+  - element parts (`::part(...)`)
+  - element slots
+  - element-specific layout structure
+  - element-specific states or modifiers
+- If a class could be used in more than one element, prefer `classes/_<class-name>.scss`.
+- Element files should only contain:
+  - element default styles
+  - element modifiers (`style-default`, `with-*`, `reverse`)
+  - child pairings that are truly tied to that element
+- Do not define reusable utility-like classes inside a single element file.
+- Never override reusable utility/helper classes like `.btn`, spacing utilities, text utilities, flex utilities or similar project-wide helper classes inside an element or variant file unless the developer explicitly allows it.
+- If a visual issue affects a utility/helper class inside an element, first solve it through the element layout, wrappers, slots, or dedicated local semantic classes instead of overriding the utility class itself.
+- Before creating a class, ask:
+  1. Is this tied to the element structure?
+  2. Or can it be reused across multiple elements?
+- If reusable, place it in `classes/`.
+- If structure-bound, place it in `elements/**`.
 
 ## Rules for creating new themes
 
@@ -100,6 +133,13 @@ du `use_navbar: <theme>` oder `use_footer: <theme>` in der Frontmatter angibst.
 Kümmer dich nicht drum, wenn entwickerfooter oder entwicklernavbar oder sonstige tools im screenshot zu sehen sind. Diese werden später
 ausgeblendet.
 
+## The demos are just demos - always have other content in mind
+
+- The content might vary in length, composition of elements, images, sizes etc. Try to build elements in a
+  way that they look good with different content. (e.g. different text lengths, different image sizes, different number of elements in a row, etc.)
+- Nutze z.b. flexbox element mit grow und shrink, damit die Elemente sich an die Breite anpassen.
+- Elemente sollen wiederverwendbar sein ohne den css anzupassen. 
+
 ## Do's
 
 - Ersetzte Bilder, Icons, Logos in Vorlagen-Screenshots durch Platzhalterbilder (falls nicht anders angegeben). Nutze
@@ -113,6 +153,7 @@ ausgeblendet.
 - Suggest changes to the markdown file if the changes make sense (like modify class or modifiers or renaming elements). But ask the user before changing.
 - Benutze die Standardelemente aus "@nextrap/layout". Nutze davon die mixins um die element für das Theme zu stylen.
 - Lege Varianten in eigenen Dateien an und halte dich an `style-default`, `with-*` und einfache Modifier wie `reverse`.
+- Use `--nt-text-gap` for internal text spacing, e.g. text-to-card padding, text-to-border padding, text-to-button spacing, or spacing between text blocks inside one content area.
 - 
 
 ## Dont's
@@ -122,8 +163,9 @@ ausgeblendet.
 - Do not edit files inside the workspaces folder. If you need to change something there, ask the user to do it or ask for permission to do it.
 - Do not modify the overall structure of the theme folder. If you need to change something there, ask the user to do it
 - Do not add any content into content css attributes. If you need to modify a section inside the docs/_includes or docs/_layouts folder, ask the user to do it
-- Do not add unscoped universal selectors like p, a, .btn, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, etc. Theme switching must work via `.theme-<theme-name>`. If such selectors are needed, define them only as theme-scoped element or child-pairing styles under `elements/**`.
+- Do not add unscoped universal selectors like p, a, .btn, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, etc. Theme switching must work via `:where(.theme-<theme-name>)`. If such selectors are needed, define them only as theme-scoped element or child-pairing styles under `elements/**`.
 - Do not create design-specific classes like .opening-hours__top. Instead suggest to style the element using style="" attribute or helper classes like mt-1, (see nextrap/style-tools)
+- Do not override `.btn` or other reusable utility/helper classes inside element or variant files unless the developer explicitly allows it.
 - Do not overwrite --nt-* variables in the theme class unless told so
 - Do not add global css variables. If you need to do it, ask the user and add them to the theme mixin.
 - Never define lightdom child element styles for text styling, lists etc. inside layout elements styles or ask the user if it is allowed.
@@ -131,4 +173,7 @@ ausgeblendet.
 - Do not modify styles for more than one element at once. If you need to do it, ask the user and explain why.
 - Do not modify the default styles of an layout element by name (e.g. ntl-card etc). Use semantic classes  or variants to modify without affecting other instances of the element.
 - Do not adjust the element style directly. For default elements edit element.style-default for the default styling. Elements can only have one style-* class at a time. If nothing is set, the element will add style-default automatically.
+- Never add `padding-top` to default elements in the theme unless the user explicitly tells you to do so.
 - Do not define mixins within the theme folder of this project. If you need to do it, ask the user and add them to the element mixin.
+- Handle main content spacing only once in `_theme.scss` directly on `ntl-2col`, `ntl-card-row`, and `ntl-card-grid` via `margin-top: var(--nt-content-space)` and `margin-bottom: var(--nt-content-space)`.
+- Do not add any other direct CSS rules to `_theme.scss`.

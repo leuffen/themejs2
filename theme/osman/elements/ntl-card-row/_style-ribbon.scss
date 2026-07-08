@@ -1,4 +1,6 @@
-@mixin style-ribbon {
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&.style-ribbon {
   --gutter-y: 0;
   --default-cols: 0;
 
@@ -8,13 +10,26 @@
   margin-top: -4.1rem;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding-top: 0;
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $gap: clamp(1rem, 2vw, 1.5rem),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: none,
+    $container-border-radius: 0
+  );
 
   &::part(container) {
     width: 100%;
     max-width: 100%;
     margin: 0;
     background: #fff;
+  }
+
+  &::part(header),
+  &::part(footer) {
+    display: none;
   }
 
   &::part(main) {
@@ -27,38 +42,28 @@
   }
 
   ntl-card {
+    --image-aspect-ratio: 16/9;
     --border: 0;
     --border-width: 0;
     --border-color: transparent;
 
     background: #fff;
+    color: #585b63;
 
     &::part(wrapper) {
       display: flex;
       flex-direction: column;
+      gap: var(--nt-text-gap);
       min-height: 15.25rem;
-      padding: 1.8rem clamp(1.35rem, 1.6vw, 2.2rem) 1.55rem;
+      padding: var(--nt-text-gap);
     }
 
     &::part(content) {
       flex: 1 1 auto;
     }
 
-    color: #585b63;
-
-    .text-strong {
-      color: #43464d;
-      font-weight: 700;
-    }
-
-    .opening-hours {
-      margin-bottom: 0.75rem;
-    }
-
-    [slot="footer"],
-    .footer {
+    [slot="footer"] {
       margin-top: auto;
-      padding-top: 0.7rem;
     }
 
     .btn {
@@ -102,6 +107,7 @@
     }
 
     ntl-card {
+      --image-aspect-ratio: 1;
       border-bottom: 1px solid #e7e4e1;
 
       &:last-child {
@@ -110,12 +116,7 @@
 
       &::part(wrapper) {
         min-height: 0;
-        padding: 2.1rem 1rem 2rem;
-      }
-
-      [slot="footer"],
-      .footer {
-        padding-top: 1.05rem;
+        padding: var(--nt-text-gap);
       }
 
       .btn {

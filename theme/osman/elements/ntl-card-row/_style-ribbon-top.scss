@@ -1,11 +1,127 @@
-@mixin style-ribbon-top {
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&.style-ribbon-top {
+  --gutter-y: 0;
+  --default-cols: 0;
+
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  margin-top: -4.1rem;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  @include cardRow.default-style(
+    $default-cols: 4,
+    $container-width: var(--nt-container-width),
+    $gap: clamp(1rem, 2vw, 1.5rem),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: none,
+    $container-border-radius: 0
+  );
+
+  &::part(container) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    background: #fff;
+  }
+
+  &::part(header),
+  &::part(footer) {
+    display: none;
+  }
+
+  &::part(main) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+    gap: 0;
+    align-items: stretch;
+    background: #fff;
+    box-shadow: none;
+  }
+
   ntl-card {
+    --image-aspect-ratio: 16/9;
+    --border: 0;
+    --border-width: 0;
+    --border-color: transparent;
+
+    align-self: stretch;
+    background: #fff;
+    color: #585b63;
+
+    &::part(wrapper) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: var(--nt-text-gap);
+    }
+
+    &::part(content) {
+      flex: 1 1 auto;
+    }
+
     :is(h1, h2, h3, h4, h5, h6) {
       font-size: var(--nt-fs-3);
       font-weight: 700;
       line-height: var(--nt-line-height-base);
       text-transform: uppercase;
       letter-spacing: 0.03em;
+    }
+
+    [slot="footer"] {
+      margin-top: auto;
+    }
+
+
+  }
+
+  &[mode="desktop"] {
+    ntl-card {
+      flex-grow: 1;
+      padding: 0;
+      border-right: 1px solid var(--nt-gray-300);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  &[mode="mobile"] {
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 1.85rem 0 0;
+
+    &::part(container),
+    &::part(main) {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    &::part(main) {
+      background: transparent;
+    }
+
+    ntl-card {
+      --image-aspect-ratio: 1;
+      border-bottom: 1px solid #e7e4e1;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::part(wrapper) {
+        height: 100%;
+        padding: var(--nt-text-gap);
+      }
+
+
     }
   }
 }

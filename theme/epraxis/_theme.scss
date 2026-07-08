@@ -14,7 +14,7 @@
 
 $theme: () !default;
 
-.theme-epraxis {
+:where(.theme-epraxis) {
   @include nextrapBase.nextrap-theme($theme, (
 
     primary: #fe6606,
