@@ -1,6 +1,6 @@
 {% if page.skip-navbar != true %}
 
-<nte-navbar class="fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: var(--osman-navbar-height, 64px);">
+<nte-navbar class="fixed autoborder autoshadow style-default" scroll-threshold="500" style="--spacer-height: var(--osman-navbar-height, 64px);">
     <div class="site-topbar">
         <div class="site-topbar__inner">
             <div class="site-topbar__info">
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <nte-navbar-line style="--brand-height: var(--osman-navbar-brand-height, 64px)">
+    <nte-navbar-line class="style-default" style="--brand-height: var(--osman-navbar-brand-height, 64px)">
         <a slot="brand" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
             <img
                 src="/assets/osman-logo.svg"
@@ -50,7 +50,7 @@
     </nte-navbar-line>
 </nte-navbar>
 
-<nte-offcanvas id="navSidebar" data-group-name="nav1">
+<nte-offcanvas id="navSidebar" class="style-default" data-group-name="nav1">
     <nte-burger slot="header" data-group-name="nav1" data-nt-dismiss="offcanvas" open></nte-burger>
     <nte-nav class="nav-vertical"></nte-nav>
 </nte-offcanvas>

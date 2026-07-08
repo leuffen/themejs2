@@ -1,4 +1,4 @@
-ntl-hero {
+@mixin style-default {
   --height-offset: 12.75rem !important;
 
   position: relative;
@@ -129,7 +129,6 @@ ntl-hero {
       &::before {
         display: none;
       }
-
     }
   }
 }

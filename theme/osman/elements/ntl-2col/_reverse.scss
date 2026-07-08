@@ -1,0 +1,14 @@
+&.reverse {
+  &[mode="desktop"] {
+    &::part(wrapper) {
+      flex-direction: row-reverse;
+    }
+
+    &:not(:has(> p[slot="aside"].auto)):not(.with-bg-primary)::part(aside) {
+      padding-right: clamp(1.5rem, 2.5vw, 2.25rem);
+      padding-left: 0;
+      border-right: 1px solid var(--section-divider-color);
+      border-left: 0;
+    }
+  }
+}

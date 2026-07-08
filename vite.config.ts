@@ -33,6 +33,12 @@ export default defineConfig({
         hmr: true,
     },
     root: __dirname,
+    css: {
+      devSourcemap: true,
+    },
+    esbuild: {
+      sourcemap: true,
+    },
     resolve: {
         alias: {
             "@leuffen/themejs2": path.resolve(__dirname),

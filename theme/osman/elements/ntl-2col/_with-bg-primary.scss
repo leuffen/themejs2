@@ -1,0 +1,25 @@
+@use "@nextrap/ntl-2col" as ntl2col;
+
+&.with-bg-primary {
+  @include ntl2col.with-background-and-divider(
+    $gap: clamp(2rem, 4vw, 4rem),
+    $background: color-mix(in srgb, var(--nt-primary) 14%, white 86%),
+    $divider-color: color-mix(in srgb, var(--nt-primary) 32%, white 68%)
+  );
+
+  &::part(container) {
+    border-top: 0;
+  }
+
+  &[mode="desktop"] {
+    &::part(aside) {
+      padding-left: 0.25rem;
+    }
+
+    &.reverse::part(aside)::after {
+      right: calc(var(--gap) / -2);
+      left: auto;
+    }
+  }
+}
+

@@ -37,11 +37,7 @@
   )
 );
 
-.theme-osman {
-  --nt-container-width: min(1280px, calc(100vw - clamp(2rem, 6vw, 6rem)));
-  --osman-navbar-height: 120px;
-  --osman-navbar-brand-height: 88px;
-}
+
 
 @media (max-width: 991.98px) {
   .theme-osman {

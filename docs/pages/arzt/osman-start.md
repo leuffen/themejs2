@@ -9,7 +9,7 @@ ptags:
 ---
 
 ---
-{: layout="2;ntl-hero.hero-box" }
+{: layout="2;ntl-hero.style-default.hero-box" }
 
 ![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
 {: slot="bg"}
@@ -18,7 +18,7 @@ ptags:
 {: layout="3;.box" data-kicker="Professionell, Menschlich & Modern"}
 
 ---
-{: layout="2;ntl-card-row.style-ribbon.align-buttons"}
+{: layout="2;ntl-card-row.style-ribbon-top.align-buttons"}
 
 ### Sprechstundenzeiten
 
@@ -49,7 +49,7 @@ Momentan keine Meldungen.
 {: .footer }
 
 ## Herzlich Willkommen in der Augenpraxis Osman
-{: layout="ntl-2col"}
+{: layout="ntl-2col.style-default"}
 
 Moderne Augenheilkunde in Wiesbaden –
 für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision und neueste Technologie.
@@ -59,7 +59,7 @@ für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision u
 - Konservative Behandlung von Glaukom, Entzündungen und Verletzungen
 - Laser- und operative Verfahren zur Therapie verschiedener Augenerkrankungen
 - Zuverlässig in allen Bereichen der augenärztlichen Vorsorge
-{: .list-diamond }
+{: .style-diamond }
 
 Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen und angenehmen Atmosphäre. Unser engagiertes Team steht Ihnen telefonisch, online und vor Ort jederzeit kompetent und vertrauensvoll zur Seite.
 
@@ -76,7 +76,7 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
 
 ---
-{: layout="ntl-accordion"}
+{: layout="ntl-accordion.style-default"}
 
 #### Netzhauterkrankungen (Medical Retina)
 
@@ -97,7 +97,7 @@ Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine 
 Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:
 
 ---
-{: layout="ntl-accordion"}
+{: layout="ntl-accordion.style-default"}
 
 #### Behandlung von Makula- und Netzhauterkrankungen
 
@@ -114,7 +114,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 
 
 ## <span class="warning-heading"><i class="bi bi-eye" aria-hidden="true"></i><span>Warnsignale für die Augen – sofort zum Arzt!</span></span>
-{: layout="ntl-2col.style-bg-primary"}
+{: layout="ntl-2col.style-default.with-bg-primary"}
 
 - Plötzliche Sehstörungen oder Sehverlust
 - Lichtblitze und bunte Ringe um Lichtquellen
@@ -122,7 +122,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 - Starke Augenschmerzen oder extreme Rötung
 - Fremdkörper im Auge
 - Verätzungen, Verbrennungen oder Verletzungen
-{: .list-diamond }
+{: .style-diamond }
 
 ### Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
 {: layout=".aside"}
@@ -137,9 +137,8 @@ In akuten Notfällen außerhalb der Sprechzeiten wenden Sie sich bitte an den ä
 
 
 
-
 ## Kooperationen
-{: layout="2;ntl-2col"}
+{: layout="2;ntl-2col.style-default"}
 
 Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Augenkliniken der Region zusammen:
 
@@ -148,7 +147,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 - [HSK Augenklinik, Wiesbaden](/karriere)
 - [Universitäts-Augenklinik, Frankfurt](/karriere)
 - [Augenklinik, Frankfurt-Höchst](/karriere)
-{: .list-diamond }
+{: .style-diamond }
 
 ### Mitgliedschaften
 {: section-class="aside" }
@@ -162,7 +161,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 </div>
 
 ## Über uns
-{: layout="ntl-2col.reverse"}
+{: layout="ntl-2col.style-default.reverse"}
 
 ![](https://cdn.leuffen.de//osman-k21///v2/18/c_g/DSC06603.webp)
 
@@ -173,7 +172,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 [Mehr erfahren](/karriere){: .btn .btn-primary .mb-3}
 
 ## Kontakt und Anfahrt
-{: layout="ntl-2col"}
+{: layout="ntl-2col.style-default"}
 
 <style>
     .google-maps-consent {
@@ -185,14 +184,14 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 {: layout="ntl-consent-blocker.google-maps-consent" .top  }
 
 ## Section
-{: layout="ntl-2col" }
+{: layout="ntl-2col.style-default" }
 
 So finden Sie uns
 
 Test Test Test
 
 ---
-{: layout="3;ntl-accordion" .aside}
+{: layout="3;ntl-accordion.style-default" .aside}
 
 #### AaAaaaaaaa
 
@@ -201,5 +200,3 @@ Test
 #### odhoqidjiowqjdioq
 
 dpoqwjdpioqwjdoijqwoid
-
-

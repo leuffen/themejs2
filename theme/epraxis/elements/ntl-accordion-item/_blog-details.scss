@@ -3,7 +3,7 @@
 &.blog-details {
 
   overflow: hidden;
-  @include acc.item-details-end;
+  @include acc.with-details-end();
   display: block;
   width: 100%;
   border: 1px solid var(--nt-gray-400);

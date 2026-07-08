@@ -1,5 +1,12 @@
-&.style-noborder {
+@use "@nextrap/ntl-card-row" as cardRow;
+
+@mixin style-noborder {
   --gutter-y: 0;
+
+  @include cardRow.with-item-separators(
+    $separator-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%),
+    $separator-inset: clamp(0.25rem, 1.2vw, 0.75rem)
+  );
 
   &::part(main) {
     align-items: stretch;
@@ -26,10 +33,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin: 1rem 0 1.1rem;
+      margin: 0 0 1.1rem;
       color: var(--nt-primary);
       font-size: clamp(2.2rem, 3vw, 3rem);
       line-height: 1;
+    }
+  }
+
+  &[mode="desktop"] {
+    ntl-card {
+      &::part(wrapper) {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+      }
     }
   }
 
@@ -42,7 +58,7 @@
       }
 
       .feature-icon {
-        margin: 0.8rem 0 1rem;
+        margin: 0 0 0.9rem;
         font-size: 2.2rem;
       }
     }

@@ -1,9 +1,9 @@
-ntl-accordion {
+@mixin accordion-default {
   display: grid;
   gap: 0.6rem;
 }
 
-ntl-accordion-item {
+@mixin accordion-item-default {
   --border-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%);
   --background-color-heading: color-mix(in srgb, var(--nt-body-tertiary) 78%, white 22%);
   --background-color-heading-hover: color-mix(in srgb, var(--nt-body-tertiary) 72%, white 28%);

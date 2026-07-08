@@ -1,4 +1,4 @@
-&.style-ribbon {
+@mixin style-ribbon {
   --gutter-y: 0;
   --default-cols: 0;
 

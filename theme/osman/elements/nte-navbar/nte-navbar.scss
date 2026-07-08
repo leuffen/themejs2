@@ -1,9 +1,5 @@
-nte-navbar,
-nte-navbar-line {
+@mixin navbar-default {
   display: block;
-}
-
-nte-navbar {
   position: relative;
   z-index: 20;
 
@@ -13,9 +9,17 @@ nte-navbar {
     box-shadow: none;
     backdrop-filter: blur(12px);
   }
+
+  @media (max-width: 991.98px) {
+    &::part(navbar) {
+      backdrop-filter: none;
+    }
+  }
 }
 
-nte-navbar-line {
+@mixin navbar-line-default {
+  display: block;
+
   &::part(main) {
     background: transparent;
   }
@@ -51,9 +55,34 @@ nte-navbar-line {
       padding: 0;
     }
   }
+
+  @media (max-width: 991.98px) {
+    &::part(container) {
+      width: calc(100vw - 2.5rem);
+      min-height: 7.5rem;
+      gap: 1rem;
+    }
+
+    &::part(brand) {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    [slot="brand"] {
+      min-height: 7.5rem;
+      max-width: min(16rem, calc(100vw - 9rem));
+      overflow: hidden;
+      font-size: 0;
+
+      img {
+        max-height: 4.25rem;
+        max-width: 100%;
+      }
+    }
+  }
 }
 
-nte-nav.nav-horizontal {
+@mixin nav-horizontal-default {
   width: auto;
 
   ul {
@@ -120,9 +149,33 @@ nte-nav.nav-horizontal {
       color: var(--nt-primary);
     }
   }
+
+  @media (max-width: 991.98px) {
+    flex: 0 0 auto;
+
+    &::part(main) {
+      display: none;
+    }
+
+    &::part(menutext) {
+      display: none;
+    }
+
+    &::part(burger) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--nt-primary);
+    }
+
+    > ul > li > a {
+      min-height: 7.5rem;
+      font-size: 0.98rem;
+    }
+  }
 }
 
-nte-offcanvas {
+@mixin offcanvas-default {
   color: var(--nt-header);
 
   &::part(offcanvas) {
@@ -155,65 +208,8 @@ nte-offcanvas {
     text-decoration: none;
     border-bottom: 1px solid #ece8e4;
   }
-}
 
-@media (max-width: 991.98px) {
-  nte-navbar {
-    &::part(navbar) {
-      backdrop-filter: none;
-    }
-  }
-
-  nte-navbar-line {
-    &::part(container) {
-      width: calc(100vw - 2.5rem);
-      min-height: 7.5rem;
-      gap: 1rem;
-    }
-
-    &::part(brand) {
-      min-width: 0;
-      flex: 1 1 auto;
-    }
-
-    [slot="brand"] {
-      min-height: 7.5rem;
-      max-width: min(16rem, calc(100vw - 9rem));
-      overflow: hidden;
-      font-size: 0;
-
-      img {
-        max-height: 4.25rem;
-        max-width: 100%;
-      }
-    }
-  }
-
-  nte-nav.nav-horizontal {
-    flex: 0 0 auto;
-
-    &::part(main) {
-      display: none;
-    }
-
-    &::part(menutext) {
-      display: none;
-    }
-
-    &::part(burger) {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--nt-primary);
-    }
-
-    > ul > li > a {
-      min-height: 7.5rem;
-      font-size: 0.98rem;
-    }
-  }
-
-  nte-offcanvas {
+  @media (max-width: 991.98px) {
     &::part(offcanvas) {
       width: 100vw;
     }

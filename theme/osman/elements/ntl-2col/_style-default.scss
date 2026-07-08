@@ -1,0 +1,83 @@
+@use "@nextrap/ntl-2col" as ntl2col;
+
+&.style-default {
+  --cols: 6;
+  --gap: clamp(1.75rem, 3vw, 3.5rem);
+  --section-divider-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%);
+
+  padding: var(--nt-content-space) 0;
+
+  @include ntl2col.default-style(
+    $innerPadding: 0,
+    $gap: clamp(1.75rem, 3vw, 3.5rem),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  > p[slot="aside"].auto {
+    margin: 0;
+
+    > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &::part(container) {
+    border-top: 1px solid color-mix(in srgb, var(--nt-body-secondary) 72%, white 28%);
+  }
+
+  &:has(> p[slot="aside"].auto)::part(aside) {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  &[mode="desktop"] {
+    &:has(> p[slot="aside"].auto)::part(wrapper) {
+      align-items: center;
+    }
+
+    &:has(> p[slot="aside"].auto)::part(main) {
+      justify-content: center;
+    }
+
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      min-height: clamp(18rem, 25vw, 22rem);
+    }
+
+    &:not(:has(> p[slot="aside"].auto)):not(.with-bg-primary)::part(aside) {
+      padding-left: clamp(1.5rem, 2.5vw, 2.25rem);
+      border-left: 1px solid var(--section-divider-color);
+    }
+  }
+
+  &[mode="mobile"] {
+    --gap: 1.25rem;
+
+    &::part(container) {
+      border-top: 0;
+    }
+
+    &:has(> p[slot="aside"].auto)::part(main) {
+      order: 2;
+    }
+
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      order: 1;
+      aspect-ratio: 7 / 5;
+    }
+
+    .warning-heading {
+      align-items: flex-start;
+      gap: 0.8rem;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+}

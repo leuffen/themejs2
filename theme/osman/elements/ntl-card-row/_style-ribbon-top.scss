@@ -1,0 +1,11 @@
+@mixin style-ribbon-top {
+  ntl-card {
+    :is(h1, h2, h3, h4, h5, h6) {
+      font-size: var(--nt-fs-3);
+      font-weight: 700;
+      line-height: var(--nt-line-height-base);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+  }
+}
