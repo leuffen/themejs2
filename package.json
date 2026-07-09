@@ -35,7 +35,7 @@
     "@micx/lib-js": "^2.0.16",
     "@nextrap/nte-card": "^1.0.3",
     "@nextrap/nte-image": "^1.2.3",
-    "@nextrap/nte-nav": "^1.2.0",
+    "@nextrap/nte-nav": "^2.0.0",
     "@nextrap/ntl-2col": "^1.0.0",
     "@nextrap/ntl-accordion": "^1.0.0",
     "@nextrap/ntl-consent-blocker": "^1.0.0",

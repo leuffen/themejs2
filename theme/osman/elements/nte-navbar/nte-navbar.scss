@@ -1,4 +1,4 @@
-@use "../../../../workspaces/nextrap-monorepo/nextrap-elements/nte-nav/index" as nav;
+@use "@nextrap/nte-nav/index" as nav;
 
 nte-navbar.style-default {
   @include nav.navbar-default-style();
