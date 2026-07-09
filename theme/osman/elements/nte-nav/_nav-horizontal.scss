@@ -4,7 +4,7 @@
   ul {
     display: flex;
     align-items: center;
-    gap: clamp(1.5rem, 2vw, 3rem);
+    gap: clamp(1.2rem, 1.4vw, 2.4rem);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -19,11 +19,11 @@
   > ul > li > a {
     display: inline-flex;
     align-items: center;
-    min-height: var(--osman-navbar-height, 120px);
+    min-height: var(--osman-navbar-height, 64px);
     color: var(--nt-header);
-    font-size: clamp(1.02rem, 0.8vw + 0.55rem, 1.25rem);
+    font-size: clamp(0.98rem, 0.45vw + 0.82rem, 1.1rem);
     font-weight: 600;
-    border-bottom: 0.22rem solid transparent;
+    border-bottom: 0.2rem solid transparent;
     transition: color 160ms ease, border-color 160ms ease;
   }
 
@@ -37,7 +37,7 @@
 
   li > ul {
     position: absolute;
-    top: calc(100% - 1.5rem);
+    top: calc(100% - 0.5rem);
     left: 0;
     display: none;
     min-width: 16rem;
@@ -81,11 +81,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-width: 2.25rem;
+      min-height: 2.25rem;
       color: var(--nt-primary);
+      font-size: 1.5rem;
     }
 
     > ul > li > a {
-      min-height: 7.5rem;
+      min-height: var(--osman-navbar-height, 64px);
       font-size: 0.98rem;
     }
   }

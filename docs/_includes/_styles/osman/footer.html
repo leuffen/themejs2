@@ -50,7 +50,22 @@
   }
 
   #footer-osman .osman-footer__icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: var(--footer-icon-color);
+    line-height: 1;
+  }
+
+  #footer-osman .osman-footer__icons i {
+    display: block;
+    line-height: 1;
+  }
+
+  #footer-osman .osman-footer__icons i::before {
+    display: block;
+    line-height: 1;
+    vertical-align: 0;
   }
 
   @media (min-width: 1200px) {
@@ -78,16 +93,16 @@
   style="position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--footer-background);color:var(--footer-text-color);border-top:1px solid var(--footer-border-color);"
 >
   <div class="container py-3">
-    <div class="d-flex flex-column xl:flex-row xl:align-items-center xl:justify-content-between gap-3">
-      <nav class="osman-footer__nav small" aria-label="Footer Navigation">
-        <ul class="osman-footer__nav-list d-flex flex-column xl:flex-row gap-3 xl:gap-0 mb-0">
+    <div class="d-flex flex-column xl:flex-row align-items-center xl:align-items-center justify-content-center xl:justify-content-between gap-3 text-center xl:text-start">
+      <nav class="osman-footer__nav small text-center xl:text-start" aria-label="Footer Navigation">
+        <ul class="osman-footer__nav-list d-flex flex-column xl:flex-row align-items-center xl:align-items-stretch gap-3 xl:gap-0 mb-0">
           {% include el/navbar.html ptag="subfooter" %}
         </ul>
       </nav>
 
-      <div class="d-flex flex-column xl:flex-row xl:align-items-center gap-3 small">
+      <div class="d-flex flex-column xl:flex-row align-items-center xl:align-items-center justify-content-center gap-3 small text-center xl:text-start">
         <span>© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
-        <div class="osman-footer__icons d-flex align-items-center gap-3" aria-label="Social Links">
+        <div class="osman-footer__icons d-flex justify-content-center align-items-center gap-3" aria-label="Social Links">
           <a href="#" aria-label="Teilen"><i class="bi bi-share-fill" aria-hidden="true"></i></a>
           <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
         </div>

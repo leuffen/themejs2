@@ -3,6 +3,15 @@
   position: relative;
   z-index: 20;
 
+  &::part(spacer) {
+    height: var(--osman-navbar-total-height, 104px);
+    transition: height 0.3s ease;
+  }
+
+  &.is-scrolled::part(spacer) {
+    height: var(--osman-navbar-height, 64px);
+  }
+
   &::part(navbar) {
     background: rgba(255, 255, 255, 0.96);
     border-bottom: 1px solid rgba(230, 230, 230, 0.92);
@@ -11,6 +20,10 @@
   }
 
   @media (max-width: 991.98px) {
+    &::part(spacer) {
+      height: var(--osman-navbar-height, 64px);
+    }
+
     &::part(navbar) {
       backdrop-filter: none;
     }

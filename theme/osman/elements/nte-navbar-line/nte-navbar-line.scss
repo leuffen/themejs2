@@ -1,5 +1,53 @@
-@use "sass:meta";
+@use "../../../../workspaces/nextrap-monorepo/nextrap-elements/nte-nav/index" as nav;
 
-nte-navbar-line {
-  @include meta.load-css("./_style-default.scss");
+nte-navbar-line.style-default {
+  @include nav.navbar-line-default-style();
+}
+
+nte-navbar-line.style-topbar {
+  &::part(nav) {
+    width: 100%;
+  }
+
+  .site-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .site-topbar__info,
+  .site-topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .site-topbar__info {
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .site-topbar__sep {
+    color: #b8b8b8;
+  }
+
+  .site-topbar__actions .btn {
+    padding: 0.55rem 1rem;
+    line-height: 1;
+  }
+
+  .site-topbar__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #888;
+  }
+
+  @media (max-width: 991.98px) {
+    display: none;
+  }
 }

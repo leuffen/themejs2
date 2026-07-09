@@ -1,5 +1,21 @@
-@use "sass:meta";
+@use "../../../../workspaces/nextrap-monorepo/nextrap-elements/nte-nav/index" as nav;
 
-nte-navbar {
-  @include meta.load-css("./_style-default.scss");
+nte-navbar.style-default {
+  @include nav.navbar-default-style();
+
+  &::part(spacer) {
+    height: 104px;
+    transition: height 0.3s ease-in-out;
+  }
+
+  &.is-scrolled::part(spacer) {
+    height: 64px;
+  }
+
+  @media (max-width: 991.98px) {
+    &::part(spacer),
+    &.is-scrolled::part(spacer) {
+      height: 64px;
+    }
+  }
 }

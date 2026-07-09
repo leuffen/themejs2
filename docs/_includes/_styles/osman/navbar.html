@@ -1,8 +1,8 @@
 {% if page.skip-navbar != true %}
 
-<nte-navbar class="fixed autoborder autoshadow style-default" scroll-threshold="500" style="--spacer-height: var(--osman-navbar-height, 64px);">
-    <div class="site-topbar">
-        <div class="site-topbar__inner">
+<nte-navbar class="style-default fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 104px">
+    <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
+        <div class="site-topbar">
             <div class="site-topbar__info">
                 {% if site.data.general.phone1_text %}
                     <span>Tel. {{ site.data.general.phone1_text }}</span>
@@ -16,15 +16,14 @@
                     <span>{{ site.data.general.street }}{% if site.data.general.zip or site.data.general.city %}, {% endif %}{{ site.data.general.zip }} {{ site.data.general.city }}</span>
                 {% endif %}
             </div>
-
             <div class="site-topbar__actions">
                 <a href="{{ site.data.general.termin_url | default: '/online-termin' }}" class="btn btn-primary">Termin online buchen</a>
                 <span class="site-topbar__lang"><i class="bi bi-globe2" aria-hidden="true"></i> DE</span>
             </div>
         </div>
-    </div>
+    </nte-navbar-line>
 
-    <nte-navbar-line class="style-default" style="--brand-height: var(--osman-navbar-brand-height, 64px)">
+    <nte-navbar-line class="style-default" style="--brand-height: 64px">
         <a slot="brand" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
             <img
                 src="/assets/osman-logo.svg"
@@ -35,24 +34,24 @@
         </a>
 
         <nte-nav
-            class="nav-horizontal"
+            class="style-default nav-horizontal"
             mode="master"
             data-group-name="nav1"
             breakpoint="xl"
             transfer-to="#navSidebar"
         >
             <span slot="menu-text">Menü</span>
-
             <ul>
                 {% include el/navbar.html ptag="nav2" %}
+                {% include el/navtree.html ptag="nav2" %}
             </ul>
         </nte-nav>
     </nte-navbar-line>
 </nte-navbar>
 
-<nte-offcanvas id="navSidebar" class="style-default" data-group-name="nav1">
+<nte-offcanvas id="navSidebar" data-group-name="nav1">
     <nte-burger slot="header" data-group-name="nav1" data-nt-dismiss="offcanvas" open></nte-burger>
-    <nte-nav class="nav-vertical"></nte-nav>
+    <nte-nav class="style-default nav-vertical"></nte-nav>
 </nte-offcanvas>
 
 {% endif %}

@@ -1,0 +1,69 @@
+&.style-topbar {
+  &::part(main) {
+    background: #f3f3f3;
+    border-bottom: 1px solid rgba(64, 64, 64, 0.08);
+  }
+
+  &::part(container) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    min-height: var(--osman-topbar-height, 40px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &::part(brand) {
+    display: none;
+  }
+
+  &::part(nav) {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .site-topbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.92rem;
+    color: #666;
+  }
+
+  .site-topbar__info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .site-topbar__sep {
+    color: #b8b8b8;
+  }
+
+  .site-topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    white-space: nowrap;
+  }
+
+  .site-topbar__actions .btn {
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .site-topbar__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #888;
+  }
+
+  @media (max-width: 991.98px) {
+    display: none;
+  }
+}

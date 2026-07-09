@@ -1,6 +1,5 @@
-@use "sass:meta";
+@use "../../../../workspaces/nextrap-monorepo/nextrap-elements/nte-nav/index" as nav;
 
-nte-nav {
-  @include meta.load-css("./_nav-horizontal.scss");
-  @include meta.load-css("./_nav-vertical.scss");
+nte-nav.style-default {
+  @include nav.default-style();
 }

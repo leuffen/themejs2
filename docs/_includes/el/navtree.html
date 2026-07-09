@@ -154,10 +154,18 @@ HINWEIS:
                         <li>
                             {%- if child_page -%}
                                 {%- assign nav_label = child_page.nav_title | default: child_page.title -%}
-                                <a href="{{ child_page.url }}">{{ nav_label }}</a>
+                                {%- if has_descendants -%}
+                                    <a>{{ nav_label }}</a>
+                                {%- else -%}
+                                    <a href="{{ child_page.url }}">{{ nav_label }}</a>
+                                {%- endif -%}
                             {%- else -%}
                                 {%- assign folder_label = child_key | replace: '-', ' ' | replace: '_', ' ' | capitalize -%}
-                                <span>{{ folder_label }}</span>
+                                {%- if has_descendants -%}
+                                    <a>{{ folder_label }}</a>
+                                {%- else -%}
+                                    <span>{{ folder_label }}</span>
+                                {%- endif -%}
                             {%- endif -%}
 
                             {%- if has_descendants and current_level < max_render_level -%}
