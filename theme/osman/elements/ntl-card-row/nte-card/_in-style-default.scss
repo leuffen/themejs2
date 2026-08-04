@@ -1,12 +1,12 @@
 &.style-default {
   &[mode="mobile"] {
-    :is(ntl-card, nte-card) {
+    nte-card {
       --image-aspect-ratio: 1;
     }
   }
 
   &[mode="desktop"] {
-    :is(ntl-card, nte-card) {
+    nte-card {
       --image-aspect-ratio: 16/9;
     }
   }

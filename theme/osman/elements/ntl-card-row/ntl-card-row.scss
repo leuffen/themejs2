@@ -1,11 +1,11 @@
 @use "sass:meta";
 
 // Parent entry for ntl-card-row.
-// Loads only row modifiers plus child pairings for nested ntl-card elements.
+// Loads only row modifiers plus child pairings for nested nte-card elements.
 ntl-card-row {
   @include meta.load-css("./_style-default.scss");
   @include meta.load-css("./_style-noborder.scss");
   @include meta.load-css("./_style-ribbon.scss");
   @include meta.load-css("./_style-ribbon-top.scss");
-  @include meta.load-css("./ntl-card/ntl-card.scss");
+  @include meta.load-css("./nte-card/nte-card.scss");
 }

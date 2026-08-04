@@ -1,0 +1,6 @@
+@use "sass:meta";
+
+nte-accordion {
+  @include meta.load-css("./_style-default.scss");
+  @include meta.load-css("./nte-accordion-item/nte-accordion-item.scss");
+}

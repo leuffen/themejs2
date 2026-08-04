@@ -5,7 +5,7 @@
     object-fit: cover;
   }
 
-  :is(ntl-card, nte-card) {
+  nte-card {
     --image-aspect-ratio: 16/9;
     --border: 0;
     --border-width: 0;
@@ -25,7 +25,7 @@
   }
 
   &[mode="mobile"] {
-    :is(ntl-card, nte-card) {
+    nte-card {
       --image-aspect-ratio: 1;
 
       &::part(wrapper) {

@@ -25,7 +25,7 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
   @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
-  @include meta.load-css("./elements/ntl-accordion/ntl-accordion.scss");
+  @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
   // Theme tools and reusable semantic classes.
   @include meta.load-css("./tools/_icon-grid.scss");
   @include meta.load-css("./classes/_opening-hours.scss");

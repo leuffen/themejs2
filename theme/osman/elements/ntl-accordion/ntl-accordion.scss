@@ -1,6 +1,0 @@
-@use "sass:meta";
-
-:is(ntl-accordion, nte-accordion) {
-  @include meta.load-css("./_style-default.scss");
-  @include meta.load-css("./ntl-accordion-item/ntl-accordion-item.scss");
-}
