@@ -1,28 +1,28 @@
+@use "@nextrap/nte-nav/index" as nav;
+
 &.style-default {
   display: block;
-  position: relative;
+  position: fixed;
   z-index: 20;
+  --spacer-height: var(--osman-navbar-total-height, 104px);
 
-  &::part(spacer) {
-    height: var(--osman-navbar-total-height, 104px);
-    transition: height 0.3s ease;
-  }
+  @include nav.navbar-default-style(
+    $background: rgba(255, 255, 255, 0.96),
+    $spacer-background: transparent,
+    $border-color: var(--nt-gray-300),
+    $shadow: 0 18px 40px rgba(50, 50, 50, 0.08)
+  );
 
-  &.is-scrolled::part(spacer) {
-    height: var(--osman-navbar-height, 64px);
+  &.is-scrolled {
+    --spacer-height: var(--osman-navbar-height, 64px);
   }
 
   &::part(navbar) {
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid rgba(230, 230, 230, 0.92);
-    box-shadow: none;
     backdrop-filter: blur(12px);
   }
 
   @media (max-width: 991.98px) {
-    &::part(spacer) {
-      height: var(--osman-navbar-height, 64px);
-    }
+    --spacer-height: var(--osman-navbar-height, 64px);
 
     &::part(navbar) {
       backdrop-filter: none;

@@ -2,7 +2,20 @@
 @use "@nextrap/nte-nav/index" as nav;
 
 &.style-default {
-  @include nav.default-style();
+  @include nav.default-style(
+    $text-color: var(--nt-header),
+    $hover-color: transparent,
+    $hover-text-color: var(--nt-primary),
+    $submenu-bg: var(--nt-white),
+    $submenu-text-color: var(--nt-text),
+    $submenu-hover-color: rgb(from var(--nt-primary) r g b / 0.08),
+    $submenu-hover-text-color: var(--nt-primary),
+    $item-padding: 0.65em 0,
+    $justify-content: flex-end,
+    $burger-padding: 0,
+    $menu-text-gap: 0,
+    $default-alpha: 1
+  );
   @include meta.load-css("./_nav-horizontal.scss");
   @include meta.load-css("./_nav-vertical.scss");
 }

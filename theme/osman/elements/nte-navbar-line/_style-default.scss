@@ -1,16 +1,19 @@
+@use "@nextrap/nte-nav/index" as nav;
+
 &.style-default {
   display: block;
 
-  &::part(main) {
-    background: transparent;
-  }
+  @include nav.navbar-line-default-style(
+    $container-width: var(--nt-container-width),
+    $background: transparent,
+    $text-color: var(--nt-header),
+    $height: var(--osman-navbar-height, 64px),
+    $brand-height: var(--osman-navbar-brand-height, 64px)
+  );
 
   &::part(container) {
-    width: var(--nt-container-width);
     max-width: var(--nt-container-width);
     min-height: var(--osman-navbar-height, 64px);
-    margin: 0 auto;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
@@ -27,8 +30,6 @@
   }
 
   [slot="brand"] {
-    display: flex;
-    align-items: center;
     min-height: var(--osman-navbar-height, 64px);
     color: inherit;
     line-height: 1;
@@ -38,7 +39,6 @@
     img {
       display: block;
       width: auto;
-      max-height: var(--osman-navbar-brand-height, 64px);
       padding: 0;
     }
   }
@@ -54,9 +54,10 @@
   }
 
   @media (max-width: 991.98px) {
+    --container-width: calc(100vw - 2rem);
+    --brand-height: 2.5rem;
+
     &::part(container) {
-      width: calc(100vw - 2rem);
-      min-height: var(--osman-navbar-height, 64px);
       gap: 0.9rem;
     }
 
@@ -70,13 +71,11 @@
     }
 
     [slot="brand"] {
-      min-height: var(--osman-navbar-height, 64px);
       max-width: min(11rem, calc(100vw - 8.5rem));
       overflow: hidden;
       font-size: 0;
 
       img {
-        max-height: 2.5rem;
         max-width: 100%;
       }
     }
