@@ -32,6 +32,12 @@
     align-items: stretch;
   }
 
+  p[slot="image"] > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
   ntl-card {
     --image-aspect-ratio: 16/9;
     --border: 0;

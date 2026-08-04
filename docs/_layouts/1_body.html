@@ -3,6 +3,14 @@ layout: 0_blanc
 ---
 
 <body class="{{ page.body_class }}">
+<div id="loader">
+    <div>
+        <div id="image">
+            <img src="/assets/osman-logo.svg" loading="eager" fetchpriority="high">
+        </div>
+        <div id="loadbar"></div>
+    </div>
+</div>
 <tj-loader class="stay-open--">
 <micx-cdn-image-loader default-size-adjust=":1;1200:1">
 <tj-responsive>

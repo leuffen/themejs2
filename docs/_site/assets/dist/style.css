@@ -9985,7 +9985,7 @@ figcaption,
   border-top: 0.25rem solid var(--btn-txt);
 }
 .btn:active + .dropdown-menu, .btn:focus + .dropdown-menu {
-  display: block;
+  //display: block;
   opacity: 1;
 }
 .btn.btn-primary {
@@ -12032,7 +12032,7 @@ ntl-card-grid[mode=desktop] > ntl-card {
 }/**
  * This file contains LightDOM Styles
  */
-/* 
+/*
  * Define icon data URLs as CSS variables for easy reuse in themes
  * These can be referenced like: --marker-icon-closed: var(--ntl-icon-plus)
  */

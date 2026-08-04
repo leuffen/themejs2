@@ -27,7 +27,8 @@ export default defineConfig({
           // /assets muss zu Jekyll gehen, da die Dateien unter docs/assets liegen
           '^(?!/@vite|/@fs/|/@id/|/docs/_src/|/node_modules/|/workspaces/|.*\\.(?:js|css|ts|tsx|vue|svelte|scss|sass|less|map)(?:\\?.*)?$).*': {
             target: 'http://localhost:4999',
-            changeOrigin: true,
+            changeOrigin: false,
+            autoRewrite: true,
           },
         },
         hmr: true,
