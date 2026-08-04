@@ -10,11 +10,12 @@ ntl-hero {
   }
 
 
-  ntl-slider[slot="footer"] {
+  :is(ntl-slider, nte-slider)[slot="footer"] {
     margin-bottom: -80px;
     display: block;
   }
-  &:has(ntl-slider) {
+
+  &:has(:is(ntl-slider, nte-slider)) {
     margin-bottom: 100px;
   }
 

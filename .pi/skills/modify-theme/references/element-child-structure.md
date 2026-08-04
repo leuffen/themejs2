@@ -73,11 +73,13 @@ theme/<theme-name>/elements/ntl-card-row/
 @use "sass:meta";
 
 ntl-card-row {
+  // Style variants
   @include meta.load-css("./_style-default.scss");
   @include meta.load-css("./_style-no-border.scss");
   @include meta.load-css("./_style-ribbon.scss");
   @include meta.load-css("./_style-ribbon-top.scss");
 
+  // Child-Styles laden
   @include meta.load-css("./ntl-card/ntl-card.scss");
 }
 ```

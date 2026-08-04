@@ -2,7 +2,7 @@
 
 &.featured2 {
   --cols: 2;
-  ntl-card {
+  :is(ntl-card, nte-card) {
     --flex-header-font-size: var(--nt-fs-h4);
 
     --border: 1px solid var(--nt-body-secondary);

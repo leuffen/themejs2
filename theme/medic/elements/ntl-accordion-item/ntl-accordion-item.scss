@@ -1,4 +1,4 @@
-ntl-accordion-item {
+:is(ntl-accordion-item, nte-accordion-item) {
     --marker-icon-closed: var(--ntl-icon-plus);
     --marker-icon-open: var(--ntl-icon-minus);
 

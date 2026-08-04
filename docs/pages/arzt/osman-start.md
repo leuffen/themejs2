@@ -76,7 +76,7 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
 
 ---
-{: layout="ntl-accordion.style-default"}
+{: layout="nte-accordion.style-default"}
 
 #### Netzhauterkrankungen (Medical Retina)
 
@@ -97,7 +97,7 @@ Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine 
 Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:
 
 ---
-{: layout="ntl-accordion.style-default"}
+{: layout="nte-accordion.style-default"}
 
 #### Behandlung von Makula- und Netzhauterkrankungen
 
@@ -181,7 +181,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 </style>
 
 ---
-{: layout="ntl-consent-blocker.google-maps-consent" .top  }
+{: layout="nte-consent-blocker.google-maps-consent" .top  }
 
 ## Section
 {: layout="ntl-2col.style-default" }
@@ -191,7 +191,7 @@ So finden Sie uns
 Test Test Test
 
 ---
-{: layout="3;ntl-accordion.style-default" .aside}
+{: layout="3;nte-accordion.style-default" .aside}
 
 #### AaAaaaaaaa
 

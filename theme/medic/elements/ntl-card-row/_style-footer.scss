@@ -3,7 +3,7 @@
     background: #3b3b3b;
     --separator-color: var(--nt-gray-400);
 
-    ntl-card {
+    :is(ntl-card, nte-card) {
         --background-color: transparent;
         color: var(--nt-white);
 

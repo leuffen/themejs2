@@ -43,6 +43,10 @@ export default defineConfig({
     resolve: {
         alias: {
             "@leuffen/themejs2": path.resolve(__dirname),
+            "@nextrap/nte-slider": path.resolve(__dirname, "workspaces/nextrap-monorepo/nextrap-elements/nte-slider/index.ts"),
+            "@nextrap/nte-accordion": path.resolve(__dirname, "workspaces/nextrap-monorepo/nextrap-elements/nte-accordion/index.ts"),
+            "@nextrap/nte-consent-blocker": path.resolve(__dirname, "workspaces/nextrap-monorepo/nextrap-elements/nte-consent-blocker/index.ts"),
+            "@nextrap/nte-parallax-bg": path.resolve(__dirname, "workspaces/nextrap-monorepo/nextrap-elements/nte-parallax-bg/index.ts"),
         },
     },
     build: {

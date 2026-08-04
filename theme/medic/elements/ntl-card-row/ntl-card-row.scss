@@ -5,20 +5,20 @@ ntl-card-row {
         text-align: center;
     }
 
-    ntl-card {
+    :is(ntl-card, nte-card) {
         h3 {
             font-size: var(--nt-fs-h4);
         }
     }
 
     &[mode="desktop"] {
-        ntl-card {
+        :is(ntl-card, nte-card) {
             --image-aspect-ratio: 16/9;
         }
     }
 
     &[mode="mobile"] {
-        ntl-card {
+        :is(ntl-card, nte-card) {
             --image-aspect-ratio: 1;
         }
     }

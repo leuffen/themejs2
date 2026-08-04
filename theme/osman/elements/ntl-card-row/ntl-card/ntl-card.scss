@@ -1,0 +1,8 @@
+@use "sass:meta";
+
+// Child entry for ntl-card inside ntl-card-row.
+// Each partial binds ntl-card styles to one ntl-card-row modifier.
+@include meta.load-css("./_in-style-default.scss");
+@include meta.load-css("./_in-style-noborder.scss");
+@include meta.load-css("./_in-style-ribbon.scss");
+@include meta.load-css("./_in-style-ribbon-top.scss");

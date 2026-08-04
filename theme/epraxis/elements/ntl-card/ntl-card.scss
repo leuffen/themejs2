@@ -1,7 +1,7 @@
 @use "sass:meta";
 @use "../../mixins/general";
 
-ntl-card {
+:is(ntl-card, nte-card) {
 
   --card-bg: var(--nt-body-tertiary, #e4e6ef);
   --border: none;

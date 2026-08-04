@@ -1,0 +1,36 @@
+&.style-noborder {
+  p[slot="image"] > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  :is(ntl-card, nte-card) {
+    --image-aspect-ratio: 16/9;
+    --border: 0;
+    --border-width: 0;
+    --border-color: transparent;
+    --background-color: #fff;
+
+    &::part(wrapper) {
+      justify-content: flex-start;
+      padding: var(--nt-text-gap);
+    }
+
+    &::part(content) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &[mode="mobile"] {
+    :is(ntl-card, nte-card) {
+      --image-aspect-ratio: 1;
+
+      &::part(wrapper) {
+        padding: var(--nt-text-gap);
+      }
+    }
+  }
+}

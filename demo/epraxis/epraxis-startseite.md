@@ -2,7 +2,7 @@
 {: layout="1;ntl-hero.theme1" style="--brand-height: 64px"}
 
 ![](../assets/header-bg.svg)
-{: layout="2;ntl-parallax-bg" slot="bg"}
+{: layout="2;nte-parallax-bg" slot="bg"}
 
 # <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
 {: layout="[slot='top-title']" .h5}
@@ -11,7 +11,7 @@
 {: layout="[slot='title']" .h1}
 
 ---
-{: layout="2;ntl-slider.theme1"}
+{: layout="2;nte-slider.theme1"}
 
 ### Top Thema
 

@@ -1,26 +1,4 @@
-[slot="bg"] {
-  display: block;
-  height: 100%;
-  margin: 0;
+@use "sass:meta";
 
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: saturate(0.76) brightness(1.04);
-  }
-}
-
-&[mode="mobile"] {
-  [slot="bg"] {
-    display: block;
-    position: relative;
-    z-index: 0;
-
-    img {
-      aspect-ratio: 1.36;
-    }
-  }
-}
+// Child entry for the hero background slot inside ntl-hero.
+@include meta.load-css("./_in-style-default.scss");

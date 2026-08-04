@@ -46,7 +46,7 @@
             height: 100%;
         }
     }
-    ntl-slide {
+    :is(ntl-slide, nte-slide) {
         --nt-text: var(--nt-white, #fff);
 
         height: 100%;

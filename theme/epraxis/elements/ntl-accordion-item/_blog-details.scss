@@ -1,9 +1,6 @@
-@use "@nextrap/ntl-accordion" as acc;
-
 &.blog-details {
 
   overflow: hidden;
-  @include acc.with-details-end();
   display: block;
   width: 100%;
   border: 1px solid var(--nt-gray-400);
@@ -13,9 +10,12 @@
 
 
   &::part(content) {
+    order: 0;
     padding: 0;
   }
+
   &::part(summary) {
+    order: 1;
     border-top: none;
     padding: var(--nt-space-3);
     background-color: var(--nt-gray-400);

@@ -1,21 +1,5 @@
-@use "@nextrap/nte-nav/index" as nav;
+@use "sass:meta";
 
-nte-navbar.style-default {
-  @include nav.navbar-default-style();
-
-  &::part(spacer) {
-    height: 104px;
-    transition: height 0.3s ease-in-out;
-  }
-
-  &.is-scrolled::part(spacer) {
-    height: 64px;
-  }
-
-  @media (max-width: 991.98px) {
-    &::part(spacer),
-    &.is-scrolled::part(spacer) {
-      height: 64px;
-    }
-  }
+nte-navbar {
+  @include meta.load-css("./_style-default.scss");
 }

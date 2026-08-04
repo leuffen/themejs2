@@ -153,7 +153,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 </style>
 
 ---
-{: layout="ntl-consent-blocker.google-maps-consent" .top  }
+{: layout="nte-consent-blocker.google-maps-consent" .top  }
 
 ## Section
 {: layout="ntl-2col" }
@@ -163,7 +163,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 Test Test Test
 
 ---
-{: layout="3;ntl-accordion" .aside}
+{: layout="3;nte-accordion" .aside}
 
 #### AaAaaaaaaa
 
@@ -177,7 +177,7 @@ dpoqwjdpioqwjdoijqwoid
 
 <footer>
     <ntl-card-row class="style-footer" style="--cols: 4">
-        <ntl-card>
+        <nte-card>
             <h3>Kontakt</h3>
 						Augenarzt Dr. Osman<br>
 						Marktstraße 42<br>
@@ -185,20 +185,20 @@ dpoqwjdpioqwjdoijqwoid
 						<span>Telefon:</span> <b><a href="tel:+496118123456" title="Telefon" class="text-decoration-none">+49 611 812-3456</a></b><br>
 						<span>Telefax:</span> <b>+49 611 812-3457</b><br>
 						<span>E-Mail:</span> <a href="mailto:info@augenarzt-osman.de" title="E-Mail" class=" text-decoration-none">info@augenarzt-osman.de</a><br>
-				</ntl-card>
-        <ntl-card>
+				</nte-card>
+        <nte-card>
             <h3>Beschreibung</h3>
             <span>
             	Description
             </span>
-        </ntl-card>
-        <ntl-card>
+        </nte-card>
+        <nte-card>
             <h3>Links</h3>
 						<ul style="list-style: none; padding-left: 0;">
 							<li><a href="/home" class="text-decoration-none">Home</a></li>
 							<li><a href="/kontakt" class="text-decoration-none">Kontakt</a></li>
 						</ul>
-        </ntl-card>
+        </nte-card>
     </ntl-card-row>
 </footer>
 

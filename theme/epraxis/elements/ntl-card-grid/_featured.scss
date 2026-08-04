@@ -1,7 +1,7 @@
-@use "@nextrap/ntl-card" as ntl-card;
+@use "@nextrap/nte-card" as nte-card;
 
 &.featured {
-  ntl-card {
+  :is(ntl-card, nte-card) {
     --flex-header-font-size: var(--nt-fs-h4);
 
     --border-color: none;
@@ -19,19 +19,19 @@
   }
 
 
-  ntl-card:nth-of-type(1) {
+  :is(ntl-card, nte-card):nth-of-type(1) {
     // First element spans 2 rows
     grid-row: span 2
 
   }
 
-  ntl-card:nth-of-type(n+2) {
+  :is(ntl-card, nte-card):nth-of-type(n+2) {
     --image-aspect-ratio: unset;
     // Subsequent element is overlay element
     h2,h3,h4,h5 {
       color: var(--nt-white);
     }
-    @include ntl-card.with-image-overlay();
+    @include nte-card.with-image-overlay();
   }
 
 }

@@ -6,17 +6,19 @@
 
 $theme: () !default;
 
+// Theme entry: loads all theme-scoped partials below .theme-osman.
 // Always wrap themes classes in where() to avoid specificity issues when using multiple themes on the same page.
 :where(.theme-osman) {
   @include nextrapBase.nextrap-theme($theme, ());
 
-
-
+  // Shared feature styles from src.
   @include meta.load-css("./../../src/features/_data-kicker.scss");
 
-  @include meta.load-css("./elements/main/main.scss");
+  // HTML element pairings that must stay theme-scoped.
+  @include meta.load-css("./html-elements/main/main.scss");
   @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
-  @include meta.load-css("./elements/a/a.scss");
+  @include meta.load-css("./html-elements/a/a.scss");
+  // Element entries.
   @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
   @include meta.load-css("./elements/nte-navbar-line/nte-navbar-line.scss");
   @include meta.load-css("./elements/nte-nav/nte-nav.scss");
@@ -24,6 +26,7 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-accordion/ntl-accordion.scss");
+  // Theme tools and reusable semantic classes.
   @include meta.load-css("./tools/_icon-grid.scss");
   @include meta.load-css("./classes/_opening-hours.scss");
   @include meta.load-css("./classes/_text-strong.scss");
@@ -34,6 +37,7 @@ $theme: () !default;
   @include meta.load-css("./classes/_warning-emergency.scss");
   @include meta.load-css("./classes/_aside.scss");
 
+  // Allowed direct rules in the theme entry: main content spacing only.
   ntl-2col,
   ntl-card-row,
   ntl-card-grid {

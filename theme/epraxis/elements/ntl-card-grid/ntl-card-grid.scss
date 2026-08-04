@@ -2,7 +2,7 @@
 
 ntl-card-grid {
 
-  ntl-card {
+  :is(ntl-card, nte-card) {
     --flex-header-font-size: var(--nt-fs-h6);
   }
 

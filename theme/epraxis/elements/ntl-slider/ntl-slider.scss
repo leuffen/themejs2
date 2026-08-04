@@ -1,7 +1,7 @@
 @use "sass:meta";
 
 
-ntl-slider {
+:is(ntl-slider, nte-slider) {
 
     @include meta.load-css("./_header-slider.scss");
 

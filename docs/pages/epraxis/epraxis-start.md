@@ -19,7 +19,7 @@ articles_related:
 
 
 ![](../assets/header-bg.svg)
-{: layout="2;ntl-parallax-bg" slot="bg"}
+{: layout="2;nte-parallax-bg" slot="bg"}
 
 
 # <span class="text-primary">EPRAXIS.DIGITAL</span> - Das Magazin für die Digitalisierung im Gesundheitswesen
@@ -29,7 +29,7 @@ articles_related:
 {: .h1}
 
 ---
-{: layout="2;ntl-slider.header-slider" section-slot="footer"}
+{: layout="2;nte-slider.header-slider" section-slot="footer"}
 
 ### Die Zunkut der Zahnarztpraxis
 {: data-kicker="Top Thema"}
@@ -127,7 +127,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ### Beliebte Artikel:
-{: layout="ntl-card.aside" section-class="aside"}
+{: layout="nte-card.aside" section-class="aside"}
 
 - [Barrierefreiheitsstärkungsgesetz (BFSG) – Das neue Gesetz und seine Bedeutung für Praxen]()
 - [Günstige Websites für niedergelassene Arztpraxen zum Festpreis]()

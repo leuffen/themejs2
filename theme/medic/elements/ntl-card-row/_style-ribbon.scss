@@ -21,7 +21,7 @@
         text-transform: uppercase;
     }
 
-    ntl-card {
+    :is(ntl-card, nte-card) {
         --border: 0;
         --border-width: 0;
         --border-color: transparent;
@@ -34,7 +34,7 @@
     }
 
     &[mode="mobile"] {
-        ntl-card {
+        :is(ntl-card, nte-card) {
             &::after {
                 content: "";
                 position: absolute;
@@ -51,7 +51,7 @@
     }
 
     &[mode="desktop"] {
-        ntl-card {
+        :is(ntl-card, nte-card) {
             flex-grow: 1;
             padding: 0;
             border-right: 1px solid var(--nt-gray-500);

@@ -1,0 +1,8 @@
+@use "sass:meta";
+@use "@nextrap/nte-nav/index" as nav;
+
+&.style-default {
+  @include nav.default-style();
+  @include meta.load-css("./_nav-horizontal.scss");
+  @include meta.load-css("./_nav-vertical.scss");
+}

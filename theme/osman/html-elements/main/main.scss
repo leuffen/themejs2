@@ -1,4 +1,4 @@
 @use "sass:meta";
 
-// Child entry for list styling inside ntl-2col.
+// HTML element entry for the main content wrapper.
 @include meta.load-css("./_base.scss");
