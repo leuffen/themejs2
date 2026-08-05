@@ -1,9 +1,7 @@
 @use "@nextrap/nte-nav/index" as nav;
 
 &.style-default {
-  display: block;
-  position: fixed;
-  z-index: 20;
+  // do not add position: fixed or other here. This is done  by the nabbar-default-style
   --spacer-height: var(--osman-navbar-total-height, 104px);
 
   @include nav.navbar-default-style(
