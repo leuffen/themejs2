@@ -6,7 +6,7 @@
     z-index: 1;
     width: min(45rem, calc(100vw - 11rem));
     margin: 0;
-    padding: var(--nt-text-gap) var(--nt-text-gap) var(--nt-text-gap) 0;
+    padding: var(--nt-spacing-text) var(--nt-spacing-text) var(--nt-spacing-text) 0;
     background: transparent;
 
     &::before {
@@ -27,7 +27,7 @@
       bottom: auto;
       width: auto;
       margin: 0 1rem;
-      padding: var(--nt-text-gap);
+      padding: var(--nt-spacing-text);
       transform: none;
       background: transparent;
 

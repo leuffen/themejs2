@@ -3,6 +3,11 @@
 &.style-default {
   display: block;
   z-index: 20;
+<<<<<<< HEAD
+=======
+
+  // do not add position: fixed or other here. This is done by the navbar-default-style
+>>>>>>> 4934eeb (sync)
   --spacer-height: var(--osman-navbar-total-height, 104px);
 
   @include nav.navbar-default-style(

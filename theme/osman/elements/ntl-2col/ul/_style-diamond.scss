@@ -1,11 +1,11 @@
 &.style-diamond {
-  margin: 0 0 var(--nt-text-gap);
+  margin: 0 0 var(--nt-spacing-text);
   padding: 0;
   list-style: none;
 
   > * {
     position: relative;
-    margin: 0 0 calc(var(--nt-text-gap) * 0.35);
+    margin: 0 0 calc(var(--nt-spacing-text) * 0.35);
     padding-left: 0.75lh;
 
     &::before {

@@ -1,39 +1,15 @@
 @use "@leuffen/themejs2/theme/medic" with (
   $theme: (
-    colors: (
-      primary: #316947
-    )
+    primary: #316947
   )
 );
 
-@use "@leuffen/themejs2/font/opensans-regular" as osmanFont;
-@use "@leuffen/themejs2/theme/osman" with (
-  $theme: (
-    primary: #2b94d6,
-    accent: #2b94d6,
-    secondary: #4c4c4c,
-    gray: #6f6f6f,
-    text: #4b4b4b,
-    header: #404040,
-    body: #ffffff,
-    body-secondary: #efedeb,
-    body-tertiary: #f4f4f2,
-    font-family-base: osmanFont.$font-family-base,
-    font-family-header: osmanFont.$font-family-base,
-    font-size-header: osmanFont.$font-size-header,
-    font-size-base: osmanFont.$font-size-base,
-    content-space: clamp(2.25rem, 3.5vw, 3.5rem),
-    enableFontConfig: true,
-    rcs: false
-  )
-);
+@use "@leuffen/themejs2/theme/osman";
 
 
 @use "@leuffen/themejs2/theme/epraxis" with (
   $theme: (
-    colors: (
-      primary: #1b8c47
-    )
+    primary: #1b8c47
   )
 );
 

@@ -14,7 +14,7 @@
     font-style: italic;
 
     &[mode="desktop"] {
-        padding-left: var(--nt-gap);
+        padding-left: var(--nt-spacing-component);
 
         &::part(wrapper) {
             padding: 0 var(--padding-x) ;

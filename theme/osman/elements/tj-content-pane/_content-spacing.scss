@@ -1,3 +1,14 @@
 tj-content-pane {
   display: block;
+
+  & > * {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    margin-top: var(--nt-spacing-section);
+    margin-bottom: var(--nt-spacing-section);
+  }
 }

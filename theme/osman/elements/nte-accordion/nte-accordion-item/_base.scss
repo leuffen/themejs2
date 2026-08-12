@@ -1,10 +1,10 @@
 nte-accordion-item {
-  --border-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%);
-  --background-color-heading: color-mix(in srgb, var(--nt-body-tertiary) 78%, white 22%);
-  --background-color-heading-hover: color-mix(in srgb, var(--nt-body-tertiary) 72%, white 28%);
+  --border-color: color-mix(in srgb, var(--nt-surface-muted) 78%, white 22%);
+  --background-color-heading: color-mix(in srgb, var(--nt-surface-raised) 78%, white 22%);
+  --background-color-heading-hover: color-mix(in srgb, var(--nt-surface-raised) 72%, white 28%);
   --marker-size: 1.15rem;
-  --padding-y: var(--nt-text-gap);
-  --padding-x: var(--nt-text-gap);
+  --padding-y: var(--nt-spacing-text);
+  --padding-x: var(--nt-spacing-text);
   --marker-icon-closed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   --marker-icon-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18 15 12 9 6 15'/%3E%3C/svg%3E");
 
@@ -44,13 +44,13 @@ nte-accordion-item {
   }
 
   &::part(content) {
-    padding: var(--nt-text-gap) var(--padding-x) var(--padding-y);
+    padding: var(--nt-spacing-text) var(--padding-x) var(--padding-y);
     color: var(--nt-text);
     font-size: 0.98rem;
     line-height: 1.55;
   }
 
   &[open] {
-    border-color: color-mix(in srgb, var(--nt-body-secondary) 90%, white 10%);
+    border-color: color-mix(in srgb, var(--nt-surface-muted) 90%, white 10%);
   }
 }

@@ -11,9 +11,9 @@
     &::part(wrapper) {
       display: flex;
       flex-direction: column;
-      gap: var(--nt-text-gap);
+      gap: var(--nt-spacing-text);
       min-height: 15.25rem;
-      padding: var(--nt-text-gap);
+      padding: var(--nt-spacing-text);
     }
 
     &::part(content) {
@@ -36,7 +36,6 @@
 
       &::part(wrapper) {
         min-height: 0;
-        padding: var(--nt-text-gap);
       }
     }
   }

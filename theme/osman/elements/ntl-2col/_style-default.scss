@@ -3,10 +3,10 @@
 &.style-default {
   --cols: 6;
   --gap: clamp(1.75rem, 3vw, 3.5rem);
-  --section-divider-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%);
+  --section-divider-color: color-mix(in srgb, var(--nt-surface-muted) 78%, white 22%);
 
   @include ntl2col.default-style(
-    $innerPadding: var(--nt-text-gap),
+    $innerPadding: var(--nt-spacing-text),
     $gap: clamp(1.75rem, 3vw, 3.5rem),
     $background: transparent,
     $border: 0,
@@ -26,7 +26,7 @@
   }
 
   &::part(container) {
-    border-top: 1px solid color-mix(in srgb, var(--nt-body-secondary) 72%, white 28%);
+    border-top: 1px solid color-mix(in srgb, var(--nt-surface-muted) 72%, white 28%);
   }
 
   &:has(> p[slot="aside"].auto)::part(aside) {

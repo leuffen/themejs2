@@ -14,7 +14,7 @@
 
     &::part(wrapper) {
       justify-content: flex-start;
-      padding: var(--nt-text-gap);
+      padding: var(--nt-spacing-text);
     }
 
     &::part(content) {
@@ -27,10 +27,7 @@
   &[mode="mobile"] {
     nte-card {
       --image-aspect-ratio: 1;
-
-      &::part(wrapper) {
-        padding: var(--nt-text-gap);
-      }
+      // No padding here
     }
   }
 }

@@ -1,7 +1,7 @@
 @use "sass:meta";
 @use "./../../font/opensans-regular" as font;
 @use "./../../font/_vendor/font-bootstrap-icons";
-@use "@nextrap/style-base/module" as nextrapBase;
+@use "@nextrap/style-base" as nextrapBase;
 
 @forward "../../src/style/base";
 
@@ -9,11 +9,8 @@ $theme: () !default;
 
 :where(.theme-medic) {
   @include nextrapBase.nextrap-theme($theme, (
-
     primary: #b50303,
-
-    font-family-base: font.$font-family-base,
-    font-family-header: font.$font-family-base,
+    font-family: font.$font-family-base,
     font-size-header: font.$font-size-header,
     font-size-base: font.$font-size-base,
     enableFontConfig: true,
@@ -45,7 +42,7 @@ $theme: () !default;
     }
   }
 
-  background: var(--nt-body);
+  background: var(--nt-surface);
 
 
 

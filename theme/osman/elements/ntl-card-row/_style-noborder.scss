@@ -13,7 +13,7 @@
   );
 
   @include cardRow.with-item-separators(
-    $separator-color: color-mix(in srgb, var(--nt-body-secondary) 78%, white 22%),
+    $separator-color: color-mix(in srgb, var(--nt-surface-muted) 78%, white 22%),
     $separator-inset: clamp(0.25rem, 1.2vw, 0.75rem)
   );
 

@@ -1,6 +1,7 @@
 @use "sass:meta";
+@use "./../../font/opensans-regular" as font;
 @use "./../../font/_vendor/font-bootstrap-icons";
-@use "@nextrap/style-base/module" as nextrapBase;
+@use "@nextrap/style-base" as nextrapBase;
 
 @forward "../../src/style/base";
 
@@ -9,7 +10,70 @@ $theme: () !default;
 // Theme entry: loads all theme-scoped partials below .theme-osman.
 // Always wrap themes classes in where() to avoid specificity issues when using multiple themes on the same page.
 :where(.theme-osman) {
-  @include nextrapBase.nextrap-theme($theme, ());
+  @include nextrapBase.nextrap-theme($theme, (
+    // Theme API defaults / inputs
+    mode: light,
+    density: comfortable,
+    lighten-factor: 40%,
+
+    // Brand colors
+    primary: #2b94d6,
+    accent: #2b94d6,
+    secondary: #4c4c4c,
+    tertiary: #17a2b8,
+    success: #28a745,
+    info: #17a2b8,
+    warning: #ffc107,
+    danger: #dc3545,
+    light: #f8f9fa,
+    dark: #212529,
+    white: #fff,
+    black: #000,
+    neutral: #6f6f6f,
+
+    // Optional semantic overrides for computed colors
+    // text: ...,
+    // header: ...,
+    // surface: ...,
+    // surface-muted: ...,
+    // surface-raised: ...,
+    // text-muted: ...,
+    // border: ...,
+    // focus: ...,
+    // link: ...,
+    text-decoration-link: underline,
+    link-on-dark: #fff,
+
+    // Typography
+    font-family: font.$font-family-base,
+    font-size-base: font.$font-size-base,
+    font-weight-base: 400,
+    line-height-base: 1.4,
+    font-family-header: font.$font-family-base,
+    font-size-header: font.$font-size-header,
+    font-weight-header: 500,
+    line-height-header: 1.2,
+    font-weight-bold: 600,
+    font-size-small: 0.875rem,
+
+    // Shape / container
+    radius: 0.5rem,
+    border-radius-sm: 0.25rem,
+    border-radius-lg: 1rem,
+    container-max: 1320px,
+    container-gutter: var(--nt-space-5),
+
+    // Optional scale overrides
+    // spacing: (...),
+    // spacing-semantic: (...),
+    // text-scales: (...),
+    // header-scales: (...),
+
+    // Legacy / project flags
+    enableFontConfig: true,
+    enableScrollOffset: false,
+    rcs: false
+  ));
 
   // Shared feature styles from src.
   @include meta.load-css("./../../src/features/_data-kicker.scss");
@@ -37,11 +101,6 @@ $theme: () !default;
   @include meta.load-css("./classes/_warning-emergency.scss");
   @include meta.load-css("./classes/_aside.scss");
 
-  // Allowed direct rules in the theme entry: main content spacing only.
-  ntl-2col,
-  ntl-card-row,
-  ntl-card-grid {
-    margin-top: var(--nt-content-space);
-    margin-bottom: var(--nt-content-space);
-  }
+
+
 }

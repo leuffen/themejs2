@@ -16,7 +16,7 @@
 
   &::part(root) {
     min-height: inherit;
-    background: var(--nt-body-secondary);
+    background: var(--nt-surface-muted);
   }
 
   &::part(wrapper) {

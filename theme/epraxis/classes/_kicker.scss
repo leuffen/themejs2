@@ -11,8 +11,8 @@ span.kicker {
   // make it uppercase:
   text-transform: uppercase;
   font-weight: var(--nt-font-weight-header);
-  margin-top: var(--nt-text-gap);
-  margin-bottom: var(--nt-text-gap);
+  margin-top: var(--nt-spacing-text);
+  margin-bottom: var(--nt-spacing-text);
   &:first-child {
     margin-top: 0;
   }

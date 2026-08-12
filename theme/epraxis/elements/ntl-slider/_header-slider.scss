@@ -3,17 +3,17 @@
 &.header-slider {
     --nav-inset: -42px !important;
     --nav-button-size: 50px;
-    --nav-button-bg: var(--nt-body-teritary, #e4e6ef);
+    --nav-button-bg: var(--nt-surface-raised, #e4e6ef);
     --nav-button-color: var(--nt-primary, #fe6606);
     --indicator-size: 12px;
     --indicator-gap: 8px;
-    --indicator-color: var(--nt-body-teritary, #e4e6ef);
+    --indicator-color: var(--nt-surface-raised, #e4e6ef);
     --indicator-active-color: var(--nt-primary, #fe6606);
     --transition-duration: 0.5s;
     --aspect-ratio: none;
 
     padding: 1rem;
-    background: var(--nt-body-teritary, #e4e6ef);
+    background: var(--nt-surface-raised, #e4e6ef);
     border-radius: 1rem;
     overflow: hidden;
     height: auto;
@@ -56,7 +56,7 @@
 
         p {
             color: var(--nt-white);
-            margin-bottom: var(--nt-text-gap);
+            margin-bottom: var(--nt-spacing-text);
         }
 
     }

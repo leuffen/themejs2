@@ -5,7 +5,7 @@
   :is(ntl-card, nte-card) {
     --flex-header-font-size: var(--nt-fs-h4);
 
-    --border: 1px solid var(--nt-body-secondary);
+    --border: 1px solid var(--nt-surface-muted);
     --border-radius: 20px;
     --card-bg: none;
     --image-aspect-ratio: 16/9;
@@ -16,11 +16,11 @@
     }
 
     &.aside {
-      --background-color: var(--nt-body-secondary);
+      --background-color: var(--nt-surface-muted);
 
       ul > li {
         display: block;
-        border-bottom: 1px solid var(--nt-body-secondary);
+        border-bottom: 1px solid var(--nt-surface-muted);
       }
 
 

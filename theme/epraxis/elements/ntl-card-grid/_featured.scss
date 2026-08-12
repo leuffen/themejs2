@@ -6,14 +6,14 @@
 
     --border-color: none;
     --border-radius: 20px;
-    --card-bg: var(--nt-body-tertiary);
+    --card-bg: var(--nt-surface-raised);
     --image-aspect-ratio: 16/9;
 
     &::part(wrapper) {
       border: none;
-      padding: var(--nt-gap);
+      padding: var(--nt-spacing-component);
       border-radius: 20px;
-      background-color: var(--nt-body-tertiary);
+      background-color: var(--nt-surface-raised);
     }
 
   }
