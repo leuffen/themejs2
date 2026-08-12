@@ -63,16 +63,22 @@
     "sass": "^1.89.2",
     "typescript": "^5.9.2",
     "vite": "^7.3.2",
+    "vite-plugin-css-injected-by-js": "^4.0.1",
     "vite-plugin-static-copy": "^4.1.0",
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.5"
   },
   "scripts": {
     "vite-prox": "vite dev",
-    "vite-build": "vite build --watch",
+    "vite-build:index": "BUNDLE_ENTRY=index vite build --watch",
+    "vite-build:embed": "BUNDLE_ENTRY=embed vite build --watch",
+    "vite-build": "concurrently 'npm run vite-build:index' 'npm run vite-build:embed'",
     "jekyll-prox": "JEKYLL_ENV=development jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4999 --livereload-port 4100 --host 0.0.0.0",
     "jekyll-build": "JEKYLL_ENV=production jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0",
     "dev": "concurrently 'npm run vite-prox' 'npm run jekyll-prox'",
-    "dev-b": "concurrently 'npm run vite-build' 'npm run jekyll-build'"
+    "dev-b": "concurrently 'npm run vite-build' 'npm run jekyll-build'",
+    "build:index": "BUNDLE_ENTRY=index vite build",
+    "build:embed": "BUNDLE_ENTRY=embed vite build",
+    "build": "npm run build:index && npm run build:embed"
   }
 }
