@@ -69,10 +69,6 @@ layout: null
     {% if jekyll.environment == "development" %}
     <script src="/@vite/client" type="module"></script>
     <script src="/docs/_src/index.ts" type="module"></script>
-    {% else %}
-    <script>
-    {% include dist/embed.js %}
-    </script>
     {% endif %}
 
     {% comment %} ======== Liquid script for alternative language links ======= {% endcomment %}
