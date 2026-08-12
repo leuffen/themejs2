@@ -2,7 +2,7 @@
 
 &.style-default {
   display: block;
-  position: fixed;
+
   z-index: 20;
   --spacer-height: var(--osman-navbar-total-height, 104px);
 
@@ -19,6 +19,7 @@
 
   &::part(navbar) {
     backdrop-filter: blur(12px);
+    position: fixed;
   }
 
   @media (max-width: 991.98px) {
@@ -26,6 +27,7 @@
 
     &::part(navbar) {
       backdrop-filter: none;
+
     }
   }
 }
