@@ -1,7 +1,7 @@
 tj-content-pane {
   display: block;
 
-  & > * {
+  & > *, ntl-card-row, ntl-2col  {
     &:first-child {
       margin-top: 0;
     }

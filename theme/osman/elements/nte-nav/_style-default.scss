@@ -1,5 +1,5 @@
 @use "sass:meta";
-@use "@nextrap/nte-nav/index" as nav;
+@use "@nextrap/nte-nav" as nav;
 
 &.style-default {
   @include nav.default-style(

@@ -1,13 +1,15 @@
 @use "sass:meta";
 @use "./../../font/opensans-regular" as font;
 @use "./../../font/_vendor/font-bootstrap-icons";
+@use "@nextrap/style-reset";
 @use "@nextrap/style-base" as nextrapBase;
-
-@forward "../../src/style/base";
+@use "@nextrap/style-utils" as nextrapUtils;
+@use "@nextrap/style-typography" as nextrapTypography;
+@use "@nextrap/style-button" as nextrapButton;
 
 $theme: () !default;
 
-:where(.theme-medic) {
+:where(.theme-medic, .theme-mueller) {
   @include nextrapBase.nextrap-theme($theme, (
     primary: #b50303,
     font-family: font.$font-family-base,
@@ -16,6 +18,10 @@ $theme: () !default;
     enableFontConfig: true,
     rcs: true
   ));
+
+  @include nextrapUtils.utils();
+  @include nextrapTypography.typography();
+  @include nextrapButton.buttons();
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
 
