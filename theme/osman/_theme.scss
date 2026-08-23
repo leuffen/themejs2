@@ -7,75 +7,14 @@
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
 
-$theme: () !default;
-
 // Theme entry: loads all theme-scoped partials below .theme-osman.
-// Always wrap themes classes in where() to avoid specificity issues when using multiple themes on the same page.
+// Keep the scope in :where() so customer/project layers can override it
+// without specificity escalation.
 :where(.theme-osman) {
-  @include nextrapBase.nextrap-theme($theme, (
-    // Theme API defaults / inputs
-    mode: light,
-    density: comfortable,
-    lighten-factor: 40%,
-
-    // Brand colors
-    primary: #2b94d6,
-    accent: #2b94d6,
-    secondary: #4c4c4c,
-    tertiary: #17a2b8,
-    success: #28a745,
-    info: #17a2b8,
-    warning: #ffc107,
-    danger: #dc3545,
-    light: #f8f9fa,
-    dark: #212529,
-    white: #fff,
-    black: #000,
-    neutral: #6f6f6f,
-
-    // Optional semantic overrides for computed colors
-    // text: ...,
-    // header: ...,
-    // surface: ...,
-    // surface-muted: ...,
-    // surface-raised: ...,
-    // text-muted: ...,
-    // border: ...,
-    // focus: ...,
-    // link: ...,
-    text-decoration-link: underline,
-    link-on-dark: #fff,
-
-    // Typography
-    font-family: font.$font-family-base,
-    font-size-base: font.$font-size-base,
-    font-weight-base: 400,
-    line-height-base: 1.4,
-    font-family-header: font.$font-family-base,
-    font-size-header: font.$font-size-header,
-    font-weight-header: 500,
-    line-height-header: 1.2,
-    font-weight-bold: 600,
-    font-size-small: 0.875rem,
-
-    // Shape / container
-    radius: 0.5rem,
-    border-radius-sm: 0.25rem,
-    border-radius-lg: 1rem,
-    container-max: 1320px,
-    container-gutter: var(--nt-space-5),
-
-    // Optional scale overrides
-    // spacing: (...),
-    // spacing-semantic: (...),
-    // text-scales: (...),
-    // header-scales: (...),
-
-    // Legacy / project flags
-    enableFontConfig: true,
-    enableScrollOffset: false,
-    rcs: false
-  ));
+  // Runtime-first Nextrap token graph. Sass emits the relationships; the
+  // concrete design inputs remain CSS custom properties.
+  @include nextrapBase.runtime-theme();
+  @include meta.load-css("./_runtime-settings.scss");
 
   @include nextrapUtils.utils();
   @include nextrapTypography.typography();
@@ -88,7 +27,9 @@ $theme: () !default;
   @include meta.load-css("./html-elements/main/main.scss");
   @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
   @include meta.load-css("./html-elements/a/a.scss");
-  // Element entries.
+
+  // Element entries. Known component variants belong in Nextrap mixins;
+  // precise visual changes belong on exported ::part() selectors.
   @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
   @include meta.load-css("./elements/nte-navbar-line/nte-navbar-line.scss");
   @include meta.load-css("./elements/nte-nav/nte-nav.scss");
@@ -96,6 +37,7 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
+
   // Theme tools and reusable semantic classes.
   @include meta.load-css("./tools/_icon-grid.scss");
   @include meta.load-css("./classes/_opening-hours.scss");
@@ -106,7 +48,8 @@ $theme: () !default;
   @include meta.load-css("./classes/_warning-heading.scss");
   @include meta.load-css("./classes/_warning-emergency.scss");
   @include meta.load-css("./classes/_aside.scss");
-
-
-
 }
+
+// Explicit scheme selection only changes color-scheme. Derived tokens use
+// light-dark() and therefore react without duplicating a complete token set.
+@include nextrapBase.runtime-scheme-selectors();
