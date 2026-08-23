@@ -1,0 +1,32 @@
+// Osman runtime theme inputs and deliberately small semantic theme layer.
+//
+// Nextrap `--nt-*` inputs describe the design scale. The `--theme-*` tokens
+// below describe cross-component design language only. Component-specific
+// customization remains in the component partials and should prefer ::part().
+
+--nt-primary: #2b94d6;
+--nt-accent: #2b94d6;
+--nt-neutral: #6f6f6f;
+--nt-secondary: #4c4c4c;
+--nt-tertiary: #17a2b8;
+--nt-success: #28a745;
+--nt-info: #17a2b8;
+--nt-warning: #ffc107;
+--nt-danger: #dc3545;
+
+--nt-font-family: "Open Sans", sans-serif;
+--nt-font-family-header: var(--nt-font-family);
+--nt-font-size: 1rem;
+--nt-line-height: 1.4;
+--nt-radius: .5rem;
+--nt-container-max: 1320px;
+
+// Theme semantics: add only when the same design decision has multiple,
+// independent consumers. Do not mirror component parts as variables.
+--theme-corner: var(--nt-radius);
+--theme-corner-small: var(--nt-border-radius-sm);
+--theme-corner-large: var(--nt-border-radius-xl);
+--theme-content-gap: var(--nt-space-4);
+--theme-section-gap: var(--nt-space-7);
+--theme-border: var(--nt-border-width) solid var(--nt-border);
+--theme-shadow: none;
