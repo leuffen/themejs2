@@ -1,29 +1,59 @@
-// Osman runtime theme inputs and deliberately small semantic theme layer.
+// Osman runtime theme configuration.
 //
-// Nextrap `--nt-*` inputs describe the design scale. The `--theme-*` tokens
-// below describe cross-component design language only. Component-specific
-// customization remains in the component partials and should prefer ::part().
+// `--theme-*` is the public, browser-editable theme API.
+// `--nt-*` is the mapping into Nextrap's runtime token graph.
+// Component-specific customization remains in component partials and should
+// prefer mixins and ::part() instead of adding more variables.
 
---nt-primary: #2b94d6;
---nt-accent: #2b94d6;
---nt-neutral: #6f6f6f;
---nt-secondary: #4c4c4c;
---nt-tertiary: #17a2b8;
---nt-success: #28a745;
---nt-info: #17a2b8;
---nt-warning: #ffc107;
---nt-danger: #dc3545;
+// ---------------------------------------------------------------------------
+// Public theme inputs
+// ---------------------------------------------------------------------------
 
---nt-font-family: "Open Sans", sans-serif;
---nt-font-family-header: var(--nt-font-family);
---nt-font-size: 1rem;
---nt-line-height: 1.4;
---nt-radius: .5rem;
---nt-container-max: 1320px;
+--theme-primary: #2b94d6;
+--theme-accent: #2b94d6;
+--theme-neutral: #6f6f6f;
+--theme-secondary: #4c4c4c;
+--theme-tertiary: #17a2b8;
+--theme-success: #28a745;
+--theme-info: #17a2b8;
+--theme-warning: #ffc107;
+--theme-danger: #dc3545;
 
-// Theme semantics: add only when the same design decision has multiple,
-// independent consumers. Do not mirror component parts as variables.
---theme-corner: var(--nt-radius);
+--theme-font-family: "Open Sans", sans-serif;
+--theme-font-family-header: var(--theme-font-family);
+--theme-font-size: 1rem;
+--theme-line-height: 1.4;
+--theme-radius: .5rem;
+--theme-container-max: 1320px;
+
+// ---------------------------------------------------------------------------
+// Mapping to Nextrap inputs
+// ---------------------------------------------------------------------------
+
+--nt-primary: var(--theme-primary);
+--nt-accent: var(--theme-accent);
+--nt-neutral: var(--theme-neutral);
+--nt-secondary: var(--theme-secondary);
+--nt-tertiary: var(--theme-tertiary);
+--nt-success: var(--theme-success);
+--nt-info: var(--theme-info);
+--nt-warning: var(--theme-warning);
+--nt-danger: var(--theme-danger);
+
+--nt-font-family: var(--theme-font-family);
+--nt-font-family-header: var(--theme-font-family-header);
+--nt-font-size: var(--theme-font-size);
+--nt-line-height: var(--theme-line-height);
+--nt-radius: var(--theme-radius);
+--nt-container-max: var(--theme-container-max);
+
+// ---------------------------------------------------------------------------
+// Additional theme semantics
+// ---------------------------------------------------------------------------
+// Add these only when the same design decision has multiple independent
+// consumers and is not already represented directly by a public theme input.
+
+--theme-corner: var(--theme-radius);
 --theme-corner-small: var(--nt-border-radius-sm);
 --theme-corner-large: var(--nt-border-radius-xl);
 --theme-content-gap: var(--nt-space-4);
