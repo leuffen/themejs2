@@ -41,6 +41,33 @@ nte-card.style-default {
 
 Parts are preferred over adding component custom properties for every possible visual adjustment: the target is explicit and discoverable and authors do not have to guess variable names.
 
+## Native HTML element defaults
+
+Themes should also define their intended default appearance for native HTML elements. These defaults belong in the theme's `html-elements` layer and should apply to plain semantic markup without requiring utility or component classes.
+
+When Nextrap provides a semantic base class for the same element, that base class owns the styling and the theme default must opt out. Check only the base class, not every utility or variant class. Variants are expected to be used together with their base class.
+
+For example:
+
+```scss
+:where(table:not(.table)) {
+  @include elements.table();
+  @include elements.table-striped();
+}
+
+:where(ul:not(.list)) {
+  // Theme default unordered-list style.
+}
+
+:where(ol:not(.list)) {
+  // Theme default ordered-list style.
+}
+```
+
+This means a plain `<table>` or `<table class="mt-4">` still receives the theme default. A `<table class="table table-striped">` opts into the Nextrap table API because `.table` is present. Likewise, native `ul` and `ol` defaults remain active until `.list` explicitly transfers ownership to the Nextrap list API.
+
+Do not enumerate utility or variant classes in `:not(...)`. Utility classes must remain composable with native defaults, and variants such as table stripes or list styles are subordinate to their semantic base class.
+
 ## 4. Customer/project layer
 
 Customer themes should primarily override base inputs or the small semantic layer:
