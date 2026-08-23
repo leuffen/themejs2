@@ -1,0 +1,43 @@
+@use "@nextrap/style-elements" as elements;
+
+// Osman defaults for native content elements.
+// Utility classes remain fully composable. Only the semantic base class opts
+// an element out of the native default because it signals explicit styling.
+
+:where(table:not(.table)) {
+  @include elements.table();
+  @include elements.table-striped();
+
+  --nt-border-color: var(--nt-border);
+  --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
+}
+
+// Native unordered lists use a caret marker unless the explicit `.list`
+// styling API takes ownership. Additional utility classes do not opt out.
+:where(ul:not(.list)) {
+  list-style: none;
+  padding-inline-start: 0;
+
+  > li {
+    position: relative;
+    padding-inline-start: 1.25em;
+
+    &::before {
+      content: "›";
+      position: absolute;
+      inset-inline-start: 0;
+      color: var(--nt-primary);
+      font-weight: var(--nt-font-weight-bold, 600);
+    }
+  }
+
+  ul {
+    margin-block-start: var(--nt-space-2);
+  }
+}
+
+// Ordered lists keep native numbering unless `.list` selects an explicit
+// list style. This only normalizes indentation for Osman prose/content.
+:where(ol:not(.list)) {
+  padding-inline-start: 1.5em;
+}
