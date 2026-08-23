@@ -23,6 +23,11 @@
   // Shared feature styles from src.
   @include meta.load-css("./../../src/features/_data-kicker.scss");
 
+  // Native HTML defaults. These only opt out when the semantic base styling
+  // class takes ownership (e.g. table.table or ul.list), so utility classes
+  // remain composable.
+  @include meta.load-css("./html-elements/_defaults.scss");
+
   // HTML element pairings that must stay theme-scoped.
   @include meta.load-css("./html-elements/main/main.scss");
   @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
