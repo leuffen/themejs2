@@ -12,11 +12,11 @@
   --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
 }
 
-// Native unordered lists use a caret marker unless the explicit `.list`
-// styling API takes ownership. Additional utility classes do not opt out.
+// Native unordered lists reuse the shared Nextrap list base and add only the
+// Osman-specific caret treatment. The explicit `.list` API takes ownership.
 :where(ul:not(.list)) {
-  list-style: none;
-  padding-inline-start: 0;
+  @include elements.list();
+  @include elements.list-unstyled();
 
   > li {
     position: relative;
@@ -36,8 +36,8 @@
   }
 }
 
-// Ordered lists keep native numbering unless `.list` selects an explicit
-// list style. This only normalizes indentation for Osman prose/content.
+// Ordered lists also reuse the shared Nextrap list base; numbering remains
+// native. `.list` explicitly transfers styling ownership to Nextrap classes.
 :where(ol:not(.list)) {
-  padding-inline-start: 1.5em;
+  @include elements.list();
 }
