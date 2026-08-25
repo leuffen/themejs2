@@ -18,4 +18,11 @@
     margin: 0 auto;
   }
 
+  &[mode="mobile"] nte-card {
+    --image-aspect-ratio: 1;
+  }
+
+  &[mode="desktop"] nte-card {
+    --image-aspect-ratio: 16/9;
+  }
 }
