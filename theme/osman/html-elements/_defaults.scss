@@ -1,10 +1,10 @@
 @use "@nextrap/style-elements" as elements;
 
-// Osman defaults for native content elements.
+// Osman defaults for native content elements below the main content area.
 // Utility classes remain fully composable. Only the semantic base class opts
 // an element out of the native default because it signals explicit styling.
 
-:where(table:not(.table)) {
+:where(main#main table:not(.table)) {
   @include elements.table();
   @include elements.table-striped();
 
@@ -12,9 +12,9 @@
   --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
 }
 
-// Native unordered lists reuse the shared Nextrap list base and add only the
-// Osman-specific caret treatment. The explicit `.list` API takes ownership.
-:where(ul:not(.list)) {
+// Native unordered lists reuse the shared Nextrap list defaults and add only
+// the Osman-specific caret treatment. The explicit `.list` API takes ownership.
+:where(main#main ul:not(.list)) {
   @include elements.list();
   @include elements.list-unstyled();
 
@@ -36,8 +36,8 @@
   }
 }
 
-// Ordered lists also reuse the shared Nextrap list base; numbering remains
-// native. `.list` explicitly transfers styling ownership to Nextrap classes.
-:where(ol:not(.list)) {
+// Ordered lists keep native numbering with the shared Nextrap list spacing.
+// `.list` explicitly transfers styling ownership to Nextrap classes.
+:where(main#main ol:not(.list)) {
   @include elements.list();
 }

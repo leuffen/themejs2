@@ -9,54 +9,56 @@
 // Public theme inputs
 // ---------------------------------------------------------------------------
 
---theme-primary: #2b94d6;
---theme-accent: #2b94d6;
---theme-neutral: #6f6f6f;
---theme-secondary: #4c4c4c;
---theme-tertiary: #17a2b8;
---theme-success: #28a745;
---theme-info: #17a2b8;
---theme-warning: #ffc107;
---theme-danger: #dc3545;
+& {
+  --theme-primary: #2b94d6;
+  --theme-accent: #2b94d6;
+  --theme-neutral: #6f6f6f;
+  --theme-secondary: #4c4c4c;
+  --theme-tertiary: #17a2b8;
+  --theme-success: #28a745;
+  --theme-info: #17a2b8;
+  --theme-warning: #ffc107;
+  --theme-danger: #dc3545;
 
---theme-font-family: "Open Sans", sans-serif;
---theme-font-family-header: var(--theme-font-family);
---theme-font-size: 1rem;
---theme-line-height: 1.4;
---theme-radius: .5rem;
---theme-container-max: 1320px;
+  --theme-font-family: "Open Sans", sans-serif;
+  --theme-font-family-header: var(--theme-font-family);
+  --theme-font-size: 1rem;
+  --theme-line-height: 1.4;
+  --theme-radius: .5rem;
+  --theme-container-max: 1320px;
 
-// ---------------------------------------------------------------------------
-// Mapping to Nextrap inputs
-// ---------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  // Mapping to Nextrap inputs
+  // -------------------------------------------------------------------------
 
---nt-primary: var(--theme-primary);
---nt-accent: var(--theme-accent);
---nt-neutral: var(--theme-neutral);
---nt-secondary: var(--theme-secondary);
---nt-tertiary: var(--theme-tertiary);
---nt-success: var(--theme-success);
---nt-info: var(--theme-info);
---nt-warning: var(--theme-warning);
---nt-danger: var(--theme-danger);
+  --nt-primary: var(--theme-primary);
+  --nt-accent: var(--theme-accent);
+  --nt-neutral: var(--theme-neutral);
+  --nt-secondary: var(--theme-secondary);
+  --nt-tertiary: var(--theme-tertiary);
+  --nt-success: var(--theme-success);
+  --nt-info: var(--theme-info);
+  --nt-warning: var(--theme-warning);
+  --nt-danger: var(--theme-danger);
 
---nt-font-family: var(--theme-font-family);
---nt-font-family-header: var(--theme-font-family-header);
---nt-font-size: var(--theme-font-size);
---nt-line-height: var(--theme-line-height);
---nt-radius: var(--theme-radius);
---nt-container-max: var(--theme-container-max);
+  --nt-font-family: var(--theme-font-family);
+  --nt-font-family-header: var(--theme-font-family-header);
+  --nt-font-size: var(--theme-font-size);
+  --nt-line-height: var(--theme-line-height);
+  --nt-radius: var(--theme-radius);
+  --nt-container-max: var(--theme-container-max);
 
-// ---------------------------------------------------------------------------
-// Additional theme semantics
-// ---------------------------------------------------------------------------
-// Add these only when the same design decision has multiple independent
-// consumers and is not already represented directly by a public theme input.
+  // -------------------------------------------------------------------------
+  // Additional theme semantics
+  // -------------------------------------------------------------------------
+  // Add these only when the same design decision has multiple independent
+  // consumers and is not already represented directly by a public theme input.
 
---theme-corner: var(--theme-radius);
---theme-corner-small: var(--nt-border-radius-sm);
---theme-corner-large: var(--nt-border-radius-xl);
---theme-content-gap: var(--nt-space-4);
---theme-section-gap: var(--nt-space-7);
---theme-border: var(--nt-border-width) solid var(--nt-border);
---theme-shadow: none;
+  --theme-corner: var(--theme-radius);
+  --theme-corner-small: var(--nt-border-radius-sm);
+  --theme-corner-large: var(--nt-border-radius-xl);
+  --theme-content-gap: var(--nt-space-4);
+  --theme-section-gap: var(--nt-space-7);
+  --theme-border: var(--nt-border-width) solid var(--nt-border);
+  --theme-shadow: none;
+}

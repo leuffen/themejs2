@@ -33,7 +33,7 @@
   "author": "",
   "dependencies": {
     "@micx/lib-js": "^2.0.16",
-    "@nextrap/nte-card": "^1.0.3",
+    "@nextrap/nte-card": "^1.0.0",
     "@nextrap/nte-image": "^1.2.3",
     "@nextrap/nte-nav": "^2.0.0",
     "@nextrap/nte-accordion": "^1.0.0",

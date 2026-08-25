@@ -8,6 +8,10 @@
 :where(.theme-epraxis) {
   @include nextrapBase.runtime-theme();
 
+  font-family: var(--nt-font-family);
+  color: var(--nt-text);
+  line-height: var(--nt-line-height);
+
   // Theme-owned runtime inputs. Derived Nextrap tokens stay in style-base.
   --nt-primary: #fe6606;
   --nt-accent: #fe6606;

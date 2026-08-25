@@ -1,15 +1,12 @@
-@use "@leuffen/themejs2/theme/mueller" with (
-  $theme: (
-    primary: #316947
-  )
-);
-
+@use "@leuffen/themejs2/theme/mueller";
 @use "@leuffen/themejs2/theme/osman";
+@use "@leuffen/themejs2/theme/epraxis";
 
+:where(.theme-mueller) {
+  --nt-primary: #316947;
+}
 
-@use "@leuffen/themejs2/theme/epraxis" with (
-  $theme: (
-    primary: #1b8c47
-  )
-);
+:where(.theme-epraxis) {
+  --nt-primary: #1b8c47;
+}
 

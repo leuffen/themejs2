@@ -1,8 +1,8 @@
 [submodule ".pi/skills/infracamp-ai-skills"]
-	path = .pi/skills/infracamp-ai-skills
+	path = .agents/skills/infracamp-ai-skills
 	url = git@github.com:infracamp/infracamp-ai-skills.git
 	branch = main
 [submodule ".pi/skills/leu-ai-skills"]
-	path = .pi/skills/leu-ai-skills
+	path = .agents/skills/leu-ai-skills
 	url = git@github.com:l2fn/leu-ai-skills.git
 	branch = main

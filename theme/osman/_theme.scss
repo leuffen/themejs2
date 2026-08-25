@@ -16,6 +16,10 @@
   @include nextrapBase.runtime-theme();
   @include meta.load-css("./_runtime-settings.scss");
 
+  font-family: var(--nt-font-family);
+  color: var(--nt-text);
+  line-height: var(--nt-line-height);
+
   @include nextrapUtils.utils();
   @include nextrapTypography.typography();
   @include nextrapButton.buttons();
