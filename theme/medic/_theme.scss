@@ -7,24 +7,21 @@
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
 
-$theme: () !default;
-
 :where(.theme-medic, .theme-mueller) {
-  @include nextrapBase.nextrap-theme($theme, (
-    primary: #b50303,
-    font-family: font.$font-family-base,
-    font-size-header: font.$font-size-header,
-    font-size-base: font.$font-size-base,
-    enableFontConfig: true,
-    rcs: true
-  ));
+  @include nextrapBase.runtime-theme();
+
+  // Theme-owned runtime inputs. Derived Nextrap tokens stay in style-base.
+  --nt-primary: #b50303;
+  --nt-font-family: #{font.$font-family-base};
+  --nt-font-family-header: var(--nt-font-family);
+  --nt-font-size: #{font.$font-size-base};
+  --nt-font-size-header: #{font.$font-size-header};
 
   @include nextrapUtils.utils();
   @include nextrapTypography.typography();
   @include nextrapButton.buttons();
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
-
   @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
   @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   @include meta.load-css("./elements/ntl-card/ntl-card.scss");
@@ -33,7 +30,6 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-consent-blocker/ntl-consent-blocker.scss");
   @include meta.load-css("./tools/_button-bar.scss");
   @include meta.load-css("./elements/tj-loader/tj-loader.scss");
-
 
   .align-grid-items {
     --items-per-row: 3;
@@ -50,19 +46,11 @@ $theme: () !default;
 
   background: var(--nt-surface);
 
-
-
-  h2, h3 {
-
-  }
-
   ul {
     list-style: square;
 
-    li {
-      &::marker {
-        color: var(--nt-primary);
-      }
+    li::marker {
+      color: var(--nt-primary);
     }
   }
 
@@ -71,6 +59,4 @@ $theme: () !default;
   ntl-card-row {
     padding: var(--nt-space-5) 0;
   }
-
-
 }
