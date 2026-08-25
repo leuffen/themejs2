@@ -11,8 +11,8 @@
 // Keep the scope in :where() so customer/project layers can override it
 // without specificity escalation.
 :where(.theme-osman) {
-  // Runtime-first Nextrap token graph. Sass emits the relationships; the
-  // concrete design inputs remain CSS custom properties.
+  // Runtime-first Nextrap token graph. runtime-theme() also installs the
+  // global data-nt-scheme light/dark switching contract.
   @include nextrapBase.runtime-theme();
   @include meta.load-css("./_runtime-settings.scss");
 
@@ -20,21 +20,12 @@
   @include nextrapTypography.typography();
   @include nextrapButton.buttons();
 
-  // Shared feature styles from src.
   @include meta.load-css("./../../src/features/_data-kicker.scss");
-
-  // Native HTML defaults. These only opt out when the semantic base styling
-  // class takes ownership (e.g. table.table or ul.list), so utility classes
-  // remain composable.
   @include meta.load-css("./html-elements/_defaults.scss");
-
-  // HTML element pairings that must stay theme-scoped.
   @include meta.load-css("./html-elements/main/main.scss");
   @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
   @include meta.load-css("./html-elements/a/a.scss");
 
-  // Element entries. Known component variants belong in Nextrap mixins;
-  // precise visual changes belong on exported ::part() selectors.
   @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
   @include meta.load-css("./elements/nte-navbar-line/nte-navbar-line.scss");
   @include meta.load-css("./elements/nte-nav/nte-nav.scss");
@@ -43,7 +34,6 @@
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
 
-  // Theme tools and reusable semantic classes.
   @include meta.load-css("./tools/_icon-grid.scss");
   @include meta.load-css("./classes/_opening-hours.scss");
   @include meta.load-css("./classes/_text-strong.scss");
@@ -54,7 +44,3 @@
   @include meta.load-css("./classes/_warning-emergency.scss");
   @include meta.load-css("./classes/_aside.scss");
 }
-
-// Explicit scheme selection only changes color-scheme. Derived tokens use
-// light-dark() and therefore react without duplicating a complete token set.
-@include nextrapBase.runtime-scheme-selectors();

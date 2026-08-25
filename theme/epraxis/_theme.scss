@@ -1,31 +1,22 @@
 @use "sass:meta";
-
-/* Category mixin */
-
-
 @use "./../../font/work-sans" as font;
 @use "./../../font/_vendor/font-bootstrap-icons";
-
 @use "@nextrap/style-base" as nextrapBase;
 
-@forward "../../src/style/base" ;
-
-
-
-$theme: () !default;
+@forward "../../src/style/base";
 
 :where(.theme-epraxis) {
-  @include nextrapBase.nextrap-theme($theme, (
-    primary: #fe6606,
-    accent: #fe6606,
-    secondary: #1F3655,
-    neutral: #6a7182,
-    font-family: font.$font-family-base,
-    font-size-header: font.$font-size-header,
-    font-size-base: font.$font-size-base,
-    enableFontConfig: true,
-    rcs: true
-  ));
+  @include nextrapBase.runtime-theme();
+
+  // Theme-owned runtime inputs. Derived Nextrap tokens stay in style-base.
+  --nt-primary: #fe6606;
+  --nt-accent: #fe6606;
+  --nt-secondary: #1F3655;
+  --nt-neutral: #6a7182;
+  --nt-font-family: #{font.$font-family-base};
+  --nt-font-family-header: var(--nt-font-family);
+  --nt-font-size: #{font.$font-size-base};
+  --nt-font-size-header: #{font.$font-size-header};
 
   @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
   @include meta.load-css("./elements/ntl-card/ntl-card.scss");
@@ -34,94 +25,68 @@ $theme: () !default;
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
   @include meta.load-css("./elements/tj-loader/tj-loader.scss");
-
-
   @include meta.load-css("./classes/kicker");
-
-
 }
 
+/* grid container */
+.grid-container {
+  --rows: 1;
+  --cols: 1;
+  --gap: 16px;
 
-    /* grid container */
-    .grid-container {
-        --rows: 1;
-        --cols: 1;
-        --gap: 16px;
+  display: grid;
+  gap: var(--gap);
+  grid-auto-flow: row;
+  justify-items: stretch;
+  align-items: stretch;
+  justify-content: start;
+  align-content: start;
+  grid-template-columns: repeat(var(--cols), auto);
+  grid-template-rows: repeat(var(--rows), auto);
 
-        display: grid;
-        gap: var(--gap);
-        grid-auto-flow: row;
-        justify-items: stretch;
-        align-items: stretch;
-        justify-content: start;
-        align-content: start;
+  & > * {
+    --row: 1;
+    --col: 1;
+    --row-span: 1;
+    --col-span: 1;
 
-        grid-template-columns: repeat(var(--cols), auto);
-        grid-template-rows: repeat(var(--rows), auto);
+    grid-column: var(--col) / span var(--col-span);
+    grid-row: var(--row) / span var(--row-span);
+  }
+}
 
-        & > * {
-            --row: 1;
-            --col: 1;
-            --row-span: 1;
-            --col-span: 1;
+.box-primary {
+  padding: 20px 0;
+}
 
-            grid-column: var(--col) / span var(--col-span);
-            grid-row: var(--row) / span var(--row-span);
-        }
-    }
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
 
-    /* box-primary container */
-    .box-primary {
-        padding: 20px 0;
+  p {
+    border-radius: 50rem;
+    background-color: var(--nt-primary-subtle);
+    padding: 0.5rem 1rem;
+    color: var(--nt-primary);
+    width: fit-content;
+  }
+}
 
-        /* Category */
-        blockquote {
-        }
+.box-secondary {
+  h3 {
+    font-weight: normal !important;
+  }
 
-        p:has(a) > a {
+  :has(h3) {
+    margin: 0;
+    padding-bottom: calc(var(--prose-para-space) / 2);
+    padding-top: calc(var(--prose-para-space) / 2);
+  }
 
-        }
-    }
-
-
-
-    /* nte-card */
-
-
-    /* badges */
-    .badges {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-content: center;
-
-        p {
-            border-radius: 50rem;
-            background-color: var(--nt-primary-subtle);
-            padding: 0.5rem 1rem;
-            color: var(--nt-primary);
-            width: fit-content;
-        }
-    }
-
-    /* box-secondary */
-    .box-secondary {
-        h3 {
-            font-weight: normal !important;
-        }
-
-        :has(h3) {
-            margin: 0;
-            padding-bottom: calc(var(--prose-para-space) / 2);
-            padding-top: calc(var(--prose-para-space) / 2);
-        }
-
-        :has(h3):not(:last-child) {
-            border-bottom: 1px solid var(--nt-tertiary-emphasis);
-        }
-    }
-
-
-
-
+  :has(h3):not(:last-child) {
+    border-bottom: 1px solid var(--nt-tertiary-emphasis);
+  }
+}
