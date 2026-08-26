@@ -4,6 +4,10 @@
 // Utility classes remain fully composable. Only the semantic base class opts
 // an element out of the native default because it signals explicit styling.
 
+:where(tj-content-pane ul) {
+  padding-inline-start: 0;
+}
+
 :where(main#main table:not(.table)) {
   @include elements.table();
   @include elements.table-striped();
@@ -12,24 +16,11 @@
   --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
 }
 
-// Native unordered lists reuse the shared Nextrap list defaults and add only
-// the Osman-specific caret treatment. The explicit `.list` API takes ownership.
+// Native unordered lists reuse the shared Nextrap list defaults and the
+// exported diamond helper. The explicit `.list` API takes ownership.
 :where(main#main ul:not(.list)) {
   @include elements.list();
-  @include elements.list-unstyled();
-
-  > li {
-    position: relative;
-    padding-inline-start: 1.25em;
-
-    &::before {
-      content: "›";
-      position: absolute;
-      inset-inline-start: 0;
-      color: var(--nt-primary);
-      font-weight: var(--nt-font-weight-bold, 600);
-    }
-  }
+  @include elements.list-diamond();
 
   ul {
     margin-block-start: var(--nt-space-2);

@@ -1,6 +1,15 @@
+@use "@nextrap/style-base" as nextrapBase;
 @use "@leuffen/themejs2/theme/mueller";
 @use "@leuffen/themejs2/theme/osman";
 @use "@leuffen/themejs2/theme/epraxis";
+
+:root {
+  @include nextrapBase.runtime-scheme-selectors();
+}
+
+:where(.theme-osman) {
+  @include osman.theme();
+}
 
 :where(.theme-mueller) {
   --nt-primary: #316947;
