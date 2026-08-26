@@ -2,7 +2,6 @@
 
 &.style-ribbon-top {
   --gutter-y: 0;
-  --default-cols: 0;
 
   position: relative;
   z-index: 3;
@@ -25,7 +24,7 @@
     width: 100%;
     max-width: 100%;
     margin: 0;
-    background: #fff;
+    background: var(--nt-surface-raised);
   }
 
   &::part(header),
@@ -39,7 +38,7 @@
     margin: 0 auto;
     gap: 0;
     align-items: stretch;
-    background: #fff;
+    background: var(--nt-surface-raised);
     box-shadow: none;
   }
 
@@ -50,8 +49,8 @@
     --border-color: transparent;
 
     align-self: stretch;
-    background: #fff;
-    color: #585b63;
+    background: var(--nt-surface-raised);
+    color: var(--nt-text);
 
     &::part(wrapper) {
       display: flex;
@@ -96,7 +95,7 @@
 
     nte-card {
       --image-aspect-ratio: 1;
-      border-bottom: 1px solid #e7e4e1;
+      border-bottom: 1px solid var(--nt-border);
 
       &:last-child {
         border-bottom: none;
@@ -111,7 +110,7 @@
   &[mode="desktop"] nte-card {
     flex-grow: 1;
     padding: 0;
-    border-right: 1px solid var(--nt-gray-300);
+    border-right: 1px solid var(--nt-border);
 
     &:last-child {
       border-right: none;

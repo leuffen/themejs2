@@ -61,7 +61,7 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 ![](https://cdn.leuffen.de//r-beverungen-k163//v2/38/b_c/Eingang-Praxis2025.webp)
 
 ## Unsere Leistungen
-{: layout="ntl-card-row" section-style="--cols: 4"}
+{: layout="ntl-card-row" section-style="--default-cols: 4"}
 
 ### Vorsorge
 {: .header }
@@ -175,7 +175,7 @@ dpoqwjdpioqwjdoijqwoid
 {: layout="2" }
 
 <footer>
-    <ntl-card-row class="style-footer" style="--cols: 4">
+    <ntl-card-row class="footer-separators" style="--default-cols: 4">
         <nte-card>
             <h3>Kontakt</h3>
 						Augenarzt Dr. Osman<br>

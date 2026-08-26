@@ -20,7 +20,7 @@
   color: var(--nt-text);
   line-height: var(--nt-line-height);
 
-  @include nextrapUtils.utils();
+  @include nextrapUtils.generate-utility-classes();
   @include nextrapTypography.typography();
   @include nextrapButton.buttons();
 

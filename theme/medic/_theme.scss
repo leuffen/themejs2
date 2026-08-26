@@ -21,7 +21,7 @@
   --nt-font-size: #{font.$font-size-base};
   --nt-font-size-header: #{font.$font-size-header};
 
-  @include nextrapUtils.utils();
+  @include nextrapUtils.generate-utility-classes();
   @include nextrapTypography.typography();
   @include nextrapButton.buttons();
 

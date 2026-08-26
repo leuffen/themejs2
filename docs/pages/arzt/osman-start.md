@@ -66,7 +66,7 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 ![](https://cdn.leuffen.de/osman-k21///v2/17/c_g/DSC06665.webp)
 
 ---
-{: layout="1.5;ntl-card-row.style-noborder" section-style="--cols: 6"}
+{: layout="1.5;ntl-card-row.style-noborder"}
 
 ### <i class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></i> Diagnostik
 {: .header}

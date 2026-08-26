@@ -43,7 +43,7 @@
     --border: 0;
     --border-width: 0;
     --border-color: transparent;
-    --background-color: #fff;
+    --background-color: var(--nt-surface-raised);
 
     &::part(wrapper) {
       justify-content: flex-start;

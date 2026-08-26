@@ -1,3 +1,8 @@
 .opening-hours {
   margin-bottom: var(--nt-spacing-text);
+  color: inherit;
+
+  * {
+    color: inherit;
+  }
 }
