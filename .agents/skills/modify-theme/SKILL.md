@@ -7,37 +7,37 @@ description: Entwickelt wiederverwendbare Nextstrap-Themes, auch aus Designvorla
 
 Wenn eine Vorlage existiert, übertrage ihre wiederkehrende visuelle Sprache – Hierarchie, Farbwelt, Typografie, Flächen und Rhythmus – in Nextstrap-Tokens und Theme-gebundene Varianten. Übernimm keine Website-Daten oder einmaligen Strukturen. Das Ergebnis muss mit unterschiedlichen Personen, Textlängen, Bildern und Elementanzahlen funktionieren.
 
-## Nextstrap model
+## Nextstrap-Modell
 
-| Type | Prefix | Responsibility | Examples |
+| Typ | Präfix | Verantwortung | Beispiele |
 | --- | --- | --- | --- |
-| Layout | `ntl-` | Composes major content regions and controls responsive layout. | `ntl-2col`, `ntl-card-row` |
-| Element | `nte-` | Provides reusable content inside layouts or normal content flow. | `nte-card`, form and media elements |
+| Layout | `ntl-` | Komponiert große Content-Bereiche und steuert das responsive Layout. | `ntl-2col`, `ntl-card-row` |
+| Element | `nte-` | Stellt wiederverwendbaren Content innerhalb von Layouts oder im normalen Content Flow bereit. | `nte-card`, Formular- und Media-Elemente |
 
-Layouts may compose elements: for example, `ntl-card-row` lays out multiple `nte-card` children. Keep layout behavior in NTL styles and content-element behavior in NTE styles.
+Layouts dürfen Elements komponieren: `ntl-card-row` ordnet beispielsweise mehrere `nte-card`-Children an. Halte Layout-Verhalten in NTL-Styles und das Verhalten von Content-Elementen in NTE-Styles.
 
-### Styling contract
+### Styling-Vertrag
 
-- Never put visual declarations on a bare `ntl-*` selector. Its entry file may use that selector only to load variant files.
-- Put every NTL presentation in a named variant such as `&.style-default`, `&.style-header`, or `&.style-testimonial`.
-- NTL components select `style-default` automatically when no style is specified. Style the default through `.style-default`; do not add the class to demo markup merely to activate it.
-- Add another `style-*` variant only for a generic presentation—not for a client, person, page, or sample content.
-- Style NTE content through its documented API or its own generic variant. If the styling depends on an NTL composition, keep it inside that NTL variant and use the child-pairing structure in [references/element-child-structure.md](references/element-child-structure.md).
-- Avoid a bare theme-wide NTE override unless the user explicitly wants every instance in that theme to change.
+- Setze niemals visuelle Deklarationen auf einen bloßen `ntl-*`-Selector. Seine Entry-Datei darf diesen Selector nur zum Laden von Variant-Dateien verwenden.
+- Lege jede NTL-Darstellung in einer benannten Variant wie `&.style-default`, `&.style-header` oder `&.style-testimonial` ab.
+- NTL-Komponenten wählen automatisch `style-default`, wenn kein Style angegeben ist. Style den Default über `.style-default`; ergänze die Class im Demo-Markup nicht nur zur Aktivierung.
+- Ergänze eine weitere `style-*`-Variant nur für eine allgemeine Darstellung, niemals für einen Kunden, eine Person, eine Seite oder Beispiel-Content.
+- Style NTE-Content über seine dokumentierte API oder eine eigene allgemeine Variant. Hängt das Styling von einer NTL-Komposition ab, bleibt es innerhalb dieser NTL-Variant und verwendet die Child-Pairing-Struktur aus [references/element-child-structure.md](references/element-child-structure.md).
+- Vermeide einen bloßen Theme-weiten NTE-Override, außer der Auftrag verlangt ausdrücklich die Änderung jeder Instanz in diesem Theme.
 
-### Kramdown content contract
+### Kramdown-Content-Vertrag
 
-Content must remain authorable in Kramdown. Prefer an existing NTL layout containing standard Markdown output such as headings, paragraphs, images, links, `ul`/`ol` lists, or blockquotes. Assign generic classes and attributes with Kramdown attribute lists when that is sufficient; do not create an NTE merely to style a standard content element.
+Content muss in Kramdown bearbeitbar bleiben. Bevorzuge ein vorhandenes NTL-Layout mit Standard-Markdown wie Überschriften, Absätzen, Bildern, Links, `ul`-/`ol`-Listen oder Blockquotes. Weise allgemeine Classes und Attribute über Kramdown Attribute Lists zu, wenn das genügt; erstelle kein NTE nur zum Styling eines Standard-Content-Elements.
 
-Do not require authors to build complex nested wrappers, slot trees, or custom HTML structures. If a component would require markup beyond standard Markdown plus classes and attributes:
+Verlange von Autoren keine komplex verschachtelten Wrapper, Slot Trees oder eigenen HTML-Strukturen. Benötigt eine Komponente Markup, das über Standard-Markdown mit Classes und Attributen hinausgeht:
 
-1. stop before implementing it;
-2. show the exact required authored structure;
-3. explain why an existing NTL with Markdown content or an existing NTE cannot provide the result;
-4. provide the simpler Kramdown-compatible alternative and its visual trade-off;
-5. obtain explicit developer approval for the complex content contract.
+1. halte vor der Implementierung an;
+2. zeige die exakt erforderliche Autorenstruktur;
+3. erkläre, warum ein vorhandenes NTL mit Markdown-Content oder ein vorhandenes NTE das Ergebnis nicht liefern kann;
+4. nenne die einfachere Kramdown-kompatible Alternative und ihren visuellen Trade-off;
+5. hole eine ausdrückliche Developer Approval für den komplexen Content-Vertrag ein.
 
-Theme or component-plan approval does not replace this additional developer approval.
+Eine Theme- oder Komponentenplan-Freigabe ersetzt diese zusätzliche Developer Approval nicht.
 
 ## Kundeneingaben und Abgrenzung
 
@@ -57,12 +57,12 @@ Setze eine Kundenergänzung zunächst für das aktuelle Layout um, drücke sie a
 
 ## Ablauf
 
-1. Lies [references/development-findings.md](references/development-findings.md) und beachte die für die Aufgabe relevanten bestätigten, noch nicht in Regeln überführten Erkenntnisse.
+1. Lies [references/development-findings.md](references/development-findings.md) und beachte die für die Aufgabe relevanten Einträge.
 2. Erfasse wiederkehrende Designregeln der Vorlage statt einzelner Pixelwerte.
 3. Prüfe die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Regel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
 4. Wende vor jeder gemeinsamen neuen Fähigkeit die nachfolgende Wiederverwendungsentscheidung an.
 5. Implementiere die kleinste Theme-spezifische Schicht und prüfe sie mit Demo und Screenshots.
-6. Dokumentiere neue bestätigte, wiederverwendbare Fehler und Lösungen nach dem Ablauf in `development-findings.md`; überführe ausgereifte Erkenntnisse anschließend in die zuständige konkrete Regel.
+6. Ergänze neue wiederverwendbare Fehler und Lösungen dort knapp als `TODO`, `DON’T` oder `EXAMPLE`. Übernimm ausgereifte Einträge in die passende Rule und entferne sie danach aus der Liste.
 
 Bevorzuge eine schlüssige Nextstrap-Interpretation gegenüber einer pixelgenauen Kopie. Bewahre den Charakter der Vorlage mit vorhandenen Bausteinen.
 
@@ -94,24 +94,24 @@ Lege für jede vorgeschlagene Komponente einen kompakten Plan vor und lasse ihn 
 
 Fasse mehrere Vorschläge in einem kurzen Plan zusammen, behandle aber jede Komponente einzeln. Fahre erst nach ausdrücklicher Bestätigung dieses Plans fort.
 
-Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elements for NTE, never hidden in a theme. The theme contains only its token values and theme-specific variant styling. Do not add an API solely to reproduce one reference section. If Shadow DOM lacks a required part, slot, or API, ask instead of bypassing encapsulation.
+Gemeinsames Komponentenverhalten gehört für NTL in Nextstrap Layouts und für NTE in Nextstrap Elements; verstecke es niemals in einem Theme. Das Theme enthält nur seine Token-Werte und Theme-spezifisches Variant-Styling. Ergänze keine API nur zur Nachbildung einer einzelnen Referenz-Section. Fehlt im Shadow DOM ein erforderlicher Part, Slot oder eine API, frage nach, statt die Encapsulation zu umgehen.
 
-## Theme and token architecture
+## Theme- und Token-Architektur
 
-- Before creating or editing theme SCSS, read and follow [references/theme-file-contract.md](references/theme-file-contract.md).
-- Follow the current `theme/osman/` runtime pattern: expose a `theme()` mixin, call `nextrapBase.runtime-theme-scoped()`, then load `_runtime-settings.scss`.
-- Store theme-scoped values in `_runtime-settings.scss` using existing semantic `--nt-*` roles. Do not create a parallel token system.
-- Register the theme selector in `docs/_src/style.scss`; do not store its token values there.
-- Load theme parts with `meta.load-css`. Keep the theme scoped under `:where(.theme-<name>)`.
-- Reuse semantic colors, the existing spacing scale, `--nt-content-space`, `--nt-text-gap`, typography, utilities, and component mixins.
-- Treat designer pixel values as evidence of relative rhythm. Choose the closest existing spacing token instead of preserving one-off values.
-- Do not add custom color, spacing, typography, breakpoint, shadow, or other theme variables without approval.
-- For an intentionally dark-only reference, create only the dark token set and select it by default through the existing Style Base scheme API. Do not invent a light palette or custom switch.
+- Lies und befolge vor dem Erstellen oder Bearbeiten von Theme-SCSS [references/theme-file-contract.md](references/theme-file-contract.md).
+- Folge dem aktuellen Runtime Pattern aus `theme/osman/`: Stelle ein `theme()`-Mixin bereit, rufe `nextrapBase.runtime-theme-scoped()` auf und lade anschließend `_runtime-settings.scss`.
+- Speichere Theme-gebundene Werte in `_runtime-settings.scss` mit vorhandenen semantischen `--nt-*`-Rollen. Erstelle kein paralleles Token-System.
+- Registriere den Theme-Selector in `docs/_src/style.scss`; speichere dort keine Token-Werte.
+- Lade Theme-Parts mit `meta.load-css`. Halte das Theme unter `:where(.theme-<name>)` gescoped.
+- Verwende semantische Farben, die vorhandene Spacing Scale, `--nt-content-space`, `--nt-text-gap`, Typography, Utilities und Component Mixins wieder.
+- Behandle Pixelwerte des Designers als Hinweis auf den relativen Rhythmus. Wähle das nächstliegende vorhandene Spacing Token, statt Einzelwerte zu erhalten.
+- Ergänze ohne Freigabe keine eigenen Color-, Spacing-, Typography-, Breakpoint-, Shadow- oder anderen Theme-Variablen.
+- Erstelle für eine bewusst Dark-only gehaltene Referenz nur das Dark Token Set und wähle es über die vorhandene Style Base Scheme API als Default. Erfinde weder eine Light Palette noch einen eigenen Switch.
 
-## Files and selectors
+## Dateien und Selector
 
-- Read [references/element-child-structure.md](references/element-child-structure.md) before adding or restructuring element styles.
-- Do not modify `vendor`, `node_modules`, or `workspaces`. Ask before touching `workspaces`, `docs/_includes`, or `docs/_layouts`.
+- Lies [references/element-child-structure.md](references/element-child-structure.md), bevor du Element-Styles ergänzt oder neu strukturierst.
+- Verändere weder `vendor` noch `node_modules` oder `workspaces`. Frage nach, bevor du `workspaces`, `docs/_includes` oder `docs/_layouts` anfasst.
 
 ## Demo
 
@@ -121,8 +121,8 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 - Bevorzuge `ntl-card-row` mit `nte-card`-Kindern für Kartengruppen.
 - Verwende für andere Strukturen möglichst vorhandene NTL-/NTE-Komponenten.
 
-## Responsive behavior and verification
+## Responsives Verhalten und Prüfung
 
-- Use the `mode="mobile|tablet|desktop"` API from `@trunkjs/responsive`; do not add media queries.
-- Follow the responsive and visual-verification procedure in [references/theme-file-contract.md](references/theme-file-contract.md).
-- Before changing more than five files, or when the result needs a new token category or header/footer work, present the proposal and ask.
+- Verwende die API `mode="mobile|tablet|desktop"` aus `@trunkjs/responsive`; ergänze keine Media Queries.
+- Folge dem Ablauf für responsive und visuelle Prüfung aus [references/theme-file-contract.md](references/theme-file-contract.md).
+- Lege den Vorschlag vor und frage nach, bevor du mehr als fünf Dateien änderst oder das Ergebnis eine neue Token-Kategorie beziehungsweise Header-/Footer-Arbeit benötigt.
