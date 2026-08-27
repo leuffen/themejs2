@@ -1,24 +1,24 @@
-# Header and footer workflow
+# Header- und Footer-Ablauf
 
-Read this reference only when the user explicitly requests header, navbar, or footer work. Keep that scope separate from content theming.
+Lies diese Referenz nur, wenn Header, Navbar oder Footer ausdrücklich beauftragt wurden. Halte diesen Umfang vom Inhalts-Theming getrennt.
 
-## Planning
+## Planung
 
-- Confirm which site-shell areas are included and whether the request concerns only visual styling or also structure.
-- Do not treat a header or footer shown in a design reference as authorization to implement it.
-- Changes to `docs/_includes` or `docs/_layouts` require explicit approval.
+- Kläre, welche Bereiche des Website-Rahmens enthalten sind und ob nur das visuelle Styling oder auch die Struktur betroffen ist.
+- Ein in einer Designvorlage sichtbarer Header oder Footer ist keine Freigabe für dessen Umsetzung.
+- Änderungen an `docs/_includes` oder `docs/_layouts` benötigen eine ausdrückliche Freigabe.
 
-## Repository integration
+## Repository-Integration
 
-- Header, navbar, and footer markup in demos is illustrative; Jekyll supplies the production elements.
-- Base navbar work on `docs/_includes/_styles/default/navbar.scss`.
-- Base footer work on `docs/_includes/_styles/default/footer.scss`.
-- If the requested result cannot be expressed with the default styles, create `docs/_includes/_styles/<theme>/navbar.scss` or `footer.scss` as applicable.
-- Select a theme-specific implementation through frontmatter with `use_navbar: <theme>` or `use_footer: <theme>`.
+- Header-, Navbar- und Footer-Markup in Demos ist nur beispielhaft; Jekyll stellt die produktiven Elemente bereit.
+- Richte Navbar-Arbeit an `docs/_includes/_styles/default/navbar.scss` aus.
+- Richte Footer-Arbeit an `docs/_includes/_styles/default/footer.scss` aus.
+- Lässt sich das gewünschte Ergebnis nicht mit den Default-Styles ausdrücken, erstelle je nach Bedarf `docs/_includes/_styles/<theme>/navbar.scss` oder `footer.scss`.
+- Wähle eine Theme-spezifische Umsetzung im Frontmatter mit `use_navbar: <theme>` oder `use_footer: <theme>`.
 
-## Verification
+## Prüfung
 
-- Verify the site shell separately from the content-theme demo.
-- Test it with different navigation labels, link counts, contact data, and footer content.
-- Keep customer copy, logos, and images in content/configuration; use placeholders when assets are not supplied.
+- Prüfe den Website-Rahmen getrennt von der Inhalts-Theme-Demo.
+- Teste ihn mit unterschiedlichen Navigationsbezeichnungen, Linkanzahlen, Kontaktdaten und Footer-Inhalten.
+- Halte Kundentexte, Logos und Bilder in Inhalt oder Konfiguration; verwende Platzhalter, wenn Assets fehlen.
 
