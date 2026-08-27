@@ -36,8 +36,8 @@ Implement a customer addition for the current layout, but express it as a reusab
 | Content | Text, images, links, and repeated data | Theme decisions |
 | Site shell | Header, navbar, footer, and their structure | Included only on a separate explicit request |
 
-- Use neutral placeholders when customer images are unavailable; do not copy assets from the reference by default.
-- Offer to assemble a short stock-photo candidate list only when photography materially affects theme evaluation. Keep selection and licensing separate from theme implementation.
+- When images are unavailable or may be replaced, read [references/placeholder-images.md](references/placeholder-images.md). Use its mandatory portrait fallbacks and choose other entries by content purpose.
+- Keep image selection in content or demo data, not in theme styles or component APIs. Seek additional stock candidates only when the curated reference has no suitable category.
 - When customer input suggests another presentation, prefer a generic variant usable with different content over content-specific selectors or markup.
 
 ## Workflow
