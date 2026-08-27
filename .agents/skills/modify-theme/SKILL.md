@@ -57,10 +57,12 @@ Setze eine Kundenergänzung zunächst für das aktuelle Layout um, drücke sie a
 
 ## Ablauf
 
-1. Erfasse wiederkehrende Designregeln der Vorlage statt einzelner Pixelwerte.
-2. Prüfe die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Regel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
-3. Wende vor jeder gemeinsamen neuen Fähigkeit die nachfolgende Wiederverwendungsentscheidung an.
-4. Implementiere die kleinste Theme-spezifische Schicht und prüfe sie mit Demo und Screenshots.
+1. Lies [references/development-findings.md](references/development-findings.md) und beachte die für die Aufgabe relevanten bestätigten, noch nicht in Regeln überführten Erkenntnisse.
+2. Erfasse wiederkehrende Designregeln der Vorlage statt einzelner Pixelwerte.
+3. Prüfe die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Regel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
+4. Wende vor jeder gemeinsamen neuen Fähigkeit die nachfolgende Wiederverwendungsentscheidung an.
+5. Implementiere die kleinste Theme-spezifische Schicht und prüfe sie mit Demo und Screenshots.
+6. Dokumentiere neue bestätigte, wiederverwendbare Fehler und Lösungen nach dem Ablauf in `development-findings.md`; überführe ausgereifte Erkenntnisse anschließend in die zuständige konkrete Regel.
 
 Bevorzuge eine schlüssige Nextstrap-Interpretation gegenüber einer pixelgenauen Kopie. Bewahre den Charakter der Vorlage mit vorhandenen Bausteinen.
 
@@ -124,4 +126,3 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 - Use the `mode="mobile|tablet|desktop"` API from `@trunkjs/responsive`; do not add media queries.
 - Follow the responsive and visual-verification procedure in [references/theme-file-contract.md](references/theme-file-contract.md).
 - Before changing more than five files, or when the result needs a new token category or header/footer work, present the proposal and ask.
-
