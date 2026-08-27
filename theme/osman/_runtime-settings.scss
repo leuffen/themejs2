@@ -23,6 +23,7 @@
   --theme-font-family: "Open Sans", sans-serif;
   --theme-font-family-header: var(--theme-font-family);
   --theme-font-size: 1rem;
+  --theme-font-size-header: 2rem;
   --theme-line-height: 1.4;
   --theme-radius: .5rem;
   --theme-container-max: 1320px;
@@ -44,6 +45,7 @@
   --nt-font-family: var(--theme-font-family);
   --nt-font-family-header: var(--theme-font-family-header);
   --nt-font-size: var(--theme-font-size);
+  --nt-font-size-header: var(--theme-font-size-header);
   --nt-line-height: var(--theme-line-height);
   --nt-radius: var(--theme-radius);
   --nt-container-max: var(--theme-container-max);

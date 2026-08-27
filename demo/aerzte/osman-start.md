@@ -57,7 +57,7 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 ![](https://cdn.leuffen.de/osman-k21///v2/17/c_g/DSC06665.webp)
 
 ---
-{: layout="2;ntl-card-row" section-style="--cols: 6"}
+{: layout="2;ntl-card-row"}
 
 ### Diagnostik
 
@@ -176,7 +176,7 @@ dpoqwjdpioqwjdoijqwoid
 ## Footer
 
 <footer>
-    <ntl-card-row class="style-footer" style="--cols: 4">
+    <ntl-card-row class="footer-separators" style="--default-cols: 4">
         <nte-card>
             <h3>Kontakt</h3>
 						Augenarzt Dr. Osman<br>

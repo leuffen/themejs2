@@ -7,22 +7,22 @@
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
 
-// Theme entry: loads all theme-scoped partials below .theme-osman.
-// Keep the scope in :where() so customer/project layers can override it
-// without specificity escalation.
-:where(.theme-osman) {
-  // Runtime-first Nextrap token graph. runtime-theme() also installs the
-  // global data-nt-scheme light/dark switching contract.
-  @include nextrapBase.runtime-theme();
+// Theme entry mixin: render Osman into the current selector scope.
+// Consumers wrap this in :where(.theme-osman) themselves.
+@mixin theme() {
+  // Runtime-first Nextrap token graph scoped to the current theme selector.
+  @include nextrapBase.runtime-theme-scoped();
   @include meta.load-css("./_runtime-settings.scss");
+
+  @content;
 
   font-family: var(--nt-font-family);
   color: var(--nt-text);
   line-height: var(--nt-line-height);
 
-  @include nextrapUtils.utils();
-  @include nextrapTypography.typography();
-  @include nextrapButton.buttons();
+  @include nextrapUtils.style-utils();
+  @include nextrapTypography.style-typography();
+  @include nextrapButton.style-button();
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
   @include meta.load-css("./html-elements/_defaults.scss");

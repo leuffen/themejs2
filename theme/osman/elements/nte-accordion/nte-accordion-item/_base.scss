@@ -1,7 +1,13 @@
 nte-accordion-item {
   --border-color: color-mix(in srgb, var(--nt-surface-muted) 78%, white 22%);
-  --background-color-heading: color-mix(in srgb, var(--nt-surface-raised) 78%, white 22%);
-  --background-color-heading-hover: color-mix(in srgb, var(--nt-surface-raised) 72%, white 28%);
+  --background-color-heading: light-dark(
+    var(--nt-surface-muted),
+    color-mix(in srgb, var(--nt-surface-raised) 88%, white 12%)
+  );
+  --background-color-heading-hover: light-dark(
+    color-mix(in oklch, var(--nt-surface-muted) 90%, black),
+    color-mix(in srgb, var(--nt-surface-raised) 78%, white 22%)
+  );
   --marker-size: 1.15rem;
   --padding-y: var(--nt-spacing-text);
   --padding-x: var(--nt-spacing-text);
@@ -11,7 +17,7 @@ nte-accordion-item {
   display: block;
   width: 100%;
   border: 1px solid var(--border-color);
-  background: #fff;
+  background: var(--nt-surface-raised);
 
   &::part(details) {
     width: 100%;
@@ -46,6 +52,7 @@ nte-accordion-item {
   &::part(content) {
     padding: var(--nt-spacing-text) var(--padding-x) var(--padding-y);
     color: var(--nt-text);
+    background: var(--nt-surface-raised);
     font-size: 0.98rem;
     line-height: 1.55;
   }

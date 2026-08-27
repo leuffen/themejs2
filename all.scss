@@ -1,2 +1,11 @@
+@use "@nextrap/style-base" as nextrapBase;
 @use "theme/osman";
 @use "theme/mueller";
+
+:root {
+  @include nextrapBase.runtime-scheme-selectors();
+}
+
+:where(.theme-osman) {
+  @include osman.theme();
+}
