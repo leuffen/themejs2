@@ -50,6 +50,7 @@ Implement a customer addition for the current layout, but express it as a reusab
 | Content | Text, images, links, and repeated data | Theme decisions |
 | Site shell | Header, navbar, footer, and their structure | Included only on a separate explicit request |
 
+- When site-shell work is explicitly requested, read [references/header-footer.md](references/header-footer.md) before planning it. Do not load or apply that workflow for ordinary content theming.
 - When images are unavailable or may be replaced, read [references/placeholder-images.md](references/placeholder-images.md). Use its mandatory portrait fallbacks and choose other entries by content purpose.
 - Keep image selection in content or demo data, not in theme styles or component APIs. Seek additional stock candidates only when the curated reference has no suitable category.
 - When customer input suggests another presentation, prefer a generic variant usable with different content over content-specific selectors or markup.
@@ -95,6 +96,7 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 
 ## Theme and token architecture
 
+- Before creating or editing theme SCSS, read and follow [references/theme-file-contract.md](references/theme-file-contract.md).
 - Follow the current `theme/osman/` runtime pattern: expose a `theme()` mixin, call `nextrapBase.runtime-theme-scoped()`, then load `_runtime-settings.scss`.
 - Store theme-scoped values in `_runtime-settings.scss` using existing semantic `--nt-*` roles. Do not create a parallel token system.
 - Register the theme selector in `docs/_src/style.scss`; do not store its token values there.
@@ -106,9 +108,6 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 
 ## Files and selectors
 
-- Put one class, modifier, or child pairing in each style file and make its filename identify the selector.
-- Use `classes/` only for genuinely reusable semantic styles. Do not encode names from the design or demo.
-- Do not override generic utilities or unscoped HTML elements when Style Base, Style Utils, or Style Typography can express the result.
 - Read [references/element-child-structure.md](references/element-child-structure.md) before adding or restructuring element styles.
 - Do not modify `vendor`, `node_modules`, or `workspaces`. Ask before touching `workspaces`, `docs/_includes`, or `docs/_layouts`.
 
@@ -123,8 +122,5 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 ## Responsive behavior and verification
 
 - Use the `mode="mobile|tablet|desktop"` API from `@trunkjs/responsive`; do not add media queries.
-- Put mode rules on the component that owns the `mode` attribute. Order rules as general, mobile, tablet, desktop and omit unused modes.
-- Use existing breakpoint and container APIs rather than custom widths.
-- Verify palette, hierarchy, rhythm, typography, surfaces, component composition, and responsive behavior with the repository screenshot skill.
-- Ignore developer-only preview tools during comparison.
+- Follow the responsive and visual-verification procedure in [references/theme-file-contract.md](references/theme-file-contract.md).
 - Before changing more than five files, or when the result needs a new token category or header/footer work, present the proposal and ask.
