@@ -1,8 +1,8 @@
-# Theme file contract
+# Theme File Contract
 
-Read this reference before creating or editing theme SCSS. It defines repository invariants; design-specific decisions remain in the theme workflow.
+Lies diese Reference vor dem Erstellen oder Bearbeiten von Theme-SCSS. Sie definiert Repository-Invarianten; Design-spezifische Entscheidungen bleiben im Theme-Workflow.
 
-## Theme structure
+## Theme-Struktur
 
 ```text
 theme/<theme-name>.scss
@@ -17,58 +17,57 @@ theme/<theme-name>/
 └── html-elements/ # only when justified
 ```
 
-- Follow an existing root entry file for `theme/<theme-name>.scss`; do not invent another export pattern.
-- Do not create optional folders preemptively or change the theme structure without user approval.
-- `_theme.scss` owns the single `theme()` entry mixin, runtime initialization, root defaults, and `meta.load-css` calls. Define no other mixins under `theme/**`.
-- Keep component and variant declarations out of `_theme.scss`. If shared main-content margins are required there, limit them to `ntl-2col`, `ntl-card-row`, and `ntl-card-grid` using `var(--nt-content-space)`; put every other component rule in its partial.
-- Keep all output scoped through the consuming `:where(.theme-<theme-name>)` selector. Never emit global theme CSS.
+- Folge einer vorhandenen Root Entry File für `theme/<theme-name>.scss`; erfinde kein anderes Export Pattern.
+- Erstelle optionale Ordner nicht vorsorglich und ändere die Theme-Struktur nicht ohne User Approval.
+- `_theme.scss` enthält das einzige `theme()` Entry Mixin, die Runtime-Initialisierung, Root Defaults und die `meta.load-css`-Aufrufe. Definiere unter `theme/**` keine weiteren Mixins.
+- Halte Component- und Variant-Deklarationen aus `_theme.scss` heraus. Sind dort gemeinsame Main-Content-Margins erforderlich, begrenze sie mit `var(--nt-content-space)` auf `ntl-2col`, `ntl-card-row` und `ntl-card-grid`; jede andere Component Rule gehört in ihr Partial.
+- Halte jeden Output über den verwendenden Selector `:where(.theme-<theme-name>)` gescoped. Erzeuge niemals globales Theme-CSS.
 
-## Variants, selectors, and classes
+## Variants, Selector und Classes
 
-- Put one class, modifier, or child pairing in each style file; the filename must identify its selector.
-- Put each `style-*`, `with-*`, and simple modifier such as `reverse` in its own file.
-- An element may have only one `style-*` class. Do not use `variant-*`.
-- `with-*` modifiers must remain combinable with `style-default`.
-- Never place default visual declarations on a bare NTL selector; use `.style-default`.
-- Before adding a class, classify it:
-  - component structure, part, slot, state, modifier, or bound child pairing → `elements/**`;
-  - reusable semantic presentation → `classes/**`;
-  - utility-like behavior → use an existing utility or propose a shared utility change; do not define it in an element file.
-- Do not use client-, person-, page-, or demo-specific names.
-- Do not override bare `p`, `a`, headings, lists, images, `.btn`, or other utilities. A Kramdown child with a generic class may be styled through a theme-scoped parent/child pairing or reusable semantic class.
-- Use existing utilities or `--nt-*` variables for markup-level color and spacing; do not embed one-off design values.
-- Never insert authored content with CSS `content`.
-- Do not add `padding-top` to a default component unless explicitly requested.
+- Lege je Style File nur eine Class, einen Modifier oder ein Child Pairing ab; der Dateiname muss den Selector erkennen lassen.
+- Lege jedes `style-*`, `with-*` und jeden einfachen Modifier wie `reverse` in einer eigenen Datei ab.
+- Ein Element darf nur eine `style-*`-Class besitzen. Verwende kein `variant-*`.
+- `with-*`-Modifier müssen mit `style-default` kombinierbar bleiben.
+- Setze visuelle Default-Deklarationen niemals auf einen bloßen NTL-Selector; verwende `.style-default`.
+- Klassifiziere eine Class, bevor du sie ergänzt:
+  - Component Structure, Part, Slot, State, Modifier oder gebundenes Child Pairing → `elements/**`;
+  - wiederverwendbare semantische Darstellung → `classes/**`;
+  - Utility-ähnliches Verhalten → vorhandene Utility verwenden oder gemeinsame Utility-Änderung vorschlagen; nicht in einer Element-Datei definieren.
+- Verwende keine kunden-, personen-, seiten- oder Demo-spezifischen Namen.
+- Überschreibe keine bloßen `p`, `a`, Überschriften, Listen, Bilder, `.btn` oder andere Utilities. Ein Kramdown-Child mit allgemeiner Class darf über ein Theme-gebundenes Parent/Child Pairing oder eine wiederverwendbare semantische Class gestylt werden.
+- Nutze vorhandene Utilities oder `--nt-*`-Variablen für Farbe und Spacing auf Markup-Ebene; bette keine einmaligen Designwerte ein.
+- Füge Autoren-Content niemals über CSS `content` ein.
+- Ergänze bei einer Default-Komponente kein `padding-top`, außer es wird ausdrücklich verlangt.
 
-Read [element-child-structure.md](element-child-structure.md) for entry files, parent/child placement, and mode ordering.
+Lies [element-child-structure.md](element-child-structure.md) für Entry Files, Parent/Child Placement und Mode-Reihenfolge.
 
-## Inspect before styling
+## Vor dem Styling prüfen
 
-- Read the relevant component's `.ai-usage-info.md`, examples, public mixins, parts, slots, and states before changing its theme styles.
-- If a shared mixin improvement would replace more than five lines of theme CSS, stop and propose the generic mixin change before writing the workaround.
-- Do not bypass missing Shadow DOM parts or slots; request the shared API change through the component-plan workflow.
+- Lies `.ai-usage-info.md`, Beispiele, Public Mixins, Parts, Slots und States der relevanten Komponente, bevor du ihre Theme-Styles änderst.
+- Würde die Verbesserung eines Shared Mixins mehr als fünf Zeilen Theme-CSS ersetzen, halte an und schlage die allgemeine Mixin-Änderung vor, bevor du einen Workaround schreibst.
+- Umgehe keine fehlenden Shadow-DOM-Parts oder Slots; fordere die gemeinsame API-Änderung über den Komponentenplan-Workflow an.
 
-## Responsive contract
+## Responsive-Vertrag
 
-- Do not add media queries.
-- NTL components expose `mode="mobile|tablet|desktop"`; put mode rules on the component that owns that attribute.
-- Children do not receive `mode` automatically. In a card row, target the child from `ntl-card-row[mode="..."]`, not `nte-card[mode="..."]`.
-- Order declarations as general, mobile, tablet, desktop and omit unused modes.
-- Use `--breakpoints: sm|md|lg|xl|xxl`; the default is `xl`.
-- Use `--nt-container-width` for the content container instead of a custom width system.
+- Ergänze keine Media Queries.
+- NTL-Komponenten stellen `mode="mobile|tablet|desktop"` bereit; setze Mode Rules auf die Komponente, der dieses Attribut gehört.
+- Children erhalten `mode` nicht automatisch. Adressiere das Child in einer Card Row ausgehend von `ntl-card-row[mode="..."]`, nicht über `nte-card[mode="..."]`.
+- Ordne Deklarationen als allgemein, Mobile, Tablet, Desktop an und lasse ungenutzte Modes weg.
+- Verwende `--breakpoints: sm|md|lg|xl|xxl`; der Default ist `xl`.
+- Verwende `--nt-container-width` für den Content Container statt eines eigenen Width Systems.
 
-## Images and icons
+## Bilder und Icons
 
-- Keep image choice in content; use [placeholder-images.md](placeholder-images.md) when no image is supplied.
-- Use the component's image API first. Otherwise use `object-fit: cover` and, when needed, `aspect-ratio`.
-- Replace missing reference logos or icons with neutral placeholders unless the user supplies assets.
-- Bootstrap Icons may replace unspecified custom icons. Do not reproduce a custom icon set unless explicitly requested.
+- Halte die Bildauswahl im Content; verwende [placeholder-images.md](placeholder-images.md), wenn kein Bild geliefert wurde.
+- Verwende zuerst die Image API der Komponente. Nutze andernfalls `object-fit: cover` und bei Bedarf `aspect-ratio`.
+- Ersetze fehlende Logos oder Icons aus der Referenz durch neutrale Platzhalter, sofern der User keine Assets liefert.
+- Bootstrap Icons dürfen nicht spezifizierte Custom Icons ersetzen. Bilde ein eigenes Icon Set nur auf ausdrücklichen Auftrag nach.
 
-## Visual verification
+## Visuelle Prüfung
 
-- Use the `browser-screenshot-with-puppeteer` skill.
-- Inspect both the rendered page and its authored/HTML structure before deciding that CSS alone is sufficient.
-- Compare hierarchy, rhythm, palette, typography, surfaces, responsive composition, and robustness with changed text lengths, images, and item counts.
-- Ignore developer-only preview navbar, footer, and tools.
-- Verify the result after implementation. If a material reference difference remains, describe it and ask whether to accept it or expand the scope.
-
+- Verwende den Skill `browser-screenshot-with-puppeteer`.
+- Prüfe sowohl die gerenderte Seite als auch ihre Autoren-/HTML-Struktur, bevor du entscheidest, dass CSS allein genügt.
+- Vergleiche Hierarchie, Rhythmus, Palette, Typography, Flächen, responsive Komposition und Robustheit bei veränderten Textlängen, Bildern und Elementanzahlen.
+- Ignoriere Navbar, Footer und Tools, die nur zur Developer Preview gehören.
+- Prüfe das Ergebnis nach der Implementierung. Bleibt eine wesentliche Abweichung von der Referenz, beschreibe sie und frage, ob sie akzeptiert oder der Scope erweitert werden soll.
