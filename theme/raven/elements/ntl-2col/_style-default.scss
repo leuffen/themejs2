@@ -1,0 +1,33 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+&.style-default {
+  --cols: 6;
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-spacing-layout),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  &::part(wrapper) {
+    align-items: center;
+  }
+
+  &:has(> p[slot="aside"].auto)::part(aside) {
+    min-height: clamp(22rem, 38vw, 42rem);
+    overflow: hidden;
+    background: var(--nt-surface-muted);
+  }
+
+  &[mode="mobile"] {
+    --gap: var(--nt-space-7);
+
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      min-height: 0;
+      aspect-ratio: 7 / 5;
+    }
+  }
+}

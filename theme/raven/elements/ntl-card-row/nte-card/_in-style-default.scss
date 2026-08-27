@@ -1,0 +1,34 @@
+@use "@nextrap/nte-card" as card;
+@use "sass:string";
+
+&.style-default {
+  nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-spacing-component),
+      $border: var(--nt-border-width) solid var(--nt-border),
+      $background-color: var(--nt-surface-raised),
+      $border-radius: 0,
+      $image-aspect-ratio: string.unquote("16 / 9")
+    );
+
+    height: 100%;
+    transition: transform .25s ease, box-shadow .25s ease;
+
+    &::part(wrapper) {
+      height: 100%;
+    }
+
+    &::part(content) {
+      flex: 1 1 auto;
+    }
+
+    &:hover {
+      transform: translateY(calc(var(--nt-space-2) * -1));
+      box-shadow: 0 var(--nt-space-6) var(--nt-space-9) rgba(30, 30, 30, .08);
+    }
+  }
+
+  &[mode="mobile"] nte-card {
+    --image-aspect-ratio: 4 / 3;
+  }
+}

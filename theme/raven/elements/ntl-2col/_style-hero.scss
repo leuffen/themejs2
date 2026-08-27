@@ -1,0 +1,55 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+&.style-hero {
+  --cols: 7;
+
+  margin-block: 0;
+  border-bottom: var(--nt-border-width) solid var(--nt-border);
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-spacing-layout),
+    $background: var(--nt-surface),
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  &::part(wrapper) {
+    min-height: calc(100svh - var(--nt-space-10));
+    align-items: center;
+  }
+
+  &::part(main) {
+    padding-block: var(--nt-spacing-section);
+  }
+
+  &:has(> p[slot="aside"].auto)::part(aside) {
+    min-height: clamp(32rem, 52vw, 46rem);
+    overflow: hidden;
+    border: var(--nt-border-width) solid var(--nt-border);
+    background: var(--nt-surface-muted);
+    box-shadow: 0 var(--nt-space-6) var(--nt-space-10) rgba(30, 30, 30, .11);
+  }
+
+  &[mode="mobile"] {
+    --gap: var(--nt-space-7);
+
+    &::part(wrapper) {
+      min-height: 0;
+    }
+
+    &::part(main) {
+      order: 1;
+      padding-block: var(--nt-space-8) 0;
+    }
+
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      order: 2;
+      min-height: 0;
+      aspect-ratio: 4 / 5;
+      border-inline: 0;
+      box-shadow: none;
+    }
+  }
+}
