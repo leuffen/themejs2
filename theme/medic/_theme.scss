@@ -8,7 +8,7 @@
 @use "@nextrap/style-button" as nextrapButton;
 
 :where(.theme-medic, .theme-mueller) {
-  @include nextrapBase.runtime-theme();
+  @include nextrapBase.runtime-theme-scoped();
 
   font-family: var(--nt-font-family);
   color: var(--nt-text);
@@ -21,9 +21,9 @@
   --nt-font-size: #{font.$font-size-base};
   --nt-font-size-header: #{font.$font-size-header};
 
-  @include nextrapUtils.generate-utility-classes();
-  @include nextrapTypography.typography();
-  @include nextrapButton.buttons();
+  @include nextrapUtils.style-utils();
+  @include nextrapTypography.style-typography();
+  @include nextrapButton.style-button();
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
   @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");

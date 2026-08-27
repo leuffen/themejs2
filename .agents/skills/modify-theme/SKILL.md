@@ -29,6 +29,11 @@ Layouts dürfen Elements komponieren: `ntl-card-row` ordnet beispielsweise mehre
 
 Content muss in Kramdown bearbeitbar bleiben. Bevorzuge ein vorhandenes NTL-Layout mit Standard-Markdown wie Überschriften, Absätzen, Bildern, Links, `ul`-/`ol`-Listen oder Blockquotes. Weise allgemeine Classes und Attribute über Kramdown Attribute Lists zu, wenn das genügt; erstelle kein NTE nur zum Styling eines Standard-Content-Elements.
 
+- **DO:** Gib `layout` direkt an der Überschrift an, deren Section das Layout besitzen soll. Lasse den Index weg, wenn er aus der Überschrift ableitbar ist: `## Titel` gefolgt von `{: layout="ntl-2col.style-default" }`.
+- **DO:** Verwende `hr[layout]` nur für einen Layout-Wrapper oder eine Layout-Steuerung ohne eigene Überschrift, etwa um mehrere bereits betitelte Bereiche gemeinsam zu umschließen.
+- **DON'T:** Stelle einer Überschrift kein `hr[layout]` voran, wenn die Überschrift das Layout selbst besitzen kann. Das HR öffnet eine zusätzliche Zwischenebene, während die folgende Überschrift eine weitere Section auf ihrer Heading-Ebene erzeugt.
+- **DON'T:** Setze keinen expliziten Layout-Index wie `2;` oder `1.5;`, wenn die Heading-Ebene den Index bereits eindeutig vorgibt.
+
 Verlange von Autoren keine komplex verschachtelten Wrapper, Slot Trees oder eigenen HTML-Strukturen. Benötigt eine Komponente Markup, das über Standard-Markdown mit Classes und Attributen hinausgeht:
 
 1. halte vor der Implementierung an;

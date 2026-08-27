@@ -6,7 +6,7 @@
 @forward "../../src/style/base";
 
 :where(.theme-epraxis) {
-  @include nextrapBase.runtime-theme();
+  @include nextrapBase.runtime-theme-scoped();
 
   font-family: var(--nt-font-family);
   color: var(--nt-text);

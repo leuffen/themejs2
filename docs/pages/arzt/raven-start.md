@@ -29,11 +29,8 @@ Ziel ist ein Therapieplan, der verständlich bleibt und sich an veränderte Anfo
 
 ![](https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80)
 
----
-{: layout="2;ntl-2col.style-dark" }
-
 ## Vom Befund zur Entscheidung
-{: data-kicker="Strukturierter Prozess" }
+{: layout="ntl-2col.style-dark" data-kicker="Strukturierter Prozess" }
 
 Eine gute Therapie beginnt nicht bei einer Methode, sondern bei der richtigen Einordnung.
 {: .lead-serif }
@@ -46,11 +43,8 @@ Eine gute Therapie beginnt nicht bei einer Methode, sondern bei der richtigen Ei
 3. Befunde im Zusammenhang bewerten
 4. Einen individuellen Therapiepfad festlegen
 
----
-{: layout="1.5;ntl-card-row.style-default" }
-
 ## Schwerpunkte für nachhaltige Bewegung
-{: slot="header" data-kicker="Kompetenzbereiche" }
+{: layout="ntl-card-row.style-default" slot="header" data-kicker="Kompetenzbereiche" }
 
 ### Sport und Belastbarkeit
 
