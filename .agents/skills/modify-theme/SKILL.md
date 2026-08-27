@@ -1,151 +1,128 @@
 ---
 name: modify-theme
-description: Create or modify the css theme.
+description: Entwickelt wiederverwendbare Nextstrap-Themes, auch aus Designvorlagen. Ergebnis sind ein tokenbasiertes Theme und eine Inhalts-Demo mit vorhandenen NTL-/NTE-Komponenten; Website-Kopie sowie Header-/Footer-Arbeit sind ohne ausdrücklichen Auftrag ausgeschlossen.
 ---
 
-# Modify Theme
+# Theme entwickeln
 
-Use this skill for creating or modifying themes under `theme/`.
+Wenn eine Vorlage existiert, übertrage ihre wiederkehrende visuelle Sprache – Hierarchie, Farbwelt, Typografie, Flächen und Rhythmus – in Nextstrap-Tokens und Theme-gebundene Varianten. Übernimm keine Website-Daten oder einmaligen Strukturen. Das Ergebnis muss mit unterschiedlichen Personen, Textlängen, Bildern und Elementanzahlen funktionieren.
 
-## Grundregeln
+## Nextstrap-Modell
 
-- Jedes Theme liegt in `theme/<theme-name>/` und orientiert sich an `theme/medic/` und `theme/epraxis/`.
-- Jedes Theme hat mindestens eine `.md`-Datei in `docs/pages`. Wenn sie fehlt: User fragen.
-- Screenshots/Visual Checks über den Skill `browser-screenshot-with-puppeteer` erstellen.
-- Bei Design-Screenshots: aktuelle Seite + HTML-Struktur prüfen, mit Vorlage vergleichen, Ergebnis verifizieren; bei Abweichungen User fragen.
-- Developer-Footer/Navbar/Tools in Screenshots ignorieren; sie werden später ausgeblendet.
-- Demos sind nur Beispiele: Styling muss mit wechselnden Textlängen, Bildern, Anzahl von Elementen usw. robust funktionieren; dafür z.B. Flexbox mit `grow`/`shrink` nutzen.
-- Wenn benötigte Shadow-DOM-`part` Attribute fehlen: User bitten, sie zu ergänzen.
+| Typ | Präfix | Verantwortung | Beispiele |
+| --- | --- | --- | --- |
+| Layout | `ntl-` | Komponiert große Content-Bereiche und steuert das responsive Layout. | `ntl-2col`, `ntl-card-row` |
+| Element | `nte-` | Stellt wiederverwendbaren Content innerhalb von Layouts oder im normalen Content Flow bereit. | `nte-card`, Formular- und Media-Elemente |
 
-## Theme Entry `_theme.scss`
+Layouts dürfen Elements komponieren: `ntl-card-row` ordnet beispielsweise mehrere `nte-card`-Children an. Halte Layout-Verhalten in NTL-Styles und das Verhalten von Content-Elementen in NTE-Styles.
 
-- `_theme.scss` ist der Theme-Einstieg und scoped alles unter `:where(.theme-<theme-name>)`.
-- Keine ungescopten globalen Styles erzeugen.
-- Theme-Teile nur mit `@include meta.load-css(...)` laden.
-- Direkte CSS-Regeln in `_theme.scss` nur für Main-Content-Spacing:
-  `ntl-2col`, `ntl-card-row`, `ntl-card-grid` mit `margin-top/bottom: var(--nt-content-space)`.
-- Keine weiteren direkten CSS-Regeln in `_theme.scss`.
-- `@include nextrapBase.nextrap-theme($theme, ())` verwenden, aber keine `--nt-*` Variablen in der Theme-Klasse überschreiben, außer explizit erlaubt.
+### Styling-Vertrag
 
-## Ordnerstruktur
+- Setze niemals visuelle Deklarationen auf einen bloßen `ntl-*`-Selector. Seine Entry-Datei darf diesen Selector nur zum Laden von Variant-Dateien verwenden.
+- Lege jede NTL-Darstellung in einer benannten Variant wie `&.style-default`, `&.style-header` oder `&.style-testimonial` ab.
+- NTL-Komponenten wählen automatisch `style-default`, wenn kein Style angegeben ist. Style den Default über `.style-default`; ergänze die Class im Demo-Markup nicht nur zur Aktivierung.
+- Ergänze eine weitere `style-*`-Variant nur für eine allgemeine Darstellung, niemals für einen Kunden, eine Person, eine Seite oder Beispiel-Content.
+- Style NTE-Content über seine dokumentierte API oder eine eigene allgemeine Variant. Hängt das Styling von einer NTL-Komposition ab, bleibt es innerhalb dieser NTL-Variant und verwendet die Child-Pairing-Struktur aus [references/element-child-structure.md](references/element-child-structure.md).
+- Vermeide einen bloßen Theme-weiten NTE-Override, außer der Auftrag verlangt ausdrücklich die Änderung jeder Instanz in diesem Theme.
 
-```text
-theme/<theme-name>/
-├── _theme.scss
-├── elements/
-│   └── <element>/<element>.scss
-├── classes/   # wiederverwendbare semantische Klassen
-├── tools/     # zusätzliche Tools, z.B. _text-truncate.scss
-├── variant/   # nur falls nötig
-└── html-elements/ # nur falls nötig
-```
+### Kramdown-Content-Vertrag
 
-- Jedes Element hat genau eine Entry-Datei: `elements/<element>/<element>.scss`.
-- Entry-Dateien enthalten nur `@use "sass:meta";` und `@include meta.load-css(...)`, keine eigenen Styles.
-- Keine Mixins in `theme/**` definieren.
-- Theme-Struktur nicht außerhalb dieser Regeln ändern, ohne den User zu fragen.
-- Details und Beispiele: `references/element-child-structure.md`.
+Content muss in Kramdown bearbeitbar bleiben. Bevorzuge ein vorhandenes NTL-Layout mit Standard-Markdown wie Überschriften, Absätzen, Bildern, Links, `ul`-/`ol`-Listen oder Blockquotes. Weise allgemeine Classes und Attribute über Kramdown Attribute Lists zu, wenn das genügt; erstelle kein NTE nur zum Styling eines Standard-Content-Elements.
 
-## Element-/Child-Struktur
+Verlange von Autoren keine komplex verschachtelten Wrapper, Slot Trees oder eigenen HTML-Strukturen. Benötigt eine Komponente Markup, das über Standard-Markdown mit Classes und Attributen hinausgeht:
 
-- Pro Datei genau eine Klasse, ein Modifier oder ein Child-Pairing.
-- Dateiname muss das gestylte Ziel zeigen.
-- Parent-Dateien stylen nur Parent, dessen Parts/Slots/States/Layout:
-  - `_style-default.scss` → `&.style-default`
-  - `_with-*.scss` → `&.with-*`
-  - `_reverse.scss` → `&.reverse`
-- Styles für Child-Elemente gehören in `elements/<parent>/<child>/**`:
-  - `<child>/_in-style-default.scss` → `&.style-default { <child> { ... } }`
-  - Beispiel: `elements/ntl-card-row/ntl-card/_in-style-ribbon.scss`, nicht `ntl-card` in `ntl-card-row/_style-ribbon.scss`.
-- Wenn eine Klasse auf einem Child sitzt, liegt sie im Child-Ordner.
-  Beispiel: `elements/ntl-2col/ul/ul.scss`, nicht `elements/ntl-2col/_style-diamond.scss`.
-- Child-Pairings bleiben immer theme-scoped, weil sie über `_theme.scss` geladen werden.
-- Child-Pairings nur unter `elements/<parent>/<child>/**`, wenn sie wirklich an diese Parent/Child-Struktur gebunden sind; sonst `classes/` nutzen.
+1. halte vor der Implementierung an;
+2. zeige die exakt erforderliche Autorenstruktur;
+3. erkläre, warum ein vorhandenes NTL mit Markdown-Content oder ein vorhandenes NTE das Ergebnis nicht liefern kann;
+4. nenne die einfachere Kramdown-kompatible Alternative und ihren visuellen Trade-off;
+5. hole eine ausdrückliche Developer Approval für den komplexen Content-Vertrag ein.
 
-## Reihenfolge in Style-Dateien
+Eine Theme- oder Komponentenplan-Freigabe ersetzt diese zusätzliche Developer Approval nicht.
 
+## Kundeneingaben und Abgrenzung
 
+Setze eine Kundenergänzung zunächst für das aktuelle Layout um, drücke sie aber als wiederverwendbares Token, Komposition, Option oder allgemeine `style-*`-Variante aus, die andere Kunden und Inhalte unterstützt. Benenne oder begrenze sie niemals nach dem anfragenden Kunden. Lässt sich die Anforderung nicht sinnvoll verallgemeinern, erkläre das und frage vor einer Einzellösung nach.
 
-In jeder `_style-*`, `_with-*`, `_reverse` und `_in-*` Datei:
+| Ebene | Enthält | Schließt aus |
+| --- | --- | --- |
+| Theme | Tokens und allgemeine visuelle Varianten | Kundentexte, Assets, feste Elementanzahlen, Website-Struktur |
+| Inhaltslayout | NTL-Komposition mit NTE-Inhaltselementen | Header, Navbar, Footer |
+| Inhalt | Texte, Bilder, Links und wiederholte Daten | Theme-Entscheidungen |
+| Website-Rahmen | Header, Navbar, Footer und deren Struktur | Nur mit separatem ausdrücklichem Auftrag enthalten |
 
-1. Genereller Style ohne Mode-Einschränkung
-2. `&[mode="mobile"]`
-3. `&[mode="tablet"]` falls nötig
-4. `&[mode="desktop"]` falls nötig
+- Wird Arbeit am Website-Rahmen ausdrücklich beauftragt, lies vor der Planung [references/header-footer.md](references/header-footer.md). Lade oder verwende diesen Ablauf nicht für gewöhnliches Inhalts-Theming.
+- Fehlen Bilder oder dürfen sie ersetzt werden, lies [references/placeholder-images.md](references/placeholder-images.md). Verwende die verbindlichen Portrait-Fallbacks und wähle andere Einträge nach ihrem Inhaltszweck.
+- Halte die Bildauswahl in Inhalts- oder Demo-Daten, nicht in Theme-Styles oder Komponenten-APIs. Suche weitere Stockmotive nur, wenn die kuratierte Referenz keine passende Kategorie enthält.
+- Deutet eine Kundeneingabe auf eine weitere Darstellung hin, bevorzuge eine allgemeine Variante für unterschiedliche Inhalte gegenüber inhaltsspezifischen Selektoren oder Markup.
 
-Mode-Blöcke nicht zwischen generelle Regeln mischen. Nicht benötigte Mode-Blöcke weglassen.
+## Ablauf
 
-## Klassen und Varianten
+1. Lies [references/development-findings.md](references/development-findings.md) und beachte die für die Aufgabe relevanten Einträge.
+2. Erfasse wiederkehrende Designregeln der Vorlage statt einzelner Pixelwerte.
+3. Prüfe die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Regel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
+4. Wende vor jeder gemeinsamen neuen Fähigkeit die nachfolgende Wiederverwendungsentscheidung an.
+5. Implementiere die kleinste Theme-spezifische Schicht und prüfe sie mit Demo und Screenshots.
+6. Ergänze neue wiederverwendbare Fehler und Lösungen dort knapp als `TODO`, `DON’T` oder `EXAMPLE`. Übernimm ausgereifte Einträge in die passende Rule und entferne sie danach aus der Liste.
 
-- Semantische Klassennamen verwenden; keine design-spezifischen Namen wie `.opening-hours__top` oder `.hero__image`.
-- Erlaubte Muster: `style-default`, `with-*`, einfache Modifier wie `reverse`.
-- Kein `variant-*`.
-- `with-*` muss mit `style-default` kombinierbar bleiben.
-- Ein Element darf nur eine `style-*` Klasse haben; ohne Klasse setzt das Element selbst `style-default`.
-- Default-Styles nie direkt am Elementnamen ändern; stattdessen `element.style-default` bearbeiten.
-- Varianten immer in eigene Dateien legen.
-- Markdown-/Markup-Änderungen vorschlagen, wenn Klassen/Modifier/Renamings sinnvoll sind; vor Änderung User fragen.
+Bevorzuge eine schlüssige Nextstrap-Interpretation gegenüber einer pixelgenauen Kopie. Bewahre den Charakter der Vorlage mit vorhandenen Bausteinen.
 
-## Reusability
+## Wiederverwenden vor Erweitern
 
-- Wiederverwendbare Styles nach `classes/`, z.B. `.opening-hours`, `.text-strong`, `.feature-icon`, `.footer`, `.aside`.
-- Element-Styles nur in `elements/**`, wenn sie von Parts, Slots, element-spezifischer Struktur, States oder Modifiern abhängen.
-- Keine Utility-artigen Klassen in Element-Dateien definieren.
-- Vor jeder neuen Klasse prüfen: elementgebunden oder wiederverwendbar? Wiederverwendbar → `classes/`.
-- Utility-/Helper-Klassen wie `.btn`, Spacing-, Text- oder Flex-Utilities nicht in Element-/Variant-Dateien überschreiben, außer explizit erlaubt. Erst Layout, Wrapper, Slots oder lokale semantische Klassen nutzen.
+Gehe in dieser Reihenfolge vor:
 
-## Nextrap, Farben, Typografie, Abstände
+1. Vorhandenes NTL mit normalem Kramdown-Inhalt, Klassen und Attributen.
+2. Vorhandenes NTL mit vorhandenen NTE-Komponenten und Utilities.
+3. Theme-gebundenes Styling über dokumentierte Tokens, Mixins, Parts, Slots, Zustände, Child-Pairings oder eine allgemeine Variante.
+4. Allgemeine Erweiterung der zuständigen gemeinsamen Nextstrap-Komponente.
+5. Neue NTE-Komponente.
+6. Neue NTL-Komponente.
 
-- Standard-Elemente aus `@nextrap/layout` verwenden.
-- Vor Varianten prüfen, ob Nextrap-Elemente passende APIs/Mixins bieten.
-- Element-`.ai-usage-info.md`, Beispiele und Mixins lesen, bevor ein Element geändert wird.
-- Wenn >5 Zeilen CSS durch eine Mixin-Änderung einfacher wären: User bitten, das Mixin zu ändern.
-- Farben, Fonts und Abstände ausschließlich in `docs/_src/style.scss` als Nextrap-Overrides definieren.
-- Im Theme bestehende Nextrap-Variablen/Utilities nutzen; keine eigenen Farben, Abstände oder Text-Styles ohne Erlaubnis. Falls nötig, begründen.
-- Für interne Textabstände `--nt-text-gap` verwenden.
-- Text-Styling aus `nextrap/typography` nutzen; keine eigenen Styles für `a`, `p`, `h1`–`h6`, `ul`, `ol`, `li`, `blockquote` usw., außer explizit gewünscht.
-- Keine globalen CSS-Variablen hinzufügen; falls nötig User fragen und ins Theme-Mixin aufnehmen lassen.
+### Verbindlicher Komponentenplan
 
-## Breakpoints
+Halte vor Schritt 4, 5 oder 6 an. Die Freigabe zur Theme-Entwicklung genehmigt keine neue oder erweiterte NTL-/NTE-Komponente.
 
-- Keine Media Queries im Theme: sie sind per JS nicht veränderbar.
-- `ntl-*` Elemente setzen per JavaScript automatisch `mode="mobile|tablet|desktop"`.
-- Das `mode`-Attribut wirkt auch auf Unterelemente/Child-Pairings; Styles deshalb über `&[mode="..."]` am Element schreiben, das den Mode trägt.
-- Childs bekommen den Mode nicht automatisch selbst. Beispiel: Bei `ntl-card` in `ntl-card-row` hat nur `ntl-card-row` `mode`; Child-Styles müssen sich am Parent-Mode orientieren (`&[mode="mobile"] { ntl-card { ... } }`, nicht `ntl-card[mode="mobile"]`).
-- Breakpoints werden über die CSS-Variable `--breakpoints: sm|md|lg|xl|xxl` gesteuert; Default ist `xl`.
-- Containerbreite über `--nt-container-width`.
-- SCSS-Mode-Regeln immer in der Reihenfolge: mobile, tablet, desktop.
+Lege für jede vorgeschlagene Komponente einen kompakten Plan vor und lasse ihn bestätigen, bevor Dateien oder Implementierungen entstehen. Er muss enthalten:
 
-## HTML / Markdown Sections
+| Punkt | Erforderliche Information |
+| --- | --- |
+| Typ und Name | NTL oder NTE sowie der vorgeschlagene öffentliche Name mit Präfix |
+| Zweck | Eine einzelne Verantwortung und die Rolle im aktuellen Layout |
+| Vorhandene Möglichkeiten | Die ähnlichsten geprüften Komponenten oder Kompositionen und warum sie jeweils nicht genügen |
+| Kramdown-Vertrag | Die von Autoren verwendete Markdown-Form; erforderliche komplexe Verschachtelungen ausdrücklich kennzeichnen |
+| Wiederverwendung | Weitere Kunden, Inhaltsformen, Layouts oder Themes, die die Fähigkeit nutzen können |
+| Alternativen | Mindestens eine kleine visuelle Abweichung sowie Neukomposition oder Erweiterung einer vorhandenen Komponente |
 
-- Keine spezifischen CSS-Klassen für einzelne einmalige Elemente; vorhandene Utilities bevorzugen.
-- Responsive API von `@trunkjs/responsive` nutzen.
-- Farben/Abstände im Markup über Nextrap-Utilities oder CSS-Variablen im `style=""` referenzieren.
-- Wiederkehrende Klassen, die nur in einer Datei vorkommen: lokale `<style>`-Sektion in dieser HTML/Markdown-Datei, per CSS Nesting auf einen Root wie `footer` scopen.
-- Kein Inhalt über CSS-`content` einfügen.
-- Wenn Änderungen in `docs/_includes` oder `docs/_layouts` nötig wären: User fragen.
+Fasse mehrere Vorschläge in einem kurzen Plan zusammen, behandle aber jede Komponente einzeln. Fahre erst nach ausdrücklicher Bestätigung dieses Plans fort.
 
-## Navbar und Footer
+Gemeinsames Komponentenverhalten gehört für NTL in Nextstrap Layouts und für NTE in Nextstrap Elements; verstecke es niemals in einem Theme. Das Theme enthält nur seine Token-Werte und Theme-spezifisches Variant-Styling. Ergänze keine API nur zur Nachbildung einer einzelnen Referenz-Section. Fehlt im Shadow DOM ein erforderlicher Part, Slot oder eine API, frage nach, statt die Encapsulation zu umgehen.
 
-- Navbar/Footer-Elemente in Demos sind Vorschläge; Jekyll setzt die echten Elemente ein.
-- Navbar an `docs/_includes/_styles/default/navbar.scss` orientieren.
-- Footer an `docs/_includes/_styles/default/footer.scss` orientieren.
-- Wenn Abweichungen nicht per CSS lösbar sind: eigene `_styles/<theme>/navbar.scss` oder `_styles/<theme>/footer.scss` anlegen und in Frontmatter `use_navbar: <theme>` bzw. `use_footer: <theme>` setzen.
+## Theme- und Token-Architektur
 
-## Bilder und Icons
+- Lies und befolge vor dem Erstellen oder Bearbeiten von Theme-SCSS [references/theme-file-contract.md](references/theme-file-contract.md).
+- Folge dem aktuellen Runtime Pattern aus `theme/osman/`: Stelle ein `theme()`-Mixin bereit, rufe `nextrapBase.runtime-theme-scoped()` auf und lade anschließend `_runtime-settings.scss`.
+- Speichere Theme-gebundene Werte in `_runtime-settings.scss` mit vorhandenen semantischen `--nt-*`-Rollen. Erstelle kein paralleles Token-System.
+- Registriere den Theme-Selector in `docs/_src/style.scss`; speichere dort keine Token-Werte.
+- Lade Theme-Parts mit `meta.load-css`. Halte das Theme unter `:where(.theme-<name>)` gescoped.
+- Verwende semantische Farben, die vorhandene Spacing Scale, `--nt-content-space`, `--nt-text-gap`, Typography, Utilities und Component Mixins wieder.
+- Behandle Pixelwerte des Designers als Hinweis auf den relativen Rhythmus. Wähle das nächstliegende vorhandene Spacing Token, statt Einzelwerte zu erhalten.
+- Ergänze ohne Freigabe keine eigenen Color-, Spacing-, Typography-, Breakpoint-, Shadow- oder anderen Theme-Variablen.
+- Erstelle für eine bewusst Dark-only gehaltene Referenz nur das Dark Token Set und wähle es über die vorhandene Style Base Scheme API als Default. Erfinde weder eine Light Palette noch einen eigenen Switch.
 
-- Bilder/Icons/Logos aus Vorlagen durch Platzhalter ersetzen, falls nichts anderes angegeben ist.
-- Für Bilder `object-fit: cover` und bei Bedarf `aspect-ratio` nutzen.
-- Bootstrap Icons dürfen genutzt werden; Custom Icons durch Bootstrap Icons ersetzen, wenn nicht fest vorgegeben.
+## Dateien und Selector
 
-## Verbote
+- Lies [references/element-child-structure.md](references/element-child-structure.md), bevor du Element-Styles ergänzt oder neu strukturierst.
+- Verändere weder `vendor` noch `node_modules` oder `workspaces`. Frage nach, bevor du `workspaces`, `docs/_includes` oder `docs/_layouts` anfasst.
 
-- Nicht in `vendor`, `node_modules` oder `workspaces` ändern. Für `workspaces` vorher Erlaubnis einholen.
-- Nicht mehr als ein Element gleichzeitig stylen/ändern, außer User erlaubt es nach Erklärung.
-- Keine ungescopten Text-, Bild-, Element- oder Utility-Selektoren wie `p`, `a`, `.btn`, `h1`–`h6`, `ul`, `ol`, `li`, `blockquote` usw.
-- Light-DOM-Text-/Listen-Styles in Layout-Elementen vermeiden; nur mit Erlaubnis und dann als theme-scoped Child-Pairing.
-- Keine design-spezifischen Klassen; lieber Utilities oder `style=""` verwenden.
-- Kein `padding-top` auf Default-Elemente, außer explizit gefordert.
-- Keine eigenen Theme-Mixins definieren.
-- Keine Helper/Utility-Overrides ohne explizite Erlaubnis.
-- Keine globale Strukturänderung ohne Rückfrage.
+## Demo
+
+- Ergänze eine repräsentative Markdown-Demo unter `docs/pages/`; demonstriere Komponenten, nicht die Quellwebsite.
+- Verwende reduzierte repräsentative Inhalte, statt die vollständige Vorlage zu kopieren.
+- Bevorzuge `ntl-2col` für wechselnde Bild-/Textabschnitte und das vorhandene Reverse-Verhalten für vertauschte Spalten.
+- Bevorzuge `ntl-card-row` mit `nte-card`-Kindern für Kartengruppen.
+- Verwende für andere Strukturen möglichst vorhandene NTL-/NTE-Komponenten.
+
+## Responsives Verhalten und Prüfung
+
+- Verwende die API `mode="mobile|tablet|desktop"` aus `@trunkjs/responsive`; ergänze keine Media Queries.
+- Folge dem Ablauf für responsive und visuelle Prüfung aus [references/theme-file-contract.md](references/theme-file-contract.md).
+- Lege den Vorschlag vor und frage nach, bevor du mehr als fünf Dateien änderst oder das Ergebnis eine neue Token-Kategorie beziehungsweise Header-/Footer-Arbeit benötigt.
