@@ -10,7 +10,7 @@ ptags:
 ---
 
 # Medizin mit Präzision
-{: layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" }
+{: layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" section-style="--cols: 7;" }
 
 Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktionell gedacht und auf nachhaltige Belastbarkeit ausgerichtet.
 {: .lead-serif }
@@ -47,13 +47,13 @@ Sporttraumatologie und Return to Sport.
 Ärztlich tätig im OCP Darmstadt.
 
 ## Präzision statt Standard&shy;therapie.
-{: layout="ntl-2col.style-header-left" .header data-kicker="Medizinischer Ansatz" }
+{: layout="ntl-2col.reverse.surface-white.py-5" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 8;" }
 
 Im Mittelpunkt steht nicht das möglichst schnelle Anwenden einer Methode, sondern die saubere medizinische Einordnung der Beschwerde – auf Grundlage von Funktion, Belastung, Biomechanik und aktueller Evidenz.
 {: .lead-serif }
 
 ---
-{: layout=".card-grid" }
+{: layout=".card-grid" .xl:desktop }
 
 ### Funktionelle Diagnostik
 
@@ -72,7 +72,7 @@ Konservative und funktionserhaltende Möglichkeiten werden differenziert geprüf
 Ziel ist nicht nur kurzfristige Beschwerdefreiheit, sondern die sichere Rückkehr zu Alltag, Training und sportlicher Leistungsfähigkeit.
 
 ## So entsteht die medizinische Einordnung.
-{: layout="ntl-2col.style-dark" data-kicker="Vom Befund zur Entscheidung" }
+{: layout="ntl-2col.surface-primary.py-5" data-kicker="Vom Befund zur Entscheidung" section-style="--cols: 5;" }
 
 Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapieentscheidungen – konservativ, regenerativ oder operativ.
 {: .lead-serif }
@@ -94,10 +94,10 @@ Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapiee
 4. ### Individueller Therapiepfad
 
    Aus der Diagnose entsteht ein nachvollziehbarer Plan – konservativ, regenerativ, operativ oder interdisziplinär.
-{: .process-steps  .aside}
+{: .process-steps .aside}
 
 ## Dr. med. Tim Raven
-{: layout="ntl-2col.style-default.reverse-desktop" data-kicker="Fachärztliche Perspektive" }
+{: layout="ntl-2col.reverse-desktop" data-kicker="Fachärztliche Perspektive" }
 
 „Mein Ziel ist eine Medizin, die präzise erklärt, nachvollziehbar entscheidet und die langfristige Funktion in den Mittelpunkt stellt.“
 {: .profile-quote }
@@ -114,12 +114,12 @@ Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchi
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ## Kompetenz rund um Bewegung und Belastbarkeit.
-{: layout="ntl-2col.style-header-left" .header data-kicker="Medizinische Schwerpunkte" }
+{: layout="ntl-2col.reverse.surface-white.py-5" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 8;" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
 
 ---
-{: layout=".focus-list.footer" }
+{: layout=".focus-list.footer" .xl:desktop }
 
 ### [Sporttraumatologie](/schwerpunkte/sporttraumatologie)
 
@@ -142,13 +142,13 @@ Strukturierte Belastungssteuerung für eine sichere, nachvollziehbare Rückkehr 
 Moderne konservative Orthopädie mit Fokus auf Funktionserhalt, Bewegungsqualität und langfristige Belastbarkeit.
 
 ## Aktuell tätig im OCP Darmstadt.
-{: layout="ntl-2col.style-header-left" .header data-kicker="Aktuelle Tätigkeit" }
+{: layout="ntl-2col.reverse.surface-white.py-5" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 8;" }
 
 Aktuell ist Dr. Raven im OCP Darmstadt tätig. Termine und organisatorische Rückfragen erfolgen über den dortigen Praxisstandort.
 {: .lead-serif }
 
 ---
-{: layout=".card-grid" }
+{: layout=".card-grid" .xl:desktop }
 
 ### OCP Darmstadt
 

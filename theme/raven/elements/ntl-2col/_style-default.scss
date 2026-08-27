@@ -1,8 +1,6 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
 &.style-default {
-  --cols: 6;
-
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: var(--nt-spacing-layout),

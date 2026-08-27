@@ -24,6 +24,7 @@
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
   @include meta.load-css("./html-elements/_defaults.scss");
+  @include meta.load-css("./classes/_card-grid.scss");
   @include meta.load-css("./classes/_data-kicker.scss");
   @include meta.load-css("./classes/_focus-list.scss");
   @include meta.load-css("./classes/_hero-specialties.scss");
@@ -31,7 +32,8 @@
   @include meta.load-css("./classes/_lead-serif.scss");
   @include meta.load-css("./classes/_opening-hours.scss");
   @include meta.load-css("./classes/_process-steps.scss");
-  @include meta.load-css("./classes/_profile-section.scss");
+  @include meta.load-css("./classes/_profile-quote.scss");
+  @include meta.load-css("./classes/_timeline-table.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
 }

@@ -39,6 +39,23 @@ Sind mehrere Komponenten betroffen, lies und beachte den lokalen `*-theming`-Ski
 - Für reine Theme-CSS-Klassen im Light DOM verwende keine `style-*`-Namen. Nutze stattdessen eine semantische Klassenfunktion wie bei `hero__specialties`: Die Klasse beschreibt das wiederverwendbare Content-Muster selbst und nicht eine NTL-/NTE-Variant.
 - Solche reinen Theme-Klassen sollen mit Standard-Markdown wie `ul`/`li`, Überschriften, Absätzen, Links oder Bildern funktionieren und nur dann ergänzt werden, wenn vorhandene Utilities oder Komponenten nicht ausreichen.
 
+### Slot- und Variantenentscheidung
+
+Ordne beim Seaming zuerst jeden Content nach seiner Rolle einem dokumentierten Slot zu und entscheide erst danach über Styling. Eine gewünschte Position rechtfertigt weder einen semantisch falschen Slot noch eine neue Style-Variante.
+
+Gehe für jede Darstellung in dieser Reihenfolge vor:
+
+1. dokumentierte Standard-Slots und Default-Komposition der Komponente;
+2. vorhandene CSS-Variablen auf der konkreten Instanz;
+3. vorhandene Utilities wie `.surface-*`, `.bg-*`, Spacing oder Border;
+4. vorhandene Modifier wie `.reverse`, `.breakout-*` oder `.with-*`;
+5. eine wiederverwendbare semantische Light-DOM-Class für ein eigenständiges Content-Muster;
+6. erst danach eine weitere vollständige `style-*`-Baseline.
+
+Lege keine neue `style-*`-Variante nur für Spaltenbreite, Background oder Surface, Border, Radius, Spacing, Reverse, Breakout oder Alignment an. Eine zusätzliche Variante muss eine eigene wiederverwendbare Part-/Child-Darstellung und responsive Komposition bilden; dokumentiere dafür mindestens zwei plausible Einsatzfälle.
+
+Für `ntl-2col` gilt standardmäßig: Hauptinhalt nach `main`, zweite Spalte nach `aside`, `top`/`bottom` über die volle Wrapperbreite und `header`/`footer` über die volle Containerbreite. Soll nur eine Überschrift seitlich stehen, ordne sie `aside` zu und verwende `.reverse` beziehungsweise `.reverse-desktop`; verschiebe nicht `header` und `wrapper` per Theme-CSS in Spalten. Setze `--cols` normalerweise pro Instanz über Content Pane `section-style`.
+
 ### Kramdown-Content-Vertrag
 
 Content muss in Kramdown bearbeitbar bleiben. Bevorzuge ein vorhandenes NTL-Layout mit Standard-Markdown wie Überschriften, Absätzen, Bildern, Links, `ul`-/`ol`-Listen oder Blockquotes. Weise allgemeine Classes und Attribute über Kramdown Attribute Lists zu, wenn das genügt; erstelle kein NTE nur zum Styling eines Standard-Content-Elements.
@@ -78,11 +95,7 @@ Setze eine Kundenergänzung zunächst für das aktuelle Layout um, drücke sie a
 
 1. Lies [references/development-findings.md](references/development-findings.md) und beachte die für die Aufgabe relevanten Einträge.
 2. Erfasse wiederkehrende Designregeln der Vorlage statt einzelner Pixelwerte.
-<<<<<<< HEAD
 3. Suche vor dem Styling oder Seaming jeder Komponente in ihrem Package- oder Komponentenverzeichnis nach komponentenspezifischen `.agents/skills` und lies den passenden Skill vollständig. Verwende insbesondere dessen Szenarien und Regeln für Slots, Content-Platzierung und erlaubte Kompositionen als Komponenten-Contract. Prüfe danach ergänzend die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Designregel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
-=======
-3. Prüfe die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE, lies zusätzlich alle betroffenen lokalen `*-theming`-Skills der beteiligten Komponenten sowie das ähnlichste vorhandene Theme; ordne jede Regel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
->>>>>>> 4e2916c (raven update)
 4. Wende vor jeder gemeinsamen neuen Fähigkeit die nachfolgende Wiederverwendungsentscheidung an.
 5. Implementiere die kleinste Theme-spezifische Schicht und prüfe sie mit Demo und Screenshots.
 6. Ergänze neue wiederverwendbare Fehler und Lösungen dort knapp als `TODO`, `DON’T` oder `EXAMPLE`. Übernimm ausgereifte Einträge in die passende Rule und entferne sie danach aus der Liste.

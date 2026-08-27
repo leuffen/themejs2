@@ -89,7 +89,7 @@
   }
 }
 
-.focus-list[mode="desktop"]:not(.aside) {
+.focus-list.desktop:not(.aside) {
   > section {
     grid-template-columns: var(--nt-space-7) minmax(12rem, .75fr) minmax(0, 1.25fr) var(--nt-space-5);
 
