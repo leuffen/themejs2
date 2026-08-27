@@ -1,0 +1,49 @@
+@use "@nextrap/nte-card" as card;
+
+&.style-ribbon {
+  nte-card {
+    @include card.default-style(
+      $innerPadding: 0,
+      $border: 0,
+      $background-color: transparent,
+      $border-radius: 0
+    );
+
+    color: var(--nt-white);
+
+    &::part(wrapper) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 8.25rem;
+      padding: var(--nt-spacing-component);
+    }
+
+    &::part(header) {
+      margin-bottom: var(--nt-space-2);
+    }
+
+    :is(h1, h2, h3, h4, h5, h6) {
+      margin: 0;
+      color: var(--nt-white);
+      font-size: var(--nt-fs-4);
+      font-weight: var(--nt-font-weight-bold);
+      line-height: var(--nt-line-height);
+    }
+
+    p {
+      margin: 0;
+      color: color-mix(in srgb, var(--nt-white) 62%, transparent);
+      font-family: "Garamond", Georgia, serif;
+      font-size: var(--nt-fs-5);
+      line-height: var(--nt-line-height);
+    }
+  }
+
+  &[mode="mobile"] {
+    nte-card::part(wrapper) {
+      min-height: 0;
+      padding-inline: 0;
+    }
+  }
+}

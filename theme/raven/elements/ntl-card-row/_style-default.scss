@@ -1,6 +1,8 @@
 @use "@nextrap/ntl-card-row" as cardRow;
 
 &.style-default {
+  padding-block: var(--nt-spacing-section);
+
   @include cardRow.default-style(
     $container-width: var(--nt-container-width),
     $default-cols: 4,

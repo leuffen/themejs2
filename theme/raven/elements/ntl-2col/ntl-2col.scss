@@ -3,6 +3,8 @@
 ntl-2col {
   @include meta.load-css("./_style-default.scss");
   @include meta.load-css("./_style-hero.scss");
+  @include meta.load-css("./_style-header-left.scss");
   @include meta.load-css("./_style-dark.scss");
+  @include meta.load-css("./card-grid/card-grid.scss");
   @include meta.load-css("./slot-aside/slot-aside.scss");
 }

@@ -1,0 +1,43 @@
+&.style-header-left {
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: var(--nt-spacing-layout);
+    border-top: var(--nt-border-width) solid var(--nt-border);
+  }
+
+  .card-grid > section {
+    min-width: 0;
+    padding: var(--nt-spacing-component) var(--nt-spacing-component) var(--nt-spacing-component) 0;
+    border-bottom: var(--nt-border-width) solid var(--nt-border);
+  }
+
+  .card-grid > section:nth-child(even) {
+    padding-inline: var(--nt-spacing-component) 0;
+    border-left: var(--nt-border-width) solid var(--nt-border);
+  }
+
+  .card-grid :is(h3, h4, h5, h6) {
+    margin-bottom: var(--nt-spacing-text);
+    color: var(--nt-primary-emphasis);
+    font-size: var(--nt-fs-4);
+  }
+
+  .card-grid p {
+    margin-bottom: 0;
+    color: var(--nt-text-muted);
+    font-size: var(--nt-fs-4);
+  }
+
+  &[mode="mobile"] {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card-grid > section,
+    .card-grid > section:nth-child(even) {
+      padding-inline: 0;
+      border-left: 0;
+    }
+  }
+}

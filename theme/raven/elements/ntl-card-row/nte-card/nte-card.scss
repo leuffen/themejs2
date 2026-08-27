@@ -1,3 +1,4 @@
 @use "sass:meta";
 
 @include meta.load-css("./_in-style-default.scss");
+@include meta.load-css("./_in-style-ribbon.scss");

@@ -24,11 +24,8 @@
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
   @include meta.load-css("./classes/_data-kicker.scss");
+  @include meta.load-css("./classes/_focus-list.scss");
   @include meta.load-css("./classes/_lead-serif.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
-
-  :where(ntl-2col, ntl-card-row) {
-    margin-block: var(--nt-spacing-section);
-  }
 }

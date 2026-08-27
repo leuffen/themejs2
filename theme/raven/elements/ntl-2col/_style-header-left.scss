@@ -1,0 +1,54 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+&.style-header-left {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-block: var(--nt-spacing-section);
+  background: var(--nt-surface-raised);
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-spacing-layout),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  &::part(container) {
+    width: var(--nt-container-width);
+    margin-inline: auto;
+  }
+
+  &::part(main) {
+    padding: 0;
+  }
+
+  &[mode="mobile"] {
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
+
+    &::part(header) {
+      margin-bottom: var(--nt-spacing-layout);
+    }
+  }
+
+  &[mode="desktop"] {
+    &::part(container) {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+      gap: var(--nt-spacing-layout);
+      align-items: start;
+    }
+
+    &::part(header) {
+      grid-column: 1;
+    }
+
+    &::part(wrapper) {
+      grid-column: 2;
+    }
+  }
+}

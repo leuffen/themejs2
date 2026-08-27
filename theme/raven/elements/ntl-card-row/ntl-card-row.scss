@@ -2,5 +2,6 @@
 
 ntl-card-row {
   @include meta.load-css("./_style-default.scss");
+  @include meta.load-css("./_style-ribbon.scss");
   @include meta.load-css("./nte-card/nte-card.scss");
 }
