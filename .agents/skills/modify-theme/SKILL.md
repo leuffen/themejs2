@@ -1,11 +1,11 @@
 ---
 name: modify-theme
-description: Use when developing or refining reusable Nextstrap themes, including from design references. Output a token-based theme and content demo using existing NTL layouts/NTE elements; exclude site copying and header/footer work unless requested.
+description: Entwickelt wiederverwendbare Nextstrap-Themes, auch aus Designvorlagen. Ergebnis sind ein tokenbasiertes Theme und eine Inhalts-Demo mit vorhandenen NTL-/NTE-Komponenten; Website-Kopie sowie Header-/Footer-Arbeit sind ohne ausdrücklichen Auftrag ausgeschlossen.
 ---
 
-# Modify Theme
+# Theme entwickeln
 
-When a reference exists, translate its recurring visual language—hierarchy, palette, typography, surfaces, and rhythm—into Nextstrap tokens and theme-scoped variants. Do not transfer its site data or one-off structure. The result must remain robust with different people, copy lengths, images, and item counts.
+Wenn eine Vorlage existiert, übertrage ihre wiederkehrende visuelle Sprache – Hierarchie, Farbwelt, Typografie, Flächen und Rhythmus – in Nextstrap-Tokens und Theme-gebundene Varianten. Übernimm keine Website-Daten oder einmaligen Strukturen. Das Ergebnis muss mit unterschiedlichen Personen, Textlängen, Bildern und Elementanzahlen funktionieren.
 
 ## Nextstrap model
 
@@ -39,58 +39,58 @@ Do not require authors to build complex nested wrappers, slot trees, or custom H
 
 Theme or component-plan approval does not replace this additional developer approval.
 
-## Customer input and boundaries
+## Kundeneingaben und Abgrenzung
 
-Implement a customer addition for the current layout, but express it as a reusable token, composition, option, or generic `style-*` variant that can handle other customers and content. Never name or constrain it around the requesting customer. If the request cannot be generalized without harming the component model, explain that and ask before adding a one-off solution.
+Setze eine Kundenergänzung zunächst für das aktuelle Layout um, drücke sie aber als wiederverwendbares Token, Komposition, Option oder allgemeine `style-*`-Variante aus, die andere Kunden und Inhalte unterstützt. Benenne oder begrenze sie niemals nach dem anfragenden Kunden. Lässt sich die Anforderung nicht sinnvoll verallgemeinern, erkläre das und frage vor einer Einzellösung nach.
 
-| Layer | Contains | Excludes |
+| Ebene | Enthält | Schließt aus |
 | --- | --- | --- |
-| Theme | Tokens and generic visual variants | Customer text, assets, fixed item counts, site structure |
-| Content layout | NTL composition with NTE content elements | Header, navbar, footer |
-| Content | Text, images, links, and repeated data | Theme decisions |
-| Site shell | Header, navbar, footer, and their structure | Included only on a separate explicit request |
+| Theme | Tokens und allgemeine visuelle Varianten | Kundentexte, Assets, feste Elementanzahlen, Website-Struktur |
+| Inhaltslayout | NTL-Komposition mit NTE-Inhaltselementen | Header, Navbar, Footer |
+| Inhalt | Texte, Bilder, Links und wiederholte Daten | Theme-Entscheidungen |
+| Website-Rahmen | Header, Navbar, Footer und deren Struktur | Nur mit separatem ausdrücklichem Auftrag enthalten |
 
-- When site-shell work is explicitly requested, read [references/header-footer.md](references/header-footer.md) before planning it. Do not load or apply that workflow for ordinary content theming.
-- When images are unavailable or may be replaced, read [references/placeholder-images.md](references/placeholder-images.md). Use its mandatory portrait fallbacks and choose other entries by content purpose.
-- Keep image selection in content or demo data, not in theme styles or component APIs. Seek additional stock candidates only when the curated reference has no suitable category.
-- When customer input suggests another presentation, prefer a generic variant usable with different content over content-specific selectors or markup.
+- Wird Arbeit am Website-Rahmen ausdrücklich beauftragt, lies vor der Planung [references/header-footer.md](references/header-footer.md). Lade oder verwende diesen Ablauf nicht für gewöhnliches Inhalts-Theming.
+- Fehlen Bilder oder dürfen sie ersetzt werden, lies [references/placeholder-images.md](references/placeholder-images.md). Verwende die verbindlichen Portrait-Fallbacks und wähle andere Einträge nach ihrem Inhaltszweck.
+- Halte die Bildauswahl in Inhalts- oder Demo-Daten, nicht in Theme-Styles oder Komponenten-APIs. Suche weitere Stockmotive nur, wenn die kuratierte Referenz keine passende Kategorie enthält.
+- Deutet eine Kundeneingabe auf eine weitere Darstellung hin, bevorzuge eine allgemeine Variante für unterschiedliche Inhalte gegenüber inhaltsspezifischen Selektoren oder Markup.
 
-## Workflow
+## Ablauf
 
-1. Inventory the reference's recurring design rules rather than isolated pixel values.
-2. Inspect the relevant Style Base, Style Utils, Style Typography, NTL/NTE APIs and the closest existing theme; map every rule to a token, utility, component composition, or generic `style-*` variant.
-3. Apply the reuse decision below before introducing any shared capability.
-4. Implement the smallest theme-specific layer and verify it through the demo and screenshots.
+1. Erfasse wiederkehrende Designregeln der Vorlage statt einzelner Pixelwerte.
+2. Prüfe die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Regel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
+3. Wende vor jeder gemeinsamen neuen Fähigkeit die nachfolgende Wiederverwendungsentscheidung an.
+4. Implementiere die kleinste Theme-spezifische Schicht und prüfe sie mit Demo und Screenshots.
 
-Prefer a coherent Nextstrap interpretation over pixel-perfect reproduction. Preserve the reference's character while using existing primitives.
+Bevorzuge eine schlüssige Nextstrap-Interpretation gegenüber einer pixelgenauen Kopie. Bewahre den Charakter der Vorlage mit vorhandenen Bausteinen.
 
-## Reuse before extension
+## Wiederverwenden vor Erweitern
 
-Use this order:
+Gehe in dieser Reihenfolge vor:
 
-1. Existing NTL with standard Kramdown content, classes, and attributes.
-2. Existing NTL composed with existing NTE components and utilities.
-3. Theme-scoped styling through documented tokens, mixins, parts, slots, states, child pairings, or a generic variant.
-4. Generic extension of the owning shared Nextstrap component.
-5. New NTE component.
-6. New NTL component.
+1. Vorhandenes NTL mit normalem Kramdown-Inhalt, Klassen und Attributen.
+2. Vorhandenes NTL mit vorhandenen NTE-Komponenten und Utilities.
+3. Theme-gebundenes Styling über dokumentierte Tokens, Mixins, Parts, Slots, Zustände, Child-Pairings oder eine allgemeine Variante.
+4. Allgemeine Erweiterung der zuständigen gemeinsamen Nextstrap-Komponente.
+5. Neue NTE-Komponente.
+6. Neue NTL-Komponente.
 
-### Required component plan
+### Verbindlicher Komponentenplan
 
-Stop before steps 4, 5, or 6. Approval to develop the theme does not approve a new or extended NTL/NTE component.
+Halte vor Schritt 4, 5 oder 6 an. Die Freigabe zur Theme-Entwicklung genehmigt keine neue oder erweiterte NTL-/NTE-Komponente.
 
-Present a compact plan for every proposed component and have the user validate it before creating files or implementation. Include:
+Lege für jede vorgeschlagene Komponente einen kompakten Plan vor und lasse ihn bestätigen, bevor Dateien oder Implementierungen entstehen. Er muss enthalten:
 
-| Item | Required information |
+| Punkt | Erforderliche Information |
 | --- | --- |
-| Type and name | NTL or NTE plus its proposed public prefixed name |
-| Purpose | Its single responsibility and role in the current layout |
-| Existing options | The closest components or compositions considered and why each is insufficient |
-| Kramdown contract | The Markdown form authors will use; flag any required complex nested structure |
-| Reuse | Other customers, content shapes, layouts, or themes that can use the capability |
-| Alternatives | At least a small visual compromise and recomposition or extension of an existing component |
+| Typ und Name | NTL oder NTE sowie der vorgeschlagene öffentliche Name mit Präfix |
+| Zweck | Eine einzelne Verantwortung und die Rolle im aktuellen Layout |
+| Vorhandene Möglichkeiten | Die ähnlichsten geprüften Komponenten oder Kompositionen und warum sie jeweils nicht genügen |
+| Kramdown-Vertrag | Die von Autoren verwendete Markdown-Form; erforderliche komplexe Verschachtelungen ausdrücklich kennzeichnen |
+| Wiederverwendung | Weitere Kunden, Inhaltsformen, Layouts oder Themes, die die Fähigkeit nutzen können |
+| Alternativen | Mindestens eine kleine visuelle Abweichung sowie Neukomposition oder Erweiterung einer vorhandenen Komponente |
 
-Group multiple proposals into one short plan, but cover every component individually. Proceed only after explicit validation of that plan.
+Fasse mehrere Vorschläge in einem kurzen Plan zusammen, behandle aber jede Komponente einzeln. Fahre erst nach ausdrücklicher Bestätigung dieses Plans fort.
 
 Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elements for NTE, never hidden in a theme. The theme contains only its token values and theme-specific variant styling. Do not add an API solely to reproduce one reference section. If Shadow DOM lacks a required part, slot, or API, ask instead of bypassing encapsulation.
 
@@ -113,14 +113,15 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 
 ## Demo
 
-- Add one representative Markdown demo under `docs/pages/`; demonstrate components, not the source website.
-- Use reduced representative content instead of copying the complete reference.
-- Prefer `ntl-2col` for alternating image/text sections and its existing reverse behavior for swapped columns.
-- Prefer `ntl-card-row` with `nte-card` children for card groups.
-- Use existing NTL/NTE components for other structures where possible.
+- Ergänze eine repräsentative Markdown-Demo unter `docs/pages/`; demonstriere Komponenten, nicht die Quellwebsite.
+- Verwende reduzierte repräsentative Inhalte, statt die vollständige Vorlage zu kopieren.
+- Bevorzuge `ntl-2col` für wechselnde Bild-/Textabschnitte und das vorhandene Reverse-Verhalten für vertauschte Spalten.
+- Bevorzuge `ntl-card-row` mit `nte-card`-Kindern für Kartengruppen.
+- Verwende für andere Strukturen möglichst vorhandene NTL-/NTE-Komponenten.
 
 ## Responsive behavior and verification
 
 - Use the `mode="mobile|tablet|desktop"` API from `@trunkjs/responsive`; do not add media queries.
 - Follow the responsive and visual-verification procedure in [references/theme-file-contract.md](references/theme-file-contract.md).
 - Before changing more than five files, or when the result needs a new token category or header/footer work, present the proposal and ask.
+
