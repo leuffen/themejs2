@@ -23,7 +23,7 @@
       margin-bottom: var(--nt-space-2);
     }
 
-    :is(h1, h2, h3, h4, h5, h6) {
+    > :is(h1, h2, h3, h4, h5, h6) {
       margin: 0;
       color: var(--nt-white);
       font-size: var(--nt-fs-4);
@@ -31,7 +31,7 @@
       line-height: var(--nt-line-height);
     }
 
-    p {
+    > p {
       margin: 0;
       color: color-mix(in srgb, var(--nt-white) 62%, transparent);
       font-family: "Garamond", Georgia, serif;

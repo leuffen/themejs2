@@ -11,7 +11,7 @@
   margin-right: calc(50% - 50vw);
 
   @include cardRow.default-style(
-    $default-cols: 4,
+    $cols: 4,
     $container-width: var(--nt-container-width),
     $gap: clamp(1rem, 2vw, 1.5rem),
     $inner-padding: 0,
@@ -99,7 +99,6 @@
   }
 
   &[mode="desktop"] nte-card {
-    flex-grow: 1;
     padding: 0;
     border-right: 1px solid var(--nt-gray-300);
 

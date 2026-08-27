@@ -1,6 +1,6 @@
 &.style-ribbon {
     --gutter-y: 0;
-    --default-cols: 4;
+    --cols: 4;
 
     position: relative;
     padding-top: 0;
@@ -52,7 +52,6 @@
 
     &[mode="desktop"] {
         :is(ntl-card, nte-card) {
-            flex-grow: 1;
             padding: 0;
             border-right: 1px solid var(--nt-gray-500);
 

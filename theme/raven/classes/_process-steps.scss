@@ -1,0 +1,47 @@
+.process-steps {
+  counter-reset: process-step;
+  margin: var(--nt-spacing-layout) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--nt-border-width) solid color-mix(in srgb, var(--nt-white) 24%, transparent);
+
+  > li {
+    counter-increment: process-step;
+    display: grid;
+    grid-template-columns: clamp(3rem, 7vw, 4.625rem) minmax(0, 1fr);
+    gap: var(--nt-space-3) var(--nt-spacing-component);
+    align-items: start;
+    padding-block: var(--nt-spacing-component);
+    border-bottom: var(--nt-border-width) solid color-mix(in srgb, var(--nt-white) 24%, transparent);
+    transition: background-color .25s ease;
+
+    &::before {
+      content: counter(process-step, decimal-leading-zero);
+      grid-column: 1;
+      color: var(--nt-accent-emphasis);
+      font-family: "Garamond", Georgia, serif;
+      font-size: var(--nt-fs-2);
+      line-height: 1.2;
+    }
+
+    > h3 {
+      grid-column: 2;
+      margin: 0;
+      color: var(--nt-header);
+      font-size: var(--nt-fs-4);
+      line-height: var(--nt-line-height-header);
+    }
+
+    > p {
+      grid-column: 2;
+      margin: 0;
+      color: var(--nt-text-muted);
+      font-size: var(--nt-fs-5);
+      line-height: var(--nt-line-height);
+    }
+
+    &:hover {
+      background: color-mix(in srgb, var(--nt-white) 4%, transparent);
+    }
+  }
+}

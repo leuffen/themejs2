@@ -27,13 +27,15 @@ theme/<theme-name>/
 
 - Lege je Style File nur eine Class, einen Modifier oder ein Child Pairing ab; der Dateiname muss den Selector erkennen lassen.
 - Lege jedes `style-*`, `with-*` und jeden einfachen Modifier wie `reverse` in einer eigenen Datei ab.
+- Verwende `style-*` ausschließlich für `ntl-*`- oder `nte-*`-Elemente. Reine Theme-CSS-Klassen im Light DOM erhalten keinen `style-*`-Namen.
 - Ein Element darf nur eine `style-*`-Class besitzen. Verwende kein `variant-*`.
 - `with-*`-Modifier müssen mit `style-default` kombinierbar bleiben.
 - Setze visuelle Default-Deklarationen niemals auf einen bloßen NTL-Selector; verwende `.style-default`.
 - Klassifiziere eine Class, bevor du sie ergänzt:
-  - Component Structure, Part, Slot, State, Modifier oder gebundenes Child Pairing → `elements/**`;
-  - wiederverwendbare semantische Darstellung → `classes/**`;
+  - Component Structure, Part, Slot, State, Modifier oder gebundenes Child Pairing an `ntl-*`/`nte-*` → `elements/**`;
+  - wiederverwendbare semantische Darstellung im Light DOM, z. B. ein Listenmuster wie `hero__specialties` → `classes/**`;
   - Utility-ähnliches Verhalten → vorhandene Utility verwenden oder gemeinsame Utility-Änderung vorschlagen; nicht in einer Element-Datei definieren.
+- Reine Theme-Klassen in `classes/**` beschreiben das Content-Muster selbst statt einer Komponenten-Variante und sollen mit Standard-Markdown wie `ul`/`li`, Überschriften, Absätzen, Links oder Bildern funktionieren.
 - Verwende keine kunden-, personen-, seiten- oder Demo-spezifischen Namen.
 - Überschreibe keine bloßen `p`, `a`, Überschriften, Listen, Bilder, `.btn` oder andere Utilities. Ein Kramdown-Child mit allgemeiner Class darf über ein Theme-gebundenes Parent/Child Pairing oder eine wiederverwendbare semantische Class gestylt werden.
 - Nutze vorhandene Utilities oder `--nt-*`-Variablen für Farbe und Spacing auf Markup-Ebene; bette keine einmaligen Designwerte ein.
@@ -51,7 +53,10 @@ Lies [element-child-structure.md](element-child-structure.md) für Entry Files, 
 ## Responsive-Vertrag
 
 - Ergänze keine Media Queries.
+- Bevorzuge Lösungen ohne breakpoint-spezifische Zusatzklassen.
+- Braucht eine eigene Theme-Klasse im Light DOM dennoch ein responsives Verhalten, aktiviere es über die vorhandene responsive Klassenlogik im Markup, z. B. `hero__specialties xl:desktop`. Die Baseline bleibt in der semantischen Theme-Klasse; die responsive Klasse schaltet nur den zusätzlichen Zustand.
 - NTL-Komponenten stellen `mode="mobile|tablet|desktop"` bereit; setze Mode Rules auf die Komponente, der dieses Attribut gehört.
+- Verwende die responsive Klassenlogik nicht, um die interne Breakpoint-Logik von `ntl-*`-Elementen nachzubauen oder zu überschreiben.
 - Children erhalten `mode` nicht automatisch. Adressiere das Child in einer Card Row ausgehend von `ntl-card-row[mode="..."]`, nicht über `nte-card[mode="..."]`.
 - Ordne Deklarationen als allgemein, Mobile, Tablet, Desktop an und lasse ungenutzte Modes weg.
 - Verwende `--breakpoints: sm|md|lg|xl|xxl`; der Default ist `xl`.

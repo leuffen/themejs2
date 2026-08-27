@@ -5,7 +5,7 @@
 
   @include cardRow.default-style(
     $container-width: var(--nt-container-width),
-    $default-cols: 4,
+    $cols: 4,
     $gap: var(--nt-space-5),
     $inner-padding: 0,
     $container-background: transparent,

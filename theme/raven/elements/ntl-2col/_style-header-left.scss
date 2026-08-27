@@ -50,5 +50,9 @@
     &::part(wrapper) {
       grid-column: 2;
     }
+
+    &::part(footer) {
+      grid-column: 1 / -1;
+    }
   }
 }

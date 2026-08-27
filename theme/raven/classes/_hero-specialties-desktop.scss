@@ -1,0 +1,19 @@
+.hero__specialties.desktop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nt-space-2) var(--nt-space-4);
+
+  > li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  > li:not(:last-child)::after {
+    content: "";
+    width: 3px;
+    height: 3px;
+    margin-left: var(--nt-space-4);
+    border-radius: 50%;
+    background: var(--nt-accent);
+  }
+}

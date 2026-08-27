@@ -86,14 +86,16 @@ ntl-card-row {
 
 ### Parent-Style: nur `ntl-card-row`
 
+Hinweis: `--gutter-x` und `--gutter-y` immer mit Längeneinheit setzen, bevorzugt in `px` wie `0px`, `16px` oder `24px`. Keine einheitslosen Werte wie `0` verwenden, weil die Gutter-Werte in Komponentenberechnungen per `calc()` weiterverarbeitet werden.
+
 ```scss
 // elements/ntl-card-row/_style-ribbon.scss
 @use "@nextrap/ntl-card-row" as cardRow;
 
 &.style-ribbon {
   // genereller Row-Style
-  --gutter-y: 0;
-  --default-cols: 0;
+  --gutter-y: 0px;
+  --cols: 0;
 
   position: relative;
   z-index: 3;

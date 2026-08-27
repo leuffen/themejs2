@@ -2,44 +2,51 @@
 layout: website
 body_class: theme-raven
 title: Theme Raven
-description: "Raven demonstriert eine präzise, editorial geprägte Gestaltung für medizinische Inhalte."
+use_navbar: osman
+use_footer: osman
+description: "Dr. med. Tim Raven – Facharzt für Orthopädie und Unfallchirurgie mit Schwerpunkt Sporttraumatologie, funktionelle Orthopädie und regenerative Medizin."
 ptags:
   - arzt
 ---
 
 # Medizin mit Präzision
-{: layout="ntl-2col.style-hero" data-kicker="Orthopädie · Sportmedizin · Regeneration" }
+{: layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" }
 
-Eine klare Einordnung schafft die Grundlage für sichere Entscheidungen.
+Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktionell gedacht und auf nachhaltige Belastbarkeit ausgerichtet.
 {: .lead-serif }
 
-Diagnostik, Funktion und persönliche Ziele werden zu einem nachvollziehbaren Behandlungsweg verbunden.
+- Sporttraumatologie
+- Funktionelle Orthopädie
+- Regenerative Medizin
+{: .hero__specialties .xl:desktop aria-label="Medizinische Schwerpunkte" }
 
-[Termin vereinbaren](/kontakt){: .btn .btn-primary .me-2 .mb-2 }
-[Ansatz kennenlernen](/leistungen){: .btn .btn-outline-primary .mb-2 }
+Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Einordnung und einem klaren Blick auf langfristige Belastbarkeit.
+
+[Termin buchen](/kontakt){: .btn .btn-primary .me-2 .mb-2 }
+[Medizinischen Ansatz ansehen](/leistungen){: .btn .btn-outline-primary .mb-2 }
 
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ---
-{: layout="ntl-card-row.style-ribbon" }
+{: layout="2;ntl-card-row.style-ribbon" style="--cols: 3;" }
 
 ### Fachärztliche Expertise
 
-Orthopädie und Unfallchirurgie mit fachärztlicher Einordnung.
+Orthopädie und Unfallchirurgie mit deutscher Approbation.
 
 ### Universitäre Ausbildung
 
-Studium und Promotion an einer deutschen Universität.
+Studium und Promotion an der Universität Heidelberg.
 
 ### Sportmedizinischer Fokus
 
-Sporttraumatologie und sichere Rückkehr zur Belastung.
+Sporttraumatologie und Return to Sport.
 
 ### Aktuelle Tätigkeit
 
-Ambulante orthopädische und unfallchirurgische Versorgung.
+Ärztlich tätig im OCP Darmstadt.
 
-## Präzision statt Standardtherapie
+## Präzision statt Standard&shy;therapie.
 {: layout="ntl-2col.style-header-left" .header data-kicker="Medizinischer Ansatz" }
 
 Im Mittelpunkt steht nicht das möglichst schnelle Anwenden einer Methode, sondern die saubere medizinische Einordnung der Beschwerde – auf Grundlage von Funktion, Belastung, Biomechanik und aktueller Evidenz.
@@ -50,35 +57,63 @@ Im Mittelpunkt steht nicht das möglichst schnelle Anwenden einer Methode, sonde
 
 ### Funktionelle Diagnostik
 
-Beschwerden werden im Zusammenhang mit Bewegung, Belastung und individueller Leistungsfähigkeit betrachtet.
+Beschwerden werden nicht isoliert betrachtet, sondern im Zusammenhang mit Bewegung, Belastung und individueller Leistungsfähigkeit.
 
 ### Evidenzbasierte Entscheidungen
 
-Therapieempfehlungen folgen medizinischer Indikation und wissenschaftlicher Einordnung.
+Therapieempfehlungen folgen medizinischer Indikation und wissenschaftlicher Einordnung – nicht einem standardisierten Verfahren.
 
 ### Gelenkerhalt vor Eskalation
 
-Konservative und funktionserhaltende Möglichkeiten werden geprüft, bevor invasive Schritte erwogen werden.
+Konservative und funktionserhaltende Möglichkeiten werden differenziert geprüft, bevor invasive Schritte erwogen werden.
 
 ### Nachhaltige Belastbarkeit
 
-Ziel ist die sichere Rückkehr zu Alltag, Training und sportlicher Leistungsfähigkeit.
+Ziel ist nicht nur kurzfristige Beschwerdefreiheit, sondern die sichere Rückkehr zu Alltag, Training und sportlicher Leistungsfähigkeit.
 
-## Vom Befund zur Entscheidung
-{: layout="ntl-2col.style-dark" data-kicker="Strukturierter Prozess" }
+## So entsteht die medizinische Einordnung.
+{: layout="ntl-2col.style-dark" data-kicker="Vom Befund zur Entscheidung" }
 
-Eine gute Therapie beginnt nicht bei einer Methode, sondern bei der richtigen Einordnung.
+Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapieentscheidungen – konservativ, regenerativ oder operativ.
 {: .lead-serif }
 
-### Vier nachvollziehbare Schritte
-{: section-class="aside" }
 
-1. Beschwerden und Belastung verstehen
-2. Funktion differenziert untersuchen
-3. Befunde im Zusammenhang bewerten
-4. Einen individuellen Therapiepfad festlegen
 
-## Kompetenz rund um Bewegung und Belastbarkeit
+1. ### Anamnese und Kontext
+
+   Beschwerden, Belastung, Sport, Alltag und bisheriger Verlauf werden strukturiert zusammengeführt.
+
+2. ### Funktionelle Untersuchung
+
+   Bewegung, Stabilität, Kraft und belastungsabhängige Mechanismen werden differenziert untersucht.
+
+3. ### Medizinische Einordnung
+
+   Klinischer Befund, Bildgebung und weitere Diagnostik werden im Gesamtzusammenhang bewertet.
+
+4. ### Individueller Therapiepfad
+
+   Aus der Diagnose entsteht ein nachvollziehbarer Plan – konservativ, regenerativ, operativ oder interdisziplinär.
+{: .process-steps  .aside}
+
+## Dr. med. Tim Raven
+{: layout="ntl-2col.style-default.reverse-desktop" data-kicker="Fachärztliche Perspektive" }
+
+„Mein Ziel ist eine Medizin, die präzise erklärt, nachvollziehbar entscheidet und die langfristige Funktion in den Mittelpunkt stellt.“
+{: .profile-quote }
+
+Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchirurgie mit sporttraumatologischer Erfahrung und einem besonderen Interesse an funktioneller Diagnostik und regenerativen Therapieansätzen.
+
+| Station | Details |
+| --- | --- |
+| Studium & Promotion | Ruprecht-Karls-Universität Heidelberg |
+| Facharztausbildung | Universitätsklinikum Heidelberg · Klinikum Aschaffenburg-Alzenau · Universitätsklinikum Frankfurt |
+| Mitgliedschaften | DGOU · GOTS · DGMSM · DGSP · humedica e. V. |
+{: .timeline-table .xl:desktop }
+
+![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
+
+## Kompetenz rund um Bewegung und Belastbarkeit.
 {: layout="ntl-2col.style-header-left" .header data-kicker="Medizinische Schwerpunkte" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
@@ -100,4 +135,46 @@ Wissenschaftlich differenzierte Einordnung regenerativer Therapieansätze – in
 
 ### [Return to Sport](/schwerpunkte/return-to-sport)
 
-Strukturierte Belastungssteuerung für eine sichere und nachvollziehbare Rückkehr in Training und Wettkampf.
+Strukturierte Belastungssteuerung für eine sichere, nachvollziehbare Rückkehr in Training, Wettkampf und leistungsorientierte Bewegung.
+
+### [Gelenkerhaltende Konzepte](/schwerpunkte/gelenkerhaltende-konzepte)
+
+Moderne konservative Orthopädie mit Fokus auf Funktionserhalt, Bewegungsqualität und langfristige Belastbarkeit.
+
+## Aktuell tätig im OCP Darmstadt.
+{: layout="ntl-2col.style-header-left" .header data-kicker="Aktuelle Tätigkeit" }
+
+Aktuell ist Dr. Raven im OCP Darmstadt tätig. Termine und organisatorische Rückfragen erfolgen über den dortigen Praxisstandort.
+{: .lead-serif }
+
+---
+{: layout=".card-grid" }
+
+### OCP Darmstadt
+
+Dres. Behr, Erben, Primbs, Rau  
+Rheinstraße 97  
+64295 Darmstadt
+
+[Zur Terminvereinbarung](/kontakt){: .btn .btn-outline-primary .mt-3 }
+
+### Zugangsinformationen
+
+- 2. Obergeschoss mit Fahrstuhl
+- Barrierefreier Zugang
+- Gebührenpflichtige Parkplätze
+
+---
+{: layout="=2" }
+
+- **Montag**  
+  08:00–13:00 · 14:00–17:00
+- **Dienstag**  
+  08:00–13:00 · 14:00–17:00
+- **Mittwoch**  
+  08:00–13:00 · 14:00–17:00
+- **Donnerstag**  
+  08:00–13:00 · 14:00–17:00
+- **Freitag**  
+  08:00–13:00
+{: .opening-hours .xl:desktop aria-label="Sprechzeiten" }

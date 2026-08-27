@@ -72,7 +72,7 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 ![](https://cdn.leuffen.de//leu-stock/v2/386/c_gfedcba/AdobeStock_222010919.webp)
 
 ## Unsere Leistungen
-{: layout="ntl-card-row" section-style="--default-cols: 4"}
+{: layout="ntl-card-row" section-style="--cols: 4"}
 
 ### Vorsorge
 {: .header }
@@ -183,7 +183,7 @@ dpoqwjdpioqwjdoijqwoid
 {: layout="2" }
 
 <footer>
-    <ntl-card-row class="footer-separators" style="--default-cols: 4">
+    <ntl-card-row class="footer-separators" style="--cols: 4">
         <nte-card>
             <h3>Kontakt</h3>
 						Medizinische Praxis<br>
