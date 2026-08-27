@@ -64,7 +64,7 @@ Setze eine Kundenergänzung zunächst für das aktuelle Layout um, drücke sie a
 
 1. Lies [references/development-findings.md](references/development-findings.md) und beachte die für die Aufgabe relevanten Einträge.
 2. Erfasse wiederkehrende Designregeln der Vorlage statt einzelner Pixelwerte.
-3. Prüfe die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Regel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
+3. Suche vor dem Styling oder Seaming jeder Komponente in ihrem Package- oder Komponentenverzeichnis nach komponentenspezifischen `.agents/skills` und lies den passenden Skill vollständig. Verwende insbesondere dessen Szenarien und Regeln für Slots, Content-Platzierung und erlaubte Kompositionen als Komponenten-Contract. Prüfe danach ergänzend die relevanten APIs von Style Base, Style Utils, Style Typography und NTL/NTE sowie das ähnlichste vorhandene Theme; ordne jede Designregel einem Token, Utility, einer Komponentenkomposition oder einer allgemeinen `style-*`-Variante zu.
 4. Wende vor jeder gemeinsamen neuen Fähigkeit die nachfolgende Wiederverwendungsentscheidung an.
 5. Implementiere die kleinste Theme-spezifische Schicht und prüfe sie mit Demo und Screenshots.
 6. Ergänze neue wiederverwendbare Fehler und Lösungen dort knapp als `TODO`, `DON’T` oder `EXAMPLE`. Übernimm ausgereifte Einträge in die passende Rule und entferne sie danach aus der Liste.
