@@ -1,39 +1,25 @@
-.button-bar > p {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
-  gap: var(--nt-space-3);
-  margin: 0;
-}
+.button-bar {
+  &.column > p {
+    flex-direction: column;
+  }
 
-.button-bar > p > .btn {
-  display: flex;
-  min-height: 4.5rem;
-  align-items: center;
-  justify-content: center;
-  gap: var(--nt-space-3);
-  border-radius: var(--nt-border-radius);
-  text-align: center;
-  text-wrap: balance;
-}
+  > p {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--nt-space-3);
+    align-items: stretch;
+    justify-content: stretch;
 
-.button-bar > p > .btn:first-child {
-  grid-column: 1 / -1;
-}
+    .btn {
+      min-width: 140px;
+      flex: 1;
+      text-align: center;
+      text-wrap: auto;
+    }
 
-.button-bar .btn-outline-primary {
-  --bs-btn-color: var(--nt-white);
-  --bs-btn-bg: var(--nt-primary);
-  --bs-btn-border-color: var(--nt-primary);
-  --bs-btn-hover-color: var(--nt-white);
-  --bs-btn-hover-bg: var(--nt-link-hover);
-  --bs-btn-hover-border-color: var(--nt-link-hover);
-  --bs-btn-active-color: var(--nt-white);
-  --bs-btn-active-bg: var(--nt-link-hover);
-  --bs-btn-active-border-color: var(--nt-link-hover);
-}
-
-.button-bar .bi {
-  display: block;
-  flex: 0 0 auto;
-  font-size: var(--nt-fs-3);
+    .bi {
+      display: block;
+      font-size: 1.8rem;
+    }
+  }
 }

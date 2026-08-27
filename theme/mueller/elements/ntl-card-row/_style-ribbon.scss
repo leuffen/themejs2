@@ -15,17 +15,23 @@
     $container-border: 0,
     $container-border-radius: 0
   );
-  @include cardRow.with-item-separators(
-    $separator-color: var(--nt-border),
-    $separator-inset: var(--nt-space-5)
-  );
-
   &::part(main) {
     align-items: stretch;
   }
 
-  &[mode="mobile"]::part(container) {
-    width: var(--nt-container-width);
-    margin-inline: auto;
+  &[mode="mobile"],
+  &[mode="tablet"] {
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
+
+    > nte-card:not(:last-child)::part(wrapper) {
+      border-bottom: var(--nt-border-width) solid var(--nt-border);
+    }
+  }
+
+  &[mode="desktop"] > nte-card:not(:last-child)::part(wrapper) {
+    border-right: var(--nt-border-width) solid var(--nt-border);
   }
 }

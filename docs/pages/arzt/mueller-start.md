@@ -1,6 +1,7 @@
 ---
 layout: website
 body_class: theme-mueller
+use_footer: mueller
 title: Theme Müller
 description: "Meta Description Text"
 theme_classes: "default theme-medic-osman"
@@ -178,33 +179,3 @@ Test
 ### odhoqidjiowqjdioq
 
 dpoqwjdpioqwjdoijqwoid
-
----
-{: layout="2" }
-
-<footer>
-    <ntl-card-row class="footer-separators" style="--cols: 4">
-        <nte-card>
-            <h3>Kontakt</h3>
-						Medizinische Praxis<br>
-						Straße XX<br>
-						PLZ Ort<br><br>
-						<span>Telefon:</span> <b><a href="tel:+490000000000" title="Telefon" class="text-decoration-none">+49 000 000-0000</a></b><br>
-						<span>Telefax:</span> <b>+49 000 000-0001</b><br>
-						<span>E-Mail:</span> <a href="mailto:kontakt@praxis.tld" title="E-Mail" class=" text-decoration-none">kontakt@praxis.tld</a><br>
-				</nte-card>
-        <nte-card>
-            <h3>Beschreibung</h3>
-            <span>
-			Neutrale Kurzbeschreibung der Praxis.
-            </span>
-        </nte-card>
-        <nte-card>
-            <h3>Links</h3>
-						<ul style="list-style: none; padding-left: 0;">
-							<li><a href="/home" class="text-decoration-none">Home</a></li>
-							<li><a href="/kontakt" class="text-decoration-none">Kontakt</a></li>
-						</ul>
-        </nte-card>
-    </ntl-card-row>
-</footer>

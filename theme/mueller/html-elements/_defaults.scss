@@ -2,8 +2,17 @@
   color: var(--nt-header);
   hyphens: manual;
   overflow-wrap: normal;
+  text-transform: uppercase;
   text-wrap: balance;
   word-break: normal;
+}
+
+:is(h1, h2, h3, h4, h5, h6).data-kicker::before,
+:is(h1, h2, h3, h4, h5, h6)[data-kicker]::before {
+  font-size: var(--nt-font-size-small);
+  font-weight: var(--nt-font-weight-bold);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 :where(ul, ol) li::marker {

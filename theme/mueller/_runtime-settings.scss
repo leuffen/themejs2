@@ -9,7 +9,8 @@
   --nt-font-family: "Open Sans", sans-serif;
   --nt-font-family-header: var(--nt-font-family);
   --nt-font-size: 1rem;
-  --nt-font-size-header: clamp(2.35rem, 4.7vw, 4.25rem);
+  --nt-font-size-header: clamp(2rem, 3.4vw, 3rem);
+  --nt-font-size-small: .75rem;
   --nt-font-weight-base: 400;
   --nt-font-weight-header: 400;
   --nt-font-weight-bold: 700;
@@ -19,6 +20,7 @@
   --nt-radius: .25rem;
   --nt-container-max: 1120px;
   --nt-container-gutter: clamp(var(--nt-space-4), 4vw, var(--nt-space-7));
+  --nt-spacing-section: clamp(var(--nt-space-6), 5vw, var(--nt-space-9));
 
   --nt-surface: #f4f4f4;
   --nt-surface-muted: #dedede;

@@ -1,0 +1,156 @@
+<style>
+  #footer-mueller {
+    --footer-background: var(--nt-secondary);
+    --footer-text-color: var(--nt-text-on-secondary);
+    --footer-muted-color: color-mix(in srgb, var(--nt-text-on-secondary) 74%, transparent);
+    --footer-border-color: color-mix(in srgb, var(--nt-text-on-secondary) 18%, transparent);
+    --footer-link-color: var(--nt-text-on-secondary);
+    --footer-link-hover-color: var(--nt-primary-subtle);
+    --subfooter-background: var(--nt-dark);
+    --minifooter-background: var(--nt-black);
+  }
+
+  #footer-mueller :is(p, address, table, td, span) {
+    color: inherit;
+  }
+
+  #footer-mueller h2 {
+    color: var(--footer-text-color);
+    font-size: var(--nt-fs-5);
+    font-weight: var(--nt-font-weight-bold);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  #footer-mueller a {
+    color: var(--footer-link-color);
+    text-decoration-color: transparent;
+    text-underline-offset: .2em;
+    transition: color .2s ease, text-decoration-color .2s ease;
+  }
+
+  #footer-mueller a:hover,
+  #footer-mueller a:focus-visible {
+    color: var(--footer-link-hover-color);
+    text-decoration-color: currentColor;
+  }
+
+  #footer-mueller a:focus-visible {
+    outline: var(--nt-border-width) solid currentColor;
+    outline-offset: var(--nt-space-1);
+  }
+
+  #footer-mueller .mueller-footer__top {
+    color: var(--footer-muted-color);
+  }
+
+  #footer-mueller .mueller-footer__links a,
+  #footer-mueller .mueller-footer__contact a {
+    color: var(--footer-link-color);
+  }
+
+  #footer-mueller .openhours {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #footer-mueller .openhours td {
+    padding: .12rem .4rem .12rem 0;
+    vertical-align: top;
+  }
+
+  #footer-mueller .openhours td:first-child {
+    white-space: nowrap;
+    font-weight: var(--nt-font-weight-bold);
+  }
+
+  #footer-mueller .mueller-footer__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #footer-mueller .mueller-footer__social svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+</style>
+
+{% assign footer_version = page.url | size | modulo: site.data.defaults.footers.size %}
+{% assign selected_footer = site.data.defaults.footers[footer_version] %}
+
+<footer
+  id="footer-mueller"
+  style="position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--footer-background);color:var(--footer-text-color);border-top:1px solid var(--footer-border-color);"
+>
+  <div class="mueller-footer__top container py-4">
+    <div class="row gy-4">
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-contact">
+        <h2 id="footer-mueller-contact" class="mb-3">{% include do/trans.html val="Kontakt" %}</h2>
+        <div class="mueller-footer__contact small">
+          {% include el/address.html %}
+        </div>
+      </section>
+
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-info">
+        <h2 id="footer-mueller-info" class="mb-3">Info</h2>
+        <p class="small mb-0">{{ site.data.general.desc | default: site.data.general.fachrichtung | default: page.description }}</p>
+      </section>
+
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-links">
+        <h2 id="footer-mueller-links" class="mb-3">Links</h2>
+        <ul class="mueller-footer__links list-unstyled d-flex flex-column gap-2 small mb-0">
+          {% include el/navbar.html ptag="footernav" %}
+        </ul>
+      </section>
+
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-hours">
+        <h2 id="footer-mueller-hours" class="mb-3">Öffnungszeiten</h2>
+        <div class="small">
+          {% include el/openhours.html %}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div style="background:var(--subfooter-background);color:var(--footer-muted-color);border-top:1px solid var(--footer-border-color);">
+    <div class="container py-3">
+      <div class="d-flex flex-column xl:flex-row xl:align-items-center xl:justify-content-between gap-3 small">
+        <nav aria-label="Sitemap und rechtliche Navigation">
+          <ul class="list-unstyled d-flex flex-column xl:flex-row gap-2 xl:gap-3 mb-0">
+            {% include el/navbar.html ptag="subfooter" %}
+          </ul>
+        </nav>
+
+        <div class="mueller-footer__social d-flex align-items-center gap-3" aria-label="Social Media">
+          {% assign social_icons = site.data.social_icons %}
+          {% for icon in social_icons %}
+            {% assign url_key = icon.name | append: '_url' %}
+            {% assign icon_url = page[url_key] | default: site[url_key] %}
+            {% if icon_url and icon_url != '' %}
+              <a href="{{ icon_url }}" target="_blank" rel="noopener" aria-label="{{ icon.title }}">{{ icon.svg }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--minifooter-background);color:var(--footer-muted-color);border-top:1px solid var(--footer-border-color);">
+    <div class="container py-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 small text-center">
+        <span>© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <a class="d-inline-flex align-items-center text-decoration-none" href="{{ selected_footer.logo_href }}" aria-label="{{ selected_footer.logo_label }}">
+          <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height:22px;" alt="{{ selected_footer.logo_alt }}">
+        </a>
+        <a class="text-decoration-none" href="{{ selected_footer.text_href }}">{{ selected_footer.text }}</a>
+        <a class="d-inline-flex align-items-center text-decoration-none" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
