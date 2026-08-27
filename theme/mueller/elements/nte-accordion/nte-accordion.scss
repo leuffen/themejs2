@@ -1,0 +1,24 @@
+@use "@nextrap/nte-accordion" as accordion;
+
+nte-accordion {
+  @include accordion.default-style(
+    $item-gap: var(--nt-space-3),
+    $border: var(--nt-border-width) solid var(--nt-border),
+    $border-radius: var(--nt-border-radius),
+    $summary-padding: var(--nt-space-5),
+    $content-padding: var(--nt-space-5),
+    $summary-background: var(--nt-surface-raised),
+    $summary-background-hover: #ededed,
+    $summary-color: var(--nt-header),
+    $content-background: var(--nt-surface-raised),
+    $marker-color: var(--nt-primary),
+    $focus-outline: 2px solid var(--nt-focus)
+  );
+
+  --marker-icon-closed: var(--marker-icon-plus);
+  --marker-icon-open: var(--marker-icon-minus);
+
+  nte-accordion-item > [slot="title"] {
+    font-weight: var(--nt-font-weight-bold);
+  }
+}

@@ -1,0 +1,15 @@
+:where(h1, h2, h3) {
+  color: var(--nt-header);
+  hyphens: manual;
+  overflow-wrap: normal;
+  text-wrap: balance;
+  word-break: normal;
+}
+
+:where(ul, ol) li::marker {
+  color: var(--nt-primary);
+}
+
+a {
+  text-underline-offset: .18em;
+}

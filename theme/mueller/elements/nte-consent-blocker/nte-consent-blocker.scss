@@ -1,0 +1,17 @@
+@use "@nextrap/nte-consent-blocker" as consent;
+
+:is(ntl-consent-blocker, nte-consent-blocker) {
+  @include consent.default-style(
+    $border-radius: var(--nt-border-radius),
+    $overlay-background: rgb(255 255 255 / .9),
+    $pre-consent-padding: var(--nt-space-6)
+  );
+
+  &::part(wrapper) {
+    border: var(--nt-border-width) solid var(--nt-border);
+  }
+
+  &::part(pre-consent) {
+    gap: var(--nt-space-4);
+  }
+}

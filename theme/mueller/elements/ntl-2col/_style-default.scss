@@ -1,0 +1,49 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+&:not(.testimonial) {
+  @include twoCol.default-style(
+    $innerPadding: clamp(var(--nt-space-5), 4vw, var(--nt-space-8)),
+    $gap: 0,
+    $background: transparent,
+    $border: var(--nt-border-width) solid var(--nt-border),
+    $border-radius: var(--nt-border-radius),
+    $objectFit: cover,
+    $wrapper-bg-color: var(--nt-surface-raised)
+  );
+
+  &::part(wrapper) {
+    align-items: stretch;
+  }
+
+  &::part(main) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  > :is(h1, h2, h3) {
+    color: var(--nt-primary);
+    font-weight: var(--nt-font-weight-header);
+  }
+
+  > :is(h1, h2, h3)[data-kicker]::before {
+    color: var(--nt-accent);
+  }
+
+  > [slot="aside"] {
+    margin: 0;
+  }
+
+  &:has(> p[slot="aside"].auto)::part(aside) {
+    min-height: clamp(21rem, 34vw, 31rem);
+    overflow: hidden;
+    background: var(--nt-surface-muted);
+  }
+
+  &[mode="mobile"] {
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      min-height: 0;
+      aspect-ratio: 4 / 3;
+    }
+  }
+}

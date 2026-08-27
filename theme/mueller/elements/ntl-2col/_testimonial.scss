@@ -1,0 +1,62 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+&.testimonial {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  color: var(--nt-text);
+  background: #f8c4c8;
+  font-size: var(--nt-fs-3);
+  font-style: italic;
+
+  @include twoCol.default-style(
+    $innerPadding: clamp(var(--nt-space-5), 4vw, var(--nt-space-8)),
+    $gap: clamp(var(--nt-space-5), 5vw, var(--nt-space-8)),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover,
+    $wrapper-bg-color: transparent
+  );
+
+  &::part(container) {
+    width: var(--nt-container-width);
+    margin-inline: auto;
+  }
+
+  &::part(wrapper) {
+    align-items: center;
+    padding-block: var(--nt-space-7);
+  }
+
+  &::part(main) {
+    order: 2;
+  }
+
+  &::part(aside) {
+    order: 1;
+  }
+
+  > [slot="aside"] {
+    width: min(100%, 13rem);
+    aspect-ratio: 1;
+    margin: auto;
+    overflow: hidden;
+    border: .25rem solid rgb(255 255 255 / .72);
+    border-radius: 50%;
+  }
+
+  > [slot="aside"] img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &[mode="mobile"] {
+    text-align: center;
+
+    &::part(wrapper) {
+      flex-direction: column;
+    }
+  }
+}
