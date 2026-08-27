@@ -3,7 +3,7 @@ layout: website
 body_class: theme-raven
 title: Theme Raven
 use_navbar: osman
-use_footer: osman
+use_footer: raven
 description: "Dr. med. Tim Raven – Facharzt für Orthopädie und Unfallchirurgie mit Schwerpunkt Sporttraumatologie, funktionelle Orthopädie und regenerative Medizin."
 ptags:
   - arzt
@@ -22,7 +22,7 @@ Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktio
 
 Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Einordnung und einem klaren Blick auf langfristige Belastbarkeit.
 
-[Termin buchen](/kontakt){: .btn .btn-primary .me-2 .mb-2 }
+[Termin buchen](/kontakt){: .btn .btn-primary .btn-lead .btn-glow .btn-glow-on-view .me-2 .mb-2 }
 [Medizinischen Ansatz ansehen](/leistungen){: .btn .btn-outline-primary .mb-2 }
 
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
@@ -38,7 +38,7 @@ Orthopädie und Unfallchirurgie mit deutscher Approbation.
 
 Studium und Promotion an der Universität Heidelberg.
 
-### Sportmedizinischer Fokus
+### Sport&shy;medizinischer Fokus
 
 Sporttraumatologie und Return to Sport.
 
@@ -71,7 +71,7 @@ Konservative und funktionserhaltende Möglichkeiten werden differenziert geprüf
 
 Ziel ist nicht nur kurzfristige Beschwerdefreiheit, sondern die sichere Rückkehr zu Alltag, Training und sportlicher Leistungsfähigkeit.
 
-## So entsteht die medizinische Einordnung.
+## So entsteht die medizinische Ein&shy;ordnung.
 {: layout="ntl-2col.surface-primary" data-kicker="Vom Befund zur Entscheidung" section-style="--cols: 5;" }
 
 Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapieentscheidungen – konservativ, regenerativ oder operativ.
@@ -113,7 +113,7 @@ Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchi
 
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
-## Kompetenz rund um Bewegung und Belastbarkeit.
+## Kompetenz rund um Bewegung und Belast&shy;barkeit.
 {: layout="ntl-2col.reverse.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 8;" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
@@ -121,7 +121,7 @@ Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreu
 ---
 {: layout=".focus-list.footer" .xl:desktop }
 
-### [Sporttraumatologie](/schwerpunkte/sporttraumatologie)
+### [Sport&shy;traumatologie](/schwerpunkte/sporttraumatologie)
 
 Diagnostik und Behandlung akuter Sportverletzungen, Überlastungsschäden und anhaltender Beschwerden des Bewegungsapparates.
 
@@ -137,7 +137,7 @@ Wissenschaftlich differenzierte Einordnung regenerativer Therapieansätze – in
 
 Strukturierte Belastungssteuerung für eine sichere, nachvollziehbare Rückkehr in Training, Wettkampf und leistungsorientierte Bewegung.
 
-### [Gelenkerhaltende Konzepte](/schwerpunkte/gelenkerhaltende-konzepte)
+### [Gelenk&shy;erhaltende Konzepte](/schwerpunkte/gelenkerhaltende-konzepte)
 
 Moderne konservative Orthopädie mit Fokus auf Funktionserhalt, Bewegungsqualität und langfristige Belastbarkeit.
 
@@ -156,9 +156,9 @@ Dres. Behr, Erben, Primbs, Rau
 Rheinstraße 97  
 64295 Darmstadt
 
-[Zur Terminvereinbarung](/kontakt){: .btn .btn-outline-primary .mt-3 }
+[Zur Terminvereinbarung](/kontakt){: .btn .btn-outline-primary .btn-lead .btn-glow .mt-3 }
 
-### Zugangsinformationen
+### Zugangs&shy;informationen
 
 - 2. Obergeschoss mit Fahrstuhl
 - Barrierefreier Zugang
@@ -178,3 +178,11 @@ Rheinstraße 97
 - **Freitag**  
   08:00–13:00
 {: .opening-hours .xl:desktop aria-label="Sprechzeiten" }
+
+## Termin&shy;vereinbarung über das OCP Darmstadt.
+{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Termin & Kontakt" section-style="--cols: 5;" }
+
+Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das OCP Darmstadt. Dort erhalten Sie alle Informationen zu Sprechzeiten, Anfahrt und Zugang.
+{: .lead-serif }
+
+[Termin buchen](/kontakt){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }

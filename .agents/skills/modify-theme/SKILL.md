@@ -64,10 +64,14 @@ Für `ntl-2col` gilt standardmäßig: Hauptinhalt nach `main`, zweite Spalte nac
 
 Content muss in Kramdown bearbeitbar bleiben. Bevorzuge ein vorhandenes NTL-Layout mit Standard-Markdown wie Überschriften, Absätzen, Bildern, Links, `ul`-/`ol`-Listen oder Blockquotes. Weise allgemeine Classes und Attribute über Kramdown Attribute Lists zu, wenn das genügt; erstelle kein NTE nur zum Styling eines Standard-Content-Elements.
 
+In Markdown-Dokumenten sollen lange Wörter in `h1`, `h2` und `h3` gezielt mit `&shy;` trennbar gemacht werden, wenn sonst unschöne oder instabile Zeilenumbrüche entstehen. Bevorzuge manuelle Trennstellen im Inhalt statt aggressiver automatischer Worttrennung per CSS.
+
 - **DO:** Gib `layout` direkt an der Überschrift an, deren Section das Layout besitzen soll. Lasse den Index weg, wenn er aus der Überschrift ableitbar ist: `## Titel` gefolgt von `{: layout="ntl-2col.style-default" }`.
 - **DO:** Verwende `hr[layout]` nur für einen Layout-Wrapper oder eine Layout-Steuerung ohne eigene Überschrift, etwa um mehrere bereits betitelte Bereiche gemeinsam zu umschließen.
 - **DON'T:** Stelle einer Überschrift kein `hr[layout]` voran, wenn die Überschrift das Layout selbst besitzen kann. Das HR öffnet eine zusätzliche Zwischenebene, während die folgende Überschrift eine weitere Section auf ihrer Heading-Ebene erzeugt.
 - **DON'T:** Setze keinen expliziten Layout-Index wie `2;` oder `1.5;`, wenn die Heading-Ebene den Index bereits eindeutig vorgibt.
+
+Direkte Kinder eines `tj-content-pane` sollen grundsätzlich `ntl-*`-Layouts sein. Freie Light-DOM-Blöcke, reine Theme-Klassen oder einzelne Standard-Markdown-Elemente direkt unter dem Pane sind nur als große, ausdrücklich begründete Ausnahme zulässig. Bevorzuge in solchen Fällen fast immer die Einordnung in ein passendes vorhandenes `ntl-*`-Layout.
 
 Verlange von Autoren keine komplex verschachtelten Wrapper, Slot Trees oder eigenen HTML-Strukturen. Benötigt eine Komponente Markup, das über Standard-Markdown mit Classes und Attributen hinausgeht:
 
@@ -144,6 +148,7 @@ Gemeinsames Komponentenverhalten gehört für NTL in Nextstrap Layouts und für 
 - Registriere den Theme-Selector in `docs/_src/style.scss`; speichere dort keine Token-Werte.
 - Lade Theme-Parts mit `meta.load-css`. Halte das Theme unter `:where(.theme-<name>)` gescoped.
 - Verwende semantische Farben, die vorhandene Spacing Scale, insbesondere `--nt-spacing-section` für den Theme-eigenen Content Flow, `--nt-text-gap`, Typography, Utilities und Component Mixins wieder.
+- Buttons sollen typografisch in der Regel etwas kräftiger wirken als normaler Fließtext. Bevorzuge daher im Theme eine leicht höhere Schriftstärke für Buttons als für den Standardtext, ohne sie unnötig schwer oder plakativ zu machen.
 - Behandle Pixelwerte des Designers als Hinweis auf den relativen Rhythmus. Wähle das nächstliegende vorhandene Spacing Token, statt Einzelwerte zu erhalten.
 - Setze `--gutter-x` und `--gutter-y` immer mit Längeneinheit, vorzugsweise in `px` wie `0px`, `16px` oder `24px`. Verwende niemals einheitslose Werte wie `0`, da Gutter-Werte in Komponentenberechnungen per `calc()` als Längen weiterverarbeitet werden.
 - Ergänze ohne Freigabe keine eigenen Color-, Spacing-, Typography-, Breakpoint-, Shadow- oder anderen Theme-Variablen.
