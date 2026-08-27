@@ -25,6 +25,21 @@ Layouts may compose elements: for example, `ntl-card-row` lays out multiple `nte
 - Style NTE content through its documented API or its own generic variant. If the styling depends on an NTL composition, keep it inside that NTL variant and use the child-pairing structure in [references/element-child-structure.md](references/element-child-structure.md).
 - Avoid a bare theme-wide NTE override unless the user explicitly wants every instance in that theme to change.
 
+## Customer input and boundaries
+
+Implement a customer addition for the current layout, but express it as a reusable token, composition, option, or generic `style-*` variant that can handle other customers and content. Never name or constrain it around the requesting customer. If the request cannot be generalized without harming the component model, explain that and ask before adding a one-off solution.
+
+| Layer | Contains | Excludes |
+| --- | --- | --- |
+| Theme | Tokens and generic visual variants | Customer text, assets, fixed item counts, site structure |
+| Content layout | NTL composition with NTE content elements | Header, navbar, footer |
+| Content | Text, images, links, and repeated data | Theme decisions |
+| Site shell | Header, navbar, footer, and their structure | Included only on a separate explicit request |
+
+- Use neutral placeholders when customer images are unavailable; do not copy assets from the reference by default.
+- Offer to assemble a short stock-photo candidate list only when photography materially affects theme evaluation. Keep selection and licensing separate from theme implementation.
+- When customer input suggests another presentation, prefer a generic variant usable with different content over content-specific selectors or markup.
+
 ## Workflow
 
 1. Inventory the reference's recurring design rules rather than isolated pixel values.
@@ -75,11 +90,10 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 ## Demo
 
 - Add one representative Markdown demo under `docs/pages/`; demonstrate components, not the source website.
-- Use placeholder or reduced content instead of copying the complete reference.
+- Use reduced representative content instead of copying the complete reference.
 - Prefer `ntl-2col` for alternating image/text sections and its existing reverse behavior for swapped columns.
 - Prefer `ntl-card-row` with `nte-card` children for card groups.
 - Use existing NTL/NTE components for other structures where possible.
-- Keep the shared header, navbar, and footer unchanged or omit them from evaluation. Customize them only on an explicit separate request.
 
 ## Responsive behavior and verification
 
