@@ -1,0 +1,5 @@
+@use "sass:meta";
+
+ntl-2col {
+  @include meta.load-css("./_style-card.scss");
+}

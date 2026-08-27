@@ -17,7 +17,7 @@
 }
 
 :where(.theme-mueller) {
-  --nt-primary: #316947;
+  @include mueller.theme();
 }
 
 :where(.theme-epraxis) {
