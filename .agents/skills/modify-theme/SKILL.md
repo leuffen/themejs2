@@ -59,12 +59,21 @@ Use this order:
 4. Generic extension of the owning shared Nextstrap package.
 5. New component in the owning shared Nextstrap package.
 
-Stop before steps 4 or 5 and ask for approval. Briefly state:
+### Required component plan
 
-- what capability is missing;
-- why the closest existing option is insufficient;
-- the generic proposed change and how other themes can reuse it;
-- alternatives, including a small visual compromise and recomposition or extension of an existing component.
+Stop before steps 4 or 5. Approval to develop the theme does not approve a new or extended NTL/NTE component.
+
+Present a compact plan for every proposed component and have the user validate it before creating files or implementation. Include:
+
+| Item | Required information |
+| --- | --- |
+| Type and name | NTL or NTE plus its proposed public prefixed name |
+| Purpose | Its single responsibility and role in the current layout |
+| Existing options | The closest components or compositions considered and why each is insufficient |
+| Reuse | Other customers, content shapes, layouts, or themes that can use the capability |
+| Alternatives | At least a small visual compromise and recomposition or extension of an existing component |
+
+Group multiple proposals into one short plan, but cover every component individually. Proceed only after explicit validation of that plan.
 
 Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elements for NTE, never hidden in a theme. The theme contains only its token values and theme-specific variant styling. Do not add an API solely to reproduce one reference section. If Shadow DOM lacks a required part, slot, or API, ask instead of bypassing encapsulation.
 
@@ -102,4 +111,4 @@ Shared component behavior belongs to Nextstrap Layouts for NTL or Nextstrap Elem
 - Use existing breakpoint and container APIs rather than custom widths.
 - Verify palette, hierarchy, rhythm, typography, surfaces, component composition, and responsive behavior with the repository screenshot skill.
 - Ignore developer-only preview tools during comparison.
-- Before changing more than five files, or when the result needs a new component/API, new token category, or header/footer work, present the proposal and ask.
+- Before changing more than five files, or when the result needs a new token category or header/footer work, present the proposal and ask.
