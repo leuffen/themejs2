@@ -47,12 +47,16 @@ Gehe für jede Darstellung in dieser Reihenfolge vor:
 
 1. dokumentierte Standard-Slots und Default-Komposition der Komponente;
 2. vorhandene CSS-Variablen auf der konkreten Instanz;
-3. vorhandene Utilities wie `.surface-*`, `.bg-*`, Spacing oder Border;
+3. vorhandene Utilities wie `.surface-*`, `.bg-*`, Border oder eine bewusst lokale Spacing-Ausnahme;
 4. vorhandene Modifier wie `.reverse`, `.breakout-*` oder `.with-*`;
 5. eine wiederverwendbare semantische Light-DOM-Class für ein eigenständiges Content-Muster;
 6. erst danach eine weitere vollständige `style-*`-Baseline.
 
 Lege keine neue `style-*`-Variante nur für Spaltenbreite, Background oder Surface, Border, Radius, Spacing, Reverse, Breakout oder Alignment an. Eine zusätzliche Variante muss eine eigene wiederverwendbare Part-/Child-Darstellung und responsive Komposition bilden; dokumentiere dafür mindestens zwei plausible Einsatzfälle.
+
+Der wiederkehrende vertikale Rhythmus zwischen direkten Layout-Kindern eines `tj-content-pane` ist keine lokale Spacing-Ausnahme. Definiere ihn einmal im Theme mit `--nt-spacing-section`, normalerweise in einem `tj-content-pane`-Partial. Demo- und Seiten-Markup darf für diesen Default-Rhythmus keine `py-*`, `my-*`, `mt-*` oder vergleichbare Utility benötigen. Solche Utilities sind nur für eine ausdrücklich abweichende einzelne Instanz zulässig.
+
+Der Theme-Content-Flow steuert den Section-Abstand am Layout-Host. Eine NTL-Variante steuert nur ihre internen Parts, Slots und Gaps sowie bewusst variant-spezifisches Padding. Scope Content-Flow-Regeln auf direkte Layout-Kinder, damit verschachtelte Layouts keinen zusätzlichen Section-Abstand erhalten.
 
 Für `ntl-2col` gilt standardmäßig: Hauptinhalt nach `main`, zweite Spalte nach `aside`, `top`/`bottom` über die volle Wrapperbreite und `header`/`footer` über die volle Containerbreite. Soll nur eine Überschrift seitlich stehen, ordne sie `aside` zu und verwende `.reverse` beziehungsweise `.reverse-desktop`; verschiebe nicht `header` und `wrapper` per Theme-CSS in Spalten. Setze `--cols` normalerweise pro Instanz über Content Pane `section-style`.
 
@@ -139,7 +143,7 @@ Gemeinsames Komponentenverhalten gehört für NTL in Nextstrap Layouts und für 
 - Speichere Theme-gebundene Werte in `_runtime-settings.scss` mit vorhandenen semantischen `--nt-*`-Rollen. Erstelle kein paralleles Token-System.
 - Registriere den Theme-Selector in `docs/_src/style.scss`; speichere dort keine Token-Werte.
 - Lade Theme-Parts mit `meta.load-css`. Halte das Theme unter `:where(.theme-<name>)` gescoped.
-- Verwende semantische Farben, die vorhandene Spacing Scale, `--nt-content-space`, `--nt-text-gap`, Typography, Utilities und Component Mixins wieder.
+- Verwende semantische Farben, die vorhandene Spacing Scale, insbesondere `--nt-spacing-section` für den Theme-eigenen Content Flow, `--nt-text-gap`, Typography, Utilities und Component Mixins wieder.
 - Behandle Pixelwerte des Designers als Hinweis auf den relativen Rhythmus. Wähle das nächstliegende vorhandene Spacing Token, statt Einzelwerte zu erhalten.
 - Setze `--gutter-x` und `--gutter-y` immer mit Längeneinheit, vorzugsweise in `px` wie `0px`, `16px` oder `24px`. Verwende niemals einheitslose Werte wie `0`, da Gutter-Werte in Komponentenberechnungen per `calc()` als Längen weiterverarbeitet werden.
 - Ergänze ohne Freigabe keine eigenen Color-, Spacing-, Typography-, Breakpoint-, Shadow- oder anderen Theme-Variablen.
