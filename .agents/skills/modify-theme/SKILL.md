@@ -25,6 +25,20 @@ Layouts may compose elements: for example, `ntl-card-row` lays out multiple `nte
 - Style NTE content through its documented API or its own generic variant. If the styling depends on an NTL composition, keep it inside that NTL variant and use the child-pairing structure in [references/element-child-structure.md](references/element-child-structure.md).
 - Avoid a bare theme-wide NTE override unless the user explicitly wants every instance in that theme to change.
 
+### Kramdown content contract
+
+Content must remain authorable in Kramdown. Prefer an existing NTL layout containing standard Markdown output such as headings, paragraphs, images, links, `ul`/`ol` lists, or blockquotes. Assign generic classes and attributes with Kramdown attribute lists when that is sufficient; do not create an NTE merely to style a standard content element.
+
+Do not require authors to build complex nested wrappers, slot trees, or custom HTML structures. If a component would require markup beyond standard Markdown plus classes and attributes:
+
+1. stop before implementing it;
+2. show the exact required authored structure;
+3. explain why an existing NTL with Markdown content or an existing NTE cannot provide the result;
+4. provide the simpler Kramdown-compatible alternative and its visual trade-off;
+5. obtain explicit developer approval for the complex content contract.
+
+Theme or component-plan approval does not replace this additional developer approval.
+
 ## Customer input and boundaries
 
 Implement a customer addition for the current layout, but express it as a reusable token, composition, option, or generic `style-*` variant that can handle other customers and content. Never name or constrain it around the requesting customer. If the request cannot be generalized without harming the component model, explain that and ask before adding a one-off solution.
@@ -53,15 +67,16 @@ Prefer a coherent Nextstrap interpretation over pixel-perfect reproduction. Pres
 
 Use this order:
 
-1. Existing component and API.
-2. Composition of existing layouts, elements, and utilities.
-3. Theme-scoped styling through documented tokens, mixins, parts, slots, states, or a generic variant.
-4. Generic extension of the owning shared Nextstrap package.
-5. New component in the owning shared Nextstrap package.
+1. Existing NTL with standard Kramdown content, classes, and attributes.
+2. Existing NTL composed with existing NTE components and utilities.
+3. Theme-scoped styling through documented tokens, mixins, parts, slots, states, child pairings, or a generic variant.
+4. Generic extension of the owning shared Nextstrap component.
+5. New NTE component.
+6. New NTL component.
 
 ### Required component plan
 
-Stop before steps 4 or 5. Approval to develop the theme does not approve a new or extended NTL/NTE component.
+Stop before steps 4, 5, or 6. Approval to develop the theme does not approve a new or extended NTL/NTE component.
 
 Present a compact plan for every proposed component and have the user validate it before creating files or implementation. Include:
 
@@ -70,6 +85,7 @@ Present a compact plan for every proposed component and have the user validate i
 | Type and name | NTL or NTE plus its proposed public prefixed name |
 | Purpose | Its single responsibility and role in the current layout |
 | Existing options | The closest components or compositions considered and why each is insufficient |
+| Kramdown contract | The Markdown form authors will use; flag any required complex nested structure |
 | Reuse | Other customers, content shapes, layouts, or themes that can use the capability |
 | Alternatives | At least a small visual compromise and recomposition or extension of an existing component |
 
