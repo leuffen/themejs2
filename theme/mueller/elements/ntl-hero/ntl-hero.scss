@@ -4,9 +4,9 @@ ntl-hero.hero-box {
   }
 
   .box {
-    width: 50%;
+    width: calc(100% / 12 * 8);
     margin: 0 auto 0 0;
-    padding: var(--nt-container-gutter);
+    padding: clamp(var(--nt-space-4), 2.5vw, var(--nt-space-6));
     border-radius: var(--nt-border-radius);
     background: rgb(255 255 255 / .2);
     box-shadow: 0 4px 30px rgb(0 0 0 / .1);

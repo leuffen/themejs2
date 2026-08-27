@@ -6,7 +6,7 @@ tj-content-pane {
     padding-block: var(--nt-spacing-section);
   }
 
-  > :where(ntl-hero, .style-ribbon, .testimonial, .footer-separators) {
+  > :where(ntl-hero, .style-ribbon, .style-testimonial, .footer-separators) {
     padding-block: 0;
   }
 }

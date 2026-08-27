@@ -1,8 +1,8 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
-&:not(.testimonial) {
+&.style-default {
   @include twoCol.default-style(
-    $innerPadding: clamp(var(--nt-space-5), 4vw, var(--nt-space-8)),
+    $innerPadding: var(--nt-space-4),
     $gap: 0,
     $background: transparent,
     $border: var(--nt-border-width) solid var(--nt-border),
@@ -45,5 +45,9 @@
       min-height: 0;
       aspect-ratio: 4 / 3;
     }
+  }
+
+  &[mode="desktop"] {
+    --inner-padding: var(--nt-space-6);
   }
 }

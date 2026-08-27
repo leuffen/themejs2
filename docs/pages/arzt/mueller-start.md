@@ -18,7 +18,7 @@ ptags:
 {: slot="bg"}
 
 ---
-{: layout="2.5;.box.-lg:w-100.lg-xxl:w-75" }
+{: layout="2.5;.box.-lg:w-100" }
 
 ### Allgemeinmedizinische Praxis <br><small>Individuelle und professionelle medizinische Versorgung</small>
 
@@ -76,7 +76,6 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 {: layout="ntl-card-row" section-style="--cols: 4"}
 
 ### Vorsorge
-{: .header }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/360/B_gfedcba/AdobeStock_352102788.webp)
 
@@ -84,14 +83,12 @@ Wir führen umfassende Vorsorgeuntersuchungen durch, um Ihre Gesundheit frühzei
 Wir beraten Sie zu allen empfohlenen Impfungen und führen diese direkt in unserer Praxis durch.
 
 ### Diagnostik
-{: .header }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/266/c_gfedcba/AdobeStock_867819587.webp)
 
 Mit modernen Geräten bieten wir EKG, Belastungs-EKG, Langzeit-EKG, Blutdruckmessung, Langzeit-Blutdruckmessung, Lungenfunktion, ABI-Messung, Ultraschall, Laboruntersuchungen sowie Sehtests und Hörtests an.
 
 ### Therapie
-{: .header }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/331/338-193_gfedcba/AdobeStock_508437308.webp)
 
@@ -154,7 +151,7 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 
 
 ---
-{: layout="2;ntl-2col.testimonial"}
+{: layout="2;ntl-2col.style-testimonial"}
 
 ![](https://cdn.leuffen.de//leu-stock/v2/299/c_gfedcba/AdobeStock_641812390.webp)
 
