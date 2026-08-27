@@ -23,5 +23,12 @@
   @include nextrapButton.style-button();
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
-  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+  @include meta.load-css("./../medic/elements/ntl-hero/ntl-hero.scss");
+  @include meta.load-css("./../medic/elements/ntl-card-row/ntl-card-row.scss");
+  @include meta.load-css("./../medic/elements/ntl-card/ntl-card.scss");
+  @include meta.load-css("./../medic/elements/ntl-2col/ntl-2col.scss");
+  @include meta.load-css("./../medic/elements/ntl-accordion-item/ntl-accordion-item.scss");
+  @include meta.load-css("./../medic/elements/ntl-consent-blocker/ntl-consent-blocker.scss");
+  @include meta.load-css("./../medic/tools/_button-bar.scss");
+  @include meta.load-css("./../medic/elements/tj-loader/tj-loader.scss");
 }
