@@ -26,10 +26,25 @@
         --border-width: 0;
         --border-color: transparent;
         background: var(--nt-white);
-
+        color: var(--nt-primary-subtle);
 
         &::part(content) {
+            color: inherit;
+        }
 
+        > leuffen-announcements {
+            display: block;
+            color: inherit;
+
+            [data-owner='leuffen-announcements'] {
+                display: grid;
+                gap: var(--nt-space-2);
+            }
+
+            [data-owner='leuffen-announcement'] {
+                margin: 0;
+                color: inherit;
+            }
         }
     }
 

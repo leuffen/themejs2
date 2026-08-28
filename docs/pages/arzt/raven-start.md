@@ -28,7 +28,12 @@ Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Ein
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ---
-{: layout="2;ntl-card-row.style-ribbon" style="--cols: 3;" }
+{: layout="2;ntl-card-row.style-ribbon" style="--cols: 2;" }
+
+### News
+{: section-style="--cols: 4;" }
+
+<leuffen-announcements>Keine aktuellen Hinweise</leuffen-announcements>
 
 ### Fachärztliche Expertise
 

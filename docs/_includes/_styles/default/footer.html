@@ -17,6 +17,72 @@
     color: inherit;
   }
 
+  #footer-default .default-footer__leuffen-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  #footer-default .default-footer__leuffen {
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  #footer-default .default-footer__leuffen-logo {
+    position: relative;
+    width: 67px;
+    height: 22px;
+    flex: 0 0 auto;
+  }
+
+  #footer-default .default-footer__leuffen-logo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: opacity 0.25s ease;
+  }
+
+  #footer-default .default-footer__leuffen-logo-soft {
+    opacity: 0.9;
+  }
+
+  #footer-default .default-footer__leuffen-logo-full {
+    opacity: 0;
+  }
+
+  #footer-default .default-footer__leuffen:hover .default-footer__leuffen-logo-soft,
+  #footer-default .default-footer__leuffen:focus-visible .default-footer__leuffen-logo-soft {
+    opacity: 0;
+  }
+
+  #footer-default .default-footer__leuffen:hover .default-footer__leuffen-logo-full,
+  #footer-default .default-footer__leuffen:focus-visible .default-footer__leuffen-logo-full {
+    opacity: 1;
+  }
+
+  #footer-default .default-footer__credit {
+    display: grid;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  #footer-default .default-footer__credit-start,
+  #footer-default .default-footer__credit-center,
+  #footer-default .default-footer__credit-end {
+    min-width: 0;
+  }
+
+  #footer-default .default-footer__credit-center,
+  #footer-default .default-footer__credit-end {
+    display: flex;
+    justify-content: center;
+  }
+
   #footer-default .openhours {
     width: 100%;
     border-collapse: collapse;
@@ -45,11 +111,26 @@
       margin-right: 0;
       border-right: 0;
     }
+
+    #footer-default .default-footer__credit {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      text-align: left;
+    }
+
+    #footer-default .default-footer__credit-start {
+      justify-self: start;
+    }
+
+    #footer-default .default-footer__credit-center {
+      justify-self: center;
+    }
+
+    #footer-default .default-footer__credit-end {
+      justify-self: end;
+      justify-content: flex-end;
+    }
   }
 </style>
-
-{% assign footer_version = page.url | size | modulo: site.data.defaults.footers.size %}
-{% assign selected_footer = site.data.defaults.footers[footer_version] %}
 
 <footer
   id="footer-default"
@@ -105,17 +186,25 @@
 
   <div style="background:var(--minifooter-background);color:var(--minifooter-text-color);border-top:1px solid var(--minifooter-border-color);">
     <div class="container py-3">
-      <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 small text-center">
-        <a class="d-inline-flex align-items-center text-decoration-none" href="{{ selected_footer.logo_href }}" aria-label="{{ selected_footer.logo_label }}">
-          <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height:22px;" alt="{{ selected_footer.logo_alt }}">
-        </a>
-        <a class="text-decoration-none" href="{{ selected_footer.text_href }}">{{ selected_footer.text }}</a>
-        <a class="d-inline-flex align-items-center text-decoration-none" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-          </svg>
-        </a>
+      <div class="default-footer__credit small">
+        <span class="default-footer__credit-start">© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <div class="default-footer__credit-center">
+          <a class="default-footer__leuffen text-decoration-none" href="https://leuffen.de" aria-label="leuffen.de – Webdesign für Ärzte">
+            <span class="default-footer__leuffen-text">Webdesign für Ärzte</span>
+            <span class="default-footer__leuffen-logo" aria-hidden="true">
+              <img class="default-footer__leuffen-logo-soft" width="67" height="22" src="/assets/leuffen-logo-soft.svg" alt="" loading="lazy">
+              <img class="default-footer__leuffen-logo-full" width="67" height="22" src="/assets/leuffen-logo-white.svg" alt="" loading="lazy">
+            </span>
+          </a>
+        </div>
+        <div class="default-footer__credit-end">
+          <a class="d-inline-flex align-items-center text-decoration-none" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>

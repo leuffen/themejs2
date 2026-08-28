@@ -1,17 +1,20 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
 &.style-testimonial {
-  --cols: 8;
+  --cols: 9;
+  --testimonial-section-background: #f8c4c8;
+  --testimonial-image-size: 12.5rem;
+  --testimonial-image-size-mobile: 7.5rem;
+  --testimonial-content-padding: 2.5rem;
+  --testimonial-font-size: 1.3rem;
 
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   color: var(--nt-text);
-  background: #f8c4c8;
-  font-size: var(--nt-fs-3);
-  font-style: italic;
+  background-color: var(--testimonial-section-background);
 
   @include twoCol.default-style(
-    $innerPadding: var(--nt-space-4),
+    $innerPadding: var(--testimonial-content-padding),
     $gap: clamp(var(--nt-space-4), 3vw, var(--nt-space-7)),
     $background: transparent,
     $border: 0,
@@ -28,6 +31,7 @@
   &::part(wrapper) {
     align-items: center;
     padding-block: var(--nt-space-5);
+    background-color: transparent;
   }
 
   &::part(main) {
@@ -36,18 +40,38 @@
 
   &::part(aside) {
     order: 1;
+    padding: var(--testimonial-content-padding);
+  }
+
+  > :is(h1, h2, h3) {
+    display: none;
+  }
+
+  > p {
+    font-size: var(--testimonial-font-size);
+    line-height: 1.5;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  > p:last-child {
+    margin-bottom: 0;
+    font-weight: 400;
   }
 
   > [slot="aside"] {
-    width: min(100%, 13rem);
+    display: block;
+    width: var(--testimonial-image-size);
+    height: var(--testimonial-image-size);
     aspect-ratio: 1;
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
-    border: .25rem solid rgb(255 255 255 / .72);
+    border: 1px solid rgb(255 255 255 / .9);
     border-radius: 50%;
   }
 
   > [slot="aside"] img {
+    display: block;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -55,10 +79,32 @@
   }
 
   &[mode="mobile"] {
+    --testimonial-top-space-mobile: var(--nt-spacing-section);
+
+    margin-top: calc(var(--testimonial-top-space-mobile) + var(--testimonial-image-size-mobile));
     text-align: center;
+
+    > [slot="aside"] {
+      width: var(--testimonial-image-size-mobile);
+      height: var(--testimonial-image-size-mobile);
+      aspect-ratio: 1;
+      position: relative;
+      transform: translateY(-50%);
+      border: .25rem solid var(--testimonial-section-background);
+    }
 
     &::part(wrapper) {
       flex-direction: column;
+      overflow: visible;
+      margin-top: 0;
+      padding-top: 0;
+      background-color: transparent;
+    }
+
+    &::part(aside) {
+      padding: 0;
+      margin-bottom: calc(var(--testimonial-image-size-mobile) / -1);
+      overflow: visible;
     }
   }
 

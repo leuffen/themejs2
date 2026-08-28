@@ -114,7 +114,7 @@
     <div class="container py-3">
       <div class="osman-footer__credit d-flex flex-wrap align-items-center justify-content-center gap-3 small text-center">
         <a class="d-inline-flex align-items-center" href="{{ selected_footer.logo_href }}" aria-label="{{ selected_footer.logo_label }}">
-          <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height:22px;" alt="{{ selected_footer.logo_alt }}">
+          <img width="67" height="22" src="{{ selected_footer.logo_url }}" style="height:22px;" alt="{{ selected_footer.logo_alt }}" loading="lazy">
         </a>
         <a href="{{ selected_footer.text_href }}">{{ selected_footer.text }}</a>
         <a class="d-inline-flex align-items-center ps-5" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">

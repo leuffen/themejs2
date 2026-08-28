@@ -18,7 +18,7 @@
   &::part(main) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   > :is(h1, h2, h3) {

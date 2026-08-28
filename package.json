@@ -30,12 +30,15 @@
     "workspaces/nextrap-monorepo/nextrap-base/*",
     "workspaces/nextrap-monorepo/nextrap-styles/*",
     "workspaces/trunkjs-monorepo/packages/*",
+    "workspaces/leuffen-monorepo/packages/*",
     "workspaces/*"
   ],
   "author": "",
   "dependencies": {
+    "@leuffen/announcements": "^0.1.0",
     "@micx/lib-js": "^2.0.16",
     "@nextrap/nte-card": "^2.0.0",
+    "@nextrap/nte-dialog-component": "^2.0.0",
     "@nextrap/nte-image": "^2.0.0",
     "@nextrap/nte-nav": "^2.0.0",
     "@nextrap/nte-accordion": "^2.0.0",
