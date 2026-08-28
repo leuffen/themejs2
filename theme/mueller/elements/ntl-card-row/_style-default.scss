@@ -1,0 +1,32 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&:not(.style-ribbon):not(.style-footer):not(.footer-separators) {
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 4,
+    $gap: var(--nt-space-4),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  &::part(header) {
+    max-width: 48rem;
+    margin: 0 auto var(--nt-space-8);
+  }
+
+  &::part(header) :is(h1, h2, h3) {
+    color: var(--nt-primary);
+    font-size: clamp(var(--nt-fs-h3), 4vw, var(--nt-fs-h2));
+    font-weight: var(--nt-font-weight-header);
+  }
+
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  &[mode="mobile"] {
+    --gutter-y: var(--nt-space-5);
+  }
+}

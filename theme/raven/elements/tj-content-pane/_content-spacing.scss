@@ -1,0 +1,12 @@
+tj-content-pane {
+  display: block;
+
+  > :where(section, ntl-2col, ntl-card-row, ntl-card-grid) {
+    margin-block: 0;
+    padding-block: var(--nt-spacing-section);
+  }
+
+  > :where(.style-hero, .style-ribbon) {
+    padding-block: 0;
+  }
+}

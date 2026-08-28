@@ -11,6 +11,7 @@ import "@nextrap/nte-image";
 import "./src/elements/progress-bar";
 
 import "@micx/lib-js";
+import "@leuffen/announcements";
 
 // Import NTL components
 import "@nextrap/ntl-2col";

@@ -1,6 +1,6 @@
 &.style-ribbon {
     --gutter-y: 0;
-    --default-cols: 4;
+    --cols: 4;
 
     position: relative;
     padding-top: 0;
@@ -26,10 +26,25 @@
         --border-width: 0;
         --border-color: transparent;
         background: var(--nt-white);
-
+        color: var(--nt-primary-subtle);
 
         &::part(content) {
+            color: inherit;
+        }
 
+        > leuffen-announcements {
+            display: block;
+            color: inherit;
+
+            [data-owner='leuffen-announcements'] {
+                display: grid;
+                gap: var(--nt-space-2);
+            }
+
+            [data-owner='leuffen-announcement'] {
+                margin: 0;
+                color: inherit;
+            }
         }
     }
 
@@ -52,7 +67,6 @@
 
     &[mode="desktop"] {
         :is(ntl-card, nte-card) {
-            flex-grow: 1;
             padding: 0;
             border-right: 1px solid var(--nt-gray-500);
 

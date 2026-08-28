@@ -1,0 +1,34 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&.style-ribbon {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  color: var(--nt-white);
+  background: var(--nt-secondary);
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 3,
+    $gap: 0px,
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+  @include cardRow.with-borderless-cards();
+  @include cardRow.with-item-separators(
+    $separator-color: color-mix(in srgb, var(--nt-white) 16%, transparent),
+    $separator-inset: var(--nt-space-5)
+  );
+
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  &[mode="mobile"] {
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
+  }
+}

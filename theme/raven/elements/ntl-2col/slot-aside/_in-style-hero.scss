@@ -1,0 +1,9 @@
+&.style-hero {
+  > p[slot="aside"].auto {
+    margin: 0;
+
+    > img {
+      object-position: center top;
+    }
+  }
+}

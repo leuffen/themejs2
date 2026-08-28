@@ -176,7 +176,7 @@ dpoqwjdpioqwjdoijqwoid
 ## Footer
 
 <footer>
-    <ntl-card-row class="footer-separators" style="--default-cols: 4">
+    <ntl-card-row class="footer-separators" style="--cols: 4">
         <nte-card>
             <h3>Kontakt</h3>
 						Augenarzt Dr. Osman<br>

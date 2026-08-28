@@ -1,0 +1,33 @@
+@use "@nextrap/nte-card" as card;
+@use "sass:string";
+
+&:not(.style-ribbon):not(.style-footer):not(.footer-separators) {
+  nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-space-5),
+      $border: var(--nt-border-width) solid var(--nt-border),
+      $background-color: var(--nt-surface-raised),
+      $border-radius: var(--nt-border-radius),
+      $image-aspect-ratio: string.unquote("16 / 9")
+    );
+
+    height: 100%;
+    color: var(--nt-text);
+
+    &::part(wrapper) {
+      height: 100%;
+    }
+
+    &::part(content) {
+      flex: 1 1 auto;
+    }
+
+    > h3 {
+      font-weight: var(--nt-font-weight-bold);
+    }
+  }
+
+  &[mode="mobile"] nte-card {
+    --image-aspect-ratio: 4 / 3;
+  }
+}

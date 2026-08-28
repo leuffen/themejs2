@@ -2,6 +2,7 @@
 @use "@leuffen/themejs2/theme/mueller";
 @use "@leuffen/themejs2/theme/osman";
 @use "@leuffen/themejs2/theme/epraxis";
+@use "@leuffen/themejs2/theme/raven";
 
 :root {
   @include nextrapBase.runtime-scheme-selectors();
@@ -11,11 +12,14 @@
   @include osman.theme();
 }
 
+:where(.theme-raven) {
+  @include raven.theme();
+}
+
 :where(.theme-mueller) {
-  --nt-primary: #316947;
+  @include mueller.theme();
 }
 
 :where(.theme-epraxis) {
   --nt-primary: #1b8c47;
 }
-

@@ -1,0 +1,52 @@
+.card-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: var(--nt-spacing-layout);
+  border: var(--nt-border-width) solid var(--nt-border);
+}
+
+.card-grid > section {
+  min-width: 0;
+  padding: var(--nt-spacing-component);
+}
+
+.card-grid > section:not(:first-child) {
+  border-top: var(--nt-border-width) solid var(--nt-border);
+}
+
+.card-grid > section > :is(h3, h4, h5, h6) {
+  margin-bottom: var(--nt-spacing-text);
+  color: var(--nt-primary-emphasis);
+  font-size: var(--nt-fs-4);
+}
+
+.card-grid > section > p {
+  margin-bottom: 0;
+  color: var(--nt-text-muted);
+  font-size: var(--nt-fs-4);
+}
+
+.card-grid.desktop {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid.desktop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--nt-border-width);
+  background: var(--nt-border);
+  transform: translateX(calc(var(--nt-border-width) / -2));
+  pointer-events: none;
+}
+
+.card-grid.desktop > section:not(:first-child) {
+  border-top: 0;
+}
+
+.card-grid.desktop > section:nth-child(n + 3) {
+  border-top: var(--nt-border-width) solid var(--nt-border);
+}

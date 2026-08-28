@@ -1,6 +1,7 @@
 ---
 layout: website
-body_class: theme-medic
+body_class: theme-mueller
+use_footer: mueller
 title: Theme Müller
 description: "Meta Description Text"
 theme_classes: "default theme-medic-osman"
@@ -17,7 +18,7 @@ ptags:
 {: slot="bg"}
 
 ---
-{: layout="2.5;.box.-lg:w-100.lg-xxl:w-75" }
+{: layout="2.5;.box.-lg:w-100" }
 
 ### Allgemeinmedizinische Praxis <br><small>Individuelle und professionelle medizinische Versorgung</small>
 
@@ -72,10 +73,9 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 ![](https://cdn.leuffen.de//leu-stock/v2/386/c_gfedcba/AdobeStock_222010919.webp)
 
 ## Unsere Leistungen
-{: layout="ntl-card-row" section-style="--default-cols: 4"}
+{: layout="ntl-card-row" section-style="--cols: 4"}
 
 ### Vorsorge
-{: .header }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/360/B_gfedcba/AdobeStock_352102788.webp)
 
@@ -83,14 +83,12 @@ Wir führen umfassende Vorsorgeuntersuchungen durch, um Ihre Gesundheit frühzei
 Wir beraten Sie zu allen empfohlenen Impfungen und führen diese direkt in unserer Praxis durch.
 
 ### Diagnostik
-{: .header }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/266/c_gfedcba/AdobeStock_867819587.webp)
 
 Mit modernen Geräten bieten wir EKG, Belastungs-EKG, Langzeit-EKG, Blutdruckmessung, Langzeit-Blutdruckmessung, Lungenfunktion, ABI-Messung, Ultraschall, Laboruntersuchungen sowie Sehtests und Hörtests an.
 
 ### Therapie
-{: .header }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/331/338-193_gfedcba/AdobeStock_508437308.webp)
 
@@ -99,12 +97,12 @@ Wir bieten Hausbesuche, kleine chirurgische Eingriffe, Disease Management Progra
 ## Warnsignale für die Augen – Sofort zum Arzt!
 {: layout="ntl-2col"}
 
-- Plötzliche Sehstörungen oder Sehverlust 
-- Lichtblitze und bunte Ringe um Lichtquellen 
-- Unerwartetes Doppeltsehen 
-- Starke Augenschmerzen oder extreme Rötung 
-- Fremdkörper im Auge 
-- Verätzungen, Verbrennungen oder Verletzungen 
+- Plötzliche Sehstörungen oder Sehverlust
+- Lichtblitze und bunte Ringe um Lichtquellen
+- Unerwartetes Doppeltsehen
+- Starke Augenschmerzen oder extreme Rötung
+- Fremdkörper im Auge
+- Verätzungen, Verbrennungen oder Verletzungen
 
 Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
 
@@ -153,7 +151,7 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 
 
 ---
-{: layout="2;ntl-2col.testimonial"}
+{: layout="2;ntl-2col.style-testimonial"}
 
 ![](https://cdn.leuffen.de//leu-stock/v2/299/c_gfedcba/AdobeStock_641812390.webp)
 
@@ -178,33 +176,3 @@ Test
 ### odhoqidjiowqjdioq
 
 dpoqwjdpioqwjdoijqwoid
-
----
-{: layout="2" }
-
-<footer>
-    <ntl-card-row class="footer-separators" style="--default-cols: 4">
-        <nte-card>
-            <h3>Kontakt</h3>
-						Medizinische Praxis<br>
-						Straße XX<br>
-						PLZ Ort<br><br>
-						<span>Telefon:</span> <b><a href="tel:+490000000000" title="Telefon" class="text-decoration-none">+49 000 000-0000</a></b><br>
-						<span>Telefax:</span> <b>+49 000 000-0001</b><br>
-						<span>E-Mail:</span> <a href="mailto:kontakt@praxis.tld" title="E-Mail" class=" text-decoration-none">kontakt@praxis.tld</a><br>
-				</nte-card>
-        <nte-card>
-            <h3>Beschreibung</h3>
-            <span>
-            	Neutrale Kurzbeschreibung der Praxis.
-            </span>
-        </nte-card>
-        <nte-card>
-            <h3>Links</h3>
-						<ul style="list-style: none; padding-left: 0;">
-							<li><a href="/home" class="text-decoration-none">Home</a></li>
-							<li><a href="/kontakt" class="text-decoration-none">Kontakt</a></li>
-						</ul>
-        </nte-card>
-    </ntl-card-row>
-</footer>

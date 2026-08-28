@@ -1,0 +1,40 @@
+@use "sass:meta";
+@use "./../../font/_vendor/font-work-sans";
+@use "./../../font/_vendor/font-garamond";
+@use "@nextrap/style-reset";
+@use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-utils" as nextrapUtils;
+@use "@nextrap/style-typography" as nextrapTypography;
+@use "@nextrap/style-button" as nextrapButton;
+
+@mixin theme() {
+  @include nextrapBase.runtime-theme-scoped();
+  @include meta.load-css("./_runtime-settings.scss");
+
+  @content;
+
+  font-family: var(--nt-font-family);
+  color: var(--nt-text);
+  line-height: var(--nt-line-height);
+  background: var(--nt-surface);
+
+  @include nextrapUtils.style-utils();
+  @include nextrapTypography.style-typography();
+  @include nextrapButton.style-button();
+
+  @include meta.load-css("./../../src/features/_data-kicker.scss");
+  @include meta.load-css("./html-elements/_defaults.scss");
+  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
+  @include meta.load-css("./classes/_card-grid.scss");
+  @include meta.load-css("./classes/_data-kicker.scss");
+  @include meta.load-css("./classes/_focus-list.scss");
+  @include meta.load-css("./classes/_hero-specialties.scss");
+  @include meta.load-css("./classes/_hero-specialties-desktop.scss");
+  @include meta.load-css("./classes/_lead-serif.scss");
+  @include meta.load-css("./classes/_opening-hours.scss");
+  @include meta.load-css("./classes/_process-steps.scss");
+  @include meta.load-css("./classes/_profile-quote.scss");
+  @include meta.load-css("./classes/_timeline-table.scss");
+  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+}

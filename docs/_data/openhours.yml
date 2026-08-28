@@ -49,7 +49,7 @@ json:
 vacation:
   -
     from: '2023-09-18'
-    till: '2023-09-18'
+    till: '2025-09-18'
     short_text: ''
     text: 'Vertretung übernimmt Dr. xxx'
     title: 'Urlaub vom 21.09.. - 27.09.'

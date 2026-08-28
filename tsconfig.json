@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@leuffen/themejs2": ["index.ts", "index.scss"]
+      "@leuffen/themejs2": ["index.ts", "index.scss"],
+      "@leuffen/announcements": ["workspaces/leuffen-monorepo/packages/announcements/index.ts"],
+      "@leuffen/demo": ["workspaces/leuffen-monorepo/packages/demo/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"],

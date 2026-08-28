@@ -1,0 +1,30 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&:is(.style-footer, .footer-separators) {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-block: var(--nt-space-7);
+  color: var(--nt-white);
+  background: var(--nt-secondary);
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 4,
+    $gap: 0px,
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+  @include cardRow.with-footer-separators(
+    $separator-color: rgb(255 255 255 / .28)
+  );
+
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  &[mode="mobile"] {
+    --gutter-y: var(--nt-space-6);
+  }
+}

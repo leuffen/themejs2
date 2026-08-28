@@ -1,0 +1,18 @@
+:is(h1, h2, h3, h4, h5, h6).data-kicker,
+:is(h1, h2, h3, h4, h5, h6)[data-kicker] {
+  &::before {
+    display: flex;
+    align-items: center;
+    gap: var(--nt-space-3);
+    margin-bottom: var(--nt-space-5);
+    padding-inline-start: calc(var(--nt-space-6) + var(--nt-space-3));
+    color: var(--nt-accent-emphasis);
+    background: linear-gradient(currentColor, currentColor) left center / var(--nt-space-6) var(--nt-border-width) no-repeat;
+    font-family: var(--nt-font-family);
+    font-size: var(--nt-font-size-small);
+    font-weight: var(--nt-font-weight-bold);
+    letter-spacing: .18em;
+    line-height: var(--nt-line-height);
+    text-transform: uppercase;
+  }
+}

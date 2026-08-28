@@ -1,0 +1,25 @@
+.button-bar {
+  &.column > p {
+    flex-direction: column;
+  }
+
+  > p {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--nt-space-3);
+    align-items: stretch;
+    justify-content: stretch;
+
+    .btn {
+      min-width: 140px;
+      flex: 1;
+      text-align: center;
+      text-wrap: auto;
+    }
+
+    .bi {
+      display: block;
+      font-size: 1.8rem;
+    }
+  }
+}
