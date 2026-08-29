@@ -1,0 +1,7 @@
+@use "@nextrap/nte-card" as card;
+@use "sass:string";
+&.style-default nte-card {
+  @include card.default-style($innerPadding: var(--nt-spacing-component), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: var(--nt-border-radius-xl), $image-aspect-ratio: string.unquote("11 / 6"));
+  height: 100%;
+  &::part(wrapper) { height: 100%; }
+}

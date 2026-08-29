@@ -1,33 +1,35 @@
 @use "sass:meta";
 @use "./../../font/work-sans" as font;
 @use "./../../font/_vendor/font-bootstrap-icons";
+@use "@nextrap/style-reset";
 @use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-utils" as nextrapUtils;
+@use "@nextrap/style-typography" as nextrapTypography;
+@use "@nextrap/style-button" as nextrapButton;
 
 @forward "../../src/style/base";
 
-:where(.theme-epraxis) {
+@mixin theme() {
   @include nextrapBase.runtime-theme-scoped();
+  @include meta.load-css("./_runtime-settings.scss");
+  @content;
 
   font-family: var(--nt-font-family);
   color: var(--nt-text);
   line-height: var(--nt-line-height);
 
-  // Theme-owned runtime inputs. Derived Nextrap tokens stay in style-base.
-  --nt-primary: #fe6606;
-  --nt-accent: #fe6606;
-  --nt-secondary: #1F3655;
-  --nt-neutral: #6a7182;
-  --nt-font-family: #{font.$font-family-base};
-  --nt-font-family-header: var(--nt-font-family);
-  --nt-font-size: #{font.$font-size-base};
-  --nt-font-size-header: #{font.$font-size-header};
+  @include nextrapUtils.style-utils();
+  @include nextrapTypography.style-typography();
+  @include nextrapButton.style-button();
 
   @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
   @include meta.load-css("./elements/ntl-card/ntl-card.scss");
+  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   @include meta.load-css("./elements/ntl-card-grid/ntl-card-grid.scss");
   @include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
+  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
   @include meta.load-css("./elements/tj-loader/tj-loader.scss");
   @include meta.load-css("./classes/kicker");
 }

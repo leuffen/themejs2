@@ -54,7 +54,7 @@ Effizient,  Effizient, präziser, patientenorientierter<br/>- der moderne Zahnar
 {: layout="1;"}
 
 ---
-{: layout="2;ntl-card-grid.featured" style="--rows:2;--cols:2;"}
+{: layout="2;ntl-card-row.style-featured" section-style="--cols: 6;"}
 
 ### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 {: data-kicker="Kategorie"}
@@ -86,7 +86,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 {: layout="1;.box-primary"}
 
 ## Empfehlung der Redaktion
-{: layout="ntl-2col.featured" data-kicker="Top Thema"}
+{: layout="ntl-2col.style-featured" data-kicker="Top Thema"}
 
 Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«
 
@@ -99,7 +99,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 
 
 ---
-{: layout="2;ntl-card-grid.featured2"}
+{: layout="2;ntl-card-row.style-article-grid" section-style="--cols: 4;"}
 
 ### Das ist eine längere Überschrift, die in zwei Zeilen steht.
 {: data-kicker="Kategorie"}

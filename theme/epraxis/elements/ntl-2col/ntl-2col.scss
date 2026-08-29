@@ -2,5 +2,6 @@
 
 ntl-2col {
 
-  @include meta.load-css("./_featured.scss");
+  @include meta.load-css("./_style-default.scss");
+  @include meta.load-css("./_style-featured.scss");
 }

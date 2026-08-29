@@ -46,6 +46,7 @@
     "@nextrap/nte-parallax-bg": "^2.0.0",
     "@nextrap/nte-slider": "^2.0.0",
     "@nextrap/ntl-2col": "^2.0.0",
+    "@nextrap/ntl-card-row": "^2.0.0",
     "@nextrap/ntl-footer": "^2.0.0",
     "@nextrap/ntl-hero": "^2.0.0",
     "@nextrap/style-base": "^2.0.0",
