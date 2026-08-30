@@ -1,0 +1,6 @@
+@use "@nextrap/ntl-2col" as twoCol;
+&.style-featured {
+  @include twoCol.default-style($innerPadding: var(--nt-spacing-component), $gap: var(--nt-spacing-layout), $background: transparent, $border: 0, $border-radius: var(--nt-border-radius-xl), $objectFit: cover, $wrapper-bg-color: var(--nt-primary-subtle));
+  &::part(wrapper) { overflow: hidden; }
+  &[mode="desktop"] { --inner-padding: var(--nt-space-6); }
+}

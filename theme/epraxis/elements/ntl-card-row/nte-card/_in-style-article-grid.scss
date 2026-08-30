@@ -1,0 +1,8 @@
+@use "@nextrap/nte-card" as card;
+@use "sass:string";
+&.style-article-grid {
+  nte-card { @include card.default-style($innerPadding: var(--nt-spacing-component), $border: var(--nt-border-width) solid var(--nt-border), $background-color: transparent, $border-radius: var(--nt-border-radius-xl), $image-aspect-ratio: string.unquote("16 / 9")); height: 100%; }
+  nte-card::part(wrapper) { height: 100%; }
+  nte-card.aside { --background-color: var(--nt-surface-muted); }
+  &[mode="desktop"] nte-card.aside { --cols: 4; grid-row: span 2; }
+}

@@ -1,0 +1,5 @@
+@use "@nextrap/ntl-2col" as twoCol;
+&.style-default {
+  @include twoCol.default-style($innerPadding: 0, $gap: var(--nt-spacing-layout), $background: transparent, $border: 0, $border-radius: 0, $objectFit: cover, $wrapper-bg-color: transparent);
+  &[mode="mobile"] { --gap: var(--nt-space-4); }
+}
