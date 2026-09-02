@@ -1,16 +1,13 @@
 ---
 layout: 1_body
 ---
-
 {{ content }}
 
 <!-- Templates from /_elements -->
-
 {% for template in site.elements %}
-    <template id="{{ template.slug }}">
-        {{ template.content  | strip_newlines | whitespace_strip }}
-    </template>
+  <template id="{{ template.slug }}">
+    {{ template.content | strip_newlines }}
+  </template>
 {% endfor %}
 
-<!-- # Put <script> here -->
 <leuffen-vacation-modal></leuffen-vacation-modal>
