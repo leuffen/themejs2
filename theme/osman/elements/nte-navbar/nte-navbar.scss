@@ -1,5 +1,4 @@
 @use "sass:meta";
 
-nte-navbar {
-  @include meta.load-css("./_style-default.scss");
-}
+// Loads the reusable Osman-specific navbar presentation variant.
+@include meta.load-css("./_style-osman.scss");

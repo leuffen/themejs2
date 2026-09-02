@@ -1,11 +1,11 @@
 @use "@nextrap/style-elements" as elements;
 
-// Osman defaults for native content elements below the main content area.
-// Utility classes remain fully composable. Only the semantic base class opts
-// an element out of the native default because it signals explicit styling.
+// Osman defaults for native content elements. Explicit semantic base classes
+// opt out so list utilities and component-owned list styles remain composable.
 
-:where(tj-content-pane ul) {
-  padding-inline-start: 0;
+:where(ul:not(.list)) {
+  @include elements.list();
+  @include elements.list-diamond();
 }
 
 :where(main#main table:not(.table)) {
@@ -14,21 +14,4 @@
 
   --nt-border-color: var(--nt-border);
   --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
-}
-
-// Native unordered lists reuse the shared Nextrap list defaults and the
-// exported diamond helper. The explicit `.list` API takes ownership.
-:where(main#main ul:not(.list)) {
-  @include elements.list();
-  @include elements.list-diamond();
-
-  ul {
-    margin-block-start: var(--nt-space-2);
-  }
-}
-
-// Ordered lists keep native numbering with the shared Nextrap list spacing.
-// `.list` explicitly transfers styling ownership to Nextrap classes.
-:where(main#main ol:not(.list)) {
-  @include elements.list();
 }

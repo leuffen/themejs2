@@ -7,6 +7,8 @@ use_footer: raven
 description: "Dr. med. Tim Raven – Facharzt für Orthopädie und Unfallchirurgie mit Schwerpunkt Sporttraumatologie, funktionelle Orthopädie und regenerative Medizin."
 ptags:
   - arzt
+  - subnav
+pid: site
 ---
 
 # Medizin mit Präzision
@@ -191,3 +193,20 @@ Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das
 {: .lead-serif }
 
 [Termin buchen](/kontakt){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }
+
+---
+{: layout="2;tj-form"}
+
+## Schreiben Sie uns
+{: layout="2.1;ntl-2col.style-form" .top }
+
+#[nte-input.style-default type="text" name="name" label="Name" required]
+#[nte-input.style-default type="email" name="email" label="E-Mail" required]
+#[nte-input.style-default type="text" name="telefon" label="Telefon"]
+
+---
+{: layout=".aside" }
+
+#[nte-input.style-default type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
+#[button type="submit" class="btn btn-primary" > Absenden]

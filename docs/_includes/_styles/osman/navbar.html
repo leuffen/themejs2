@@ -1,9 +1,10 @@
 {% if page.skip-navbar != true %}
 
-<nte-navbar class="style-default fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 104px">
-    <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
-        <div class="site-topbar">
-            <div class="site-topbar__info">
+
+<nte-navbar class="style-osman with-shadow-on-scroll" style="--nte-navbar-position: sticky">
+    <nte-navbar-line class="with-collapse-on-scroll" style="--height: 40px; --background: var(--nt-gray-100); --text-color: var(--nt-gray-700)">
+        <div slot="start" class="d-flex align-items-center justify-content-between w-100 gap-4">
+            <div class="d-flex align-items-center gap-2 text-nowrap">
                 {% if site.data.general.phone1_text %}
                     <span>Tel. {{ site.data.general.phone1_text }}</span>
                 {% endif %}
@@ -16,15 +17,31 @@
                     <span>{{ site.data.general.street }}{% if site.data.general.zip or site.data.general.city %}, {% endif %}{{ site.data.general.zip }} {{ site.data.general.city }}</span>
                 {% endif %}
             </div>
-            <div class="site-topbar__actions">
-                <a href="{{ site.data.general.termin_url | default: '/online-termin' }}" class="btn btn-primary">Termin online buchen</a>
-                <span class="site-topbar__lang"><i class="bi bi-globe2" aria-hidden="true"></i> DE</span>
-            </div>
         </div>
+        <span slot="center">Hallo</span>
+        <!-- END slot center -->
+        <a slot="end" href="{{ site.data.general.termin_url | default: '/online-termin' }}" class="btn btn-primary btn-sm">Termin online buchen</a>
+        <div slot="end" class="btn-group">
+            <button
+                id="osman-language-toggle"
+                class="btn btn-hover dropdown-toggle"
+                type="button"
+                popovertarget="osman-language-menu"
+                aria-controls="osman-language-menu"
+            >
+                <i class="bi bi-globe2 me-1" aria-hidden="true"></i>
+                DE
+            </button>
+            <ul id="osman-language-menu" class="dropdown-menu" popover="auto" aria-labelledby="osman-language-toggle">
+                <li><a href="#" lang="de" hreflang="de" aria-current="true">Deutsch</a></li>
+            </ul>
+        </div>
+        <!-- / End slot end -->
+
     </nte-navbar-line>
 
-    <nte-navbar-line class="style-default" style="--brand-height: 64px">
-        <a slot="brand" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
+    <nte-navbar-line style="--height: var(--osman-navbar-height, 64px); --height-scrolled: var(--osman-navbar-height-scrolled, 64px)">
+        <a slot="start" class="brand-logo" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
             <img
                 src="/assets/osman-logo.svg"
                 alt="{{ site.data.general.logoalt | default: site.data.general.name }}"
@@ -33,25 +50,44 @@
             />
         </a>
 
+        <span slot="center">Hallo</span>
+
         <nte-nav
-            class="style-default nav-horizontal"
-            mode="master"
-            data-group-name="nav1"
-            breakpoint="xl"
-            transfer-to="#navSidebar"
+            id="osman-main-navigation-horizontal"
+            slot="end"
+            aria-label="Hauptnavigation"
+            style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto"
         >
-            <span slot="menu-text">Menü</span>
-            <ul>
-                {% include el/navbar.html ptag="nav2" %}
-                {% include el/navtree.html ptag="nav2" %}
-            </ul>
+            {% include el/nav2.html ptag="nav" %}
+            <nte-nav-item href="/kontakt/" style="--order: 99">Kontakt</nte-nav-item>
         </nte-nav>
+
+        <nte-burger
+            slot="end"
+            aria-label="Navigation öffnen"
+            aria-controls="navSidebar"
+            static-state
+            onclick="document.getElementById('navSidebar')?.toggle()"
+            style="display: block"
+            style-xl="display: none"
+        ></nte-burger>
     </nte-navbar-line>
 </nte-navbar>
 
-<nte-offcanvas id="navSidebar" data-group-name="nav1">
-    <nte-burger slot="header" data-group-name="nav1" data-nt-dismiss="offcanvas" open></nte-burger>
-    <nte-nav class="style-default nav-vertical"></nte-nav>
+<nte-offcanvas id="navSidebar" aria-label="Mobile Hauptnavigation">
+    <div slot="header"><strong>Navigation</strong></div>
+    <nte-nav
+        id="osman-main-navigation-vertical"
+        aria-label="Mobile Hauptnavigation"
+        style="--nte-nav-flow: column; --nte-nav-align: stretch"
+    ></nte-nav>
+    <tj-element-relocator
+        source="#osman-main-navigation-horizontal"
+        target="#osman-main-navigation-vertical"
+        class="-xl:relocate"
+    ></tj-element-relocator>
 </nte-offcanvas>
+
+
 
 {% endif %}

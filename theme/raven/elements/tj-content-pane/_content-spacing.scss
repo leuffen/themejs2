@@ -6,6 +6,10 @@ tj-content-pane {
     padding-block: var(--nt-spacing-section);
   }
 
+  > ntl-2col + ntl-2col {
+    margin-block-start: var(--nt-spacing-section);
+  }
+
   > :where(.style-hero, .style-ribbon) {
     padding-block: 0;
   }

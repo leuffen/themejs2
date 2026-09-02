@@ -1,50 +1,86 @@
 @use "sass:meta";
 @use "./../../font/opensans-regular" as font;
 @use "./../../font/_vendor/font-bootstrap-icons";
-@use "@nextrap/style-reset";
 @use "@nextrap/style-base" as nextrapBase;
 @use "@nextrap/style-utils" as nextrapUtils;
 @use "@nextrap/style-typography" as nextrapTypography;
+@use "@nextrap/style-elements" as nextrapElements;
 @use "@nextrap/style-button" as nextrapButton;
+@use "@nextrap/nte-nav" as nav2;
+@use "@nextrap/nte-navbar" as nteNavbar;
 
 // Theme entry mixin: render Osman into the current selector scope.
-// Consumers wrap this in :where(.theme-osman) themselves.
+// Consumers wrap this in :where(.theme-osman) themselves. The public layer
+// order is registered by the consuming stylesheet.
 @mixin theme() {
-  // Runtime-first Nextrap token graph scoped to the current theme selector.
-  @include nextrapBase.runtime-theme-scoped();
-  @include meta.load-css("./_runtime-settings.scss");
+  @layer themes.tokens {
+    @include nextrapBase.runtime-theme-scoped();
+    @include meta.load-css("./_runtime-settings.scss");
+  }
 
-  @content;
+  @layer themes.base {
+    font-family: var(--nt-font-family);
+    color: var(--nt-text);
+    line-height: var(--nt-line-height);
+  }
 
-  font-family: var(--nt-font-family);
-  color: var(--nt-text);
-  line-height: var(--nt-line-height);
+  @layer themes.typography {
+    @include nextrapTypography.style-typography();
+  }
 
-  @include nextrapUtils.style-utils();
-  @include nextrapTypography.style-typography();
-  @include nextrapButton.style-button();
+  @layer themes.elements {
+    @include nextrapElements.style-elements();
+    @include meta.load-css("./html-elements/_defaults.scss");
+    @include meta.load-css("./html-elements/main/main.scss");
+    @include meta.load-css("./html-elements/a/a.scss");
+  }
 
-  @include meta.load-css("./../../src/features/_data-kicker.scss");
-  @include meta.load-css("./html-elements/_defaults.scss");
-  @include meta.load-css("./html-elements/main/main.scss");
-  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
-  @include meta.load-css("./html-elements/a/a.scss");
+  @layer themes.components {
+    @include nextrapButton.style-button();
+    @include meta.load-css("./elements/nte-input/nte-input.scss");
+    @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
 
-  @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
-  @include meta.load-css("./elements/nte-navbar-line/nte-navbar-line.scss");
-  @include meta.load-css("./elements/nte-nav/nte-nav.scss");
-  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
-  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
-  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
-  @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
+    @include nteNavbar.default-style();
+    @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
 
-  @include meta.load-css("./tools/_icon-grid.scss");
-  @include meta.load-css("./classes/_opening-hours.scss");
-  @include meta.load-css("./classes/_text-strong.scss");
-  @include meta.load-css("./classes/_footer.scss");
-  @include meta.load-css("./classes/_feature-icon.scss");
-  @include meta.load-css("./classes/_header.scss");
-  @include meta.load-css("./classes/_warning-heading.scss");
-  @include meta.load-css("./classes/_warning-emergency.scss");
-  @include meta.load-css("./classes/_aside.scss");
+    nte-nav.style-default {
+      @include nav2.main-navigation();
+    }
+
+    nte-nav#osman-main-navigation-horizontal {
+      @include nav2.horizontal();
+    }
+
+    nte-nav#osman-main-navigation-vertical {
+      @include nav2.vertical();
+    }
+
+    @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+    @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+    @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+    @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
+  }
+
+  @layer themes.patterns {
+    @include meta.load-css("./../../src/features/_data-kicker.scss");
+    @include meta.load-css("./tools/_icon-grid.scss");
+    @include meta.load-css("./classes/_opening-hours.scss");
+    @include meta.load-css("./classes/_text-strong.scss");
+    @include meta.load-css("./classes/_footer.scss");
+    @include meta.load-css("./classes/_feature-icon.scss");
+    @include meta.load-css("./classes/_header.scss");
+    @include meta.load-css("./classes/_warning-heading.scss");
+    @include meta.load-css("./classes/_warning-emergency.scss");
+    @include meta.load-css("./classes/_aside.scss");
+  }
+
+  @layer themes.utilities {
+    @include nextrapUtils.style-utils();
+  }
+
+  // Website-specific declarations passed to the mixin always win over the
+  // normal theme layers without requiring additional selector specificity.
+  @layer website {
+    @content;
+  }
 }

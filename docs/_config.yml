@@ -1,54 +1,88 @@
 # Changes to this file will NOT be reloaded in jekyll --watch mode! Restart
 # jekyll after updating this file!
 
+lang: de-DE
+timezone: Europe/Berlin
+markdown: kramdown
+permalink: /news/:year/:month/:day/:title/
+
 google_analytics:
 show_downloads: true
-
-# Make directory-style links
-#permalink: pretty
-#exclude: ['assets']
 
 sass:
   sass_dir: _sass_disabled
 
 livereload: false
 exclude:
-    - "*.bak"
-    - "_src/*"
-    - ".*"
-    - "*~"
-    - "~*"
-    - "stats.html"
+  - "*.bak"
+  - "_src/*"
+  - ".*"
+  - "*~"
+  - "~*"
+  - "stats.html"
 
+collections:
+  elements:
+    output: false
+  snippets:
+    output: false
+  wissen:
+    output: true
+    permalink: /magazin/:path/
+  autoren:
+    output: true
+    permalink: /autoren/:path/
+  themen:
+    output: true
+    permalink: /themen/:path/
+  partner:
+    output: true
+    permalink: /partner/:path/
+  landing_pages:
+    output: true
+    permalink: /landingpages/:path/
 
-
+# Frontmatter contracts for the ePraxis demo and collection pages.
 defaults:
   - scope:
       path: ""
     values:
-      layout: "default"
-      use_navbar: "default"
-      use_footer: "default"
+      layout: default
+      use_navbar: default
+      use_footer: default
   - scope:
-      path: "_posts"
+      path: ""
+      type: posts
     values:
-      layout: "post"
-
-collections:
-    elements:
-        output: false
-    snippets:
-        output: false
-
-
-# TODO: I'm not sure if this is doing anything infrastructure-wise
-# sometimes commenting this out prevents jekyll from building, but sometimes not
-# however, uncommenting this line prevent jekyll from finding _posts
-
-# collections_dir: .
-
+      layout: article
+      content_type: news
+  - scope:
+      path: ""
+      type: wissen
+    values:
+      layout: article
+      content_type: wissen
+  - scope:
+      path: ""
+      type: autoren
+    values:
+      layout: author
+  - scope:
+      path: ""
+      type: themen
+    values:
+      layout: topic
+  - scope:
+      path: ""
+      type: partner
+    values:
+      layout: partner
+  - scope:
+      path: ""
+      type: landing_pages
+    values:
+      layout: landing-page
 
 plugins:
-- jekyll-optional-front-matter
-- jekyll-sitemap
-
+  - jekyll-optional-front-matter
+  - jekyll-sitemap

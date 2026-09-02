@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% assign author_doc = nil %}
+{% if page.author_slug %}{% assign author_doc = site.autoren | where: "author_slug", page.author_slug | first %}{% endif %}
+<div class="container">
+  <div class="d-flex flex-column:xl:flex-row gap-3 flex-nowrap mb-5 mx-3">
+    <article class="w-100:xl:w-auto">
+      <tj-content-pane pre-parser="text-block" class="prose prose-xl">
+        <p class="text-uppercase fw-600 text-secondary">{% if page.content_type == 'news' %}News{% else %}Magazin{% endif %}</p>
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}<p class="fs-3">{{ page.description }}</p>{% endif %}
+        <div class="d-flex flex-wrap g-2 fs-6 mb-3">
+          {% if page.date %}<span>{{ page.date | date: "%d.%m.%Y" }}</span>{% endif %}
+          {% if author_doc %}<a href="{{ author_doc.url | relative_url }}">{{ author_doc.title }}</a>{% elsif page.author %}<span>{{ page.author }}</span>{% endif %}
+        </div>
+        {% if page.topics %}<div class="d-flex flex-wrap g-1 mb-4">{% for topic_slug in page.topics %}{% assign topic_doc = site.themen | where: "topic", topic_slug | first %}{% if topic_doc %}<a class="border rounded-pill p-1 px-3" href="{{ topic_doc.url | relative_url }}">{{ topic_doc.title }}</a>{% else %}<span class="border rounded-pill p-1 px-3">{{ topic_slug }}</span>{% endif %}{% endfor %}</div>{% endif %}
+        {{ content }}
+      </tj-content-pane>
+    </article>
+    <aside class="w-100:xl:mt-5" style-xl="flex: 0 0 33.3%">
+      {% if author_doc %}<div class="p-3 rounded mb-3" style="background-color: var(--nt-body-tertiary)"><div class="fw-600">Autor</div><a href="{{ author_doc.url | relative_url }}">{{ author_doc.title }}</a>{% if author_doc.description %}<div class="fs-6">{{ author_doc.description }}</div>{% endif %}</div>{% endif %}
+      {% assign partner_count = 0 %}{% capture partner_links %}{% for partner in site.partner %}{% if page.tags contains partner.partner_tag %}{% assign partner_count = partner_count | plus: 1 %}<div><a href="{{ partner.url | relative_url }}">{{ partner.title }}</a></div>{% endif %}{% endfor %}{% endcapture %}{% if partner_count > 0 %}<div class="p-3 rounded mb-3" style="background-color: var(--nt-body-tertiary)"><div class="fw-600">Partner</div>{{ partner_links }}</div>{% endif %}
+    </aside>
+  </div>
+</div>

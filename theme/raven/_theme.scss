@@ -1,11 +1,13 @@
 @use "sass:meta";
 @use "./../../font/_vendor/font-work-sans";
 @use "./../../font/_vendor/font-garamond";
-@use "@nextrap/style-reset";
 @use "@nextrap/style-base" as nextrapBase;
 @use "@nextrap/style-utils" as nextrapUtils;
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
+@use "@nextrap/nte-input" as nteInput;
+@use "@nextrap/nte-nav" as nteNav;
+@use "@nextrap/nte-navbar" as nteNavbar;
 
 @mixin theme() {
   @include nextrapBase.runtime-theme-scoped();
@@ -21,6 +23,63 @@
   @include nextrapUtils.style-utils();
   @include nextrapTypography.style-typography();
   @include nextrapButton.style-button();
+
+  // Applies the shared component defaults used by the Osman navigation and forms.
+  @include nteNavbar.default-style();
+
+  // Keeps the Raven burger visible as a light control on the dark navbar surface.
+  nte-burger {
+    --color: var(--nt-surface);
+    --color-hover: var(--nt-surface);
+  }
+  @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
+
+  nte-input.style-default {
+    @include nteInput.default-style();
+    padding-block-end: var(--nt-space-4);
+  }
+
+  nte-nav.style-default {
+    @include nteNav.main-navigation(
+      $color: var(--nt-surface),
+      $hover-color: var(--nt-accent),
+      $current-background: var(--nt-accent),
+      $current-color: var(--nt-surface),
+      $focus-color: var(--nt-accent)
+    );
+  }
+
+  nte-nav#osman-main-navigation-horizontal {
+    @include nteNav.horizontal();
+
+    // Keeps only the horizontal navbar navigation light on Raven's dark header.
+    &::part(nav) {
+      color: var(--nt-surface-raised, #fff);
+    }
+
+    & nte-nav-item::part(link),
+    & nte-nav-item::part(text),
+    & nte-nav-item::part(disclosure),
+    & nte-nav-item::part(toggle) {
+      color: inherit;
+    }
+  }
+
+  nte-nav#osman-main-navigation-vertical {
+    @include nteNav.vertical();
+
+    // Restores dark navigation text inside the light offcanvas surface.
+    &::part(nav) {
+      color: var(--nt-text);
+    }
+
+    & nte-nav-item::part(link),
+    & nte-nav-item::part(text),
+    & nte-nav-item::part(disclosure),
+    & nte-nav-item::part(toggle) {
+      color: inherit;
+    }
+  }
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
   @include meta.load-css("./html-elements/_defaults.scss");

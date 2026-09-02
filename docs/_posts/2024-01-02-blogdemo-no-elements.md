@@ -8,8 +8,6 @@ description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam G
 image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
 layout: page/blog-epraxis
 order: 0
-ptags:
-- nav
 published: true
 body-class: epraxis blog
 seoScore: 8

@@ -1,6 +1,37 @@
 # Theme architecture
 
-ThemeJS2 uses four styling layers with intentionally different responsibilities.
+ThemeJS2 uses four styling responsibilities and an explicit CSS cascade-layer contract.
+
+## Cascade layers
+
+Consuming stylesheets register the shared order before emitting theme CSS:
+
+```scss
+@layer reset, schemes, themes, website;
+
+@layer themes {
+  @layer tokens, base, typography, elements, components, patterns, utilities;
+}
+```
+
+Osman emits its mixin output into these named layers. Native element defaults belong to `themes.elements`, after typography and before components. A website can add declarations to any named theme layer when it intentionally participates in that stage, while final project exceptions belong to `website` and override normal theme declarations regardless of selector specificity.
+
+```scss
+@layer themes.elements {
+  :where(.theme-osman ul:not(.list)) {
+    @include elements.list();
+    @include elements.list-diamond();
+  }
+}
+
+@layer website {
+  :where(.theme-osman) {
+    --theme-primary: #005d75;
+  }
+}
+```
+
+Keep normal theme declarations free of `!important`: important declarations reverse the cascade-layer priority. Unlayered normal CSS also wins over layered normal CSS, so new website styles should consistently use the documented `website` layer rather than mixing both approaches.
 
 ## 1. Theme inputs
 

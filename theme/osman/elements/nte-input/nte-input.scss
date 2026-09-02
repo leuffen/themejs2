@@ -1,0 +1,8 @@
+@use "sass:meta";
+
+nte-input {
+
+  // Loads the Osman-specific nte-input style variants.
+  @include meta.load-css("./_style-default.scss");
+}
+

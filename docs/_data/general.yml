@@ -1,7 +1,7 @@
 pagebuilder: https://pagebuilder.leuffen.de/e/falk-k43/default
 # Important: site_base_url - Always with https://www.! - No trailing slash! - Keep UNKNOWN_DOMAIN.XXX unless domain was explicitly stated!
 site_base_url: "https://www.UNKNOWN_DOMAIN.XXX" ## Change to the domain of the website (leave UNKNOWN_DOMAIN.XXX if not known)
-subscription_id: muster-k43
+subscription_id: leuffen
 
 # Titel der Website
 title: Praxis Dr. Heike Muster - hausärztlich internistische Praxis in Musterstadt

@@ -29,12 +29,21 @@ Sind mehrere Komponenten betroffen, lies und beachte den lokalen `*-theming`-Ski
 
 ### Styling-Vertrag
 
+Wenn ein benötigter Style oder eine benötigte Funktion offensichtlich in einem
+zugrunde liegenden Package fehlt oder fehlerhaft ist, darf der Theme-Code das
+Problem nicht einfach überschreiben oder mit einem lokalen Theme-Hack
+umgehen. Prüfe zuerst das zugrunde liegende Package. Frage den User, ob die
+Funktion direkt im Package korrigiert werden soll oder ob der User diese
+Änderung selbst übernehmen möchte. Eine Package-Änderung darf erst nach dieser
+Klärung umgesetzt werden.
+
 - Setze niemals visuelle Deklarationen auf einen bloßen `ntl-*`-Selector. Seine Entry-Datei darf diesen Selector nur zum Laden von Variant-Dateien verwenden.
 - Verwende `style-*` ausschließlich für `ntl-*`- oder `nte-*`-Elemente und deren dokumentierte Varianten.
 - Lege jede NTL-Darstellung in einer benannten Variant wie `&.style-default`, `&.style-header` oder `&.style-testimonial` ab.
 - NTL-Komponenten wählen automatisch `style-default`, wenn kein Style angegeben ist. Style den Default über `.style-default`; ergänze die Class im Demo-Markup nicht nur zur Aktivierung.
 - Ergänze eine weitere `style-*`-Variant nur für eine allgemeine Darstellung, niemals für einen Kunden, eine Person, eine Seite oder Beispiel-Content.
 - Style NTE-Content über seine dokumentierte API oder eine eigene allgemeine Variant. Hängt das Styling von einer NTL-Komposition ab, bleibt es innerhalb dieser NTL-Variant und verwendet die Child-Pairing-Struktur aus [references/element-child-structure.md](references/element-child-structure.md).
+- Lege Theme-Styles für eine konkrete `ntl-*`- oder `nte-*`-Komponente immer unter `theme/<theme-name>/elements/<component-name>/` ab. Verwende dort einen komponentenspezifischen Entry wie `nte-navbar.scss`, der die zugehörigen `_style-*.scss`-Varianten lädt. Platziere solche Komponenten-Styles nicht lose im zentralen Theme-Entry, damit Struktur, Variante und Komponentenvertrag am gleichen Ort nachvollziehbar bleiben.
 - Vermeide einen bloßen Theme-weiten NTE-Override, außer der Auftrag verlangt ausdrücklich die Änderung jeder Instanz in diesem Theme.
 - Für reine Theme-CSS-Klassen im Light DOM verwende keine `style-*`-Namen. Nutze stattdessen eine semantische Klassenfunktion wie bei `hero__specialties`: Die Klasse beschreibt das wiederverwendbare Content-Muster selbst und nicht eine NTL-/NTE-Variant.
 - Solche reinen Theme-Klassen sollen mit Standard-Markdown wie `ul`/`li`, Überschriften, Absätzen, Links oder Bildern funktionieren und nur dann ergänzt werden, wenn vorhandene Utilities oder Komponenten nicht ausreichen.

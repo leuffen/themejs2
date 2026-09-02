@@ -1,11 +1,13 @@
 @use "sass:meta";
 @use "./../../font/opensans-regular";
 @use "./../../font/_vendor/font-bootstrap-icons";
-@use "@nextrap/style-reset";
 @use "@nextrap/style-base" as nextrapBase;
 @use "@nextrap/style-utils" as nextrapUtils;
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
+@use "@nextrap/nte-input" as nteInput;
+@use "@nextrap/nte-nav" as nteNav;
+@use "@nextrap/nte-navbar" as nteNavbar;
 
 @mixin theme() {
   @include nextrapBase.runtime-theme-scoped();
@@ -21,6 +23,25 @@
   @include nextrapUtils.style-utils();
   @include nextrapTypography.style-typography();
   @include nextrapButton.style-button();
+
+  // Applies the shared navbar, navigation, and form component structure.
+  @include nteNavbar.default-style();
+
+  nte-input.style-default {
+    @include nteInput.default-style(nteInput.$themeCarbon);
+  }
+
+  nte-nav.style-default {
+    @include nteNav.main-navigation();
+  }
+
+  nte-nav.nav-horizontal {
+    @include nteNav.horizontal();
+  }
+
+  nte-nav.nav-vertical {
+    @include nteNav.vertical();
+  }
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
   @include meta.load-css("./html-elements/_defaults.scss");

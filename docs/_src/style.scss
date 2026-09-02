@@ -1,11 +1,24 @@
 @use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-reset" as nextrapReset;
 @use "@leuffen/themejs2/theme/mueller";
 @use "@leuffen/themejs2/theme/osman";
 @use "@leuffen/themejs2/theme/epraxis";
 @use "@leuffen/themejs2/theme/raven";
 
-:root {
-  @include nextrapBase.runtime-scheme-selectors();
+@layer reset, schemes, themes, website;
+
+@layer themes {
+  @layer tokens, base, typography, elements, components, patterns, utilities;
+}
+
+@layer reset {
+  @include nextrapReset.reset();
+}
+
+@layer schemes {
+  :root {
+    @include nextrapBase.runtime-scheme-selectors();
+  }
 }
 
 :where(.theme-osman) {

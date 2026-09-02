@@ -1,0 +1,4 @@
+---
+title: Blog
+---
+<div class="container"><tj-content-pane class="prose prose-xl"><h1>ePraxis Digital</h1><p>News und Magazinbeiträge aus derselben Jekyll-Struktur.</p>{% assign all_content = site.posts | concat: site.wissen | sort: "date" | reverse %}<div class="d-flex flex-column g-2">{% for article in all_content %}<div class="p-3 border rounded"><div class="fs-6 text-uppercase text-secondary">{% if article.content_type == 'news' %}News{% else %}Magazin{% endif %}</div><a class="fw-600" href="{{ article.url | relative_url }}">{{ article.title }}</a>{% if article.author_slug %}{% assign author_doc = site.autoren | where: "author_slug", article.author_slug | first %}{% if author_doc %}<div class="fs-6">von <a href="{{ author_doc.url | relative_url }}">{{ author_doc.title }}</a></div>{% endif %}{% endif %}</div>{% endfor %}</div></tj-content-pane></div>

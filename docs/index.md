@@ -17,7 +17,7 @@ ptags:
 published: true
 seoScore: 8
 company: epraxis.digital
-short_title: DAS MAGAZIN FÜR DIE DIGITALISIERUNG IN DER GESUNDHEITSBRANCHE
+short_title: Home
 title: Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
 headline_image: /assets/header-bg.svg
 type: website
