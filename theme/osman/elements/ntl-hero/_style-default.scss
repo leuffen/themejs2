@@ -1,5 +1,5 @@
 &.style-default {
-  --height-offset: 12.75rem !important;
+  --height-offset: 12.75rem;
 
   position: relative;
   display: block;
@@ -34,7 +34,7 @@
   }
 
   &[mode="mobile"] {
-    --height-offset: 10.5rem !important;
+    --height-offset: 10.5rem;
     min-height: 0;
     background: #fff;
 

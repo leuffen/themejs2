@@ -1,10 +1,10 @@
 @use "@nextrap/style-elements" as elements;
 
-// Osman defaults for native content elements below the main content area.
-// Utility classes remain fully composable. Only the semantic base class opts
-// an element out of the native default because it signals explicit styling.
+// Osman defaults for native content elements. Explicit semantic base classes
+// opt out so list utilities and component-owned list styles remain composable.
 
-:where(tj-content-pane ul) {
+:where(ul:not(.list)) {
+  @include elements.list();
   @include elements.list-diamond();
 }
 
@@ -15,5 +15,3 @@
   --nt-border-color: var(--nt-border);
   --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
 }
-
-// Osman uses diamond markers for standard unordered content lists.

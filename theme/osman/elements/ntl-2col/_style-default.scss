@@ -25,7 +25,8 @@
     }
   }
 
-  &::part(container) {
+  &::part(wrapper) {
+    padding-block: var(--nt-spacing-text);
   }
 
   &:has(> p[slot="aside"].auto)::part(aside) {

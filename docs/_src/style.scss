@@ -5,10 +5,20 @@
 @use "@leuffen/themejs2/theme/epraxis";
 @use "@leuffen/themejs2/theme/raven";
 
-@include nextrapReset.reset();
+@layer reset, schemes, themes, website;
 
-:root {
-  @include nextrapBase.runtime-scheme-selectors();
+@layer themes {
+  @layer tokens, base, typography, elements, components, patterns, utilities;
+}
+
+@layer reset {
+  @include nextrapReset.reset();
+}
+
+@layer schemes {
+  :root {
+    @include nextrapBase.runtime-scheme-selectors();
+  }
 }
 
 :where(.theme-osman) {

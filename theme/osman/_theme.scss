@@ -10,59 +10,77 @@
 @use "@nextrap/nte-navbar" as nteNavbar;
 
 // Theme entry mixin: render Osman into the current selector scope.
-// Consumers wrap this in :where(.theme-osman) themselves.
+// Consumers wrap this in :where(.theme-osman) themselves. The public layer
+// order is registered by the consuming stylesheet.
 @mixin theme() {
-  // Runtime-first Nextrap token graph scoped to the current theme selector.
-  @include nextrapBase.runtime-theme-scoped();
-  @include meta.load-css("./_runtime-settings.scss");
-
-  @content;
-
-  font-family: var(--nt-font-family);
-  color: var(--nt-text);
-  line-height: var(--nt-line-height);
-
-  @include nextrapUtils.style-utils();
-  @include nextrapTypography.style-typography();
-  @include nextrapElements.style-elements();
-  @include nextrapButton.style-button();
-
-  @include meta.load-css("./elements/nte-input/nte-input.scss");
-
-  @include meta.load-css("./../../src/features/_data-kicker.scss");
-  @include meta.load-css("./html-elements/_defaults.scss");
-  @include meta.load-css("./html-elements/main/main.scss");
-  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
-  @include meta.load-css("./html-elements/a/a.scss");
-
-  @include nteNavbar.default-style();
-
-  @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
-
-  nte-nav.style-default {
-    @include nav2.main-navigation();
+  @layer themes.tokens {
+    @include nextrapBase.runtime-theme-scoped();
+    @include meta.load-css("./_runtime-settings.scss");
   }
 
-  nte-nav#osman-main-navigation-horizontal {
-    @include nav2.horizontal();
+  @layer themes.base {
+    font-family: var(--nt-font-family);
+    color: var(--nt-text);
+    line-height: var(--nt-line-height);
   }
 
-  nte-nav#osman-main-navigation-vertical {
-    @include nav2.vertical();
+  @layer themes.typography {
+    @include nextrapTypography.style-typography();
   }
 
-  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
-  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
-  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
-  @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
+  @layer themes.elements {
+    @include nextrapElements.style-elements();
+    @include meta.load-css("./html-elements/_defaults.scss");
+    @include meta.load-css("./html-elements/main/main.scss");
+    @include meta.load-css("./html-elements/a/a.scss");
+  }
 
-  @include meta.load-css("./tools/_icon-grid.scss");
-  @include meta.load-css("./classes/_opening-hours.scss");
-  @include meta.load-css("./classes/_text-strong.scss");
-  @include meta.load-css("./classes/_footer.scss");
-  @include meta.load-css("./classes/_feature-icon.scss");
-  @include meta.load-css("./classes/_header.scss");
-  @include meta.load-css("./classes/_warning-heading.scss");
-  @include meta.load-css("./classes/_warning-emergency.scss");
-  @include meta.load-css("./classes/_aside.scss");
+  @layer themes.components {
+    @include nextrapButton.style-button();
+    @include meta.load-css("./elements/nte-input/nte-input.scss");
+    @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
+
+    @include nteNavbar.default-style();
+    @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
+
+    nte-nav.style-default {
+      @include nav2.main-navigation();
+    }
+
+    nte-nav#osman-main-navigation-horizontal {
+      @include nav2.horizontal();
+    }
+
+    nte-nav#osman-main-navigation-vertical {
+      @include nav2.vertical();
+    }
+
+    @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+    @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+    @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+    @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
+  }
+
+  @layer themes.patterns {
+    @include meta.load-css("./../../src/features/_data-kicker.scss");
+    @include meta.load-css("./tools/_icon-grid.scss");
+    @include meta.load-css("./classes/_opening-hours.scss");
+    @include meta.load-css("./classes/_text-strong.scss");
+    @include meta.load-css("./classes/_footer.scss");
+    @include meta.load-css("./classes/_feature-icon.scss");
+    @include meta.load-css("./classes/_header.scss");
+    @include meta.load-css("./classes/_warning-heading.scss");
+    @include meta.load-css("./classes/_warning-emergency.scss");
+    @include meta.load-css("./classes/_aside.scss");
+  }
+
+  @layer themes.utilities {
+    @include nextrapUtils.style-utils();
+  }
+
+  // Website-specific declarations passed to the mixin always win over the
+  // normal theme layers without requiring additional selector specificity.
+  @layer website {
+    @content;
+  }
 }
