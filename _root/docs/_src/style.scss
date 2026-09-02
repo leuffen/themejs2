@@ -1,0 +1,25 @@
+@use "@nextrap/style-base" as nextrapBase;
+@use "@leuffen/themejs2/theme/mueller";
+@use "@leuffen/themejs2/theme/osman";
+@use "@leuffen/themejs2/theme/epraxis";
+@use "@leuffen/themejs2/theme/raven";
+
+:root {
+  @include nextrapBase.runtime-scheme-selectors();
+}
+
+:where(.theme-osman) {
+  @include osman.theme();
+}
+
+:where(.theme-raven) {
+  @include raven.theme();
+}
+
+:where(.theme-mueller) {
+  @include mueller.theme();
+}
+
+:where(.theme-epraxis) {
+  @include epraxis.theme();
+}
