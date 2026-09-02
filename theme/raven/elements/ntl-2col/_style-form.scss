@@ -14,6 +14,7 @@
   // Keeps main and aside aligned at the top instead of vertically centering the shorter column.
   &::part(wrapper) {
     align-items: flex-start;
+    gap: var(--gap);
   }
 
   // Makes paragraph content fill the complete width of both form columns.

@@ -5,7 +5,7 @@
 // an element out of the native default because it signals explicit styling.
 
 :where(tj-content-pane ul) {
-  padding-inline-start: 0;
+  @include elements.list-diamond();
 }
 
 :where(main#main table:not(.table)) {
@@ -16,4 +16,4 @@
   --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
 }
 
-// Lists intentionally remain unstyled here; each list must opt in manually with `.list.list-diamond`.
+// Osman uses diamond markers for standard unordered content lists.
