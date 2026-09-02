@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<section class="hero">
+  <p class="eyebrow">Partner</p>
+  <h1>{{ page.title }}</h1>
+  {% if page.relationship %}<p><strong>Beziehung:</strong> {{ page.relationship }}</p>{% endif %}
+  {% if page.website %}<p><a href="{{ page.website }}" rel="noopener noreferrer">Website des Partners</a></p>{% endif %}
+</section>
+{% assign all_content = site.posts | concat: site.wissen | sort: "date" | reverse %}
+<h2>Artikel mit diesem Partner-Tag</h2>
+<ul class="content-list">
+{% assign article_count = 0 %}
+{% for article in all_content %}
+  {% if article.tags contains page.partner_tag %}
+    {% assign article_count = article_count | plus: 1 %}
+    <li><a href="{{ article.url | relative_url }}">{{ article.title }}</a><span>{{ article.date | date: '%d.%m.%Y' }}</span></li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% if article_count == 0 %}<p>Noch keine zugeordneten Artikel.</p>{% endif %}
