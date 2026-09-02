@@ -1,0 +1,6 @@
+---
+title: Autoren
+description: Autorinnen, Autoren und Redaktion.
+---
+<section class="hero"><h1>Autoren</h1></section>
+<ul class="content-list">{% assign authors = site.autoren | sort: "title" %}{% for author in authors %}<li><a href="{{ author.url | relative_url }}">{{ author.title }}</a></li>{% endfor %}</ul>

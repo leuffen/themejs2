@@ -1,0 +1,6 @@
+---
+title: Themen
+description: Alle Themenbereiche.
+---
+<section class="hero"><h1>Themen</h1></section>
+<ul class="content-list">{% assign topics = site.themen | sort: "title" %}{% for topic in topics %}<li><a href="{{ topic.url | relative_url }}">{{ topic.title }}</a></li>{% endfor %}</ul>

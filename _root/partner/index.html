@@ -1,0 +1,6 @@
+---
+title: Partner
+description: Partner und transparent zugeordnete Inhalte.
+---
+<section class="hero"><h1>Partner</h1></section>
+<ul class="content-list">{% assign partners = site.partner | sort: "title" %}{% for partner in partners %}<li><a href="{{ partner.url | relative_url }}">{{ partner.title }}</a></li>{% endfor %}</ul>

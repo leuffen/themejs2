@@ -1,0 +1,6 @@
+---
+title: News
+description: Aktuelle Meldungen, Fristen, Studien und Veränderungen.
+---
+<section class="hero"><h1>News</h1></section>
+<ul class="content-list">{% for post in site.posts %}<li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><span>{{ post.date | date: '%d.%m.%Y' }}</span></li>{% endfor %}</ul>
