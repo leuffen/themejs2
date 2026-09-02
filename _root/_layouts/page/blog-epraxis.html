@@ -1,0 +1,290 @@
+---
+layout: default
+---
+
+<div class="container">
+
+    <!-- Mobile Progress Bar -->
+    <progress-bar
+        variant="mobile"
+        height="4px"
+        border-radius="5"
+        show-after-scroll="70"
+        offset-selector="nte-navbar-line"
+        style-xl="display: none;">
+    </progress-bar>
+
+    <!-- Header -->
+    <div class="d-flex flex-column:xl:flex-row gap-3 flex-nowrap mb-5 mx-3">
+        <div class="w-100:xl:w-auto">
+            <div class="prose prose-xl ">
+                <h1 class="h2">{{page.title}}</h1>
+
+                <div class="fs-2 text-black">
+                    {{ page.excerpt }}
+                </div>
+
+                {% if page.image %}
+                <div>
+                    <img src="{{page.image}}" alt="{{page.title}}">
+                </div>
+                {% endif %}
+
+
+            </div>
+        </div>
+        <div class="w-100:xl:mt-5" style-xl="flex: 0 0 33.3%">
+            <aside>
+
+
+                <nte-accordion-item class="blog-details" open>
+
+                    <div class="mb-3">
+                        <div style="color: var(--nt-text);" class="fw-bold fs-5 p-3 border-bottom border-secondary text-uppercase">Infos zum Artikel
+                        </div>
+
+                        <div class="p-3">
+                            <div style="" class="fs-4 fw-medium">{{ page.title }}</div>
+                            {% if page.author or page.date or page.reading_time %}
+                            <div class="fs-6" style="color: var(--nt-text);">
+                                <table class="table-borderless">
+                                    {% if page.author %}
+                                    <tr>
+                                        <td class="pe-2">Autor:</td>
+                                        <td>{{ page.author }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if page.date %}
+                                    <tr>
+                                        <td class="pe-2">Datum:</td>
+                                        <td>{% if page.date %}{{ page.date | date: "%d.%m.%Y" }}{% endif %}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if page.reading_time %}
+                                    <tr>
+                                        <td class="pt-3 pe-2">Lesezeit:</td>
+                                        <td class="pt-3">ca. {{ page.reading_time }} Minuten</td>
+                                    </tr>
+                                    {% endif %}
+                                </table>
+                            </div>
+                            {% endif %}
+                            <!--div>
+                                <div class="my-2 d-overflow-hidden"
+                                     style="height: var(--nt-space-3);">
+                                    <progress-bar
+                                        variant="desktop"
+                                        border-radius="5">
+                                    </progress-bar>
+                                </div>
+                            </div-->
+                        </div>
+                    </div>
+                    <div class="mb-3" style="height: 100%;">
+                        <div class="pt-2 d-table mx-3">
+                            <div class="d-table-cell fs-5 w-100" style="color: var(--nt-text);">Dieser Artikel wurde mit Hilfe
+                                von<br />Künstlicher Intelligenz (KI) erstellt:</div>
+                            <div class="d-table-cell fs-5" style="vertical-align: bottom; color: var(--nt-text);">ⓘ</div>
+                        </div>
+                        <div class="border-bottom my-2" style="border-color: var(--nt-tertiary-emphasis) !important;"></div>
+                        <!-- AI Contribution Cards Loop
+                             Required page variables:
+                             - page.researched-by: "human", "shared", or "ai"
+                             - page.written-by: "human", "shared", or "ai"
+                             - page.formatted-by: "human", "shared", or "ai"
+                        -->
+                        <div class="px-3">
+                            <div class="row gx-2" style="color: var(--nt-text);">
+                                {% assign ai_types = "researched,written,formatted" | split: "," %}
+                                {% assign ai_labels = "Recherche,Schreiben,Layout" | split: "," %}
+                                {% for type in ai_types %}
+                                {% assign type_key = type | append: "-by" %}
+                                {% assign type_value = page[type_key] %}
+                                <div class="col-4">
+                                    <div class="d-flex flex-column fs-6 justify-items-center h-100 bg-gray-200" style="border-radius: calc(0.25rem * 5);">
+
+
+                                        {% if type_value == "human" %}
+                                        <img class="p-3" src="/assets/human.svg" alt="Human" />
+                                        {% elsif type_value == "shared" %}
+                                        <img class="p-3" src="/assets/human_and_robot.svg" alt="Human and Robot" />
+                                        {% else %}
+                                        <img class="p-3" src="/assets/robot.svg" alt="Robot" />
+                                        {% endif %}
+                                        <div class="px-1 border-bottom border-light text-center">{{ ai_labels[forloop.index0] }}:</div>
+                                        <div class=" p-1 text-center">
+                                            {% if type_value == "human" %}<b>100% Mensch</b>{% elsif type_value == "shared" %}<b>50%
+                                            Mensch</b><br>50% KI{% else %}100% KI{% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="additional-info transition-all" style="height: 100%;">
+                        <div class="p-3 fs-5 border-bottom border-primary" style="color: var(--nt-text)">Relevante Begriffe im Artikel:</div>
+                        <div class="d-flex p-3 flex-wrap g-1 fs-5">
+                            {% assign keywords = page.keywords | default: "" | split: "," %}
+
+                            {% for tag in keywords %}
+                            <div style="cursor: default; background-color: var(--nt-body-tertiary); color: var(--nt-text) !important;"
+                                 class="border border-dark text-primary rounded-pill p-1 pe-3 ps-3 w-fit">
+                                {{ tag }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <p class="-xl:d-none" slot="title">Infos zum Artikel</p>
+                    <div class="xl:d-none fs-5 p-0" slot="title">
+                        <table class="table gap-1">
+                            <tr>
+                                <td class="p-0 pe-2">Datum:</td>
+                                <td class="p-0">{{ page.date | date: "%d.%m.%Y" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="p-0 pe-2">Autor:</td>
+                                <td class="p-0">{{ page.author }}</td>
+                            </tr>
+                            <tr>
+                                <td class="p-0 pe-2">Lesezeit:</td>
+                                <td class="p-0">ca. {{ page.reading_time }} Minuten</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </nte-accordion-item>
+
+            </aside>
+        </div>
+    </div>
+
+
+
+    <div class="d-flex flex-column:xl:flex-row gap-3 flex-nowrap mb-5 mx-3">
+        <div class="w-100:xl:w-auto">
+            <main>
+                <style>
+                    .skip-first-p > p:first-child {
+                        display: none; // Remove excerpt paragraph if it is included in the content
+                    }
+                </style>
+                <tj-content-pane class="prose prose-xl skip-first-p">
+                    {{ content }}
+                </tj-content-pane>
+                <div style="border-top: 2px solid var(--nt-secondary-emphasis)" class="mt-3 mb-4"></div>
+                {% if page.references %}
+                <div class="references mx-3">
+                    <h2 style="font-size: var(--nt-fs-3) !important;" class="m-0">Quellenverweise</h2>
+                    <!--
+                    References must be passed as a list of strings in the markdown file frontmatter, e.g.:
+                    references:
+                        - "1. § 3 BFSG Barrierefreiheit, Verordnungsermächtigung - Barrierefreiheitsstärkungsgesetz (BFSG)"
+                        - "2. § 20 BFSG Aufgaben der Marktüberwachungsbehörden - Barrierefreiheitsstärkungsgesetz (BFSG)"
+                        - "3. § 32 BFSG Rechte von Verbrauchern, anerkannten Verbänden und qualifizierten Einrichtungen im Verwaltungsverfahren - Barrierefreiheitsstärkungsgesetz (BFSG)"
+                     -->
+                    <div class="references-list">
+                        {% for reference in page.references %}
+                        <div class="mb-0" style="color: var(--nt-text-secondary) !important;">
+                            {{ reference }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if page.author %}
+                <div class="border-1 box-secondary d-flex align-center mt-4">
+                    <div class="p-1 m-0" style="min-width: 100px; height: 100px; border-radius: 100%; background-color: var(--nt-white);">
+                        {% if page.author_meta.image %}
+                        <img src="{{ page.author_meta.image }}" alt="{{ page.author }}" class="rounded-circle" style="width: 100%; height: 100%; object-fit: contain;" />
+                        {% else %}
+                        <div class="default-avatar p-2">
+                            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m 8 1 c -1.65625 0 -3 1.34375 -3 3 s 1.34375 3 3 3 s 3 -1.34375 3 -3 s -1.34375 -3 -3 -3 z m -1.5 7 c -2.492188 0 -4.5 2.007812 -4.5 4.5 v 0.5 c 0 1.109375 0.890625 2 2 2 h 8 c 1.109375 0 2 -0.890625 2 -2 v -0.5 c 0 -2.492188 -2.007812 -4.5 -4.5 -4.5 z m 0 0" fill="#2e3436"/>
+                            </svg>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mx-3">
+
+                        <h2 style="font-size: var(--nt-fs-3) !important;" class="m-0">{{ page.author }}</h2>
+                        <div style="font-size: var(--nt-fs-3) !important;"class="author-name">{{ page.author_meta.description }}</div>
+                    </div>
+                    </div>
+                {% endif %}
+
+            </main>
+        </div>
+        <div class="w-100:xl:mt-5" style-xl="flex: 0 0 33.3%">
+
+            <aside class="mt-5 p-4 rounded d-flex aside-share"
+            style="flex-direction: column; gap: var(--nt-space-3); align-items: center; margin-top: var(--nt-space-3) !important; background-color: var(--nt-body-tertiary)"
+            style-xl="flex-direction: row;">
+                <div class="fs-5 d-flex align-center text-uppercase"
+                    style="flex: 1; font-size: var(--nt-fs-2) !important; font-weight: 600 !important; color: var(--nt-secondary);"
+                    style-xl="font-size: var(--nt-fs-5) !important;">
+                    Artikel teilen:
+                </div>
+                <div class="d-flex flex-wrap flexg-12">
+                    {% assign social_icons = site.data.social_icons %}
+                    {% for icon in social_icons %}
+                        {% assign url_key = icon.name | append: '_url' %}
+                        {% assign icon_url = page[url_key] | default: site[url_key] %}
+                        {% if icon_url and icon_url != '' %}
+                            <a href="{{ icon_url }}" target="_blank" rel="noopener"
+                               class="hover-anim-color-secondary"
+                               style="color: var(--nt-secondary);"
+                               title="{{ icon.title }}">
+                                {{ icon.svg }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </aside>
+            <aside class="mt-5 pt-4 pb-4">
+                <div class="fs-5 fw-600 d-flex align-center text-uppercase" style="flex: 1; color: var(--nt-secondary);">
+                    Das könnte Sie auch interessieren:
+                </div>
+                <div class="border-bottom my-2" style="border-color: var(--nt-tertiary) !important;"></div>
+                {% for slug in page.articles_related %}
+                {% assign post = site.posts | where: "slug", slug | first %}
+                {% if post %}
+                <div class="mt-3 p-3 rounded position-relative" style="cursor: pointer; background-color: var(--nt-body-tertiary)" onclick="window.location='{{ post.url }}'">
+                    <div class="p-4 h-56 d-flex flex-column flexg-16 justify-content-end bg-cover bg-gradient-bottom-navy-25-100 justify-end d-overflow-hidden"
+                        style="background-image: url('{{ post.image }}'); border-radius: calc(0.25rem * 5);">
+                        <div class="fw-600 fs-7 d-flex align-center text-uppercase" style="color: var(--nt-primary);">
+                            <span style="display: inline-block; width: 1.5em; border-bottom: 2px solid currentColor; margin-right: 0.5em; vertical-align: middle;"></span>
+                            {{ post.categories | join: ", " }}
+                        </div>
+                        <h3 class="text-light fw-500 fs-4">
+                            {{ post.title }}
+                        </h3>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </aside>
+        </div>
+    </div>
+</div>
+
+<script>
+    const additionalInfoToggle = document.querySelector('.additional-info-toggle');
+    if (additionalInfoToggle) {
+        additionalInfoToggle.addEventListener('click', () => {
+            const additionalInfoElements = document.querySelectorAll('.additional-info');
+            additionalInfoElements.forEach(element => {
+                element.classList.toggle('d-none');
+            });
+
+            if (!additionalInfoToggle.classList.contains('collapsed')) {
+                additionalInfoToggle.classList.add('collapsed');
+                additionalInfoToggle.textContent = 'Mehr anzeigen';
+            } else {
+                additionalInfoToggle.classList.remove('collapsed');
+                additionalInfoToggle.textContent = 'Weniger anzeigen';
+            }
+        });
+    }
+</script>

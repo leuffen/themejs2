@@ -1,0 +1,5 @@
+<style>.site-footer--raven{background:#1e1e1e;color:rgba(255,255,255,.92)}.site-footer--raven a{color:inherit}.site-footer--raven .muted{color:rgba(255,255,255,.64)}</style>
+<footer class="site-footer site-footer--raven mt-5">
+  <div class="container py-5"><div class="row gy-4"><section class="col-12 col-lg-6"><h2>{{ site.data.general.name | default: site.title }}</h2><p class="muted">{{ site.data.general.fachrichtung | default: site.data.general.desc }}<br>{{ site.data.general.street }}<br>{{ site.data.general.zip }} {{ site.data.general.city }}</p></section><section class="col-12 col-lg-6"><h3 class="h6 text-uppercase">Rechtliches</h3><ul class="list-unstyled">{% assign docs = site.posts | concat: site.pages %}{% assign footer_items = docs | where: "ptags", "footernav" | sort: "order" %}{% for it in footer_items %}<li><a href="{{ it.url }}">{{ it.short_title | default: it.title }}</a></li>{% endfor %}</ul></section></div></div>
+  <div class="border-top"><div class="container py-3 small muted">© {{ site.data.general.name | default: site.title }} {{ site.time | date: '%Y' }} · Raven</div></div>
+</footer>

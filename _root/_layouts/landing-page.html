@@ -1,11 +1,4 @@
 ---
 layout: default
 ---
-<article class="landing-page">
-  <header class="hero">
-    <h1>{{ page.title }}</h1>
-    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
-    {% if page.cta_url and page.cta_label %}<p><a class="button" href="{{ page.cta_url }}">{{ page.cta_label }}</a></p>{% endif %}
-  </header>
-  <div class="landing-page-content">{{ content }}</div>
-</article>
+{{ content }}

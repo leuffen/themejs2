@@ -1,16 +1,4 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-<p>Informationen zur redaktionellen Arbeitsweise finden Sie unter <a href="{{ '/ki-transparenz/' | relative_url }}">Wie wir KI für bessere Inhalte einsetzen</a>.</p>
-{% assign all_content = site.posts | concat: site.wissen | sort: "date" | reverse %}
-<ul class="content-list">
-{% assign article_count = 0 %}
-{% for article in all_content %}
-  {% if article.author_slug == page.author_slug %}
-    {% assign article_count = article_count | plus: 1 %}
-    <li><a href="{{ article.url | relative_url }}">{{ article.title }}</a><span>{{ article.date | date: '%d.%m.%Y' }}</span></li>
-  {% endif %}
-{% endfor %}
-</ul>
-{% if article_count == 0 %}<p>Noch keine veröffentlichten Artikel.</p>{% endif %}
+{{ content }}

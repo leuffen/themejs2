@@ -1,16 +1,4 @@
 ---
 layout: default
 ---
-<article class="post">
-  <header class="article-header">
-    <p class="eyebrow">{% if page.content_type == 'news' %}News{% else %}Magazin{% endif %}</p>
-    <h1>{{ page.title }}</h1>
-    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
-    <dl class="article-meta">
-      <div><dt>Veröffentlicht</dt><dd><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time></dd></div>
-      {% if page.last_updated %}<div><dt>Aktualisiert</dt><dd>{{ page.last_updated | date: '%d.%m.%Y' }}</dd></div>{% endif %}
-      {% if page.author %}<div><dt>Von</dt><dd>{{ page.author }}</dd></div>{% endif %}
-    </dl>
-  </header>
-  <div class="article-content">{{ content }}</div>
-</article>
+{{ content }}

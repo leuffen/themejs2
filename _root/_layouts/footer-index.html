@@ -1,0 +1,8 @@
+{% unless page.use_footer == false %}
+  {% case page.use_footer %}
+    {% when 'mueller' %}{% include_relative footer-mueller.html %}
+    {% when 'osman' %}{% include_relative footer-osman.html %}
+    {% when 'raven' %}{% include_relative footer-raven.html %}
+    {% else %}{% include_relative footer.html %}
+  {% endcase %}
+{% endunless %}
