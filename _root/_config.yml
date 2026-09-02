@@ -1,0 +1,68 @@
+title: ePraxis Digital
+description: Aktuelle Einblicke zu Digitalisierung, Praxis-IT und Organisation im Gesundheitswesen.
+lang: de-DE
+url: "https://www.epraxis.digital"
+baseurl: ""
+timezone: Europe/Berlin
+markdown: kramdown
+permalink: /news/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-sitemap
+
+collections:
+  wissen:
+    output: true
+    permalink: /magazin/:path/
+  autoren:
+    output: true
+    permalink: /autoren/:path/
+  themen:
+    output: true
+    permalink: /themen/:path/
+  partner:
+    output: true
+    permalink: /partner/:path/
+  landing_pages:
+    output: true
+    permalink: /landingpages/:path/
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      content_type: news
+  - scope:
+      path: ""
+      type: wissen
+    values:
+      layout: article
+      content_type: wissen
+  - scope:
+      path: ""
+      type: autoren
+    values:
+      layout: author
+  - scope:
+      path: ""
+      type: themen
+    values:
+      layout: topic
+  - scope:
+      path: ""
+      type: partner
+    values:
+      layout: partner
+  - scope:
+      path: ""
+      type: landing_pages
+    values:
+      layout: landing-page
