@@ -1,19 +1,4 @@
 ---
 layout: default
 ---
-<section class="hero">
-  <p class="eyebrow">Thema</p>
-  <h1>{{ page.title }}</h1>
-  {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-</section>
-{% assign all_content = site.posts | concat: site.wissen | sort: "date" | reverse %}
-<ul class="content-list">
-{% assign article_count = 0 %}
-{% for article in all_content %}
-  {% if article.topics contains page.topic %}
-    {% assign article_count = article_count | plus: 1 %}
-    <li><a href="{{ article.url | relative_url }}">{{ article.title }}</a><span>{% if article.content_type == 'news' %}News · {% else %}Magazin · {% endif %}{{ article.date | date: '%d.%m.%Y' }}</span></li>
-  {% endif %}
-{% endfor %}
-</ul>
-{% if article_count == 0 %}<p>Noch keine veröffentlichten Artikel zu diesem Thema.</p>{% endif %}
+<div class="container"><tj-content-pane class="prose prose-xl"><p class="text-uppercase fw-600 text-secondary">Thema</p><h1>{{ page.title }}</h1>{% if page.description %}<p>{{ page.description }}</p>{% endif %}{% assign all_content = site.posts | concat: site.wissen | sort: "date" | reverse %}<h2>Beiträge</h2><div class="d-flex flex-column g-2">{% assign count = 0 %}{% for article in all_content %}{% if article.topics contains page.topic %}{% assign count = count | plus: 1 %}<div class="p-3 border rounded"><a class="fw-600" href="{{ article.url | relative_url }}">{{ article.title }}</a><div class="fs-6">{% if article.content_type == 'news' %}News · {% else %}Magazin · {% endif %}{{ article.date | date: "%d.%m.%Y" }}</div></div>{% endif %}{% endfor %}{% if count == 0 %}<p>Noch keine veröffentlichten Beiträge zu diesem Thema.</p>{% endif %}</div></tj-content-pane></div>

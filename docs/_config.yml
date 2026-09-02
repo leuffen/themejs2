@@ -21,6 +21,28 @@ exclude:
   - "~*"
   - "stats.html"
 
+collections:
+  elements:
+    output: false
+  snippets:
+    output: false
+  wissen:
+    output: true
+    permalink: /magazin/:path/
+  autoren:
+    output: true
+    permalink: /autoren/:path/
+  themen:
+    output: true
+    permalink: /themen/:path/
+  partner:
+    output: true
+    permalink: /partner/:path/
+  landing_pages:
+    output: true
+    permalink: /landingpages/:path/
+
+# Frontmatter contracts for the ePraxis demo and collection pages.
 defaults:
   - scope:
       path: ""
@@ -60,29 +82,6 @@ defaults:
       type: landing_pages
     values:
       layout: landing-page
-
-collections:
-  elements:
-    output: false
-  snippets:
-    output: false
-  wissen:
-    output: true
-    permalink: /magazin/:path/
-  autoren:
-    output: true
-    permalink: /autoren/:path/
-  themen:
-    output: true
-    permalink: /themen/:path/
-  partner:
-    output: true
-    permalink: /partner/:path/
-  landing_pages:
-    output: true
-    permalink: /landingpages/:path/
-  posts:
-    output: true
 
 plugins:
   - jekyll-optional-front-matter

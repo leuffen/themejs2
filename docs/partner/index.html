@@ -1,0 +1,4 @@
+---
+title: Partner
+---
+<div class="container"><tj-content-pane class="prose prose-xl"><h1>Partner</h1><p>Partnerprofile und über Tags zugeordnete Beiträge.</p><div class="d-flex flex-column g-2">{% assign partners = site.partner | sort: "title" %}{% for partner in partners %}<div class="p-3 border rounded"><a class="fw-600" href="{{ partner.url | relative_url }}">{{ partner.title }}</a>{% if partner.relationship %}<div class="fs-6">{{ partner.relationship }}</div>{% endif %}</div>{% endfor %}</div></tj-content-pane></div>
