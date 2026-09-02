@@ -1,0 +1,14 @@
+<table class="openhours">
+
+    <tbody>
+    {% for hours in site.data.openhours.table %}
+    <tr>
+        <td class="">{{ hours.day }}</td>
+        <td>{{ hours.time }}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
