@@ -3,7 +3,14 @@ import "@trunkjs/responsive";
 import "@trunkjs/loader";
 
 // Import all web components used in the project (Remember to add them also to all.scss
+import "@nextrap/nte-navbar";
 import "@nextrap/nte-nav";
+import "@nextrap/nte-burger";
+import "@nextrap/nte-offcanvas";
+import "@nextrap/nte-feedback";
+import "@trunkjs/element-relocator";
+import "@trunkjs/form";
+import "@nextrap/nte-input";
 import "@nextrap/nte-card";
 import "@nextrap/nte-image";
 

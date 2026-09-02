@@ -1,0 +1,12 @@
+// Gives Raven's shared navbar a dark header surface while keeping the light navigation content readable.
+nte-navbar {
+  --nte-navbar-background: var(--nt-header);
+  --nte-navbar-background-at-top: var(--nt-header);
+  color: var(--nt-surface);
+}
+
+// Keeps every navbar line dark, including the top utility line and the main navigation line.
+nte-navbar-line {
+  --background: var(--nt-header);
+  --text-color: var(--nt-surface);
+}

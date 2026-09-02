@@ -1,0 +1,25 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Provides a form layout with both columns aligned to the top edge.
+&.style-form {
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-spacing-layout),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: none
+  );
+
+  // Keeps main and aside aligned at the top instead of vertically centering the shorter column.
+  &::part(wrapper) {
+    align-items: flex-start;
+  }
+
+  // Makes paragraph content fill the complete width of both form columns.
+  p {
+    display: block;
+    width: 100%;
+    inline-size: 100%;
+  }
+}

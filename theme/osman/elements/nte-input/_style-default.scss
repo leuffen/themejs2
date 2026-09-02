@@ -1,0 +1,13 @@
+@use "@nextrap/nte-input" as nteInput;
+
+// Applies the package default-style mixin and adds Osman-specific bottom spacing.
+&.style-default {
+  @include nteInput.default-style(nteInput.$themeCarbon);
+
+  // Applies floating labels only when the control explicitly opts into that layout.
+  &.hoverlabel {
+    @include nteInput.floating-labels();
+  }
+
+  padding-block-end: var(--nt-space-4);
+}

@@ -61,7 +61,8 @@ layout: null
         window.pid = '{{ page.pid }}'
         window.layout = '{{ page.layout }}'
         window.openhours = {{ site.data.openhours | jsonify }};
-        window.micx_subscription_id = '{{ site.data.general.subscription_id }}';
+        window.micx_endpoint = 'https://ws.micx.io/v1/formmailer/send';
+        window.micx_subscription = '{{ site.data.general.subscription_id }}';
         window.mapUrl = '{{ site.data.general.map_url }}';
     </script>
 

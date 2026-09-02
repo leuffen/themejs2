@@ -2,6 +2,7 @@
 
 ntl-2col {
   @include meta.load-css("./_style-default.scss");
+  @include meta.load-css("./_style-form.scss");
   @include meta.load-css("./_style-card.scss");
   @include meta.load-css("./_style-hero.scss");
   @include meta.load-css("./slot-aside/slot-aside.scss");

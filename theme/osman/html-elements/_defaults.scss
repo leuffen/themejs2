@@ -16,19 +16,4 @@
   --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
 }
 
-// Native unordered lists reuse the shared Nextrap list defaults and the
-// exported diamond helper. The explicit `.list` API takes ownership.
-:where(main#main ul:not(.list)) {
-  @include elements.list();
-  @include elements.list-diamond();
-
-  ul {
-    margin-block-start: var(--nt-space-2);
-  }
-}
-
-// Ordered lists keep native numbering with the shared Nextrap list spacing.
-// `.list` explicitly transfers styling ownership to Nextrap classes.
-:where(main#main ol:not(.list)) {
-  @include elements.list();
-}
+// Lists intentionally remain unstyled here; each list must opt in manually with `.list.list-diamond`.

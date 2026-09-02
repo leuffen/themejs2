@@ -1,6 +1,0 @@
-@use "sass:meta";
-
-nte-navbar-line {
-  @include meta.load-css("./_style-default.scss");
-  @include meta.load-css("./_style-topbar.scss");
-}

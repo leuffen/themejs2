@@ -6,6 +6,8 @@ use_navbar: osman
 use_footer: osman
 ptags:
   - arzt
+  - subnav
+pid: site
 ---
 
 ---
@@ -200,3 +202,21 @@ Test
 #### odhoqidjiowqjdioq
 
 dpoqwjdpioqwjdoijqwoid
+
+---
+{: layout="2;tj-form"}
+
+## Schreiben Sie uns
+{: layout="2.1;ntl-2col.style-default" .top }
+
+#[nte-input.style-default.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.style-default.hoverlabel type="text" name="telefon" label="Telefon"]
+
+---
+{: layout=".aside" }
+
+#[nte-input.style-default.hoverlabel type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
+#[button type="submit" class="btn btn-primary" > Absenden]
+

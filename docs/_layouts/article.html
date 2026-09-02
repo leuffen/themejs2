@@ -6,7 +6,7 @@ layout: default
 <div class="container">
   <div class="d-flex flex-column:xl:flex-row gap-3 flex-nowrap mb-5 mx-3">
     <article class="w-100:xl:w-auto">
-      <tj-content-pane class="prose prose-xl">
+      <tj-content-pane pre-parser="text-block" class="prose prose-xl">
         <p class="text-uppercase fw-600 text-secondary">{% if page.content_type == 'news' %}News{% else %}Magazin{% endif %}</p>
         <h1>{{ page.title }}</h1>
         {% if page.description %}<p class="fs-3">{{ page.description }}</p>{% endif %}
