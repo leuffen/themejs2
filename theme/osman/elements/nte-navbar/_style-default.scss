@@ -1,0 +1,11 @@
+// Keeps the Osman navbar transparent at the top and adds a translucent blurred surface while scrolling.
+&.style-default {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+// Applies the scrolled Osman glass effect with an 80% transparent white surface.
+&.style-default.is-scrolled {
+  background: rgb(255 255 255 / 20%);
+  backdrop-filter: blur(1.25rem);
+}

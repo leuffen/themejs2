@@ -20,7 +20,6 @@ Osman emits its mixin output into these named layers. Native element defaults be
 @layer themes.elements {
   :where(.theme-osman ul:not(.list)) {
     @include elements.list();
-    @include elements.list-diamond();
   }
 }
 
@@ -133,9 +132,11 @@ Themes should define their intended default appearance for native HTML elements 
 }
 
 :where(ul:not(.list)) {
-  // Theme default unordered-list style.
+  // Neutral unordered-list base style only.
 }
 ```
+
+Decorative list markers such as `list-diamond` are normally content decisions and must be selected explicitly with classes, for example in Kramdown via `{: .list .list-diamond }`. Define such decorations globally in `html-elements` only as a deliberate exception for a tightly scoped content area or for a theme whose entire content language requires that marker everywhere.
 
 Utility classes remain composable with these defaults.
 

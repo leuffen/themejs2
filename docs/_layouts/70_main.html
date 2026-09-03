@@ -1,0 +1,18 @@
+---
+layout: 60_footer
+---
+<nte-feedback></nte-feedback>
+
+<main id="main" class="mx-auto">
+    {% capture global_include %}
+    {% include global.md %}
+    {% endcapture %}
+
+    {{ global_include | markdownify }}
+
+
+    <!-- Main Content -->
+    {{content}}
+    <!-- /Main Content -->
+</main>
+

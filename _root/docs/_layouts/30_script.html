@@ -3,11 +3,4 @@ layout: 20_body
 ---
 {{ content }}
 
-<!-- Templates from /_elements -->
-{% for template in site.elements %}
-  <template id="{{ template.slug }}">
-    {{ template.content | strip_newlines }}
-  </template>
-{% endfor %}
-
 <leuffen-vacation-modal></leuffen-vacation-modal>

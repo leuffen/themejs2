@@ -18,6 +18,7 @@
         "/font",
         "/elements",
         "/sections",
+        "/functions",
         "/_tpl",
         "*.scss",
         "*.json",
@@ -36,6 +37,7 @@
     "author": "",
     "dependencies": {
         "@leuffen/announcements": "^1.0.0",
+        "@leuffen/vite-jekyll-hmr-manager": "workspace:*",
         "@micx/lib-js": "^2.0.16",
         "@nextrap/nte-card": "^2.0.0",
         "@nextrap/nte-dialog-component": "^2.0.0",
@@ -81,8 +83,8 @@
     "scripts": {
         "vite-prox": "vite dev",
         "vite-build": "vite build --watch",
-        "jekyll-prox": "JEKYLL_ENV=development jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4999 --livereload-port 4100 --host 0.0.0.0",
-        "jekyll-build": "JEKYLL_ENV=production jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0",
+        "jekyll-prox": "JEKYLL_ENV=development jekyll serve -s docs -d /var/www/html --drafts --incremental --port 4999 --host 0.0.0.0",
+        "jekyll-build": "JEKYLL_ENV=production jekyll serve -s docs -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0",
         "dev": "concurrently 'npm run vite-prox' 'npm run jekyll-prox'",
         "dev-b": "concurrently 'npm run vite-build' 'npm run jekyll-build'",
         "build": "vite build"

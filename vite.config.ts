@@ -1,9 +1,17 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
 import tsconfigPaths from "vite-tsconfig-paths";
+import jekyllHmrManager from "@leuffen/vite-jekyll-hmr-manager";
 
 export default defineConfig({
-    plugins: [tsconfigPaths()],
+    plugins: [
+        tsconfigPaths(),
+        jekyllHmrManager({
+            watchDir: "/var/www/html",
+            navigateOnChange: false,
+            debug: true,
+        }),
+    ],
     server: {
         port: 4000,
         strictPort: true,

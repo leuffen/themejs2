@@ -1,9 +1,6 @@
-title: ePraxis Digital
-description: Aktuelle Einblicke zu Digitalisierung, Praxis-IT und Organisation im Gesundheitswesen.
 lang: de-DE
-url: "https://www.epraxis.digital"
+url: ""
 baseurl: ""
-timezone: Europe/Berlin
 markdown: kramdown
 permalink: /news/:year/:month/:day/:title/
 

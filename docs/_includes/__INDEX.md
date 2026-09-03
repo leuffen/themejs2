@@ -2,12 +2,6 @@
 
 | Datei | Funktion |
 | --- | --- |
-| `_styles/default/navbar.html` | Standard-Navigation der Demo-Seiten. |
-| `_styles/default/footer.html` | Standard-Footer der Demo-Seiten. |
-| `_styles/mueller/footer.html` | Footer-Variante für das Müller-Theme. |
-| `_styles/osman/navbar.html` | Navbar-Variante für das Osman-Theme. |
-| `_styles/osman/footer.html` | Footer-Variante für das Osman-Theme. |
-| `_styles/raven/footer.html` | Footer-Variante für das Raven-Theme. |
 | `dist/README.md` | Hinweis/Dokumentation für generierte oder ausgelieferte Include-Artefakte. |
 | `do/link.html` | Hilfs-Include zur Link-Erzeugung bzw. Link-Normalisierung. |
 | `do/remove-line-breaks.html` | Entfernt Zeilenumbrüche aus übergebenem Inhalt. |

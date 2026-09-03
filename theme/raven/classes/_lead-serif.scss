@@ -1,6 +1,6 @@
 .lead-serif {
   color: var(--nt-text-muted);
   font-family: "Garamond", Georgia, serif;
-  font-size: clamp(var(--nt-fs-1), 2.1vw, calc(var(--nt-fs-h3) * 1.1));
+  font-size: clamp(var(--nt-fs-h1), 2.1vw, calc(var(--nt-fs-h3) * 1.1));
   line-height: 1.34;
 }

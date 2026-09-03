@@ -1,11 +1,10 @@
 @use "@nextrap/style-elements" as elements;
 
-// Osman defaults for native content elements. Explicit semantic base classes
-// opt out so list utilities and component-owned list styles remain composable.
+// Osman defaults for native content elements. Lists only receive the neutral
+// base styling here; decorative markers must be chosen explicitly with classes.
 
 :where(ul:not(.list)) {
   @include elements.list();
-  @include elements.list-diamond();
 }
 
 :where(main#main table:not(.table)) {
