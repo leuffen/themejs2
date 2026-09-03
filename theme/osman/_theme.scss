@@ -46,18 +46,21 @@
     @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
 
 
+    // Materializes the shared light-DOM navbar helpers at the theme scope; the mixin owns its child selectors.
     @include nteNavbar.default-style();
+
     @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
 
     nte-nav.style-default {
       @include nav2.main-navigation();
     }
 
-    nte-nav#osman-main-navigation-horizontal {
+    // Verbindet die Osman-Varianten mit den Klassen des aktiven Navbar-Layouts.
+    nte-nav.nav-horizontal {
       @include nav2.horizontal();
     }
 
-    nte-nav#osman-main-navigation-vertical {
+    nte-nav.nav-vertical {
       @include nav2.vertical();
     }
 

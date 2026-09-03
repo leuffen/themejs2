@@ -5,7 +5,7 @@ layout: 30_script
 
 <nte-navbar class="style-default fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 104px">
     <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
-        <div class="site-topbar">
+        <div slot="start" class="site-topbar d-flex align-items-center justify-content-between gap-2 w-100">
             <div class="site-topbar__info">
                 {% if site.data.general.phone1_text %}
                     <span>Tel. {{ site.data.general.phone1_text }}</span>
@@ -27,7 +27,7 @@ layout: 30_script
     </nte-navbar-line>
 
     <nte-navbar-line class="style-default" style="--brand-height: 64px">
-        <a slot="brand" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
+        <a slot="start" class="brand-logo" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
             <img
                 src="/assets/osman-logo.svg"
                 alt="{{ site.data.general.logoalt | default: site.data.general.name }}"
@@ -37,29 +37,41 @@ layout: 30_script
         </a>
 
         <nte-nav
+            id="osman-main-navigation-horizontal"
             class="style-default nav-horizontal"
-            mode="master"
-            data-group-name="nav1"
-            breakpoint="xl"
-            transfer-to="#navSidebar"
+            slot="end"
+            aria-label="Hauptnavigation"
+            style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto"
         >
-            <span slot="menu-text">Menü</span>
-            <ul>
-                {% include el/navtree.html ptags="nav" start=0 depth=2 %}
-
-
-                <li style="order: 30">
-                    <a href="/#notfall">Notfall</a>
-                </li>
-
-            </ul>
+            {% include el/nav2.html ptag="nav" %}
+            <nte-nav-item href="/#notfall" style="--order: 30">Notfall</nte-nav-item>
         </nte-nav>
+
+        <nte-burger
+            slot="end"
+            aria-label="Navigation öffnen"
+            aria-controls="navSidebar"
+            static-state
+            onclick="document.getElementById('navSidebar')?.toggle()"
+            style="display: block"
+            style-xl="display: none"
+        ></nte-burger>
     </nte-navbar-line>
 </nte-navbar>
 
-<nte-offcanvas id="navSidebar" data-group-name="nav1">
-    <nte-burger slot="header" data-group-name="nav1" data-nt-dismiss="offcanvas" open></nte-burger>
-    <nte-nav class="style-default nav-vertical"></nte-nav>
+<nte-offcanvas id="navSidebar" aria-label="Mobile Hauptnavigation">
+    <div slot="header"><strong>Navigation</strong></div>
+    <nte-nav
+        id="osman-main-navigation-vertical"
+        class="style-default nav-vertical"
+        aria-label="Mobile Hauptnavigation"
+        style="--nte-nav-flow: column; --nte-nav-align: stretch"
+    ></nte-nav>
+    <tj-element-relocator
+        source="#osman-main-navigation-horizontal"
+        target="#osman-main-navigation-vertical"
+        class="-xl:relocate"
+    ></tj-element-relocator>
 </nte-offcanvas>
 
 {% endif %}
