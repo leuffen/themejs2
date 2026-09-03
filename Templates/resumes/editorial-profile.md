@@ -1,4 +1,4 @@
-# Editorial Profile Resume
+# Redaktionelles Lebenslauf-Profil
 
 Eine kompakte Lebenslauf-Vorlage für persönliche Profilseiten, Bewerbungsseiten oder Speaker-Vitas. Der Schwerpunkt liegt auf einer starken Einleitung und einer klar scanbaren Stationenliste.
 
@@ -6,11 +6,11 @@ Eine kompakte Lebenslauf-Vorlage für persönliche Profilseiten, Bewerbungsseite
 
 ```html
 <header class="resume-profile">
-  <p class="resume-profile__eyebrow">Curriculum Vitae</p>
+  <p class="resume-profile__eyebrow">Lebenslauf</p>
   <h1>Alex Beispiel</h1>
-  <p class="resume-profile__role">Product Designer · Design Systems · UX Strategy</p>
+  <p class="resume-profile__role">Produktdesign · Design-Systeme · UX-Strategie</p>
   <p class="resume-profile__summary">
-    Gestaltet digitale Produkte mit Fokus auf robuste Systeme, klare Interfaces
+    Gestaltet digitale Produkte mit Fokus auf robuste Systeme, klare Oberflächen
     und eine enge Verbindung zwischen Gestaltung und Umsetzung.
   </p>
 </header>
@@ -27,7 +27,7 @@ Der Profilkopf trennt Rolle und Kurzprofil bewusst vom Namen. So bleibt die Hier
   <article class="resume-entry">
     <p class="resume-entry__period">2023–heute</p>
     <div>
-      <h3>Lead Product Designer · Beispiel GmbH</h3>
+      <h3>Leitung Produktdesign · Beispiel GmbH</h3>
       <p>Design-System, Produktstrategie und teamübergreifende UX-Prozesse.</p>
     </div>
   </article>
@@ -36,7 +36,7 @@ Der Profilkopf trennt Rolle und Kurzprofil bewusst vom Namen. So bleibt die Hier
     <p class="resume-entry__period">2020–2023</p>
     <div>
       <h3>Senior UX Designer · Studio Beispiel</h3>
-      <p>Digitale Plattformen, Prototyping und Research für B2B-Produkte.</p>
+      <p>Digitale Plattformen, Prototyping und Nutzerforschung für B2B-Produkte.</p>
     </div>
   </article>
 </section>
@@ -102,4 +102,4 @@ Der Profilkopf trennt Rolle und Kurzprofil bewusst vom Namen. So bleibt die Hier
 </style>
 ```
 
-Die Zeitangabe erhält auf größeren Screens eine eigene schmale Spalte und fällt mobil automatisch über den Inhalt. Dadurch bleibt die Vita schnell erfassbar, ohne eine dekorative Timeline-Grafik zu benötigen. Als Optionen eignen sich Akzentfarbe für Zeitangaben, ergänzende Tags für Technologien oder Kompetenzen sowie eine dritte Meta-Zeile für Ort oder Beschäftigungsart.
+Die Zeitangabe erhält auf größeren Bildschirmen eine eigene schmale Spalte und fällt mobil automatisch über den Inhalt. Dadurch bleibt die Vita schnell erfassbar, ohne eine dekorative Zeitleisten-Grafik zu benötigen. Als Optionen eignen sich eine Akzentfarbe für Zeitangaben, ergänzende Schlagwörter für Technologien oder Kompetenzen sowie eine dritte Meta-Zeile für Ort oder Beschäftigungsart.
