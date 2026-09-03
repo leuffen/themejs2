@@ -18,6 +18,10 @@ Vorgaben zu Komponentenverträgen, Shadow DOM, Parts, Mixins, Responsivität,
 Lifecycle, Wiederverwendung und Prüfungen gelten zusätzlich zu den Regeln des
 jeweils verwendeten Skills.
 
+## Sprache
+
+Regeln, Skills, Vorlagen, Beispiele und ihre erklärenden Texte werden in diesem Repository grundsätzlich auf Deutsch formuliert. Englische Fachbegriffe, Bezeichner, API-Namen, CSS-Klassen, Code-Syntax oder fest etablierte technische Begriffe dürfen unverändert bleiben, wenn eine Übersetzung unüblich, missverständlich oder technisch falsch wäre; sichtbare Beispieltexte, Titel, Beschreibungen, Begründungen und Optionen sind dagegen auf Deutsch zu verfassen, sofern kein konkreter Anwendungsfall ausdrücklich eine andere Sprache verlangt.
+
 ## Dokumentation von Code-Blöcken
 
 Alle Code-Dateien werden nach funktionalen Blöcken kommentiert. Das gilt unter
@@ -55,3 +59,7 @@ Komponenten, Module, Varianten, Breakpoints, Slots, Zustände oder öffentliche
 APIs vor der Umsetzung geprüft werden. Wenn Seiteneffekte nicht eindeutig
 ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 Änderung darf bis zur Klärung nicht umgesetzt werden.
+
+## Vorlagen-Bibliothek
+
+Wiederverwendbare Styling-Vorlagen werden im Verzeichnis `Templates/` nach fachlichem Gebiet in Unterverzeichnissen organisiert, zum Beispiel `Templates/contact-forms/` oder `Templates/resumes/`. Vorlagen sind grundsätzlich Markdown-Dateien und enthalten einen eindeutigen deutschen Titel, eine kurze deutsche Beschreibung des Einsatzzwecks, ein bis zwei kompakte Element-Abschnitte mit vollständig nutzbaren Beispielen in Code-Blöcken sowie eine kurze Begründung für die gewählte Umsetzung und eine überschaubare Beschreibung sinnvoller Varianten oder Optionen. Die Beispiele sollen als vollständige Style-Referenzen dienen, aber bewusst klein bleiben, damit einzelne Gestaltungsmuster schnell übernommen, verglichen und angepasst werden können; neue Vorlagen sind einem vorhandenen Gebiet zuzuordnen, bevor ein neues Gebiet angelegt wird, um Dubletten und unnötig ähnliche Kategorien zu vermeiden.
