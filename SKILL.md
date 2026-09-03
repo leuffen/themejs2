@@ -55,3 +55,7 @@ Komponenten, Module, Varianten, Breakpoints, Slots, Zustände oder öffentliche
 APIs vor der Umsetzung geprüft werden. Wenn Seiteneffekte nicht eindeutig
 ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 Änderung darf bis zur Klärung nicht umgesetzt werden.
+
+## Template-Bibliothek
+
+Wiederverwendbare Styling-Vorlagen werden im Verzeichnis `Templates/` nach fachlichem Gebiet in Unterverzeichnissen organisiert, zum Beispiel `Templates/contact-forms/` oder `Templates/resumes/`. Vorlagen sind grundsätzlich Markdown-Dateien und enthalten einen eindeutigen Titel, eine kurze Beschreibung des Einsatzzwecks, ein bis zwei kompakte Element-Abschnitte mit vollständig nutzbaren Beispielen in Code-Blöcken sowie eine kurze Begründung für die gewählte Umsetzung und eine überschaubare Beschreibung sinnvoller Varianten oder Optionen. Die Beispiele sollen als vollständige Style-Referenzen dienen, aber bewusst klein bleiben, damit einzelne Gestaltungsmuster schnell übernommen, verglichen und angepasst werden können; neue Vorlagen sind einem vorhandenen Gebiet zuzuordnen, bevor ein neues Gebiet angelegt wird, um Dubletten und unnötig ähnliche Kategorien zu vermeiden.
