@@ -1,10 +1,13 @@
+@use "sass:string";
+@use "@nextrap/nte-card" as card;
 @use "@nextrap/ntl-card-row" as cardRow;
 
 &.style-default {
-  --gutter-y: clamp(1rem, 2vw, 1.5rem);
-
+  // Stellt das Osman-Standardraster als neutrale, wiederverwendbare Card-Reihe
+  // bereit; konkrete Spalten können weiterhin pro Instanz über --cols wechseln.
   @include cardRow.default-style(
     $container-width: var(--nt-container-width),
+    $cols: 4,
     $gap: clamp(1rem, 2vw, 1.5rem),
     $inner-padding: 0,
     $container-background: transparent,
@@ -18,11 +21,82 @@
     margin: 0 auto;
   }
 
-  &[mode="mobile"] nte-card {
-    --image-aspect-ratio: 1;
+  &::part(header) {
+    max-width: 48rem;
+    margin: 0 auto var(--nt-space-6);
+    text-align: center;
   }
 
-  &[mode="desktop"] nte-card {
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Trennt die Standard-Cards nur optisch voneinander; einzelne Cards behalten
+  // keine eigenen Rahmen, damit die Reihe ruhiger und leichter wirkt.
+  @include cardRow.with-item-separators(
+    $separator-color: color-mix(in srgb, var(--nt-surface-muted) 78%, white 22%),
+    $separator-inset: clamp(0.25rem, 1.2vw, 0.75rem)
+  );
+
+  // Die Standard-Cards greifen die Osman-Flächen, Radien und Textabstände auf,
+  // ohne das Card-Row-Spaltenmodell oder card-spezifische Breiten zu verändern.
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-spacing-text),
+      $border: none,
+      $background-color: var(--nt-surface-raised),
+      $border-radius: var(--theme-corner),
+      $image-aspect-ratio: string.unquote("16 / 9")
+    );
+
+    align-self: stretch;
+    color: var(--nt-text);
+
+    &::part(link) {
+      display: block;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &::part(wrapper) {
+      height: 100%;
+      box-shadow: var(--theme-shadow);
+    }
+
+    &::part(content) {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      gap: var(--nt-text-gap);
+    }
+
+    &::part(footer) {
+      margin-top: auto;
+      padding-top: 0;
+    }
+
+    :is(h1, h2, h3, h4, h5, h6) {
+      color: var(--nt-primary);
+      font-size: var(--nt-fs-h3);
+      font-weight: 700;
+      line-height: var(--nt-line-height-base);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &[mode="mobile"] {
+    --gutter-y: var(--nt-space-5);
+
+    > nte-card {
+      --image-aspect-ratio: 1;
+    }
+  }
+
+  &[mode="desktop"] > nte-card {
     --image-aspect-ratio: 16/9;
   }
 }

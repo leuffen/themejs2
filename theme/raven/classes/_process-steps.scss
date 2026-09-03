@@ -20,7 +20,7 @@
       grid-column: 1;
       color: var(--nt-link);
       font-family: "Garamond", Georgia, serif;
-      font-size: var(--nt-fs-2);
+      font-size: var(--nt-fs-h2);
       line-height: 1.2;
     }
 
@@ -28,7 +28,7 @@
       grid-column: 2;
       margin: 0;
       color: var(--nt-header);
-      font-size: var(--nt-fs-4);
+      font-size: var(--nt-fs-h4);
       line-height: var(--nt-line-height-header);
     }
 
@@ -36,7 +36,7 @@
       grid-column: 2;
       margin: 0;
       color: var(--nt-text-muted);
-      font-size: var(--nt-fs-5);
+      font-size: var(--nt-fs-h5);
       line-height: var(--nt-line-height);
     }
 

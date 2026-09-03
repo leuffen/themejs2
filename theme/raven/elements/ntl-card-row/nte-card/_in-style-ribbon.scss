@@ -26,7 +26,7 @@
     > :is(h1, h2, h3, h4, h5, h6) {
       margin: 0;
       color: var(--nt-white);
-      font-size: var(--nt-fs-4);
+      font-size: var(--nt-fs-h4);
       font-weight: var(--nt-font-weight-bold);
       line-height: var(--nt-line-height);
     }
@@ -36,7 +36,7 @@
       margin: 0;
       color: color-mix(in srgb, var(--nt-white) 62%, transparent);
       font-family: "Garamond", Georgia, serif;
-      font-size: var(--nt-fs-5);
+      font-size: var(--nt-fs-h5);
       line-height: var(--nt-line-height);
     }
   }

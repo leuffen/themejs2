@@ -63,9 +63,10 @@
       flex: 1 1 auto;
     }
 
-    :is(h1, h2, h3, h4, h5, h6) {
-      font-size: var(--nt-fs-3);
-      font-weight: 700;
+    // Die Ribbon-Top-Kartenüberschrift bleibt so groß wie der normale Text und wird nur hervorgehoben.
+    h3 {
+      font-size: var(--nt-font-size-base);
+      font-weight: var(--nt-font-weight-bold);
       line-height: var(--nt-line-height-base);
       text-transform: uppercase;
       letter-spacing: 0.03em;

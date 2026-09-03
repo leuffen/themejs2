@@ -32,7 +32,7 @@
         border-left: 0.125rem solid var(--nt-primary);
         margin: var(--nt-space-4) 0;
         color: var(--nt-secondary);
-        font-size: var(--nt-fs-2) !important;
+        font-size: var(--nt-fs-h2) !important;
         font-weight: 300 !important;
         font-style: italic !important;
 
@@ -40,7 +40,7 @@
             margin-bottom: var(--nt-space-2) !important;
 
             &:last-child {
-                font-size: var(--nt-fs-4) !important;
+                font-size: var(--nt-fs-h4) !important;
             }
         }
 

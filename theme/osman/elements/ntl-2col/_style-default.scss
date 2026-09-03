@@ -29,6 +29,12 @@
     padding-block: var(--nt-spacing-text);
   }
 
+  // Der äußere Footer erhält denselben horizontalen Innenabstand wie der
+  // Content-Bereich, damit auch angehängte Aktionen sauber ausgerichtet sind.
+  &::part(footer) {
+    padding: var(--nt-spacing-text);
+  }
+
   &:has(> p[slot="aside"].auto)::part(aside) {
     aspect-ratio: 4 / 3;
     overflow: hidden;

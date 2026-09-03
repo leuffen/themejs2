@@ -1,0 +1,40 @@
+// Verbindet die Legacy-Klassen des Layouts mit den Runtime-Variablen der Navbar-Komponente.
+nte-navbar.style-default {
+  --nte-navbar-position: sticky;
+  --nte-navbar-top: 0;
+  --nte-navbar-background: transparent;
+  --nte-navbar-background-at-top: transparent;
+  --nte-navbar-shadow: 0 0.25rem 1rem rgb(0 0 0 / 12%);
+
+  background: transparent;
+  backdrop-filter: none;
+}
+
+// Stellt die beiden sichtbaren Navbar-Zeilen auf die Osman-Grunddarstellung ein.
+nte-navbar.style-default > nte-navbar-line.style-default {
+  --background: var(--nt-surface, #fff);
+  --text-color: var(--nt-text, #212529);
+}
+
+// Überführt die alte brand-height-Angabe des Layouts in die von nte-navbar-line erwartete Höhenvariable.
+nte-navbar.style-default > nte-navbar-line.style-default:not(.style-topbar) {
+  --height: var(--brand-height, 64px);
+}
+
+// Bewahrt die helle Osman-Topbar, auch wenn das Layout eigene Inline-Werte setzt.
+nte-navbar.style-default > nte-navbar-line.style-topbar {
+  --background: #f3f3f3;
+  --text-color: #666;
+}
+
+// Aktiviert Schatten und die Glasfläche nach dem Scrollen.
+nte-navbar.style-default.autoshadow,
+nte-navbar.style-default.is-scrolled {
+  box-shadow: var(--nte-navbar-shadow);
+}
+
+// Applies the scrolled Osman glass effect with an 80% transparent white surface.
+nte-navbar.style-default.is-scrolled {
+  background: rgb(255 255 255 / 20%);
+  backdrop-filter: blur(1.25rem);
+}

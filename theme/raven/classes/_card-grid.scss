@@ -18,13 +18,13 @@
 .card-grid > section > :is(h3, h4, h5, h6) {
   margin-bottom: var(--nt-spacing-text);
   color: var(--nt-primary-emphasis);
-  font-size: var(--nt-fs-4);
+  font-size: var(--nt-fs-h4);
 }
 
 .card-grid > section > p {
   margin-bottom: 0;
   color: var(--nt-text-muted);
-  font-size: var(--nt-fs-4);
+  font-size: var(--nt-fs-h4);
 }
 
 .card-grid.desktop {

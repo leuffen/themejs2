@@ -1,4 +1,4 @@
 @use "sass:meta";
 
-// Loads the reusable Osman-specific navbar presentation variant.
-@include meta.load-css("./_style-osman.scss");
+// Loads the default Osman navbar presentation used by this theme.
+@include meta.load-css("./_style-default.scss");

@@ -61,7 +61,7 @@ für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision u
 - Konservative Behandlung von Glaukom, Entzündungen und Verletzungen
 - Laser- und operative Verfahren zur Therapie verschiedener Augenerkrankungen
 - Zuverlässig in allen Bereichen der augenärztlichen Vorsorge
-{: .style-diamond }
+{: .list .list-diamond }
 
 Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen und angenehmen Atmosphäre. Unser engagiertes Team steht Ihnen telefonisch, online und vor Ort jederzeit kompetent und vertrauensvoll zur Seite.
 
@@ -124,7 +124,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 - Starke Augenschmerzen oder extreme Rötung
 - Fremdkörper im Auge
 - Verätzungen, Verbrennungen oder Verletzungen
-{: .style-diamond }
+{: .list .list-diamond }
 
 ### Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
 {: layout=".aside"}
@@ -149,7 +149,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 - [HSK Augenklinik, Wiesbaden](/karriere)
 - [Universitäts-Augenklinik, Frankfurt](/karriere)
 - [Augenklinik, Frankfurt-Höchst](/karriere)
-{: .style-diamond }
+{: .list .list-diamond }
 
 ### Mitgliedschaften
 {: section-class="aside" }

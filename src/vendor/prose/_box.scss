@@ -5,7 +5,7 @@
 
         &.subtle {
             h2 {
-                font-size: var(--nt-fs-2) !important;
+                font-size: var(--nt-fs-h2) !important;
                 font-weight: 600 !important;
                 color: var(--nt-text) !important;
                 border-bottom: none !important;
@@ -20,7 +20,7 @@
             border-bottom: var(--nt-border-width) solid var(--nt-primary) !important;
             padding-top: var(--nt-space-2) !important;
             padding-bottom: var(--nt-space-1) !important;
-            font-size: var(--nt-fs-4) !important;
+            font-size: var(--nt-fs-h4) !important;
         }
 
     }
@@ -43,7 +43,7 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             text-align: center;
-            font-size: var(--nt-fs-5) !important;
+            font-size: var(--nt-fs-h5) !important;
             font-weight: 400 !important;
             color: var(--nt-dark-subtle) !important;
         }

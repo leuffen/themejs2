@@ -1,0 +1,284 @@
+---
+layout: 50_navbar
+---
+{{ content }}
+
+<style>
+  #footer-osman {
+    --footer-background: var(--nt-body-secondary);
+    --footer-text-color: var(--nt-text);
+    --footer-border-color: rgb(from var(--footer-text-color) r g b / 0.08);
+
+    --subfooter-background: var(--nt-body-secondary);
+    --subfooter-text-color: rgb(from var(--footer-text-color) r g b / 0.55);
+    --subfooter-border-color: rgb(from var(--footer-text-color) r g b / 0.08);
+
+    --footer-link-color: var(--footer-text-color);
+    --footer-icon-color: rgb(from var(--footer-text-color) r g b / 0.65);
+    --footer-separator-color: rgb(from var(--footer-text-color) r g b / 0.28);
+    --footer-credit-background: rgba(0, 0, 0, 0.18);
+  }
+
+  #footer-osman a {
+    color: inherit;
+  }
+
+  #footer-osman .osman-footer__nav,
+  #footer-osman .osman-footer__credit {
+    --nt-primary: currentColor;
+  }
+
+  #footer-osman .osman-footer__nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #footer-osman .osman-footer__nav-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  #footer-osman .osman-footer__nav-list a,
+  #footer-osman .osman-footer__icons a,
+  #footer-osman .osman-footer__credit a {
+    text-decoration: none;
+  }
+
+  #footer-osman .osman-footer__nav-list a:hover,
+  #footer-osman .osman-footer__icons a:hover,
+  #footer-osman .osman-footer__credit a:hover {
+    text-decoration: underline;
+  }
+
+  #footer-osman .osman-footer__icons {
+    font-size: 1.35rem;
+  }
+
+  #footer-osman .osman-footer__icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--footer-icon-color);
+    line-height: 1;
+  }
+
+  #footer-osman .osman-footer__icons i {
+    display: block;
+    line-height: 1;
+  }
+
+  #footer-osman .osman-footer__icons i::before {
+    display: block;
+    line-height: 1;
+    vertical-align: 0;
+  }
+
+  @media (min-width: 1200px) {
+    #footer-osman .osman-footer__nav-list li {
+      line-height: 1;
+      padding-right: 0.7rem;
+      margin-right: 0.7rem;
+      border-right: 1px solid var(--footer-separator-color);
+    }
+
+    #footer-osman .osman-footer__nav-list li:last-child {
+      padding-right: 0;
+      margin-right: 0;
+      border-right: 0;
+    }
+  }
+
+  #footer-osman .raven-footer__leuffen-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  #footer-osman .raven-footer__section-title {
+    margin: 0 0 1rem;
+    color: var(--footer-text-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #footer-osman .raven-footer__links {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #footer-osman .raven-footer__links a:hover,
+  #footer-osman .raven-footer__credit a:hover:not(.raven-footer__leuffen) {
+    color: var(--footer-text-color);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  #footer-osman .raven-footer__credit a.raven-footer__leuffen:hover,
+  #footer-osman .raven-footer__credit a.raven-footer__leuffen:focus-visible {
+    text-decoration: none;
+  }
+
+  #footer-osman .raven-footer__cta {
+    color: var(--footer-text-color) !important;
+  }
+
+  #footer-osman .raven-footer__leuffen {
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  #footer-osman .raven-footer__leuffen-logo {
+    position: relative;
+    width: 67px;
+    height: 22px;
+    flex: 0 0 auto;
+  }
+
+  #footer-osman .raven-footer__leuffen-logo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: opacity 0.25s ease;
+  }
+
+  #footer-osman .raven-footer__leuffen-logo-soft {
+    opacity: 0.9;
+  }
+
+  #footer-osman .raven-footer__leuffen-logo-full {
+    opacity: 0;
+  }
+
+  #footer-osman .raven-footer__leuffen:hover .raven-footer__leuffen-logo-soft,
+  #footer-osman .raven-footer__leuffen:focus-visible .raven-footer__leuffen-logo-soft {
+    opacity: 0;
+  }
+
+  #footer-osman .raven-footer__leuffen:hover .raven-footer__leuffen-logo-full,
+  #footer-osman .raven-footer__leuffen:focus-visible .raven-footer__leuffen-logo-full {
+    opacity: 1;
+  }
+
+  #footer-osman .raven-footer__bottom {
+    background: var(--footer-credit-background);
+    border-top: 1px solid var(--footer-border-color);
+  }
+
+  #footer-osman .raven-footer__credit {
+    display: grid;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  #footer-osman .raven-footer__credit-start,
+  #footer-osman .raven-footer__credit-center,
+  #footer-osman .raven-footer__credit-end {
+    min-width: 0;
+  }
+
+  #footer-osman .raven-footer__credit-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  #footer-osman .raven-footer__credit-end {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 1200px) {
+    #footer-osman .raven-footer__top {
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      align-items: start;
+    }
+
+    #footer-osman .raven-footer__credit {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      text-align: left;
+    }
+
+    #footer-osman .raven-footer__credit-start {
+      justify-self: start;
+    }
+
+    #footer-osman .raven-footer__credit-center {
+      justify-self: center;
+    }
+
+    #footer-osman .raven-footer__credit-end {
+      justify-self: end;
+      justify-content: flex-end;
+    }
+  }
+</style>
+
+{% assign footer_version = page.url | size | modulo: site.data.defaults.footers.size %}
+{% assign selected_footer = site.data.defaults.footers[footer_version] %}
+
+<footer
+  id="footer-osman"
+  class="mt-5"
+  style="position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--footer-background);color:var(--footer-text-color);border-top:1px solid var(--footer-border-color);"
+>
+  <div class="container py-3">
+    <nav class="osman-footer__nav small text-center xl:text-start pb-3" style="border-bottom: 1px solid var(--footer-separator-color);" aria-label="Footer Navigation">
+      <ul class="osman-footer__nav-list d-flex flex-column xl:flex-row align-items-center xl:align-items-stretch gap-3 xl:gap-0 mb-0">
+          <li><a href="/kontakt/">Kontakt</a></li>
+          <li><a href="/leistungen/">Leistungen</a></li>
+          <li><a href="/ressourcen/">Ressourcen</a></li>
+
+      </ul>
+    </nav>
+    <div class="pt-3 d-flex flex-column xl:flex-row align-items-center xl:align-items-center justify-content-center xl:justify-content-between gap-3 text-center xl:text-start">
+      <nav class="osman-footer__nav small text-center xl:text-start" aria-label="Footer Navigation">
+        <ul class="osman-footer__nav-list d-flex flex-column xl:flex-row align-items-center xl:align-items-stretch gap-3 xl:gap-0 mb-0">
+          {% include el/navbar.html ptag="subfooter" %}
+        </ul>
+      </nav>
+
+      <div class="d-flex flex-column xl:flex-row align-items-center xl:align-items-center justify-content-center gap-3 small text-center xl:text-start">
+        <span>© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <div class="osman-footer__icons d-flex justify-content-center align-items-center gap-3" aria-label="Social Links">
+          <a href="#" aria-label="Teilen"><i class="bi bi-share-fill" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="raven-footer__bottom">
+    <div class="container py-3">
+      <div class="raven-footer__credit small">
+        <span class="raven-footer__credit-start">© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <div class="raven-footer__credit-center">
+          <a class="raven-footer__leuffen" href="https://leuffen.de" aria-label="leuffen.de – Webdesign für Ärzte">
+            <span class="raven-footer__leuffen-text">Webdesign für Ärzte</span>
+            <span class="raven-footer__leuffen-logo" aria-hidden="true">
+              <img class="raven-footer__leuffen-logo-soft" width="67" height="22" src="/assets/leuffen-logo-soft.svg" alt="" loading="lazy">
+              <img class="raven-footer__leuffen-logo-full" width="67" height="22" src="/assets/leuffen-logo-white.svg" alt="" loading="lazy">
+            </span>
+          </a>
+        </div>
+        <div class="raven-footer__credit-end">
+          <a class="d-inline-flex align-items-center" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

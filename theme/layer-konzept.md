@@ -100,18 +100,17 @@ theme/osman/html-elements/a/
 theme/osman/html-elements/main/
 ```
 
-Zuerst wird die allgemeine Elements-API materialisiert, danach folgen die Osman-Defaults. Normale `ul` ohne explizite `.list`-Basisklasse erhalten dadurch standardmäßig die Kombination aus `list()` und `list-diamond()`:
+Zuerst wird die allgemeine Elements-API materialisiert, danach folgen die Osman-Defaults. Normale `ul` ohne explizite `.list`-Basisklasse erhalten nur die neutrale Listenbasis; dekorative Marker wie `list-diamond` werden normalerweise bewusst im Content per Klasse gesetzt:
 
 ```scss
 @include nextrapElements.style-elements();
 
 :where(ul:not(.list)) {
   @include nextrapElements.list();
-  @include nextrapElements.list-diamond();
 }
 ```
 
-Eine Website kann diesen Layer gezielt ergänzen. Er bleibt durch die registrierte Reihenfolge immer nach Typography und vor Components.
+Verzierungen wie `list-diamond` gehören im Regelfall an das jeweilige Markup, z. B. per Kramdown `{: .list .list-diamond }`. Theme-weite oder contentbereich-weite Dekorationen sind nur als bewusst begründete Ausnahme zulässig. Eine Website kann diesen Layer gezielt ergänzen. Er bleibt durch die registrierte Reihenfolge immer nach Typography und vor Components.
 
 ### `themes.components`
 

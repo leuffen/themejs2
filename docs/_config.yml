@@ -22,10 +22,6 @@ exclude:
   - "stats.html"
 
 collections:
-  elements:
-    output: false
-  snippets:
-    output: false
   wissen:
     output: true
     permalink: /magazin/:path/
