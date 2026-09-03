@@ -1,4 +1,4 @@
-# Clean Contact Card
+# Ruhige Kontaktkarte
 
 Ein ruhiges, einspaltiges Kontaktformular für Service-, Praxis- oder Unternehmensseiten. Die Gestaltung priorisiert klare Feldhierarchie, gute Lesbarkeit und eine eindeutige primäre Aktion.
 
@@ -25,7 +25,7 @@ Ein ruhiges, einspaltiges Kontaktformular für Service-, Praxis- oder Unternehme
 </form>
 ```
 
-Die Felder stehen bewusst untereinander, damit Blickführung, Tastaturbedienung und mobile Darstellung ohne zusätzliche Layoutlogik funktionieren. Labels bleiben dauerhaft sichtbar und werden nicht durch Placeholder ersetzt.
+Die Felder stehen bewusst untereinander, damit Blickführung, Tastaturbedienung und mobile Darstellung ohne zusätzliche Layoutlogik funktionieren. Beschriftungen bleiben dauerhaft sichtbar und werden nicht durch Platzhalter ersetzt.
 
 ## Styling
 
