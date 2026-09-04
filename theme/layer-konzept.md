@@ -143,6 +143,130 @@ src/features/_data-kicker.scss
 
 Utilities sollen bewusst nach Base, Komponenten und Patterns ausgegeben werden, damit eine Utility wie eine Farb-, Display- oder Spacing-Klasse nicht zufällig von einem später geladenen Theme-Partial neutralisiert wird.
 
+## Proposal: kurze, eindeutige SCSS-Quellnamen
+
+### Ziel
+
+DevTools zeigt in kompakten Ansichten häufig nur den Dateinamen und kürzt lange Namen zusätzlich. Generische Namen wie `_theme.scss`, `_style-default.scss`, `_base.scss`, `all.scss` oder `index.scss` lassen dann weder Komponente noch Herkunft erkennen.
+
+Der Dateiname nennt deshalb zuerst die betroffene Komponente beziehungsweise den semantischen Block und direkt danach einen kurzen, standardisierten Herkunftscode. Details, die bei einer Kürzung entbehrlich sind, stehen am Ende. Der Verzeichnispfad bleibt ausführlich und bildet Ownership sowie Hierarchie ab; der Basename ist die kompakte Anzeige für den Inspector.
+
+### Kompaktes Schema
+
+```text
+_<subject>__<origin>[-<scope>][-<variant>].scss
+```
+
+| Segment | Bedeutung | Regel |
+|---|---|---|
+| `subject` | Komponente, HTML-Ziel oder Klassenblock | steht immer zuerst und verwendet möglichst den echten Tag-/Blocknamen, z. B. `nte-navbar`, `ntl-card-row`, `site-footer`, `html-a` oder `tokens` |
+| `origin` | Herkunftsebene | genau einer der festen Kurzcodes `cmp`, `th`, `cth` oder `cus` |
+| `scope` | Theme- oder Kundenschlüssel | nur wenn zur Unterscheidung nötig; stabiler, verständlicher Projekt-Kurzname mit höchstens zwölf Zeichen |
+| `variant` | optionale Variante oder Rolle | steht zuletzt, weil sie bei einer Kürzung weniger wichtig ist als Komponente und Herkunft |
+
+Das führende `_` kennzeichnet ein Sass-Partial. Alle Segmente verwenden Kleinbuchstaben und Kebab-Case. Doppelte Unterstriche trennen den gut sichtbaren Komponenten-/Blocknamen von der Herkunft; einfache Bindestriche trennen die kurzen Zusatzinformationen.
+
+### Herkunftscodes
+
+| Code | Herkunft | Beispiel | Im Inspector sofort lesbar |
+|---|---|---|---|
+| `cmp` | Basisstyle aus der Nextweb-/Nextrap-Komponente | `_nte-navbar__cmp.scss` | Navbar, Komponentenbasis |
+| `th` | allgemeines ThemeJS2-Theme einschließlich Default-Theme | `_nte-navbar__th-default.scss`, `_nte-navbar__th-osman.scss` | Navbar, Default- beziehungsweise Osman-Theme |
+| `cth` | wiederverwendbares kundenspezifisches Theme | `_nte-navbar__cth-salchow.scss` | Navbar, Salchow-Kundentheme |
+| `cus` | Anpassung in genau einem Kundenprojekt | `_nte-navbar__cus-salchow.scss` | Navbar, konkrete Salchow-Anpassung |
+
+Die Codes sind kurz, aber nicht projektspezifisch abkürzbar. Ein Team darf beispielsweise nicht parallel `theme`, `t` und `th` verwenden. Der Komponentenname wird nicht zu `nav` verkürzt, wenn das echte Element `nte-navbar` heißt; die direkte Zuordnung zum DOM ist wichtiger als wenige eingesparte Zeichen.
+
+### Komponenten- und Variantenbeispiele
+
+```text
+_nte-navbar__cmp.scss
+_nte-navbar__th-default.scss
+_nte-navbar__th-osman.scss
+_nte-navbar__th-osman-offcanvas.scss
+_nte-navbar__cth-salchow.scss
+_nte-navbar__cus-salchow.scss
+
+_ntl-card-row__cmp.scss
+_ntl-card-row__th-osman-ribbon.scss
+_nte-card__th-osman-in-ribbon.scss
+
+_site-footer__th-osman.scss
+_site-footer__cth-salchow.scss
+_site-footer__cus-salchow.scss
+```
+
+Bei verschachtelten Komponenten bleibt die tatsächlich gestylte Komponente das erste Segment. Eine Card innerhalb der Ribbon-Variante der Card Row heißt deshalb `_nte-card__th-osman-in-ribbon.scss` und nicht `_ntl-card-row-nte-card-style-ribbon.scss`. So bleibt die relevante DOM-Komponente auch bei gekürzter Anzeige sichtbar.
+
+Nicht komponentenbezogene Dateien verwenden ebenfalls ein kurzes, konkretes Subject:
+
+```text
+_tokens__th-osman.scss
+_typography__th-osman.scss
+_html-defaults__th-osman.scss
+_html-a__th-osman.scss
+_site-shell__cus-salchow.scss
+```
+
+### Verzeichnisstruktur
+
+Die vorhandene Struktur kann erhalten bleiben; der Dateiname wiederholt absichtlich nur die Informationen, die im Inspector benötigt werden:
+
+```text
+theme/
+├── default/
+│   ├── _bundle__th-default.scss
+│   ├── _tokens__th-default.scss
+│   └── elements/nte-navbar/_nte-navbar__th-default.scss
+├── osman/
+│   ├── _bundle__th-osman.scss
+│   ├── _tokens__th-osman.scss
+│   ├── elements/
+│   │   ├── nte-navbar/_nte-navbar__th-osman.scss
+│   │   └── ntl-card-row/_ntl-card-row__th-osman-ribbon.scss
+│   └── classes/_site-footer__th-osman.scss
+└── customer/
+    └── salchow/
+        ├── _bundle__cth-salchow.scss
+        └── elements/nte-navbar/_nte-navbar__cth-salchow.scss
+
+docs/_src/
+└── customer/
+    ├── _site-shell__cus-salchow.scss
+    └── _nte-navbar__cus-salchow.scss
+```
+
+`bundle` ist der einzige vorgesehene Subject-Name für reine `@use`-/`@forward`-Sammler. Ein style-erzeugendes Partial darf nicht `_all.scss`, `_index.scss`, `_theme.scss`, `_base.scss`, `_defaults.scss` oder `_style-default.scss` heißen. Öffentliche Package-Einstiege dürfen kurz bleiben, müssen aber den Paketnamen tragen, beispielsweise `themejs2.scss` statt `index.scss`.
+
+### Zuordnung vorhandener ThemeJS2-Namen
+
+| Heute | Proposal |
+|---|---|
+| `all.scss` | `themejs2-all.scss` |
+| `index.scss` | `themejs2.scss` |
+| `theme/osman/_theme.scss` | `theme/osman/_bundle__th-osman.scss` |
+| `theme/osman/_runtime-settings.scss` | `theme/osman/_tokens__th-osman.scss` |
+| `theme/osman/elements/nte-navbar/_style-default.scss` | `theme/osman/elements/nte-navbar/_nte-navbar__th-osman.scss` |
+| `theme/osman/elements/ntl-card-row/_style-ribbon.scss` | `theme/osman/elements/ntl-card-row/_ntl-card-row__th-osman-ribbon.scss` |
+| `theme/osman/elements/ntl-card-row/nte-card/_in-style-ribbon.scss` | `theme/osman/elements/ntl-card-row/nte-card/_nte-card__th-osman-in-ribbon.scss` |
+| `theme/osman/html-elements/_defaults.scss` | `theme/osman/html-elements/_html-defaults__th-osman.scss` |
+| `theme/osman/classes/_site-footer.scss` | `theme/osman/classes/_site-footer__th-osman.scss` |
+
+Dasselbe Schema gilt für Raven, Mueller, Epraxis und spätere Themes. Die Umbenennung selbst gehört in einen getrennten Implementierungs-PR, weil alle `@use`-/`@forward`-Referenzen und veröffentlichten Sass-Einstiege angepasst und auf Rückwärtskompatibilität geprüft werden müssen.
+
+### Source Maps sind Voraussetzung
+
+Eindeutige SCSS-Namen erscheinen im Browser nur, wenn der Produktionsbuild CSS Source Maps erzeugt und `style.css.map` zusammen mit `style.css` ausliefert. Der Vite-Zielstandard aktiviert daher CSS Source Maps. Die Abnahme öffnet für jede Herkunftsebene mindestens eine Regel in DevTools und bestätigt die Zuordnung zur ursprünglichen SCSS-Datei:
+
+```text
+_nte-navbar__cmp.scss
+_nte-navbar__th-osman.scss
+_nte-navbar__cth-salchow.scss
+_nte-navbar__cus-salchow.scss
+```
+
+Direkt am Element gesetzte CSS Custom Properties erscheinen absichtlich als `element.style`. Ohne ausgelieferte Source Map zeigt der Inspector für kompiliertes SCSS nur `dist/style.css`; kein Dateinamensschema kann diese technische Grenze ersetzen.
+
 ## Aufbau von `_theme.scss`
 
 Das `theme()`-Mixin bleibt die öffentliche API. Intern übernimmt es die Layer-Zuordnung:
@@ -427,6 +551,7 @@ Kundenwerte liegen als normales, direkt editierbares CSS in `docs/assets/site.cs
 
 - Nutzprojekte verwenden veröffentlichte semantische Versionen statt `workspace:*`.
 - Vite erzeugt den festen JavaScript-Einstieg `docs/assets/dist/index.js` und die separate CSS-Datei `docs/assets/dist/style.css`; CSS wird nicht in JavaScript injiziert.
+- Vite erzeugt und veröffentlicht `docs/assets/dist/style.css.map`, damit DevTools den ursprünglichen, eindeutig benannten SCSS-Source anzeigt.
 - Das Standardprojekt verwendet einen JavaScript-Einstieg und erzeugt daraus bei Bedarf gehashte Chunks unter `docs/assets/dist/chunks/`.
 - `index.js` darf Chunks importieren; ein erzwungenes Einzelbundle ist nicht Teil des Vertrags. Einstiegspfad, Chunk-Verzeichnis und Asset-Namen werden in Vite ausdrücklich konfiguriert.
 - Kundenspezifische Embed- oder Late-Style-Pipelines gehören nicht zur Vorlage.
