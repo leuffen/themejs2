@@ -316,3 +316,131 @@ Die Migration soll mindestens diese Fälle testen:
 - Es entstehen keine ungelayerten Theme-Regeln, ausgenommen unkritische globale Dinge wie `@font-face`.
 
 Damit ist das Theme intern klar geordnet, während die Website mit niedriger Spezifität und ohne `!important` sowohl Tokens als auch konkrete Komponenten überschreiben kann.
+
+---
+
+## Pilotvergleich und Zielstandard für Nutzprojekte
+
+Dieses Kapitel überträgt das Layer-Modell vom Osman-Theme auf die drei Pilotprojekte und definiert die Zielarchitektur für später hunderte gleichartig betreute Kunden-Repositories.
+
+### Vergleich der Pilotstände
+
+| Bereich | Osman | Salchow | Raven |
+|---|---|---|---|
+| Theme-Paket | \`@leuffen/themejs2\` | \`@leuffen/themejs2\` | \`@leuffen/themejs1\` |
+| Build | Vite, ein Haupteinstieg | Vite, getrennte Index- und Embed-Builds | Webpack |
+| Produktions-CSS | eingecheckte \`style.css\` | CSS überwiegend in JavaScript injiziert; Layout referenziert zusätzlich eine fehlende \`style.css\` | mehrere CSS-Stufen, darunter eine praktisch leere \`style.css\` |
+| Theme-Konfiguration | CSS Custom Properties in SCSS | Sass-Map in SCSS | Sass-Variablen und Nextrap-Bridge |
+| Cascade Layers | im Osman-Theme vorhanden, im Nutzprojekt noch nicht vollständig registriert | nicht als Nutzprojektvertrag umgesetzt | nicht vorhanden |
+| Änderung ohne JavaScript-Build | Inhalte und Layouts, nicht die Theme-Werte | Inhalte und Layouts, nicht die Theme-Werte | Inhalte und Layouts, nicht die Theme-Werte |
+
+Osman ist die beste technische Ausgangsbasis. Es ist jedoch noch kein Standard: Kundenwerte liegen im kompilierten SCSS, die öffentliche Layer-Reihenfolge wird im Nutzprojekt nicht ausdrücklich registriert und der Build erzeugt einen gehashten Vendor-Chunk. Salchow besitzt sinnvolle zentrale Konfigurationsansätze, kombiniert sie aber mit zwei Buildwegen und CSS-Injection. Raven ist wegen ThemeJS1, Webpack und der historischen Style-Aufteilung eine Migrationsquelle, keine Vorlage.
+
+### Verbindliche Verantwortungsgrenzen
+
+Jedes Nutzprojekt soll dieselben Pfade und Zuständigkeiten besitzen:
+
+| Pfad | Verantwortung | Neuer Vite-Build erforderlich |
+|---|---|---|
+| \`docs/assets/dist/index.js\` | fertig gebautes Komponentenverhalten | nur bei JavaScript- oder Komponentenänderungen |
+| \`docs/assets/dist/style.css\` | fertig gebautes Theme, Elements, Components, Patterns und Utilities | nur bei Framework- oder Themeänderungen |
+| \`docs/assets/site.css\` | Kunden-Tokens und kleine Website-Overrides im \`website\`-Layer | nein |
+| \`docs/_data/general.yml\` | Kundenstammdaten | nein |
+| \`docs/_data/defaults.yaml\` | standardisierte Website-Rahmenoptionen | nein |
+| \`docs/_layouts/10_blanc.html\` | Dokumentkopf und feste Asset-Reihenfolge | nein |
+| \`docs/_layouts/50_navbar.html\` | eine kanonische Navbar-Struktur | nein |
+| \`docs/_layouts/60_footer.html\` | eine kanonische Footer-Struktur | nein |
+| \`docs/_src/style.scss\` | Auswahl genau eines Themes und Aufbau des Basis-CSS | ja |
+
+Der produktive Betrieb darf weder Node, Vite, Sass, lokale Workspaces noch ein externes Runtime-CDN voraussetzen. Die einmal erzeugten Dateien unter \`docs/assets/dist/\` werden eingecheckt und bleiben zusammen mit dem Kunden-Repository auslieferbar.
+
+### Layer-Vertrag des Nutzprojekts
+
+Jedes Kunden-Stylesheet registriert die Reihenfolge ausdrücklich:
+
+\`\`\`scss
+@layer reset, schemes, themes, website;
+
+@layer themes {
+  @layer tokens, base, typography, elements, components, patterns, utilities;
+}
+\`\`\`
+
+\`docs/_src/style.scss\` lädt genau ein Theme. Es enthält keine Kundenfarben und keine kundenspezifischen Komponentenregeln. Scheme-Ausgabe gehört in \`schemes\`; die Theme-Ausgabe bleibt unter \`:where(.theme-<name>)\` gescoped.
+
+Kundenwerte liegen als normales, direkt editierbares CSS in \`docs/assets/site.css\`:
+
+\`\`\`css
+@layer website {
+  :where(.theme-osman) {
+    --theme-primary: #2b94d6;
+    --theme-accent: #2b94d6;
+    --theme-radius: 0;
+  }
+}
+\`\`\`
+
+\`site.css\` wird nach \`dist/style.css\` geladen. Damit können Farben, Abstände und gezielte Light-DOM- oder dokumentierte Component-Overrides später ohne JavaScript-Toolchain geändert werden. JavaScript setzt keine visuellen Theme-Werte.
+
+### Öffentliche Token-Grenze
+
+- \`--theme-*\` bildet die kleine, dokumentierte und browsereditierbare Kunden-API.
+- \`--nt-*\` bleibt die gemeinsame Nextrap-Low-Level- und Ableitungs-API.
+- Wiederkehrende Kundenentscheidungen werden auf vorhandene semantische Tokens abgebildet.
+- Einmalige Strukturwerte bleiben bei der zuständigen Komponente oder im Website-Rahmen.
+- Neue öffentliche Token-Kategorien benötigen eine eigene Entscheidung und dürfen nicht aus einem einzelnen Kundenwunsch entstehen.
+- Ungelayertes Kunden-CSS wird nicht als regulärer Override-Weg verwendet.
+
+### Build- und Abhängigkeitsstandard
+
+- Nutzprojekte verwenden veröffentlichte semantische Versionen statt \`workspace:*\`.
+- Vite erzeugt feste Einstiegspfade \`docs/assets/dist/index.js\` und \`docs/assets/dist/style.css\`.
+- Das Standardprojekt verwendet einen einzigen JavaScript-Einstieg und vermeidet kundenspezifische Embed- oder Late-Style-Pipelines.
+- Ein einzelnes gebündeltes \`index.js\` ist für Langzeitarchivierung vorzuziehen; zusätzliche gehashte Chunks benötigen einen nachgewiesenen Nutzen.
+- \`emptyOutDir\` verhindert verwaiste Build-Artefakte.
+- Ein Produktions-Build wird nur als aktuell bezeichnet, wenn \`vite build\` erfolgreich abgeschlossen wurde.
+- Änderungen an Inhalt, Jekyll-Layouts, Stammdaten oder \`site.css\` dürfen keinen Vite-Build verlangen.
+- Neue Interaktivität oder neue Web Components erfordern weiterhin einen neuen Build; „ohne Build“ gilt nicht für neues JavaScript-Verhalten.
+
+### Zielkonfiguration der drei Pilotkunden
+
+#### Osman
+
+1. Öffentliche Layer-Reihenfolge im Nutzprojekt registrieren.
+2. Kunden-Tokens aus \`docs/_src/style.scss\` nach \`docs/assets/site.css\` verschieben.
+3. Theme-Klasse zentral als Jekyll-Default setzen, statt sie auf Inhaltsseiten zu wiederholen.
+4. Vite-Konfiguration an die reduzierte \`_root\`-Konfiguration angleichen.
+5. Abhängigkeit auf eine veröffentlichte ThemeJS2-Version umstellen.
+6. Einmal neu bauen und alle benötigten Dist-Dateien einchecken.
+7. Als Referenzprojekt für die nachfolgenden Migrationen validieren.
+
+#### Salchow
+
+1. Dieselbe Vite- und Layoutkonfiguration wie Osman übernehmen.
+2. getrennte Index-/Embed-Builds und CSS-Injection entfernen, sofern kein separat belegter kritischer Anwendungsfall besteht.
+3. eine echte \`docs/assets/dist/style.css\` erzeugen und laden.
+4. Sass-Map-Kundenwerte nach \`docs/assets/site.css\` überführen.
+5. dynamische Kundenvarianten des Website-Rahmens durch den gemeinsamen Vertrag ersetzen.
+6. Abhängigkeit auf eine veröffentlichte ThemeJS2-Version umstellen.
+7. Einmal neu bauen und die statischen Assets einchecken.
+
+#### Raven
+
+1. ThemeJS1 und Webpack vollständig durch ThemeJS2 und die Standard-Vite-Konfiguration ersetzen.
+2. Das Raven-Theme vor der Kundenmigration auf denselben Layer- und \`--theme-*\`-Vertrag wie Osman bringen.
+3. historische \`style_custom\`-, \`style_late\`- und Bridge-Strukturen auflösen.
+4. Kunden-Tokens nach \`docs/assets/site.css\` überführen.
+5. die gemeinsame Layoutkette und den gemeinsamen Website-Rahmen übernehmen.
+6. Einmal neu bauen und die statischen Assets einchecken.
+7. Raven wegen des größten technischen Sprungs zuletzt migrieren und als Gegenprobe für einen zweiten Theme-Typ verwenden.
+
+### Empfohlene Reihenfolge
+
+1. ThemeJS2-Vertrag und \`_root\`-Vorlage fertigstellen.
+2. Osman als Referenz migrieren.
+3. Salchow auf denselben Build- und Layoutstand bringen.
+4. Raven auf ThemeJS2 migrieren.
+5. Erst danach weitere Kunden-Repositories aus \`_root\` erzeugen.
+
+Die Migrationen erfolgen repositoryweise. Der ThemeJS2-Pull-Request definiert den Standard; jeder Pilotkunde erhält anschließend einen eigenen Pull Request mit seinem einmaligen Migrations-Build.
+
