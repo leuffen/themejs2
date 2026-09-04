@@ -334,7 +334,7 @@ Dieses Kapitel überträgt das Layer-Modell vom Osman-Theme auf die drei Pilotpr
 | Cascade Layers | im Osman-Theme vorhanden, im Nutzprojekt noch nicht vollständig registriert | nicht als Nutzprojektvertrag umgesetzt | nicht vorhanden |
 | Änderung ohne JavaScript-Build | Inhalte und Layouts, nicht die Theme-Werte | Inhalte und Layouts, nicht die Theme-Werte | Inhalte und Layouts, nicht die Theme-Werte |
 
-Osman ist die beste technische Ausgangsbasis. Es ist jedoch noch kein Standard: Kundenwerte liegen im kompilierten SCSS, die öffentliche Layer-Reihenfolge wird im Nutzprojekt nicht ausdrücklich registriert und der Build erzeugt einen gehashten Vendor-Chunk. Salchow besitzt sinnvolle zentrale Konfigurationsansätze, kombiniert sie aber mit zwei Buildwegen und CSS-Injection. Raven ist wegen ThemeJS1, Webpack und der historischen Style-Aufteilung eine Migrationsquelle, keine Vorlage.
+Osman ist die beste technische Ausgangsbasis. Es ist jedoch noch kein Standard: Kundenwerte liegen im kompilierten SCSS, die öffentliche Layer-Reihenfolge wird im Nutzprojekt nicht ausdrücklich registriert und der Ausgabe-/Chunk-Vertrag ist nicht als gemeinsamer Nutzprojektstandard festgelegt. Salchow besitzt sinnvolle zentrale Konfigurationsansätze, kombiniert sie aber mit zwei Buildwegen und CSS-Injection. Raven ist wegen ThemeJS1, Webpack und der historischen Style-Aufteilung eine Migrationsquelle, keine Vorlage.
 
 ### Verbindliche Verantwortungsgrenzen
 
@@ -342,17 +342,49 @@ Jedes Nutzprojekt soll dieselben Pfade und Zuständigkeiten besitzen:
 
 | Pfad | Verantwortung | Neuer Vite-Build erforderlich |
 |---|---|---|
-| `docs/assets/dist/index.js` | fertig gebautes Komponentenverhalten | nur bei JavaScript- oder Komponentenänderungen |
-| `docs/assets/dist/style.css` | fertig gebautes Theme, Elements, Components, Patterns und Utilities | nur bei Framework- oder Themeänderungen |
-| `docs/assets/site.css` | Kunden-Tokens und kleine Website-Overrides im `website`-Layer | nein |
-| `docs/_data/general.yml` | Kundenstammdaten | nein |
-| `docs/_data/defaults.yaml` | standardisierte Website-Rahmenoptionen | nein |
-| `docs/_layouts/10_blanc.html` | Dokumentkopf und feste Asset-Reihenfolge | nein |
-| `docs/_layouts/50_navbar.html` | eine kanonische Navbar-Struktur | nein |
-| `docs/_layouts/60_footer.html` | eine kanonische Footer-Struktur | nein |
+| `docs/assets/dist/index.js` | stabiler JavaScript-Einstieg | nur bei JavaScript- oder Komponentenänderungen |
+| `docs/assets/dist/chunks/*.js` | von Vite erzeugte JavaScript-Chunks | nur bei JavaScript- oder Komponentenänderungen |
+| `docs/assets/dist/style.css` | separat gebautes Theme, Elements, Components, Patterns und Utilities | nur bei Framework- oder Themeänderungen |
+| `docs/assets/site.css` | projektweite Kunden-Tokens und Website-Overrides im `website`-Layer | nein |
+| `docs/_data/general.yml` | Kundenstammdaten einschließlich `addresses.default` und weiterer Adressen | nein |
+| `docs/_data/defaults.yaml` | sonstige allgemeine Rahmenwerte, aber keine `show_*`-Schalter für Header/Footer | nein |
+| `docs/_layouts/10_blank.html` | Dokumentkopf, Asset-Reihenfolge und optionales Critical-Style-Include | nein |
+| `docs/_layouts/20_navbar.html` | direkt editierbares Header-/Navbar-HTML | nein |
+| `docs/_layouts/30_footer.html` | Seiteninhalt und direkt editierbares Footer-HTML | nein |
 | `docs/_src/style.scss` | Auswahl genau eines Themes und Aufbau des Basis-CSS | ja |
 
 Der produktive Betrieb darf weder Node, Vite, Sass, lokale Workspaces noch ein externes Runtime-CDN voraussetzen. Die einmal erzeugten Dateien unter `docs/assets/dist/` werden eingecheckt und bleiben zusammen mit dem Kunden-Repository auslieferbar.
+
+### Dreistufige Layout-Architektur und lokale Anpassbarkeit
+
+Die Standardvorlage beschränkt den nummerierten Website-Rahmen unter `docs/_layouts/` auf genau drei Dateien:
+
+1. `10_blank.html` enthält Dokumentkopf, Meta-Daten und die feste Reihenfolge der CSS-/JavaScript-Assets.
+2. `20_navbar.html` erbt von `10_blank.html` und enthält das vollständige, kundenspezifisch editierbare Header-/Navbar-HTML.
+3. `30_footer.html` erbt von `20_navbar.html`, gibt den Seiteninhalt aus und enthält das vollständige, kundenspezifisch editierbare Footer-HTML.
+
+Die bisherigen nummerierten Zwischenlayouts `20_body.html`, `30_script.html`, `50_navbar.html`, `60_footer.html` und `70_main.html` werden in diese drei Verantwortungen zusammengeführt. Header und Footer sind keine über Optionen zusammengesetzten Universaltemplates. Die Vorlage liefert funktionsfähiges Ausgangs-HTML; im Kundenprojekt darf und soll dieses HTML direkt angepasst werden.
+
+Einmalige Instanzwerte stehen möglichst dort, wo sie wirken. Bei einer Navbar kann der verfügbare Platz beispielsweise direkt als dokumentierte CSS Custom Property am Element gesetzt werden:
+
+```html
+<nte-navbar
+  class="site-header__navbar"
+  style="--navbar-available-width: calc(100vw - 18rem); --navbar-height: 5rem"
+>
+```
+
+Damit ist eine Kundenänderung in der ohnehin zu bearbeitenden Header-Datei auffindbar und benötigt keine zusätzliche SCSS-Datei als indirekte Konfiguration. Dasselbe gilt für einmalige Footer-Spalten, Abstände oder Höhen. Die konkrete Variable muss Teil der dokumentierten Komponenten- oder Klassen-API sein; beliebige interne Werte werden nicht von außen überschrieben.
+
+Für Styles gilt folgende Nähe-Regel:
+
+1. Wiederverwendbare Basisregeln bleiben im Theme unter der zuständigen Element-, Komponenten- oder Klassen-Datei.
+2. Einmalige Werte einer Instanz stehen als CSS Custom Properties direkt am HTML-Element.
+3. Größere, nur für diesen Header oder Footer geltende Kundenregeln dürfen als klar begrenzter `<style>`-Block im zugehörigen Layout stehen.
+4. Regeln, die mehrere Layouts oder Seitenbereiche betreffen, stehen in `docs/assets/site.css`.
+5. Gemessenes Critical CSS darf über ein Include im `<head>` von `10_blank.html` eingebettet werden; ohne nachgewiesenen Ladezeitvorteil bleibt externes, cachebares CSS der Standard.
+
+Semantische Klassenkomponenten, die normale Light-DOM-Elemente gestalten, dürfen abweichend von nativen HTML-Defaults und NTL-/NTE-Komponenten BEM (Block, Element, Modifier) verwenden. Sie werden unter `theme/<theme>/classes/` abgelegt, beispielsweise als `theme/osman/classes/_site-footer.scss`, und im `themes.patterns`-Layer ausgegeben. Header-/Footer-Markup referenziert diese Klassen direkt.
 
 ### Layer-Vertrag des Nutzprojekts
 
@@ -394,9 +426,10 @@ Kundenwerte liegen als normales, direkt editierbares CSS in `docs/assets/site.cs
 ### Build- und Abhängigkeitsstandard
 
 - Nutzprojekte verwenden veröffentlichte semantische Versionen statt `workspace:*`.
-- Vite erzeugt feste Einstiegspfade `docs/assets/dist/index.js` und `docs/assets/dist/style.css`.
-- Das Standardprojekt verwendet einen einzigen JavaScript-Einstieg und vermeidet kundenspezifische Embed- oder Late-Style-Pipelines.
-- Ein einzelnes gebündeltes `index.js` ist für Langzeitarchivierung vorzuziehen; zusätzliche gehashte Chunks benötigen einen nachgewiesenen Nutzen.
+- Vite erzeugt den festen JavaScript-Einstieg `docs/assets/dist/index.js` und die separate CSS-Datei `docs/assets/dist/style.css`; CSS wird nicht in JavaScript injiziert.
+- Das Standardprojekt verwendet einen JavaScript-Einstieg und erzeugt daraus bei Bedarf gehashte Chunks unter `docs/assets/dist/chunks/`.
+- `index.js` darf Chunks importieren; ein erzwungenes Einzelbundle ist nicht Teil des Vertrags. Einstiegspfad, Chunk-Verzeichnis und Asset-Namen werden in Vite ausdrücklich konfiguriert.
+- Kundenspezifische Embed- oder Late-Style-Pipelines gehören nicht zur Vorlage.
 - `emptyOutDir` verhindert verwaiste Build-Artefakte.
 - Ein Produktions-Build wird nur als aktuell bezeichnet, wenn `vite build` erfolgreich abgeschlossen wurde.
 - Änderungen an Inhalt, Jekyll-Layouts, Stammdaten oder `site.css` dürfen keinen Vite-Build verlangen.
@@ -409,14 +442,14 @@ Kundenwerte liegen als normales, direkt editierbares CSS in `docs/assets/site.cs
 1. Öffentliche Layer-Reihenfolge im Nutzprojekt registrieren.
 2. Kunden-Tokens aus `docs/_src/style.scss` nach `docs/assets/site.css` verschieben.
 3. Theme-Klasse zentral als Jekyll-Default setzen, statt sie auf Inhaltsseiten zu wiederholen.
-4. Vite-Konfiguration an die reduzierte `_root`-Konfiguration angleichen.
+4. Vite auf separates `style.css`, stabilen `index.js`-Einstieg und JavaScript-Chunks unter `dist/chunks/` konfigurieren.
 5. Abhängigkeit auf eine veröffentlichte ThemeJS2-Version umstellen.
 6. Einmal neu bauen und alle benötigten Dist-Dateien einchecken.
 7. Als Referenzprojekt für die nachfolgenden Migrationen validieren.
 
 #### Salchow
 
-1. Dieselbe Vite- und Layoutkonfiguration wie Osman übernehmen.
+1. Dieselbe dreistufige Layoutkette und Vite-Ausgabe wie Osman übernehmen.
 2. getrennte Index-/Embed-Builds und CSS-Injection entfernen, sofern kein separat belegter kritischer Anwendungsfall besteht.
 3. eine echte `docs/assets/dist/style.css` erzeugen und laden.
 4. Sass-Map-Kundenwerte nach `docs/assets/site.css` überführen.
@@ -430,7 +463,7 @@ Kundenwerte liegen als normales, direkt editierbares CSS in `docs/assets/site.cs
 2. Das Raven-Theme vor der Kundenmigration auf denselben Layer- und `--theme-*`-Vertrag wie Osman bringen.
 3. historische `style_custom`-, `style_late`- und Bridge-Strukturen auflösen.
 4. Kunden-Tokens nach `docs/assets/site.css` überführen.
-5. die gemeinsame Layoutkette und den gemeinsamen Website-Rahmen übernehmen.
+5. die gemeinsame Layoutkette aus `10_blank.html`, `20_navbar.html` und `30_footer.html` übernehmen.
 6. Einmal neu bauen und die statischen Assets einchecken.
 7. Raven wegen des größten technischen Sprungs zuletzt migrieren und als Gegenprobe für einen zweiten Theme-Typ verwenden.
 
