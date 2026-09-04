@@ -30,18 +30,18 @@ Eine neue NTL-/NTE-Komponente würde JavaScript- und Package-Lifecycle in eine S
 
 Der Standard besteht aus:
 
-1. einem kanonischen semantischen Liquid-/HTML-Layout in \`docs/_layouts/60_footer.html\`;
+1. einem kanonischen semantischen Liquid-/HTML-Layout in `docs/_layouts/60_footer.html`;
 2. vorhandenen Style Elements und Style Utils für die normale Komposition;
-3. einem kleinen gemeinsamen \`.site-footer\`-Style-Vertrag für Zustände, die nicht sinnvoll als Utility ausgedrückt werden;
+3. einem kleinen gemeinsamen `.site-footer`-Style-Vertrag für Zustände, die nicht sinnvoll als Utility ausgedrückt werden;
 4. Theme- und Kundenwerten als CSS Custom Properties;
-5. Inhalten und optionalen Bereichen aus \`docs/_data/defaults.yaml\`, \`docs/_data/general.yml\`, Navigationstags und bestehenden Includes;
-6. gezielten Ausnahme-Overrides ausschließlich in \`docs/assets/site.css\` unter \`@layer website\`.
+5. Inhalten und optionalen Bereichen aus `docs/_data/defaults.yaml`, `docs/_data/general.yml`, Navigationstags und bestehenden Includes;
+6. gezielten Ausnahme-Overrides ausschließlich in `docs/assets/site.css` unter `@layer website`.
 
 ## Kanonische Struktur
 
 Der DOM-Vertrag bleibt in allen Kunden-Repositories gleich:
 
-\`\`\`text
+```text
 footer.site-footer
 ├── .site-footer__primary
 │   ├── .site-footer__navigation
@@ -55,15 +55,15 @@ footer.site-footer
     ├── .site-footer__copyright
     ├── .site-footer__provider
     └── .site-footer__edit-link
-\`\`\`
+```
 
-Die optionalen Bereiche werden nur gerendert, wenn ihre Konfiguration aktiv ist und verwertbare Daten vorhanden sind. Leere Überschriften, leere Links und \`href="#"\` werden nicht ausgegeben.
+Die optionalen Bereiche werden nur gerendert, wenn ihre Konfiguration aktiv ist und verwertbare Daten vorhanden sind. Leere Überschriften, leere Links und `href="#"` werden nicht ausgegeben.
 
 ## Datenvertrag
 
-Die gemeinsame Konfiguration liegt unter einem einzelnen \`footer\`-Knoten in \`docs/_data/defaults.yaml\`:
+Die gemeinsame Konfiguration liegt unter einem einzelnen `footer`-Knoten in `docs/_data/defaults.yaml`:
 
-\`\`\`yaml
+```yaml
 footer:
   show_navigation: true
   show_contact: true
@@ -75,13 +75,13 @@ footer:
     label: Webdesign für Ärzte
     href: https://leuffen.de
     logo: /assets/leuffen-logo-white.svg
-\`\`\`
+```
 
 Regeln:
 
-- Kundenname, Anschrift, Telefon, E-Mail, Domain und Kurzbeschreibung kommen aus \`general.yml\`.
-- Öffnungszeiten kommen aus \`openhours.yml\` und dem vorhandenen Include.
-- Navigation kommt aus den vereinbarten \`ptags\`; Links werden nicht im Layout hart codiert.
+- Kundenname, Anschrift, Telefon, E-Mail, Domain und Kurzbeschreibung kommen aus `general.yml`.
+- Öffnungszeiten kommen aus `openhours.yml` und dem vorhandenen Include.
+- Navigation kommt aus den vereinbarten `ptags`; Links werden nicht im Layout hart codiert.
 - Social Links werden als Daten mit echter URL geführt und nur bei vorhandener URL ausgegeben.
 - Der Provider-Credit ist deterministisch. Er wechselt nicht abhängig von URL, Seitentitel, Zeit oder Zufall.
 - Kundentexte, Logos und URLs stehen nie im gemeinsamen Style-Vertrag.
@@ -111,13 +111,13 @@ Der kleine gemeinsame Footer-Style darf nur wiederkehrende Footer-Verantwortung 
 - konsistente Navigation ohne Listenmarker;
 - notwendige semantische Zustände, die nicht durch vorhandene Utilities abgedeckt sind.
 
-Er enthält keine Kundenfarben, keine festen Kundeninhalte, keine Kundennamen und keine Selektoren wie \`#footer-osman\` oder \`.raven-footer__*\`.
+Er enthält keine Kundenfarben, keine festen Kundeninhalte, keine Kundennamen und keine Selektoren wie `#footer-osman` oder `.raven-footer__*`.
 
 ### Runtime-Tokens
 
 Der gemeinsame Vertrag verwendet vorhandene semantische Tokens und eine kleine öffentliche Footer-Oberfläche:
 
-\`\`\`css
+```css
 .site-footer {
   --footer-background: var(--nt-body-secondary);
   --footer-text: var(--nt-text);
@@ -125,20 +125,20 @@ Der gemeinsame Vertrag verwendet vorhandene semantische Tokens und eine kleine �
   --footer-link: currentColor;
   --footer-credit-background: color-mix(in srgb, var(--footer-background), #000 12%);
 }
-\`\`\`
+```
 
-Kundenspezifische Werte dürfen ohne Build in \`docs/assets/site.css\` überschrieben werden:
+Kundenspezifische Werte dürfen ohne Build in `docs/assets/site.css` überschrieben werden:
 
-\`\`\`css
+```css
 @layer website {
   :where(.theme-osman) .site-footer {
     --footer-background: var(--nt-body-secondary);
     --footer-credit-background: rgba(0, 0, 0, 0.18);
   }
 }
-\`\`\`
+```
 
-Neue Footer-Variablen werden nur ergänzt, wenn dieselbe Designentscheidung mehrere unabhängige Regeln steuert und nicht bereits durch ein vorhandenes \`--nt-*\`-Token dargestellt wird.
+Neue Footer-Variablen werden nur ergänzt, wenn dieselbe Designentscheidung mehrere unabhängige Regeln steuert und nicht bereits durch ein vorhandenes `--nt-*`-Token dargestellt wird.
 
 ## Varianten und Ausnahmen
 
@@ -156,13 +156,13 @@ Kundenspezifisches CSS ist ein dokumentierter Escape Hatch, kein normaler Konfig
 
 ## Unzulässige Muster
 
-- parallele Dateien wie \`footer-osman.html\` oder \`footer-raven.html\`;
+- parallele Dateien wie `footer-osman.html` oder `footer-raven.html`;
 - Kundennamen in IDs, Klassen oder öffentlichen Optionen;
 - mehrseitig dupliziertes Inline-CSS;
 - hart codierte Kunden-Navigation;
 - Social Links ohne echte Ziel-URL;
 - zufällige oder URL-abhängige Credits;
-- \`!important\` zur Überwindung der Theme-Spezifität;
+- `!important` zur Überwindung der Theme-Spezifität;
 - neue Footer-Komponenten nur für visuelle Unterschiede;
 - Änderungen an kompiliertem Dist-CSS als dauerhafte Kundenanpassung.
 
@@ -170,22 +170,22 @@ Kundenspezifisches CSS ist ein dokumentierter Escape Hatch, kein normaler Konfig
 
 ### Osman
 
-- bestehende semantische Inhalte auf \`.site-footer__*\` umbenennen;
+- bestehende semantische Inhalte auf `.site-footer__*` umbenennen;
 - Raven-Reste und ungenutzte Regeln entfernen;
 - Navigation und Social Links aus Daten erzeugen;
 - großen Inline-Style-Block durch Utilities und gemeinsamen Style-Vertrag ersetzen;
-- Farben in \`docs/assets/site.css\` ablegen.
+- Farben in `docs/assets/site.css` ablegen.
 
 ### Salchow
 
-- dynamische \`use_footer\`-Dateiauswahl entfernen;
+- dynamische `use_footer`-Dateiauswahl entfernen;
 - Default- und Osman-Footer auf die kanonische Struktur zusammenführen;
 - URL-abhängige Credit-Auswahl durch eine feste Datenkonfiguration ersetzen;
 - vorhandene Kontakt-, Öffnungszeiten- und Navigations-Includes weiterverwenden.
 
 ### Raven
 
-- Inhalt aus \`footer.md\` in denselben Daten- und Include-Vertrag überführen;
+- Inhalt aus `footer.md` in denselben Daten- und Include-Vertrag überführen;
 - Joda-Wrapper bei der ThemeJS2-Migration durch die kanonische Layoutstruktur ersetzen;
 - Raven-Farben als Runtime-Tokens ausdrücken;
 - keine Raven-spezifische Footer-Datei übernehmen.
@@ -203,12 +203,12 @@ Mindestens zu prüfen sind:
 - Tastaturfokus und sinnvolle Landmark-/ARIA-Beschriftung;
 - ausreichender Farbkontrast;
 - keine leeren Links oder Überschriften;
-- Änderungen an \`general.yml\`, \`defaults.yaml\`, Layout und \`site.css\` ohne Vite-Build;
-- visuelle Gleichheit der gemeinsamen Footer-Struktur in \`docs\` und \`_root\`.
+- Änderungen an `general.yml`, `defaults.yaml`, Layout und `site.css` ohne Vite-Build;
+- visuelle Gleichheit der gemeinsamen Footer-Struktur in `docs` und `_root`.
 
 ## Einführungsreihenfolge
 
-1. Vertrag und kanonisches Markup in ThemeJS2 und \`_root\` umsetzen.
+1. Vertrag und kanonisches Markup in ThemeJS2 und `_root` umsetzen.
 2. Osman als Referenz migrieren und mit variierenden Daten prüfen.
 3. Salchow auf denselben Footer reduzieren.
 4. Raven im Zuge der ThemeJS2-Migration übernehmen.
