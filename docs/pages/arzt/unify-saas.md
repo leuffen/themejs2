@@ -146,7 +146,7 @@ Need a new website? Unify is quick, affordable, and ready to tell your story. Wa
 
 <figure class="video-stage bottom">
   <img src="https://static.leanea.de/uni-v3.0-docs/assets/img/900x600/img1.jpg" alt="Team discussing a digital product">
-  <figcaption><strong>How does Unify work?</strong><br>Learn more about Unify.<br><a href="https://www.youtube.com/watch?v=d4eDWc8g0e0">Watch our story</a></figcaption>
+  <figcaption><strong>How does Unify work?</strong><br>Learn more about Unify.<br><a href="https://www.youtube.com/watch?v=d4eDWc8g0e0">▶ Watch our story</a></figcaption>
 </figure>
 
 <!-- Ordnet vier austauschbare Stimmen als versetzte, responsive Vertrauenskette an. -->
