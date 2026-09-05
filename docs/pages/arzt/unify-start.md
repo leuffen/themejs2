@@ -2,7 +2,7 @@
 layout: website
 body_class: theme-unify
 title: Theme Unify
-use_navbar: osman
+use_navbar: unify
 use_footer: raven
 description: "Unify-Demo für moderne Business-, Agentur- und Beratungsseiten mit Nextstrap-Layouts."
 ptags:
@@ -24,7 +24,11 @@ Wir gestalten verständliche digitale Angebote, die Menschen erreichen und Unter
 ![Kunde](https://htmlstream.com/unify/assets/img/160x160/img4.jpg)
 ![Kundin](https://htmlstream.com/unify/assets/img/160x160/img8.jpg)
 ![Kunde](https://htmlstream.com/unify/assets/img/160x160/img9.jpg)
-{: .trust-list aria-label="Auswahl zufriedener Kunden" }
+{: .trust-list .xl:desktop aria-label="Auswahl zufriedener Kunden" }
+
+**Trustpilot**<br>
+Bestbewertet in über 37.000 Rezensionen
+{: .trust-copy .xl:desktop }
 
 ![Dekorative Pfeile](/assets/unify/three-arrows-1.svg){: .hero-arrows .hero-arrows-start .xl:desktop aria-hidden="true" }
 ![Dekorative Pfeile](/assets/unify/three-arrows-2.svg){: .hero-arrows .hero-arrows-end .xl:desktop aria-hidden="true" }
@@ -55,7 +59,7 @@ Wir verbinden Inhalte, Prozesse und Systeme zu einer konsistenten digitalen Erfa
 
 <!-- Nutzt dieselbe Standardvariante mit Reverse- und Surface-Utilities für einen kontrastreichen Abschnitt. -->
 ## Maximale Kunden&shy;zufriedenheit entwickeln
-{: layout="ntl-2col.style-default.reverse.surface-secondary" data-kicker="Gemeinsam optimieren" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-default.surface-secondary" data-kicker="Gemeinsam optimieren" section-style="--cols: 6;" }
 
 Von der ersten Idee bis zum laufenden Betrieb arbeiten Strategie, Design und Entwicklung als ein Team.
 
@@ -72,7 +76,7 @@ Von der ersten Idee bis zum laufenden Betrieb arbeiten Strategie, Design und Ent
 
 <!-- Wiederholt das Feature-Muster mit vertauschter Leserichtung für ein abwechslungsreiches Seitenbild. -->
 ## Digitale Produkte für Designer und Agenturen
-{: layout="ntl-2col.style-default" data-kicker="Flexibel kombinierbar" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-default.reverse" data-kicker="Flexibel kombinierbar" section-style="--cols: 6;" }
 
 Ein klares System aus Inhaltsbausteinen macht neue Seiten schneller, konsistenter und leichter pflegbar.
 
@@ -131,11 +135,11 @@ Aus einer kleinen Beratung entsteht eine langfristige digitale Partnerschaft.
 **Lea Hoffmann**<br>
 Digital Lead, Beispielunternehmen
 
-![Porträt einer Kundin](https://htmlstream.com/unify/assets/img/400x500/img31.jpg)
+![Porträt einer Kundin](https://htmlstream.com/unify/assets/img/500x650/img4.jpg)
 
 <!-- Demonstriert die Pricing-Variante für zwei vergleichbare, in Markdown pflegbare Angebote. -->
 ## Für Einzelpersonen, Agenturen und Teams
-{: layout="ntl-card-row.style-pricing" data-kicker="Transparent starten" section-style="--cols: 2;" }
+{: layout="ntl-card-row.style-pricing" data-kicker="Transparent starten" section-style="--cols: 6;" }
 
 ### 18 €
 

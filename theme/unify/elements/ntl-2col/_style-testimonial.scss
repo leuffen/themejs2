@@ -31,6 +31,8 @@
 
   // Reduziert die Innenabstände und Mindesthöhe für eine kompakte mobile Erzählung.
   &[mode="mobile"] {
+    --cols: 12;
+
     &::part(container) {
       padding: var(--nt-space-7) var(--nt-space-5);
     }

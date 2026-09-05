@@ -5,7 +5,7 @@
 &.style-pricing {
   @include cardRow.default-style(
     $container-width: 58rem,
-    $cols: 2,
+    $cols: 6,
     $gap: var(--nt-space-6),
     $inner-padding: 0,
     $container-background: transparent,

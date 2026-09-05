@@ -54,6 +54,8 @@
     @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
     @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
     @include meta.load-css("./elements/nte-input/nte-input.scss");
+    @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
+    @include meta.load-css("./elements/nte-nav/nte-nav.scss");
   }
 
   // Lädt wiederverwendbare Markdown-Muster für die aufwendigeren Bild- und Hero-Kompositionen.
@@ -62,6 +64,7 @@
     @include meta.load-css("./classes/_hero-form.scss");
     @include meta.load-css("./classes/_hero-arrows.scss");
     @include meta.load-css("./classes/_trust-list.scss");
+    @include meta.load-css("./classes/_trust-copy.scss");
     @include meta.load-css("./classes/_feature-media.scss");
   }
 

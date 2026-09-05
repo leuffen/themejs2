@@ -1,0 +1,75 @@
+// Nutzt die öffentliche Navbar-Basis für einen ruhigen, kompakten Business-Header.
+@use "@nextrap/nte-navbar" as navbar;
+
+&.style-unify {
+  @include navbar.default-style();
+
+  --nte-navbar-background: var(--nt-surface);
+  --nte-navbar-background-at-top: var(--nt-surface);
+  --nte-navbar-shadow: 0 .35rem 1.5rem rgba(45, 55, 75, .09);
+
+  color: var(--nt-header);
+  background: var(--nt-surface);
+
+  // Hebt den Header erst nach dem Scrollen dezent von der Inhaltsfläche ab.
+  &.is-scrolled {
+    box-shadow: var(--nte-navbar-shadow);
+  }
+
+  // Hält die einzige Navbar-Zeile hell und typografisch zurückhaltend.
+  > nte-navbar-line {
+    --background: var(--nt-surface);
+    --text-color: var(--nt-header);
+  }
+
+  // Bildet die kompakte Unify-Wortmarke ohne ein kundenspezifisches Logoasset nach.
+  .unify-brand {
+    --nt-navbar-brand-logo-aspect-ratio: auto;
+
+    gap: .15rem;
+    border: 0;
+    color: var(--nt-header);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .unify-brand__mark {
+    display: inline-grid;
+    width: 1.25rem;
+    height: 1.25rem;
+    place-items: center;
+    border-radius: .2rem;
+    color: #fff;
+    background: var(--nt-primary);
+    font-size: .8rem;
+    line-height: 1;
+  }
+
+  // Gruppiert Login und Primäraktion in derselben kompakten Zeile wie die Navigation.
+  .unify-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--nt-space-4);
+    font-size: var(--nt-font-size-small);
+    font-weight: 600;
+  }
+
+  .unify-navbar-login {
+    color: var(--nt-header);
+    text-decoration: none;
+  }
+
+  .unify-navbar-login:hover,
+  .unify-navbar-login:focus-visible {
+    color: var(--nt-primary);
+  }
+
+  .unify-navbar-actions .btn {
+    padding: .65rem 1rem;
+    border-color: var(--nt-secondary);
+    border-radius: .25rem;
+    color: #fff;
+    background: var(--nt-secondary);
+  }
+}

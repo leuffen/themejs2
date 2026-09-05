@@ -8,7 +8,7 @@
   position: absolute;
   z-index: 0;
   display: block;
-  width: clamp(8rem, 18vw, 14rem);
+  width: clamp(12rem, 19vw, 17rem);
   height: auto;
   pointer-events: none;
   user-select: none;
@@ -16,12 +16,12 @@
 
 // Verankert die erste Pfeilgruppe links neben der Nutzenüberschrift.
 .hero-arrows-start {
-  top: 24%;
-  left: max(-7rem, calc(50% - 43rem));
+  top: 27%;
+  left: -13rem;
 }
 
 // Spiegelt die zweite Pfeilgruppe als Gegenakzent an der rechten Hero-Kante.
 .hero-arrows-end {
-  top: 29%;
-  right: max(-5rem, calc(50% - 43rem));
+  top: 31%;
+  right: -13rem;
 }

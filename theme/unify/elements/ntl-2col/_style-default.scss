@@ -31,9 +31,11 @@
     min-height: clamp(22rem, 42vw, 37rem);
   }
 
-  // Betont Überschriften und lässt Kicker sowie Listen dennoch als sekundäre Ebenen lesbar.
+  // Betont Abschnittsüberschriften in der kompakten Unify-Hierarchie, ohne mit dem Hero zu konkurrieren.
   :is(h2, h3) {
     color: var(--nt-header);
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    line-height: 1.12;
     letter-spacing: -.025em;
   }
 
@@ -58,6 +60,7 @@
 
   // Stapelt die Medienfläche vor den Text und entfernt unnötige Mindesthöhen auf kleinen Displays.
   &[mode="mobile"] {
+    --cols: 12;
     --gap: var(--nt-space-7);
 
     &::part(main) {
