@@ -61,4 +61,28 @@
     color: var(--nt-header);
     font-size: 1.3125rem;
   }
+
+  // Wandelt die Überlagerung mobil in einen stabilen Bild-und-Text-Stack um.
+  &[mode="mobile"] {
+    padding-block: var(--nt-space-7);
+
+    .video-stage {
+      margin-top: var(--nt-space-6);
+      overflow: visible;
+    }
+
+    .video-stage img {
+      border-radius: var(--nt-radius) var(--nt-radius) 0 0;
+    }
+
+    .video-stage figcaption {
+      position: static;
+      box-sizing: border-box;
+      max-width: none;
+      padding: var(--nt-space-4);
+      border-radius: 0 0 var(--nt-radius) var(--nt-radius);
+      box-shadow: 0 var(--nt-space-3) var(--nt-space-7) rgba(45, 55, 75, .08);
+      overflow-wrap: anywhere;
+    }
+  }
 }

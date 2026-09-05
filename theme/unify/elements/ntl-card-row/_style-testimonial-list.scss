@@ -28,4 +28,9 @@
   &[mode="desktop"]::part(main) {
     position: relative;
   }
+
+  // Verkürzt den Abstand zwischen Überschrift und Karten im mobilen Stack.
+  &[mode="mobile"]::part(header) {
+    margin-bottom: var(--nt-space-6);
+  }
 }

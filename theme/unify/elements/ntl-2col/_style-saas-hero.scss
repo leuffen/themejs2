@@ -120,4 +120,45 @@
     --cols: 12;
     --gap: var(--nt-space-7);
   }
+
+  // Verdichtet den Hero bei 320 und 375 Pixeln und verhindert breite Review- oder Tarifzeilen.
+  &[mode="mobile"] {
+    padding-block: var(--nt-space-7);
+
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    &::part(aside) {
+      padding: var(--nt-space-4);
+    }
+
+    :is(h1, h2) {
+      font-size: 2.1rem;
+    }
+
+    .saas-reviews {
+      flex-direction: column;
+      gap: var(--nt-space-4);
+    }
+
+    .saas-reviews li {
+      width: 100%;
+      max-width: none;
+      padding: 0 0 var(--nt-space-4);
+      border-right: 0;
+      border-bottom: 1px solid var(--nt-border);
+      overflow-wrap: anywhere;
+    }
+
+    .saas-reviews li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .plan-options li,
+    .plan-contact {
+      overflow-wrap: anywhere;
+    }
+  }
 }

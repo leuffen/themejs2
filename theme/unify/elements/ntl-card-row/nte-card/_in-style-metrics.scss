@@ -24,4 +24,10 @@
       line-height: 1.2;
     }
   }
+
+  // Zentriert den mobilen Kennzahlen-Stack und begrenzt seine Zeilenlänge.
+  &[mode="mobile"] > nte-card {
+    padding-block: var(--nt-space-3);
+    text-align: center;
+  }
 }

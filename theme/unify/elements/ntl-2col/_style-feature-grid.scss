@@ -63,4 +63,21 @@
       grid-template-columns: 1fr;
     }
   }
+
+  // Entfernt auf sehr schmalen Ansichten übermäßigen Bühnenraum und sichert lange Begriffe ab.
+  &[mode="mobile"] {
+    &::part(wrapper) {
+      padding: var(--nt-space-5);
+    }
+
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    .feature-card-grid li {
+      min-height: 0;
+      padding: var(--nt-space-4);
+      overflow-wrap: anywhere;
+    }
+  }
 }

@@ -42,4 +42,17 @@
   &[mode="desktop"] > nte-card:nth-of-type(even) {
     margin-inline-start: auto;
   }
+
+  // Sichert Zitat, Name und Rolle bei 320 Pixeln gegen horizontales Überlaufen ab.
+  &[mode="mobile"] > nte-card {
+    min-width: 0;
+
+    &::part(wrapper),
+    &::part(content),
+    blockquote,
+    p {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+  }
 }

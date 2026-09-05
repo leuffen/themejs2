@@ -53,4 +53,19 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+
+  // Hält sechs Logozeilen auch bei 320 Pixeln innerhalb des Inhaltscontainers.
+  &[mode="mobile"] {
+    padding-block: var(--nt-space-7);
+
+    .logo-cloud {
+      gap: var(--nt-space-5) var(--nt-space-2);
+      margin-top: var(--nt-space-6);
+    }
+
+    .logo-cloud img {
+      width: min(100%, 4.5rem);
+      height: 2rem;
+    }
+  }
 }

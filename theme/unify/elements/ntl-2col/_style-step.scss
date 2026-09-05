@@ -81,4 +81,31 @@
   &[mode="tablet"] {
     --cols: 12;
   }
+
+  // Reduziert Flächenraum und Überschrift auf schmalen Viewports ohne die Inhaltsreihenfolge zu ändern.
+  &[mode="mobile"] {
+    padding-block: var(--nt-space-5);
+
+    &::part(wrapper) {
+      padding: var(--nt-space-5);
+    }
+
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    :is(h2, h3) {
+      font-size: 1.625rem;
+      overflow-wrap: anywhere;
+    }
+
+    .list-checked {
+      padding-left: var(--nt-space-5);
+    }
+
+    & + &::before {
+      top: calc(-1 * var(--nt-space-5));
+      height: calc(var(--nt-space-5) * 2);
+    }
+  }
 }
