@@ -69,6 +69,26 @@
     border-right: 0;
   }
 
+  // Färbt die editierbaren Bewertungszeichen mit der Markenfarbe der Vorlage.
+  .saas-reviews .review-stars {
+    display: block;
+    margin-bottom: var(--nt-space-2);
+    color: var(--nt-primary);
+    letter-spacing: .08em;
+    white-space: nowrap;
+  }
+
+  // Normalisiert unterschiedliche Markenformate auf dieselbe ruhige Referenzhöhe.
+  .saas-reviews img {
+    display: block;
+    width: auto;
+    max-width: 6rem;
+    height: 1.75rem;
+    margin-top: var(--nt-space-3);
+    object-fit: contain;
+    object-position: left center;
+  }
+
   // Formt den Aside-Part als eigenständige Tarifkarte, ohne zusätzliche Autoren-Wrapper.
   &::part(aside) {
     box-sizing: border-box;
@@ -93,6 +113,7 @@
     padding: var(--nt-space-4);
     border: 1px solid var(--nt-border);
     border-radius: calc(var(--nt-radius) / 2);
+    transition: border-color .2s ease, background-color .2s ease;
   }
 
   // Trennt Tarifname, Preis und Beschreibung auch bei längeren Übersetzungen lesbar.
@@ -200,6 +221,21 @@
     .plan-options li,
     .plan-contact {
       overflow-wrap: anywhere;
+    }
+  }
+
+  // Entfernt im mittleren Stack Desktop-Einzüge und bewahrt eine volle Tarifkartenbreite.
+  &[mode="tablet"] {
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    &::part(aside) {
+      width: 100%;
+    }
+
+    :is(h1, h2) {
+      font-size: 3rem;
     }
   }
 }

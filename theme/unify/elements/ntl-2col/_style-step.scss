@@ -14,8 +14,24 @@
     $border: 0,
     $border-radius: var(--nt-radius),
     $objectFit: contain,
-    $wrapper-bg-color: var(--nt-surface-muted)
+    $wrapper-bg-color: transparent
   );
+
+  position: relative;
+  isolation: isolate;
+
+  // Bildet die 65-Prozent-Hintergrundfläche der Vorlage unabhängig vom Bildinhalt nach.
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: var(--nt-space-7);
+    bottom: var(--nt-space-7);
+    left: 0;
+    width: 65%;
+    border-radius: var(--nt-radius);
+    background: var(--nt-surface-muted);
+  }
 
   // Gibt der wiederverwendbaren Schrittfläche ausreichend Raum für wechselnde Inhalte.
   &::part(wrapper) {
@@ -41,6 +57,11 @@
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  // Lässt die Komposition bei fehlendem optionalem Bild ohne künstliche Media-Höhe wachsen.
+  &:not(:has(> p.auto))::part(aside) {
+    min-height: 0;
   }
 
   // Kennzeichnet die Reihenfolge unabhängig von einer festen Anzahl an Schritten.
@@ -125,6 +146,13 @@
 
     &::part(wrapper) {
       padding: var(--nt-space-5);
+    }
+
+    &::after {
+      top: var(--nt-space-5);
+      bottom: auto;
+      width: 100%;
+      height: 65%;
     }
 
     &::part(main) {

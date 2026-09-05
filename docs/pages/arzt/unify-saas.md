@@ -19,8 +19,8 @@ Hand-picked professionals and expertly crafted components, designed for any kind
 
 [Request a demo](/kontakt){: .btn .btn-primary }
 
-- ★★★★★ **4.6 / 5** — from 12k Google reviews
-- ★★★★½ **4.8 / 5** — from 5k Forbes reviews
+- <span class="review-stars">★★★★★</span> **4.6 / 5** — from 12k reviews<br>![Google](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/google-dark.svg)
+- <span class="review-stars">★★★★½</span> **4.8 / 5** — from 5k reviews<br>![Forbes](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/forbes-dark.svg)
 {: .saas-reviews }
 
 ## Simple pricing
