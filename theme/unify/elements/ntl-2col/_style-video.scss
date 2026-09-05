@@ -21,6 +21,11 @@
     text-align: center;
   }
 
+  // Hebt nur den Zahlenwert innerhalb der Überschrift mit der Markenfarbe hervor.
+  > .header strong {
+    color: var(--nt-primary);
+  }
+
   // Unterdrückt den unbenutzten Zweispaltenbereich dieser Header-/Bottom-Komposition.
   &::part(wrapper) {
     display: none;
@@ -60,6 +65,20 @@
     margin-bottom: var(--nt-space-2);
     color: var(--nt-header);
     font-size: 1.3125rem;
+  }
+
+  // Setzt die Videoaktion als gut sichtbaren, tastaturbedienbaren Textlink ab.
+  .video-stage figcaption a {
+    display: inline-block;
+    margin-top: var(--nt-space-4);
+    color: var(--nt-header);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  // Nutzt den vorhandenen Fokusfarbton für eine eindeutige Tastaturrückmeldung.
+  .video-stage figcaption a:is(:hover, :focus-visible) {
+    color: var(--nt-link-hover);
   }
 
   // Wandelt die Überlagerung mobil in einen stabilen Bild-und-Text-Stack um.

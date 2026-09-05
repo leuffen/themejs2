@@ -131,10 +131,10 @@ this year alone
 
 Unify gives founders and teams the tools to present their work clearly, creatively, and quickly.
 
-- **Built for you**<br>Telling your story in the best way possible.
-- **Built with creativity**<br>We embrace and drive change in our industry.
-- **Built for business**<br>Functionality your customers actually want.
-- **Built for speed**<br>Faster loading compared with traditional websites.
+- ◎ **Built for you**<br>Telling your story in the best way possible.
+- ◌ **Built with creativity**<br>We embrace and drive change in our industry.
+- ▣ **Built for business**<br>Functionality your customers actually want.
+- ↯ **Built for speed**<br>Faster loading compared with traditional websites.
 {: .feature-card-grid .aside }
 
 <!-- Nutzt Header und Bottom für eine breite Medienfläche mit semantischem Figcaption. -->

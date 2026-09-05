@@ -95,6 +95,45 @@
     border-radius: calc(var(--nt-radius) / 2);
   }
 
+  // Trennt Tarifname, Preis und Beschreibung auch bei längeren Übersetzungen lesbar.
+  .plan-options strong,
+  .plan-options small {
+    display: block;
+  }
+
+  // Behandelt den Preis als kompakten Untertitel innerhalb der jeweiligen Option.
+  .plan-options strong {
+    color: var(--nt-header);
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  // Hält erläuternde Tariftexte bewusst unterhalb der primären Auswahlhierarchie.
+  .plan-options small {
+    margin-top: var(--nt-space-1);
+    color: var(--nt-text-muted);
+    line-height: 1.5;
+  }
+
+  // Formt die Empfehlung als grünes, kontrastreiches Pill-Badge der Referenz.
+  .plan-options mark {
+    display: inline-block;
+    margin-top: var(--nt-space-2);
+    padding: .2rem .55rem;
+    border-radius: 999px;
+    color: var(--nt-primary);
+    background: color-mix(in srgb, var(--nt-primary) 12%, white);
+    font-size: .75rem;
+    font-weight: var(--nt-font-weight-bold);
+  }
+
+  // Gibt dem Tarifkartentitel die kompakte, zentrierte Referenzhierarchie.
+  > :is(h2, h3).aside {
+    margin-bottom: var(--nt-space-2);
+    font-size: 1.3125rem;
+    text-align: center;
+  }
+
   // Richtet die Hauptaktion der Tarifkarte über die gesamte verfügbare Breite aus.
   > .btn.aside {
     display: block;

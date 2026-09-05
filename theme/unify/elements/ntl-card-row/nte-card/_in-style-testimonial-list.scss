@@ -34,7 +34,17 @@
     blockquote {
       margin: 0;
       color: var(--nt-header);
+      font-size: 1.125rem;
       font-style: italic;
+      line-height: 1.55;
+    }
+
+    // Trennt die Quellenrolle als sekundäre Information vom eigentlichen Zitat.
+    blockquote + p,
+    > p:last-child {
+      margin-bottom: 0;
+      color: var(--nt-text-muted);
+      font-size: .875rem;
     }
   }
 

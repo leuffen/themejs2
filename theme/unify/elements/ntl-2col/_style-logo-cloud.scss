@@ -44,6 +44,15 @@
     height: 2.5rem;
     margin-inline: auto;
     object-fit: contain;
+    opacity: .72;
+    filter: grayscale(1);
+    transition: opacity .2s ease, filter .2s ease;
+  }
+
+  // Erhöht die Erkennbarkeit bei Interaktion, ohne Markenfarben als Theme-Tokens zu übernehmen.
+  .logo-cloud a:is(:hover, :focus-visible) img {
+    opacity: 1;
+    filter: grayscale(0);
   }
 
   // Verdichtet die Logo-Cloud auf schmalen Ansichten zu drei gut lesbaren Spalten.
