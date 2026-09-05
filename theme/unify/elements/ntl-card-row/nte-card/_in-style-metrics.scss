@@ -1,0 +1,26 @@
+// Übersetzt Card-Children in reduzierte Kennzahlblöcke mit hervorgehobenem Wert.
+@use "@nextrap/nte-card" as card;
+
+// Bindet die flache Kennzahloptik ausschließlich an die Metrics-Komposition.
+&.style-metrics {
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: 0,
+      $border: 0,
+      $background-color: transparent,
+      $border-radius: 0
+    );
+
+    min-width: 0;
+    color: var(--nt-text);
+
+    // Hebt den ersten starken Wert unabhängig von dessen konkretem Inhalt hervor.
+    strong:first-child {
+      display: block;
+      margin-bottom: var(--nt-space-2);
+      color: var(--nt-primary);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      line-height: 1.2;
+    }
+  }
+}

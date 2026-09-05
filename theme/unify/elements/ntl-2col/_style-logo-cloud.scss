@@ -1,0 +1,54 @@
+// Ordnet Kunden- und Partnerlogos als leicht erfassbare Vertrauensfläche an.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Verwendet Header und Bottom für eine vollbreite, semantisch klare Logo-Cloud.
+&.style-logo-cloud {
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: 0px,
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: contain
+  );
+
+  // Zentriert die Vertrauensbotschaft oberhalb der Logos.
+  &::part(header) {
+    max-width: 50rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  // Unterdrückt den unbenutzten Zweispaltenbereich dieser Header-/Bottom-Komposition.
+  &::part(wrapper) {
+    display: none;
+  }
+
+  // Formt eine normale Markdown-Liste als flexibles Sechs-Spalten-Raster.
+  .logo-cloud {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--nt-space-6) var(--nt-space-4);
+    align-items: center;
+    margin: var(--nt-space-8) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Hält unterschiedliche Markenformate in einer gemeinsamen optischen Box.
+  .logo-cloud img {
+    display: block;
+    width: min(100%, 6rem);
+    height: 2.5rem;
+    margin-inline: auto;
+    object-fit: contain;
+  }
+
+  // Verdichtet die Logo-Cloud auf schmalen Ansichten zu drei gut lesbaren Spalten.
+  &[mode="mobile"],
+  &[mode="tablet"] {
+    .logo-cloud {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

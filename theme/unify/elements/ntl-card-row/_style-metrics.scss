@@ -1,0 +1,19 @@
+// Stellt Kennzahlen als flaches, gleichwertiges Raster ohne dekorative Kartenrahmen dar.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Überlässt die Spaltenbreite dem Seiten-Markup und definiert nur Rhythmus und Ausrichtung.
+&.style-metrics {
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $gap: var(--nt-space-6),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Hält Kennzahlen an einer gemeinsamen Oberkante und lässt variable Beschreibungen wachsen.
+  &::part(main) {
+    align-items: stretch;
+  }
+}

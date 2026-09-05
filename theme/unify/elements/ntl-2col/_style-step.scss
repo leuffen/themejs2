@@ -1,0 +1,47 @@
+// Bildet wiederverwendbare Lern-, Prozess- und Onboarding-Schritte mit Text und Media ab.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Bewahrt die dokumentierte Main-/Aside-Komposition und ergänzt nur die visuelle Schrittbühne.
+&.style-step {
+  --breakpoint: sm, lg;
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-space-7),
+    $background: transparent,
+    $border: 0,
+    $border-radius: var(--nt-radius),
+    $objectFit: contain,
+    $wrapper-bg-color: var(--nt-surface-muted)
+  );
+
+  // Gibt der wiederverwendbaren Schrittfläche ausreichend Raum für wechselnde Inhalte.
+  &::part(wrapper) {
+    padding: clamp(var(--nt-space-6), 6vw, var(--nt-space-8));
+    border-radius: var(--nt-radius);
+  }
+
+  // Kennzeichnet die Reihenfolge unabhängig von einer festen Anzahl an Schritten.
+  .step-kicker {
+    margin: 0 0 var(--nt-space-3);
+    color: var(--nt-primary);
+    font-size: .75rem;
+    font-weight: var(--nt-font-weight-bold);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  // Hält den Lernumfang kompakt und optisch an der Referenz orientiert.
+  .list-checked {
+    display: grid;
+    gap: var(--nt-space-2);
+    margin: var(--nt-space-5) 0;
+    padding: 0;
+  }
+
+  // Entfernt im Stack feste Medienhöhen und bewahrt die natürliche Bildproportion.
+  &[mode="mobile"],
+  &[mode="tablet"] {
+    --cols: 12;
+  }
+}

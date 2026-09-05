@@ -1,0 +1,26 @@
+// Ordnet mehrere Erfahrungsberichte als versetzte, vertikal lesbare Vertrauenskette an.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Nutzt die Card-Row nur für Layout und überlässt Kartenoptik dem gebundenen Child-Pairing.
+&.style-testimonial-list {
+  @include cardRow.default-style(
+    $container-width: min(100%, 52rem),
+    $gap: var(--nt-space-6),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Begrenzt und zentriert die Abschnittsüberschrift wie in der Vorlage.
+  &::part(header) {
+    max-width: 44rem;
+    margin: 0 auto var(--nt-space-8);
+    text-align: center;
+  }
+
+  // Stellt jeden Bericht in einer eigenen Rasterzeile dar.
+  &::part(main) {
+    align-items: stretch;
+  }
+}

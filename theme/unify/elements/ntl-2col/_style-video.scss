@@ -1,0 +1,54 @@
+// Präsentiert ein breites Content-Medium mit Überschrift und überlagerter Handlungsfläche.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Nutzt Header und Bottom über volle Breite, während der leere Spaltenrahmen unsichtbar bleibt.
+&.style-video {
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: 0px,
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Zentriert die redaktionelle Einleitung in der Textbreite der Vorlage.
+  &::part(header) {
+    max-width: 46rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  // Unterdrückt den unbenutzten Zweispaltenbereich dieser Header-/Bottom-Komposition.
+  &::part(wrapper) {
+    display: none;
+  }
+
+  // Stellt das Medienmotiv als semantische Figure mit stabiler 3:2-Geometrie dar.
+  .video-stage {
+    position: relative;
+    max-width: 53.5rem;
+    margin: var(--nt-space-8) auto 0;
+    overflow: hidden;
+    border-radius: var(--nt-radius);
+  }
+
+  // Füllt die Medienbühne ohne Verzerrung und ohne autorenseitige feste Maße.
+  .video-stage img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  // Legt die Handlung als lesbare Karte über das Motiv.
+  .video-stage figcaption {
+    position: absolute;
+    right: var(--nt-space-5);
+    bottom: var(--nt-space-5);
+    max-width: 18rem;
+    padding: var(--nt-space-5);
+    border-radius: calc(var(--nt-radius) * .75);
+    background: var(--nt-surface-raised);
+  }
+}

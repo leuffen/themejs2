@@ -1,10 +1,12 @@
 // Lädt vollständige Card-Row-Baselines und ihre jeweils passenden NTE-Card-Pairings.
 @use "sass:meta";
 
-// Trennt Raster-, Timeline- und Pricing-Verantwortung in allgemein nutzbare Varianten.
+// Trennt Raster-, Timeline-, Pricing- und SaaS-Verantwortung in allgemein nutzbare Varianten.
 ntl-card-row {
   @include meta.load-css("./_style-default.scss");
   @include meta.load-css("./_style-timeline.scss");
   @include meta.load-css("./_style-pricing.scss");
+  @include meta.load-css("./_style-metrics.scss");
+  @include meta.load-css("./_style-testimonial-list.scss");
   @include meta.load-css("./nte-card/nte-card.scss");
 }
