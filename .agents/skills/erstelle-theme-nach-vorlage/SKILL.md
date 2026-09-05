@@ -26,7 +26,7 @@ Lies zuerst den repository-eigenen Skill `../modify-theme/SKILL.md` vollständig
 3. Lies [Implementierung und Content-Vertrag](references/implementierung.md), bevor du Dateien anlegst oder Komponenten stylst.
 4. Wenn mindestens zwei unabhängige Section-Styles abzugleichen sind und Subagenten verfügbar sowie autorisiert sind, lies [Multi-Agenten-Abgleich](references/multi-agenten.md) und delegiere pro Section-Style einen abgegrenzten Spezialauftrag. Bleibe bei einer einzelnen Section oder stark gekoppelten Dateien in einem Arbeitsstrang.
 5. Implementiere zuerst Theme-Tokens und Content Flow, dann Section für Section. Eine strukturell falsche Section darf nicht durch Pixel-Tuning kaschiert werden.
-6. Prüfe jede Section in drei Durchläufen nach [Visuelle Iteration](references/visuelle-iteration.md). Halte nach jedem Durchlauf Desktop-Auswirkung, Mobil-Auswirkung und verbleibenden Änderungsbedarf fest.
+6. Prüfe jede Section pro Iteration in einer zusammenhängenden Vergleichsrunde nach [Visuelle Iteration](references/visuelle-iteration.md). Arbeite darin Struktur und Seaming, Geometrie und Rhythmus sowie Typografie, Details und Robustheit als drei feste Checkpoints ab und dokumentiere anschließend Desktop-Auswirkung, Mobil-Auswirkung und verbleibenden Änderungsbedarf. Nutze drei getrennte vollständige Vergleichsrunden nur bei einer Erstangleichung oder einer strukturell riskanten responsiven Änderung.
 7. Falls eine gemeinsame API fehlt, lies und befolge [Upstream-Vorversionen](references/upstream-vorversionen.md), bevor du einen lokalen Override oder einen Upstream-PR erstellst.
 8. Kompiliere das vollständige Theme, prüfe den tatsächlichen Diff und kontrolliere die PR-Dateiliste. Generierte Dateien werden nur aufgenommen, wenn Repository-Regeln und aktueller Auftrag dies verlangen; eine ausdrückliche Ausschlussanweisung wie `docs/assets/dist/**` hat Vorrang.
 
@@ -46,7 +46,7 @@ Eine Section gilt erst als belastbar, wenn:
 
 Berichte knapp:
 
-- welche Sections in welchen drei Durchläufen verbessert wurden;
+- welche Sections in der Vergleichsrunde verbessert wurden und welche der drei Checkpoints Änderungen ausgelöst haben;
 - welche Desktop- und Mobile-Wirkung geprüft wurde;
 - welche Prüfungen erfolgreich waren oder technisch blockiert blieben;
 - welche konkreten Punkte die nächste visuelle Revision braucht;

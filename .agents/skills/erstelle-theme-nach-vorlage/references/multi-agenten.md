@@ -33,20 +33,20 @@ Jeder Section-Agent erhält denselben relevanten Referenzstand und einen kurzen 
 - aktuellem Content-Pane-Markup und betroffenen NTL-/NTE-Komponenten;
 - zu lesenden Repository-, Theme- und Komponenten-Skills;
 - bekannten Messankern wie Container, Spalten, Gap, Bildanteil oder sichtbarer Card-Anzahl;
-- Auftrag zu genau drei vergleichenden Durchläufen nach `visuelle-iteration.md`;
+- Auftrag zu einer zusammenhängenden Vergleichsrunde mit den drei verbindlichen Checkpoints aus `visuelle-iteration.md`;
 - gefordertem Prüf- und Übergabeformat.
 
 Gib nicht die erwartete Lösung vor. Übergib Ziel, Invarianten und Messdaten, damit der Agent die vorhandene Komponenten-API selbst prüft und die kleinste belastbare Änderung findet.
 
-## Drei Durchläufe je Section-Agent
+## Eine Vergleichsrunde je Section-Agent
 
-Jeder Agent bearbeitet seine Section vollständig in dieser Reihenfolge:
+Jeder Agent bearbeitet seine Section innerhalb einer Vergleichsrunde vollständig in dieser Reihenfolge:
 
 1. Struktur und Seaming: Rollen, Slots, Children, Modifier und Desktop-/Mobil-Reihenfolge prüfen und korrigieren.
 2. Geometrie und Rhythmus: Container, Raster, Gap, Padding, Bildgeometrie und Ausrichtung messen und angleichen.
 3. Typografie und Robustheit: Umbrüche, Gewichte, Farben, States, Dekorationen sowie variable Texte und Item-Anzahlen prüfen.
 
-Nach jedem Durchlauf prüft der Agent Desktop und Mobile erneut. Eine Runde ohne belegten Änderungsbedarf bleibt ein dokumentierter Prüfpass und erzeugt keinen künstlichen Diff.
+Der Agent bündelt die belegten Änderungen aus allen drei Checkpoints und prüft Desktop und Mobile anschließend erneut. Ein Checkpoint ohne Änderungsbedarf bestätigt den vorhandenen Stand und erzeugt keinen künstlichen Diff. Nur wenn eine Änderung an Struktur, Seaming oder gemeinsamer API die folgenden Prüfergebnisse ungültig macht, darf der Agent innerhalb derselben Iteration weitere vollständige Vergleichsrunden ausführen; er dokumentiert dann den Grund.
 
 ## Grenzen für Section-Agenten
 
@@ -80,9 +80,9 @@ Die Rückgabe enthält:
 | Ergebnis | wichtigste visuelle und strukturelle Änderung |
 | Desktop | konkrete Auswirkung und geprüfte Breite |
 | Mobile | konkrete Auswirkung und geprüfte Breite |
-| Runde 1 – Struktur | Änderung und Desktop-/Mobilnachweis für Rollen, Slots und Reihenfolge |
-| Runde 2 – Geometrie | Änderung und Desktop-/Mobilnachweis für Raster, Abstände und Media |
-| Runde 3 – Details | Änderung und Desktop-/Mobilnachweis für Typografie, States und Robustheit |
+| Checkpoint Struktur | Änderung oder bestätigter Ist-Stand für Rollen, Slots und Reihenfolge |
+| Checkpoint Geometrie | Änderung oder bestätigter Ist-Stand für Raster, Abstände und Media |
+| Checkpoint Details | Änderung oder bestätigter Ist-Stand für Typografie, States und Robustheit |
 | Dateien | vollständige Liste der geänderten Dateien |
 | Prüfung | ausgeführter Build, Sass-, Diff- oder Markup-Check |
 | Upstream-Lücke | keine oder konkret belegter Vorschlag |
