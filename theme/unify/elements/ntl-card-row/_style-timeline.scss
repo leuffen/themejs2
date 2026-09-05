@@ -37,10 +37,10 @@
     }
   }
 
-  // Führt den Desktop-Track von der Containerkante bis zum rechten Viewportrand wie beim Referenz-Slider fort.
+  // Führt den Desktop-Track bis kurz vor den rechten Viewportrand und vermeidet dort Dokument-Overflow.
   &[mode="desktop"] {
     &::part(main) {
-      width: calc(100% + max(0px, (100vw - var(--nt-container-width)) / 2));
+      width: calc(100% + max(0px, (100vw - var(--nt-container-width)) / 2 - var(--nt-space-3)));
     }
   }
 }

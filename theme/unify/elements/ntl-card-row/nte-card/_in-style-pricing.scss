@@ -161,8 +161,10 @@
       --nt-btn-padding-x: 1.8125rem;
 
       flex: 0 0 auto;
+      border-width: .125rem;
       border-radius: .25rem;
       font-size: .9375rem;
+      font-weight: 700;
       line-height: 1.5;
     }
 
@@ -174,6 +176,7 @@
       --btn-txt: var(--nt-header) !important;
 
       border-color: var(--nt-border) !important;
+      font-weight: 500;
     }
   }
 

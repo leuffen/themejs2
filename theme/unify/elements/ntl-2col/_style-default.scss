@@ -123,9 +123,9 @@
   &.surface-secondary {
     box-sizing: border-box;
 
-    // Übernimmt den beidseitigen 72-Pixel-Überstand der 1140-Pixel-Referenzbühne, bleibt aber im Viewport-Gutter.
+    // Übernimmt den beidseitigen 72-Pixel-Überstand und läuft bis zur maximalen Referenzbreite bündig an den Viewport.
     width: min(
-      calc(100% - (var(--nt-container-gutter) * 2)),
+      100%,
       calc(var(--nt-container-max) + (var(--nt-space-7) * 3))
     );
     margin-inline: auto;
@@ -182,5 +182,10 @@
       width: calc(100% - var(--nt-space-5));
       padding: var(--nt-space-5);
     }
+  }
+
+  // Übernimmt zwischen Mobil- und Desktopmodus das 56-Pixel-Padding der Referenzbühne.
+  &[mode="tablet"].surface-secondary {
+    padding: calc(var(--nt-space-7) + var(--nt-space-2));
   }
 }
