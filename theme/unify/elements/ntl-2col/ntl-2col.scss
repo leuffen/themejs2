@@ -1,0 +1,8 @@
+// Lädt die neutrale Feature- und die eigenständige Testimonial-Komposition.
+@use "sass:meta";
+
+// Bindet jede Darstellung an eine dokumentierte NTL-Variante.
+ntl-2col {
+  @include meta.load-css("./_style-default.scss");
+  @include meta.load-css("./_style-testimonial.scss");
+}

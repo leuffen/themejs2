@@ -1,0 +1,12 @@
+// Verwendet den öffentlichen Input-Mixin-Vertrag für Lead- und Kontaktformulare.
+@use "@nextrap/nte-input" as nteInput;
+
+// Erzeugt helle, kompakte Felder mit optional schwebenden Labels für verschiedene Formkontexte.
+&.style-default {
+  @include nteInput.default-style();
+
+  // Aktiviert schwebende Labels nur bei expliziter Autorenwahl.
+  &.hoverlabel {
+    @include nteInput.floating-labels();
+  }
+}

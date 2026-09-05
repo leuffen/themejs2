@@ -1,0 +1,7 @@
+// Lädt die Child-Pairings passend zu jeder Card-Row-Baseline.
+@use "sass:meta";
+
+// Hält Kinddarstellungen nahe am komponierenden Layout und verhindert globale Card-Overrides.
+@include meta.load-css("./_in-style-default.scss");
+@include meta.load-css("./_in-style-timeline.scss");
+@include meta.load-css("./_in-style-pricing.scss");

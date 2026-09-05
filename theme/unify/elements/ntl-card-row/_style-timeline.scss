@@ -1,0 +1,35 @@
+// Bildet eine allgemeine Zeitleiste für Unternehmenshistorien ebenso wie für Projektmeilensteine.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Verbindet gleichwertige Meilensteine über eine durchgehende Akzentlinie.
+&.style-timeline {
+  position: relative;
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 3,
+    $gap: var(--nt-space-5),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Richtet die Abschnittseinleitung links aus, damit die horizontale Erzählung darunter beginnen kann.
+  &::part(header) {
+    max-width: 22rem;
+    margin-bottom: var(--nt-space-8);
+  }
+
+  // Zeichnet die chronologische Verbindung hinter den Karten, ohne zusätzliche Markup-Elemente zu verlangen.
+  &::part(main) {
+    position: relative;
+    align-items: stretch;
+  }
+
+  // Wandelt die Zeitleiste mobil in eine gut lesbare Einzelspalte um.
+  &[mode="mobile"] {
+    --cols: 12;
+    --gutter-y: 16px;
+  }
+}

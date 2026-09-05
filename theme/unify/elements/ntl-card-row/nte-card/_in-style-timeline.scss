@@ -1,0 +1,54 @@
+// Übersetzt Karteninhalte in wiederverwendbare Meilensteine mit Jahr, Marker und Beschreibung.
+@use "@nextrap/nte-card" as card;
+
+// Bindet die schlanke Darstellung an die Timeline-Komposition des Elternlayouts.
+&.style-timeline {
+  // Entfernt Kartenrahmen und erzeugt stattdessen die chronologische Linie als visuellen Anker.
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: 0,
+      $border: 0,
+      $background-color: transparent,
+      $border-radius: 0
+    );
+
+    position: relative;
+    height: 100%;
+    padding-top: var(--nt-space-6);
+    border-top: 2px solid color-mix(in srgb, var(--nt-primary) 72%, white);
+
+    // Setzt einen kleinen Marker auf die gemeinsame Linie, der auch ohne feste Elementanzahl funktioniert.
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(var(--nt-border-width) * -4);
+      left: 0;
+      width: .7rem;
+      height: .7rem;
+      border: 2px solid var(--nt-primary);
+      border-radius: 50%;
+      background: var(--nt-surface);
+    }
+
+    // Hebt die erste Überschrift als Zeitwert hervor, bleibt aber für Schritte oder Phasen ebenso nutzbar.
+    > h3 {
+      margin: 0 0 var(--nt-space-4);
+      color: var(--nt-primary);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    // Behandelt die zweite Überschrift als eigentlichen Meilenstein und nicht als weiteren Zeitwert.
+    > h4 {
+      margin: 0 0 var(--nt-space-3);
+      color: var(--nt-header);
+      font-size: .9375rem;
+      line-height: 1.35;
+    }
+
+    // Hält erläuternde Texte klein genug für mehrere Meilensteine nebeneinander.
+    p {
+      font-size: var(--nt-font-size-small);
+      line-height: 1.5;
+    }
+  }
+}

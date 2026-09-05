@@ -1,0 +1,33 @@
+// Erstellt eine Preiskomposition für Servicepakete und abonnementbasierte Angebote.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Zentriert maximal zwei vergleichbare Angebote und erlaubt einer Karte eine hervorgehobene Oberfläche.
+&.style-pricing {
+  @include cardRow.default-style(
+    $container-width: 61.25rem,
+    $cols: 6,
+    $gap: var(--nt-space-6),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Begrenzt die Einleitung auf eine prägnante, zentrierte Überschrift.
+  &::part(header) {
+    max-width: 40rem;
+    margin: 0 auto var(--nt-space-8);
+    text-align: center;
+  }
+
+  // Hält beide Pakete trotz unterschiedlicher Leistungslisten auf derselben Grundhöhe.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Stapelt die Pakete mobil und behält ausreichend Abstand zwischen den Karten.
+  &[mode="mobile"] {
+    --cols: 12;
+    --gutter-y: 20px;
+  }
+}

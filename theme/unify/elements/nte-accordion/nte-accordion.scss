@@ -1,0 +1,7 @@
+// Lädt die allgemeine FAQ-Darstellung über den öffentlichen Komponentenvertrag.
+@use "sass:meta";
+
+// Bindet die visuelle Baseline ausschließlich an nte-accordion.style-default.
+nte-accordion {
+  @include meta.load-css("./_style-default.scss");
+}

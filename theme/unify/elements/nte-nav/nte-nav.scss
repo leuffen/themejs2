@@ -1,0 +1,7 @@
+// Lädt die horizontalen und vertikalen Unify-Navigationsvarianten getrennt nach Einsatzkontext.
+@use "sass:meta";
+
+nte-nav {
+  @include meta.load-css("./_style-unify.scss");
+  @include meta.load-css("./_style-unify-vertical.scss");
+}

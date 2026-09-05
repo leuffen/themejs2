@@ -1,0 +1,53 @@
+// Ordnet Standard-NTE-Eingaben und eine bestehende Button-Utility als kompaktes Lead-Formular an.
+.hero-form {
+  display: block;
+  width: min(100%, 45.3125rem);
+  align-items: end;
+  margin-top: var(--nt-space-4);
+  padding: var(--nt-space-3);
+  border: var(--nt-border-width) solid var(--nt-border);
+  border-radius: .25rem;
+  background: var(--nt-surface-raised);
+  box-shadow: 0 .375rem 1.5rem rgba(140, 152, 164, .125);
+
+  // Neutralisiert die von Kramdown erzeugten Absatzwrapper, damit das Grid Felder und Button direkt ausrichten kann.
+  > p {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: 1fr;
+    gap: var(--nt-space-3);
+    align-items: stretch;
+    margin: 0;
+  }
+
+  // Lässt Eingabekomponenten die verfügbare Grid-Spalte vollständig nutzen.
+  > p > nte-input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+
+  // Hält den Primärbutton auf Desktop auf einer Linie mit den Eingabefeldern.
+  > p > .btn {
+    min-height: 2.75rem;
+    align-self: stretch;
+    white-space: nowrap;
+  }
+}
+
+// Schaltet das Formular auf Desktop in die 78 Pixel hohe, großzügig getrennte Originalzeile um.
+.hero-form.desktop {
+  margin-top: var(--nt-space-6);
+
+  > p {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+    gap: var(--nt-space-4);
+  }
+
+  // Gleicht Eingabefelder und CTA in der gemeinsamen Zeile auf dieselbe Bedienhöhe an.
+  > p > nte-input,
+  > p > .btn {
+    min-height: 3.25rem;
+  }
+}

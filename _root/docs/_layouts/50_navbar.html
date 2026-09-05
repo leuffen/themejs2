@@ -3,6 +3,64 @@ layout: 30_script
 ---
 {% if page.skip-navbar != true %}
 
+{% if page.use_navbar == "unify" %}
+<!-- Lädt die in der Originalvorlage verwendete Inter-Schrift ausschließlich für Seiten mit Unify-Website-Rahmen. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+
+<!-- Stellt für die Unify-Demo den kompakten Business-Header mit klar getrennten Navigations- und Aktionsbereichen bereit. -->
+<nte-navbar class="style-unify with-shadow-on-scroll" style="--nte-navbar-position: sticky; --nte-navbar-scroll-threshold: 12">
+    <nte-navbar-line class="with-shrink-on-scroll" style="--height: 75px; --height-scrolled: 60px">
+        <a slot="start" class="brand-logo unify-brand" href="/" aria-label="Unify Startseite">
+            <span class="unify-brand__mark" aria-hidden="true">U</span><span>nify</span>
+        </a>
+
+        <nte-nav
+            id="unify-main-navigation-horizontal"
+            class="style-unify"
+            slot="center"
+            aria-label="Hauptnavigation"
+            style="--nte-nav-flow: row; --nte-nav-align: stretch"
+        >
+            <nte-nav-item href="#leistungen">Landings</nte-nav-item>
+            <nte-nav-item href="#produkte">Pages</nte-nav-item>
+            <nte-nav-item href="#geschichte">Blog</nte-nav-item>
+            <nte-nav-item href="#fragen">Docs</nte-nav-item>
+        </nte-nav>
+
+        <div slot="end" class="unify-navbar-actions navbar-control" style="display: none" style-xl="display: flex">
+            <a href="/login" class="unify-navbar-login">Log in</a>
+            <a href="/kontakt" class="btn btn-secondary">Sign up</a>
+        </div>
+
+        <nte-burger
+            slot="end"
+            aria-label="Navigation öffnen"
+            aria-controls="unifyNavSidebar"
+            static-state
+            onclick="document.getElementById('unifyNavSidebar')?.toggle()"
+            style="display: block"
+            style-xl="display: none"
+        ></nte-burger>
+    </nte-navbar-line>
+</nte-navbar>
+
+<!-- Überführt dieselben Navigationspunkte auf kleinen Ansichten in das bestehende Offcanvas-Muster. -->
+<nte-offcanvas id="unifyNavSidebar" aria-label="Mobile Hauptnavigation">
+    <div slot="header"><strong>Navigation</strong></div>
+    <nte-nav
+        id="unify-main-navigation-vertical"
+        class="style-unify-vertical"
+        aria-label="Mobile Hauptnavigation"
+        style="--nte-nav-flow: column; --nte-nav-align: stretch"
+    ></nte-nav>
+    <tj-element-relocator
+        source="#unify-main-navigation-horizontal"
+        target="#unify-main-navigation-vertical"
+        class="-xl:relocate"
+    ></tj-element-relocator>
+</nte-offcanvas>
+{% else %}
+
 <nte-navbar class="style-default fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 104px">
     <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
         <div slot="start" class="site-topbar d-flex align-items-center justify-content-between gap-2 w-100">
@@ -74,6 +132,7 @@ layout: 30_script
     ></tj-element-relocator>
 </nte-offcanvas>
 
+{% endif %}
 {% endif %}
 
 {{ content }}

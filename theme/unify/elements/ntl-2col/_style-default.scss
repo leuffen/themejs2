@@ -1,0 +1,91 @@
+// Nutzt den öffentlichen Komponenten-Mixin-Vertrag für skalierbare Bild-/Text-Features und Dienstleistungsabschnitte.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Bildet die vielseitige Standardkomposition mit ruhiger Fläche und vertikal zentrierten Spalten.
+&.style-default {
+  --cols: 6;
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: 0px,
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Richtet Text- und Medienseite auf Desktop optisch an einer gemeinsamen Mitte aus.
+  &::part(wrapper) {
+    align-items: center;
+  }
+
+  // Bildet die asymmetrischen Bootstrap-Gutter der Referenz innerhalb der Textspalte nach.
+  &::part(main) {
+    max-width: none;
+    padding-inline: calc(var(--nt-space-6) + var(--nt-space-3)) var(--nt-space-3);
+  }
+
+  // Formt die Bildspalte als ruhige Bühne für Bilder und überlagerte Mockups.
+  &::part(aside) {
+    position: relative;
+    min-height: clamp(22rem, 42vw, 37rem);
+  }
+
+  // Betont Abschnittsüberschriften in der kompakten Unify-Hierarchie, ohne mit dem Hero zu konkurrieren.
+  :is(h2, h3) {
+    margin: 0 0 var(--nt-space-3);
+    color: var(--nt-header);
+    font-size: clamp(1.75rem, 2.65vw, 2.25rem);
+    line-height: 1.3;
+    letter-spacing: normal;
+  }
+
+  // Gibt der vorhandenen Checklisten-Utility den 20-Pixel-Zeilen- und 32-Pixel-Außenrhythmus der Vorlage.
+  .list-checked {
+    display: grid;
+    gap: calc(var(--nt-space-3) + var(--nt-space-2));
+    margin: var(--nt-space-6) 0;
+    padding: 0;
+  }
+
+  // Färbt Aufzählungsmarker als wiederkehrendes Vertrauenssignal, ohne eine eigene Listenklasse zu verlangen.
+  li::marker {
+    color: var(--nt-primary);
+  }
+
+  // Verwendet die vorhandene Surface-Utility als dunkle Ausprägung derselben Feature-Struktur.
+  &.surface-secondary {
+    width: min(calc(100% - (var(--nt-container-gutter) * 2)), var(--nt-container-max));
+    margin-inline: auto;
+    padding: clamp(var(--nt-space-7), 6vw, 5rem);
+    border-radius: var(--nt-radius);
+    color: rgba(255, 255, 255, .76);
+    background: var(--nt-secondary);
+
+    :is(h2, h3, strong) {
+      color: #fff;
+    }
+  }
+
+  // Stapelt die Medienfläche vor den Text und entfernt unnötige Mindesthöhen auf kleinen Displays.
+  &[mode="mobile"] {
+    --cols: 12;
+    --gap: var(--nt-space-7);
+
+    &::part(main) {
+      max-width: none;
+      padding-inline: 0;
+      order: 2;
+    }
+
+    &::part(aside) {
+      min-height: 0;
+      order: 1;
+    }
+
+    &.surface-secondary {
+      width: calc(100% - (var(--nt-space-3) * 2));
+      padding: var(--nt-space-5);
+    }
+  }
+}

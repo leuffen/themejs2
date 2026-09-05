@@ -6,11 +6,11 @@ import jekyllHmrManager from "@leuffen/vite-jekyll-hmr-manager";
 export default defineConfig({
     plugins: [
         tsconfigPaths(),
-        jekyllHmrManager({
-            watchDir: "/var/www/html",
-            navigateOnChange: false,
-            debug: true,
-        }),
+ //      jekyllHmrManager({
+ //          watchDir: "/var/www/html",
+ //          navigateOnChange: false,
+ //          debug: true,
+ //      }),
     ],
     server: {
         port: 4000,

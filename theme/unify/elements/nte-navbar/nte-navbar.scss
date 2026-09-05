@@ -1,0 +1,6 @@
+// Lädt die gekapselte Navbar-Variante für den Unify-Website-Rahmen.
+@use "sass:meta";
+
+nte-navbar {
+  @include meta.load-css("./_style-unify.scss");
+}

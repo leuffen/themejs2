@@ -1,0 +1,93 @@
+// Baut aus zwei normalen Markdown-Bildern eine wiederverwendbare Foto-und-Mockup-Komposition.
+.feature-media {
+  position: relative;
+  display: block;
+  min-height: 27rem;
+  margin: 0;
+
+  // Nutzt das erste Bild als große fotografische Grundfläche.
+  img:first-child {
+    display: block;
+    width: 79%;
+    height: 27rem;
+    border-radius: var(--nt-radius);
+    object-fit: cover;
+  }
+
+  // Legt weitere Bilder als erhöhte UI-Mockups über die fotografische Grundfläche.
+  img + img {
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+    width: 68%;
+    max-height: 74%;
+    border-radius: calc(var(--nt-radius) * .75);
+    object-fit: contain;
+    filter: drop-shadow(0 var(--nt-space-4) var(--nt-space-6) rgba(45, 55, 75, .18));
+  }
+
+  // Ergänzt das charakteristische Punktmuster ohne ein weiteres Inhaltsasset zu benötigen.
+  &::after {
+    content: "";
+    position: absolute;
+    left: -1.25rem;
+    bottom: 1rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    background-image: radial-gradient(circle, var(--feature-dot-color, var(--nt-primary)) 2px, transparent 2.5px);
+    background-size: .75rem .75rem;
+    pointer-events: none;
+  }
+}
+
+// Verschiebt das dekorative Raster für Kompositionen mit einem rechten Bildakzent an die gegenüberliegende Ecke.
+.feature-media.dots-end::after {
+  inset: 1rem -1.25rem auto auto;
+}
+
+// Ordnet die drei in der Vorlage wiederkehrenden Rasterfarben bestehenden Theme-Farben zu.
+.feature-media.dots-success {
+  --feature-dot-color: var(--nt-primary);
+}
+
+.feature-media.dots-warning {
+  --feature-dot-color: var(--nt-accent);
+}
+
+.feature-media.dots-neutral {
+  --feature-dot-color: color-mix(in srgb, var(--nt-secondary) 35%, white);
+}
+
+// Vergrößert dieselbe Komposition erst im vom Responsive-System gesetzten Desktop-Zustand.
+.feature-media.desktop {
+  width: min(calc(100% - var(--nt-space-5)), 40.0625rem);
+  min-height: clamp(30rem, 46vw, 39rem);
+  margin-inline: var(--nt-space-3) auto;
+
+  img:first-child {
+    width: min(79%, 30.0625rem);
+    height: clamp(30rem, 46vw, 39.0625rem);
+  }
+
+  img + img {
+    right: var(--nt-space-6);
+    bottom: calc(var(--nt-space-7) * -1.5);
+    width: min(66%, 22.625rem);
+  }
+
+  // Skaliert das Punktraster auf die 10-Rem-Dekoration der Desktopvorlage.
+  &::after {
+    width: 10rem;
+    height: 9.375rem;
+  }
+}
+
+// Lässt das linke Raster wie im Original über Foto und Abschnittskante hinausragen.
+.feature-media.desktop:not(.dots-end)::after {
+  inset: auto auto calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1);
+}
+
+// Spiegelt denselben Überstand für Medienkompositionen mit rechtem Raster.
+.feature-media.desktop.dots-end::after {
+  inset: calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1) auto auto;
+}
