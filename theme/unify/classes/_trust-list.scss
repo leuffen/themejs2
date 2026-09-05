@@ -1,0 +1,25 @@
+// Stellt eine kurze Folge aus Avataren und Vertrauenshinweis mit Standard-Markdown-Listen bereit.
+.trust-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // Überlappt die Avatare leicht, damit auch variable Personenanzahlen kompakt bleiben.
+  li {
+    margin-left: -.45rem;
+  }
+
+  // Gibt jedem Bild einen hellen Rand und eine stabile, kreisrunde Größe.
+  img {
+    display: block;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 2px solid var(--nt-surface);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

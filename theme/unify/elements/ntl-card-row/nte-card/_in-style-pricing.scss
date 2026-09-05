@@ -1,0 +1,66 @@
+// Formt Karten in Preisrastern zu klar vergleichbaren Leistungsangeboten mit stabiler Aktionsposition.
+@use "@nextrap/nte-card" as card;
+
+// Bindet Rahmen, Schatten und Leistungslisten ausschließlich an die Pricing-Komposition.
+&.style-pricing {
+  // Verwendet eine eigenständige Kartenbaseline für Pakete mit unterschiedlich langen Listen.
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: clamp(var(--nt-space-6), 5vw, var(--nt-space-8)),
+      $border: var(--nt-border-width) solid var(--nt-border),
+      $background-color: var(--nt-surface-raised),
+      $border-radius: var(--nt-radius)
+    );
+
+    height: 100%;
+
+    &::part(wrapper) {
+      height: 100%;
+      box-shadow: 0 var(--nt-space-4) var(--nt-space-9) rgba(45, 55, 75, .11);
+    }
+
+    &::part(content) {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      gap: var(--nt-space-4);
+    }
+
+    &::part(footer) {
+      margin-top: auto;
+      padding-top: var(--nt-space-5);
+    }
+
+    // Stellt den Preis als stärkste Information innerhalb der Karte dar.
+    > h3 {
+      margin-bottom: var(--nt-space-2);
+      color: var(--nt-header);
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    // Kennzeichnet Leistungslisten mit der grünen Akzentfarbe und gutem Zeilenabstand.
+    ul {
+      display: grid;
+      gap: var(--nt-space-3);
+      padding: 0;
+      list-style: none;
+    }
+
+    // Erzeugt ein leichtes Häkchen ohne zusätzliche Icon-Abhängigkeit.
+    li::before {
+      content: "✓";
+      margin-right: var(--nt-space-3);
+      color: var(--nt-primary);
+      font-weight: 700;
+    }
+  }
+
+  // Hebt eine bewusst ausgezeichnete Karte über die vorhandene Accent-Utility hervor.
+  > nte-card.surface-secondary {
+    --nt-surface-raised: var(--nt-secondary);
+    --nt-text: rgba(255, 255, 255, .8);
+    --nt-header: #fff;
+
+    color: var(--nt-text);
+  }
+}

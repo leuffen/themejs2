@@ -1,0 +1,11 @@
+// Nutzt die offizielle Accordion-Baseline für FAQ-, Hilfe- und erklärende Detailgruppen.
+@use "@nextrap/nte-accordion" as accordion;
+
+// Ergänzt nur Theme-Farbe und Abstände, während Öffnungszustand und Marker beim Package bleiben.
+&.style-default {
+  @include accordion.default-style();
+
+  display: block;
+  width: 100%;
+  color: var(--nt-text);
+}

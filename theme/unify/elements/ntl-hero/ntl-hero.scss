@@ -1,0 +1,7 @@
+// Lädt die vollständige Standarddarstellung für wiederverwendbare Unify-Einstiege.
+@use "sass:meta";
+
+// Bindet visuelle Regeln ausschließlich an die automatisch gewählte Default-Variante.
+ntl-hero {
+  @include meta.load-css("./_style-default.scss");
+}

@@ -1,0 +1,42 @@
+// Schafft eine allgemeine Zitatbühne für Kundenstimmen und persönliche Erfahrungsberichte.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Kombiniert eine zurückhaltende Nebenfläche mit einem typografisch geführten Hauptzitat.
+&.style-testimonial {
+  --cols: 4;
+
+  @include twoCol.default-style(
+    $innerPadding: clamp(var(--nt-space-7), 8vw, var(--nt-space-10)),
+    $gap: clamp(var(--nt-space-6), 7vw, var(--nt-space-10)),
+    $background: var(--nt-surface-muted),
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Zentriert das Zitat vertikal und lässt seine Textbreite auch ohne Bild ruhig wirken.
+  &::part(wrapper) {
+    min-height: clamp(28rem, 45vw, 38rem);
+    align-items: center;
+  }
+
+  // Hebt echte Blockquotes als primären Inhalt hervor, ohne feste Kundendaten zu erwarten.
+  blockquote {
+    margin: 0;
+    color: var(--nt-header);
+    font-size: clamp(1.5rem, 3vw, 2.35rem);
+    font-style: italic;
+    line-height: 1.35;
+  }
+
+  // Reduziert die Innenabstände und Mindesthöhe für eine kompakte mobile Erzählung.
+  &[mode="mobile"] {
+    &::part(container) {
+      padding: var(--nt-space-7) var(--nt-space-5);
+    }
+
+    &::part(wrapper) {
+      min-height: 0;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// Erstellt ein neutrales Kartenraster für Leistungen, Vorteile und weitere wiederholte Inhalte.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Stellt eine eigenständige Baseline bereit und überlässt die Spaltenzahl weiterhin der Instanz.
+&.style-default {
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 3,
+    $gap: var(--nt-space-5),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Hält Abschnittsüberschriften in einer gut lesbaren Breite über dem Raster.
+  &::part(header) {
+    max-width: 44rem;
+    margin: 0 auto var(--nt-space-8);
+    text-align: center;
+  }
+
+  // Sorgt dafür, dass Karten mit unterschiedlicher Textlänge dieselbe visuelle Höhe teilen.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Lässt das Komponenten-Raster im mobilen Modus mit komfortablen vertikalen Abständen arbeiten.
+  &[mode="mobile"] {
+    --gutter-y: 20px;
+  }
+}

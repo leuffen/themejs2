@@ -1,0 +1,72 @@
+// Komponiert einen fokussierten Kampagnen-Einstieg für Produktstarts ebenso wie für Beratungsangebote.
+&.style-default {
+  position: relative;
+  display: block;
+  min-height: clamp(38rem, 72vw, 47rem);
+  overflow: hidden;
+  color: var(--nt-text);
+  background: var(--nt-surface);
+
+  // Hält die Hero-Fläche hell und frei von impliziten Bildhintergründen.
+  &::part(root) {
+    min-height: inherit;
+    background: var(--nt-surface);
+  }
+
+  // Zentriert die Inhaltskomposition in einer schmaleren Lesebreite als die übrigen Abschnitte.
+  &::part(wrapper) {
+    position: relative;
+    width: min(100%, 64rem);
+    min-height: inherit;
+    margin-inline: auto;
+    padding: clamp(var(--nt-space-8), 10vw, var(--nt-space-10)) var(--nt-container-gutter);
+  }
+
+  // Stapelt Kicker, Überschrift, Vertrauenssignal und Lead-Formular mit gleichmäßigem Abstand.
+  &::part(content) {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nt-space-5);
+    text-align: center;
+  }
+
+  // Verleiht der zentralen Aussage die breite, ruhige Hierarchie der Referenzen.
+  :is(h1, h2) {
+    max-width: 56rem;
+    margin-inline: auto;
+    color: var(--nt-header);
+    font-size: var(--nt-font-size-header);
+    font-weight: var(--nt-font-weight-header);
+    line-height: var(--nt-line-height-header);
+    letter-spacing: -.035em;
+  }
+
+  // Markiert den wichtigsten Nutzen farblich, ohne eine inhaltsspezifische Struktur vorauszusetzen.
+  strong {
+    color: var(--nt-primary);
+  }
+
+  // Reduziert Höhe und Schriftgrad auf schmalen Ansichten, während die Inhaltsreihenfolge erhalten bleibt.
+  &[mode="mobile"] {
+    min-height: 0;
+
+    &::part(wrapper) {
+      min-height: 0;
+      padding-block: var(--nt-space-8);
+    }
+
+    &::part(content) {
+      min-height: 0;
+      gap: var(--nt-space-4);
+    }
+
+    :is(h1, h2) {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+  }
+}

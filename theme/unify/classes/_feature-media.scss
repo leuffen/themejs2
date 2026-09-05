@@ -1,0 +1,55 @@
+// Baut aus zwei normalen Markdown-Bildern eine wiederverwendbare Foto-und-Mockup-Komposition.
+.feature-media {
+  position: relative;
+  display: block;
+  min-height: 25rem;
+  margin: 0;
+
+  // Nutzt das erste Bild als große fotografische Grundfläche.
+  img:first-child {
+    display: block;
+    width: 78%;
+    height: 25rem;
+    border-radius: var(--nt-radius);
+    object-fit: cover;
+  }
+
+  // Legt weitere Bilder als erhöhte UI-Mockups über die fotografische Grundfläche.
+  img + img {
+    position: absolute;
+    right: 0;
+    bottom: 7%;
+    width: 66%;
+    max-height: 72%;
+    border-radius: calc(var(--nt-radius) * .75);
+    object-fit: contain;
+    filter: drop-shadow(0 var(--nt-space-4) var(--nt-space-6) rgba(45, 55, 75, .18));
+  }
+
+  // Ergänzt das charakteristische Punktmuster ohne ein weiteres Inhaltsasset zu benötigen.
+  &::after {
+    content: "";
+    position: absolute;
+    right: -1rem;
+    top: 1rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    background-image: radial-gradient(circle, var(--nt-accent) 2px, transparent 2.5px);
+    background-size: .75rem .75rem;
+    pointer-events: none;
+  }
+}
+
+// Vergrößert dieselbe Komposition erst im vom Responsive-System gesetzten Desktop-Zustand.
+.feature-media.desktop {
+  min-height: clamp(24rem, 42vw, 37rem);
+
+  img:first-child {
+    width: min(74%, 27rem);
+    height: clamp(24rem, 42vw, 37rem);
+  }
+
+  img + img {
+    width: min(63%, 22rem);
+  }
+}

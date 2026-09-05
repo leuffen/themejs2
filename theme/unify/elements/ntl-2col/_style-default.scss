@@ -1,0 +1,78 @@
+// Nutzt den öffentlichen Komponenten-Mixin-Vertrag für skalierbare Bild-/Text-Features und Dienstleistungsabschnitte.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Bildet die vielseitige Standardkomposition mit ruhiger Fläche und vertikal zentrierten Spalten.
+&.style-default {
+  --cols: 6;
+  --gap: clamp(var(--nt-space-6), 6vw, var(--nt-space-10));
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--gap),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Richtet Text- und Medienseite auf Desktop optisch an einer gemeinsamen Mitte aus.
+  &::part(wrapper) {
+    align-items: center;
+  }
+
+  // Begrenzt Fließtext für stabile Zeilenlängen bei kurzen wie langen Inhalten.
+  &::part(main) {
+    max-width: 34rem;
+  }
+
+  // Formt die Bildspalte als ruhige Bühne für Bilder und überlagerte Mockups.
+  &::part(aside) {
+    position: relative;
+    min-height: clamp(22rem, 42vw, 37rem);
+  }
+
+  // Betont Überschriften und lässt Kicker sowie Listen dennoch als sekundäre Ebenen lesbar.
+  :is(h2, h3) {
+    color: var(--nt-header);
+    letter-spacing: -.025em;
+  }
+
+  // Färbt Aufzählungsmarker als wiederkehrendes Vertrauenssignal, ohne eine eigene Listenklasse zu verlangen.
+  li::marker {
+    color: var(--nt-primary);
+  }
+
+  // Verwendet die vorhandene Surface-Utility als dunkle Ausprägung derselben Feature-Struktur.
+  &.surface-secondary {
+    width: min(calc(100% - (var(--nt-container-gutter) * 2)), 1180px);
+    margin-inline: auto;
+    padding: clamp(var(--nt-space-7), 6vw, var(--nt-space-9));
+    border-radius: var(--nt-radius);
+    color: rgba(255, 255, 255, .76);
+    background: var(--nt-secondary);
+
+    :is(h2, h3, strong) {
+      color: #fff;
+    }
+  }
+
+  // Stapelt die Medienfläche vor den Text und entfernt unnötige Mindesthöhen auf kleinen Displays.
+  &[mode="mobile"] {
+    --gap: var(--nt-space-7);
+
+    &::part(main) {
+      max-width: none;
+      order: 2;
+    }
+
+    &::part(aside) {
+      min-height: 0;
+      order: 1;
+    }
+
+    &.surface-secondary {
+      width: calc(100% - (2 * var(--nt-space-3)));
+      padding: var(--nt-space-5);
+    }
+  }
+}

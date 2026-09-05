@@ -1,0 +1,7 @@
+// Lädt die Theme-Baseline für wiederverwendbare Formulareingaben.
+@use "sass:meta";
+
+// Bindet Formularregeln ausschließlich an die dokumentierte Default-Variante.
+nte-input {
+  @include meta.load-css("./_style-default.scss");
+}

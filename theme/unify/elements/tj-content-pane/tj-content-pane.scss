@@ -1,0 +1,7 @@
+// Lädt den zentralen Inhaltsfluss für direkte, große NTL-Abschnitte.
+@use "sass:meta";
+
+// Bindet den vertikalen Rhythmus ausschließlich an Content-Pane-Instanzen des Themes.
+tj-content-pane {
+  @include meta.load-css("./_content-spacing.scss");
+}

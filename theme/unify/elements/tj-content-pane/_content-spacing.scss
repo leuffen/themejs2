@@ -1,0 +1,16 @@
+// Gibt direkten Layout-Kindern den Theme-Rhythmus, ohne verschachtelte NTL-Kompositionen doppelt zu beabstanden.
+& {
+  display: block;
+
+  // Verteilt den Standardabstand auf die vom Theme verwendeten Seitenabschnitte.
+  > :where(ntl-2col, ntl-card-row) {
+    margin-block: 0;
+    padding-block: var(--nt-spacing-section);
+  }
+
+  // Lässt den Hero am oberen Seitenrand beginnen und über seine eigene Variante dimensionieren.
+  > ntl-hero {
+    margin-block: 0;
+    padding-block: 0;
+  }
+}

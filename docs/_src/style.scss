@@ -4,6 +4,8 @@
 @use "@leuffen/themejs2/theme/osman";
 @use "@leuffen/themejs2/theme/epraxis";
 @use "@leuffen/themejs2/theme/raven";
+// Lädt das Unify-Theme als gleichwertige, separat gekapselte Präsentationsvariante.
+@use "@leuffen/themejs2/theme/unify";
 
 @layer reset, schemes, themes, website;
 
@@ -27,6 +29,11 @@
 
 :where(.theme-raven) {
   @include raven.theme();
+}
+
+// Aktiviert Unify ausschließlich für Seiten mit der entsprechenden Body-Class.
+:where(.theme-unify) {
+  @include unify.theme();
 }
 
 :where(.theme-mueller) {
