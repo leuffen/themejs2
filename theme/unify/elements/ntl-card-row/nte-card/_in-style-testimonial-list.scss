@@ -37,4 +37,9 @@
       font-style: italic;
     }
   }
+
+  // Versetzt jede zweite Desktop-Karte an die gegenüberliegende Containerkante.
+  &[mode="desktop"] > nte-card:nth-of-type(even) {
+    margin-inline-start: auto;
+  }
 }

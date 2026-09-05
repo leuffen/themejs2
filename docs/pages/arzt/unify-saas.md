@@ -38,10 +38,10 @@ Need a custom plan? [Contact sales](/kontakt)
 
 <!-- Leitet den wiederverwendbaren Drei-Schritt-Guide mit einer zentrierten Inhaltsüberschrift ein. -->
 ## Let's start your 3-step guide
-{: layout="ntl-2col.style-default" .header section-style="--cols: 12;" }
+{: layout="ntl-2col.style-default" .header .text-center section-style="--cols: 12;" }
 
 We developed this guide to make it easier to find information about starting a business and setting up your site.
-{: .header }
+{: .header .text-center }
 
 <!-- Verwendet dieselbe Step-Variante für den ersten Produkt- und Planungsabschnitt. -->
 ## Find a product and make a plan

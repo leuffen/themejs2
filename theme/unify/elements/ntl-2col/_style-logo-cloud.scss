@@ -3,6 +3,8 @@
 
 // Verwendet Header und Bottom für eine vollbreite, semantisch klare Logo-Cloud.
 &.style-logo-cloud {
+  padding-block: var(--nt-spacing-section);
+
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: 0px,

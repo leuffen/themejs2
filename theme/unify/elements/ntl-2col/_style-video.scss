@@ -3,6 +3,8 @@
 
 // Nutzt Header und Bottom über volle Breite, während der leere Spaltenrahmen unsichtbar bleibt.
 &.style-video {
+  padding-block: var(--nt-spacing-section);
+
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: 0px,
@@ -50,5 +52,13 @@
     padding: var(--nt-space-5);
     border-radius: calc(var(--nt-radius) * .75);
     background: var(--nt-surface-raised);
+  }
+
+  // Trennt Titel, Erklärung und Link innerhalb der überlagerten Karte lesbar.
+  .video-stage figcaption strong {
+    display: inline-block;
+    margin-bottom: var(--nt-space-2);
+    color: var(--nt-header);
+    font-size: 1.3125rem;
   }
 }

@@ -5,6 +5,8 @@
 &.style-step {
   --breakpoint: sm, lg;
 
+  padding-block: var(--nt-space-7);
+
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: var(--nt-space-7),
@@ -19,6 +21,26 @@
   &::part(wrapper) {
     padding: clamp(var(--nt-space-6), 6vw, var(--nt-space-8));
     border-radius: var(--nt-radius);
+  }
+
+  // Begrenzt die Textzeilen auf die schmalere Fünf-Spalten-Rolle der Vorlage.
+  &::part(main) {
+    min-width: 0;
+    padding-right: var(--nt-space-5);
+  }
+
+  // Zentriert die Mockups in der breiteren Sieben-Spalten-Medienfläche.
+  &::part(aside) {
+    display: grid;
+    min-width: 0;
+    place-items: center;
+  }
+
+  // Nutzt die volle Medienbreite, ohne die Originalproportion der Mockups zu verzerren.
+  > p.auto img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   // Kennzeichnet die Reihenfolge unabhängig von einer festen Anzahl an Schritten.
@@ -37,6 +59,21 @@
     gap: var(--nt-space-2);
     margin: var(--nt-space-5) 0;
     padding: 0;
+  }
+
+  // Gibt dem Folgeschritt eine dezente Verbindung statt der frameworkgebundenen SVG-Kurve.
+  & + & {
+    position: relative;
+  }
+
+  & + &::before {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--nt-space-7));
+    left: 50%;
+    width: 1px;
+    height: calc(var(--nt-space-7) * 2);
+    background: var(--nt-border);
   }
 
   // Entfernt im Stack feste Medienhöhen und bewahrt die natürliche Bildproportion.

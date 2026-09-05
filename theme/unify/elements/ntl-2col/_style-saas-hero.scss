@@ -5,6 +5,8 @@
 &.style-saas-hero {
   --breakpoint: sm, lg;
 
+  padding-block: clamp(var(--nt-space-8), 8vw, 6rem);
+
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: var(--nt-space-7),
@@ -17,6 +19,23 @@
   // Ordnet Hauptaussage und Tarifkarte an einer gemeinsamen vertikalen Mitte aus.
   &::part(wrapper) {
     align-items: center;
+  }
+
+  // Gibt der Textspalte die Referenzbreite und hält die Tarifkarte auf 5 von 12 Spalten.
+  &::part(main) {
+    min-width: 0;
+    padding-right: var(--nt-space-5);
+  }
+
+  // Skaliert die Einleitung auf die 21-Pixel-Hierarchie der Desktop-Vorlage.
+  > p:not(.aside, .plan-contact) {
+    max-width: 42rem;
+    font-size: 1.3125rem;
+  }
+
+  // Trennt den primären Hero-CTA klar von Einleitung und Bewertungszeile.
+  > .btn:not(.aside) {
+    margin-top: var(--nt-space-4);
   }
 
   // Bewahrt die breite Hero-Hierarchie der Vorlage für variable Texte.
@@ -37,9 +56,23 @@
     list-style: none;
   }
 
+  // Begrenzt beide Quellen auf kompakte, optisch gleichwertige Blöcke.
+  .saas-reviews li {
+    max-width: 15rem;
+    padding-right: var(--nt-space-5);
+    border-right: 1px solid var(--nt-border);
+  }
+
+  // Entfernt den Trenner am letzten Review unabhängig von der Quellenanzahl.
+  .saas-reviews li:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+
   // Formt den Aside-Part als eigenständige Tarifkarte, ohne zusätzliche Autoren-Wrapper.
   &::part(aside) {
     box-sizing: border-box;
+    min-width: 0;
     padding: var(--nt-space-6);
     border-radius: var(--nt-radius);
     background: var(--nt-surface-raised);
@@ -60,6 +93,19 @@
     padding: var(--nt-space-4);
     border: 1px solid var(--nt-border);
     border-radius: calc(var(--nt-radius) / 2);
+  }
+
+  // Richtet die Hauptaktion der Tarifkarte über die gesamte verfügbare Breite aus.
+  > .btn.aside {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  // Setzt den Kontaktpfad als ruhigen Abschluss unter die primäre Aktion.
+  .plan-contact {
+    margin: var(--nt-space-4) 0 0;
+    text-align: center;
   }
 
   // Markiert die empfohlene Option über den semantischen Mark-Inhalt.

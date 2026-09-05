@@ -23,4 +23,9 @@
   &::part(main) {
     align-items: stretch;
   }
+
+  // Fügt hinter den Karten eine unaufdringliche vertikale Orientierungslinie ein.
+  &[mode="desktop"]::part(main) {
+    position: relative;
+  }
 }

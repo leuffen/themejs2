@@ -11,9 +11,15 @@
     $container-border: 0,
     $container-border-radius: 0
   );
+  @include cardRow.with-item-separators($separator-color: var(--nt-border));
 
   // Hält Kennzahlen an einer gemeinsamen Oberkante und lässt variable Beschreibungen wachsen.
   &::part(main) {
     align-items: stretch;
+  }
+
+  // Unterdrückt den vom Mixin vorbereiteten Zeilentrenner im mobilen Kennzahlen-Stack.
+  &[mode="mobile"] > nte-card::after {
+    display: none;
   }
 }
