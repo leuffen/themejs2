@@ -24,9 +24,21 @@
     align-items: stretch;
   }
 
-  // Fügt hinter den Karten eine unaufdringliche vertikale Orientierungslinie ein.
+  // Verankert die dekorative Führung hinter den Karten, damit wechselnde Kartenhöhen den Track nicht unterbrechen.
   &[mode="desktop"]::part(main) {
     position: relative;
+    isolation: isolate;
+  }
+
+  // Zeichnet die in der Vorlage belegte gestrichelte Akzentführung ohne ein festes Bildasset nach.
+  &[mode="desktop"]::part(main)::before {
+    position: absolute;
+    z-index: -1;
+    inset-block: 0;
+    inset-inline-start: 50%;
+    border-inline-start: 3px dashed var(--nt-accent);
+    content: "";
+    pointer-events: none;
   }
 
   // Verkürzt den Abstand zwischen Überschrift und Karten im mobilen Stack.
