@@ -4,11 +4,10 @@
 // Bildet die vielseitige Standardkomposition mit ruhiger Fläche und vertikal zentrierten Spalten.
 &.style-default {
   --cols: 6;
-  --gap: clamp(var(--nt-space-6), 6vw, var(--nt-space-10));
 
   @include twoCol.default-style(
     $innerPadding: 0,
-    $gap: var(--gap),
+    $gap: 0px,
     $background: transparent,
     $border: 0,
     $border-radius: 0,
@@ -20,9 +19,10 @@
     align-items: center;
   }
 
-  // Begrenzt Fließtext für stabile Zeilenlängen bei kurzen wie langen Inhalten.
+  // Bildet die asymmetrischen Bootstrap-Gutter der Referenz innerhalb der Textspalte nach.
   &::part(main) {
-    max-width: 34rem;
+    max-width: none;
+    padding-inline: calc(var(--nt-space-6) + var(--nt-space-3)) var(--nt-space-3);
   }
 
   // Formt die Bildspalte als ruhige Bühne für Bilder und überlagerte Mockups.
@@ -33,10 +33,19 @@
 
   // Betont Abschnittsüberschriften in der kompakten Unify-Hierarchie, ohne mit dem Hero zu konkurrieren.
   :is(h2, h3) {
+    margin: 0 0 var(--nt-space-3);
     color: var(--nt-header);
-    font-size: clamp(1.75rem, 3vw, 2.35rem);
-    line-height: 1.12;
-    letter-spacing: -.025em;
+    font-size: clamp(1.75rem, 2.65vw, 2.25rem);
+    line-height: 1.3;
+    letter-spacing: normal;
+  }
+
+  // Gibt der vorhandenen Checklisten-Utility den 20-Pixel-Zeilen- und 32-Pixel-Außenrhythmus der Vorlage.
+  .list-checked {
+    display: grid;
+    gap: calc(var(--nt-space-3) + var(--nt-space-2));
+    margin: var(--nt-space-6) 0;
+    padding: 0;
   }
 
   // Färbt Aufzählungsmarker als wiederkehrendes Vertrauenssignal, ohne eine eigene Listenklasse zu verlangen.
@@ -65,6 +74,7 @@
 
     &::part(main) {
       max-width: none;
+      padding-inline: 0;
       order: 2;
     }
 

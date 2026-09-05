@@ -60,7 +60,9 @@
 
 // Vergrößert dieselbe Komposition erst im vom Responsive-System gesetzten Desktop-Zustand.
 .feature-media.desktop {
+  width: min(calc(100% - var(--nt-space-5)), 40.0625rem);
   min-height: clamp(30rem, 46vw, 39rem);
+  margin-inline: var(--nt-space-3) auto;
 
   img:first-child {
     width: min(79%, 30.0625rem);
@@ -68,6 +70,24 @@
   }
 
   img + img {
+    right: var(--nt-space-6);
+    bottom: calc(var(--nt-space-7) * -1.5);
     width: min(66%, 22.625rem);
   }
+
+  // Skaliert das Punktraster auf die 10-Rem-Dekoration der Desktopvorlage.
+  &::after {
+    width: 10rem;
+    height: 9.375rem;
+  }
+}
+
+// Lässt das linke Raster wie im Original über Foto und Abschnittskante hinausragen.
+.feature-media.desktop:not(.dots-end)::after {
+  inset: auto auto calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1);
+}
+
+// Spiegelt denselben Überstand für Medienkompositionen mit rechtem Raster.
+.feature-media.desktop.dots-end::after {
+  inset: calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1) auto auto;
 }

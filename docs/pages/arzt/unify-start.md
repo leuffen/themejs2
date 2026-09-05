@@ -38,18 +38,18 @@ Rated best over 37k reviews
 #[nte-input.style-default.hoverlabel type="email" name="email" label="Your email" required]
 #[button type="submit" class="btn btn-primary" > Get started]
 
-<!-- Zeigt die Standard-2Col-Variante als helle Produkt- oder Leistungssektion. -->
-## Schnittstellen – unsere Kernkompetenz
-{: layout="ntl-2col.style-default.reverse" data-kicker="Nahtlose Erlebnisse" section-style="--cols: 6;" }
+<!-- Zeigt die Standard-2Col-Variante als helle Produkt- oder Leistungssektion im 7-zu-5-Raster. -->
+## Interfaces – our core skill
+{: layout="ntl-2col.style-default.reverse" section-style="--cols: 5;" }
 
-Wir verbinden Inhalte, Prozesse und Systeme zu einer konsistenten digitalen Erfahrung.
+Analytic dashboards, platforms, and social networks – we have strong cases in **edtech, recruitment, data privacy**, and finance.
 
-- Klare Informationsarchitektur
-- Verständliche Benutzerführung
-- Performante technische Umsetzung
-- Messbare Weiterentwicklung
+- 45+ Courier services
+- 61,000+ Pincodes covered nation-wide
+- 165 Countries served **globally**
+{: .list-checked }
 
-[Mehr erfahren](/leistungen){: .btn .btn-primary }
+[Learn more](/leistungen){: .btn .btn-primary }
 
 ![Arbeitsplatz mit digitalem Produkt](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img1.jpg)
 ![Oberfläche eines Analyse-Dashboards](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img4.png)
