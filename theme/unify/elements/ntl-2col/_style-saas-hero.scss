@@ -128,14 +128,16 @@
   }
 
   // Gibt dem Tarifkartentitel die kompakte, zentrierte Referenzhierarchie.
-  > :is(h2, h3).aside {
+  > :is(h2, h3).aside,
+  > .aside > :is(h2, h3) {
     margin-bottom: var(--nt-space-2);
     font-size: 1.3125rem;
     text-align: center;
   }
 
   // Richtet die Hauptaktion der Tarifkarte über die gesamte verfügbare Breite aus.
-  > .btn.aside {
+  > .btn.aside,
+  > .aside .btn {
     display: block;
     width: 100%;
     text-align: center;
