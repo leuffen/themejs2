@@ -7,29 +7,34 @@
 
   @include cardRow.default-style(
     $container-width: var(--nt-container-width),
-    $cols: 3,
-    $gap: var(--nt-space-5),
+    $cols: 2,
+    $gap: 0px,
     $inner-padding: 0,
     $container-background: transparent,
     $container-border: 0,
     $container-border-radius: 0
   );
 
-  // Richtet die Abschnittseinleitung links aus, damit die horizontale Erzählung darunter beginnen kann.
+  // Beschränkt die Einleitung wie in der Vorlage auf zwei kurze Zeilen und startet sie links über der Achse.
   &::part(header) {
-    max-width: 22rem;
-    margin-bottom: var(--nt-space-8);
+    max-width: 13rem;
+    margin: 0 0 var(--nt-space-7);
+    text-align: left;
   }
 
-  // Zeichnet die chronologische Verbindung hinter den Karten, ohne zusätzliche Markup-Elemente zu verlangen.
+  // Hält die sechs Desktop-Meilensteine auf einer gemeinsamen Oberkante und überlässt ihre Breite dem Zwölfspaltenmodell.
   &::part(main) {
     position: relative;
     align-items: stretch;
   }
 
-  // Wandelt die Zeitleiste mobil in eine gut lesbare Einzelspalte um.
+  // Verdichtet den mobilen Komponentenfluss und hält die Einleitung nah am ersten Meilenstein.
   &[mode="mobile"] {
-    --cols: 12;
-    --gutter-y: 16px;
+    --gutter-y: 24px;
+
+    &::part(header) {
+      max-width: 11rem;
+      margin-bottom: var(--nt-space-6);
+    }
   }
 }

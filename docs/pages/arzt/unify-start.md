@@ -55,83 +55,131 @@ Analytic dashboards, platforms, and social networks – we have strong cases in 
 ![Oberfläche eines Analyse-Dashboards](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img4.png)
 {: .feature-media .dots-start .dots-success .xl:desktop }
 
-<!-- Nutzt dieselbe Standardvariante mit Reverse- und Surface-Utilities für einen kontrastreichen Abschnitt. -->
-## Maximale Kunden&shy;zufriedenheit entwickeln
-{: layout="ntl-2col.style-default.surface-secondary" data-kicker="Gemeinsam optimieren" section-style="--cols: 6;" }
+<!-- Nutzt dieselbe Standardvariante mit der bestehenden Surface-Utility für einen kontrastreichen 5-zu-7-Abschnitt. -->
+## Drive maximum customer-satisfaction
+{: layout="ntl-2col.style-default.surface-secondary" section-style="--cols: 5;" }
 
-Von der ersten Idee bis zum laufenden Betrieb arbeiten Strategie, Design und Entwicklung als ein Team.
+Connect with your customers better by giving them an excellent post-purchase experience. Engage customers, reduce queries and build trust with automated tracking notifications and a custom branded tracking page.
 
-- Entscheidungen auf Basis echter Nutzerdaten
-- Kurze, transparente Abstimmungswege
-- Robuste Komponenten statt Einzellösungen
-- Kontinuierliche Qualitätskontrolle
+- Customize labels and packaging
+- Custom branded tracking page
+- Free email and SMS notifications
+{: .list-checked }
 
-[Projekt besprechen](/kontakt){: .btn .btn-primary }
+[Learn more](/leistungen){: .btn .btn-primary }
 
 ![Kundin bei einer digitalen Beratung](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img2.jpg)
 ![Auswahlansicht eines digitalen Shops](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img5.png)
 {: .feature-media .dots-end .dots-warning .xl:desktop }
 
-<!-- Wiederholt das Feature-Muster mit vertauschter Leserichtung für ein abwechslungsreiches Seitenbild. -->
-## Digitale Produkte für Designer und Agenturen
-{: layout="ntl-2col.style-default.reverse" data-kicker="Flexibel kombinierbar" section-style="--cols: 6;" }
+<!-- Wiederholt das Feature-Muster im 7-zu-5-Raster mit einem editierbaren Linkangebot in der Textspalte. -->
+## Developing all things digital for designers and agencies.
+{: layout="ntl-2col.style-default.reverse" section-style="--cols: 5;" }
 
-Ein klares System aus Inhaltsbausteinen macht neue Seiten schneller, konsistenter und leichter pflegbar.
+We help agencies and designers **transform concepts into digital products** that stand the test of time.
 
-[Für Agenturen](/agentur) · [Für Unternehmen](/unternehmen) · [Für Teams](/teams)
+- [Unify Wallet app](/leistungen)
+- [Unify debit card](/leistungen)
+- [Automatic savings](/leistungen)
+- [Unify Cashout](/leistungen)
+- [529 college savings](/leistungen)
+- [Retirement savings](/leistungen)
+{: .feature-links }
 
 ![Designer bei der Arbeit](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img3.jpg)
 ![Komponentenübersicht eines Designsystems](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img6.png)
 {: .feature-media .dots-start .dots-neutral .xl:desktop }
 
-<!-- Demonstriert die Timeline-Variante mit sechs austauschbaren Meilensteinen. -->
-## Eine kurze Geschichte unserer Entwicklung
-{: layout="ntl-card-row.style-timeline" data-kicker="Meilensteine" section-style="--cols: 3;" }
+<!-- Demonstriert die Timeline-Variante mit sechs austauschbaren Zeitpunkten, Titeln und Beschreibungen. -->
+## A brief history of Unify
+{: layout="ntl-card-row.style-timeline" section-style="--cols: 2;" }
 
-### Heute
+### Today
+{: .timeline-period }
 
-**Präsent**
+**Present**
+{: .timeline-value }
 
-Ein eingespieltes Team entwickelt digitale Produkte mit klarer Wirkung.
+**5 releases later...**
+{: .timeline-title }
 
-### 2023
+Continuous feedback, research, and communication drive our vision for a future where remote works.
+{: .timeline-copy }
 
-**Neue Plattform**
+### June
+{: .timeline-period }
 
-Ein gemeinsames System verbindet Inhalte, Design und technische Auslieferung.
+**2020**
+{: .timeline-value }
 
-### 2021
+**Themes releases**
+{: .timeline-title }
 
-**Designsystem**
+Sales engagement tools expand to include native email functionality.
+{: .timeline-copy }
 
-Wiederverwendbare Komponenten beschleunigen neue Projekte und Varianten.
+### July
+{: .timeline-period }
 
-### 2019
+**2018**
+{: .timeline-value }
 
-**Produktteam**
+**Official beta launch**
+{: .timeline-title }
 
-Strategie, Research und Entwicklung arbeiten erstmals vollständig integriert.
+We release the Sales Marketplace, allowing clients to discover and hire directly from Overpass.
+{: .timeline-copy }
 
-### 2017
+### March
+{: .timeline-period }
 
-**Erste Skalierung**
+**2016**
+{: .timeline-value }
 
-Die betreuten Angebote wachsen über mehrere Märkte und Zielgruppen hinweg.
+**Early adoption success**
+{: .timeline-title }
 
-### 2015
+Our first clients take advantage of initial features including our CRM and calling tools.
+{: .timeline-copy }
 
-**Gründung**
+### May
+{: .timeline-period }
 
-Aus einer kleinen Beratung entsteht eine langfristige digitale Partnerschaft.
+**2015**
+{: .timeline-value }
 
-<!-- Zeigt die Testimonial-Variante mit austauschbarer Person und frei editierbarem Blockquote. -->
-## Eine Partnerschaft, die Wirkung zeigt
-{: layout="ntl-2col.style-testimonial.reverse" data-kicker="Kundenstimme" section-style="--cols: 7;" }
+**Breaking ground**
+{: .timeline-title }
 
-> „Der Wechsel auf ein gemeinsames System hat unsere tägliche Arbeit vereinfacht. Unser Team kann schneller entscheiden und neue Inhalte sicher veröffentlichen.“
+We hire our first team members and begin development on making our vision a reality.
+{: .timeline-copy }
 
-**Lea Hoffmann**<br>
-Digital Lead, Beispielunternehmen
+### June
+{: .timeline-period }
+
+**2014**
+{: .timeline-value }
+
+**Rolling up our sleeves**
+{: .timeline-title }
+
+Research begins on refining our vision into a platform for communication and remote team management.
+{: .timeline-copy }
+
+<!-- Zeigt die Testimonial-Variante mit austauschbarer Person, Quelle, CTA und frei editierbarem Blockquote. -->
+## Featured client
+{: layout="ntl-2col.style-testimonial.reverse" section-style="--cols: 6;" }
+
+> To say that switching to Unify has been life-changing is an understatement. My business has tripled and I got my life back.
+{: .testimonial-quote }
+
+**Nicole Grazioso**
+{: .testimonial-person }
+
+Director Payments & Risk \| Airbnb
+{: .testimonial-role }
+
+[Read the story](/referenzen){: .btn .btn-secondary }
 
 ![Porträt einer Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img4.jpg)
 
@@ -141,41 +189,46 @@ Digital Lead, Beispielunternehmen
 
 ### Professional
 
-#### 18 €
+Alles, was kleine Teams für den Einstieg brauchen.
 
-Für selbstständige Berater und kleine Unternehmen.
+#### 18<small>,99 € / Monat</small>
 
-- Ein Projektbereich
-- Wiederverwendbare Komponenten
-- E-Mail-Support
-- Monatlich kündbar
+- Bis zu 10 Personen
+- Daten erfassen
+- Erweiterbare Komponenten
+- Eigene Auswertungen
+- Produkt-Support
+- Aktivitätsberichte
 
-[Paket auswählen](/kontakt){: .btn .btn-outline-primary }
+<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/kontakt){: .btn .btn-outline-primary }
 {: .footer }
 
 ### Teams
 {: .is-featured }
 
-#### 36 €
+Am beliebtesten
+{: .pricing-label }
 
-Für Agenturen und wachsende Produktteams.
+Für wachsende Agenturen und Produktteams.
 
-- Unbegrenzte Projektbereiche
-- Gemeinsame Vorlagen
-- Priorisierter Support
-- Rollen und Freigaben
+#### 36<small>,99 € / Monat</small>
 
-[Kostenlos starten](/kontakt){: .btn .btn-primary }
+- Bis zu 10 Personen
+- Daten erfassen
+- Erweiterbare Komponenten
+- Eigene Auswertungen
+- Produkt-Support
+- Aktivitätsberichte
+
+<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/kontakt){: .btn .btn-primary }
 {: .footer }
 
 <!-- Kombiniert ein bestehendes NTL mit dem vorhandenen NTE-Accordion für eine responsive FAQ-Sektion. -->
 ## Häufig gestellte Fragen
-{: layout="ntl-2col.style-default" data-kicker="Gut zu wissen" section-style="--cols: 4;" }
-
-Kurze Antworten auf die wichtigsten Fragen vor dem gemeinsamen Projektstart.
+{: layout="ntl-2col.style-default" section-style="--cols: 4;" }
 
 ---
-{: layout="3;nte-accordion.style-default" .aside }
+{: layout="3;nte-accordion.style-default.marker-plus.marker-start" .aside initial-open-index="0" exclusive }
 
 #### Welche Inhalte können wir selbst bearbeiten?
 
@@ -192,3 +245,11 @@ Bestehende Markdown-Inhalte lassen sich weiterverwenden und schrittweise den pas
 #### Ist das Theme an eine Branche gebunden?
 
 Nein. Die Varianten beschreiben allgemeine Business-, Produkt- und Beratungsinhalte statt kundenspezifischer Daten.
+
+#### Wie erhalten wir Unterstützung bei Rückfragen?
+
+Bei fachlichen oder technischen Fragen begleitet Sie das Projektteam mit klaren Zuständigkeiten und kurzen Abstimmungswegen.
+
+#### Können Funktionen später erweitert werden?
+
+Ja. Die vorhandenen Layouts und Elemente lassen sich schrittweise ergänzen, ohne die bestehende Inhaltsstruktur neu aufzubauen.

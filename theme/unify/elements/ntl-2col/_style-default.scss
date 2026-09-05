@@ -48,6 +48,48 @@
     padding: 0;
   }
 
+  // Ordnet ein semantisches Markdown-Linkangebot wie in der Referenz in drei ruhige Zweierspalten mit Zeilentrennern.
+  .feature-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--nt-space-4) var(--nt-space-5);
+    margin: var(--nt-space-6) 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      min-width: 0;
+    }
+
+    li:nth-child(-n + 4) {
+      padding-bottom: var(--nt-space-4);
+      border-bottom: 1px solid var(--nt-border);
+    }
+
+    a {
+      display: flex;
+      gap: var(--nt-space-3);
+      align-items: center;
+      justify-content: space-between;
+      color: var(--nt-text);
+      font-size: .9375rem;
+      line-height: 1.5;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    a::after {
+      content: "";
+      flex: 0 0 .4rem;
+      width: .4rem;
+      height: .4rem;
+      margin-right: .15rem;
+      border-top: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      transform: rotate(45deg);
+    }
+  }
+
   // Färbt Aufzählungsmarker als wiederkehrendes Vertrauenssignal, ohne eine eigene Listenklasse zu verlangen.
   li::marker {
     color: var(--nt-primary);
@@ -55,12 +97,20 @@
 
   // Verwendet die vorhandene Surface-Utility als dunkle Ausprägung derselben Feature-Struktur.
   &.surface-secondary {
-    width: min(calc(100% - (var(--nt-container-gutter) * 2)), var(--nt-container-max));
+    width: min(
+      calc(100% - (var(--nt-container-gutter) * 2)),
+      calc(var(--nt-container-max) + (var(--nt-space-8) * 2))
+    );
     margin-inline: auto;
-    padding: clamp(var(--nt-space-7), 6vw, 5rem);
+    padding: calc(var(--nt-space-7) + var(--nt-space-5));
     border-radius: var(--nt-radius);
     color: rgba(255, 255, 255, .76);
     background: var(--nt-secondary);
+
+    // Entspricht dem 5-zu-7-Raster der Vorlage und hält den Text bündig an der inneren Bühnenkante.
+    &::part(main) {
+      padding-inline: 0 var(--nt-space-6);
+    }
 
     :is(h2, h3, strong) {
       color: #fff;
@@ -83,8 +133,15 @@
       order: 1;
     }
 
+    // Hält das Linkraster zweispaltig wie im Mobiloriginal, reduziert aber den Zwischenraum für lange Linktexte.
+    .feature-links {
+      column-gap: var(--nt-space-4);
+    }
+
     &.surface-secondary {
-      width: calc(100% - (var(--nt-space-3) * 2));
+      --gap: var(--nt-space-6);
+
+      width: calc(100% - var(--nt-space-5));
       padding: var(--nt-space-5);
     }
   }

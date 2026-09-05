@@ -41,8 +41,26 @@
 }
 
 // Verschiebt das dekorative Raster für Kompositionen mit einem rechten Bildakzent an die gegenüberliegende Ecke.
-.feature-media.dots-end::after {
-  inset: 1rem -1.25rem auto auto;
+.feature-media.dots-end {
+  min-height: clamp(18rem, 86vw, 27rem);
+
+  // Richtet das Foto am rechten Rand aus und legt das Mockup wie in der dunklen Bühne links darüber.
+  img:first-child {
+    width: 75%;
+    height: clamp(18rem, 86vw, 27rem);
+    margin-left: auto;
+  }
+
+  img + img {
+    right: auto;
+    bottom: calc(var(--nt-space-7) + var(--nt-space-5));
+    left: var(--nt-space-6);
+    width: 75%;
+  }
+
+  &::after {
+    inset: 1rem -1.25rem auto auto;
+  }
 }
 
 // Ordnet die drei in der Vorlage wiederkehrenden Rasterfarben bestehenden Theme-Farben zu.
@@ -88,6 +106,16 @@
 }
 
 // Spiegelt denselben Überstand für Medienkompositionen mit rechtem Raster.
-.feature-media.desktop.dots-end::after {
-  inset: calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1) auto auto;
+.feature-media.desktop.dots-end {
+  // Übernimmt auf Desktop die 7-Spalten-Mediengeometrie mit 32-Pixel-Seiten- und 72-Pixel-Bodenabstand.
+  img + img {
+    right: auto;
+    bottom: calc(var(--nt-space-7) + var(--nt-space-5));
+    left: var(--nt-space-6);
+    width: min(66%, 25.0625rem);
+  }
+
+  &::after {
+    inset: calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1) auto auto;
+  }
 }

@@ -1,63 +1,121 @@
 // Schafft eine allgemeine Zitatbühne für Kundenstimmen und persönliche Erfahrungsberichte.
 @use "@nextrap/ntl-2col" as twoCol;
 
-// Kombiniert eine zurückhaltende Nebenfläche mit einem typografisch geführten Hauptzitat.
+// Kombiniert den geteilten Referenzhintergrund mit einem typografisch geführten Hauptzitat.
 &.style-testimonial {
-  --cols: 4;
+  --cols: 6;
+
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-block: calc(var(--nt-space-8) + var(--nt-space-4));
+  background: linear-gradient(to right, transparent 25%, rgba(45, 55, 75, .1) 25%);
 
   @include twoCol.default-style(
-    $innerPadding: clamp(var(--nt-space-7), 8vw, var(--nt-space-10)),
-    $gap: clamp(var(--nt-space-6), 7vw, var(--nt-space-10)),
-    $background: var(--nt-surface-muted),
+    $innerPadding: var(--nt-space-3),
+    $gap: clamp(var(--nt-space-8), 7vw, var(--nt-space-9)),
+    $background: transparent,
     $border: 0,
     $border-radius: 0,
     $objectFit: cover
   );
 
-  // Zentriert das Zitat vertikal und lässt seine Textbreite auch ohne Bild ruhig wirken.
+  // Zentriert die Textspalte neben dem natürlichen Hochformat des austauschbaren Porträts.
   &::part(wrapper) {
-    min-height: clamp(31rem, 48vw, 38.625rem);
     align-items: center;
   }
 
-  // Lässt das Porträt wie in der Vorlage bis an die Kante der ruhigen Zitatfläche reichen.
+  // Erhält den Bootstrap-Gutter der Vorlage und die native 500-zu-650-Bildproportion.
   &::part(aside) {
-    align-self: stretch;
+    padding-inline: var(--nt-space-3);
   }
 
-  .aside,
-  .aside img {
+  > p[slot="aside"].auto {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 500 / 650;
+    margin: 0;
+  }
+
+  > p[slot="aside"].auto img {
     display: block;
     width: 100%;
     height: 100%;
-    margin: 0;
     object-fit: cover;
   }
 
-  // Hebt echte Blockquotes als primären Inhalt hervor, ohne feste Kundendaten zu erwarten.
-  blockquote {
-    margin: 0;
-    color: var(--nt-header);
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    font-style: italic;
-    line-height: 1.35;
+  // Formt die Layout-Überschrift als den kleinen, großgeschriebenen Referenz-Kicker.
+  > :is(h1, h2, h3) {
+    margin: 0 0 var(--nt-space-4);
+    color: var(--nt-text-muted);
+    font-size: .75rem;
+    line-height: 1.5;
+    font-weight: var(--nt-font-weight-bold);
+    letter-spacing: .03125rem;
+    text-transform: uppercase;
   }
 
-  // Reduziert die Innenabstände und Mindesthöhe für eine kompakte mobile Erzählung.
+  // Hebt den editierbaren Blockquote mit Referenzgröße und ruhiger Leselinie hervor.
+  > .testimonial-quote {
+    margin: 0;
+    color: var(--nt-header);
+    font-size: clamp(1.25rem, 2.15vw, 1.8125rem);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  // Entfernt den Kramdown-Absatzabstand innerhalb des bereits rhythmisierten Zitats.
+  > .testimonial-quote > p {
+    margin: 0;
+  }
+
+  // Trennt Person und Rolle semantisch, damit beide Angaben unabhängig austauschbar bleiben.
+  > .testimonial-person {
+    margin: var(--nt-space-5) 0 0;
+    color: var(--nt-header);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  > .testimonial-role {
+    margin: var(--nt-space-1) 0 0;
+    color: var(--nt-text-muted);
+    font-size: var(--nt-font-size-small);
+    line-height: 1.25;
+  }
+
+  // Setzt den optionalen Handlungslink mit dem 48-Pixel-Abstand der Vorlage ab.
+  > .btn {
+    margin-top: var(--nt-space-7);
+  }
+
+  // Stapelt zuerst das Hochformat und danach den Text in der durchgehenden mobilen Fläche.
   &[mode="mobile"] {
     --cols: 12;
+    --gap: var(--nt-space-8);
 
-    &::part(container) {
-      padding: var(--nt-space-7) var(--nt-space-5);
-    }
+    padding-block: var(--nt-space-8);
 
     &::part(wrapper) {
       min-height: 0;
+      align-items: stretch;
     }
 
-    // Begrenzt das Porträt mobil auf eine feste, gut sichtbare Bühne vor dem Zitat.
+    // Fixiert die Reihenfolge unabhängig von der Desktop-Reverse-Darstellung.
+    &::part(main) {
+      order: 2;
+    }
+
     &::part(aside) {
-      min-height: 23rem;
+      min-height: 0;
+      padding-inline: var(--nt-space-3);
+      order: 1;
+    }
+
+    // Hält das Zitat auf schmalen Displays bewusst kompakter als in der Desktop-Spalte.
+    > .testimonial-quote {
+      font-size: 1.25rem;
     }
   }
 }

@@ -3,7 +3,7 @@
 
 // Bindet die schlanke Darstellung an die Timeline-Komposition des Elternlayouts.
 &.style-timeline {
-  // Entfernt Kartenrahmen und erzeugt stattdessen die chronologische Linie als visuellen Anker.
+  // Entfernt die Kartenoptik und lässt jede Zelle einen gleichwertigen Abschnitt der Zeitachse tragen.
   > nte-card {
     @include card.default-style(
       $innerPadding: 0,
@@ -14,41 +14,91 @@
 
     position: relative;
     height: 100%;
-    padding-top: var(--nt-space-6);
-    border-top: 2px solid color-mix(in srgb, var(--nt-primary) 72%, white);
+    color: var(--nt-text);
 
-    // Setzt einen kleinen Marker auf die gemeinsame Linie, der auch ohne feste Elementanzahl funktioniert.
-    &::before {
-      content: "";
-      position: absolute;
-      top: calc(var(--nt-border-width) * -4);
-      left: 0;
-      width: .7rem;
-      height: .7rem;
-      border: 2px solid var(--nt-primary);
-      border-radius: 50%;
-      background: var(--nt-surface);
+    // Bewahrt die transparente, flache Darstellung ohne zusätzliche Card-Innenabstände.
+    &::part(wrapper) {
+      height: 100%;
     }
 
-    // Hebt die erste Überschrift als Zeitwert hervor, bleibt aber für Schritte oder Phasen ebenso nutzbar.
-    > h3 {
-      margin: 0 0 var(--nt-space-4);
+    // Setzt den Zeitraum klein und ruhig über den eigentlichen Zeitwert.
+    > .timeline-period {
+      margin: 0;
+      padding-right: var(--nt-space-5);
+      color: var(--nt-text);
+      font-size: 1.125rem;
+      font-weight: var(--nt-font-weight-base);
+      line-height: 1.3;
+    }
+
+    // Hebt Jahr oder Status hervor und zeichnet darunter den zugehörigen Teil der grünen Zeitachse.
+    > .timeline-value {
+      position: relative;
+      margin: 0 0 var(--nt-space-7);
+      padding: 0 0 var(--nt-space-6);
+      border-bottom: 2px solid var(--nt-primary);
       color: var(--nt-primary);
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-size: 3rem;
+      font-weight: var(--nt-font-weight-bold);
+      line-height: 1.2;
+
+      // Bildet den zweistufigen Marker aus weißer Scheibe und grünem Kern ohne weiteres Autoren-Markup.
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        box-sizing: border-box;
+        width: 1.5rem;
+        height: 1.5rem;
+        border: .5rem solid var(--nt-surface);
+        border-radius: 50%;
+        background: var(--nt-primary);
+        box-shadow: 0 .1875rem .375rem rgba(140, 152, 164, .25);
+        transform: translateY(50%);
+      }
     }
 
-    // Behandelt die zweite Überschrift als eigentlichen Meilenstein und nicht als weiteren Zeitwert.
-    > h4 {
+    // Behandelt die benannte Zwischenüberschrift als kompakten Meilensteintitel unter der Achse.
+    > .timeline-title {
       margin: 0 0 var(--nt-space-3);
+      padding-right: var(--nt-space-5);
       color: var(--nt-header);
-      font-size: .9375rem;
-      line-height: 1.35;
+      font-size: 1rem;
+      font-weight: var(--nt-font-weight-bold);
+      line-height: 1.3;
     }
 
-    // Hält erläuternde Texte klein genug für mehrere Meilensteine nebeneinander.
-    p {
-      font-size: var(--nt-font-size-small);
+    // Begrenzt die Beschreibung auf eine zurückhaltende Textrolle und schafft Abstand zur Folgezelle.
+    > .timeline-copy {
+      margin: 0;
+      padding-right: var(--nt-space-5);
+      color: var(--nt-text);
+      font-size: .875rem;
       line-height: 1.5;
+    }
+  }
+
+  // Verdichtet die mobile Darstellung, während Divider und Marker ihre horizontale Leserichtung behalten.
+  &[mode="mobile"] {
+    > nte-card {
+      // Hält Zeitraum und Erläuterungen vollständig innerhalb der verfügbaren Inhaltsbreite.
+      > .timeline-period,
+      > .timeline-title,
+      > .timeline-copy {
+        padding-right: 0;
+      }
+
+      // Reduziert Zeitraum und Zeitwert, ohne die horizontale Linie oder den Marker auszutauschen.
+      > .timeline-period {
+        font-size: 1rem;
+      }
+
+      > .timeline-value {
+        margin-bottom: var(--nt-space-5);
+        padding-bottom: var(--nt-space-4);
+        font-size: 2rem;
+      }
     }
   }
 }

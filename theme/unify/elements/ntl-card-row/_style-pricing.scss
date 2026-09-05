@@ -4,9 +4,9 @@
 // Zentriert maximal zwei vergleichbare Angebote und erlaubt einer Karte eine hervorgehobene Oberfläche.
 &.style-pricing {
   @include cardRow.default-style(
-    $container-width: 61.25rem,
+    $container-width: var(--nt-container-width),
     $cols: 6,
-    $gap: var(--nt-space-6),
+    $gap: var(--nt-space-5),
     $inner-padding: 0,
     $container-background: transparent,
     $container-border: 0,
@@ -15,7 +15,7 @@
 
   // Begrenzt die Einleitung auf eine prägnante, zentrierte Überschrift.
   &::part(header) {
-    max-width: 40rem;
+    max-width: 45.5rem;
     margin: 0 auto var(--nt-space-8);
     text-align: center;
   }
@@ -28,6 +28,11 @@
   // Stapelt die Pakete mobil und behält ausreichend Abstand zwischen den Karten.
   &[mode="mobile"] {
     --cols: 12;
-    --gutter-y: 20px;
+    --gutter-y: 24px;
+
+    // Strafft die Einleitung, damit die erste Karte im schmalen Viewport früh sichtbar wird.
+    &::part(header) {
+      margin-bottom: var(--nt-space-7);
+    }
   }
 }
