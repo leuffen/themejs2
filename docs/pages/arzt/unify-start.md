@@ -15,17 +15,17 @@ pid: site
 ---
 {: layout="2;ntl-hero.style-default" }
 
-# Aus Interessenten werden **langfristige Kunden**
-{: layout="3;.hero-copy" data-kicker="Gemeinsam digital wachsen" }
+# Turn online shoppers into **lifetime customers**
+{: layout="3;.hero-copy" data-kicker="Small business solutions" }
 
 ![Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img10.jpg)
 ![Kunde](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img3.jpg)
 ![Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img9.jpg)
-![Kunde](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img8.jpg)
+![Kunde](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img8.jpg) **7k+**
 {: .trust-list .xl:desktop aria-label="Auswahl zufriedener Kunden" }
 
-**Trustpilot**<br>
-Bestbewertet in über 37.000 Rezensionen
+**Trust pilot**<br>
+Rated best over 37k reviews
 {: .trust-copy .xl:desktop }
 
 ![Dekorative Pfeile](/assets/unify/three-arrows-2.svg){: .hero-arrows .hero-arrows-start .xl:desktop aria-hidden="true" }
@@ -34,9 +34,9 @@ Bestbewertet in über 37.000 Rezensionen
 ---
 {: layout="4;.hero-form" .xl:desktop }
 
-#[nte-input.style-default.hoverlabel type="text" name="vorname" label="Vorname" required]
-#[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]
-#[button type="submit" class="btn btn-primary" > Projekt starten]
+#[nte-input.style-default.hoverlabel type="text" name="name" label="Your name" required]
+#[nte-input.style-default.hoverlabel type="email" name="email" label="Your email" required]
+#[button type="submit" class="btn btn-primary" > Get started]
 
 <!-- Zeigt die Standard-2Col-Variante als helle Produkt- oder Leistungssektion. -->
 ## Schnittstellen – unsere Kernkompetenz

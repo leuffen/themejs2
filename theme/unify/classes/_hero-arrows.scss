@@ -8,20 +8,21 @@
   position: absolute;
   z-index: 0;
   display: block;
-  width: clamp(14rem, 19vw, 17rem);
   height: auto;
   pointer-events: none;
   user-select: none;
 }
 
-// Verankert die erste Pfeilgruppe links neben der Nutzenüberschrift.
+// Verankert die kompaktere erste Pfeilgruppe links in den Originalproportionen.
 .hero-arrows-start {
   top: 30%;
-  left: -14rem;
+  left: -10.75rem;
+  width: 14rem;
 }
 
-// Spiegelt die zweite Pfeilgruppe als Gegenakzent an der rechten Hero-Kante.
+// Setzt die breitere zweite Pfeilgruppe symmetrisch an die rechte Hero-Kante.
 .hero-arrows-end {
   top: 34%;
-  right: -14rem;
+  right: -10.75rem;
+  width: 17rem;
 }

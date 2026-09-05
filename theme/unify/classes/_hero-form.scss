@@ -36,7 +36,18 @@
   }
 }
 
-// Schaltet den von Kramdown erzeugten gemeinsamen Absatz erst auf Desktop in eine kompakte Formularzeile um.
-.hero-form.desktop > p {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+// Schaltet das Formular auf Desktop in die 78 Pixel hohe, großzügig getrennte Originalzeile um.
+.hero-form.desktop {
+  margin-top: var(--nt-space-6);
+
+  > p {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+    gap: var(--nt-space-4);
+  }
+
+  // Gleicht Eingabefelder und CTA in der gemeinsamen Zeile auf dieselbe Bedienhöhe an.
+  > p > nte-input,
+  > p > .btn {
+    min-height: 3.25rem;
+  }
 }
