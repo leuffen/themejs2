@@ -66,6 +66,7 @@
     @include meta.load-css("./classes/_trust-list.scss");
     @include meta.load-css("./classes/_trust-copy.scss");
     @include meta.load-css("./classes/_feature-media.scss");
+    @include meta.load-css("./classes/_site-footer.scss");
   }
 
   // Stellt die bestehenden Utility-Klassen als letzte Theme-Schicht vor Website-Anpassungen bereit.

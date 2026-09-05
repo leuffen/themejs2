@@ -3,7 +3,7 @@ layout: website
 body_class: theme-unify
 title: Theme Unify
 use_navbar: unify
-use_footer: raven
+use_footer: unify
 description: "Unify-Demo für moderne Business-, Agentur- und Beratungsseiten mit Nextstrap-Layouts."
 ptags:
   - business
@@ -18,20 +18,18 @@ pid: site
 # Aus Interessenten werden **langfristige Kunden**
 {: layout="3;.hero-copy" data-kicker="Gemeinsam digital wachsen" }
 
-Wir gestalten verständliche digitale Angebote, die Menschen erreichen und Unternehmen nachhaltig voranbringen.
-
-![Kundin](https://htmlstream.com/unify/assets/img/160x160/img3.jpg)
-![Kunde](https://htmlstream.com/unify/assets/img/160x160/img4.jpg)
-![Kundin](https://htmlstream.com/unify/assets/img/160x160/img8.jpg)
-![Kunde](https://htmlstream.com/unify/assets/img/160x160/img9.jpg)
+![Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img10.jpg)
+![Kunde](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img3.jpg)
+![Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img9.jpg)
+![Kunde](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img8.jpg)
 {: .trust-list .xl:desktop aria-label="Auswahl zufriedener Kunden" }
 
 **Trustpilot**<br>
 Bestbewertet in über 37.000 Rezensionen
 {: .trust-copy .xl:desktop }
 
-![Dekorative Pfeile](/assets/unify/three-arrows-1.svg){: .hero-arrows .hero-arrows-start .xl:desktop aria-hidden="true" }
-![Dekorative Pfeile](/assets/unify/three-arrows-2.svg){: .hero-arrows .hero-arrows-end .xl:desktop aria-hidden="true" }
+![Dekorative Pfeile](/assets/unify/three-arrows-2.svg){: .hero-arrows .hero-arrows-start .xl:desktop aria-hidden="true" }
+![Dekorative Pfeile](/assets/unify/three-arrows-1.svg){: .hero-arrows .hero-arrows-end .xl:desktop aria-hidden="true" }
 
 ---
 {: layout="4;.hero-form" .xl:desktop }
@@ -42,7 +40,7 @@ Bestbewertet in über 37.000 Rezensionen
 
 <!-- Zeigt die Standard-2Col-Variante als helle Produkt- oder Leistungssektion. -->
 ## Schnittstellen – unsere Kernkompetenz
-{: layout="ntl-2col.style-default" data-kicker="Nahtlose Erlebnisse" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-default.reverse" data-kicker="Nahtlose Erlebnisse" section-style="--cols: 6;" }
 
 Wir verbinden Inhalte, Prozesse und Systeme zu einer konsistenten digitalen Erfahrung.
 
@@ -53,9 +51,9 @@ Wir verbinden Inhalte, Prozesse und Systeme zu einer konsistenten digitalen Erfa
 
 [Mehr erfahren](/leistungen){: .btn .btn-primary }
 
-![Arbeitsplatz mit digitalem Produkt](https://htmlstream.com/unify/assets/img/500x650/img1.jpg)
-![Oberfläche eines Analyse-Dashboards](https://htmlstream.com/unify/assets/img/mockups/img4.png)
-{: .feature-media .xl:desktop }
+![Arbeitsplatz mit digitalem Produkt](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img1.jpg)
+![Oberfläche eines Analyse-Dashboards](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img4.png)
+{: .feature-media .dots-start .dots-success .xl:desktop }
 
 <!-- Nutzt dieselbe Standardvariante mit Reverse- und Surface-Utilities für einen kontrastreichen Abschnitt. -->
 ## Maximale Kunden&shy;zufriedenheit entwickeln
@@ -70,9 +68,9 @@ Von der ersten Idee bis zum laufenden Betrieb arbeiten Strategie, Design und Ent
 
 [Projekt besprechen](/kontakt){: .btn .btn-primary }
 
-![Kundin bei einer digitalen Beratung](https://htmlstream.com/unify/assets/img/500x650/img2.jpg)
-![Auswahlansicht eines digitalen Shops](https://htmlstream.com/unify/assets/img/mockups/img5.png)
-{: .feature-media .xl:desktop }
+![Kundin bei einer digitalen Beratung](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img2.jpg)
+![Auswahlansicht eines digitalen Shops](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img5.png)
+{: .feature-media .dots-end .dots-warning .xl:desktop }
 
 <!-- Wiederholt das Feature-Muster mit vertauschter Leserichtung für ein abwechslungsreiches Seitenbild. -->
 ## Digitale Produkte für Designer und Agenturen
@@ -82,13 +80,13 @@ Ein klares System aus Inhaltsbausteinen macht neue Seiten schneller, konsistente
 
 [Für Agenturen](/agentur) · [Für Unternehmen](/unternehmen) · [Für Teams](/teams)
 
-![Designer bei der Arbeit](https://htmlstream.com/unify/assets/img/500x650/img3.jpg)
-![Komponentenübersicht eines Designsystems](https://htmlstream.com/unify/assets/img/mockups/img6.png)
-{: .feature-media .xl:desktop }
+![Designer bei der Arbeit](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img3.jpg)
+![Komponentenübersicht eines Designsystems](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img6.png)
+{: .feature-media .dots-start .dots-neutral .xl:desktop }
 
 <!-- Demonstriert die Timeline-Variante mit sechs austauschbaren Meilensteinen. -->
 ## Eine kurze Geschichte unserer Entwicklung
-{: layout="ntl-card-row.style-timeline" data-kicker="Meilensteine" section-style="--cols: 6;" }
+{: layout="ntl-card-row.style-timeline" data-kicker="Meilensteine" section-style="--cols: 3;" }
 
 ### Heute
 
@@ -135,15 +133,15 @@ Aus einer kleinen Beratung entsteht eine langfristige digitale Partnerschaft.
 **Lea Hoffmann**<br>
 Digital Lead, Beispielunternehmen
 
-![Porträt einer Kundin](https://htmlstream.com/unify/assets/img/500x650/img4.jpg)
+![Porträt einer Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img4.jpg)
 
 <!-- Demonstriert die Pricing-Variante für zwei vergleichbare, in Markdown pflegbare Angebote. -->
 ## Für Einzelpersonen, Agenturen und Teams
 {: layout="ntl-card-row.style-pricing" data-kicker="Transparent starten" section-style="--cols: 6;" }
 
-### 18 €
+### Professional
 
-#### Professional
+#### 18 €
 
 Für selbstständige Berater und kleine Unternehmen.
 
@@ -155,10 +153,10 @@ Für selbstständige Berater und kleine Unternehmen.
 [Paket auswählen](/kontakt){: .btn .btn-outline-primary }
 {: .footer }
 
-### 36 €
-{: .surface-secondary }
+### Teams
+{: .is-featured }
 
-#### Teams
+#### 36 €
 
 Für Agenturen und wachsende Produktteams.
 
@@ -194,16 +192,3 @@ Bestehende Markdown-Inhalte lassen sich weiterverwenden und schrittweise den pas
 #### Ist das Theme an eine Branche gebunden?
 
 Nein. Die Varianten beschreiben allgemeine Business-, Produkt- und Beratungsinhalte statt kundenspezifischer Daten.
-
-<!-- Schließt die Inhaltsdemo mit derselben dunklen Feature-Komposition als allgemeinem CTA ab. -->
-## Bereit für den nächsten digitalen Schritt?
-{: layout="ntl-2col.style-default.surface-secondary" data-kicker="Gemeinsam starten" section-style="--cols: 8;" }
-
-Bringen wir Strategie, Inhalte und Technologie in einem belastbaren System zusammen.
-
-[Projekt anfragen](/kontakt){: .btn .btn-primary }
-
-### Persönlich beraten
-{: layout=".aside" }
-
-Wir klären Ziele, Umfang und den sinnvollsten Einstieg in einem unverbindlichen Erstgespräch.

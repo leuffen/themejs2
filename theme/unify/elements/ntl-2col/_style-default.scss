@@ -46,9 +46,9 @@
 
   // Verwendet die vorhandene Surface-Utility als dunkle Ausprägung derselben Feature-Struktur.
   &.surface-secondary {
-    width: min(calc(100% - (var(--nt-container-gutter) * 2)), 1180px);
+    width: min(calc(100% - (var(--nt-container-gutter) * 2)), var(--nt-container-max));
     margin-inline: auto;
-    padding: clamp(var(--nt-space-7), 6vw, var(--nt-space-9));
+    padding: clamp(var(--nt-space-7), 6vw, 5rem);
     border-radius: var(--nt-radius);
     color: rgba(255, 255, 255, .76);
     background: var(--nt-secondary);
@@ -74,7 +74,7 @@
     }
 
     &.surface-secondary {
-      width: calc(100% - (2 * var(--nt-space-3)));
+      width: calc(100% - (var(--nt-space-3) * 2));
       padding: var(--nt-space-5);
     }
   }

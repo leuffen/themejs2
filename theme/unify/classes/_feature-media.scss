@@ -2,14 +2,14 @@
 .feature-media {
   position: relative;
   display: block;
-  min-height: 25rem;
+  min-height: 27rem;
   margin: 0;
 
   // Nutzt das erste Bild als große fotografische Grundfläche.
   img:first-child {
     display: block;
-    width: 78%;
-    height: 25rem;
+    width: 79%;
+    height: 27rem;
     border-radius: var(--nt-radius);
     object-fit: cover;
   }
@@ -18,9 +18,9 @@
   img + img {
     position: absolute;
     right: 0;
-    bottom: 7%;
-    width: 66%;
-    max-height: 72%;
+    bottom: 5%;
+    width: 68%;
+    max-height: 74%;
     border-radius: calc(var(--nt-radius) * .75);
     object-fit: contain;
     filter: drop-shadow(0 var(--nt-space-4) var(--nt-space-6) rgba(45, 55, 75, .18));
@@ -30,26 +30,44 @@
   &::after {
     content: "";
     position: absolute;
-    right: -1rem;
-    top: 1rem;
+    left: -1.25rem;
+    bottom: 1rem;
     width: 5.5rem;
     height: 5.5rem;
-    background-image: radial-gradient(circle, var(--nt-accent) 2px, transparent 2.5px);
+    background-image: radial-gradient(circle, var(--feature-dot-color, var(--nt-primary)) 2px, transparent 2.5px);
     background-size: .75rem .75rem;
     pointer-events: none;
   }
 }
 
+// Verschiebt das dekorative Raster für Kompositionen mit einem rechten Bildakzent an die gegenüberliegende Ecke.
+.feature-media.dots-end::after {
+  inset: 1rem -1.25rem auto auto;
+}
+
+// Ordnet die drei in der Vorlage wiederkehrenden Rasterfarben bestehenden Theme-Farben zu.
+.feature-media.dots-success {
+  --feature-dot-color: var(--nt-primary);
+}
+
+.feature-media.dots-warning {
+  --feature-dot-color: var(--nt-accent);
+}
+
+.feature-media.dots-neutral {
+  --feature-dot-color: color-mix(in srgb, var(--nt-secondary) 35%, white);
+}
+
 // Vergrößert dieselbe Komposition erst im vom Responsive-System gesetzten Desktop-Zustand.
 .feature-media.desktop {
-  min-height: clamp(24rem, 42vw, 37rem);
+  min-height: clamp(30rem, 46vw, 39rem);
 
   img:first-child {
-    width: min(74%, 27rem);
-    height: clamp(24rem, 42vw, 37rem);
+    width: min(79%, 30.0625rem);
+    height: clamp(30rem, 46vw, 39.0625rem);
   }
 
   img + img {
-    width: min(63%, 22rem);
+    width: min(66%, 22.625rem);
   }
 }

@@ -1,0 +1,111 @@
+// Bildet den dunklen, mehrspaltigen Business-Footer der Unify-Vorlage für Seiten mit use_footer: unify nach.
+.unify-footer {
+  width: 100%;
+  color: rgba(255, 255, 255, .65);
+  background: var(--nt-secondary);
+  font-size: var(--nt-font-size-small);
+}
+
+// Begrenzt sämtliche Footer-Inhalte auf dieselbe Breite wie die Inhaltssektionen.
+.unify-footer__container {
+  box-sizing: border-box;
+  width: min(100%, var(--nt-container-max));
+  margin-inline: auto;
+  padding-inline: var(--nt-container-gutter);
+}
+
+// Stellt die abschließende Handlungsaufforderung deutlich über die Linknavigation.
+.unify-footer__cta {
+  display: grid;
+  gap: var(--nt-space-5);
+  align-items: center;
+  padding-block: var(--nt-space-8);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.unify-footer__cta.desktop {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.unify-footer__cta p {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.3;
+}
+
+.unify-footer__cta strong {
+  color: #fff;
+}
+
+.unify-footer__cta .btn {
+  justify-self: start;
+  min-width: 9.5rem;
+}
+
+.unify-footer__cta.desktop .btn {
+  justify-self: end;
+}
+
+// Verteilt die Linkgruppen mobil zweispaltig und ab Desktop wie in der fünfspaltigen Vorlage.
+.unify-footer__links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--nt-space-7) var(--nt-space-5);
+  padding-block: var(--nt-space-8);
+}
+
+.unify-footer__links.desktop {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.unify-footer__column h2 {
+  margin: 0 0 var(--nt-space-4);
+  color: #fff;
+  font-size: .8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.unify-footer__column ul {
+  display: grid;
+  gap: var(--nt-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.unify-footer a {
+  color: rgba(255, 255, 255, .65);
+  text-decoration: none;
+}
+
+.unify-footer a:hover,
+.unify-footer a:focus-visible {
+  color: #fff;
+  text-decoration: none;
+}
+
+.unify-footer__link-accent {
+  color: var(--nt-primary) !important;
+  font-weight: 600;
+}
+
+// Schließt den Footer mit einer flachen Meta- und Social-Zeile wie im Original ab.
+.unify-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nt-space-4) var(--nt-space-6);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--nt-space-5);
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.unify-footer__meta,
+.unify-footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nt-space-4);
+  align-items: center;
+}

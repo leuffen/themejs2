@@ -3,6 +3,82 @@ layout: 50_navbar
 ---
 {{ content }}
 
+{% if page.use_footer == "unify" %}
+<!-- Stellt den eigenständigen Unify-Footer bereit, ohne die bestehenden Footer anderer Themes zu verändern. -->
+<footer id="footer-unify" class="unify-footer">
+  <div class="unify-footer__container">
+    <!-- Verbindet die Abschlussbotschaft der Business-Vorlage mit einer klaren Primäraktion. -->
+    <div class="unify-footer__cta xl:desktop">
+      <p>Werden Sie Teil einer wachsenden<br><strong>digitalen Erfolgsgeschichte.</strong></p>
+      <a class="btn btn-primary" href="/kontakt">Projekt starten</a>
+    </div>
+
+    <!-- Gliedert die wichtigsten Ziele in fünf kurze, austauschbare Navigationsgruppen. -->
+    <nav class="unify-footer__links xl:desktop" aria-label="Footer Navigation">
+      <section class="unify-footer__column">
+        <h2>Leistungen</h2>
+        <ul>
+          <li><a href="/leistungen/">Strategie</a></li>
+          <li><a href="/leistungen/">Design</a></li>
+          <li><a href="/leistungen/">Entwicklung</a></li>
+          <li><a href="/leistungen/">Optimierung</a></li>
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Unternehmen</h2>
+        <ul>
+          <li><a href="/unternehmen/">Über uns</a></li>
+          <li><a href="/unternehmen/">Team</a></li>
+          <li><a href="/unternehmen/">Referenzen</a></li>
+          <li><a class="unify-footer__link-accent" href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Ressourcen</h2>
+        <ul>
+          <li><a href="/ressourcen/">Magazin</a></li>
+          <li><a href="/ressourcen/">Leitfäden</a></li>
+          <li><a href="/ressourcen/">Hilfe</a></li>
+          <li><a href="/ressourcen/">Dokumentation</a></li>
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Lösungen</h2>
+        <ul>
+          <li><a href="/leistungen/">Websites</a></li>
+          <li><a href="/leistungen/">Plattformen</a></li>
+          <li><a href="/leistungen/">E-Commerce</a></li>
+          <li><a href="/leistungen/">Automatisierung</a></li>
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Informationen</h2>
+        <ul>
+          <li><a href="/kontakt/">Support</a></li>
+          <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/datenschutz/">Datenschutz</a></li>
+          <li><a href="/kontakt/">Anfrage</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <!-- Fasst Copyright, rechtliche Links und Social-Verweise in der flachen Schlusszeile zusammen. -->
+    <div class="unify-footer__bottom">
+      <div class="unify-footer__meta">
+        <span>© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </div>
+      <div class="unify-footer__social" aria-label="Social Links">
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+{% else %}
+
 <style>
   #footer-osman {
     --footer-background: var(--nt-body-secondary);
@@ -282,3 +358,4 @@ layout: 50_navbar
     </div>
   </div>
 </footer>
+{% endif %}

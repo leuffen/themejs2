@@ -7,7 +7,7 @@
 
   @include cardRow.default-style(
     $container-width: var(--nt-container-width),
-    $cols: 6,
+    $cols: 3,
     $gap: var(--nt-space-5),
     $inner-padding: 0,
     $container-background: transparent,
@@ -29,7 +29,7 @@
 
   // Wandelt die Zeitleiste mobil in eine gut lesbare Einzelspalte um.
   &[mode="mobile"] {
-    --cols: 1;
+    --cols: 12;
     --gutter-y: 16px;
   }
 }

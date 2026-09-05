@@ -2,7 +2,7 @@
 & {
   color-scheme: light;
 
-  --nt-primary: #00c753;
+  --nt-primary: #0abf53;
   --nt-accent: #f39568;
   --nt-neutral: #6b7280;
   --nt-secondary: #2d374b;
@@ -12,7 +12,7 @@
   --nt-warning: var(--nt-accent);
   --nt-danger: #dc3545;
 
-  --nt-font-family: "Ubuntu", "Inter", sans-serif;
+  --nt-font-family: "Inter", "Ubuntu", sans-serif;
   --nt-font-family-header: var(--nt-font-family);
   --nt-font-size: 1rem;
   --nt-font-size-header: clamp(2.5rem, 5vw, 4.25rem);
@@ -20,23 +20,23 @@
   --nt-font-weight-base: 400;
   --nt-font-weight-header: 700;
   --nt-font-weight-bold: 700;
-  --nt-line-height: 1.55;
-  --nt-line-height-header: 1.08;
+  --nt-line-height: 1.5;
+  --nt-line-height-header: 1.2;
 
-  --nt-radius: .5rem;
-  --nt-container-max: 1120px;
-  --nt-container-gutter: clamp(var(--nt-space-4), 4vw, var(--nt-space-7));
-  --nt-spacing-section: clamp(var(--nt-space-8), 7vw, var(--nt-space-10));
+  --nt-radius: .8125rem;
+  --nt-container-max: 1140px;
+  --nt-container-gutter: clamp(var(--nt-space-3), 3vw, var(--nt-space-6));
+  --nt-spacing-section: clamp(var(--nt-space-8), 7vw, 7.5rem);
   --nt-text-gap: var(--nt-space-4);
 
   --nt-surface: #fff;
-  --nt-surface-muted: #f4f6f8;
+  --nt-surface-muted: #f5f7fa;
   --nt-surface-raised: #fff;
   --nt-text: #51596c;
   --nt-text-muted: #7a8396;
   --nt-header: #2d374b;
   --nt-border: rgba(45, 55, 75, .13);
   --nt-link: var(--nt-primary);
-  --nt-link-hover: #009e42;
+  --nt-link-hover: #089a44;
   --nt-focus: var(--nt-primary);
 }

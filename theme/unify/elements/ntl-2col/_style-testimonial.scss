@@ -16,15 +16,29 @@
 
   // Zentriert das Zitat vertikal und lässt seine Textbreite auch ohne Bild ruhig wirken.
   &::part(wrapper) {
-    min-height: clamp(28rem, 45vw, 38rem);
+    min-height: clamp(31rem, 48vw, 38.625rem);
     align-items: center;
+  }
+
+  // Lässt das Porträt wie in der Vorlage bis an die Kante der ruhigen Zitatfläche reichen.
+  &::part(aside) {
+    align-self: stretch;
+  }
+
+  .aside,
+  .aside img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
   }
 
   // Hebt echte Blockquotes als primären Inhalt hervor, ohne feste Kundendaten zu erwarten.
   blockquote {
     margin: 0;
     color: var(--nt-header);
-    font-size: clamp(1.5rem, 3vw, 2.35rem);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-style: italic;
     line-height: 1.35;
   }
@@ -39,6 +53,11 @@
 
     &::part(wrapper) {
       min-height: 0;
+    }
+
+    // Begrenzt das Porträt mobil auf eine feste, gut sichtbare Bühne vor dem Zitat.
+    &::part(aside) {
+      min-height: 23rem;
     }
   }
 }

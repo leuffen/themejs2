@@ -4,7 +4,7 @@
 // Zentriert maximal zwei vergleichbare Angebote und erlaubt einer Karte eine hervorgehobene Oberfläche.
 &.style-pricing {
   @include cardRow.default-style(
-    $container-width: 58rem,
+    $container-width: 61.25rem,
     $cols: 6,
     $gap: var(--nt-space-6),
     $inner-padding: 0,
@@ -27,7 +27,7 @@
 
   // Stapelt die Pakete mobil und behält ausreichend Abstand zwischen den Karten.
   &[mode="mobile"] {
-    --cols: 1;
+    --cols: 12;
     --gutter-y: 20px;
   }
 }

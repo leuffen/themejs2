@@ -29,20 +29,20 @@
     gap: .15rem;
     border: 0;
     color: var(--nt-header);
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
   }
 
   .unify-brand__mark {
     display: inline-grid;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.125rem;
+    height: 1.125rem;
     place-items: center;
     border-radius: .2rem;
     color: #fff;
     background: var(--nt-primary);
-    font-size: .8rem;
+    font-size: .7rem;
     line-height: 1;
   }
 
@@ -51,7 +51,7 @@
     display: flex;
     align-items: center;
     gap: var(--nt-space-4);
-    font-size: var(--nt-font-size-small);
+    font-size: .875rem;
     font-weight: 600;
   }
 
@@ -66,7 +66,7 @@
   }
 
   .unify-navbar-actions .btn {
-    padding: .65rem 1rem;
+    padding: .625rem 1rem;
     border-color: var(--nt-secondary);
     border-radius: .25rem;
     color: #fff;

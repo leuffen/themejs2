@@ -4,9 +4,12 @@ layout: 30_script
 {% if page.skip-navbar != true %}
 
 {% if page.use_navbar == "unify" %}
+<!-- Lädt die in der Originalvorlage verwendete Inter-Schrift ausschließlich für Seiten mit Unify-Website-Rahmen. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+
 <!-- Stellt für die Unify-Demo den kompakten Business-Header mit klar getrennten Navigations- und Aktionsbereichen bereit. -->
 <nte-navbar class="style-unify with-shadow-on-scroll" style="--nte-navbar-position: sticky; --nte-navbar-scroll-threshold: 12">
-    <nte-navbar-line class="with-shrink-on-scroll" style="--height: 72px; --height-scrolled: 60px">
+    <nte-navbar-line class="with-shrink-on-scroll" style="--height: 75px; --height-scrolled: 60px">
         <a slot="start" class="brand-logo unify-brand" href="/" aria-label="Unify Startseite">
             <span class="unify-brand__mark" aria-hidden="true">U</span><span>nify</span>
         </a>

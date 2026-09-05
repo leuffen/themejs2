@@ -27,6 +27,7 @@
 
   // Lässt das Komponenten-Raster im mobilen Modus mit komfortablen vertikalen Abständen arbeiten.
   &[mode="mobile"] {
+    --cols: 12;
     --gutter-y: 20px;
   }
 }

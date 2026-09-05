@@ -31,10 +31,18 @@
     }
 
     // Hebt die erste Überschrift als Zeitwert hervor, bleibt aber für Schritte oder Phasen ebenso nutzbar.
-    > :is(h2, h3, h4) {
+    > h3 {
       margin: 0 0 var(--nt-space-4);
       color: var(--nt-primary);
       font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    // Behandelt die zweite Überschrift als eigentlichen Meilenstein und nicht als weiteren Zeitwert.
+    > h4 {
+      margin: 0 0 var(--nt-space-3);
+      color: var(--nt-header);
+      font-size: .9375rem;
+      line-height: 1.35;
     }
 
     // Hält erläuternde Texte klein genug für mehrere Meilensteine nebeneinander.

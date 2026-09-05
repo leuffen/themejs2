@@ -3,9 +3,25 @@
 
 // Ergänzt nur Theme-Farbe und Abstände, während Öffnungszustand und Marker beim Package bleiben.
 &.style-default {
-  @include accordion.default-style();
+  @include accordion.default-style(
+    $border: 0,
+    $border-radius: 0,
+    $summary-padding: var(--nt-space-5),
+    $content-padding: 0 var(--nt-space-5) var(--nt-space-5),
+    $summary-background: transparent,
+    $summary-background-hover: var(--nt-surface-muted),
+    $content-background: var(--nt-surface-muted),
+    $marker-color: var(--nt-header)
+  );
 
   display: block;
   width: 100%;
   color: var(--nt-text);
+
+  // Hebt den geöffneten Eintrag als zusammenhängende helle Fläche hervor.
+  nte-accordion-item[open]::part(summary) {
+    color: var(--nt-header);
+    background: var(--nt-surface-muted);
+    font-weight: 600;
+  }
 }
