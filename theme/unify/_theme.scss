@@ -39,7 +39,7 @@
     @include nextrapElements.style-elements();
   }
 
-  // Lädt ausschließlich dokumentierte Komponentenvarianten und stärkt Buttons gegenüber normalem Fließtext.
+  // Lädt dokumentierte Komponentenvarianten samt freigegebener Upstream-Vorversion und stärkt Buttons gegenüber Fließtext.
   @layer themes.components {
     @include nextrapButton.style-button();
 
@@ -52,6 +52,8 @@
     @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
     @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
     @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+    // Lädt die isolierte Vorversion der in nextrap-monorepo PR #179 vorgeschlagenen Card-Row-Funktion.
+    @include meta.load-css("./upstream-proposal/_ntl-card-row-horizontal-flow.scss");
     @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
     @include meta.load-css("./elements/nte-input/nte-input.scss");
     @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");

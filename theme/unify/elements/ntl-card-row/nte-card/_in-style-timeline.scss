@@ -86,18 +86,37 @@
       > .timeline-period,
       > .timeline-title,
       > .timeline-copy {
-        padding-right: 0;
+        padding-right: var(--nt-space-2);
       }
 
       // Reduziert Zeitraum und Zeitwert, ohne die horizontale Linie oder den Marker auszutauschen.
       > .timeline-period {
-        font-size: 1rem;
+        font-size: .6875rem;
+        line-height: 1.2;
       }
 
       > .timeline-value {
-        margin-bottom: var(--nt-space-5);
-        padding-bottom: var(--nt-space-4);
-        font-size: 2rem;
+        margin-bottom: var(--nt-space-4);
+        padding-bottom: var(--nt-space-3);
+        font-size: 1.125rem;
+
+        &::after {
+          width: .875rem;
+          height: .875rem;
+          border-width: .25rem;
+        }
+      }
+
+      // Passt Titel und Beschreibung an die schmalen, horizontal sichtbaren Karten an.
+      > .timeline-title {
+        margin-bottom: var(--nt-space-2);
+        font-size: .6875rem;
+        line-height: 1.3;
+      }
+
+      > .timeline-copy {
+        font-size: .625rem;
+        line-height: 1.4;
       }
     }
   }

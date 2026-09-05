@@ -107,6 +107,12 @@
 
 // Spiegelt denselben Überstand für Medienkompositionen mit rechtem Raster.
 .feature-media.desktop.dots-end {
+  // Hält das Foto auch bei kleineren Desktopbreiten am originalen 75-Prozent-Anteil.
+  img:first-child {
+    width: 75%;
+    margin-left: auto;
+  }
+
   // Übernimmt auf Desktop die 7-Spalten-Mediengeometrie mit 32-Pixel-Seiten- und 72-Pixel-Bodenabstand.
   img + img {
     right: auto;

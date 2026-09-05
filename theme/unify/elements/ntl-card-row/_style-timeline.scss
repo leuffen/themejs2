@@ -12,7 +12,8 @@
     $inner-padding: 0,
     $container-background: transparent,
     $container-border: 0,
-    $container-border-radius: 0
+    $container-border-radius: 0,
+    $modifierClasses: false
   );
 
   // Beschränkt die Einleitung wie in der Vorlage auf zwei kurze Zeilen und startet sie links über der Achse.
@@ -30,11 +31,9 @@
 
   // Verdichtet den mobilen Komponentenfluss und hält die Einleitung nah am ersten Meilenstein.
   &[mode="mobile"] {
-    --gutter-y: 24px;
-
     &::part(header) {
       max-width: 11rem;
-      margin-bottom: var(--nt-space-6);
+      margin-bottom: var(--nt-space-5);
     }
   }
 }

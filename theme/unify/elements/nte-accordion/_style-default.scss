@@ -34,6 +34,11 @@
     overflow-wrap: anywhere;
   }
 
+  // Verhindert, dass der letzte Markdown-Absatz die definierte untere Innenkante des geöffneten Inhalts verdoppelt.
+  nte-accordion-item > :last-child:not([slot="title"]) {
+    margin-bottom: 0;
+  }
+
   // Hebt den geöffneten Eintrag als zusammenhängende helle Fläche mit kräftigerem Fragetitel hervor.
   nte-accordion-item[open]::part(summary) {
     color: var(--nt-header);

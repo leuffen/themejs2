@@ -52,7 +52,7 @@
   .feature-links {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--nt-space-4) var(--nt-space-5);
+    gap: var(--nt-space-4) 0;
     margin: var(--nt-space-6) 0 0;
     padding: 0;
     list-style: none;
@@ -66,13 +66,22 @@
       border-bottom: 1px solid var(--nt-border);
     }
 
+    li:nth-child(odd) {
+      padding-right: calc(var(--nt-space-5) / 2);
+    }
+
+    li:nth-child(even) {
+      padding-left: calc(var(--nt-space-5) / 2);
+    }
+
     a {
-      display: flex;
-      gap: var(--nt-space-3);
-      align-items: center;
-      justify-content: space-between;
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      padding-right: calc(var(--nt-space-6) + var(--nt-space-2));
       color: var(--nt-text);
       font-size: .9375rem;
+      font-weight: 500;
       line-height: 1.5;
       text-decoration: none;
       overflow-wrap: anywhere;
@@ -80,13 +89,23 @@
 
     a::after {
       content: "";
-      flex: 0 0 .4rem;
-      width: .4rem;
-      height: .4rem;
-      margin-right: .15rem;
-      border-top: 1px solid currentColor;
-      border-right: 1px solid currentColor;
-      transform: rotate(45deg);
+      position: absolute;
+      top: 50%;
+      right: var(--nt-space-3);
+      width: calc(var(--nt-space-4) + var(--nt-space-1));
+      height: calc(var(--nt-space-4) + var(--nt-space-1));
+      background: currentColor;
+      clip-path: polygon(0 47%, 65% 47%, 45% 27%, 52% 20%, 100% 50%, 52% 80%, 45% 73%, 65% 53%, 0 53%);
+      transform: translateY(-50%);
+      transition: transform .2s ease;
+    }
+
+    a:is(:hover, :focus-visible) {
+      color: var(--nt-link-hover);
+    }
+
+    a:is(:hover, :focus-visible)::after {
+      transform: translate(.2rem, -50%);
     }
   }
 
@@ -97,14 +116,15 @@
 
   // Verwendet die vorhandene Surface-Utility als dunkle Ausprägung derselben Feature-Struktur.
   &.surface-secondary {
+    box-sizing: border-box;
     width: min(
       calc(100% - (var(--nt-container-gutter) * 2)),
-      calc(var(--nt-container-max) + (var(--nt-space-8) * 2))
+      calc(var(--nt-container-max) + (var(--nt-space-7) * 2) + (var(--nt-space-3) * 2))
     );
     margin-inline: auto;
     padding: calc(var(--nt-space-7) + var(--nt-space-5));
     border-radius: var(--nt-radius);
-    color: rgba(255, 255, 255, .76);
+    color: rgba(255, 255, 255, .7);
     background: var(--nt-secondary);
 
     // Entspricht dem 5-zu-7-Raster der Vorlage und hält den Text bündig an der inneren Bühnenkante.
@@ -114,6 +134,17 @@
 
     :is(h2, h3, strong) {
       color: #fff;
+    }
+
+    // Gibt der primären Aktion Höhe, Gewicht und asymmetrischen Innenraum der Referenzschaltfläche.
+    .btn {
+      --nt-btn-padding-y: var(--nt-space-3);
+      --nt-btn-padding-x: var(--nt-space-6);
+
+      padding-right: calc(var(--nt-space-6) + var(--nt-space-3));
+      font-size: .9375rem;
+      font-weight: 500;
+      line-height: 1.5;
     }
   }
 
@@ -133,9 +164,9 @@
       order: 1;
     }
 
-    // Hält das Linkraster zweispaltig wie im Mobiloriginal, reduziert aber den Zwischenraum für lange Linktexte.
-    .feature-links {
-      column-gap: var(--nt-space-4);
+    // Entspricht der mobilen 26-Pixel-Hierarchie der Vorlage, ohne andere Standard-2Col-Instanzen zu verändern.
+    &:has(.feature-links) :is(h2, h3) {
+      font-size: 1.625rem;
     }
 
     &.surface-secondary {

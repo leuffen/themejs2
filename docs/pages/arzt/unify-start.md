@@ -59,11 +59,11 @@ Analytic dashboards, platforms, and social networks – we have strong cases in 
 ## Drive maximum customer-satisfaction
 {: layout="ntl-2col.style-default.surface-secondary" section-style="--cols: 5;" }
 
-Connect with your customers better by giving them an excellent post-purchase experience. Engage customers, reduce queries and build trust with automated tracking notifications and a custom branded tracking page.
+Connect with your customers better by giving them an excellent post-purchase experience. Engage customers, reduce queries and build trust with automated tracking notifications and custom branded tracking page.
 
-- Customize labels and packaging
+- Customize labels, packaging
 - Custom branded tracking page
-- Free email and SMS notifications
+- FREE Email & SMS notifications
 {: .list-checked }
 
 [Learn more](/leistungen){: .btn .btn-primary }
@@ -92,7 +92,7 @@ We help agencies and designers **transform concepts into digital products** that
 
 <!-- Demonstriert die Timeline-Variante mit sechs austauschbaren Zeitpunkten, Titeln und Beschreibungen. -->
 ## A brief history of Unify
-{: layout="ntl-card-row.style-timeline" section-style="--cols: 2;" }
+{: layout="ntl-card-row.style-timeline.with-horizontal-flow" section-style="--cols: 2; --visible-cols-mobile: 4.25; --horizontal-flow-gap: 0px; --horizontal-flow-snap: proximity;" }
 
 ### Today
 {: .timeline-period }
@@ -185,7 +185,7 @@ Director Payments & Risk \| Airbnb
 
 <!-- Demonstriert die Pricing-Variante für zwei vergleichbare, in Markdown pflegbare Angebote. -->
 ## Für Einzelpersonen, Agenturen und Teams
-{: layout="ntl-card-row.style-pricing" data-kicker="Transparent starten" section-style="--cols: 6;" }
+{: layout="ntl-card-row.style-pricing" section-style="--cols: 6;" }
 
 ### Professional
 
@@ -196,11 +196,11 @@ Alles, was kleine Teams für den Einstieg brauchen.
 - Bis zu 10 Personen
 - Daten erfassen
 - Erweiterbare Komponenten
-- Eigene Auswertungen
-- Produkt-Support
-- Aktivitätsberichte
+- <span class="is-unavailable">Eigene Auswertungen</span>
+- <span class="is-unavailable">Produkt-Support</span>
+- <span class="is-unavailable">Aktivitätsberichte</span>
 
-<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/kontakt){: .btn .btn-outline-primary }
+<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/kontakt){: .btn .btn-light }
 {: .footer }
 
 ### Teams
@@ -225,10 +225,10 @@ Für wachsende Agenturen und Produktteams.
 
 <!-- Kombiniert ein bestehendes NTL mit dem vorhandenen NTE-Accordion für eine responsive FAQ-Sektion. -->
 ## Häufig gestellte Fragen
-{: layout="ntl-2col.style-default" section-style="--cols: 4;" }
+{: layout="ntl-2col.style-default.reverse.with-justify-top" .aside section-style="--cols: 8;" }
 
 ---
-{: layout="3;nte-accordion.style-default.marker-plus.marker-start" .aside initial-open-index="0" exclusive }
+{: layout="3;nte-accordion.style-default.marker-plus.marker-start" initial-open-index="0" exclusive }
 
 #### Welche Inhalte können wir selbst bearbeiten?
 
