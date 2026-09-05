@@ -5,11 +5,12 @@
   min-height: 27rem;
   margin: 0;
 
-  // Nutzt das erste Bild als große fotografische Grundfläche.
+  // Nutzt das 500-zu-650-Format der Referenz als proportional wachsende fotografische Grundfläche.
   img:first-child {
     display: block;
     width: 75%;
-    height: 27rem;
+    height: auto;
+    aspect-ratio: 10 / 13;
     border-radius: var(--nt-radius);
     object-fit: cover;
   }
@@ -44,10 +45,8 @@
 .feature-media.dots-end {
   min-height: clamp(18rem, 86vw, 27rem);
 
-  // Richtet das Foto am rechten Rand aus und legt das Mockup wie in der dunklen Bühne links darüber.
+  // Richtet das bereits proportionale Foto rechts aus und legt das Mockup wie in der dunklen Bühne links darüber.
   img:first-child {
-    width: 75%;
-    height: clamp(18rem, 86vw, 27rem);
     margin-left: auto;
   }
 
@@ -84,7 +83,6 @@
 
   img:first-child {
     width: min(75%, 30.0625rem);
-    height: clamp(30rem, 46vw, 39.0625rem);
   }
 
   img + img {

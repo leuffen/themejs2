@@ -18,7 +18,7 @@
     background: var(--nt-surface-raised);
   }
 
-  // Zentriert die Inhaltskomposition in einer schmaleren Lesebreite als die übrigen Abschnitte.
+  // Zentriert die Inhaltskomposition und stellt den Referenzrahmen für absolute Hero-Dekorationen bereit.
   &::part(wrapper) {
     position: relative;
     box-sizing: border-box;
@@ -30,7 +30,6 @@
 
   // Stapelt Kicker, Überschrift, Vertrauenssignal und Lead-Formular mit gleichmäßigem Abstand.
   &::part(content) {
-    position: relative;
     z-index: 1;
     display: flex;
     width: 100%;

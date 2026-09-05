@@ -5,6 +5,11 @@
 &.style-default {
   --cols: 6;
 
+  // Bildet für Feature-Inhalte den gestapelten Tablet-Zustand der Referenz zwischen sm und lg ab.
+  &:has(.feature-media) {
+    --breakpoint: sm, lg;
+  }
+
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: 0px,
@@ -43,6 +48,11 @@
     font-size: clamp(1.75rem, 2.65vw, 2.25rem);
     line-height: 1.3;
     letter-spacing: normal;
+  }
+
+  // Folgt nur für Bild-Features der responsiven Originalformel von 26 bis 36 Pixeln.
+  &:has(.feature-media) :is(h2, h3) {
+    font-size: clamp(1.625rem, calc(1.35rem + 1.2vw), 2.25rem);
   }
 
   // Gibt der vorhandenen Checklisten-Utility den 20-Pixel-Zeilen- und 32-Pixel-Außenrhythmus der Vorlage.
@@ -184,8 +194,26 @@
     }
   }
 
-  // Übernimmt zwischen Mobil- und Desktopmodus das 56-Pixel-Padding der Referenzbühne.
-  &[mode="tablet"].surface-secondary {
-    padding: calc(var(--nt-space-7) + var(--nt-space-2));
+  // Behält im mittleren Modus die mobile Lesereihenfolge, aber den großzügigeren Tablet-Innenraum.
+  &[mode="tablet"] {
+    --cols: 12;
+    --gap: var(--nt-space-7);
+
+    &::part(main) {
+      max-width: none;
+      padding-inline: 0;
+      order: 2;
+    }
+
+    &::part(aside) {
+      min-height: 0;
+      order: 1;
+    }
+
+    &.surface-secondary {
+      --gap: var(--nt-space-6);
+
+      padding: calc(var(--nt-space-7) + var(--nt-space-2));
+    }
   }
 }
