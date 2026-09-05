@@ -29,6 +29,12 @@
     gap: var(--nt-space-4);
   }
 
+  // Hält lange Antworten und ungetrennte URLs innerhalb der geöffneten Fläche, ohne normale Textumbrüche zu verändern.
+  nte-accordion-item::part(content) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
   // Übernimmt die kompakte Hierarchie der Referenz und hält lange Fragen innerhalb der verfügbaren Spalte.
   nte-accordion-item > [slot="title"] {
     min-width: 0;

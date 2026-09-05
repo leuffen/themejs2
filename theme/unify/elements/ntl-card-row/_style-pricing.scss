@@ -6,6 +6,9 @@
   // Wechselt wie die Referenz bereits am lg-Übergang von gestapelten zu zwei Karten.
   --breakpoint: lg;
 
+  // Trägt mobil den vollständigen weißen Startabstand nach der Testimonial-Fläche.
+  padding-block-start: calc(var(--nt-space-8) + var(--nt-space-4));
+
   @include cardRow.default-style(
     $container-width: calc(var(--nt-container-width) - var(--nt-space-5)),
     $cols: 6,
@@ -59,5 +62,10 @@
     &::part(header) {
       margin-bottom: var(--nt-space-6);
     }
+  }
+
+  // Übernimmt ab dem lg-Wechsel den größeren Pricing-Startabstand der Vorlage.
+  &[mode="desktop"] {
+    padding-block-start: calc(var(--nt-space-9) + var(--nt-space-5));
   }
 }

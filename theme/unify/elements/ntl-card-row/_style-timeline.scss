@@ -23,10 +23,11 @@
     text-align: left;
   }
 
-  // Hält die sechs Desktop-Meilensteine auf einer gemeinsamen Oberkante und überlässt ihre Breite dem Zwölfspaltenmodell.
+  // Startet auch unvollständige Meilensteinreihen an der linken Achsenkante und überlässt ihre Breite dem Zwölfspaltenmodell.
   &::part(main) {
     position: relative;
     align-items: stretch;
+    justify-content: flex-start;
   }
 
   // Verdichtet den mobilen Komponentenfluss und hält die Einleitung nah am ersten Meilenstein.

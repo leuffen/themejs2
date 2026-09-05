@@ -30,6 +30,16 @@
     overflow: visible;
   }
 
+  // Hält die Zitatbühne auch ohne optionales Porträt kompakt und ersetzt dann die funktionslose Flächenteilung.
+  &:not(:has(> [slot="aside"])) {
+    background: rgba(45, 55, 75, .1);
+
+    &::part(main) {
+      max-width: calc(var(--nt-container-max) / 2);
+      margin-inline: auto;
+    }
+  }
+
   // Erhält den Bootstrap-Gutter der Vorlage und die native 500-zu-650-Bildproportion.
   &::part(aside) {
     padding-inline: var(--nt-space-3);
@@ -87,6 +97,7 @@
     font-weight: 500;
     font-style: italic;
     line-height: 1.5;
+    overflow-wrap: anywhere;
   }
 
   // Zeichnet das blasse Doppelzitat ausschließlich als Schmuckelement hinter dem Text.
@@ -114,6 +125,7 @@
     color: var(--nt-header);
     font-size: 1rem;
     line-height: 1.5;
+    overflow-wrap: anywhere;
   }
 
   > .testimonial-role {
@@ -121,6 +133,7 @@
     color: var(--nt-text-muted);
     font-size: var(--nt-font-size-small);
     line-height: 1.25;
+    overflow-wrap: anywhere;
   }
 
   // Setzt den optionalen Handlungslink mit dem 48-Pixel-Abstand der Vorlage ab.

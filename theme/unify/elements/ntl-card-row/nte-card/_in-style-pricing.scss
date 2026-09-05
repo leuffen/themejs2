@@ -145,6 +145,7 @@
   // Richtet Hinweis und Aktion wie in der Vorlage an gegenüberliegenden Seiten aus.
   > nte-card > [slot="footer"] {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--nt-space-4);
     align-items: center;
     justify-content: space-between;
@@ -161,6 +162,7 @@
       --nt-btn-padding-x: 1.8125rem;
 
       flex: 0 0 auto;
+      max-width: 100%;
       border-width: .125rem;
       border-radius: .25rem;
       font-size: .9375rem;

@@ -210,17 +210,9 @@
       order: 1;
     }
 
-    // Reserviert den negativen Mockup-Überstand und hält das Punktraster 48 Pixel unterhalb der Fotokante sichtbar.
+    // Reserviert den negativen Mockup- und Rasterüberstand unterhalb der Fotokante.
     .feature-media:not(.dots-end) {
       padding-bottom: calc(var(--nt-space-7) + var(--nt-space-5));
-
-      img + img {
-        bottom: 0;
-      }
-
-      &::after {
-        bottom: var(--nt-space-5);
-      }
     }
 
     &.surface-secondary {

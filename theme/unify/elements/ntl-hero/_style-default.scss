@@ -1,7 +1,7 @@
 // Komponiert einen fokussierten Kampagnen-Einstieg für Produktstarts ebenso wie für Beratungsangebote.
 &.style-default {
   --bg-color: var(--nt-surface);
-  --breakpoint: sm;
+  --breakpoint: sm, lg;
   --min-height: 37.5rem;
   --max-height: none;
 
@@ -117,6 +117,21 @@
 
     .hero-copy {
       width: 100%;
+    }
+  }
+
+  // Bewahrt bis zum lg-Referenzwechsel die volle Breite für längere Überschriften und Formularbeschriftungen.
+  &[mode="tablet"] {
+    .hero-copy,
+    .hero-form {
+      width: 100%;
+    }
+  }
+
+  // Aktiviert die 65-Prozent-Formularspalte der Vorlage erst ab deren lg-Schwelle.
+  &[mode="desktop"] {
+    .hero-form {
+      width: 65%;
     }
   }
 }
