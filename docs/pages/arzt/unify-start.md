@@ -22,17 +22,17 @@ pid: site
 ![Kunde](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img3.jpg)
 ![Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img9.jpg)
 ![Kunde](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img8.jpg) **7k+**
-{: .trust-list .xl:desktop aria-label="Auswahl zufriedener Kunden" }
+{: .trust-list .sm:desktop aria-label="Auswahl zufriedener Kunden" }
 
 **Trust pilot**<br>
 Rated best over 37k reviews
-{: .trust-copy .xl:desktop }
+{: .trust-copy .sm:desktop }
 
-![Dekorative Pfeile](/assets/unify/three-arrows-2.svg){: .hero-arrows .hero-arrows-start .xl:desktop aria-hidden="true" }
-![Dekorative Pfeile](/assets/unify/three-arrows-1.svg){: .hero-arrows .hero-arrows-end .xl:desktop aria-hidden="true" }
+![Dekorative Pfeile](/assets/unify/three-arrows-2.svg){: .hero-arrows .hero-arrows-start .md:desktop aria-hidden="true" }
+![Dekorative Pfeile](/assets/unify/three-arrows-1.svg){: .hero-arrows .hero-arrows-end .md:desktop aria-hidden="true" }
 
 ---
-{: layout="4;.hero-form" .xl:desktop }
+{: layout="4;.hero-form" .sm:desktop }
 
 #[nte-input.style-default.hoverlabel type="text" name="name" label="Your name" required]
 #[nte-input.style-default.hoverlabel type="email" name="email" label="Your email" required]
@@ -53,7 +53,7 @@ Analytic dashboards, platforms, and social networks – we have strong cases in 
 
 ![Arbeitsplatz mit digitalem Produkt](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img1.jpg)
 ![Oberfläche eines Analyse-Dashboards](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img4.png)
-{: .feature-media .dots-start .dots-success .xl:desktop }
+{: .feature-media .dots-start .dots-success .lg:desktop }
 
 <!-- Nutzt dieselbe Standardvariante mit der bestehenden Surface-Utility für einen kontrastreichen 5-zu-7-Abschnitt. -->
 ## Drive maximum customer-satisfaction
@@ -70,7 +70,7 @@ Connect with your customers better by giving them an excellent post-purchase exp
 
 ![Kundin bei einer digitalen Beratung](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img2.jpg)
 ![Auswahlansicht eines digitalen Shops](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img5.png)
-{: .feature-media .dots-end .dots-warning .xl:desktop }
+{: .feature-media .dots-end .dots-warning .lg:desktop }
 
 <!-- Wiederholt das Feature-Muster im 7-zu-5-Raster mit einem editierbaren Linkangebot in der Textspalte. -->
 ## Developing all things digital for designers and agencies.
@@ -88,7 +88,7 @@ We help agencies and designers **transform concepts into digital products** that
 
 ![Designer bei der Arbeit](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img3.jpg)
 ![Komponentenübersicht eines Designsystems](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img6.png)
-{: .feature-media .dots-start .dots-neutral .xl:desktop }
+{: .feature-media .dots-start .dots-neutral .lg:desktop }
 
 <!-- Demonstriert die Timeline-Variante mit sechs austauschbaren Zeitpunkten, Titeln und Beschreibungen. -->
 ## A brief history of Unify

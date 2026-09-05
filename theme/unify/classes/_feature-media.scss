@@ -57,8 +57,16 @@
     width: 75%;
   }
 
+  // Zieht das Raster wie die Vorlage über die obere Fotokante und begrenzt den rechten Überstand am Viewport.
   &::after {
-    inset: 1rem -1.25rem auto auto;
+    inset:
+      calc(var(--nt-space-7) * -1)
+      max(
+        calc(var(--nt-space-7) * -1),
+        calc((var(--nt-space-5) + var(--nt-container-gutter)) * -1)
+      )
+      auto
+      auto;
   }
 }
 

@@ -1,6 +1,7 @@
 // Komponiert einen fokussierten Kampagnen-Einstieg für Produktstarts ebenso wie für Beratungsangebote.
 &.style-default {
   --bg-color: var(--nt-surface);
+  --breakpoint: sm;
   --min-height: 37.5rem;
   --max-height: none;
 
@@ -55,7 +56,7 @@
     max-width: 52.3125rem;
     margin: 0 auto var(--nt-space-3);
     color: var(--nt-header);
-    font-size: clamp(2.75rem, 4.5vw, 3.75rem);
+    font-size: clamp(2.1rem, calc(1.5rem + 3vw), 3.75rem);
     font-weight: var(--nt-font-weight-header);
     line-height: var(--nt-line-height-header);
     letter-spacing: normal;
@@ -112,11 +113,6 @@
     &::part(content) {
       min-height: 0;
       gap: var(--nt-space-4);
-    }
-
-    :is(h1, h2) {
-      font-size: clamp(2.1rem, calc(1.5rem + 3vw), 3.75rem);
-      line-height: var(--nt-line-height-header);
     }
 
     .hero-copy {
