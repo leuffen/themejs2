@@ -8,7 +8,7 @@
   // Nutzt das erste Bild als große fotografische Grundfläche.
   img:first-child {
     display: block;
-    width: 79%;
+    width: 75%;
     height: 27rem;
     border-radius: var(--nt-radius);
     object-fit: cover;
@@ -19,18 +19,18 @@
     position: absolute;
     right: 0;
     bottom: 5%;
-    width: 68%;
+    width: 65%;
     max-height: 74%;
     border-radius: calc(var(--nt-radius) * .75);
     object-fit: contain;
     filter: drop-shadow(0 var(--nt-space-4) var(--nt-space-6) rgba(45, 55, 75, .18));
   }
 
-  // Ergänzt das charakteristische Punktmuster ohne ein weiteres Inhaltsasset zu benötigen.
+  // Ergänzt das Punktmuster und begrenzt seinen mobilen Überstand am Container-Gutter gegen Seiten-Overflow.
   &::after {
     content: "";
     position: absolute;
-    left: -1.25rem;
+    left: max(-1.25rem, calc(var(--nt-container-gutter) * -1));
     bottom: 1rem;
     width: 5.5rem;
     height: 5.5rem;
@@ -83,14 +83,14 @@
   margin-inline: var(--nt-space-3) auto;
 
   img:first-child {
-    width: min(79%, 30.0625rem);
+    width: min(75%, 30.0625rem);
     height: clamp(30rem, 46vw, 39.0625rem);
   }
 
   img + img {
     right: var(--nt-space-6);
     bottom: calc(var(--nt-space-7) * -1.5);
-    width: min(66%, 22.625rem);
+    width: min(65%, 22.625rem);
   }
 
   // Skaliert das Punktraster auf die 10-Rem-Dekoration der Desktopvorlage.
@@ -118,7 +118,7 @@
     right: auto;
     bottom: calc(var(--nt-space-7) + var(--nt-space-5));
     left: var(--nt-space-6);
-    width: min(66%, 25.0625rem);
+    width: min(75%, 25.0625rem);
   }
 
   &::after {

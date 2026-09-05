@@ -36,4 +36,11 @@
       margin-bottom: var(--nt-space-5);
     }
   }
+
+  // Führt den Desktop-Track von der Containerkante bis zum rechten Viewportrand wie beim Referenz-Slider fort.
+  &[mode="desktop"] {
+    &::part(main) {
+      width: calc(100% + max(0px, (100vw - var(--nt-container-width)) / 2));
+    }
+  }
 }

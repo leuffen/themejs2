@@ -2,21 +2,24 @@
 .trust-copy {
   margin: var(--nt-space-2) auto 0;
   color: var(--nt-text);
-  font-size: var(--nt-font-size-small);
+  font-size: .875rem;
   line-height: 1.3;
   text-align: center;
 
   // Bewahrt die normale Textfarbe für die Bezeichnung statt der grünen Hero-Hervorhebung.
   strong {
     color: var(--nt-header);
-    font-size: .9375rem;
+    font-size: 1.125rem;
   }
 }
 
 // Positioniert den Hinweis auf Desktop rechts neben der leicht verschobenen Avatargruppe.
 .trust-copy.desktop {
-  width: 13rem;
+  box-sizing: border-box;
+  width: 14.5rem;
   margin-top: -2.35rem;
-  margin-right: calc(50% - 12.75rem);
+  margin-right: calc(50% - 14rem);
+  padding-left: var(--nt-space-6);
+  border-left: var(--nt-border-width) solid var(--nt-border);
   text-align: left;
 }

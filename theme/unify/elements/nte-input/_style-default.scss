@@ -1,9 +1,35 @@
 // Verwendet den öffentlichen Input-Mixin-Vertrag für Lead- und Kontaktformulare.
+@use "sass:map";
 @use "@nextrap/nte-input" as nteInput;
+
+// Leitet die rahmenlose Control-Geometrie der Unify-Input-Card aus der öffentlichen Bootstrap-Theme-Map ab.
+$unify-input-theme: map.merge(
+  nteInput.$themeBootstrap,
+  (
+    gap: 0,
+    control-min-height: 3.25rem,
+    control-padding-x: 1rem,
+    control-padding-y: .75rem,
+    label-color: var(--nt-text-muted),
+    label-font-size: .875em,
+    label-font-weight: 400,
+    control-background: var(--nt-surface-raised),
+    border-color: transparent,
+    border-color-focus: transparent,
+    border-radius: 0,
+    control-border-top-width: 0,
+    control-border-right-width: 0,
+    control-border-bottom-width: 0,
+    control-border-left-width: 0,
+    control-focus-border-bottom-width: 0,
+    control-focus-shadow: inset 0 -2px 0 var(--nt-primary),
+    hoverlabel-background: var(--nt-surface-raised),
+  )
+);
 
 // Erzeugt helle, kompakte Felder mit optional schwebenden Labels für verschiedene Formkontexte.
 &.style-default {
-  @include nteInput.default-style();
+  @include nteInput.default-style($unify-input-theme);
 
   // Aktiviert schwebende Labels nur bei expliziter Autorenwahl.
   &.hoverlabel {

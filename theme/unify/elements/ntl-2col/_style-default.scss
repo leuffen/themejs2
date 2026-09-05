@@ -19,6 +19,11 @@
     align-items: center;
   }
 
+  // Öffnet die Feature-Bühne gezielt für überlagerte Mockups und Punktraster außerhalb der Bildkante.
+  &:has(.feature-media)::part(wrapper) {
+    overflow: visible;
+  }
+
   // Bildet die asymmetrischen Bootstrap-Gutter der Referenz innerhalb der Textspalte nach.
   &::part(main) {
     max-width: none;
@@ -117,9 +122,11 @@
   // Verwendet die vorhandene Surface-Utility als dunkle Ausprägung derselben Feature-Struktur.
   &.surface-secondary {
     box-sizing: border-box;
+
+    // Übernimmt den beidseitigen 72-Pixel-Überstand der 1140-Pixel-Referenzbühne, bleibt aber im Viewport-Gutter.
     width: min(
       calc(100% - (var(--nt-container-gutter) * 2)),
-      calc(var(--nt-container-max) + (var(--nt-space-7) * 2) + (var(--nt-space-3) * 2))
+      calc(var(--nt-container-max) + (var(--nt-space-7) * 3))
     );
     margin-inline: auto;
     padding: calc(var(--nt-space-7) + var(--nt-space-5));
@@ -164,8 +171,8 @@
       order: 1;
     }
 
-    // Entspricht der mobilen 26-Pixel-Hierarchie der Vorlage, ohne andere Standard-2Col-Instanzen zu verändern.
-    &:has(.feature-links) :is(h2, h3) {
+    // Entspricht in allen drei Feature-Ausprägungen der mobilen 26-Pixel-Hierarchie der Vorlage.
+    &:has(.feature-media) :is(h2, h3) {
       font-size: 1.625rem;
     }
 

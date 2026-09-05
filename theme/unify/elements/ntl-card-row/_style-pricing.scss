@@ -3,6 +3,9 @@
 
 // Zentriert maximal zwei vergleichbare Angebote und erlaubt einer Karte eine hervorgehobene Oberfläche.
 &.style-pricing {
+  // Wechselt wie die Referenz bereits am lg-Übergang von gestapelten zu zwei Karten.
+  --breakpoint: lg;
+
   @include cardRow.default-style(
     $container-width: calc(var(--nt-container-width) - var(--nt-space-5)),
     $cols: 6,
@@ -20,9 +23,31 @@
     text-align: center;
   }
 
+  // Begrenzt die Pricing-Überschrift auf die eigenständige H2-Skala der Vorlage.
+  > h2[slot="header"] {
+    margin: 0;
+    font-size: clamp(1.5rem, calc(1.35rem + 1.2vw), 2.25rem);
+    line-height: 1.3;
+  }
+
   // Hält beide Pakete trotz unterschiedlicher Leistungslisten auf derselben Grundhöhe.
   &::part(main) {
     align-items: stretch;
+  }
+
+  // Setzt den nachgelagerten Preis- und Steuerhinweis wie in der Vorlage unter beide Karten.
+  &::part(footer) {
+    margin-top: var(--nt-space-6);
+    color: var(--nt-text-muted);
+    font-size: .875rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  // Entfernt Autoren-Margins am echten Row-Footer, damit allein der Part den Abstand steuert.
+  > footer[slot="footer"],
+  > footer[slot="footer"] > :last-child {
+    margin-bottom: 0;
   }
 
   // Stapelt die Pakete mobil und behält ausreichend Abstand zwischen den Karten.
@@ -32,7 +57,7 @@
 
     // Strafft die Einleitung, damit die erste Karte im schmalen Viewport früh sichtbar wird.
     &::part(header) {
-      margin-bottom: var(--nt-space-7);
+      margin-bottom: var(--nt-space-6);
     }
   }
 }

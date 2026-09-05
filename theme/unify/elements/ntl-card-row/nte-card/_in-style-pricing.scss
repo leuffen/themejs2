@@ -15,6 +15,7 @@
     align-self: stretch;
     height: 100%;
     color: var(--nt-text);
+    overflow-wrap: anywhere;
 
     // Hält den Inhalt auf gleicher Höhe, ohne die nicht hervorgehobene Karte künstlich anzuheben.
     &::part(wrapper) {
@@ -24,18 +25,19 @@
       box-shadow: none;
     }
 
-    // Ordnet Titel, Beschreibung, Preis und Leistungen in der Hierarchie der Vorlage.
+    // Ordnet Titel, Beschreibung, Preis und Leistungen ohne zusätzliche globale Flex-Gaps.
     &::part(content) {
       display: flex;
       flex: 1 1 auto;
       flex-direction: column;
-      gap: var(--nt-space-4);
+      gap: 0;
     }
 
-    // Trennt die Aktionszeile vom Karteninhalt, hält sie aber an der gemeinsamen Unterkante.
+    // Trennt die Aktionszeile dezent vom Karteninhalt und hält sie an der gemeinsamen Unterkante.
     &::part(footer) {
       margin-top: auto;
       padding-top: 0;
+      border-top: var(--nt-border-width) solid var(--nt-border);
     }
 
     // Kennzeichnet den Tarifnamen oberhalb des Preises wie in der Vorlage.
@@ -47,16 +49,16 @@
       line-height: 1.3;
     }
 
-    // Entfernt den globalen Absatzabstand, damit die Flex-Gaps den Kartenrhythmus allein bestimmen.
+    // Gibt der Kurzbeschreibung exakt den Abstand vor dem Preisblock der Vorlage.
     > p:not(.pricing-label, [slot="footer"]) {
-      margin: 0;
+      margin: 0 0 var(--nt-space-4);
     }
 
     // Stellt den Preis als stärkste Information innerhalb der Karte dar.
     > h4 {
-      margin: 0;
+      margin: 0 0 var(--nt-space-6);
       color: var(--nt-header);
-      font-size: clamp(2.75rem, 5vw, 3.75rem);
+      font-size: clamp(var(--nt-space-6), calc(var(--nt-space-5) + 3vw), 3.75rem);
       font-weight: var(--nt-font-weight-header);
       line-height: 1;
 
@@ -74,7 +76,7 @@
     ul {
       display: grid;
       gap: var(--nt-space-3) var(--nt-space-5);
-      margin: var(--nt-space-2) 0 0;
+      margin: 0 0 var(--nt-space-2);
       padding: 0;
       list-style: none;
     }
@@ -91,15 +93,15 @@
     li::before {
       content: "✓";
       position: absolute;
-      top: .25rem;
+      top: .125rem;
       left: 0;
       display: grid;
-      width: 1rem;
-      height: 1rem;
+      width: calc(var(--nt-space-4) + var(--nt-space-1));
+      height: calc(var(--nt-space-4) + var(--nt-space-1));
       place-items: center;
       border-radius: 50%;
       color: var(--nt-accent);
-      background: color-mix(in srgb, var(--nt-accent) 14%, white);
+      background: color-mix(in srgb, var(--nt-accent) 10%, white);
       font-size: .625rem;
       font-weight: 700;
       line-height: 1;
@@ -135,8 +137,8 @@
       color: #fff;
       background: var(--nt-secondary);
       font-size: .75rem;
-      font-weight: 600;
-      line-height: 1;
+      font-weight: 500;
+      line-height: normal;
     }
   }
 
@@ -150,19 +152,35 @@
 
     small {
       color: var(--nt-text-muted);
-      font-size: var(--nt-font-size-small);
+      font-size: .875rem;
       line-height: 1.5;
     }
 
     .btn {
+      --nt-btn-padding-y: .75rem;
+      --nt-btn-padding-x: 1.8125rem;
+
       flex: 0 0 auto;
+      border-radius: .25rem;
+      font-size: .9375rem;
+      line-height: 1.5;
+    }
+
+    // Bildet den dezenten weißen Sekundärbutton der nicht hervorgehobenen Karte ab.
+    .btn-light {
+      --btn-bg: var(--nt-surface-raised) !important;
+      --btn-bg-hover: var(--nt-surface-muted) !important;
+      --btn-bg-active: var(--nt-surface-muted) !important;
+      --btn-txt: var(--nt-header) !important;
+
+      border-color: var(--nt-border) !important;
     }
   }
 
   // Strafft Karten und Aktionszeile im mobilen Modus, ohne Texte oder Buttons abzuschneiden.
   &[mode="mobile"] {
     > nte-card {
-      --inner-padding: var(--nt-space-6);
+      --inner-padding: calc(var(--nt-space-6) - var(--nt-space-1));
       min-width: 0;
 
       > [slot="footer"] {

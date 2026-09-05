@@ -187,6 +187,8 @@ Director Payments & Risk \| Airbnb
 ## Für Einzelpersonen, Agenturen und Teams
 {: layout="ntl-card-row.style-pricing" section-style="--cols: 6;" }
 
+<footer class="pricing-note">Prices in USD. Taxes may apply.</footer>
+
 ### Professional
 
 Alles, was kleine Teams für den Einstieg brauchen.
