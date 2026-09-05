@@ -24,10 +24,11 @@ Lies zuerst den repository-eigenen Skill `../modify-theme/SKILL.md` vollständig
 1. Lies [Referenz erfassen und zerlegen](references/referenzanalyse.md), bevor du Markup oder Styles planst.
 2. Erstelle eine Section-Matrix aus Referenz, passendem NTL/NTE-Seaming, benötigter Variante, Content-Pane-Markup und Desktop-/Mobil-Verhalten.
 3. Lies [Implementierung und Content-Vertrag](references/implementierung.md), bevor du Dateien anlegst oder Komponenten stylst.
-4. Implementiere zuerst Theme-Tokens und Content Flow, dann Section für Section. Eine strukturell falsche Section darf nicht durch Pixel-Tuning kaschiert werden.
-5. Prüfe jede Section in drei Durchläufen nach [Visuelle Iteration](references/visuelle-iteration.md). Halte nach jedem Durchlauf Desktop-Auswirkung, Mobil-Auswirkung und verbleibenden Änderungsbedarf fest.
-6. Falls eine gemeinsame API fehlt, lies und befolge [Upstream-Vorversionen](references/upstream-vorversionen.md), bevor du einen lokalen Override oder einen Upstream-PR erstellst.
-7. Kompiliere das vollständige Theme, prüfe den tatsächlichen Diff und kontrolliere die PR-Dateiliste. Generierte Dateien werden nur aufgenommen, wenn Repository-Regeln und aktueller Auftrag dies verlangen; eine ausdrückliche Ausschlussanweisung wie `docs/assets/dist/**` hat Vorrang.
+4. Wenn mindestens zwei unabhängige Section-Styles abzugleichen sind und Subagenten verfügbar sowie autorisiert sind, lies [Multi-Agenten-Abgleich](references/multi-agenten.md) und delegiere pro Section-Style einen abgegrenzten Spezialauftrag. Bleibe bei einer einzelnen Section oder stark gekoppelten Dateien in einem Arbeitsstrang.
+5. Implementiere zuerst Theme-Tokens und Content Flow, dann Section für Section. Eine strukturell falsche Section darf nicht durch Pixel-Tuning kaschiert werden.
+6. Prüfe jede Section in drei Durchläufen nach [Visuelle Iteration](references/visuelle-iteration.md). Halte nach jedem Durchlauf Desktop-Auswirkung, Mobil-Auswirkung und verbleibenden Änderungsbedarf fest.
+7. Falls eine gemeinsame API fehlt, lies und befolge [Upstream-Vorversionen](references/upstream-vorversionen.md), bevor du einen lokalen Override oder einen Upstream-PR erstellst.
+8. Kompiliere das vollständige Theme, prüfe den tatsächlichen Diff und kontrolliere die PR-Dateiliste. Generierte Dateien werden nur aufgenommen, wenn Repository-Regeln und aktueller Auftrag dies verlangen; eine ausdrückliche Ausschlussanweisung wie `docs/assets/dist/**` hat Vorrang.
 
 ## Qualitätsziel
 
