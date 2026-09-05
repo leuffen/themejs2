@@ -129,7 +129,7 @@ this year alone
 ## For people and companies who have a story to tell
 {: layout="ntl-2col.style-feature-grid" section-style="--cols: 5;" }
 
-Unify gives founders and teams the tools to present their work clearly, creatively, and quickly.
+<img class="feature-plane" src="https://static.leanea.de/uni-v3.0-docs/assets/svg/illustrations/plane.svg" alt="" aria-hidden="true">
 
 - ◎ **Built for you**<br>Telling your story in the best way possible.
 - ◌ **Built with creativity**<br>We embrace and drive change in our industry.
