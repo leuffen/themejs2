@@ -1,0 +1,68 @@
+// Verleiht Erfahrungsberichten eine kompakte Medienkarte mit Portrait und Quellenangabe.
+@use "@nextrap/nte-card" as card;
+
+// Bindet Schatten, Portrait und Zitatlayout ausschließlich an die Testimonial-Liste.
+&.style-testimonial-list {
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-space-5),
+      $border: 0,
+      $background-color: var(--nt-surface-raised),
+      $border-radius: var(--nt-radius),
+      $image-aspect-ratio: 1
+    );
+
+    height: 100%;
+    color: var(--nt-text);
+
+    // Hebt die Karten von der vertikalen Timeline-Fläche ab.
+    &::part(wrapper) {
+      height: 100%;
+      box-shadow: 0 var(--nt-space-4) 1.75rem rgba(45, 55, 75, .1);
+    }
+
+    // Begrenzt Portraits auf eine einheitliche, kreisförmige Avatarrolle.
+    &::part(image) {
+      width: 4rem;
+      height: 4rem;
+      margin: var(--nt-space-5) 0 0 var(--nt-space-5);
+      overflow: hidden;
+      border-radius: 50%;
+    }
+
+    // Bewahrt das Zitat als führenden, gut umbrechenden Karteninhalt.
+    blockquote {
+      margin: 0;
+      color: var(--nt-header);
+      font-size: 1.125rem;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    // Trennt die Quellenrolle als sekundäre Information vom eigentlichen Zitat.
+    blockquote + p,
+    > p:last-child {
+      margin-bottom: 0;
+      color: var(--nt-text-muted);
+      font-size: .875rem;
+    }
+  }
+
+  // Versetzt jede zweite Desktop-Karte an die gegenüberliegende Containerkante.
+  &[mode="desktop"] > nte-card:nth-of-type(even) {
+    margin-inline-start: auto;
+  }
+
+  // Sichert Zitat, Name und Rolle bei 320 Pixeln gegen horizontales Überlaufen ab.
+  &[mode="mobile"] > nte-card {
+    min-width: 0;
+
+    &::part(wrapper),
+    &::part(content),
+    blockquote,
+    p {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+}

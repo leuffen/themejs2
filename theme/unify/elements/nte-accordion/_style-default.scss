@@ -1,0 +1,62 @@
+// Nutzt die offizielle Accordion-Baseline für FAQ-, Hilfe- und erklärende Detailgruppen.
+@use "@nextrap/nte-accordion" as accordion;
+
+// Ergänzt nur Theme-Farbe und Abstände, während Öffnungszustand und Marker beim Package bleiben.
+&.style-default {
+  @include accordion.default-style(
+    $item-gap: 0px,
+    $border: 0,
+    $border-radius: 0,
+    $summary-padding: clamp(var(--nt-space-4), 4vw, var(--nt-space-5)) clamp(calc(var(--nt-space-4) + var(--nt-space-1)), 5vw, var(--nt-space-6)),
+    $content-padding: 0 clamp(calc(var(--nt-space-4) + var(--nt-space-1)), 5vw, var(--nt-space-6)) clamp(var(--nt-space-4), 4vw, var(--nt-space-5)) calc(var(--nt-space-6) + var(--nt-space-5) + var(--nt-space-3)),
+    $summary-background: transparent,
+    $summary-background-hover: transparent,
+    $summary-color: var(--nt-header),
+    $content-background: var(--nt-surface-muted),
+    $marker-size: 1.25rem,
+    $marker-color: var(--nt-header),
+    $focus-outline: 2px solid var(--nt-focus)
+  );
+
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  color: var(--nt-text);
+
+  // Hält Plus-/Minus-Marker und Fragetitel im 16-Pixel-Abstand der Referenz und vergrößert damit zugleich die lesbare Klickfläche.
+  nte-accordion-item::part(summary) {
+    gap: var(--nt-space-4);
+  }
+
+  // Hält lange Antworten und ungetrennte URLs innerhalb der geöffneten Fläche, ohne normale Textumbrüche zu verändern.
+  nte-accordion-item::part(content) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  // Übernimmt die kompakte Hierarchie der Referenz und hält lange Fragen innerhalb der verfügbaren Spalte.
+  nte-accordion-item > [slot="title"] {
+    min-width: 0;
+    color: var(--nt-header);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  // Verhindert, dass der letzte Markdown-Absatz die definierte untere Innenkante des geöffneten Inhalts verdoppelt.
+  nte-accordion-item > :last-child:not([slot="title"]) {
+    margin-bottom: 0;
+  }
+
+  // Hebt den geöffneten Eintrag als zusammenhängende helle Fläche mit kräftigerem Fragetitel hervor.
+  nte-accordion-item[open]::part(summary) {
+    color: var(--nt-header);
+    background: var(--nt-surface-muted);
+  }
+
+  nte-accordion-item[open] > [slot="title"] {
+    font-weight: var(--nt-font-weight-bold);
+  }
+}

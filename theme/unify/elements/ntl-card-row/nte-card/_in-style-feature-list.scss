@@ -1,0 +1,76 @@
+// Übersetzt editierbare Icons, Überschriften und Texte in flache Feature-Zellen ohne dekorativen Kartenrahmen.
+@use "@nextrap/nte-card" as card;
+
+// Bindet die reduzierte Inhaltsdarstellung ausschließlich an die Feature-List-Komposition.
+&.style-feature-list {
+  // Nutzt die öffentliche Card-Baseline, während der Innenabstand den Rhythmus zwischen den Separatoren erzeugt.
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-space-6),
+      $border: 0,
+      $background-color: transparent,
+      $border-radius: 0
+    );
+
+    min-width: 0;
+    height: 100%;
+    color: var(--nt-text);
+
+    // Bewahrt gleiche Zellenhöhen auch bei unterschiedlich langen redaktionellen Texten.
+    &::part(wrapper) {
+      height: 100%;
+    }
+
+    // Ordnet Icon, Titel und Beschreibung in einer stabilen, aber inhaltsoffenen Leserichtung an.
+    &::part(content) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--nt-space-3);
+    }
+
+    // Hebt jedes im Inhalt gepflegte Icon über Farbe und Schriftmaß hervor, ohne ein Motiv vorzuschreiben.
+    > :is(.feature-icon, i[class^="bi-"], i[class*=" bi-"]),
+    > :is(h2, h3, h4, h5, h6) .feature-icon {
+      display: block;
+      margin: 0;
+      color: var(--nt-primary);
+      font-size: var(--nt-fs-h3);
+      line-height: 1;
+    }
+
+    // Trennt ein Icon innerhalb der Überschrift optisch vom editierbaren Titeltext.
+    > :is(h2, h3, h4, h5, h6) .feature-icon {
+      margin-bottom: var(--nt-space-3);
+    }
+
+    // Behandelt ein redaktionell gepflegtes Bild im Bild-Slot als alternatives Feature-Icon.
+    > [slot="image"] {
+      margin: var(--nt-space-6) var(--nt-space-6) 0;
+      color: var(--nt-primary);
+    }
+
+    // Gibt Überschriften innerhalb der Zelle eine klare, theme-konforme Inhaltsrolle.
+    > :is(h2, h3, h4, h5, h6) {
+      margin: 0;
+      color: var(--nt-header);
+      font-size: var(--nt-fs-h5);
+      font-weight: var(--nt-font-weight-header);
+      line-height: var(--nt-line-height-header);
+      overflow-wrap: anywhere;
+    }
+
+    // Hält Beschreibungen kompakt und schützt frei editierbare Inhalte vor horizontalem Überlauf.
+    > p:not([slot="image"]) {
+      min-width: 0;
+      margin: 0;
+      line-height: var(--nt-line-height-base);
+      overflow-wrap: anywhere;
+    }
+  }
+
+  // Strafft ausschließlich im mobilen Komponentenmodus den Zellabstand des einspaltigen Stacks.
+  &[mode="mobile"] > nte-card {
+    --inner-padding: var(--nt-space-5);
+  }
+}

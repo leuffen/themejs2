@@ -1,0 +1,52 @@
+// Stellt Kennzahlen als flaches, gleichwertiges Raster ohne dekorative Kartenrahmen dar.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Überlässt die Spaltenbreite dem Seiten-Markup und definiert nur Rhythmus und Ausrichtung.
+&.style-metrics {
+  --breakpoint: sm, md;
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $gap: var(--nt-space-6),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+  @include cardRow.with-item-separators($separator-color: var(--nt-border));
+
+  // Hält Kennzahlen an einer gemeinsamen Oberkante und lässt variable Beschreibungen wachsen.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Hält die technisch erforderliche Row-Überschrift für Hilfstechnologien verfügbar, ohne Layoutfläche zu belegen.
+  &::part(header) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  // Unterdrückt den vom Mixin vorbereiteten Zeilentrenner im mobilen Kennzahlen-Stack.
+  &[mode="mobile"] > nte-card::after {
+    display: none;
+  }
+
+  // Verbindet Kennzahlen opt-in mit einer vorausgehenden dunklen Vertrauensbühne der Services-Vorlage.
+  &.surface-secondary {
+    padding-block-start: 0;
+    color: rgba(255, 255, 255, .72);
+    background: var(--nt-secondary);
+
+    // Die dunkle Bühne gliedert über Abstand und benötigt keine hellen Kartentrenner.
+    > nte-card::after {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+// Gibt direkten Layout-Kindern den Theme-Rhythmus, ohne verschachtelte NTL-Kompositionen doppelt zu beabstanden.
+& {
+  display: block;
+
+  // Verteilt den Standardabstand auf die vom Theme verwendeten Seitenabschnitte.
+  > :where(ntl-2col, ntl-card-row) {
+    margin-block: 0;
+    padding-block: var(--nt-spacing-section);
+  }
+
+  // Verhindert bei der dunklen Feature-Bühne einen zusätzlichen Außenabstand innerhalb ihrer eigenen Fläche.
+  > ntl-2col.surface-secondary {
+    margin-block: var(--nt-spacing-section);
+    padding-block: clamp(var(--nt-space-7), 6vw, 5rem);
+  }
+
+  // Reduziert ausschließlich den wiederverwendbaren Übergang von Pricing zu FAQ auf den Originalabstand.
+  > ntl-card-row.style-pricing[mode="mobile"]
+    + ntl-2col:has(nte-accordion.style-default) {
+    padding-block-start: max(
+      0px,
+      calc(var(--nt-space-8) + var(--nt-space-4) - var(--nt-spacing-section))
+    );
+  }
+
+  // Ergänzt oberhalb des lg-Wechsels zusammen mit dem Pricing-Endraum exakt 120 Pixel.
+  > ntl-card-row.style-pricing[mode="desktop"]
+    + ntl-2col:has(nte-accordion.style-default) {
+    padding-block-start: max(
+      0px,
+      calc(
+        var(--nt-space-8)
+        + var(--nt-space-7)
+        + var(--nt-space-2)
+        - var(--nt-spacing-section)
+      )
+    );
+  }
+
+  // Lässt den Hero am oberen Seitenrand beginnen und über seine eigene Variante dimensionieren.
+  > ntl-hero {
+    margin-block: 0;
+    padding-block: 0;
+  }
+}

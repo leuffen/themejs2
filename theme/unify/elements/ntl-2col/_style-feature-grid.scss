@@ -1,0 +1,114 @@
+// Verbindet eine redaktionelle Einleitung mit einem editierbaren Raster kompakter Nutzenkarten.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Nutzt Main für die Einleitung und Aside für das semantische Feature-Listenraster.
+&.style-feature-grid {
+  --breakpoint: sm, lg;
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-space-7),
+    $background: transparent,
+    $border: 0,
+    $border-radius: var(--nt-radius),
+    $objectFit: cover,
+    $wrapper-bg-color: var(--nt-surface-muted)
+  );
+
+  // Öffnet eine weiche Bühnenfläche für Einleitung und Nutzenkarten.
+  &::part(wrapper) {
+    padding: clamp(var(--nt-space-7), 7vw, var(--nt-space-8));
+    border-radius: var(--nt-radius);
+  }
+
+  // Hält die Einleitung an der unteren Bühnenkante wie in der Desktop-Referenz.
+  &::part(main) {
+    align-self: end;
+    min-width: 0;
+    padding-right: var(--nt-space-5);
+  }
+
+  // Entfernt zusätzlichen Aside-Innenraum, weil das Listenraster seine Karten selbst trägt.
+  &::part(aside) {
+    min-width: 0;
+    padding: 0;
+  }
+
+  // Übersetzt eine normale Markdown-Liste in ein zweispaltiges Kartenraster.
+  .feature-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--nt-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Gibt jeder Nutzenkarte eine stabile Oberfläche für unterschiedliche Textlängen.
+  .feature-card-grid li {
+    min-height: 10rem;
+    min-width: 0;
+    padding: var(--nt-space-5);
+    border-radius: calc(var(--nt-radius) * .75);
+    background: var(--nt-surface-raised);
+    box-shadow: 0 var(--nt-space-3) var(--nt-space-7) rgba(45, 55, 75, .08);
+  }
+
+  // Hebt das Iconzeichen und den Titel als gemeinsame Kartenüberschrift hervor.
+  .feature-card-grid strong {
+    display: inline-block;
+    margin: var(--nt-space-3) 0 var(--nt-space-2);
+    color: var(--nt-header);
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+
+  // Verhindert, dass lange Feature-Bezeichnungen oder URLs die Kartenbreite sprengen.
+  .feature-card-grid li,
+  .feature-card-grid a {
+    overflow-wrap: anywhere;
+  }
+
+  // Behandelt die optionale Illustration als normalen Autoreninhalt und blendet sie unterhalb von Desktop aus.
+  > .feature-plane {
+    display: none;
+    width: min(15rem, 100%);
+    height: auto;
+    margin: var(--nt-space-7) auto 0;
+    object-fit: contain;
+  }
+
+  // Stapelt Bühne und Karten auf kleinen Ansichten ohne horizontalen Dokument-Overflow.
+  &[mode="mobile"],
+  &[mode="tablet"] {
+    --cols: 12;
+
+    .feature-card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Entfernt auf sehr schmalen Ansichten übermäßigen Bühnenraum und sichert lange Begriffe ab.
+  &[mode="mobile"] {
+    &::part(wrapper) {
+      padding: var(--nt-space-5);
+    }
+
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    .feature-card-grid li {
+      min-height: 0;
+      padding: var(--nt-space-4);
+      overflow-wrap: anywhere;
+    }
+  }
+
+  // Zeigt die dekorative Illustration nur in der großzügigen Desktop-Geometrie der Referenz.
+  &[mode="desktop"] {
+    > .feature-plane {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+// Ordnet Kunden- und Partnerlogos als leicht erfassbare Vertrauensfläche an.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Verwendet Header und Bottom für eine vollbreite, semantisch klare Logo-Cloud.
+&.style-logo-cloud {
+  --breakpoint: sm, md;
+
+  padding-block: var(--nt-spacing-section);
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: 0px,
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: contain
+  );
+
+  // Zentriert die Vertrauensbotschaft oberhalb der Logos.
+  &::part(header) {
+    max-width: 50rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  // Unterdrückt den unbenutzten Zweispaltenbereich dieser Header-/Bottom-Komposition.
+  &::part(wrapper) {
+    display: none;
+  }
+
+  // Formt eine normale Markdown-Liste als flexibles Sechs-Spalten-Raster.
+  .logo-cloud {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--nt-space-6) var(--nt-space-4);
+    align-items: center;
+    margin: var(--nt-space-8) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Hält unterschiedliche Markenformate in einer gemeinsamen optischen Box.
+  .logo-cloud img {
+    display: block;
+    width: min(100%, 6rem);
+    height: 2.5rem;
+    margin-inline: auto;
+    object-fit: contain;
+    opacity: .72;
+    filter: grayscale(1);
+    transition: opacity .2s ease, filter .2s ease;
+  }
+
+  // Erhöht die Erkennbarkeit bei Interaktion, ohne Markenfarben als Theme-Tokens zu übernehmen.
+  .logo-cloud a:is(:hover, :focus-visible) img {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+
+  // Erweitert die neutrale Logo-Liste opt-in zu beschrifteten Integrationskacheln.
+  .logo-cloud.with-labels li {
+    display: flex;
+    min-width: 0;
+    min-height: 8rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nt-space-3);
+    padding: var(--nt-space-4);
+    border: var(--nt-border-width) solid var(--nt-border);
+    border-radius: var(--nt-border-radius-xl);
+    background: var(--nt-surface-raised);
+    color: var(--nt-text);
+    text-align: center;
+  }
+
+  // Bewahrt Markenfarben und hält Icon sowie Beschriftung auch bei langen Namen stabil.
+  .logo-cloud.with-labels img {
+    width: 3rem;
+    height: 3rem;
+    margin: 0;
+    opacity: 1;
+    filter: none;
+  }
+
+  .logo-cloud.with-labels strong {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  // Macht den optionalen Integrations-CTA unterhalb des Rasters sichtbar und zentriert ihn.
+  &:has(.logo-cloud.with-labels)::part(footer) {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--nt-space-6);
+    text-align: center;
+  }
+
+  // Verdichtet die Logo-Cloud auf schmalen Ansichten zu drei gut lesbaren Spalten.
+  &[mode="mobile"] {
+    padding-block: var(--nt-space-7);
+
+    .logo-cloud {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--nt-space-5) var(--nt-space-2);
+      margin-top: var(--nt-space-6);
+    }
+
+    .logo-cloud img {
+      width: min(100%, 4.5rem);
+      height: 2rem;
+    }
+
+    // Verdichtet die beschrifteten Kacheln, ohne das allgemeine Drei-Spalten-Raster zu verändern.
+    .logo-cloud.with-labels li {
+      min-height: 6.5rem;
+      gap: var(--nt-space-2);
+      padding: var(--nt-space-3);
+    }
+
+    .logo-cloud.with-labels img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  // Übernimmt im mittleren Komponentenmodus die vier Spalten der Referenz.
+  &[mode="tablet"] {
+    .logo-cloud {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}

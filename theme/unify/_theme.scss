@@ -1,0 +1,83 @@
+// Bündelt die Sass-Abhängigkeiten, die Tokens, Basiselemente und Komponentenvarianten des Themes erzeugen.
+@use "sass:meta";
+@use "./../../font/_vendor/font-ubuntu";
+@use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-reset" as nextrapReset;
+@use "@nextrap/style-utils" as nextrapUtils;
+@use "@nextrap/style-typography" as nextrapTypography;
+@use "@nextrap/style-elements" as nextrapElements;
+@use "@nextrap/style-button" as nextrapButton;
+
+// Rendert das Theme in den vom Verbraucher gesetzten Scope und hält alle Regeln in der gemeinsamen Layer-Reihenfolge.
+@mixin theme() {
+  // Normalisiert Browser-Stile, wenn das Theme außerhalb der Dokumentationsseite allein verwendet wird.
+  @layer reset {
+    @include nextrapReset.reset();
+  }
+
+  // Materialisiert den Runtime-Tokenbaum und überschreibt ihn anschließend mit der Unify-Palette.
+  @layer themes.tokens {
+    @include nextrapBase.runtime-theme-scoped();
+    @include meta.load-css("./_runtime-settings.scss");
+  }
+
+  // Setzt die lesbare Grundtypografie und die helle Seitenfläche für alle Theme-Inhalte.
+  @layer themes.base {
+    font-family: var(--nt-font-family);
+    color: var(--nt-text);
+    line-height: var(--nt-line-height);
+    background: var(--nt-surface);
+  }
+
+  // Erzeugt die gemeinsame Überschriften- und Fließtext-Hierarchie aus den Runtime-Tokens.
+  @layer themes.typography {
+    @include nextrapTypography.style-typography();
+  }
+
+  // Aktiviert die semantischen HTML-Grundelemente ohne seitenbezogene Selektoren einzuführen.
+  @layer themes.elements {
+    @include nextrapElements.style-elements();
+  }
+
+  // Lädt dokumentierte Komponentenvarianten samt freigegebener Upstream-Vorversion und stärkt Buttons gegenüber Fließtext.
+  @layer themes.components {
+    @include nextrapButton.style-button();
+
+    // Hebt Handlungslinks typografisch hervor, ohne neue Button-Varianten einzuführen.
+    .btn {
+      font-weight: 600;
+    }
+
+    @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
+    @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+    @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+    @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+    // Lädt die isolierte Vorversion der in nextrap-monorepo PR #179 vorgeschlagenen Card-Row-Funktion.
+    @include meta.load-css("./upstream-proposal/_ntl-card-row-horizontal-flow.scss");
+    @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
+    @include meta.load-css("./elements/nte-input/nte-input.scss");
+    @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
+    @include meta.load-css("./elements/nte-nav/nte-nav.scss");
+  }
+
+  // Lädt wiederverwendbare Markdown-Muster für die aufwendigeren Bild- und Hero-Kompositionen.
+  @layer themes.patterns {
+    @include meta.load-css("./../../src/features/_data-kicker.scss");
+    @include meta.load-css("./classes/_hero-form.scss");
+    @include meta.load-css("./classes/_hero-arrows.scss");
+    @include meta.load-css("./classes/_trust-list.scss");
+    @include meta.load-css("./classes/_trust-copy.scss");
+    @include meta.load-css("./classes/_feature-media.scss");
+    @include meta.load-css("./classes/_site-footer.scss");
+  }
+
+  // Stellt die bestehenden Utility-Klassen als letzte Theme-Schicht vor Website-Anpassungen bereit.
+  @layer themes.utilities {
+    @include nextrapUtils.style-utils();
+  }
+
+  // Gibt Verbrauchern einen bewusst höherrangigen, aber weiterhin gekapselten Erweiterungspunkt.
+  @layer website {
+    @content;
+  }
+}

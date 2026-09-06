@@ -1,0 +1,36 @@
+// Ordnet Werkzeuge, Integrationen und bildgestützte Angebote als ruhige, wiederverwendbare Übersicht an.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Nutzt das vorhandene Zwölfspaltenmodell für vier gleichwertige Galeriekarten pro Desktop-Zeile.
+&.style-tool-gallery {
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 3,
+    $gap: var(--nt-space-5),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Begrenzt die Einleitung auf eine gut lesbare Zeilenlänge und führt mittig in die Auswahl.
+  &::part(header) {
+    max-width: 44rem;
+    margin: 0 auto var(--nt-space-8);
+    text-align: center;
+  }
+
+  // Streckt alle Einträge auf eine gemeinsame Zeilenhöhe, auch wenn ihre Texte unterschiedlich lang sind.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Stapelt Karten auf schmalen Ansichten über die volle verfügbare Breite.
+  &[mode="mobile"] {
+    --gutter-y: var(--nt-space-5);
+
+    &::part(header) {
+      margin-bottom: var(--nt-space-6);
+    }
+  }
+}

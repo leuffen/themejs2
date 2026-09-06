@@ -1,0 +1,28 @@
+// Positioniert kopierte Pfeilgrafiken als rein dekorative Rahmung des Hero-Inhalts.
+.hero-arrows {
+  display: none;
+}
+
+// Aktiviert die großzügige Pfeilrahmung nur im vom Responsive-System gesetzten Desktop-Zustand.
+.hero-arrows.desktop {
+  position: absolute;
+  top: 50%;
+  z-index: 0;
+  display: block;
+  height: auto;
+  pointer-events: none;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+// Verankert die kompaktere erste Pfeilgruppe mit dem Originalversatz links außerhalb des Containers.
+.hero-arrows-start {
+  left: -10rem;
+  width: 14rem;
+}
+
+// Setzt die breitere zweite Pfeilgruppe mit dem Originalversatz rechts außerhalb des Containers.
+.hero-arrows-end {
+  right: -10rem;
+  width: 17rem;
+}

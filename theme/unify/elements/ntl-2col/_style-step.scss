@@ -1,0 +1,176 @@
+// Bildet wiederverwendbare Lern-, Prozess- und Onboarding-Schritte mit Text und Media ab.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Bewahrt die dokumentierte Main-/Aside-Komposition und ergänzt nur die visuelle Schrittbühne.
+&.style-step {
+  --breakpoint: sm, lg;
+
+  padding-block: var(--nt-space-7);
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-space-7),
+    $background: transparent,
+    $border: 0,
+    $border-radius: var(--nt-radius),
+    $objectFit: contain,
+    $wrapper-bg-color: transparent
+  );
+
+  position: relative;
+  isolation: isolate;
+
+  // Bildet die 65-Prozent-Hintergrundfläche der Vorlage unabhängig vom Bildinhalt nach.
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: var(--nt-space-7);
+    bottom: var(--nt-space-7);
+    left: 0;
+    width: 65%;
+    border-radius: var(--nt-radius);
+    background: var(--nt-surface-muted);
+  }
+
+  // Gibt der wiederverwendbaren Schrittfläche ausreichend Raum für wechselnde Inhalte.
+  &::part(wrapper) {
+    padding: clamp(var(--nt-space-6), 6vw, var(--nt-space-8));
+    border-radius: var(--nt-radius);
+  }
+
+  // Begrenzt die Textzeilen auf die schmalere Fünf-Spalten-Rolle der Vorlage.
+  &::part(main) {
+    min-width: 0;
+    padding-right: var(--nt-space-5);
+  }
+
+  // Zentriert die Mockups in der breiteren Sieben-Spalten-Medienfläche.
+  &::part(aside) {
+    display: grid;
+    min-width: 0;
+    place-items: center;
+  }
+
+  // Nutzt die volle Medienbreite, ohne die Originalproportion der Mockups zu verzerren.
+  > p.auto img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  // Lässt die Komposition bei fehlendem optionalem Bild ohne künstliche Media-Höhe wachsen.
+  &:not(:has(> p.auto))::part(aside) {
+    min-height: 0;
+  }
+
+  // Kennzeichnet die Reihenfolge unabhängig von einer festen Anzahl an Schritten.
+  .step-kicker {
+    margin: 0 0 var(--nt-space-3);
+    color: var(--nt-primary);
+    font-size: .75rem;
+    font-weight: var(--nt-font-weight-bold);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  // Hält den Lernumfang kompakt und optisch an der Referenz orientiert.
+  .list-checked {
+    display: grid;
+    gap: var(--nt-space-2);
+    margin: var(--nt-space-5) 0;
+    padding: 0;
+  }
+
+  // Hebt die Abschnittsüberschrift klar über Copy und Lernliste, ohne Hero-Größe zu erreichen.
+  :is(h2, h3) {
+    margin-bottom: var(--nt-space-3);
+    color: var(--nt-header);
+    font-size: clamp(1.75rem, 2.65vw, 2.25rem);
+    line-height: 1.3;
+  }
+
+  // Verleiht dem weiterführenden Link die wiederkehrende Unify-Pfeilbewegung.
+  > a {
+    position: relative;
+    display: inline-block;
+    padding-right: var(--nt-space-7);
+    font-size: .9375rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  // Zeichnet einen einfachen, in der aktuellen Textfarbe skalierenden Richtungspfeil.
+  > a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: var(--nt-space-3);
+    width: 1.25rem;
+    height: 1.25rem;
+    background: currentColor;
+    clip-path: polygon(0 47%, 65% 47%, 45% 27%, 52% 20%, 100% 50%, 52% 80%, 45% 73%, 65% 53%, 0 53%);
+    transform: translateY(-50%);
+    transition: transform .2s ease;
+  }
+
+  // Bestätigt Hover und Tastaturfokus mit derselben kleinen Vorwärtsbewegung.
+  > a:is(:hover, :focus-visible)::after {
+    transform: translate(.2rem, -50%);
+  }
+
+  // Verbindet Folgeschritte mit einer stärkeren neutralen Führung als robuste Näherung der grauen Referenzkurve.
+  & + & {
+    position: relative;
+  }
+
+  & + &::before {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--nt-space-7));
+    left: 50%;
+    width: 2px;
+    height: calc(var(--nt-space-7) * 2);
+    background: var(--nt-border);
+  }
+
+  // Entfernt im Stack feste Medienhöhen und bewahrt die natürliche Bildproportion.
+  &[mode="mobile"],
+  &[mode="tablet"] {
+    --cols: 12;
+  }
+
+  // Reduziert Flächenraum und Überschrift auf schmalen Viewports ohne die Inhaltsreihenfolge zu ändern.
+  &[mode="mobile"] {
+    padding-block: var(--nt-space-5);
+
+    &::part(wrapper) {
+      padding: var(--nt-space-5);
+    }
+
+    &::after {
+      top: var(--nt-space-5);
+      bottom: auto;
+      width: 100%;
+      height: 65%;
+    }
+
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    :is(h2, h3) {
+      font-size: 1.625rem;
+      overflow-wrap: anywhere;
+    }
+
+    .list-checked {
+      padding-left: var(--nt-space-5);
+    }
+
+    & + &::before {
+      top: calc(-1 * var(--nt-space-5));
+      height: calc(var(--nt-space-5) * 2);
+    }
+  }
+}

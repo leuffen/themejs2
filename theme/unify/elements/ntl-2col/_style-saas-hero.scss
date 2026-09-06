@@ -1,0 +1,242 @@
+// Komponiert einen produktorientierten Einstieg mit Nutzenversprechen, Bewertungen und wählbaren Tarifen.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Nutzt die dokumentierten Main-/Aside-Rollen für eine belastbare Hero-Aufteilung.
+&.style-saas-hero {
+  --breakpoint: sm, lg;
+
+  padding-block: clamp(var(--nt-space-8), 8vw, 6rem);
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-space-7),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Ordnet Hauptaussage und Tarifkarte an einer gemeinsamen vertikalen Mitte aus.
+  &::part(wrapper) {
+    align-items: center;
+  }
+
+  // Gibt der Textspalte die Referenzbreite und hält die Tarifkarte auf 5 von 12 Spalten.
+  &::part(main) {
+    min-width: 0;
+    padding-right: var(--nt-space-5);
+  }
+
+  // Skaliert die Einleitung auf die 21-Pixel-Hierarchie der Desktop-Vorlage.
+  > p:not(.aside, .plan-contact) {
+    max-width: 42rem;
+    font-size: 1.3125rem;
+  }
+
+  // Trennt den primären Hero-CTA klar von Einleitung und Bewertungszeile.
+  > .btn:not(.aside) {
+    margin-top: var(--nt-space-4);
+  }
+
+  // Bewahrt die breite Hero-Hierarchie der Vorlage für variable Texte.
+  :is(h1, h2) {
+    margin: 0 0 var(--nt-space-4);
+    color: var(--nt-header);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    line-height: 1.2;
+  }
+
+  // Gruppiert die zwei Bewertungsquellen als editierbare Vertrauenssignale.
+  .saas-reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nt-space-5);
+    margin: var(--nt-space-7) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Begrenzt beide Quellen auf kompakte, optisch gleichwertige Blöcke.
+  .saas-reviews li {
+    max-width: 15rem;
+    padding-right: var(--nt-space-5);
+    border-right: 1px solid var(--nt-border);
+  }
+
+  // Entfernt den Trenner am letzten Review unabhängig von der Quellenanzahl.
+  .saas-reviews li:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  // Färbt die editierbaren Bewertungszeichen mit der Markenfarbe der Vorlage.
+  .saas-reviews .review-stars {
+    display: block;
+    margin-bottom: var(--nt-space-2);
+    color: var(--nt-primary);
+    letter-spacing: .08em;
+    white-space: nowrap;
+  }
+
+  // Normalisiert unterschiedliche Markenformate auf dieselbe ruhige Referenzhöhe.
+  .saas-reviews img {
+    display: block;
+    width: auto;
+    max-width: 6rem;
+    height: 1.75rem;
+    margin-top: var(--nt-space-3);
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  // Formt den Aside-Part als eigenständige Tarifkarte, ohne zusätzliche Autoren-Wrapper.
+  &::part(aside) {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: var(--nt-space-6);
+    border-radius: var(--nt-radius);
+    background: var(--nt-surface-raised);
+    box-shadow: 0 var(--nt-space-4) 1.75rem rgba(45, 55, 75, .1);
+  }
+
+  // Stellt Tarifoptionen als robuste, vollständig editierbare Auswahlliste dar.
+  .plan-options {
+    display: grid;
+    gap: var(--nt-space-3);
+    margin: var(--nt-space-5) 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Trennt Optionen durch eine klare Klickflächen-Geometrie statt fester Textlängen.
+  .plan-options li {
+    padding: var(--nt-space-4);
+    border: 1px solid var(--nt-border);
+    border-radius: calc(var(--nt-radius) / 2);
+    transition: border-color .2s ease, background-color .2s ease;
+  }
+
+  // Trennt Tarifname, Preis und Beschreibung auch bei längeren Übersetzungen lesbar.
+  .plan-options strong,
+  .plan-options small {
+    display: block;
+  }
+
+  // Behandelt den Preis als kompakten Untertitel innerhalb der jeweiligen Option.
+  .plan-options strong {
+    color: var(--nt-header);
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  // Hält erläuternde Tariftexte bewusst unterhalb der primären Auswahlhierarchie.
+  .plan-options small {
+    margin-top: var(--nt-space-1);
+    color: var(--nt-text-muted);
+    line-height: 1.5;
+  }
+
+  // Formt die Empfehlung als grünes, kontrastreiches Pill-Badge der Referenz.
+  .plan-options mark {
+    display: inline-block;
+    margin-top: var(--nt-space-2);
+    padding: .2rem .55rem;
+    border-radius: 999px;
+    color: var(--nt-primary);
+    background: color-mix(in srgb, var(--nt-primary) 12%, white);
+    font-size: .75rem;
+    font-weight: var(--nt-font-weight-bold);
+  }
+
+  // Gibt dem Tarifkartentitel die kompakte, zentrierte Referenzhierarchie.
+  > :is(h2, h3).aside,
+  > .aside > :is(h2, h3) {
+    margin-bottom: var(--nt-space-2);
+    font-size: 1.3125rem;
+    text-align: center;
+  }
+
+  // Richtet die Hauptaktion der Tarifkarte über die gesamte verfügbare Breite aus.
+  > .btn.aside,
+  > .aside .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  // Setzt den Kontaktpfad als ruhigen Abschluss unter die primäre Aktion.
+  .plan-contact {
+    margin: var(--nt-space-4) 0 0;
+    text-align: center;
+  }
+
+  // Markiert die empfohlene Option über den semantischen Mark-Inhalt.
+  .plan-options li:has(mark) {
+    border-color: var(--nt-primary);
+    background: color-mix(in srgb, var(--nt-primary) 6%, white);
+  }
+
+  // Stapelt Hero-Inhalt und Tarifkarte auf kleinen Ansichten in natürlicher Lesereihenfolge.
+  &[mode="mobile"],
+  &[mode="tablet"] {
+    --cols: 12;
+    --gap: var(--nt-space-7);
+  }
+
+  // Verdichtet den Hero bei 320 und 375 Pixeln und verhindert breite Review- oder Tarifzeilen.
+  &[mode="mobile"] {
+    padding-block: var(--nt-space-7);
+
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    &::part(aside) {
+      padding: var(--nt-space-4);
+    }
+
+    :is(h1, h2) {
+      font-size: 2.1rem;
+    }
+
+    .saas-reviews {
+      flex-direction: column;
+      gap: var(--nt-space-4);
+    }
+
+    .saas-reviews li {
+      width: 100%;
+      max-width: none;
+      padding: 0 0 var(--nt-space-4);
+      border-right: 0;
+      border-bottom: 1px solid var(--nt-border);
+      overflow-wrap: anywhere;
+    }
+
+    .saas-reviews li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .plan-options li,
+    .plan-contact {
+      overflow-wrap: anywhere;
+    }
+  }
+
+  // Entspricht im mittleren Stack der zentrierten col-sm-9-Geometrie der Referenz.
+  &[mode="tablet"] {
+    &::part(main) {
+      padding-right: 0;
+    }
+
+    &::part(aside) {
+      width: 75%;
+      margin-inline: auto;
+    }
+
+    :is(h1, h2) {
+      font-size: 3rem;
+    }
+  }
+}

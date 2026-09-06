@@ -1,0 +1,47 @@
+// Bildet eine allgemeine Zeitleiste für Unternehmenshistorien ebenso wie für Projektmeilensteine.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Verbindet gleichwertige Meilensteine über eine durchgehende Akzentlinie.
+&.style-timeline {
+  position: relative;
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 2,
+    $gap: 0px,
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0,
+    $modifierClasses: false
+  );
+
+  // Beschränkt die Einleitung wie in der Vorlage auf zwei kurze Zeilen und startet sie links über der Achse.
+  &::part(header) {
+    max-width: 13rem;
+    margin: 0 0 var(--nt-space-7);
+    text-align: left;
+  }
+
+  // Startet auch unvollständige Meilensteinreihen an der linken Achsenkante und überlässt ihre Breite dem Zwölfspaltenmodell.
+  &::part(main) {
+    position: relative;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  // Verdichtet den mobilen Komponentenfluss und hält die Einleitung nah am ersten Meilenstein.
+  &[mode="mobile"] {
+    &::part(header) {
+      max-width: 11rem;
+      margin-bottom: var(--nt-space-5);
+    }
+  }
+
+  // Führt den Desktop-Track bis kurz vor den rechten Viewportrand und vermeidet dort Dokument-Overflow.
+  &[mode="desktop"] {
+    &::part(main) {
+      width: calc(100% + max(0px, (100vw - var(--nt-container-width)) / 2 - var(--nt-space-3)));
+    }
+  }
+}

@@ -1,0 +1,156 @@
+// Baut aus zwei normalen Markdown-Bildern eine wiederverwendbare Foto-und-Mockup-Komposition.
+.feature-media {
+  position: relative;
+  display: block;
+  min-height: 27rem;
+  margin: 0;
+
+  // Nutzt das 500-zu-650-Format der Referenz als proportional wachsende fotografische Grundfläche.
+  img:first-child {
+    display: block;
+    width: 75%;
+    height: auto;
+    aspect-ratio: 10 / 13;
+    border-radius: var(--nt-radius);
+    object-fit: cover;
+  }
+
+  // Legt weitere Bilder als erhöhte UI-Mockups über die fotografische Grundfläche.
+  img + img {
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+    width: 65%;
+    max-height: 74%;
+    border-radius: calc(var(--nt-radius) * .75);
+    object-fit: contain;
+    filter: drop-shadow(0 var(--nt-space-4) var(--nt-space-6) rgba(45, 55, 75, .18));
+  }
+
+  // Ergänzt das Punktmuster und begrenzt seinen mobilen Überstand am Container-Gutter gegen Seiten-Overflow.
+  &::after {
+    content: "";
+    position: absolute;
+    left: max(-1.25rem, calc(var(--nt-container-gutter) * -1));
+    bottom: 1rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    background-image: radial-gradient(circle, var(--feature-dot-color, var(--nt-primary)) 2px, transparent 2.5px);
+    background-size: .75rem .75rem;
+    pointer-events: none;
+  }
+}
+
+// Verschiebt das dekorative Raster für Kompositionen mit einem rechten Bildakzent an die gegenüberliegende Ecke.
+.feature-media.dots-end {
+  min-height: clamp(18rem, 86vw, 27rem);
+
+  // Richtet das bereits proportionale Foto rechts aus und legt das Mockup wie in der dunklen Bühne links darüber.
+  img:first-child {
+    margin-left: auto;
+  }
+
+  img + img {
+    right: auto;
+    bottom: calc(var(--nt-space-7) + var(--nt-space-5));
+    left: var(--nt-space-6);
+    width: 75%;
+  }
+
+  // Zieht das Raster wie die Vorlage über die obere Fotokante und begrenzt den rechten Überstand am Viewport.
+  &::after {
+    inset:
+      calc(var(--nt-space-7) * -1)
+      max(
+        calc(var(--nt-space-7) * -1),
+        calc((var(--nt-space-5) + var(--nt-container-gutter)) * -1)
+      )
+      auto
+      auto;
+  }
+}
+
+// Lässt mobil bei einem ausgelassenen optionalen Mockup das Foto die Bühnenhöhe bestimmen, statt Leerraum zu halten.
+ntl-2col.style-default[mode="mobile"] {
+  .feature-media:not(:has(img + img)) {
+    min-height: 0;
+  }
+
+  // Bewahrt den dekorativen unteren Fotoüberstand, ohne dafür eine künstliche Mindesthöhe einzuziehen.
+  .feature-media:not(.dots-end):not(:has(img + img))::after {
+    bottom: calc(var(--nt-space-5) * -1);
+  }
+}
+
+// Setzt die Tablet-Koordinaten im selben Cascade-Layer wie die Grundkomposition durch.
+ntl-2col.style-default[mode="tablet"] .feature-media:not(.dots-end) {
+  img + img {
+    bottom: 0;
+  }
+
+  &::after {
+    bottom: var(--nt-space-5);
+  }
+}
+
+// Ordnet die drei in der Vorlage wiederkehrenden Rasterfarben bestehenden Theme-Farben zu.
+.feature-media.dots-success {
+  --feature-dot-color: var(--nt-primary);
+}
+
+.feature-media.dots-warning {
+  --feature-dot-color: var(--nt-accent);
+}
+
+.feature-media.dots-neutral {
+  --feature-dot-color: color-mix(in srgb, var(--nt-secondary) 35%, white);
+}
+
+// Vergrößert dieselbe Komposition erst im vom Responsive-System gesetzten Desktop-Zustand.
+.feature-media.desktop {
+  width: min(calc(100% - var(--nt-space-5)), 40.0625rem);
+  min-height: clamp(30rem, 46vw, 39rem);
+  margin-inline: var(--nt-space-3) auto;
+
+  img:first-child {
+    width: min(75%, 30.0625rem);
+  }
+
+  img + img {
+    right: var(--nt-space-6);
+    bottom: calc(var(--nt-space-7) * -1.5);
+    width: min(65%, 22.625rem);
+  }
+
+  // Skaliert das Punktraster auf die 10-Rem-Dekoration der Desktopvorlage.
+  &::after {
+    width: 10rem;
+    height: 9.375rem;
+  }
+}
+
+// Lässt das linke Raster wie im Original über Foto und Abschnittskante hinausragen.
+.feature-media.desktop:not(.dots-end)::after {
+  inset: auto auto calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1);
+}
+
+// Spiegelt denselben Überstand für Medienkompositionen mit rechtem Raster.
+.feature-media.desktop.dots-end {
+  // Hält das Foto auch bei kleineren Desktopbreiten am originalen 75-Prozent-Anteil.
+  img:first-child {
+    width: 75%;
+    margin-left: auto;
+  }
+
+  // Übernimmt auf Desktop die 7-Spalten-Mediengeometrie mit 32-Pixel-Seiten- und 72-Pixel-Bodenabstand.
+  img + img {
+    right: auto;
+    bottom: calc(var(--nt-space-7) + var(--nt-space-5));
+    left: var(--nt-space-6);
+    width: min(75%, 25.0625rem);
+  }
+
+  &::after {
+    inset: calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1) auto auto;
+  }
+}

@@ -1,0 +1,116 @@
+// Formt Kundenstories zu flachen Medienkarten und erweitert eine optionale Leitgeschichte.
+@use "sass:string";
+@use "@nextrap/nte-card" as card;
+
+// Bindet die Darstellung ausschließlich an die Story-Komposition des Elternrasters.
+&.style-stories {
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: 0,
+      $border: 0,
+      $background-color: transparent,
+      $border-radius: 0,
+      $image-aspect-ratio: string.unquote("16 / 9")
+    );
+
+    min-width: 0;
+    height: 100%;
+    color: var(--nt-text);
+
+    // Hält Bild, Text und Aktion auch bei unterschiedlich langen Inhalten als Einheit zusammen.
+    &::part(wrapper) {
+      height: 100%;
+      overflow: hidden;
+      border-radius: var(--nt-radius);
+      background: var(--nt-surface-raised);
+      box-shadow: 0 var(--nt-space-3) var(--nt-space-8) rgba(45, 55, 75, .08);
+    }
+
+    // Verhindert, dass variable Bildformate die Geometrie der Karten verändern.
+    &::part(image) {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    // Gibt dem Storytitel oberhalb des flexiblen Textbereichs denselben horizontalen Innenraum.
+    &::part(header) {
+      padding: var(--nt-space-5) var(--nt-space-5) 0;
+    }
+
+    // Lässt den Text flexibel wachsen und bewahrt lange Wörter innerhalb der Kartenbreite.
+    &::part(content) {
+      display: flex;
+      min-width: 0;
+      flex: 1 1 auto;
+      flex-direction: column;
+      padding: var(--nt-space-5);
+      overflow-wrap: anywhere;
+    }
+
+    // Schiebt eine vorhandene Story-Aktion unabhängig von der Textmenge an das Kartenende.
+    &::part(footer) {
+      margin-top: auto;
+      padding: 0 var(--nt-space-5) var(--nt-space-5);
+    }
+
+    > h3 {
+      margin: 0 0 var(--nt-space-3);
+      color: var(--nt-header);
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+
+    > p:not([slot="footer"]) {
+      margin: 0;
+    }
+
+    > [slot="footer"] {
+      margin-bottom: 0;
+    }
+  }
+
+  // Baut die markierte Leitgeschichte am Desktop aus derselben Card-Struktur zweispaltig auf.
+  &[mode="desktop"] > nte-card.is-featured {
+    &::part(wrapper) {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+      align-items: stretch;
+    }
+
+    &::part(image) {
+      grid-column: 1;
+      grid-row: 1 / 4;
+      height: 100%;
+      aspect-ratio: auto;
+    }
+
+    &::part(header),
+    &::part(content),
+    &::part(footer) {
+      grid-column: 2;
+    }
+
+    &::part(header) {
+      padding: var(--nt-space-8) var(--nt-space-8) 0;
+    }
+
+    &::part(content) {
+      justify-content: center;
+      padding: var(--nt-space-5) var(--nt-space-8);
+    }
+
+    &::part(footer) {
+      padding: 0 var(--nt-space-8) var(--nt-space-8);
+    }
+
+    > h3 {
+      font-size: clamp(1.5rem, calc(1.25rem + 1vw), 2.25rem);
+    }
+  }
+
+  // Erzwingt mobil auch innerhalb der Leitgeschichte die natürliche Bild-über-Text-Reihenfolge.
+  &[mode="mobile"] > nte-card.is-featured::part(wrapper) {
+    display: flex;
+    flex-direction: column;
+  }
+}

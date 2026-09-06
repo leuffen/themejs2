@@ -1,0 +1,9 @@
+// Schließt vorläufig die ntl-2col-Lücke, bei der default-style($gap) am exponierten Wrapper wirkungslos bleibt.
+// Upstream-Ziel: als with-wrapper-gap() nach @nextrap/ntl-2col/src/scss verschieben und über index.scss exportieren.
+@mixin with-wrapper-gap($gap: var(--nt-spacing-layout)) {
+  --gap: #{$gap};
+
+  &::part(wrapper) {
+    gap: var(--gap);
+  }
+}

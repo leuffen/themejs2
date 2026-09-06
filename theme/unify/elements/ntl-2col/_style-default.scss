@@ -1,0 +1,224 @@
+// Nutzt den öffentlichen Komponenten-Mixin-Vertrag für skalierbare Bild-/Text-Features und Dienstleistungsabschnitte.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Bildet die vielseitige Standardkomposition mit ruhiger Fläche und vertikal zentrierten Spalten.
+&.style-default {
+  --cols: 6;
+
+  // Bildet für Feature-Inhalte den gestapelten Tablet-Zustand der Referenz zwischen sm und lg ab.
+  &:has(.feature-media) {
+    --breakpoint: sm, lg;
+  }
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: 0px,
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Richtet Text- und Medienseite auf Desktop optisch an einer gemeinsamen Mitte aus.
+  &::part(wrapper) {
+    align-items: center;
+  }
+
+  // Öffnet die Feature-Bühne gezielt für überlagerte Mockups und Punktraster außerhalb der Bildkante.
+  &:has(.feature-media)::part(wrapper) {
+    overflow: visible;
+  }
+
+  // Bildet die asymmetrischen Bootstrap-Gutter der Referenz innerhalb der Textspalte nach.
+  &::part(main) {
+    max-width: none;
+    padding-inline: calc(var(--nt-space-6) + var(--nt-space-3)) var(--nt-space-3);
+  }
+
+  // Formt die Bildspalte als ruhige Bühne für Bilder und überlagerte Mockups.
+  &::part(aside) {
+    position: relative;
+    min-height: clamp(22rem, 42vw, 37rem);
+  }
+
+  // Betont Abschnittsüberschriften in der kompakten Unify-Hierarchie, ohne mit dem Hero zu konkurrieren.
+  :is(h2, h3) {
+    margin: 0 0 var(--nt-space-3);
+    color: var(--nt-header);
+    font-size: clamp(1.75rem, 2.65vw, 2.25rem);
+    line-height: 1.3;
+    letter-spacing: normal;
+  }
+
+  // Folgt nur für Bild-Features der responsiven Originalformel von 26 bis 36 Pixeln.
+  &:has(.feature-media) :is(h2, h3) {
+    font-size: clamp(1.625rem, calc(1.35rem + 1.2vw), 2.25rem);
+  }
+
+  // Gibt der vorhandenen Checklisten-Utility den 20-Pixel-Zeilen- und 32-Pixel-Außenrhythmus der Vorlage.
+  .list-checked {
+    display: grid;
+    gap: calc(var(--nt-space-3) + var(--nt-space-2));
+    margin: var(--nt-space-6) 0;
+    padding: 0;
+  }
+
+  // Ordnet ein semantisches Markdown-Linkangebot wie in der Referenz in drei ruhige Zweierspalten mit Zeilentrennern.
+  .feature-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--nt-space-4) 0;
+    margin: var(--nt-space-6) 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      min-width: 0;
+    }
+
+    li:nth-child(-n + 4) {
+      padding-bottom: var(--nt-space-4);
+      border-bottom: 1px solid var(--nt-border);
+    }
+
+    li:nth-child(odd) {
+      padding-right: calc(var(--nt-space-5) / 2);
+    }
+
+    li:nth-child(even) {
+      padding-left: calc(var(--nt-space-5) / 2);
+    }
+
+    a {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      padding-right: calc(var(--nt-space-6) + var(--nt-space-2));
+      color: var(--nt-text);
+      font-size: .9375rem;
+      font-weight: 500;
+      line-height: 1.5;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: var(--nt-space-3);
+      width: calc(var(--nt-space-4) + var(--nt-space-1));
+      height: calc(var(--nt-space-4) + var(--nt-space-1));
+      background: currentColor;
+      clip-path: polygon(0 47%, 65% 47%, 45% 27%, 52% 20%, 100% 50%, 52% 80%, 45% 73%, 65% 53%, 0 53%);
+      transform: translateY(-50%);
+      transition: transform .2s ease;
+    }
+
+    a:is(:hover, :focus-visible) {
+      color: var(--nt-link-hover);
+    }
+
+    a:is(:hover, :focus-visible)::after {
+      transform: translate(.2rem, -50%);
+    }
+  }
+
+  // Färbt Aufzählungsmarker als wiederkehrendes Vertrauenssignal, ohne eine eigene Listenklasse zu verlangen.
+  li::marker {
+    color: var(--nt-primary);
+  }
+
+  // Verwendet die vorhandene Surface-Utility als dunkle Ausprägung derselben Feature-Struktur.
+  &.surface-secondary {
+    box-sizing: border-box;
+
+    // Übernimmt den beidseitigen 72-Pixel-Überstand und läuft bis zur maximalen Referenzbreite bündig an den Viewport.
+    width: min(
+      100%,
+      calc(var(--nt-container-max) + (var(--nt-space-7) * 3))
+    );
+    margin-inline: auto;
+    padding: calc(var(--nt-space-7) + var(--nt-space-5));
+    border-radius: var(--nt-radius);
+    color: rgba(255, 255, 255, .7);
+    background: var(--nt-secondary);
+
+    // Entspricht dem 5-zu-7-Raster der Vorlage und hält den Text bündig an der inneren Bühnenkante.
+    &::part(main) {
+      padding-inline: 0 var(--nt-space-6);
+    }
+
+    :is(h2, h3, strong) {
+      color: #fff;
+    }
+
+    // Gibt der primären Aktion Höhe, Gewicht und asymmetrischen Innenraum der Referenzschaltfläche.
+    .btn {
+      --nt-btn-padding-y: var(--nt-space-3);
+      --nt-btn-padding-x: var(--nt-space-6);
+
+      padding-right: calc(var(--nt-space-6) + var(--nt-space-3));
+      font-size: .9375rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+  }
+
+  // Stapelt die Medienfläche vor den Text und entfernt unnötige Mindesthöhen auf kleinen Displays.
+  &[mode="mobile"] {
+    --cols: 12;
+    --gap: var(--nt-space-7);
+
+    &::part(main) {
+      max-width: none;
+      padding-inline: 0;
+      order: 2;
+    }
+
+    &::part(aside) {
+      min-height: 0;
+      order: 1;
+    }
+
+    // Entspricht in allen drei Feature-Ausprägungen der mobilen 26-Pixel-Hierarchie der Vorlage.
+    &:has(.feature-media) :is(h2, h3) {
+      font-size: 1.625rem;
+    }
+
+    &.surface-secondary {
+      --gap: var(--nt-space-6);
+
+      width: calc(100% - var(--nt-space-5));
+      padding: var(--nt-space-5);
+    }
+  }
+
+  // Behält im mittleren Modus die mobile Lesereihenfolge, aber den großzügigeren Tablet-Innenraum.
+  &[mode="tablet"] {
+    --cols: 12;
+    --gap: var(--nt-space-7);
+
+    &::part(main) {
+      max-width: none;
+      padding-inline: 0;
+      order: 2;
+    }
+
+    &::part(aside) {
+      min-height: 0;
+      order: 1;
+    }
+
+    // Reserviert den negativen Mockup- und Rasterüberstand unterhalb der Fotokante.
+    .feature-media:not(.dots-end) {
+      padding-bottom: calc(var(--nt-space-7) + var(--nt-space-5));
+    }
+
+    &.surface-secondary {
+      --gap: var(--nt-space-6);
+
+      padding: calc(var(--nt-space-7) + var(--nt-space-2));
+    }
+  }
+}

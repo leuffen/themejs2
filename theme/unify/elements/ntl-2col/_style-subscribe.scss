@@ -1,0 +1,85 @@
+// Verbindet eine kompakte Newsletter-Einladung mit dem vorhandenen Lead-Formular des Unify-Themes.
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Nutzt die regulären Main-/Aside-Parts für eine flexible, weiche Zweispaltenfläche.
+&.style-subscribe {
+  --cols: 6;
+  --breakpoint: sm, lg;
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-space-6),
+    $background: transparent,
+    $border: 0,
+    $border-radius: var(--nt-radius),
+    $objectFit: none,
+    $wrapper-bg-color: var(--nt-surface-muted)
+  );
+
+  // Formt Text und Formular als kompakte gemeinsame Bühne mit belastbarem Innenabstand.
+  &::part(wrapper) {
+    align-items: center;
+    padding: var(--nt-space-6);
+    border-radius: var(--nt-radius);
+  }
+
+  // Erlaubt beiden Spalten, auch bei langen Überschriften und Eingabewerten sauber zu schrumpfen.
+  &::part(main),
+  &::part(aside) {
+    min-width: 0;
+  }
+
+  // Bindet das bestehende Formular ohne zusätzliche Autorenstruktur bündig in die zweite Spalte ein.
+  .hero-form {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  // Hält Eingabe und Aktion zunächst untereinander und damit auf schmalen Flächen bedienbar.
+  .hero-form > p {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // Verhindert, dass ein einzelnes langes Eingabefeld die verfügbare Formularbreite aufzieht.
+  .hero-form > p > nte-input {
+    min-width: 0;
+  }
+
+  // Gibt einem optionalen Sekundärlink unterhalb der Eingabe eine eigene, zentrierte Formularzeile.
+  .hero-form > p:has(> .subscribe-account) {
+    display: block;
+    margin-top: var(--nt-space-3);
+    text-align: center;
+  }
+
+  // Stapelt Text und Formular in den responsiven Komponentenmodi in natürlicher Lesereihenfolge.
+  &[mode="mobile"],
+  &[mode="tablet"] {
+    --cols: 12;
+  }
+
+  // Verdichtet ausschließlich auf kleinen Displays den Innenraum der weichen Fläche.
+  &[mode="mobile"] {
+    &::part(wrapper) {
+      padding: var(--nt-space-5);
+    }
+  }
+
+  // Ordnet genau ein Feld und seine Aktion auf Desktop als flexible gemeinsame Zeile an.
+  &[mode="desktop"] {
+    .hero-form > p {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .hero-form > p > nte-input,
+    .hero-form > p > .btn {
+      min-height: 3.25rem;
+    }
+
+    .hero-form > p > nte-input {
+      padding-inline: var(--nt-space-4);
+      border-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+// Verleiht Karten in neutralen Rastern eine ruhige, angehobene Oberfläche mit flexibler Inhaltslänge.
+@use "sass:string";
+@use "@nextrap/nte-card" as card;
+
+// Bindet das Card-Styling ausschließlich an die Standardkomposition des Elternlayouts.
+&.style-default {
+  // Nutzt die öffentliche Card-Baseline für alle direkten Kartenkinder.
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-space-6),
+      $border: var(--nt-border-width) solid var(--nt-border),
+      $background-color: var(--nt-surface-raised),
+      $border-radius: var(--nt-radius),
+      $image-aspect-ratio: string.unquote("16 / 9")
+    );
+
+    height: 100%;
+    color: var(--nt-text);
+
+    &::part(wrapper) {
+      height: 100%;
+      box-shadow: 0 var(--nt-space-3) var(--nt-space-8) rgba(45, 55, 75, .08);
+    }
+
+    &::part(content) {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      gap: var(--nt-text-gap);
+    }
+
+    &::part(footer) {
+      margin-top: auto;
+    }
+  }
+}

@@ -1,0 +1,137 @@
+// Komponiert einen fokussierten Kampagnen-Einstieg für Produktstarts ebenso wie für Beratungsangebote.
+&.style-default {
+  --bg-color: var(--nt-surface);
+  --breakpoint: sm, lg;
+  --min-height: 37.5rem;
+  --max-height: none;
+
+  position: relative;
+  display: block;
+  min-height: 37.5rem;
+  overflow: hidden;
+  color: var(--nt-text);
+  background: var(--nt-surface);
+
+  // Hält die Hero-Fläche hell und lässt die Mindesthöhe bei längeren Inhalten intrinsisch wachsen.
+  &::part(root) {
+    height: auto;
+    min-height: inherit;
+    background: var(--nt-surface-raised);
+  }
+
+  // Zentriert die Inhaltskomposition und stellt den Referenzrahmen für absolute Hero-Dekorationen bereit.
+  &::part(wrapper) {
+    position: relative;
+    box-sizing: border-box;
+    width: min(100%, var(--nt-container-max));
+    min-height: inherit;
+    margin-inline: auto;
+    padding: 7.5rem var(--nt-container-gutter) 5rem;
+  }
+
+  // Stapelt Kicker, Überschrift, Vertrauenssignal und Lead-Formular mit gleichmäßigem Abstand.
+  &::part(content) {
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nt-space-4);
+    text-align: center;
+  }
+
+  // Begrenzt den Textblock wie die 75-Prozent-Spalte der Vorlage und hält längere Leads ruhig lesbar.
+  .hero-copy {
+    width: min(75%, 52.3125rem);
+  }
+
+  .hero-copy > p:not(.trust-list) {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  // Verleiht der zentralen Aussage die breite, ruhige Hierarchie der Referenzen.
+  :is(h1, h2) {
+    max-width: 52.3125rem;
+    margin: 0 auto var(--nt-space-3);
+    color: var(--nt-header);
+    font-size: clamp(2.1rem, calc(1.5rem + 3vw), 3.75rem);
+    font-weight: var(--nt-font-weight-header);
+    line-height: var(--nt-line-height-header);
+    letter-spacing: normal;
+  }
+
+  // Formatiert den Kicker wie die kompakte Versalzeile der Original-Hero.
+  :is(h1, h2)::before {
+    margin-bottom: var(--nt-space-4);
+    color: var(--nt-header);
+    font-size: .75rem;
+    font-weight: var(--nt-font-weight-header);
+    line-height: 1.5;
+    letter-spacing: .0417em;
+    text-transform: uppercase;
+  }
+
+  // Markiert den wichtigsten Nutzen farblich, ohne eine inhaltsspezifische Struktur vorauszusetzen.
+  strong {
+    color: var(--nt-primary);
+  }
+
+  // Trennt den kompakten Kundenbeleg ähnlich der Referenz klar vom einleitenden Fließtext.
+  .trust-list {
+    margin-top: var(--nt-space-5);
+  }
+
+  // Schließt die Avatargruppe mit dem kompakten Reichweiten-Badge der Vorlage ab.
+  .trust-list strong {
+    display: grid;
+    width: 2.3125rem;
+    height: 2.3125rem;
+    margin-left: -.875rem;
+    place-items: center;
+    border: 2px solid var(--nt-surface);
+    border-radius: 50%;
+    color: #fff;
+    background: var(--nt-secondary);
+    font-size: .8125rem;
+    line-height: 1;
+  }
+
+  // Reduziert Höhe und Schriftgrad auf schmalen Ansichten, während die Inhaltsreihenfolge erhalten bleibt.
+  &[mode="mobile"] {
+    --min-height: 0px;
+    --max-height: none;
+
+    min-height: 0;
+
+    &::part(wrapper) {
+      min-height: 0;
+      padding: var(--nt-space-7) var(--nt-space-3);
+    }
+
+    &::part(content) {
+      min-height: 0;
+      gap: var(--nt-space-4);
+    }
+
+    .hero-copy {
+      width: 100%;
+    }
+  }
+
+  // Bewahrt bis zum lg-Referenzwechsel die volle Breite für längere Überschriften und Formularbeschriftungen.
+  &[mode="tablet"] {
+    .hero-copy,
+    .hero-form {
+      width: 100%;
+    }
+  }
+
+  // Aktiviert die 65-Prozent-Formularspalte der Vorlage erst ab deren lg-Schwelle.
+  &[mode="desktop"] {
+    .hero-form {
+      width: 65%;
+    }
+  }
+}
