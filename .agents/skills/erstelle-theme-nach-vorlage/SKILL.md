@@ -7,6 +7,8 @@ description: Gleicht einen neuen oder bestehenden ThemeJS2-/Nextstrap-Style, ein
 
 Übertrage die visuelle Sprache einer Vorlage in einen wiederverwendbaren Style oder ein Theme. Nutze diesen Ablauf auch dann, wenn nur eine einzelne vorhandene `style-*`-Variante oder Section angeglichen werden soll. Das Ziel ist keine starre Seitenkopie, sondern eine belastbare Nextstrap-Interpretation, die mit editierbarem Kramdown-Content, anderen Textlängen, Bildern und Elementanzahlen funktioniert.
 
+Gehe bei jeder Überarbeitung grundsätzlich von einer Erweiterung des bereits vorhandenen Themes aus. Schließe neue Sections, Varianten und Content-Muster an dessen bestehende Tokens, Styles, Klassen, Entries und Content-Flow-Regeln an; prüfe und erweitere vorhandene Lösungen, bevor du parallele Strukturen einführst. Weiche davon nur ab, wenn der Nutzer ausdrücklich einen Neubau verlangt oder nachweislich noch kein Theme vorhanden ist.
+
 ## Verbindliche Grundlage
 
 Lies zuerst den repository-eigenen Skill `../modify-theme/SKILL.md` vollständig und folge seinen Referenzen für Theme-Vertrag und Child-Struktur. Lies zusätzlich für jede verwendete `ntl-*`- oder `nte-*`-Komponente deren lokalen Usage- und Theming-Skill im zuständigen Package.
