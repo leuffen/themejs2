@@ -224,14 +224,15 @@
     }
   }
 
-  // Entfernt im mittleren Stack Desktop-Einzüge und bewahrt eine volle Tarifkartenbreite.
+  // Entspricht im mittleren Stack der zentrierten col-sm-9-Geometrie der Referenz.
   &[mode="tablet"] {
     &::part(main) {
       padding-right: 0;
     }
 
     &::part(aside) {
-      width: 100%;
+      width: 75%;
+      margin-inline: auto;
     }
 
     :is(h1, h2) {
