@@ -42,7 +42,7 @@ We enrich human lives through the thoughtful application of design and technolog
 
 <!-- Schließt den visuellen Werkzeugüberblick an das bestehende neutrale Kartenraster des Themes an. -->
 ## Explore tools
-{: layout="ntl-card-row.style-default" section-style="--cols: 4;" }
+{: layout="ntl-card-row.style-tool-gallery" section-style="--cols: 3;" }
 
 The powerful and flexible theme for all kinds of businesses.
 {: .header }
@@ -63,42 +63,42 @@ The powerful and flexible theme for all kinds of businesses.
 
 ![Scalable service delivery](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img5.jpg)
 
-<!-- Verdichtet acht austauschbare Servicevorteile mit der vorhandenen Feature-Grid-Variante. -->
+<!-- Verdichtet acht austauschbare Servicevorteile mit einer flachen, wiederverwendbaren Feature-Liste. -->
 ## Everything teams need to move faster
-{: layout="ntl-card-row.style-default" section-style="--cols: 3;" }
+{: layout="ntl-card-row.style-feature-list" section-style="--cols: 3;" }
 
 Build a consistent service experience from first contact to ongoing optimization.
 {: .header }
 
-### Mobile first
+### <span class="feature-icon">◎</span> Mobile first
 
 Every section remains readable and actionable on smaller screens.
 
-### Made for teams
+### <span class="feature-icon">◇</span> Made for teams
 
 Designers and developers share the same content contract.
 
-### Easy integration
+### <span class="feature-icon">↗</span> Easy integration
 
 Connect existing workflows without rebuilding the theme.
 
-### Flexible delivery
+### <span class="feature-icon">⌁</span> Flexible delivery
 
 Scale from a focused landing page to a broad service portfolio.
 
-### Documented patterns
+### <span class="feature-icon">◌</span> Documented patterns
 
 Reuse proven layouts for changing content and audiences.
 
-### Clear insights
+### <span class="feature-icon">✦</span> Clear insights
 
 Present meaningful information with a calm visual hierarchy.
 
-### Automated routines
+### <span class="feature-icon">✓</span> Automated routines
 
 Reduce repetitive work and focus on valuable customer moments.
 
-### Measurable results
+### <span class="feature-icon">◎</span> Measurable results
 
 Use robust components that support iteration and learning.
 
@@ -115,13 +115,13 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 - ![Slack](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/slack-icon.svg) **Slack**
 - ![Dropbox](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/dropbox-icon.svg) **Dropbox**
 - ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg) **More**
-{: .logo-cloud .bottom }
+{: .logo-cloud .with-labels .bottom }
 
 [See all integrations](/leistungen){: .btn .btn-primary .footer }
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
 ## Loved by businesses and individuals across the globe
-{: layout="ntl-card-row.style-testimonial-list" section-style="--cols: 6;" }
+{: layout="ntl-card-row.style-testimonial-slider.with-horizontal-flow" section-style="--cols: 4; --visible-cols-mobile: 1.15;" }
 
 ### Nicole Grazioso
 
@@ -179,12 +179,21 @@ this year alone
 
 <!-- Nutzt das neutrale Kartenraster für variable Kundenstories mit Bild, Beschreibung und echter Linkaktion. -->
 ## We work with companies with big ideas
-{: layout="ntl-card-row.style-default" section-style="--cols: 4;" }
+{: layout="ntl-card-row.style-stories" section-style="--cols: 4;" }
 
 Start with proven patterns, then customize them to fit your style and professional needs.
 {: .header }
 
 ### A customer experience that scales
+{: .is-featured section-style="--cols: 12;" }
+
+![Team shaping a global service](https://static.leanea.de/uni-v3.0-docs/assets/img/950x950/img2.jpg)
+
+Millions of people expect a great customer experience. A shared design language makes the work behind it easier to scale while keeping every interaction recognizable.
+
+[Read customer story](/referenzen){: .footer }
+
+### Making tracks with global payments
 
 ![Team discussing a service concept](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img1.jpg)
 
@@ -192,7 +201,7 @@ Make complex journeys easier to understand, manage and improve.
 
 [Read customer story](/referenzen){: .footer }
 
-### Making tracks with global payments
+### The road to global expansion
 
 ![Colleagues reviewing a product](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img2.jpg)
 
@@ -200,7 +209,7 @@ Connect distributed teams through a shared and resilient service workflow.
 
 [Read customer story](/referenzen){: .footer }
 
-### The road to global expansion
+### Four questions with a service leader
 
 ![Founder working on a growth plan](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img4.jpg)
 
@@ -208,9 +217,9 @@ Turn a focused launch into a flexible foundation for new markets.
 
 [Read customer story](/referenzen){: .footer }
 
-<!-- Beendet den Inhalt mit der vorhandenen Feature-Bühne und Formularsprache statt einer parallelen Newsletter-Struktur. -->
+<!-- Beendet den Inhalt mit der kompakten Subscribe-Variante und der vorhandenen Formularsprache. -->
 ## Get industry insights straight in your inbox
-{: layout="ntl-2col.style-feature-grid" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-subscribe" section-style="--cols: 6;" }
 
 Practical ideas for better digital services, delivered occasionally.
 
@@ -220,4 +229,4 @@ Practical ideas for better digital services, delivered occasionally.
 #[nte-input.style-default.hoverlabel type="email" name="email" label="Enter email" required]
 #[button type="submit" class="btn btn-primary" > Subscribe]
 
-[Create a free account](/kontakt)
+[Create a free account](/kontakt){: .subscribe-account }

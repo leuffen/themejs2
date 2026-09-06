@@ -1,0 +1,59 @@
+// Formt Kundenstimmen der dunklen Bühne zu hellen, gleichwertigen Zitatkarten.
+@use "@nextrap/nte-card" as card;
+
+// Bindet Portrait, Zitat und Attribution ausschließlich an die Slider-Komposition.
+&.style-testimonial-slider {
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-space-5),
+      $border: 0,
+      $background-color: var(--nt-surface-raised),
+      $border-radius: var(--nt-radius),
+      $image-aspect-ratio: 1
+    );
+
+    min-width: 0;
+    height: 100%;
+    color: var(--nt-text);
+
+    // Hält jede Stimme auf gleicher Höhe und hebt sie ruhig vom dunklen Hintergrund ab.
+    &::part(wrapper) {
+      height: 100%;
+      box-shadow: 0 var(--nt-space-4) var(--nt-space-7) rgba(0, 0, 0, .14);
+    }
+
+    // Begrenzt die Autorenbilder auf die kompakte Avatarrolle der Referenz.
+    &::part(image) {
+      width: 3rem;
+      height: 3rem;
+      margin: var(--nt-space-5) 0 0 var(--nt-space-5);
+      overflow: hidden;
+      border-radius: 50%;
+    }
+
+    // Bewahrt Zitat und Quellenangabe als flexible, gut umbrechende Karteninhalte.
+    blockquote {
+      margin: 0 0 var(--nt-space-4);
+      color: var(--nt-header);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    > p:last-child {
+      margin-bottom: 0;
+      color: var(--nt-text-muted);
+      font-size: .8125rem;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  // Sichert alle internen Boxen im mobilen Horizontal-Flow gegen Dokument-Overflow ab.
+  &[mode="mobile"] > nte-card {
+    &::part(wrapper),
+    &::part(content) {
+      min-width: 0;
+    }
+  }
+}

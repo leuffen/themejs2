@@ -1,9 +1,13 @@
 // Lädt die Child-Pairings passend zu jeder Card-Row-Baseline des Themes.
 @use "sass:meta";
 
-// Hält Kinddarstellungen nahe am komponierenden Layout und verhindert globale Card-Overrides.
+// Hält Karten-, Galerie-, Feature-, Story- und Zitatdarstellungen nahe am komponierenden Layout.
 @include meta.load-css("./_in-style-default.scss");
 @include meta.load-css("./_in-style-timeline.scss");
 @include meta.load-css("./_in-style-pricing.scss");
 @include meta.load-css("./_in-style-metrics.scss");
 @include meta.load-css("./_in-style-testimonial-list.scss");
+@include meta.load-css("./_in-style-tool-gallery.scss");
+@include meta.load-css("./_in-style-feature-list.scss");
+@include meta.load-css("./_in-style-stories.scss");
+@include meta.load-css("./_in-style-testimonial-slider.scss");

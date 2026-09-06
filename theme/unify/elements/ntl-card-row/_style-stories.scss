@@ -1,0 +1,36 @@
+// Ordnet Kundenstories als hervorgehobene Leitgeschichte mit ergänzenden Kurzgeschichten an.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Nutzt das vorhandene Zwölf-Spalten-Raster und lässt die Hervorhebung bewusst optional.
+&.style-stories {
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 4,
+    $gap: var(--nt-space-5),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Hält die Einleitung lesbar, ohne ihre Ausrichtung für abweichende Inhalte festzulegen.
+  &::part(header) {
+    max-width: 44rem;
+    margin-bottom: var(--nt-space-8);
+  }
+
+  // Streckt alle Geschichten innerhalb ihrer jeweiligen Rasterzeile auf eine gemeinsame Höhe.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Stapelt Karten und Inhalte im schmalen Komponentenmodus vollständig.
+  &[mode="mobile"] {
+    --gutter-y: var(--nt-space-5);
+
+    &::part(header) {
+      margin-bottom: var(--nt-space-6);
+    }
+  }
+
+}

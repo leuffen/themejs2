@@ -1,4 +1,4 @@
-// Lädt die neutralen Feature-, Testimonial- und SaaS-Kompositionen des Unify-Themes.
+// Lädt die neutralen Feature-, Testimonial-, SaaS-, Logo- und Subscribe-Kompositionen des Unify-Themes.
 @use "sass:meta";
 
 // Bindet jede Darstellung an eine dokumentierte NTL-Variante.
@@ -10,4 +10,5 @@ ntl-2col {
   @include meta.load-css("./_style-feature-grid.scss");
   @include meta.load-css("./_style-video.scss");
   @include meta.load-css("./_style-logo-cloud.scss");
+  @include meta.load-css("./_style-subscribe.scss");
 }

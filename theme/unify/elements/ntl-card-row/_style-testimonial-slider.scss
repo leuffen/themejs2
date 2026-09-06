@@ -1,0 +1,36 @@
+// Ordnet mehrere Kundenstimmen als kompakte dunkle Vertrauensbühne mit optionalem Horizontal-Flow an.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Nutzt die Card-Row als vierteilige Referenzkomposition und hält die Scrollfunktion als separaten Modifier kombinierbar.
+&.style-testimonial-slider {
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 4,
+    $gap: var(--nt-space-5),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  color: rgba(255, 255, 255, .72);
+  background: var(--nt-secondary);
+
+  // Begrenzt und zentriert die helle Überschrift oberhalb der vier Stimmen.
+  &::part(header) {
+    max-width: 44rem;
+    margin: 0 auto var(--nt-space-8);
+    color: #fff;
+    text-align: center;
+  }
+
+  // Hält die Karten in der Desktop-Zeile auf einer gemeinsamen Höhe.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Verdichtet den Header im mobilen Horizontal-Flow, ohne die Kartenbreite selbst zu überschreiben.
+  &[mode="mobile"]::part(header) {
+    margin-bottom: var(--nt-space-6);
+  }
+}

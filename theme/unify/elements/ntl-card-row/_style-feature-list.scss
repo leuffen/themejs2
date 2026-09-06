@@ -1,0 +1,48 @@
+// Ordnet bis zu acht gleichwertige Leistungen als flache Vier-mal-zwei-Matrix mit ruhigen Trennlinien an.
+@use "@nextrap/ntl-card-row" as cardRow;
+
+// Nutzt das öffentliche Zwölfspaltenmodell der Card-Row und vermeidet eine eigenständige Kartenoberfläche.
+&.style-feature-list {
+  --breakpoint: sm, md;
+
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 3,
+    $gap: 0px,
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0,
+    $modifierClasses: false
+  );
+  @include cardRow.with-item-separators($separator-color: var(--nt-border));
+
+  // Zentriert die optionale Einleitung über der Feature-Matrix, ohne ihre Breite vom Theme-Container zu lösen.
+  &::part(header) {
+    margin: 0 auto var(--nt-space-8);
+    text-align: center;
+  }
+
+  // Streckt alle Zellen innerhalb ihrer Rasterzeile auf eine gemeinsame Höhe.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Ergänzt zwischen den beiden Desktop-Zeilen den horizontalen Gegenpart zu den Spaltentrennern.
+  &[mode="desktop"] > nte-card:nth-of-type(n + 5) {
+    border-block-start: var(--nt-border-width) solid var(--nt-border);
+  }
+
+  // Wechselt über den Komponentenmodus in eine einspaltige Liste und erhält deren linearen Lesefluss.
+  &[mode="mobile"] {
+    // Verhindert zusätzliche Mixin-Trenner, da der mobile Stack ausschließlich horizontal gegliedert wird.
+    > nte-card::after {
+      display: none;
+    }
+
+    // Trennt aufeinanderfolgende Features ohne Sonderfall für Anzahl oder Inhalt.
+    > nte-card + nte-card {
+      border-block-start: var(--nt-border-width) solid var(--nt-border);
+    }
+  }
+}
