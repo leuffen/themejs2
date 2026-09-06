@@ -119,7 +119,7 @@
     transform: translate(.2rem, -50%);
   }
 
-  // Gibt dem Folgeschritt eine dezente Verbindung statt der frameworkgebundenen SVG-Kurve.
+  // Verbindet Folgeschritte mit der klaren primären Akzentlinie der Referenz statt der frameworkgebundenen SVG-Kurve.
   & + & {
     position: relative;
   }
@@ -129,9 +129,9 @@
     position: absolute;
     top: calc(-1 * var(--nt-space-7));
     left: 50%;
-    width: 1px;
+    width: 2px;
     height: calc(var(--nt-space-7) * 2);
-    background: var(--nt-border);
+    background: var(--nt-primary);
   }
 
   // Entfernt im Stack feste Medienhöhen und bewahrt die natürliche Bildproportion.
