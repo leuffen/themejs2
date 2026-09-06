@@ -3,6 +3,8 @@
 
 // Überlässt die Spaltenbreite dem Seiten-Markup und definiert nur Rhythmus und Ausrichtung.
 &.style-metrics {
+  --breakpoint: sm, md;
+
   @include cardRow.default-style(
     $container-width: var(--nt-container-width),
     $gap: var(--nt-space-6),
@@ -16,6 +18,19 @@
   // Hält Kennzahlen an einer gemeinsamen Oberkante und lässt variable Beschreibungen wachsen.
   &::part(main) {
     align-items: stretch;
+  }
+
+  // Hält die technisch erforderliche Row-Überschrift für Hilfstechnologien verfügbar, ohne Layoutfläche zu belegen.
+  &::part(header) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   // Unterdrückt den vom Mixin vorbereiteten Zeilentrenner im mobilen Kennzahlen-Stack.
