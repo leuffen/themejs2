@@ -37,4 +37,16 @@
   &[mode="mobile"] > nte-card::after {
     display: none;
   }
+
+  // Verbindet Kennzahlen opt-in mit einer vorausgehenden dunklen Vertrauensbühne der Services-Vorlage.
+  &.surface-secondary {
+    padding-block-start: 0;
+    color: rgba(255, 255, 255, .72);
+    background: var(--nt-secondary);
+
+    // Die dunkle Bühne gliedert über Abstand und benötigt keine hellen Kartentrenner.
+    > nte-card::after {
+      display: none;
+    }
+  }
 }

@@ -43,4 +43,17 @@
     padding-block: var(--nt-space-3);
     text-align: center;
   }
+
+  // Bewahrt Wertkontrast und sekundäre Textrollen, wenn die Metrics-Reihe auf einer dunklen Surface steht.
+  &.surface-secondary > nte-card {
+    color: rgba(255, 255, 255, .72);
+
+    &::part(header) {
+      color: #fff;
+    }
+
+    strong:first-child {
+      color: var(--nt-primary);
+    }
+  }
 }

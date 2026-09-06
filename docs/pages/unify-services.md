@@ -121,7 +121,7 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
 ## Loved by businesses and individuals across the globe
-{: layout="ntl-card-row.style-testimonial-slider.with-horizontal-flow" section-style="--cols: 4; --visible-cols-mobile: 1.15;" }
+{: layout="ntl-card-row.style-testimonial-slider.with-horizontal-flow.surface-secondary" section-style="--cols: 4; --visible-cols-mobile: 1.15;" }
 
 ### Nicole Grazioso
 
@@ -157,7 +157,7 @@ Entrepreneur \| Happy customer
 
 <!-- Übernimmt die flache Kennzahlenkomposition des bestehenden Themes für die drei Referenzmetriken. -->
 ## Service results
-{: layout="ntl-card-row.style-metrics" section-style="--cols: 4;" }
+{: layout="ntl-card-row.style-metrics.surface-secondary" section-style="--cols: 4;" }
 
 ### Accuracy rate
 
