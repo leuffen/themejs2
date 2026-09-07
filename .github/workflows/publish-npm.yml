@@ -1,0 +1,52 @@
+name: Publish package to npm
+
+# Veröffentlicht eine auf GitHub freigegebene Release-Version im öffentlichen npm-Registry.
+on:
+  release:
+    types:
+      - published
+
+# Verhindert parallele Veröffentlichungen derselben Release-Version.
+concurrency:
+  group: npm-publish-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+# Erteilt nur die für Checkout und npm-Provenance erforderlichen Berechtigungen.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkt das Release einschließlich der als Workspaces verwendeten Submodule aus.
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          submodules: recursive
+
+      # Richtet die unterstützte Node-Version und das öffentliche npm-Registry ein.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      # Installiert reproduzierbar die im Lockfile festgelegten Abhängigkeiten.
+      - name: Install dependencies
+        run: npm ci
+
+      # Erzeugt vor der Veröffentlichung den aktuellen auslieferbaren Build.
+      - name: Build package
+        run: npm run build
+
+      # Veröffentlicht das Scoped Package öffentlich und hinterlegt die npm-Provenance.
+      - name: Publish package
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

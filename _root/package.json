@@ -36,7 +36,8 @@
     "author": "",
     "dependencies": {
         "@leuffen/themejs2": "^1.0.0",
-        "@leuffen/vite-jekyll-hmr-manager": "^1.0.0"
+        "@leuffen/vite-jekyll-hmr-manager": "^1.0.0",
+        "@nextrap/nte-theme-switcher": "^2.0.0"
     },
     "devDependencies": {
         "puppeteer-core": "^25.3.0",
