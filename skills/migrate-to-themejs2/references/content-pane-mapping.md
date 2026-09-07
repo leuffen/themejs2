@@ -24,8 +24,8 @@ README, package-local skills, exports, and tests are authoritative.
 
 ## Legacy patterns and current targets
 
-These are starting points observed in the ThemeJS1-old legacy site, ThemeJS2-new migrated
-site, and current ThemeJS2 baseline. Match the intended DOM, slots, content
+These are starting points observed in the ThemeJS1-old structure and the
+ThemeJS2-new baseline. Match the intended DOM, slots, content
 order, and responsive behavior before applying a target; do not perform global
 text replacement.
 
@@ -57,4 +57,3 @@ rendered DOM.
 
 Structural conversion may change tags and attributes, but never the authored
 text or data they present.
-

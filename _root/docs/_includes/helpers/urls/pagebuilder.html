@@ -1,0 +1,18 @@
+{%- comment -%}
+Gibt die Pagebuilder-URL einer Seite zurück.
+
+Erforderlich:
+- path: Quellpfad der Seite
+- lang: Sprache der Seite
+
+Optional:
+- base_url: Pagebuilder-Basis-URL; Standard ist site.data.general.pagebuilder
+{%- endcomment -%}
+{%- assign requested_path = include.path -%}
+{%- assign requested_lang = include.lang -%}
+{%- assign base_url = include.base_url | default: site.data.general.pagebuilder -%}
+{%- if base_url and requested_path and requested_lang -%}
+{{- base_url -}}/page?path={{ requested_path | url_encode }}&lang={{ requested_lang | url_encode }}
+{%- else -%}
+#
+{%- endif -%}

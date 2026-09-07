@@ -237,14 +237,14 @@ layout: 50_navbar
   <div class="container py-3">
     <nav class="site-footer__nav small text-center xl:text-start pb-3" style="border-bottom: 1px solid var(--footer-separator-color);" aria-label="Footer Navigation">
       <ul class="site-footer__nav-list d-flex flex-column xl:flex-row align-items-center xl:align-items-stretch gap-3 xl:gap-0 mb-0">
-          {% include el/navbar.html ptag="footer" %}
+          {% include components/navigation/footer.html tag="footer" lang=page.lang show_icons=true %}
 
       </ul>
     </nav>
     <div class="pt-3 d-flex flex-column xl:flex-row align-items-center xl:align-items-center justify-content-center xl:justify-content-between gap-3 text-center xl:text-start">
       <nav class="site-footer__nav small text-center xl:text-start" aria-label="Footer Navigation">
         <ul class="site-footer__nav-list d-flex flex-column xl:flex-row align-items-center xl:align-items-stretch gap-3 xl:gap-0 mb-0">
-          {% include el/navbar.html ptag="subfooter" %}
+          {% include components/navigation/footer.html tag="subfooter" lang=page.lang show_icons=true %}
         </ul>
       </nav>
 
@@ -261,7 +261,7 @@ layout: 50_navbar
   <div class="site-footer__bottom">
     <div class="container py-3">
       <div class="site-footer__credit small">
-        <span class="site-footer__credit-start">© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <span class="site-footer__credit-start">© {{ site.data.general.standorte.default.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
         <div class="site-footer__credit-center">
           <a class="site-footer__leuffen" href="https://leuffen.de" aria-label="leuffen.de – Webdesign für Ärzte">
             <span class="site-footer__leuffen-text">Webdesign für Ärzte</span>
@@ -272,7 +272,7 @@ layout: 50_navbar
           </a>
         </div>
         <div class="site-footer__credit-end">
-          <a class="d-inline-flex align-items-center" rel="nofollow" href="{% include el/pagebuilder-link.html %}" title="Seite editieren" style="opacity: 0.2">
+          <a class="d-inline-flex align-items-center" rel="nofollow" href="{% include helpers/urls/pagebuilder.html path=page.path lang=page.lang %}" title="Seite editieren" style="opacity: 0.2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
               <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
               <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>

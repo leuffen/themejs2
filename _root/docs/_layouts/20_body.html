@@ -2,10 +2,8 @@
 layout: 10_blanc
 ---
 
-
-
 <body>
-{% include part/loader.html %}
+{% include fragments/loader.html image_selector="img.loader-image" %}
 <tj-loader class="">
 <micx-cdn-image-loader default-size-adjust=":1;1200:1">
 <tj-responsive>
@@ -14,5 +12,6 @@ layout: 10_blanc
 </micx-cdn-image-loader>
 </tj-loader>
 
+<!-- Seitenweite Zusatzkomponenten werden nach dem Hauptinhalt initialisiert. -->
+<liweco-vacation-modal></liweco-vacation-modal>
 </body>
-

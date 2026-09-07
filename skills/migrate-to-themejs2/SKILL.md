@@ -6,10 +6,10 @@ description: Migrate ThemeJS1 and legacy Jekyll websites to ThemeJS2 while prese
 # Migrate to ThemeJS2
 
 Use the current `leuffen/themejs2/_root` as the target baseline. Its reusable
-includes and layouts follow the verified, anonymized ThemeJS2-new structure.
-Treat migration examples only as structural evidence, never as sources for
-customer names, content, data, logos, identifiers, or links. Current ThemeJS2
-and installed package contracts take precedence over historical examples.
+files follow the verified, anonymized ThemeJS2-new structure. Treat migration
+examples only as structural evidence, never as sources for customer names,
+content, data, logos, identifiers, or links. Current ThemeJS2 and installed
+package contracts take precedence over historical examples.
 
 ## Migration contract
 
@@ -18,6 +18,9 @@ and installed package contracts take precedence over historical examples.
    include, layout, widget, link, and original asset before changing files.
 2. Start from the current ThemeJS2 `_root` structure. Do not retrofit the
    ThemeJS1 layout chain, Webpack build, generated assets, or Joda elements.
+   The homepage belongs at `docs/index.md`, the error page at `docs/404.html`,
+   and the site-wide `body_class` default in `docs/_config.yml`; do not repeat
+   `body_class` in authored page frontmatter.
 3. Preserve authored content verbatim and in the same order. Do not rewrite,
    summarize, translate, correct spelling, change punctuation, alter metadata
    values, retarget links, or silently drop content. Changes are limited to
@@ -26,8 +29,9 @@ and installed package contracts take precedence over historical examples.
 4. Account for every source file in a migration ledger with its target path and
    disposition: copied, structurally converted, replaced by the ThemeJS2
    baseline, regenerated, or intentionally omitted with explicit approval.
-5. Use [the file mapping](references/file-mapping.md) for project files,
-   includes, and layouts. Use [the Content Pane mapping](references/content-pane-mapping.md)
+5. Use [the target architecture and file mapping](references/file-mapping.md)
+   for project files, includes, and layouts. Use
+   [the Content Pane mapping](references/content-pane-mapping.md)
    whenever content contains `layout`, Joda elements, legacy widgets, or
    ThemeJS2 content elements.
 6. Stop and ask when no verified ThemeJS2 equivalent exists or a proposed
@@ -48,4 +52,3 @@ and installed package contracts take precedence over historical examples.
   and order, headings, links, media, metadata, navigation, includes, forms, and
   responsive behavior. Check the console for Content Pane or custom-element
   errors.
-

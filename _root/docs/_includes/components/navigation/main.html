@@ -1,21 +1,28 @@
 {%- comment -%}
-Renders the Jekyll navigation as direct nte-nav-item children for @nextrap/nte-nav.
+Rendert Navigationseinträge für @nextrap/nte-nav.
 
-This is the nte-nav-item equivalent of the ThemeJS2 path-based navigation tree:
-- ptags selects visible pages (for example ptag="nav")
-- category index pages become non-clickable submenu parents when matching child pages exist
-- direct child pages are rendered as nested nte-nav-item entries
+Erforderlich:
+- items: vorbereitete Seitensammlung oder übergangsweise tag
+
+Optional:
+- lang: Seitensprache; Standard ist page.lang
+- root: normalisierter Wurzelpfad; Standard ist die Site-Wurzel
+- max_depth: Anzahl gerenderter Ebenen; Standard ist 2
 {%- endcomment -%}
-{%- assign requested_ptags = include.ptag | default: include.ptags | default: '' | split: ',' -%}
-{%- assign base_key = include._base | default: '' -%}
-{%- assign start_level = include.start | default: 0 | plus: 0 -%}
-{%- assign max_depth = include.depth | default: 99 | plus: 0 -%}
-{%- assign current_level = include._level | default: 0 | plus: 0 -%}
-{%- assign max_render_level = start_level | plus: max_depth | minus: 1 -%}
-{%- assign tree_pages = site.pages | sort: 'path' | sort: 'order' -%}
+{%- assign requested_ptags = include.tag | default: '' | split: ',' -%}
+{%- assign requested_lang = include.lang | default: page.lang -%}
+{%- assign base_key = include.root | default: '' -%}
+{%- assign max_depth = include.max_depth | default: 2 | plus: 0 -%}
+{%- assign current_level = 0 -%}
+{%- assign max_render_level = max_depth | minus: 1 -%}
+{%- if include.items -%}
+    {%- assign tree_pages = include.items | sort: 'path' | sort: 'order' -%}
+{%- else -%}
+    {%- assign tree_pages = site.pages | sort: 'path' | sort: 'order' -%}
+{%- endif -%}
 {%- for node in tree_pages -%}
     {%- assign matches_ptag = true -%}
-    {%- if include.ptag or include.ptags -%}
+    {%- if include.tag -%}
         {%- assign matches_ptag = false -%}
         {%- if node.ptags -%}
             {%- for requested_ptag in requested_ptags -%}
@@ -29,7 +36,7 @@ This is the nte-nav-item equivalent of the ThemeJS2 path-based navigation tree:
     {%- endif -%}
     {%- unless matches_ptag -%}{%- continue -%}{%- endunless -%}
     {%- if node.published == false -%}{%- continue -%}{%- endif -%}
-    {%- if page.lang and node.lang and node.lang != page.lang -%}{%- continue -%}{%- endif -%}
+    {%- if requested_lang and node.lang and node.lang != requested_lang -%}{%- continue -%}{%- endif -%}
 
     {%- assign node_key = node.path | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
     {%- if node_key == 'index' -%}
@@ -56,17 +63,13 @@ This is the nte-nav-item equivalent of the ThemeJS2 path-based navigation tree:
     {%- endif -%}
     {%- unless is_direct_child -%}{%- continue -%}{%- endunless -%}
 
-    {%- if current_level < start_level -%}
-        {%- continue -%}
-    {%- endif -%}
-
     {%- assign child_items = '' -%}
     {%- if current_level < max_render_level -%}
         {%- assign child_prefix = node_key | append: '/' -%}
         {%- capture child_items -%}
             {%- for child in tree_pages -%}
                 {%- assign child_matches_ptag = true -%}
-                {%- if include.ptag or include.ptags -%}
+                {%- if include.tag -%}
                     {%- assign child_matches_ptag = false -%}
                     {%- if child.ptags -%}
                         {%- for requested_ptag in requested_ptags -%}
@@ -80,7 +83,7 @@ This is the nte-nav-item equivalent of the ThemeJS2 path-based navigation tree:
                 {%- endif -%}
                 {%- unless child_matches_ptag -%}{%- continue -%}{%- endunless -%}
                 {%- if child.published == false -%}{%- continue -%}{%- endif -%}
-                {%- if page.lang and child.lang and child.lang != page.lang -%}{%- continue -%}{%- endif -%}
+                {%- if requested_lang and child.lang and child.lang != requested_lang -%}{%- continue -%}{%- endif -%}
 
                 {%- assign child_key = child.path | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
                 {%- if child_key == 'index' -%}

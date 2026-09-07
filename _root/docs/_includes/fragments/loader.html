@@ -1,6 +1,15 @@
+{%- comment -%}
+Rendert Styles, Markup und Skript des Seiten-Loaders.
+
+Optional:
+- image_selector: Selektor des Quellbilds; Standard ist img.loader-image
+
+Globale Abhängigkeit:
+- Zustandsklassen von tj-loader und der DOM-Vertrag über #loader
+{%- endcomment -%}
 <style>
     tj-loader:not(.ready) * {
-        display: none !important; /* Hide the loader by default */
+        display: none !important; /* Inhalt bis zur Loader-Bereitschaft ausblenden. */
     }
 
     :where(#loader) {
@@ -170,7 +179,7 @@
 </div>
 <script language="javascript">
     document.addEventListener('DOMContentLoaded', function () {
-        var sourceImage = document.querySelector('img.loader-image');
+        var sourceImage = document.querySelector({{ include.image_selector | default: 'img.loader-image' | jsonify }});
         var loaderImage = document.querySelector('#loader img');
         var loader = document.getElementById('loader');
 

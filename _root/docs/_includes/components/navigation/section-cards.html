@@ -1,11 +1,11 @@
 {%- comment -%}
-Listet automatisch die direkten Unterseiten des aktuellen Verzeichnisses.
+Rendert Karten für direkte Unterseiten.
 
-WICHTIG:
-- Dieses Include gibt bewusst reines HTML aus, damit es auch direkt in Layouts
-  (z.B. innerhalb von `ntl-card-row`) eingebunden werden kann.
-- Pro Unterseite wird genau ein `<section>` gerendert.
-- Wrapper, Card-Layout und weitere Gestaltung erfolgen im aufrufenden Dokument.
+Optional:
+- base: Quellpfad; Standard ist page.path
+- tags: kommaseparierter Übergangsfilter; Standard ist kein Filter
+- lang: Seitensprache; Standard ist page.lang
+- show_image, show_summary: Ausgabeschalter; Standard ist true
 {%- endcomment -%}
 {%- assign base_source = include.base | default: page.path -%}
 {%- assign base_key = base_source | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
@@ -14,11 +14,18 @@ WICHTIG:
 {%- elsif base_key contains '/index' -%}
     {%- assign base_key = base_key | replace: '/index', '' -%}
 {%- endif -%}
-{%- assign requested_tags = include.ptags | default: '' | split: ',' -%}
+{%- assign requested_tags = include.tags | default: '' | split: ',' -%}
+{%- assign requested_lang = include.lang | default: page.lang -%}
+{%- assign show_image = true -%}
+{%- assign show_summary = true -%}
+{%- if include.show_image == false -%}{%- assign show_image = false -%}{%- endif -%}
+{%- if include.show_summary == false -%}{%- assign show_summary = false -%}{%- endif -%}
 {%- assign tree_pages = site.pages | sort: 'path' | sort: 'order' -%}
 {%- for child in tree_pages -%}
+    {%- if child.published == false -%}{%- continue -%}{%- endif -%}
+    {%- if requested_lang and child.lang and child.lang != requested_lang -%}{%- continue -%}{%- endif -%}
     {%- assign child_matches_ptag = true -%}
-    {%- if include.ptags -%}
+    {%- if include.tags -%}
         {%- assign child_matches_ptag = false -%}
         {%- if child.ptags -%}
             {%- for requested_tag in requested_tags -%}
@@ -87,5 +94,5 @@ WICHTIG:
             {%- assign child_image = html_image_split[1] | split: '"' | first | strip -%}
         {%- endif -%}
     {%- endif -%}
-<section><h3 class="">{{ child_label }}</h3>{%- if child_image != '' -%}<img src="{{ child_image }}" alt="{{ child_label | escape }}" />{%- endif -%}{%- if child_summary != '' -%}<p>{{ child_summary | escape }}</p>{%- endif -%}<p class="footer"><a class="link" href="{{ child_href }}">{{ child_label }}</a></p></section>
+<section><h3 class="">{{ child_label }}</h3>{%- if show_image and child_image != '' -%}<img src="{{ child_image }}" alt="{{ child_label | escape }}" />{%- endif -%}{%- if show_summary and child_summary != '' -%}<p>{{ child_summary | escape }}</p>{%- endif -%}<p class="footer"><a class="link" href="{{ child_href }}">{{ child_label }}</a></p></section>
 {%- endfor -%}
