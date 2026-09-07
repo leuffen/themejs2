@@ -1,0 +1,12 @@
+{% if page.skip-navbar != true %}
+<header class="site-header site-header--osman">
+  <div class="site-topbar container d-flex flex-wrap align-items-center justify-content-between gap-2 py-2">
+    <div>{% if site.data.general.phone1_text %}<span>Tel. {{ site.data.general.phone1_text }}</span>{% endif %}{% if site.data.general.email %}<span> · <a href="mailto:{{ site.data.general.email }}">{{ site.data.general.email }}</a></span>{% endif %}</div>
+    <a href="{{ site.data.general.termin_url | default: '/online-termin' }}" class="btn btn-primary">Termin online buchen</a>
+  </div>
+  <div class="container d-flex align-items-center justify-content-between gap-3 py-3">
+    <a class="site-brand text-decoration-none" href="/">{% if site.data.general.logo %}<img src="{{ site.data.general.logo }}" alt="{{ site.data.general.logoalt | default: site.data.general.name }}" class="loader-image" height="64">{% else %}{{ site.data.general.name | default: site.title }}{% endif %}</a>
+    <nav aria-label="Hauptnavigation"><ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">{% assign docs = site.posts | concat: site.pages %}{% assign nav_items = docs | where: "ptags", "nav2" | sort: "order" %}{% for it in nav_items %}<li><a href="{{ it.url }}">{{ it.short_title | default: it.title }}</a></li>{% endfor %}</ul></nav>
+  </div>
+</header>
+{% endif %}

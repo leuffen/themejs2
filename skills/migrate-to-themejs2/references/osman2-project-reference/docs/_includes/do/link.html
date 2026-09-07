@@ -1,0 +1,1 @@
+{% assign _lookup_path = include.path | default: include.url %}{% assign _lpage = site.pages | where: "lang", page.lang | where: "path", _lookup_path | first %}{% if _lpage.url %}{{ _lpage.url }}{% else %}javascript:alert('translation not available');{% endif %}

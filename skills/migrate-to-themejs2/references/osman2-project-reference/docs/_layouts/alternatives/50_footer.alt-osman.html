@@ -1,0 +1,4 @@
+<style>.site-footer--osman{background:var(--nt-body-secondary,#f3f3f3);color:var(--nt-text,#222)}.site-footer--osman a{color:inherit}</style>
+<footer class="site-footer site-footer--osman mt-5 border-top">
+  <div class="container py-4 d-flex flex-column flex-xl-row align-items-center justify-content-between gap-3"><nav aria-label="Footer Navigation"><ul class="list-unstyled d-flex flex-column flex-xl-row gap-3 mb-0">{% assign docs = site.posts | concat: site.pages %}{% assign footer_items = docs | where: "ptags", "subfooter" | sort: "order" %}{% for it in footer_items %}<li><a href="{{ it.url }}">{{ it.short_title | default: it.title }}</a></li>{% endfor %}</ul></nav><span class="small">© {{ site.data.general.name | default: site.title }} {{ site.time | date: '%Y' }}</span></div>
+</footer>

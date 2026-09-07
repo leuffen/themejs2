@@ -1,0 +1,34 @@
+
+
+@use "@nextrap/style-base" as nextrapBase;
+@use "@leuffen/themejs2/font/opensans-regular" as osmanFont;
+@use "@leuffen/themejs2/theme/osman";
+
+:root {
+  @include nextrapBase.runtime-scheme-selectors();
+}
+
+:where(.theme-osman) {
+  @include osman.theme();
+
+  --theme-primary: #2b94d6;
+  --theme-accent: #2b94d6;
+  --theme-neutral: #6f6f6f;
+  --theme-secondary: #4c4c4c;
+
+  --theme-font-family: #{osmanFont.$font-family-base};
+  --theme-font-family-header: #{osmanFont.$font-family-header};
+  --theme-font-size: #{osmanFont.$font-size-base};
+  --theme-font-size-header: #{osmanFont.$font-size-header};
+
+  --nt-text-on-primary: #fff;
+
+  --nt-border-radius: 0;
+
+  --nt-font-family: var(--theme-font-family);
+  --nt-font-family-header: var(--theme-font-family-header);
+  --nt-font-size: var(--theme-font-size);
+  --nt-font-size-header: var(--theme-font-size-header);
+  --nt-primary: var(--theme-primary);
+  --nt-accent: var(--theme-accent);
+}

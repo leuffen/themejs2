@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migrate to theme.js 2"
+  short_description: "Migriert ThemeJS1-Websites verlustfrei zu ThemeJS2"
+  default_prompt: "Use $migrate-to-themejs2 to migrate this legacy Cheche-style ThemeJS1 website to the ThemeJS2 structure without changing or losing content."
