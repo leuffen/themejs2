@@ -28,9 +28,9 @@ Committe `.old/`, `.migration/themejs1-inventory.json`, `.migration/page-map.jso
 
 ## Zielgerüst
 
-Nutze [references/osman2-project-reference](references/osman2-project-reference) als mitgelieferte Referenz für die nachweislich eingesetzte ThemeJS2-Projektstruktur. Wenn ein aktueller `_root/`-Stub aus `themejs2` verfügbar ist, prüfe beide gegen [references/template-provenance.md](references/template-provenance.md) und übernimm den für das selbstständige Kundenprojekt geeigneten Stand.
+Nutze [references/osman2-project-reference](references/osman2-project-reference) als maßgebliche Target-Struktur für die Verzeichnisnamen und Include-Pfade einer Cheche-Migration. Der Snapshot bildet den aktuellen Osman2-Stand ab; ein `_root/`-Stub aus `themejs2` dient ergänzend zur Prüfung von veröffentlichten Abhängigkeiten und Startfähigkeit, darf die dokumentierte Osman2-Verzeichnisstruktur aber nicht stillschweigend zurücksetzen. Lies dazu [references/template-provenance.md](references/template-provenance.md).
 
-Übernimm nur Projektstruktur, Build-Konfiguration, Includes und Layoutmuster aus der Referenz. Ersetze `workspace:*` in selbstständigen Kundenprojekten durch veröffentlichte semantische Versionen, passe Paketname und Theme-Importe an und entferne nicht benötigte Osman-Varianten. Übernimm keine Demo-Seiten, Beispieltexte, Kundendaten, Logos oder generierten Bundles aus einer Vorlage. Behalte die im Quellprojekt vorhandenen Infrastrukturdateien, wenn sie nicht nachweislich mit ThemeJS2 unvereinbar sind.
+Übernimm nur Projektstruktur, Build-Konfiguration, Includes und Layoutmuster aus der Referenz. Verwende insbesondere die Namensräume `docs/_includes/components/`, `docs/_includes/fragments/` und `docs/_includes/helpers/`; lege die abgelösten Verzeichnisse `do/`, `el/` und `part/` nicht erneut als Target-Struktur an. Ersetze `workspace:*` in selbstständigen Kundenprojekten durch veröffentlichte semantische Versionen, passe Paketname und Theme-Importe an und entferne nicht benötigte Osman-Varianten. Übernimm keine Demo-Seiten, Beispieltexte, Kundendaten, Logos oder generierten Bundles aus einer Vorlage. Behalte die im Quellprojekt vorhandenen Infrastrukturdateien, wenn sie nicht nachweislich mit ThemeJS2 unvereinbar sind.
 
 ## Migration
 

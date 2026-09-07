@@ -1,3 +1,12 @@
+{%- comment -%}
+Renders the loader styles, markup and script.
+
+Optional:
+- image_selector: source image selector; defaults to img.loader-image
+
+Global dependency:
+- tj-loader state classes and the #loader DOM contract
+{%- endcomment -%}
 <style>
     tj-loader:not(.ready) * {
         display: none !important; /* Hide the loader by default */
@@ -170,7 +179,7 @@
 </div>
 <script language="javascript">
     document.addEventListener('DOMContentLoaded', function () {
-        var sourceImage = document.querySelector('img.loader-image');
+        var sourceImage = document.querySelector({{ include.image_selector | default: 'img.loader-image' | jsonify }});
         var loaderImage = document.querySelector('#loader img');
         var loader = document.getElementById('loader');
 

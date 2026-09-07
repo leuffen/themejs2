@@ -63,7 +63,7 @@ layout: null
         window.micx_subscription_id = '{{ site.data.general.subscription_id }}';
         window.micx_subscription = '{{ site.data.general.subscription_id }}';
         window.micx_endpoint = 'https://ws.micx.io/v1/formmailer/send';
-        window.mapUrl = '{{ site.data.general.map_url }}';
+        window.mapUrl = '{{ site.data.general.standorte.default.map_url }}';
     </script>
 
 
@@ -81,7 +81,7 @@ layout: null
     {% endcomment %}
     <template id="google-maps-template">
         <iframe
-            src="{{ site.data.general.map_url }}"
+            src="{{ site.data.general.standorte.default.map_url }}"
             title="Karte zur Augenpraxis Osman"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"

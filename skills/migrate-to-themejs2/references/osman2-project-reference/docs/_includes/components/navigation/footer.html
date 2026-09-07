@@ -1,0 +1,48 @@
+{%- comment -%}
+Renders footer navigation as list items.
+
+Required:
+- items: prepared page/post collection, or tag during the transition
+
+Optional:
+- lang: item language; defaults to page.lang
+- show_icons: renders configured icons; defaults to true
+{%- endcomment -%}
+{%- assign requested_lang = include.lang | default: page.lang -%}
+{%- assign show_icons = true -%}
+{%- if include.show_icons == false -%}{%- assign show_icons = false -%}{%- endif -%}
+{%- if include.items -%}
+    {%- assign all_footer_items = include.items -%}
+{%- else -%}
+    {%- assign all_footer_items = site.posts | concat: site.pages -%}
+{%- endif -%}
+{%- assign footer_items = all_footer_items -%}
+{%- if include.tag -%}
+    {%- assign footer_items = footer_items | where: "ptags", include.tag -%}
+{%- endif -%}
+{%- assign footer_items = footer_items | sort: "order" -%}
+{%- for item in footer_items -%}
+{%- if requested_lang and item.lang and item.lang != requested_lang -%}{%- continue -%}{%- endif -%}
+{%- assign item_label = item.short_title | default: item.title -%}
+{%- if item.has_subnav != true -%}
+<li><a href="{{ item.url }}">{% if show_icons and item.nav_icon %}<i class="{{ item.nav_icon }}"></i>{% endif %}{{ item_label }}</a></li>
+{%- else -%}
+    {%- assign item_root = item.path | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
+    {%- if item_root contains '/index' -%}{%- assign item_root = item_root | replace: '/index', '' -%}{%- endif -%}
+    {%- assign item_root = item_root | split: '/' | first -%}
+<li class="dropdown"><a href="{{ item.url }}" class="dropdown-toggle" role="button" data-bs-toggle="dropdown">{% if show_icons and item.nav_icon %}<i class="{{ item.nav_icon }}"></i>{% endif %}{{ item_label }}</a>
+    <ul>
+        {%- assign subnav_items = all_footer_items | where: "ptags", "subnav" | sort: "order" -%}
+        {%- for sub in subnav_items -%}
+            {%- if requested_lang and sub.lang and sub.lang != requested_lang -%}{%- continue -%}{%- endif -%}
+            {%- assign current_tag = sub.path | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
+            {%- if current_tag contains '/index' -%}{%- assign current_tag = current_tag | replace: '/index', '' -%}{%- endif -%}
+            {%- assign current_tag = current_tag | split: '/' | first -%}
+            {%- if current_tag == item_root -%}
+                <li><a href="{{ sub.url }}">{{ sub.short_title | default: sub.title }}</a></li>
+            {%- endif -%}
+        {%- endfor -%}
+    </ul>
+</li>
+{%- endif -%}
+{%- endfor -%}

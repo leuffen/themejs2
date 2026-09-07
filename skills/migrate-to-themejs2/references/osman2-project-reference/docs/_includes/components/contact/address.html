@@ -1,0 +1,34 @@
+{%- comment -%}
+Renders the practice address and optional contact fields.
+
+Optional:
+- standort: key in site.data.general.standorte; defaults to "default"
+- lang: translation language; defaults to page.lang
+- show_phone, show_fax, show_email: field switches; default to true
+{%- endcomment -%}
+{%- assign standort = include.standort | default: "default" -%}
+{%- assign address = site.data.general.standorte[standort] -%}
+{%- assign requested_lang = include.lang | default: page.lang -%}
+{%- assign show_phone = true -%}
+{%- assign show_fax = true -%}
+{%- assign show_email = true -%}
+{%- if include.show_phone == false -%}{%- assign show_phone = false -%}{%- endif -%}
+{%- if include.show_fax == false -%}{%- assign show_fax = false -%}{%- endif -%}
+{%- if include.show_email == false -%}{%- assign show_email = false -%}{%- endif -%}
+{%- if address -%}
+{{ address.name }}<br>
+{%- if address.name2 != null -%}{{ address.name2 }}<br>{%- endif -%}
+{{ address.street }} <br>
+{{ address.zip }} {{ address.city }}<br><br>
+{%- if show_phone and address.phone1_text != null -%}
+<span>{% include helpers/i18n/translate.html key="Telefon" lang=requested_lang fallback="Telefon" %}:</span> <b><a href="tel:{{ address.phone1 }}" title="Telefon" class="text-decoration-none">{{ address.phone1_text }}</a></b><br>
+{%- endif -%}
+{%- if show_fax and address.fax1_text != null -%}
+<span>{% include helpers/i18n/translate.html key="Telefax" lang=requested_lang fallback="Telefax" %}:</span> <b>{{ address.fax1_text }}</b><br>
+{%- endif -%}
+{%- if show_email and address.email != null -%}
+<span>{% include helpers/i18n/translate.html key="E-Mail" lang=requested_lang fallback="E-Mail" %}:</span> <a href="mailto:{{ address.email }}" title="E-Mail" class="text-decoration-none">{{ address.email }}</a><br>
+{%- endif -%}
+{%- else -%}
+<!-- components/contact/address.html: configured standort was not found -->
+{%- endif -%}

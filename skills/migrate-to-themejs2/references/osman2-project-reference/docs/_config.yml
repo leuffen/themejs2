@@ -30,6 +30,7 @@ defaults:
       path: ""
     values:
       layout: "default"
+      body_class: "theme-osman"
   - scope:
       path: "_posts"
     values:
