@@ -20,6 +20,7 @@
         "/sections",
         "/functions",
         "/_tpl",
+        "/skills",
         "*.scss",
         "*.json",
         "*.js",
