@@ -9,3 +9,5 @@ libs/
 ##/docs/assets/dist
 
 /workspaces
+.jekyll-metadata
+.jekyll-cache
