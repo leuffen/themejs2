@@ -5,11 +5,11 @@ description: Migrate ThemeJS1 and legacy Jekyll websites to ThemeJS2 while prese
 
 # Migrate to ThemeJS2
 
-Use the current `leuffen/themejs2/_root` as the target baseline. Treat
-`dermatthes/leu-web-scheche-k30-v2` as the legacy example and
-`dermatthes/leu-web-osman2` as a migrated example, not as templates to copy
-wholesale. Current ThemeJS2 and installed package contracts take precedence
-over either example.
+Use the current `leuffen/themejs2/_root` as the target baseline. Its reusable
+includes and layouts follow the verified, anonymized ThemeJS2-new structure.
+Treat migration examples only as structural evidence, never as sources for
+customer names, content, data, logos, identifiers, or links. Current ThemeJS2
+and installed package contracts take precedence over historical examples.
 
 ## Migration contract
 

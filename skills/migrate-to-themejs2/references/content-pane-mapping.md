@@ -24,7 +24,7 @@ README, package-local skills, exports, and tests are authoritative.
 
 ## Legacy patterns and current targets
 
-These are starting points observed in the Scheche legacy site, Osman2 migrated
+These are starting points observed in the ThemeJS1-old legacy site, ThemeJS2-new migrated
 site, and current ThemeJS2 baseline. Match the intended DOM, slots, content
 order, and responsive behavior before applying a target; do not perform global
 text replacement.

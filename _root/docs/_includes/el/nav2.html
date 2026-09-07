@@ -1,11 +1,12 @@
 {%- comment -%}
-Einfache 2-Level-Navigation für Jekyll-Seiten.
-- basiert ausschließlich auf `path`
-- Kategorie-Seiten liegen als `/<ordner>/index.md`
-- Unterseiten liegen als `/<ordner>/<seite>.md`
-- gibt nur `<li>`-Elemente aus und wird in ein bestehendes `<ul>` eingebunden
+Renders the Jekyll navigation as direct nte-nav-item children for @nextrap/nte-nav.
+
+This is the nte-nav-item equivalent of the ThemeJS2 path-based navigation tree:
+- ptags selects visible pages (for example ptag="nav")
+- category index pages become non-clickable submenu parents when matching child pages exist
+- direct child pages are rendered as nested nte-nav-item entries
 {%- endcomment -%}
-{%- assign requested_tags = include.ptags | default: '' | split: ',' -%}
+{%- assign requested_ptags = include.ptag | default: include.ptags | default: '' | split: ',' -%}
 {%- assign base_key = include._base | default: '' -%}
 {%- assign start_level = include.start | default: 0 | plus: 0 -%}
 {%- assign max_depth = include.depth | default: 99 | plus: 0 -%}
@@ -14,12 +15,12 @@ Einfache 2-Level-Navigation für Jekyll-Seiten.
 {%- assign tree_pages = site.pages | sort: 'path' | sort: 'order' -%}
 {%- for node in tree_pages -%}
     {%- assign matches_ptag = true -%}
-    {%- if include.ptags -%}
+    {%- if include.ptag or include.ptags -%}
         {%- assign matches_ptag = false -%}
         {%- if node.ptags -%}
-            {%- for requested_tag in requested_tags -%}
-                {%- assign requested_tag = requested_tag | strip -%}
-                {%- if requested_tag != '' and node.ptags contains requested_tag -%}
+            {%- for requested_ptag in requested_ptags -%}
+                {%- assign requested_ptag = requested_ptag | strip -%}
+                {%- if requested_ptag != '' and node.ptags contains requested_ptag -%}
                     {%- assign matches_ptag = true -%}
                     {%- break -%}
                 {%- endif -%}
@@ -59,19 +60,18 @@ Einfache 2-Level-Navigation für Jekyll-Seiten.
         {%- continue -%}
     {%- endif -%}
 
-    {%- assign nav_label = node.nav_title | default: node.short_title | default: node.title -%}
     {%- assign child_items = '' -%}
     {%- if current_level < max_render_level -%}
         {%- assign child_prefix = node_key | append: '/' -%}
         {%- capture child_items -%}
             {%- for child in tree_pages -%}
                 {%- assign child_matches_ptag = true -%}
-                {%- if include.ptags -%}
+                {%- if include.ptag or include.ptags -%}
                     {%- assign child_matches_ptag = false -%}
                     {%- if child.ptags -%}
-                        {%- for requested_tag in requested_tags -%}
-                            {%- assign requested_tag = requested_tag | strip -%}
-                            {%- if requested_tag != '' and child.ptags contains requested_tag -%}
+                        {%- for requested_ptag in requested_ptags -%}
+                            {%- assign requested_ptag = requested_ptag | strip -%}
+                            {%- if requested_ptag != '' and child.ptags contains requested_ptag -%}
                                 {%- assign child_matches_ptag = true -%}
                                 {%- break -%}
                             {%- endif -%}
@@ -93,10 +93,11 @@ Einfache 2-Level-Navigation für Jekyll-Seiten.
                 {%- assign child_relative = child_key | remove_first: child_prefix -%}
                 {%- if child_relative == '' or child_relative contains '/' -%}{%- continue -%}{%- endif -%}
                 {%- assign child_label = child.nav_title | default: child.short_title | default: child.title -%}
-                <li><a href="{{ child.url }}">{{ child_label }}</a></li>
+                <nte-nav-item href="{{ child.url }}"{% if child.order %} style="--order: {{ child.order }}"{% endif %}>{% if child.nav_icon %}<i slot="icon" class="{{ child.nav_icon }}" aria-hidden="true"></i>{% endif %}{{ child_label }}</nte-nav-item>
             {%- endfor -%}
         {%- endcapture -%}
         {%- assign child_items = child_items | strip -%}
     {%- endif -%}
-    <li>{%- if child_items != '' -%}<a>{{ nav_label }}</a>{%- else -%}<a href="{{ node.url }}">{{ nav_label }}</a>{%- endif -%}{%- if child_items != '' -%}<ul>{{- child_items -}}</ul>{%- endif -%}</li>
+    {%- assign nav_label = node.nav_title | default: node.short_title | default: node.title -%}
+    <nte-nav-item{% if child_items != '' %} submenu-popover{% else %} href="{{ node.url }}"{% endif %}{% if node.order %} style="--order: {{ node.order }}"{% endif %}>{% if node.nav_icon %}<i slot="icon" class="{{ node.nav_icon }}" aria-hidden="true"></i>{% endif %}{{ nav_label }}{{ child_items }}</nte-nav-item>
 {%- endfor -%}

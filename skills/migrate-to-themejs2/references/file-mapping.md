@@ -18,7 +18,7 @@ project structure and public include names.
 | `docs/assets/dist/*`, `docs/_includes/dist/*` | ThemeJS2 build output | Do not copy. Regenerate only with a successful ThemeJS2 build. |
 | legacy SCSS and variables | ThemeJS2 `_src` and theme configuration | Transfer verified brand inputs to ThemeJS2 variables; do not carry obsolete component/layout CSS forward blindly. |
 
-Locale suffixes and directory splits in the Osman2 example are project choices,
+Locale suffixes and directory splits in the ThemeJS2-new structure are project choices,
 not universal rules. A rename such as `index.de.md` to `index.md` requires a
 verified route/permalink match.
 
@@ -35,7 +35,7 @@ verified route/permalink match.
 | `el/openhours.html` | Keep ThemeJS2 and migrate data values | Public name is stable; preserve every opening-hours value verbatim. |
 | `el/pagebuilder-link.html` | Keep the current ThemeJS2 implementation | Public name is stable; implementation differs. |
 | `global.md` | Same path; merge project content | ThemeJS2 provides an empty extension point. Do not discard non-empty legacy content. |
-| `minifooter.md` | Copy only if still referenced | It was copied byte-for-byte into Osman2 but is not part of the ThemeJS2 `_root` baseline. |
+| `minifooter.md` | Copy only if still referenced | It was copied byte-for-byte into ThemeJS2-new but is not part of the ThemeJS2 `_root` baseline. |
 | `footer.md` | Convert into `60_footer.html` content/data | No direct ThemeJS2 include exists; preserve its displayed content while using the new footer layout. |
 | `fragments.html` | Convert each fragment separately | No direct ThemeJS2 include exists; replace fragment plumbing with current elements/includes without losing content. |
 | legacy `dist/*` includes | Regenerate | Generated ThemeJS1 bundles must not enter the ThemeJS2 target. |

@@ -2,7 +2,7 @@
 layout: null
 ---
 <!DOCTYPE html>
-<html class="{{page.body_class}}" data-nt-scheme="auto"  lang="{{ page.lang | default: 'de' }}">
+<html class="{{page.body_class}}" data-nt-scheme="light" lang="{{ page.lang | default: 'de' }}">
 <head>
     <base href="{% if site.baseurl == '' or site.baseurl == null %}/{% else %}{{ site.baseurl }}{% endif %}">
 
@@ -11,7 +11,7 @@ layout: null
     {% endcomment %}
 
     <!-- Google Site Verification for Search Console -->
-    <meta name="google-site-verification" content="NN1A2XEV3PkleJTab6JgTUjJxadD8L_j1ZFHXf8D19Y" />
+    <meta name="google-site-verification" content="{{ site.data.general.google_site_verification }}" />
 
 
     <link rel="canonical" href="{{ site.data.general.site_base_url }}{{ page.url }}"/>
@@ -58,10 +58,11 @@ layout: null
     <link rel="icon" href="/assets/logo256.png" />
     <script>
         window.lang = '{{ page.lang }}';
-        window.pid = '{{ page.pid }}'
         window.layout = '{{ page.layout }}'
         window.openhours = {{ site.data.openhours | jsonify }};
         window.micx_subscription_id = '{{ site.data.general.subscription_id }}';
+        window.micx_subscription = '{{ site.data.general.subscription_id }}';
+        window.micx_endpoint = 'https://ws.micx.io/v1/formmailer/send';
         window.mapUrl = '{{ site.data.general.map_url }}';
     </script>
 
@@ -70,10 +71,25 @@ layout: null
     <script src="/@vite/client" type="module"></script>
     <script src="/@vite-jekyll-hmr-manager/client" type="module"></script>
     <script src="/docs/_src/index.ts" type="module"></script>
+    {% else %}
+
     {% endif %}
 
+    {% comment %}
+       Inertes, seitenweit wiederverwendbares Template für den Google-Maps-Consent-Blocker.
+       Der Inhalt wird erst nach ausdrücklicher Zustimmung durch nte-consent-blocker geklont.
+    {% endcomment %}
+    <template id="google-maps-template">
+        <iframe
+            src="{{ site.data.general.map_url }}"
+            title="Karte zum Standort"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+    </template>
+
     {% comment %} ======== Liquid script for alternative language links ======= {% endcomment %}
-    {%- assign alt_lang_pages = site.pages | where: "pid", page.pid | where_exp: "item", "item.lang != page.lang" -%}
+    {%- assign alt_lang_pages = site.pages | where: "path", page.path | where_exp: "item", "item.lang != page.lang" -%}
     {%- for alt_page in alt_lang_pages -%}
     <link rel="alternate" href="{{ alt_page.url | absolute_url }}" hreflang="{{ alt_page.lang }}" />
     {% endfor %}

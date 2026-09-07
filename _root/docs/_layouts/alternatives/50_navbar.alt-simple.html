@@ -1,5 +1,5 @@
 {% if page.skip-navbar != true %}
-<header class="site-header site-header--osman">
+<header class="site-header site-header--simple">
   <div class="site-topbar container d-flex flex-wrap align-items-center justify-content-between gap-2 py-2">
     <div>{% if site.data.general.phone1_text %}<span>Tel. {{ site.data.general.phone1_text }}</span>{% endif %}{% if site.data.general.email %}<span> · <a href="mailto:{{ site.data.general.email }}">{{ site.data.general.email }}</a></span>{% endif %}</div>
     <a href="{{ site.data.general.termin_url | default: '/online-termin' }}" class="btn btn-primary">Termin online buchen</a>
