@@ -7,10 +7,3 @@
   @include elements.list();
 }
 
-:where(main#main table:not(.table)) {
-  @include elements.table();
-  @include elements.table-striped();
-
-  --nt-border-color: var(--nt-border);
-  --nt-table-stripe-bg: color-mix(in srgb, var(--nt-primary) 5%, transparent);
-}
