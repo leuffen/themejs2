@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "",
     "license": "proprietary",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leuffen/themejs2.git"
+    },
     "main": "./index.js",
     "module": "./index.js",
     "directories": {

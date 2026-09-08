@@ -1,14 +1,14 @@
 name: Publish package to npm
 
-# Veröffentlicht eine auf GitHub freigegebene Release-Version im öffentlichen npm-Registry.
+# Baut und veröffentlicht nach jedem Push auf den Hauptbranch eine neue Patch-Version.
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - main
 
-# Verhindert parallele Veröffentlichungen derselben Release-Version.
+# Serialisiert Veröffentlichungen, damit parallele Pushes nicht dieselbe Patch-Version verwenden.
 concurrency:
-  group: npm-publish-${{ github.event.release.tag_name }}
+  group: npm-publish-main
   cancel-in-progress: false
 
 # Erteilt nur die für Checkout und npm-Provenance erforderlichen Berechtigungen.
@@ -22,11 +22,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkt das Release einschließlich der als Workspaces verwendeten Submodule aus.
+      # Checkt den gepushten Stand einschließlich der als Workspaces verwendeten Submodule aus.
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.release.tag_name }}
           submodules: recursive
 
       # Richtet die unterstützte Node-Version und das öffentliche npm-Registry ein.
@@ -41,12 +40,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Ermittelt die Registry-Version und setzt lokal die unmittelbar folgende Patch-Version.
+      - name: Set next patch version
+        shell: bash
+        run: |
+          PACKAGE_NAME="$(node -p "require('./package.json').name")"
+          CURRENT_VERSION="$(npm view "$PACKAGE_NAME" version)"
+          NEXT_VERSION="$(node -e 'const [major, minor, patch] = process.argv[1].split(".").map(Number); if (![major, minor, patch].every(Number.isInteger)) process.exit(1); process.stdout.write(`${major}.${minor}.${patch + 1}`)' "$CURRENT_VERSION")"
+          npm version "$NEXT_VERSION" --no-git-tag-version
+
       # Erzeugt vor der Veröffentlichung den aktuellen auslieferbaren Build.
       - name: Build package
         run: npm run build
 
-      # Veröffentlicht das Scoped Package öffentlich und hinterlegt die npm-Provenance.
+      # Veröffentlicht das Scoped Package per Trusted Publishing und hinterlegt die npm-Provenance.
       - name: Publish package
         run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
