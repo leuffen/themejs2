@@ -4,7 +4,8 @@ import { resolve } from "node:path";
 // Baut die öffentlichen Side-Effect-Entrys als ESM, während Paketabhängigkeiten beim Consumer aufgelöst werden.
 export default defineConfig({
   build: {
-    emptyOutDir: true,
+    // Die Paket-Entrypoints werden direkt neben den Quellen erzeugt; das Projektverzeichnis darf nie geleert werden.
+    emptyOutDir: false,
     lib: {
       entry: {
         index: resolve(__dirname, "index.ts"),
@@ -18,6 +19,6 @@ export default defineConfig({
         entryFileNames: "[name].js",
       },
     },
-    outDir: "dist",
+    outDir: ".",
   },
 });

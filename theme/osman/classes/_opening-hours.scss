@@ -1,8 +1,21 @@
-.opening-hours {
+// Stellt Öffnungszeiten als reduzierte Tabelle mit kompakter, eindeutig lesbarer Ausrichtung dar.
+table.opening-hours {
+  width: 100%;
   margin-bottom: var(--nt-spacing-text);
   color: inherit;
+  background: none;
 
-  * {
+  th,
+  td {
+    padding: var(--nt-space-1) 0;
     color: inherit;
+    vertical-align: top;
+    background: none;
+    border: 0;
+    text-align: left;
+  }
+
+  tr > :last-child {
+    text-align: right;
   }
 }

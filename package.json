@@ -1,17 +1,17 @@
 {
     "name": "@leuffen/themejs2",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "license": "proprietary",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/leuffen/themejs2.git"
     },
-    "main": "./dist/index.js",
-    "module": "./dist/index.js",
+    "main": "./index.js",
+    "module": "./index.js",
     "exports": {
-        ".": "./dist/index.js",
-        "./functions/formmailer": "./dist/functions/formmailer.js",
+        ".": "./index.js",
+        "./functions/formmailer": "./functions/formmailer.js",
         "./*": "./*"
     },
     "directories": {
