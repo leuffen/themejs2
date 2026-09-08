@@ -7,8 +7,13 @@
         "type": "git",
         "url": "git+https://github.com/leuffen/themejs2.git"
     },
-    "main": "./index.js",
-    "module": "./index.js",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "exports": {
+        ".": "./dist/index.js",
+        "./functions/formmailer": "./dist/functions/formmailer.js",
+        "./*": "./*"
+    },
     "directories": {
         "doc": "docs",
         "themes": "themes"
@@ -98,6 +103,8 @@
         "jekyll-build": "JEKYLL_ENV=production jekyll serve -s docs -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0",
         "dev": "concurrently 'npm run vite-prox' 'npm run jekyll-prox'",
         "dev-b": "concurrently 'npm run vite-build' 'npm run jekyll-build'",
-        "build": "vite build"
+        "build": "npm run build:site && npm run build:lib",
+        "build:site": "vite build",
+        "build:lib": "vite build --config vite.config.lib.ts"
     }
 }

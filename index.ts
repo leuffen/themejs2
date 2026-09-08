@@ -2,7 +2,7 @@ import "@trunkjs/content-pane";
 import "@trunkjs/responsive";
 import "@trunkjs/loader";
 
-// Import all web components used in the project (Remember to add them also to all.scss
+// Registriert die im Theme verwendeten Web Components; die zugehörigen Styles bleiben parallel in all.scss gepflegt.
 import "@nextrap/nte-navbar";
 import "@nextrap/nte-nav";
 import "@nextrap/nte-burger";
@@ -14,13 +14,13 @@ import "@nextrap/nte-input";
 import "@nextrap/nte-card";
 import "@nextrap/nte-image";
 
-// Import custom elements
+// Registriert projektspezifische Custom Elements für den zentralen Theme-Entry.
 import "./src/elements/progress-bar";
 
 import "@micx/lib-js";
 import "@leuffen/announcements";
 
-// Import NTL components
+// Registriert die Layout- und Inhaltskomponenten, die Theme-Seiten direkt verwenden.
 import "@nextrap/ntl-2col";
 import "@nextrap/ntl-hero";
 import "@nextrap/nte-slider";
@@ -33,5 +33,5 @@ import "@nextrap/nte-parallax-bg";
 
 
 
-// Features
+// Hält den Abschluss des zentralen Komponenten-Entrys für künftige allgemeine Features sichtbar.
 
