@@ -18,6 +18,17 @@ Vorgaben zu Komponentenverträgen, Shadow DOM, Parts, Mixins, Responsivität,
 Lifecycle, Wiederverwendung und Prüfungen gelten zusätzlich zu den Regeln des
 jeweils verwendeten Skills.
 
+## Lokale und veröffentlichte Skills
+
+Das Verzeichnis `.agents/skills/` enthält ausschließlich Skills für die lokale
+Entwicklung von ThemeJS2. Es darf nicht mit dem npm-Paket veröffentlicht und
+nicht als Ablage für Skills verwendet werden, die Paketnutzer benötigen.
+
+Alle extern genutzten Skills, insbesondere Migrations-Skills, müssen unter
+`skills/<skillName>/` liegen. Das Root-Verzeichnis `skills/` ist Bestandteil
+des veröffentlichten npm-Pakets; jeder Skill erhält dort ein eigenes
+Unterverzeichnis.
+
 ## Entwicklung, statischer Output und CDN
 
 Die Website wird später statisch auf einem CDN gehostet. Vite und Jekyll

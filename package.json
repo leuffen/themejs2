@@ -1,6 +1,6 @@
 {
     "name": "@leuffen/themejs2",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "",
     "license": "proprietary",
     "repository": {
@@ -22,7 +22,9 @@
         "/dist",
         "/src",
         "/templates",
-        "/themes",
+        "/theme",
+        "/_root",
+        "/skills",
         "/docs",
         "/font",
         "/elements",
