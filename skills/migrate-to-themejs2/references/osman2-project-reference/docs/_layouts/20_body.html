@@ -1,0 +1,20 @@
+---
+layout: 10_blanc
+---
+
+
+
+<body>
+{% include fragments/loader.html image_selector="img.loader-image" %}
+<tj-loader class="">
+<micx-cdn-image-loader default-size-adjust=":1;1200:1">
+<tj-responsive>
+{{ content }}
+</tj-responsive>
+</micx-cdn-image-loader>
+</tj-loader>
+
+<!-- # Put <script> here -->
+<liweco-vacation-modal></liweco-vacation-modal>
+
+</body>
