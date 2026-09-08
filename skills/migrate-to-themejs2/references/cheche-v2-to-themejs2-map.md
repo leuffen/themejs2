@@ -7,7 +7,7 @@ Die Analyse basiert auf folgenden Default-Branch-Ständen:
 | Rolle | Repository | Stand |
 |---|---|---|
 | Alte Projektform | `dermatthes/leu-web-scheche-k30-v2` | GitHub-Tree `d361c2b63430ad4ccaa1c2c72157687767207de4` |
-| Neue Projektform | `dermatthes/leu-web-osman2` | Commit `d2f80c4a41592f306ec4a1215c362248260e7085`, GitHub-Tree `1d073b41e7dbd3a56d6dfe6e21c4ef45af50fdb4` |
+| Neue Projektform | `dermatthes/leu-web-osman2` | Commit `8441247e38e9dda403b42a41f45446b48bd7dd07`, GitHub-Tree `919bbb3ce70fec565c7fc312461d547300c4edfd` |
 | ThemeJS2-Vorlage | `leuffen/themejs2` | Commit `54f6c16f201d9c5f5dd2937943cb0a2ebbc3795` |
 
 Die Kundeninhalte dieser Repositories sind Beispiele, keine Vorlage für andere Kunden. Für eine neue Migration ist immer der konkrete Quellstand zu inventarisieren.
@@ -17,8 +17,9 @@ Die Kundeninhalte dieser Repositories sind Beispiele, keine Vorlage für andere 
 | Cheche-/ThemeJS1-Struktur | ThemeJS2-Struktur | Regel |
 |---|---|---|
 | `webpack.config.js` | `vite.config.ts` | Vite-Konfiguration aus dem Zielgerüst verwenden und projektspezifische Entry-Points prüfen. |
-| `src/index.ts` | `docs/_src/index.ts` | Benötigte Website-Funktionen explizit importieren; ThemeJS1 nicht weiterladen. |
-| `src/style*.scss` | `docs/_src/style.scss` und ThemeJS2-Theme | Designregeln in ThemeJS2-Tokens/Varianten übersetzen; keine redaktionellen Inhalte in SCSS übernehmen. |
+| Root-`src/`, insbesondere `src/index.ts` | `docs/_src/index.ts` | Das referenzierte `docs/_src/` vollständig als Vite-Quelle übernehmen, benötigte Website-Funktionen explizit einordnen und Root-`src/` nach der Klassifikation entfernen. |
+| `src/style*.scss` | `docs/_src/style.scss` und ThemeJS2-Theme | Mit der referenzierten `docs/_src/style.scss` beginnen und nur weiterhin benötigte allgemeine Designregeln in ThemeJS2-Tokens/Varianten übersetzen; keine redaktionellen Inhalte in SCSS übernehmen. |
+| alte `package.json` mit Workspaces oder ThemeJS1-Paketen | referenzierte `package.json` | Aktive Workspaces entfernen; unter `dependencies` nur `@leuffen/themejs2` mit veröffentlichter semantischer Version führen und Buildwerkzeuge unter `devDependencies` halten. |
 | `docs/_layouts/0_blanc.html` | `docs/_layouts/10_blanc.html` | Head, Metadaten, Kundendaten und notwendige Integrationen bewahren; ThemeJS2-Loader verwenden. |
 | `docs/_layouts/1_body.html` | `docs/_layouts/20_body.html` | Body-Class und Scheme auf den Ziel-Theme-Vertrag abbilden. |
 | `docs/_layouts/2_script.html` | kein eigenes Ziellayout; Verhalten in `10_blanc.html`, `20_body.html` oder `docs/_src/index.ts` einordnen | Alte Template-/Runtime-Injektion klassifizieren und nur die weiterhin benötigte Funktion an der passenden Target-Stelle übernehmen. |
@@ -28,7 +29,7 @@ Die Kundeninhalte dieser Repositories sind Beispiele, keine Vorlage für andere 
 | `docs/_layouts/article.html` | `default`, `website` oder ein bestehendes fachliches Layout | Nach Seitenrolle entscheiden; sichtbare Headline und Bilddaten bewahren. |
 | `docs/_layouts/legal.html` | `docs/_layouts/legal/legal.html` | Rechtstext unverändert übernehmen; nur Wrapper und Layoutsteuerung ändern. |
 | `docs/pages/*.de.md` und Fachordner | entsprechende Zielseiten | Dateinamen dürfen sich ändern, wenn `.migration/page-map.json` die eindeutige Zuordnung und dieselbe Route nachweist. |
-| `docs/_data/` | `docs/_data/` | Kundenwerte erhalten und nur ThemeJS2-spezifische Schlüssel ergänzen. |
+| `docs/_data/` | `docs/_data/` | Kundenwerte erhalten und nur ThemeJS2-spezifische Schlüssel ergänzen; sichtbare Öffnungszeiten als `openhours.table` mit `day` und `time` abbilden. |
 | `docs/assets/` | `docs/assets/` | Redaktionelle Medien bytegleich kopieren; `dist/` neu bauen. |
 
 ## Include-Zuordnung
@@ -43,7 +44,20 @@ Die aktuelle Target-Struktur gliedert Includes nach Verantwortung. Migriere Aufr
 | `docs/_includes/el/pagebuilder-link.html` | `docs/_includes/helpers/urls/pagebuilder.html` | Ergebnis-URL und Sprachparameter erhalten. |
 | `docs/_includes/do/trans.html` | `docs/_includes/helpers/i18n/translate.html` | Übersetzungsschlüssel, Sprache und Fallback erhalten. |
 | `docs/_includes/part/loader.html` | `docs/_includes/fragments/loader.html` | Loader-Aufruf und projektspezifisches Bild prüfen. |
+| alte Öffnungszeiten-Includes oder festes Tabellen-Markup | `docs/_includes/components/site/opening-hours.html` | Jede sichtbare Zeile ohne Umformulierung nach `site.data.openhours.table` übertragen und das semantische Tabellen-Include verwenden. |
 | `docs/_includes/do/link.html`, `remove-line-breaks.html` und übrige alte Hilfen | kein automatisches 1:1-Ziel | Aufrufstellen klassifizieren; nur weiterhin benötigtes Verhalten in einen fachlich passenden vorhandenen Helper überführen. |
+
+## Mehrere Bilder
+
+Bleiben in einer Inhaltsrolle mindestens zwei Bilder direkt aufeinander bezogen, erhalte ihre Reihenfolge, URLs und Alt-Texte und setze unmittelbar nach der Bildfolge das `nte-image`-Layout. Innerhalb einer `ntl-2col`-Seitenspalte lautet das Target-Muster:
+
+```markdown
+![Erster unveränderter Alt-Text](unveränderte-url-1)
+![Zweiter unveränderter Alt-Text](unveränderte-url-2)
+{: layout="nte-image" .aside }
+```
+
+Die Gruppe aktiviert den von `nte-image` bereitgestellten Slider. Einzelbilder bleiben normales Markdown, sofern ihre Inhaltsrolle keine vorhandene `nte-image`-Funktion benötigt.
 
 ## Layoutrollen
 

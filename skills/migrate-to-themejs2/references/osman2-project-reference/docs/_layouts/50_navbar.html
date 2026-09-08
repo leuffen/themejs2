@@ -15,7 +15,7 @@ layout: 20_body
             {% endif %}
             {% if site.data.general.standorte.default.street or site.data.general.standorte.default.zip or site.data.general.standorte.default.city %}
                 <span class="site-topbar__sep">|</span>
-                <span>{{ site.data.general.standorte.default.street }}{% if site.data.general.standorte.default.zip or site.data.general.standorte.default.city %}, {% endif %}{{ site.data.general.standorte.default.zip }} {{ site.data.general.standorte.default.city }}</span>
+                <a href="{{ site.data.general.standorte.default.map_link }}" target="_blank" rel="noopener" aria-label="Praxisstandort in Google Maps öffnen">{{ site.data.general.standorte.default.street }}{% if site.data.general.standorte.default.zip or site.data.general.standorte.default.city %}, {% endif %}{{ site.data.general.standorte.default.zip }} {{ site.data.general.standorte.default.city }}</a>
             {% endif %}
         </div>
         <a slot="end" href="{{ site.data.general.standorte.default.termin_url | default: '/online-termin' }}" class="btn btn-primary btn-sm">Termin online buchen</a>
