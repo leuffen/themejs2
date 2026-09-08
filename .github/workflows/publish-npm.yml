@@ -1,6 +1,6 @@
 name: Publish package to npm
 
-# Baut und veröffentlicht nach jedem Push auf den Hauptbranch eine neue Patch-Version.
+# Baut und veröffentlicht nach jedem Push auf den Hauptbranch die in package.json festgelegte Version.
 on:
   push:
     branches:
@@ -36,18 +36,19 @@ jobs:
           registry-url: https://registry.npmjs.org
           cache: npm
 
+      # Installiert eine npm-Version, die GitHub OIDC Trusted Publishing unterstützt.
+      - name: Update npm for trusted publishing
+        run: npm install --global npm@latest
+
+      # Dokumentiert die tatsächlich für Build und Veröffentlichung eingesetzten Laufzeitversionen.
+      - name: Show runtime versions
+        run: |
+          node --version
+          npm --version
+
       # Installiert reproduzierbar die im Lockfile festgelegten Abhängigkeiten.
       - name: Install dependencies
         run: npm ci
-
-      # Ermittelt die Registry-Version und setzt lokal die unmittelbar folgende Patch-Version.
-      - name: Set next patch version
-        shell: bash
-        run: |
-          PACKAGE_NAME="$(node -p "require('./package.json').name")"
-          CURRENT_VERSION="$(npm view "$PACKAGE_NAME" version)"
-          NEXT_VERSION="$(node -e 'const [major, minor, patch] = process.argv[1].split(".").map(Number); if (![major, minor, patch].every(Number.isInteger)) process.exit(1); process.stdout.write(`${major}.${minor}.${patch + 1}`)' "$CURRENT_VERSION")"
-          npm version "$NEXT_VERSION" --no-git-tag-version
 
       # Erzeugt vor der Veröffentlichung den aktuellen auslieferbaren Build.
       - name: Build package
