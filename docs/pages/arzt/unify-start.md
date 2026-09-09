@@ -258,6 +258,7 @@ Ja. Die vorhandenen Layouts und Elemente lassen sich schrittweise ergänzen, ohn
 
 
 <!-- Zeigt dieselben nativen Text-Elemente in jedem Theme; der eigene H1-Layoutbereich beendet vorherige Demo-Wrapper. -->
+
 # Typografie und Basistabelle
 {: #typografie-defaults layout="ntl-2col" section-style="--cols: 12;" }
 
@@ -269,6 +270,7 @@ Ein einleitender Absatz mit der Typografie-Klasse `.lead`.
 {: .lead }
 
 <!-- Die feste Layout-Ebene hält alle sechs nativen Heading-Tags innerhalb der gemeinsamen Test-Section. -->
+
 # Überschrift H1
 {: layout="2" }
 
@@ -323,6 +325,7 @@ Sekundärer Fließtext über .text-body-secondary.
 ## Ungeordnete Liste
 
 <!-- Ohne Listenklassen bleibt sichtbar, welche Marker und Einzüge das Theme standardmäßig verwendet. -->
+
 - Erster Eintrag ohne zusätzliche Klasse
 - Ein längerer Eintrag, der auf schmalen Bildschirmen über mehrere Zeilen läuft und den Einzug der Folgezeilen sichtbar macht
 - Eintrag mit Unterliste
@@ -340,6 +343,7 @@ Sekundärer Fließtext über .text-body-secondary.
 ## Definitionsliste
 
 <!-- Native Definitions-Tags prüfen dl, dt und dd unabhängig von Markdown-Parser-Erweiterungen. -->
+
 <dl>
   <dt>Typografie</dt>
   <dd>Darstellung und Rhythmus einzelner Textelemente.</dd>
@@ -370,6 +374,7 @@ Text nach der horizontalen Linie.
 ## Figure und Bildunterschrift
 
 <!-- Eine Figure kann auch ein Textbeispiel enthalten; so prüft sie die nativen Styles ohne externe Bildabhängigkeit. -->
+
 <figure>
   <blockquote>Eine zusammengehörige Abbildung oder Textprobe mit eigener Beschriftung.</blockquote>
   <figcaption>Beschriftung über das native Element figcaption.</figcaption>
@@ -389,6 +394,7 @@ Beschriftung über die Klasse .figure-caption.
 ## Tabelle mit Basisklasse
 
 <!-- Nur die vorhandene Basisklasse aktivieren; Modifier wie striped oder bordered gehören nicht zu diesem Vergleich. -->
+
 | Element | Beispiel | Anzahl |
 | --- | --- | --- |
 | Überschrift | Kurzer Titel | 6 |
