@@ -2,6 +2,7 @@
 body_class: theme-mueller
 description: "Zentrale Übersicht aller veröffentlichten ThemeJS2-Demo- und Inhaltsseiten."
 layout: website
+use_footer: mueller
 order: 0
 permalink: /
 ptags:
@@ -20,7 +21,7 @@ Diese Übersicht wird bei jedem Build automatisch aus allen veröffentlichten HT
 {% assign indexed_pages = site.pages | concat: site.documents | sort: "url" %}
 <ul>
   {% for indexed_page in indexed_pages %}
-    {% if indexed_page.output_ext == ".html" and indexed_page.url != page.url and indexed_page.url != "/404.html" %}
+    {% if indexed_page.layout and indexed_page.url and indexed_page.url != page.url and indexed_page.url != "/404.html" %}
       {% assign indexed_title = indexed_page.nav_title | default: indexed_page.short_title | default: indexed_page.title | default: indexed_page.url %}
       <li>
         <a href="{{ indexed_page.url | relative_url }}">{{ indexed_title }}</a>
