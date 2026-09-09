@@ -191,6 +191,89 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 
 [Mehr erfahren](https://www.augenarzt-osman.de/ueber-uns/){: .btn .btn-primary .mb-3}
 
+<!-- Ergänzt Kontakt und Anfahrt aus der OSMan-Elementübersicht direkt im Startseitenvergleich. -->
+## Hier finden Sie uns
+{: #osman-start-anfahrt layout="ntl-2col.style-default" data-kicker="Kontakt & Anfahrt"}
+
+
+<!-- Hält das Karten-iframe im direkten Template des Privacy-Wrappers bis zur Zustimmung inaktiv. -->
+<nte-consent-blocker class="google-maps-consent" slot="top">
+  <template>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.4509365261574!2d8.234400876779077!3d50.07784361412184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bdbddfeafd235f%3A0xe3f7b92f3f028056!2sRheinstra%C3%9Fe%2059%2C%2065185%20Wiesbaden!5e0!3m2!1sde!2sde!4v1691521076122!5m2!1sde!2sde" title="Karte zur Augenpraxis Osman" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </template>
+</nte-consent-blocker>
+
+<!-- Statische Ausgabe des Address-Includes mit den Standortdaten des Quellcommits. -->
+<p>Augenpraxis Osman<br>
+Rheinstr. 59<br>
+65185 Wiesbaden<br><br>
+<span>Telefon:</span> <b><a href="tel:+49611303048" title="Telefon" class="text-decoration-none">(0611) 30 30 48</a></b><br>
+<span>Telefax:</span> <b>(0611) 16 66 690</b><br>
+<span>E-Mail:</span> <a href="mailto:info@augenarzt-osman.de" title="E-Mail" class="text-decoration-none">info@augenarzt-osman.de</a><br></p>
+
+Der Zugang zur Praxis ist über unseren Aufzug **barrierefrei** möglich.
+
+---
+{: layout=".aside" }
+
+
+Sie erreichen uns mit den **Buslinien 6, 16, 3, 33, 28, 22 und N10** (Haltestelle Landesbibliothek).
+
+**Parkhäuser in der Nähe:**
+- Luisenplatz
+- Luisenforum
+- Rhein Main Congress Center
+{: .list .list-diamond }
+
+<!-- Zeigt das vollständige Kontaktformular einschließlich Footer; der abbrechbare Submit bleibt lokal. -->
+
+## Schreiben Sie uns. Wir melden uns umgehend bei Ihnen.
+{: #osman-start-kontakt layout="ntl-2col.style-default"}
+
+Für Rückfragen und Terminwünsche sind wir gerne für Sie da. Nutzen Sie die für Sie passende Kontaktmöglichkeit.
+
+- **Telefon:** [(0611) 30 30 48](tel:+49611303048)
+- **E-Mail:** bitte nutzen Sie untenstehendes Kontaktformular.
+- **Online-Terminvergabe:** schnell und bequem über unsere Praxisseite
+{: .list .list-diamond }
+
+[Termin online buchen](https://termine.augenarzt-osman.de/appointment/search){: .btn .btn-primary target="_blank" rel="noopener"}
+
+
+---
+{: layout="2;tj-form#osman-start-form" }
+
+## Schreiben Sie uns
+{: #osman-start-formular layout="2.1;ntl-2col.style-default.with-justify-top" .top }
+
+#[nte-input.style-default.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.style-default.hoverlabel type="text" name="telefon" label="Telefon"]
+
+---
+{: layout=".aside" }
+
+#[nte-input.style-default.hoverlabel type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
+#[button type="submit" class="btn btn-primary" > Absenden]
+
+---
+{: layout=".footer.small"}
+
+Bitte senden Sie uns per E-Mail keine medizinischen Notfälle. In dringenden Fällen kontaktieren Sie uns bitte telefonisch oder wenden Sie sich außerhalb der Sprechzeiten an den augenärztlichen Bereitschaftsdienst.
+
+Wenn Sie uns schreiben, melden wir uns schnellstmöglich bei Ihnen zurück.
+
+<!-- Verhindert ausschließlich für dieses Demoformular den global registrierten Formmailer-Aufruf. -->
+<script>
+document.addEventListener('tj-form-submit', function (event) {
+  if (event.target.id !== 'osman-start-form') return;
+  event.preventDefault();
+  document.getElementById('osman-start-form-status').textContent = 'Demo geprüft – es wurde keine Nachricht versendet.';
+}, true);
+</script>
+<p id="osman-start-form-status" role="status">Formularvorschau – kein Nachrichtenversand.</p>
+
 <!-- Verbindet den unveränderten Inhaltsvergleich mit der ergänzenden Elementprüfung. -->
 ## Weitere OSMan-Elemente prüfen
 {: #osman-elementkontrolle layout="ntl-2col" }
