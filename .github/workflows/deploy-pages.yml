@@ -27,20 +27,19 @@ jobs:
     steps:
       # Checkt exakt den aktuellen Head-Commit des Pull Requests ohne lokale Submodule aus.
       - name: Check out pull request
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      # Richtet die unterstützte Node-Version mit reproduzierbarem npm-Cache ein.
+      # Richtet die unterstützte Node-Version ohne Abhängigkeit von einem vorhandenen Lockfile ein.
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
-          cache: npm
 
-      # Installiert ausschließlich die im Lockfile hinterlegten veröffentlichten npm-Abhängigkeiten.
+      # Installiert die Abhängigkeiten und erzeugt oder aktualisiert dabei bei Bedarf das Lockfile.
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Erzeugt die aktuellen JavaScript- und CSS-Assets für die Präsentationsseite.
       - name: Build frontend assets
@@ -48,7 +47,7 @@ jobs:
 
       # Liest Domain und Basispfad aus der bestehenden GitHub-Pages-Konfiguration.
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       # Rendert die Jekyll-Präsentation als vollständig statische Website.
       - name: Build Jekyll site
@@ -59,7 +58,7 @@ jobs:
 
       # Übergibt den statischen Stand ohne Deploy-Rechte an den nachgelagerten Main-Workflow.
       - name: Upload pull request site
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pull-request-pages-site
           path: ./_site

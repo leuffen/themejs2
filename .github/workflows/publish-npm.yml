@@ -24,17 +24,16 @@ jobs:
     steps:
       # Checkt den gepushten Stand einschließlich der als Workspaces verwendeten Submodule aus.
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
-      # Richtet die unterstützte Node-Version und das öffentliche npm-Registry ein.
+      # Richtet die unterstützte Node-Version und das öffentliche npm-Registry ohne Lockfile-Abhängigkeit ein.
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
-          cache: npm
 
       # Installiert eine npm-Version, die GitHub OIDC Trusted Publishing unterstützt.
       - name: Update npm for trusted publishing
@@ -46,9 +45,9 @@ jobs:
           node --version
           npm --version
 
-      # Installiert reproduzierbar die im Lockfile festgelegten Abhängigkeiten.
+      # Installiert die Abhängigkeiten und erzeugt oder aktualisiert dabei bei Bedarf das Lockfile.
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Erzeugt vor der Veröffentlichung den aktuellen auslieferbaren Build.
       - name: Build package

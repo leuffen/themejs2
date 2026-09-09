@@ -32,7 +32,7 @@ jobs:
     steps:
       # Lädt den statischen Output des exakt zugehörigen Pull-Request-Workflow-Laufs.
       - name: Download pull request site
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: pull-request-pages-site
           path: ./_site
@@ -42,11 +42,11 @@ jobs:
 
       # Verpackt den unveränderten statischen Output als GitHub-Pages-Artifact dieses Main-Laufs.
       - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
 
       # Veröffentlicht die zuletzt erfolgreich gebaute Pull-Request-Version.
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
