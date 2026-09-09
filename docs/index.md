@@ -1,47 +1,31 @@
 ---
-_schiller_instructions: ~
-_schiller_template: pages/hausarzt-index-singleleistung
-availLangs:
-- de
 body_class: theme-mueller
-description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam Genné in
-  Senftenberg. Wir bieten individuelle medizinische Versorgung, klassische HNO-Leistungen
-  und Naturheilverfahren. \U0001F33F"
-image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
-keywords: ~
+description: "Zentrale Übersicht aller veröffentlichten ThemeJS2-Demo- und Inhaltsseiten."
 layout: website
 order: 0
 permalink: /
 ptags:
-- nav
+  - nav
 published: true
-seoScore: 8
-company: epraxis.digital
-short_title: Home
-title: Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
-headline_image: /assets/header-bg.svg
+short_title: Seitenübersicht
+title: ThemeJS2 Seitenübersicht
 type: website
-
-articles_related:
-  - MAIN
-  - TEST1
-  - TEST2
 ---
 
+## Alle ThemeJS2-Seiten
+{: layout="ntl-2col" data-kicker="Theme Müller" }
 
-## Übersicht über das Theme
-{: layout=".container"}
+Diese Übersicht wird bei jedem Build automatisch aus allen veröffentlichten HTML-Seiten, Beiträgen und Collection-Dokumenten erzeugt.
 
-- [Startseite](/pages/startseite.html){: .btn .btn-primary .text-center .m-1}
-- [Demo Post](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary .text-center .m-1}
-
-### Aktuelle Meldungen
-
-<leuffen-announcements>Keine aktuellen Hinweise</leuffen-announcements>
-
-### Sitemap
-
-
-<div class="container">
-  {% include el/navtree.html %}
-</div>
+{% assign indexed_pages = site.pages | concat: site.documents | sort: "url" %}
+<ul>
+  {% for indexed_page in indexed_pages %}
+    {% if indexed_page.output_ext == ".html" and indexed_page.url != page.url and indexed_page.url != "/404.html" %}
+      {% assign indexed_title = indexed_page.nav_title | default: indexed_page.short_title | default: indexed_page.title | default: indexed_page.url %}
+      <li>
+        <a href="{{ indexed_page.url | relative_url }}">{{ indexed_title }}</a>
+        <small>– {{ indexed_page.url }}</small>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
