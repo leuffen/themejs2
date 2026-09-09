@@ -1,7 +1,8 @@
 name: Build pull request Pages preview
 
-# Baut jeden neuen oder aktualisierten Pull Request als vollständig statische Theme-Vorschau.
+# Baut jeden Push und jeden neuen oder aktualisierten Pull Request als vollständig statische Theme-Vorschau.
 on:
+  push:
   pull_request:
     types:
       - opened
@@ -9,9 +10,9 @@ on:
       - reopened
       - ready_for_review
 
-# Pro Pull Request zählt nur der zuletzt gepushte Stand.
+# Pro Branch beziehungsweise Pull Request zählt nur der zuletzt gestartete Stand.
 concurrency:
-  group: themejs2-pages-build-${{ github.event.pull_request.number }}
+  group: themejs2-pages-build-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 # Der Pull-Request-Build liest nur Repository-Inhalte und erhält keine Deploy-Berechtigung.
@@ -20,16 +21,16 @@ permissions:
 
 jobs:
   build:
-    name: Build pull request site
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    name: Build Pages site
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
 
     steps:
-      # Checkt exakt den aktuellen Head-Commit des Pull Requests ohne lokale Submodule aus.
-      - name: Check out pull request
+      # Checkt bei Pull Requests deren Head und bei Pushes den ausgelösten Commit aus.
+      - name: Check out source
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       # Richtet die unterstützte Node-Version ohne Abhängigkeit von einem vorhandenen Lockfile ein.
       - name: Set up Node.js
