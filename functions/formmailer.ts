@@ -54,19 +54,19 @@ registerFormPreset({
       await api.sendData(formContext.value);
       cancelProgress?.();
 
+      formContext.getElements().forEach((element) => element.setAttribute("disabled", "true"));
+      if (formContext.submitter) {
+        const e = document.createElement("span");
+        e.innerText = "Nachricht erfolgreich übermittelt";
+        e.classList.add("tj-form-submit-success");
+        formContext.submitter.replaceWith(e);
+      }
+
       await Feedback.success({
         title: "Nachricht übermittelt",
         message: "Vielen Dank. Ihre Nachricht wurde erfolgreich übermittelt.",
         autoClose: false,
       });
-
-      formContext.getElements().forEach((element) => element.setAttribute("disabled", "true"));
-      if (formContext.submitter) {
-        const e = new HTMLSpanElement();
-        e.innerText = "Nachricht erfolgreich übermittelt";
-        e.classList.add("tj-form-submit-success");
-        formContext.submitter.replaceWith(e);
-      }
     } catch (error) {
       cancelProgress?.();
       console.error("Form submission error:", error);
