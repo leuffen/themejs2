@@ -74,6 +74,21 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns gern
 
 ![](https://cdn.leuffen.de//leu-stock/v2/386/c_gfedcba/AdobeStock_222010919.webp)
 
+## Standard-Listen in Markdown
+{: layout="ntl-2col" data-kicker="Listenbeispiele" }
+
+### Ungeordnete Liste
+
+- Vorsorgeuntersuchung vereinbaren
+- Impfpass mitbringen
+- Aktuelle Medikamente notieren
+
+### Geordnete Liste
+
+1. Termin auswählen
+2. Kontaktdaten angeben
+3. Anfrage absenden
+
 ## Unsere Leistungen
 {: layout="ntl-card-row" section-style="--cols: 4"}
 
