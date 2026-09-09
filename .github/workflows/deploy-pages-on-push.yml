@@ -3,6 +3,8 @@ name: Deploy Pages on push
 # Baut jeden Push vollständig und veröffentlicht den aktuellen Stand über GitHub Pages.
 on:
   push:
+    branches:
+      - "**"
 
 # Unabhängig vom Branch wird nur der zuletzt gestartete Push-Stand veröffentlicht.
 concurrency:
