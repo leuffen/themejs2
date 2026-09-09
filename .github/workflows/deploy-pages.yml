@@ -42,9 +42,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Erzeugt die aktuellen JavaScript- und CSS-Assets für die Präsentationsseite.
-      - name: Build frontend assets
-        run: npm run build:site
+      # Erzeugt die Vorschau-Assets einschließlich externer TypeScript- und SCSS/CSS-Sourcemaps.
+      - name: Build source-mapped frontend assets
+        run: npm run build:site:preview
 
       # Liest Domain und Basispfad aus der bestehenden GitHub-Pages-Konfiguration.
       - name: Configure GitHub Pages
