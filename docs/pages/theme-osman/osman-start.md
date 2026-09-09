@@ -10,44 +10,52 @@ ptags:
 pid: site
 ---
 
+<!-- Vollständiger Startseiten-Inhalt aus dermatthes/leu-web-osman2/docs/index.md, Commit 8441247e38e9dda403b42a41f45446b48bd7dd07. Nur Demo-Frontmatter, aufgelöste Öffnungszeiten und absolute Kundenlinks weichen ab. -->
+
 ---
 {: layout="2;ntl-hero.style-default.hero-box" }
 
 ![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
 {: slot="bg"}
 
+
+
 # Ihr Augenarzt in Wiesbaden
-{: layout="3;.box" data-kicker="Professionell, Menschlich & Modern"}
+{: layout="3;.box" }
+
+**professionell, menschlich, modern**
+{: .text-primary  }
 
 ---
-{: layout="2;ntl-card-row.style-ribbon-top.align-buttons"}
+{: layout="2;ntl-card-row.style-ribbon-top.align-buttons" section-style="--cols: 4"}
 
 ### Sprechstundenzeiten
 
-<div class="opening-hours">
-  <div style="display:grid;grid-template-columns:minmax(7rem,1fr) auto;gap:1rem;margin:0 0 .35rem;"><span style="font-weight:600;">Mo, Di, Do</span><span style="font-weight:400;">08:00–15:30 Uhr</span></div>
-  <div style="display:grid;grid-template-columns:minmax(7rem,1fr) auto;gap:1rem;margin:0 0 .35rem;"><span style="font-weight:600;">Mi, Fr</span><span style="font-weight:400;">08:00–12:00 Uhr</span></div>
-</div>
+<!-- Statische Ausgabe von components/site/opening-hours.html mit docs/_data/openhours.yml aus dem Quellcommit. -->
+<table class="opening-hours">
+  <tbody>
+    <tr><th scope="row">Mo, Di, Do</th><td>08:00 - 15:30</td></tr>
+    <tr><th scope="row">Mi, Fr</th><td>08:00 - 12:00</td></tr>
+  </tbody>
+</table>
 
-<p>Nachmittags geschlossen</p>
-
-[Termin online buchen](/karriere){: .btn .btn-primary }
+[Termin online buchen](https://termine.augenarzt-osman.de/appointment/search){: .btn .btn-primary .w-100 target="_blank" rel="noopener"}
 {: .footer }
 
 ### Spezielle Makulauntersuchungen
 
 Hinweis - Spezielle Makulauntersuchung für Privatpatienten und Selbstzahler.
 
-[Jetzt Termin buchen](/karriere){: .btn .btn-outline-primary}
+[Privattermin buchen](https://www.jameda.de/bassel-osman/augenarzt/wiesbaden){: .btn .btn-primary .w-100 target="_blank" rel="noopener"}
 {: .footer }
 
 ### Aktuelle Meldungen
 
-Momentan keine Meldungen.
+<leuffen-announcements>Momentan keine Meldungen.</leuffen-announcements>
 
-<p class="text-strong">Ihre Meinung ist uns wichtig!</p>
+<p class="text-strong pt-5">Ihre Meinung ist uns wichtig!</p>
 
-[Bewerten Sie uns](/karriere){: .btn .btn-outline-primary}
+[Online bewerten](https://g.page/r/CYxj2x5Bp8TsEBM/review){: .btn .btn-primary .w-100 target="_blank" rel="noopener"}
 {: .footer }
 
 ## Herzlich Willkommen in der Augenpraxis Osman
@@ -63,19 +71,21 @@ für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision u
 - Zuverlässig in allen Bereichen der augenärztlichen Vorsorge
 {: .list .list-diamond }
 
+
 Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen und angenehmen Atmosphäre. Unser engagiertes Team steht Ihnen telefonisch, online und vor Ort jederzeit kompetent und vertrauensvoll zur Seite.
 
 ![](https://cdn.leuffen.de/osman-k21///v2/17/c_g/DSC06665.webp)
 
 ---
-{: layout="1.5;ntl-card-row.style-noborder"}
+{: layout="1.5;ntl-card-row.style-noborder.align-buttons" section-style="--cols: 6"}
 
 ### <i class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></i> Diagnostik
 {: .header}
 
-
-
 Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
+
+[Mehr erfahren](https://www.augenarzt-osman.de/leistungen/diagnostik.html){: .btn .btn-primary .mt-3 .w-100 }
+{: .footer }
 
 ---
 {: layout="nte-accordion.style-default"}
@@ -92,11 +102,17 @@ Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfel
 
 Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine weiterführende Behandlung sinnvoll ist.
 
+
+
+
+
 ### <i class="bi bi-eye feature-icon" aria-hidden="true"></i> Therapie
 {: .header}
 
-
 Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:
+
+[Mehr erfahren](https://www.augenarzt-osman.de/leistungen/therapien.html){: .btn .btn-primary .mt-3 .w-100 }
+{: .footer }
 
 ---
 {: layout="nte-accordion.style-default"}
@@ -111,9 +127,13 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 
 #### YAG-Laser-Kapsulotomie bei sekundären Linsentrübung (Nachstar)
 
----
-{: layout="1.5" section-style="--cols: 6"}
 
+
+
+{: .w-100 }
+
+---
+{: layout="1.5;#notfall" section-style="--cols: 6"}
 
 ## <span class="warning-heading"><i class="bi bi-eye" aria-hidden="true"></i><span>Warnsignale für die Augen – sofort zum Arzt!</span></span>
 {: layout="ntl-2col.style-default.with-bg-primary"}
@@ -134,36 +154,34 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 
 In akuten Notfällen außerhalb der Sprechzeiten wenden Sie sich bitte an den ärztlichen Bereitschaftsdienst unter der Telefonnummer 116 117.
 
-
-
-
-
-
 ## Kooperationen
 {: layout="2;ntl-2col.style-default"}
 
 Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Augenkliniken der Region zusammen:
 
-- [Universitäts-Augenklinik, Mainz](/karriere)
-- [Artemis Augenzentrum, Wiesbaden,](/karriere)
-- [HSK Augenklinik, Wiesbaden](/karriere)
-- [Universitäts-Augenklinik, Frankfurt](/karriere)
-- [Augenklinik, Frankfurt-Höchst](/karriere)
+- Universitäts-Augenklinik, Mainz
+- Artemis Augenzentrum, Wiesbaden
+- HSK Augenklinik, Wiesbaden
+- Universitäts-Augenklinik, Frankfurt
+- Augenklinik, Frankfurt-Höchst
 {: .list .list-diamond }
 
 ### Mitgliedschaften
 {: section-class="aside" }
 
 
-<div class="icon-grid" style="--icon-grid-cell-min: 10rem; --icon-grid-item-max-width: 11rem;">
-  <img src="https://cdn.leuffen.de//osman-k21/v2/32/196-99_a/retinagesellschaft.webp" alt="Retinologische Gesellschaft">
-  <img src="https://cdn.leuffen.de//osman-k21/v2/27/493-112_515/escrs_logo.svg" alt="ESCRS">
-  <img src="https://cdn.leuffen.de//osman-k21/v2/9/86-25_a/bva_logo_17hz.webp" alt="BVA">
-  <img src="https://cdn.leuffen.de//osman-k21/v2/8/75-17_a/bdoc-logo_300x68.webp" alt="BDOC">
-</div>
+![Bundesverband Deutscher Ophthalmochirurgen (BDOC)](https://cdn.leuffen.de//osman-k21/v2/63/57-13_a/01Bundesverband-Deutscher-Ophthalmochirurgen-BDOC.webp)
+![Euretina](https://cdn.leuffen.de//osman-k21/v2/62/144-73_cba/02Euretina.webp)
+![Berufsverband der Augenärzte Deutschlands (BVA)](https://cdn.leuffen.de//osman-k21/v2/61/128-41_edcba/03Berufsverband-der-Augenaerzte-Deutschlands-BVA.webp)
+![Deutsche Retinologische Gesellschaft](https://cdn.leuffen.de//osman-k21/v2/60/374-133_cba/04Deutche-Retinologische-Gesellschaft.webp)
+![Deutsche Ophthalmologische Gesellschaft (DOG)](https://cdn.leuffen.de//osman-k21/v2/59/64-33_dcba/05Deutsche-Ophthalmologische-Gesellschaft-DOG.webp)
+![European Society of Cataract and Refractive Surgeons (ESCRS)](https://cdn.leuffen.de//osman-k21/v2/58/337-202_cba/06European-Society-of-Cataract-and-Refractive-Surgeons-ESCRS.webp)
+{: .icon-grid style="--icon-grid-cell-min: 10rem; --icon-grid-item-max-width: 11rem;"}
+
+
 
 ## Über uns
-{: layout="ntl-2col.style-default.reverse"}
+{: layout="ntl-2col.style-default.reverse.with-justify-top"}
 
 ![](https://cdn.leuffen.de//osman-k21///v2/18/c_g/DSC06603.webp)
 
@@ -171,52 +189,12 @@ Ihr kompetentes und eingespieltes Praxisteam in Wiesbaden
 
 Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und ein freundliches Miteinander liegen uns besonders am Herzen. Wir nehmen uns sehr gern die Zeit, um all Ihre Fragen verständlich zu erklären.
 
-[Mehr erfahren](/karriere){: .btn .btn-primary .mb-3}
+[Mehr erfahren](https://www.augenarzt-osman.de/ueber-uns/){: .btn .btn-primary .mb-3}
 
-## Kontakt und Anfahrt
-{: layout="ntl-2col.style-default"}
+<!-- Verbindet den unveränderten Inhaltsvergleich mit der ergänzenden Elementprüfung. -->
+## Weitere OSMan-Elemente prüfen
+{: #osman-elementkontrolle layout="ntl-2col" }
 
-<style>
-    .google-maps-consent {
-        --default-template: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999441644419!2d2.292292615674698!3d48.85837307928795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efcbd9b8b9%3A0x421a5e7c8a9b8c0!2sEiffel%20Tower%20(La%20Tour%20Eiffel)!5e0!3m2!1sen!2sfr!4v1616581234567"></iframe>';
-    }
-</style>
+[Elementübersicht mit Unterseiten-Beispielen]({{ '/pages/theme-osman/osman-elements.html' | relative_url }}){: .btn .btn-primary }
 
----
-{: layout="nte-consent-blocker.google-maps-consent" .top  }
-
-## Section
-{: layout="ntl-2col.style-default" }
-
-So finden Sie uns
-
-Test Test Test
-
----
-{: layout="3;nte-accordion.style-default" .aside}
-
-#### AaAaaaaaaa
-
-Test
-
-#### odhoqidjiowqjdioq
-
-dpoqwjdpioqwjdoijqwoid
-
----
-{: layout="2;tj-form"}
-
-## Schreiben Sie uns
-{: layout="2.1;ntl-2col.style-default" .top }
-
-#[nte-input.style-default.hoverlabel type="text" name="name" label="Name" required]
-#[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]
-#[nte-input.style-default.hoverlabel type="text" name="telefon" label="Telefon"]
-
----
-{: layout=".aside" }
-
-#[nte-input.style-default.hoverlabel type="textarea" name="nachricht" label="Nachricht" required]
-#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
-#[button type="submit" class="btn btn-primary" > Absenden]
-
+[Typografie und Default-Elemente]({{ '/pages/theme-osman/osman-default.html' | relative_url }})
