@@ -39,6 +39,8 @@ export default defineConfig({
         },
     },
     build: {
+        // Erzeugt externe Maps mit Quellpfaden und Quellinhalten für die veröffentlichte Entwickler-Vorschau.
+        sourcemap: true,
         minify: true,
         cssCodeSplit: true,
         emptyOutDir: true,
