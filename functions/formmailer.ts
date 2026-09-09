@@ -48,7 +48,7 @@ registerFormPreset({
 
     try {
       cancelProgress = showFormmailerProgress();
-      await sleep(20000);
+      await sleep(2000);
 
       const api = new MicxFormmailerApi(window.micx_subscription, window.micx_endpoint);
       await api.sendData(formContext.value);
