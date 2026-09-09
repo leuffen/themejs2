@@ -20,6 +20,7 @@ permissions:
   pages: write
   id-token: write
 
+
 jobs:
   deploy:
     name: Deploy pull request site
