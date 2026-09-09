@@ -176,6 +176,12 @@ Gemeinsames Komponentenverhalten gehört für NTL in Nextstrap Layouts und für 
 - Bevorzuge `ntl-card-row` mit `nte-card`-Kindern für Kartengruppen.
 - Verwende für andere Strukturen möglichst vorhandene NTL-/NTE-Komponenten.
 
+## Pull Request und veröffentlichte Prüfung
+
+Halte während der Entwicklung genau einen Pull Request für den Arbeits-Branch aktuell. Pushe nach jedem zusammenhängenden, mit dem kleinsten relevanten Build oder Test geprüften Entwicklungsstand und nochmals nach visuellen Korrekturen; eröffne für denselben Auftrag keine parallelen Pull Requests und pushe keinen wissentlich fehlerhaften Zwischenstand nur zur Vorschau.
+
+Jeder neue oder aktualisierte Pull Request aus diesem Repository löst `.github/workflows/deploy-pages.yml` aus und veröffentlicht den gebauten Stand unter der absoluten URL `https://tjs.gh.leuffen-demo.de/`. Warte vor der visuellen Prüfung auf einen erfolgreichen Deploy und vergleiche den dort veröffentlichten Stand in den relevanten Desktop- und Mobilansichten mit der Vorlage. Die feste Pages-URL zeigt immer den zuletzt erfolgreich deployten Pull Request; verwende sie deshalb nur, wenn der Workflow-Lauf nachweislich zum aktuellen Head-Commit des bearbeiteten Pull Requests gehört.
+
 ## Responsives Verhalten und Prüfung
 
 - Verwende die API `mode="mobile|tablet|desktop"` aus `@trunkjs/responsive`; ergänze keine Media Queries.
