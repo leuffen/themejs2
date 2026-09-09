@@ -1,47 +1,25 @@
 ---
-_schiller_instructions: ~
-_schiller_template: pages/hausarzt-index-singleleistung
-availLangs:
-- de
 body_class: theme-mueller
-description: "\U0001F469‍⚕️ Besuchen Sie die HNO Privatpraxis Dr. Myriam Genné in
-  Senftenberg. Wir bieten individuelle medizinische Versorgung, klassische HNO-Leistungen
-  und Naturheilverfahren. \U0001F33F"
-image: https://images.unsplash.com/photo-1612349317150-e413f6a5b16d
-keywords: ~
+description: "Direkte Entwicklerübersicht der sieben ThemeJS2-Style-Previews."
 layout: website
+use_footer: mueller
 order: 0
 permalink: /
 ptags:
-- nav
+  - nav
 published: true
-seoScore: 8
-company: epraxis.digital
-short_title: Home
-title: Digitale Transformation im Gesundheitswesen - verständlich, unabhängig, praxisnah.
-headline_image: /assets/header-bg.svg
+short_title: Theme-Previews
+title: ThemeJS2 Preview-Übersicht
 type: website
-
-articles_related:
-  - MAIN
-  - TEST1
-  - TEST2
 ---
 
+## Theme-Previews
+{: layout="ntl-2col" data-kicker="Entwicklungsübersicht" }
 
-## Übersicht über das Theme
-{: layout=".container"}
-
-- [Startseite](/pages/startseite.html){: .btn .btn-primary .text-center .m-1}
-- [Demo Post](/2024/01/02/blogdemo-no-elements.html){: .btn .btn-primary .text-center .m-1}
-
-### Aktuelle Meldungen
-
-<leuffen-announcements>Keine aktuellen Hinweise</leuffen-announcements>
-
-### Sitemap
-
-
-<div class="container">
-  {% include el/navtree.html %}
-</div>
+- [Theme Müller]({% link pages/arzt/mueller-start.md %})
+- [Theme Osman]({% link pages/arzt/osman-start.md %})
+- [Theme Raven]({% link pages/arzt/raven-start.md %})
+- [Theme ePraxis]({% link pages/epraxis/epraxis-start.md %})
+- [Theme Unify]({% link pages/arzt/unify-start.md %})
+- [Theme Unify SaaS]({% link pages/arzt/unify-saas.md %})
+- [Theme Unify Services]({% link pages/unify-services.md %})
