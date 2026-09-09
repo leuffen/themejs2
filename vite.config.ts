@@ -9,7 +9,7 @@ export default defineConfig({
         jekyllHmrManager({
             watchDir: "/var/www/html",
             navigateOnChange: false,
-            debug: true,
+            debug: false,
         }),
     ],
     server: {
