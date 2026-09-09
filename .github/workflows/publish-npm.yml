@@ -1,14 +1,17 @@
+# Releases werden ausschließlich durch Tags im Format release/X.Y.Z ausgelöst.
+# Beispiel: git tag release/1.0.12 && git push origin release/1.0.12
+# X, Y und Z müssen Ganzzahlen sein; v-Präfixe und Vorabversionen sind nicht zulässig.
 name: Publish package to npm
 
-# Baut und veröffentlicht nach jedem Push auf den Hauptbranch die in package.json festgelegte Version.
+# Baut und veröffentlicht ausschließlich Tags im Format release/X.Y.Z.
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'release/[0-9]+.[0-9]+.[0-9]+'
 
-# Serialisiert Veröffentlichungen, damit parallele Pushes nicht dieselbe Patch-Version verwenden.
+# Serialisiert Veröffentlichungen je Release-Tag, damit eine Version nicht parallel publiziert wird.
 concurrency:
-  group: npm-publish-main
+  group: npm-publish-${{ github.ref_name }}
   cancel-in-progress: false
 
 # Erteilt nur die für Checkout und npm-Provenance erforderlichen Berechtigungen.
@@ -27,6 +30,18 @@ jobs:
         uses: actions/checkout@v7
         with:
           submodules: recursive
+
+      # Extrahiert die Paketversion und lehnt Tags außerhalb des exakten Release-Formats vor dem Build ab.
+      - name: Validate release tag
+        id: release
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF_NAME" =~ ^release/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            echo "version=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+          else
+            echo "Ungültiger Release-Tag: $GITHUB_REF_NAME" >&2
+            exit 1
+          fi
 
       # Richtet die unterstützte Node-Version und das öffentliche npm-Registry ohne Lockfile-Abhängigkeit ein.
       - name: Set up Node.js
@@ -48,6 +63,10 @@ jobs:
       # Installiert die Abhängigkeiten und erzeugt oder aktualisiert dabei bei Bedarf das Lockfile.
       - name: Install dependencies
         run: npm install
+
+      # Übernimmt die validierte Tag-Version in die Paketmetadaten, ohne einen weiteren Git-Tag anzulegen.
+      - name: Set package version
+        run: npm version "${{ steps.release.outputs.version }}" --no-git-tag-version
 
       # Erzeugt vor der Veröffentlichung den aktuellen auslieferbaren Build.
       - name: Build package

@@ -54,6 +54,27 @@ verwendbar oder auslieferbar bezeichnet werden. Fehlgeschlagene Builds müssen
 als solche gemeldet werden; vorhandene alte Build-Dateien dürfen nicht als
 Beleg für einen erfolgreichen aktuellen Build gewertet werden.
 
+## Versionen bauen und veröffentlichen
+
+Neue npm-Versionen werden ausschließlich durch einen Git-Tag im Format
+`release/X.Y.Z` gebaut und veröffentlicht, zum Beispiel `release/1.0.12`.
+`X`, `Y` und `Z` müssen reine Ganzzahlen sein; Präfixe wie `v`, fehlende
+Versionssegmente und Vorabversionen sind nicht zulässig.
+
+Der Tag wird auf dem zu veröffentlichenden Commit angelegt und gepusht:
+
+```sh
+git tag release/1.0.12
+git push origin release/1.0.12
+```
+
+Der Publish-Workflow extrahiert daraus `1.0.12`, setzt diese Version vor dem
+Build per `npm version --no-git-tag-version`, baut das Paket und veröffentlicht
+es anschließend bei npm. Die Version in `package.json` muss für diesen Vorgang
+nicht manuell geändert werden. Vor dem Tagging ist lokal mit `npm run build` zu
+prüfen, dass der vorgesehene Commit erfolgreich gebaut werden kann. Bereits bei
+npm veröffentlichte Versionsnummern dürfen nicht erneut verwendet werden.
+
 ## `_root` als Vorlage für Nutzprojekte
 
 Das Verzeichnis `_root` ist die Basis für aus dem Theme abgeleitete Nutzprojekte.

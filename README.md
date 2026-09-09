@@ -28,6 +28,22 @@ kickstart
 kick dev
 ```
 
+### Versionen bauen und veröffentlichen
+
+Ein npm-Release wird durch einen Git-Tag im Format `release/X.Y.Z` ausgelöst.
+Beispiel für Version `1.0.12`:
+
+```sh
+npm run build
+git tag release/1.0.12
+git push origin release/1.0.12
+```
+
+Der GitHub-Publish-Workflow akzeptiert nur drei numerische Versionssegmente,
+übernimmt `1.0.12` automatisch als Paketversion, baut das Paket und
+veröffentlicht es bei npm. `package.json` muss vorher nicht manuell versioniert
+werden. Jede npm-Versionsnummer darf nur einmal veröffentlicht werden.
+
 ### Guides
 
 #### How to Change Styles
