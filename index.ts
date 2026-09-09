@@ -1,6 +1,8 @@
+import "@trunkjs/loader";
 import "@trunkjs/content-pane";
 import "@trunkjs/responsive";
-import "@trunkjs/loader";
+
+
 
 // Registriert die im Theme verwendeten Web Components; die zugehörigen Styles bleiben parallel in all.scss gepflegt.
 import "@nextrap/nte-navbar";
