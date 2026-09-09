@@ -72,7 +72,7 @@ jobs:
       pages: write
       id-token: write
     environment:
-      name: github-pages
+      name: pull-request-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
