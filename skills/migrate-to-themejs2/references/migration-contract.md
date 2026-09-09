@@ -21,7 +21,7 @@ Ohne ausdrückliche Inhaltsfreigabe bleiben exakt erhalten:
 - lokale redaktionelle Medien bytegleich, nachgewiesen über SHA-256;
 - Permalinks und veröffentlichte Routen.
 
-Layout-Attribute, Frontmatter-Schlüssel, Komponenten-Tags und technische Includes dürfen verändert werden, soweit ThemeJS2 dies erfordert und die sichtbare Bedeutung gleich bleibt. Ein scheinbarer Tippfehler ist keine technische Änderung.
+Layout-Attribute, Frontmatter-Schlüssel, Komponenten-Tags und technische Includes dürfen verändert werden, soweit ThemeJS2 dies erfordert und die sichtbare Bedeutung gleich bleibt. Die in der Zuordnungsreferenz beschriebene Umwandlung einer direkt benachbarten H2-/H3-/H4-plus-Blockquote-Folge in `data-kicker` und Überschrift ist eine erlaubte Strukturänderung, sofern beide Texte unverändert bleiben. Für das Navigationslayout `nav` gilt die strengere Regel aus dem Skill: Vorlage eins zu eins übernehmen, ausschließlich das Logo bei Bedarf anpassen. Ein scheinbarer Tippfehler ist keine technische Änderung.
 
 ## Seitennachweis
 
