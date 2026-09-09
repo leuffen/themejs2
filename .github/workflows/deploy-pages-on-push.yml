@@ -1,0 +1,67 @@
+name: Deploy Pages on push
+
+# Baut jeden Push vollständig und veröffentlicht den aktuellen Stand über GitHub Pages.
+on:
+  push:
+
+# Unabhängig vom Branch wird nur der zuletzt gestartete Push-Stand veröffentlicht.
+concurrency:
+  group: themejs2-pages-deploy
+  cancel-in-progress: true
+
+# Der Push-Workflow darf Repository-Inhalte lesen und das fertige Artifact nach Pages deployen.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    name: Build and deploy pushed site
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Checkt exakt den Commit aus, der diesen Push-Workflow ausgelöst hat.
+      - name: Check out pushed commit
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+
+      # Richtet die für Installation und Vite-Build unterstützte Node-Version ein.
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      # Installiert die veröffentlichten Projektabhängigkeiten ohne lokale Workspace-Verknüpfungen.
+      - name: Install dependencies
+        run: npm install
+
+      # Erzeugt die aktuellen JavaScript- und CSS-Assets vor dem statischen Jekyll-Build.
+      - name: Build frontend assets
+        run: npm run build:site
+
+      # Liest Domain und Basispfad aus der bestehenden GitHub-Pages-Konfiguration.
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      # Rendert die Präsentation einschließlich der frisch erzeugten Assets als statische Website.
+      - name: Build Jekyll site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs
+          destination: ./_site
+
+      # Verpackt den vollständigen statischen Stand für das nachfolgende Pages-Deployment.
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./_site
+
+      # Veröffentlicht den aktuellen Push-Stand auf der konfigurierten Pages-URL.
+      - name: Deploy pushed site
+        id: deployment
+        uses: actions/deploy-pages@v5
