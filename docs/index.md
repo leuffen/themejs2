@@ -16,10 +16,17 @@ type: website
 ## Theme-Previews
 {: layout="ntl-2col" data-kicker="Entwicklungsübersicht" }
 
-- [Theme Müller]({% link pages/arzt/mueller-start.md %})
-- [Theme Osman]({% link pages/arzt/osman-start.md %})
-- [Theme Raven]({% link pages/arzt/raven-start.md %})
-- [Theme ePraxis]({% link pages/epraxis/epraxis-start.md %})
-- [Theme Unify]({% link pages/arzt/unify-start.md %})
-- [Theme Unify SaaS]({% link pages/arzt/unify-saas.md %})
-- [Theme Unify Services]({% link pages/unify-services.md %})
+<!-- Die Preview-Übersicht gruppiert alle Vorlagen automatisch anhand ihrer Theme-Verzeichnisse. -->
+{% assign theme_previews = site.pages | where_exp: "preview", "preview.path contains 'pages/theme-'" | sort: "title" %}
+{% assign preview_themes = "mueller|Müller,osman|Osman,raven|Raven,epraxis|ePraxis,unify|Unify" | split: "," %}
+{% for preview_theme in preview_themes %}
+  {% assign theme_data = preview_theme | split: "|" %}
+  {% assign theme_path = "pages/theme-" | append: theme_data[0] | append: "/" %}
+### Theme {{ theme_data[1] }}
+
+  {% for preview in theme_previews %}
+    {% if preview.path contains theme_path %}
+- [{{ preview.title }}]({{ preview.url | relative_url }})
+    {% endif %}
+  {% endfor %}
+{% endfor %}

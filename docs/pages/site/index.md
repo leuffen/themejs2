@@ -16,6 +16,6 @@ pid: site
 
 Übersicht der verfügbaren Praxis-Seiten.
 
-- [Augenpraxis Osman](/pages/arzt/osman-start/)
-- [Hausarztpraxis Müller](/pages/arzt/mueller-start/)
-- [Praxis Raven](/pages/arzt/raven-start/)
+- [Augenpraxis Osman](/pages/theme-osman/osman-start/)
+- [Hausarztpraxis Müller](/pages/theme-mueller/mueller-start/)
+- [Praxis Raven](/pages/theme-raven/raven-start/)
