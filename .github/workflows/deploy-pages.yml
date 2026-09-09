@@ -1,0 +1,82 @@
+name: Deploy pull request to GitHub Pages
+
+# Baut und veröffentlicht jeden neuen oder aktualisierten Pull Request als aktuelle Theme-Vorschau.
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+
+# Die feste Pages-URL zeigt immer den zuletzt erfolgreich bereitgestellten Pull-Request-Stand.
+concurrency:
+  group: themejs2-pages-preview
+  cancel-in-progress: true
+
+# Der Build liest nur Repository-Inhalte; Schreibrechte erhält ausschließlich der Deploy-Job.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build pull request site
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkt exakt den aktuellen Head-Commit des Pull Requests ohne lokale Submodule aus.
+      - name: Check out pull request
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      # Richtet die unterstützte Node-Version mit reproduzierbarem npm-Cache ein.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Installiert ausschließlich die im Lockfile hinterlegten veröffentlichten npm-Abhängigkeiten.
+      - name: Install dependencies
+        run: npm ci
+
+      # Erzeugt die aktuellen JavaScript- und CSS-Assets für die Präsentationsseite.
+      - name: Build frontend assets
+        run: npm run build:site
+
+      # Liest Domain und Basispfad aus der bestehenden GitHub-Pages-Konfiguration.
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # Rendert die Jekyll-Präsentation als vollständig statische Website.
+      - name: Build Jekyll site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs
+          destination: ./_site
+
+      # Übergibt ausschließlich den fertig gerenderten statischen Output an den Deploy-Job.
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    name: Deploy pull request site
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Veröffentlicht den gebauten Pull-Request-Stand unter der hinterlegten Pages-Domain.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
