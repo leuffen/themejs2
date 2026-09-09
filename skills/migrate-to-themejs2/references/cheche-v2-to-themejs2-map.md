@@ -23,7 +23,7 @@ Die Kundeninhalte dieser Repositories sind Beispiele, keine Vorlage für andere 
 | `docs/_layouts/0_blanc.html` | `docs/_layouts/10_blanc.html` | Head, Metadaten, Kundendaten und notwendige Integrationen bewahren; ThemeJS2-Loader verwenden. |
 | `docs/_layouts/1_body.html` | `docs/_layouts/20_body.html` | Body-Class und Scheme auf den Ziel-Theme-Vertrag abbilden. |
 | `docs/_layouts/2_script.html` | kein eigenes Ziellayout; Verhalten in `10_blanc.html`, `20_body.html` oder `docs/_src/index.ts` einordnen | Alte Template-/Runtime-Injektion klassifizieren und nur die weiterhin benötigte Funktion an der passenden Target-Stelle übernehmen. |
-| `docs/_layouts/3_1_navbar.html` | `docs/_layouts/50_navbar.html` | Navigation semantisch und mit denselben Zielen übernehmen. |
+| `docs/_layouts/3_1_navbar.html` | `docs/_layouts/50_navbar.html` | Navbar aus der gewählten ThemeJS2-Vorlage eins zu eins übernehmen; ausschließlich das Logo bei Bedarf anpassen. Keine alten kundenspezifischen Navbar-Anpassungen übertragen. |
 | `docs/_layouts/3_2_footer.html` | `docs/_layouts/60_footer.html` | Footer-Inhalte, Links und Kundendaten unverändert erhalten. |
 | `docs/_layouts/3_3_main.html` | `docs/_layouts/70_main.html` | Gemeinsamen ThemeJS2-Content-Pane-Vertrag verwenden. |
 | `docs/_layouts/article.html` | `default`, `website` oder ein bestehendes fachliches Layout | Nach Seitenrolle entscheiden; sichtbare Headline und Bilddaten bewahren. |
@@ -39,13 +39,38 @@ Die aktuelle Target-Struktur gliedert Includes nach Verantwortung. Migriere Aufr
 | Alte Cheche-/frühere Osman-Pfade | Aktueller Target-Pfad | Regel |
 |---|---|---|
 | `docs/_includes/el/address.html` | `docs/_includes/components/contact/address.html` | Kundendaten und optionale Felder erhalten; Aufrufparameter auf den dokumentierten Include-Vertrag abbilden. |
-| `docs/_includes/el/navbar.html`, `nav2.html`, `navtree*.html` | `docs/_includes/components/navigation/main.html` und `docs/_layouts/50_navbar.html` | Navigationsziele und Reihenfolge erhalten; Darstellung und Baumaufbereitung trennen. |
+| `docs/_includes/el/navbar.html`, `nav2.html`, `navtree*.html` | `docs/_includes/components/navigation/main.html` und `docs/_layouts/50_navbar.html` | Vorlagen-Include und Navbar unverändert übernehmen; nur das Logo darf bei Bedarf angepasst werden. Navigationsziele und Reihenfolge über die vorgesehenen Datenquellen erhalten, ohne Darstellung oder Baumaufbereitung umzubauen. |
 | `docs/_includes/el/post-preview*.html`, `sitemap-table.html`, `tag-link-list.html` | bei direkten Unterseiten `docs/_includes/components/navigation/section-cards.html`, sonst vorhandene passende Komposition | Nach Inhaltsrolle zuordnen; keine pauschale Ersetzung bei Posts, Tags oder Tabellen. |
 | `docs/_includes/el/pagebuilder-link.html` | `docs/_includes/helpers/urls/pagebuilder.html` | Ergebnis-URL und Sprachparameter erhalten. |
 | `docs/_includes/do/trans.html` | `docs/_includes/helpers/i18n/translate.html` | Übersetzungsschlüssel, Sprache und Fallback erhalten. |
 | `docs/_includes/part/loader.html` | `docs/_includes/fragments/loader.html` | Loader-Aufruf und projektspezifisches Bild prüfen. |
 | alte Öffnungszeiten-Includes oder festes Tabellen-Markup | `docs/_includes/components/site/opening-hours.html` | Jede sichtbare Zeile ohne Umformulierung nach `site.data.openhours.table` übertragen und das semantische Tabellen-Include verwenden. |
 | `docs/_includes/do/link.html`, `remove-line-breaks.html` und übrige alte Hilfen | kein automatisches 1:1-Ziel | Aufrufstellen klassifizieren; nur weiterhin benötigtes Verhalten in einen fachlich passenden vorhandenen Helper überführen. |
+
+## Kicker aus Überschrift und direkt folgendem Blockquote
+
+In alten Versionen bildeten eine H2-, H3- oder H4-Überschrift und das unmittelbar folgende Blockquote eine gemeinsame Kicker-/Überschrifteneinheit: Der Text des ursprünglichen H-Elements war der Kicker, der Blockquote-Text die eigentliche sichtbare Überschrift. Migriere genau diese Folge, indem der ursprüngliche H-Text als `data-kicker` per Kramdown am H-Element hinterlegt wird und der Blockquote-Text dessen Überschriftentext ersetzt; erhalte die H-Ebene, vorhandene IDs und andere Attribute und entferne das nun übernommene Blockquote. Beide Texte bleiben unverändert; Attributwerte müssen syntaktisch korrekt maskiert werden.
+
+Vorher:
+
+```markdown
+### Unser Angebot
+
+> Medizin für die ganze Familie
+```
+
+Nachher:
+
+```markdown
+### Medizin für die ganze Familie
+{: data-kicker="Unser Angebot" }
+```
+
+Die Regel gilt entsprechend für `##` und `####`, ausschließlich wenn das Blockquote der nächste Inhaltsblock auf derselben Ebene ist; trennende Leerzeilen und zum Heading gehörende Kramdown-Attribute unterbrechen die Folge nicht. Steht ein Absatz, Bild, eine Liste oder ein anderer Inhaltsblock dazwischen, bleibt das Blockquote ein Blockquote. H1, H5 und H6 sowie alleinstehende oder anders zugeordnete Zitate werden nicht umgewandelt. Prüfe bei jeder Umwandlung den ursprünglichen H-Text gegen `data-kicker`, den ursprünglichen Blockquote-Text gegen den neuen H-Text und die sichtbare Reihenfolge Kicker vor Überschrift; eine generische Textsequenz-Prüfung allein weist den Attributinhalt nicht nach.
+
+## Navigation aus der Vorlage
+
+Das Navigationslayout `nav` beziehungsweise `docs/_layouts/50_navbar.html` und die zugehörige Navbar werden eins zu eins aus der gewählten ThemeJS2-Vorlage übernommen. Einzige zulässige Anpassung ist bei Bedarf das Logo. Verändere weder Markup, Klassen, Struktur, Verhalten noch die zugehörige Navigationsaufbereitung und übertrage keine kundenspezifischen Navbar-Anpassungen aus der alten Version in die neue Vorlage, da diese dort nicht passen. Bestehende Kundendaten und Navigationsziele bleiben über die vorgesehenen Datenquellen erhalten; erfordert dies Änderungen an der Vorlage über das Logo hinaus, halte an und kläre den Konflikt.
 
 ## Mehrere Bilder
 
