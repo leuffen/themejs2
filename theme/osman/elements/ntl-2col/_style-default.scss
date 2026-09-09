@@ -58,14 +58,6 @@
   }
 
   &[mode="desktop"] {
-    &:has(> p[slot="aside"].auto)::part(wrapper) {
-      align-items: center;
-    }
-
-    &:has(> p[slot="aside"].auto)::part(main) {
-      justify-content: center;
-    }
-
     &:has(> p[slot="aside"].auto)::part(aside) {
       min-height: clamp(18rem, 25vw, 22rem);
     }

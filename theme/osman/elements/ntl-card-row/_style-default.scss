@@ -96,7 +96,23 @@
     }
   }
 
+  // Streckt Desktop-Cards auf dieselbe Reihenhöhe; der wachsende Content-Slot
+  // hält die Footer auch bei unterschiedlich langen Inhalten bündig.
   &[mode="desktop"] > nte-card {
     --image-aspect-ratio: 16/9;
+
+    display: flex;
+    align-self: stretch;
+
+    &::part(link),
+    &::part(wrapper) {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+    }
+
+    &::part(content) {
+      flex-grow: 1;
+    }
   }
 }

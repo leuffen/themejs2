@@ -180,7 +180,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 
 
 
-## Über uns
+## Über uns – Modifier `with-justify-top`
 {: layout="ntl-2col.style-default.reverse.with-justify-top"}
 
 ![](https://cdn.leuffen.de//osman-k21///v2/18/c_g/DSC06603.webp)
