@@ -1,6 +1,6 @@
-name: Deploy pull request to GitHub Pages
+name: Build pull request Pages preview
 
-# Baut und veröffentlicht jeden neuen oder aktualisierten Pull Request als aktuelle Theme-Vorschau.
+# Baut jeden neuen oder aktualisierten Pull Request als vollständig statische Theme-Vorschau.
 on:
   pull_request:
     types:
@@ -9,12 +9,12 @@ on:
       - reopened
       - ready_for_review
 
-# Die feste Pages-URL zeigt immer den zuletzt erfolgreich bereitgestellten Pull-Request-Stand.
+# Pro Pull Request zählt nur der zuletzt gepushte Stand.
 concurrency:
-  group: themejs2-pages-preview
+  group: themejs2-pages-build-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
-# Der Build liest nur Repository-Inhalte; Schreibrechte erhält ausschließlich der Deploy-Job.
+# Der Pull-Request-Build liest nur Repository-Inhalte und erhält keine Deploy-Berechtigung.
 permissions:
   contents: read
 
@@ -48,7 +48,6 @@ jobs:
 
       # Liest Domain und Basispfad aus der bestehenden GitHub-Pages-Konfiguration.
       - name: Configure GitHub Pages
-        id: pages
         uses: actions/configure-pages@v5
 
       # Rendert die Jekyll-Präsentation als vollständig statische Website.
@@ -58,25 +57,11 @@ jobs:
           source: ./docs
           destination: ./_site
 
-      # Übergibt ausschließlich den fertig gerenderten statischen Output an den Deploy-Job.
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      # Übergibt den statischen Stand ohne Deploy-Rechte an den nachgelagerten Main-Workflow.
+      - name: Upload pull request site
+        uses: actions/upload-artifact@v4
         with:
+          name: pull-request-pages-site
           path: ./_site
-
-  deploy:
-    name: Deploy pull request site
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: pull-request-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      # Veröffentlicht den gebauten Pull-Request-Stand unter der hinterlegten Pages-Domain.
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if-no-files-found: error
+          retention-days: 1
