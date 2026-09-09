@@ -107,6 +107,7 @@
         "dev-b": "concurrently 'npm run vite-build' 'npm run jekyll-build'",
         "build": "npm run build:site && npm run build:lib",
         "build:site": "vite build",
+        "build:site:preview": "npm run build:site && sass --load-path=node_modules --style=compressed --source-map --embed-sources docs/_src/style.scss docs/assets/dist/style.css",
         "build:lib": "vite build --config vite.config.lib.ts"
     }
 }
