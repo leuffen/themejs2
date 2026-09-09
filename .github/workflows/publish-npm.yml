@@ -68,10 +68,11 @@ jobs:
       - name: Set package version
         run: npm version "${{ steps.release.outputs.version }}" --no-git-tag-version
 
-      # Erzeugt vor der Veröffentlichung den aktuellen auslieferbaren Build.
+      # Stellt das vollständige Paket unter dist zusammen und führt dort den Vite-Library-Build aus.
       - name: Build package
-        run: npm run build
+        run: npm run build:lib
 
-      # Veröffentlicht das Scoped Package per Trusted Publishing und hinterlegt die npm-Provenance.
+      # Veröffentlicht ausschließlich das isolierte dist-Artefakt per Trusted Publishing.
       - name: Publish package
+        working-directory: dist
         run: npm publish --access public --provenance

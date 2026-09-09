@@ -80,7 +80,8 @@ layout: null
 
 </head>
 {{ content }}
-{% if jekyll.environment != "development" %}
+{% comment %} Der statische Build wird ausschließlich in der Produktionsausgabe geladen; lokal übernimmt Vite die Quellmodule. {% endcomment %}
+{% if jekyll.environment == "production" %}
 <link rel="stylesheet" href="/assets/dist/style.css?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="text/css" media="all">
 <script src="/assets/dist/index.js?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="module" defer></script>
 {% endif %}
