@@ -1,6 +1,6 @@
 ---
 body_class: theme-mueller
-description: "Direkte Entwicklerübersicht der sieben ThemeJS2-Style-Previews."
+description: "Dynamische Entwicklerübersicht der ThemeJS2-Previews und Design-Templates."
 layout: website
 use_footer: mueller
 order: 0
@@ -29,4 +29,13 @@ type: website
 - [{{ preview.title }}]({{ preview.url | relative_url }})
     {% endif %}
   {% endfor %}
+{% endfor %}
+
+## Design-Templates
+{: layout="ntl-2col" data-kicker="Direkte Vorlagen" }
+
+<!-- Die Dateiliste verlinkt alle statischen Design-Templates direkt und wächst mit dem Verzeichnisinhalt. -->
+{% assign design_templates = site.static_files | where_exp: "template", "template.path contains '/design-templates/'" | sort: "path" %}
+{% for template in design_templates %}
+- [{{ template.name }}]({{ template.path | relative_url }})
 {% endfor %}
