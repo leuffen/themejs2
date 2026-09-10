@@ -1,5 +1,6 @@
 @use "@nextrap/ntl-2col" as ntl2col;
 
+// Der Default nutzt Wrapper-Padding und Gap direkt aus der gemeinsamen Baseline.
 &.style-default {
   --cols: 6;
   --gap: clamp(1.75rem, 3vw, 3.5rem);
@@ -23,10 +24,6 @@
       height: 100%;
       object-fit: cover;
     }
-  }
-
-  &::part(wrapper) {
-    padding-block: var(--nt-spacing-text);
   }
 
   // Der äußere Footer erhält denselben horizontalen Innenabstand wie der
@@ -62,9 +59,13 @@
       min-height: clamp(18rem, 25vw, 22rem);
     }
 
-    &:not(:has(> p[slot="aside"].auto)):not(.with-bg-primary)::part(aside) {
-      padding-left: clamp(1.5rem, 2.5vw, 2.25rem);
-      border-left: 1px solid var(--section-divider-color);
+    // Der Texttrenner liegt innerhalb des Gaps und folgt allen Nextrap-Umkehrungen.
+    &:not(:has(> p[slot="aside"].auto)):not(.with-bg-primary) {
+      @include ntl2col.with-background-and-divider(
+        $gap: clamp(1.75rem, 3vw, 3.5rem),
+        $background: null,
+        $divider-color: var(--section-divider-color)
+      );
     }
   }
 }

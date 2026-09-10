@@ -1,5 +1,6 @@
 @use "@nextrap/ntl-2col" as ntl2col;
 
+// Fläche und Divider verwenden den gemeinsamen Gap ohne zusätzliche Aside-Abstände.
 &.with-bg-primary {
   @include ntl2col.with-background-and-divider(
     $gap: clamp(2rem, 4vw, 4rem),
@@ -10,16 +11,4 @@
   &::part(container) {
     border-top: 0;
   }
-
-  &[mode="desktop"] {
-    &::part(aside) {
-      padding-left: 0.25rem;
-    }
-
-    &.reverse::part(aside)::after {
-      right: calc(var(--gap) / -2);
-      left: auto;
-    }
-  }
 }
-

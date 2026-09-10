@@ -3,7 +3,7 @@
 // Provides a form layout with both columns aligned to the top edge.
 &.style-form {
   @include twoCol.default-style(
-    $innerPadding: 0,
+    $innerPadding: var(--nt-space-4),
     $gap: var(--nt-spacing-layout),
     $background: transparent,
     $border: 0,
@@ -14,7 +14,6 @@
   // Keeps main and aside aligned at the top instead of vertically centering the shorter column.
   &::part(wrapper) {
     align-items: flex-start;
-    gap: var(--gap);
   }
 
   // Makes paragraph content fill the complete width of both form columns.
