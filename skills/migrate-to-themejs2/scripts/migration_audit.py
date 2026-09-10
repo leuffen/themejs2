@@ -177,6 +177,37 @@ def text_segments(body: str) -> list[str]:
     return segments
 
 
+# Rekonstruiert ausschließlich belegte Kicker-Umwandlungen für den Textvergleich.
+# Inventar, Original und unabhängige Link-/Medienprüfungen bleiben unverändert.
+def restore_kickers(source: str, target: str) -> str:
+    heading = r"^(#{1,6})[ \t]+([^\n]+)\n"
+    attributes = r"((?:(?:[ \t]*\n)|(?:[ \t]*\{:[^\n]*\}[ \t]*(?:\n|$)))*)"
+    source_pattern = re.compile(heading + attributes + r"((?:>[ \t]?[^\n]*(?:\n|$))+)", re.M)
+    target_pattern = re.compile(heading + attributes, re.M)
+    candidates = Counter()
+    for match in source_pattern.finditer(source):
+        if len(match[1]) not in {2, 3, 4}:
+            continue
+        quote = "\n".join(re.sub(r"^>[ \t]?", "", line) for line in match[4].splitlines())
+        candidates[(match[1], html.unescape(match[2]), html.unescape(quote))] += 1
+
+    # Fehlerhafte, fremde oder mehrfach verwendete Paare dürfen nie Textverlust maskieren.
+    def restore(match: re.Match[str]) -> str:
+        attrs = [item for item in HTML_ATTRIBUTE_RE.finditer(match[3]) if item[1] == "data-kicker"]
+        if not attrs:
+            return match[0]
+        if len(attrs) != 1:
+            raise ValueError("Mehrfaches data-kicker an einer Überschrift")
+        kicker = html.unescape(attrs[0][3])
+        key = (match[1], kicker, html.unescape(match[2]))
+        if not candidates[key]:
+            raise ValueError("Kicker, Überschrift oder Heading-Ebene ohne identisches benachbartes Quellpaar")
+        candidates[key] -= 1
+        return f"{match[1]} {kicker}\n\n> {match[2]}\n" + match[3]
+
+    return target_pattern.sub(restore, target)
+
+
 def yaml_like_values(text: str) -> list[str]:
     values: list[str] = []
     for raw in text.splitlines():
@@ -367,8 +398,15 @@ def verify(args: argparse.Namespace) -> int:
         }
         if source_page.get("frontmatter_content", {}) != protected_frontmatter:
             errors.append(f"Geschütztes Frontmatter verändert: {source_rel} -> {target_rel}")
+        # Nur nach exaktem Paarabgleich wird die erlaubte Kicker-Struktur zurückgeführt.
+        _, source_body = split_frontmatter((source / source_rel).read_text(encoding="utf-8"))
+        try:
+            comparison_body = restore_kickers(source_body, body)
+        except ValueError as error:
+            errors.append(f"Kicker verändert: {source_rel} -> {target_rel}: {error}")
+            comparison_body = body
         fields = (
-            ("Text", "text_segments", text_segments(body)),
+            ("Text", "text_segments", text_segments(comparison_body)),
             ("Links", "links", link_references(body)),
             ("Medienreferenzen", "media", media_references(frontmatter, body)),
         )
