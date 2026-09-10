@@ -3,14 +3,15 @@
 | Datum | Benutzername | Kurzbeschreibung |
 |---|---|---|
 | 2026-09-10 | dermatthes | §§ 1–7: Entwurf für Osman, Müller, Raven, Unify, ePraxis und Medic mit konkreten Anpassungsstellen und Abnahmeplan angelegt |
+| 2026-09-10 | dermatthes | §§ 1–7: Direkte Umsetzung freigegeben, regionsbezogenes Bleed ergänzt und Theme-Verwendungen angepasst |
 
 ## § 1 Ziel und Status
 
-Dieser PR enthält den Theme-Anpassungsentwurf; Theme-SCSS, Markup, Assets und Abhängigkeiten werden noch nicht geändert. Der dazugehörige Core-Entwurf liegt im Nextrap-Monorepo unter `.agents/proposals/2026-09-10-nte-card-wrapper-spacing.md`. Die beiden Card-PRs sind unabhängig von den bestehenden 2COL-PRs.
+Dieser PR enthält jetzt die konkrete Theme-Umsetzung zum Core-PR #196. Die freigegebene Ergänzung `with-region-bleed()` erhält randlose Titelbilder und erlaubt weitere randlose Card-Regionen. [geändert]
 
 Ziel ist ein gemeinsamer Abstandsvertrag: Die Card besitzt einen Rahmenabstand am Wrapper und einen unabhängigen Gap zwischen ihren sichtbaren Regionen. Anders als bei 2COL gehören Header und Footer einer Card **in** ihren Rahmen. Die Kartenreihe steuert weiterhin den Abstand zwischen mehreren Cards.
 
-Der Entwurf ist gegen [ThemeJS2, 99aff706](https://github.com/leuffen/themejs2/tree/99aff7062346f276e45e490ab10133003370d194) und [NTE-Card, 894f0ffd](https://github.com/nextrap/nextrap-monorepo/tree/894f0ffd5e3fdb7d27ec62b2cf19759c427a46e7/nextrap-elements/nte-card) abgeglichen. Die aufgeführten Theme-Verwendungen wurden im Quellcode untersucht. Eine gerenderte Abnahme der vorgeschlagenen Änderung ist noch nicht erfolgt.
+Der Entwurf ist gegen [ThemeJS2, 99aff706](https://github.com/leuffen/themejs2/tree/99aff7062346f276e45e490ab10133003370d194) und [NTE-Card, 894f0ffd](https://github.com/nextrap/nextrap-monorepo/tree/894f0ffd5e3fdb7d27ec62b2cf19759c427a46e7/nextrap-elements/nte-card) abgeglichen. Die aufgeführten Theme-Verwendungen wurden im Quellcode untersucht und angepasst; der aktuelle Prüfstatus steht in der PR-Beschreibung. [geändert]
 
 ## § 2 Gemeinsamer Theme-Vertrag
 
@@ -27,13 +28,13 @@ Der Entwurf ist gegen [ThemeJS2, 99aff706](https://github.com/leuffen/themejs2/t
 
 Der neue `$gap`-Parameter wird im Core am Ende der Parameterliste ergänzt. Als allgemeiner Default ist `var(--nt-text-gap)` vorgesehen. Jede Card initialisiert ihren Gap selbst, damit ein NTL-Eltern-Gap nicht versehentlich innerhalb der Card weiterwirkt. Themes können einen anderen vorhandenen Spacing-Token ausdrücklich wählen.
 
-Das neue normale Bild ist wie die Textregionen eingerückt. Eine identische Erhaltung der bisher randlosen Bilder wäre ein gesondertes Bleed-Feature und wird nicht durch negative Theme-Margins nachgebaut. Das bestehende Fullsize-Mixin steuert die natürliche Bildgröße, nicht die Randabstände.
+Titelbilder bleiben über `with-region-bleed(image)` ausdrücklich randlos. Der gemeinsame Core berechnet die äußeren Kanten; Themes bauen den Abstand nicht mit eigenen negativen Margins nach. Avatar-Kompositionen verwenden weiterhin eingerückte Bildregionen. [geändert]
 
 Karten mit gleicher Gesamthöhe dürfen Content weiterhin wachsen lassen. Zusätzliche Auto-Margins an Regionsgrenzen entfernen, wenn sie neben diesem Wachstum weiteren Zwischenraum verteilen. Die Position des letzten Textes innerhalb eines wachsenden Content-Bereichs ist von der Größe des Regions-Gaps zu unterscheiden.
 
 ## § 3 Konkrete Theme-Anpassungen
 
-Alle Pfade in diesem Abschnitt sind relativ zu `theme/`. Aufgeführte Dateien sind **geplante Prüf-/Änderungsstellen**, keine bereits ausgeführten Änderungen.
+Alle Pfade in diesem Abschnitt sind relativ zu `theme/`. Aufgeführte Dateien sind Umsetzungs- und Prüfstellen; die nachstehenden ursprünglichen Befunde erläutern die konkreten Änderungen. [geändert]
 
 ### § 3.1 Osman
 
@@ -137,15 +138,10 @@ Die automatische Helper-Registrierung bleibt am jeweiligen Style gescoped. Wer s
 
 Die Core-Entwurfsdatei enthält die technische Testmatrix mit P=24px und G=0px/16px/40px. Tests und Builds sind Abnahmekriterien für die spätere Implementierung, nicht bereits erledigte Nachweise dieses Dokumentations-PRs.
 
-## § 6 Offene Review-Entscheidungen
+## § 6 Getroffene Entscheidungen
 
-- Bestätigung des eingerückten Standardbildes; eine randlose Darstellung benötigt ein eigenständiges explizites Feature.
-- Konkrete Gap-Tokens für kompakte Ribbons und Metrics; `--nt-text-gap` ist der allgemeine Vorschlag, null bleibt eine ausdrückliche Variante.
-- Belegungsabhängiges Track-Modell der horizontalen Unify-Story, ohne neue Autorenstruktur.
-- Umfang der NTE-spezifischen Entkopplung gemischter Legacy-Selektoren; keine nebenläufige NTL-Card-Migration.
+Bisher randlose Titelbilder verwenden das neue Image-Bleed. Ribbons erhalten unabhängige Gap-Tokens, Avatare verlieren doppelte Außen-Margins. Die Unify-Story erzeugt ihre Grid-Zeilen aus `data-card-regions`; fehlendes Bild oder fehlende Textregionen hinterlassen keine Phantom-Spalte/-Zeile. Legacy-NTL-Card behält ihre bisherigen Regeln. [geändert]
 
 ## § 7 Umfang dieses PRs und Prüfstand
 
-Dieser PR legt genau diese eine Markdown-Datei an. Die Tabellen benennen die späteren Implementierungsstellen; sie behaupten keine bereits vorgenommenen Theme-Änderungen. Der separate Core-PR legt ebenfalls nur seinen Entwurf an. Beide verwenden eigene Branches und überschreiben keine 2COL-Arbeit.
-
-Die Quellanalyse ist abgeschlossen; geometrische und visuelle Abnahme bleiben Teil der Umsetzung. Aus der vorherigen Theme-Arbeit ist der vollständige lokale Build durch `@leuffen/vite-jekyll-hmr-manager@^1.0.1` blockiert gewesen. Dieser Entwurfs-PR ändert weder diese Abhängigkeit noch die Deployment-Konfiguration und behauptet keinen aktuellen erfolgreichen Theme-Build.
+Der PR enthält die konkreten Theme-SCSS-Anpassungen und dieses aktualisierte Proposal. Alle betroffenen Card-Einstiegspunkte wurden gegen die aktualisierte Core-Sass-API kompiliert. Die PR-Beschreibung nennt Build-/Preview-Blocker und den tatsächlichen Prüfstatus. Keine Paketveröffentlichung oder manuelle produktive Bereitstellung wird ausgelöst. [geändert]

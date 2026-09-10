@@ -2,7 +2,7 @@
 
 &.style-card {
   @include twoCol.default-style(
-    $innerPadding: 0,
+    $innerPadding: clamp(var(--nt-space-7), 6vw, calc(var(--nt-space-10) + var(--nt-space-2))),
     $gap: clamp(var(--nt-space-6), 6vw, calc(var(--nt-space-10) + var(--nt-space-1))),
     $background: transparent,
     $border: 0,
@@ -47,16 +47,10 @@
 
   &::part(wrapper) {
     align-items: stretch;
-    padding: clamp(var(--nt-space-7), 6vw, calc(var(--nt-space-10) + var(--nt-space-2)));
     box-shadow: 0 var(--nt-space-8) clamp(3rem, 7vw, 5.625rem) rgba(30, 30, 30, .16);
     background:
       radial-gradient(circle at 92% 5%, color-mix(in srgb, var(--nt-accent) 20%, transparent), transparent 28%),
       linear-gradient(135deg, var(--nt-primary), var(--nt-secondary));
-  }
-
-  &::part(main),
-  &::part(aside) {
-    padding: 0;
   }
 
   &::part(main) {
@@ -77,8 +71,6 @@
       margin-inline: auto;
     }
 
-    &::part(wrapper) {
-      padding: var(--nt-space-7) var(--nt-space-5);
-    }
+    --inner-padding: var(--nt-space-7) var(--nt-space-5);
   }
 }

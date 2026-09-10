@@ -3,11 +3,10 @@
 &.style-ribbon {
   nte-card {
     @include card.default-style(
-      $innerPadding: 0,
+      $innerPadding: var(--nt-spacing-component),
       $border: 0,
       $background-color: transparent,
-      $border-radius: 0
-    );
+      $border-radius: 0, $gap: var(--nt-space-2));
 
     color: var(--nt-white);
 
@@ -16,11 +15,6 @@
       flex-direction: column;
       justify-content: center;
       min-height: 8.25rem;
-      padding: var(--nt-spacing-component);
-    }
-
-    &::part(header) {
-      margin-bottom: var(--nt-space-2);
     }
 
     > :is(h1, h2, h3, h4, h5, h6) {
@@ -44,7 +38,6 @@
   &[mode="mobile"] {
     nte-card::part(wrapper) {
       min-height: 0;
-      padding-inline: 0;
     }
   }
 }

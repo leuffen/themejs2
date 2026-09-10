@@ -9,8 +9,7 @@
       $border: 0,
       $background-color: var(--nt-surface-raised),
       $border-radius: var(--nt-radius),
-      $image-aspect-ratio: 1
-    );
+      $image-aspect-ratio: 1, $gap: var(--nt-text-gap));
 
     min-width: 0;
     height: 100%;
@@ -26,7 +25,6 @@
     &::part(image) {
       width: 3rem;
       height: 3rem;
-      margin: var(--nt-space-5) 0 0 var(--nt-space-5);
       overflow: hidden;
       border-radius: 50%;
     }

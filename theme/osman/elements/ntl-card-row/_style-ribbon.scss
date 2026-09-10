@@ -1,3 +1,4 @@
+@use "@nextrap/nte-card" as card;
 @use "@nextrap/ntl-card-row" as cardRow;
 
 &.style-ribbon {
@@ -41,7 +42,10 @@
     box-shadow: none;
   }
 
-  nte-card {
+  > nte-card.style-default {
+    // Vollständige Card-Baseline statt zusätzlicher Theme-Padding-Schichten.
+    @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-spacing-text), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: 0);
+    @include card.with-region-bleed(image);
     --image-aspect-ratio: 16/9;
     --border: 0;
     --border-width: 0;
@@ -53,9 +57,7 @@
     &::part(wrapper) {
       display: flex;
       flex-direction: column;
-      gap: var(--nt-spacing-text);
       min-height: 15.25rem;
-      padding: var(--nt-spacing-text);
     }
 
     &::part(content) {
@@ -70,7 +72,6 @@
     }
 
     [slot="footer"] {
-      margin-top: auto;
     }
   }
 

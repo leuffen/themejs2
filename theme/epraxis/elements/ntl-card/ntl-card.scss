@@ -1,3 +1,4 @@
+@use "@nextrap/nte-card" as card;
 @use "sass:meta";
 @use "../../mixins/general";
 
@@ -9,8 +10,17 @@
   --card-box-shadow: none;
   --image-aspect-ratio: 11/6;
 
-  border-radius: 20px;
-  background-color: var(--card-bg);
+  // Die alte Card besitzt ihre Fläche am Host; NTE-Card verwendet den Wrapper.
+  &:not(nte-card) {
+    border-radius: 20px;
+    background-color: var(--card-bg);
+  }
 
 
+}
+
+// NTE-Card bekommt eine eigene Baseline; die alte NTL-Card bleibt unverändert.
+nte-card.style-default {
+  @include card.default-style($innerPadding: var(--nt-spacing-component), $gap: var(--nt-text-gap), $border: none, $background-color: var(--nt-surface-raised), $border-radius: 20px);
+  @include card.with-region-bleed(image);
 }

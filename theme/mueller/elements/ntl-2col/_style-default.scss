@@ -1,9 +1,10 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
+// Ein Wrapper-Padding schützt Text und Bilder; der Zwischenraum wird ausschließlich als Gap gesetzt.
 &.style-default {
   @include twoCol.default-style(
     $innerPadding: var(--nt-space-4),
-    $gap: 0,
+    $gap: var(--nt-spacing-layout),
     $background: transparent,
     $border: var(--nt-border-width) solid var(--nt-border),
     $border-radius: var(--nt-border-radius),
