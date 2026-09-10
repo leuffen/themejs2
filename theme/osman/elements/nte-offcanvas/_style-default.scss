@@ -1,4 +1,9 @@
+@use "@nextrap/nte-offcanvas" as nteOffcanvas;
+
 &.style-default {
+  // Ergänzt die Osman-Overrides um die funktionalen Basiswerte der gemeinsamen Komponente.
+  @include nteOffcanvas.default-style();
+
   color: var(--nt-header);
 
   &::part(offcanvas) {
