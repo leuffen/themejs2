@@ -1,4 +1,4 @@
-// Die Default-Variante bleibt unverändert komponentenseitig; dieser Block ergänzt nur die wiederverwendbare Hero-Box-Ausprägung.
+// Definiert die wiederverwendbare Müller-Hero-Box-Ausprägung für den Hero-Inhalt.
 ntl-hero.hero-box {
   &::part(content) {
     width: 100%;
