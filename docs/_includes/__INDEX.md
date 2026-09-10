@@ -2,6 +2,14 @@
 
 | Datei | Funktion |
 | --- | --- |
+| `_styles/default/navbar.html` | Allgemeiner Demo-Header mit aktueller Navigations-API. |
+| `_styles/default/footer.html` | Allgemeiner Demo-Footer. |
+| `_styles/osman/navbar.html` | Osman-Header, auch in der Raven-Demo verwendet. |
+| `_styles/osman/footer.html` | Aktueller Osman-Footer. |
+| `_styles/mueller/footer.html` | Müller-Footer. |
+| `_styles/raven/footer.html` | Raven-Footer. |
+| `_styles/unify/navbar.html` | Unify-Header mit mobiler Navigation. |
+| `_styles/unify/footer.html` | Unify-Footer. |
 | `dist/README.md` | Hinweis/Dokumentation für generierte oder ausgelieferte Include-Artefakte. |
 | `do/link.html` | Hilfs-Include zur Link-Erzeugung bzw. Link-Normalisierung. |
 | `do/remove-line-breaks.html` | Entfernt Zeilenumbrüche aus übergebenem Inhalt. |
@@ -21,3 +29,8 @@
 | `el/TODO.md` | Arbeitsnotizen für Element-Includes. |
 | `global.md` | Globaler Markdown-Inhalt, der im Hauptlayout eingebunden wird. |
 | `part/loader.html` | Loader-/Runtime-Baustein, der im Body-Layout eingebunden wird. |
+
+`use_navbar` und `use_footer` im Seiten-Frontmatter wählen diese Demo-Varianten;
+ohne Angabe gilt `default`, mit `false` entfällt der Baustein.
+`_styles/` wird nicht nach `_root` kopiert: Das ausgewählte Markup wird in die
+aktiven Kundenlayouts übertragen, siehe [Architektur](../../ARCHITECTURE.md#übergang-von-docs-zum-kundenprojekt).
