@@ -13,6 +13,6 @@
 
 // NTE-Card bekommt eine eigene Baseline; die alte NTL-Card bleibt unverändert.
 nte-card.style-default {
-  @include card.default-style($innerPadding: var(--nt-space-4), $gap: var(--nt-text-gap), $border: 1px solid var(--nt-gray-300), $background-color: var(--nt-white), $border-radius: 0);
+  @include card.default-style($innerPadding: var(--nt-space-4), $gap: var(--nt-spacing-text), $border: 1px solid var(--nt-gray-300), $background-color: var(--nt-white), $border-radius: 0);
   @include card.with-region-bleed(image);
 }

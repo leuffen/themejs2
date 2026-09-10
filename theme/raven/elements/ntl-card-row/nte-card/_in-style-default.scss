@@ -8,7 +8,7 @@
       $border: var(--nt-border-width) solid var(--nt-border),
       $background-color: var(--nt-surface-raised),
       $border-radius: 0,
-      $image-aspect-ratio: string.unquote("16 / 9"), $gap: var(--nt-text-gap));
+      $image-aspect-ratio: string.unquote("16 / 9"), $gap: var(--nt-spacing-text));
     // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.
     @include card.with-region-bleed(image);
 
