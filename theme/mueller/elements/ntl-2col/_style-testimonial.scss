@@ -1,5 +1,6 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
+// Der Wrapper trägt das gemeinsame Padding; der mobile Bildüberstand bleibt eine bewusste Komposition.
 &.style-testimonial {
   --cols: 9;
   --testimonial-section-background: #f8c4c8;
@@ -25,7 +26,6 @@
 
   &::part(wrapper) {
     align-items: center;
-    padding-block: var(--nt-space-5);
   }
 
   &::part(main) {
@@ -34,7 +34,6 @@
 
   &::part(aside) {
     order: 1;
-    padding: var(--testimonial-content-padding);
   }
 
   > :is(h1, h2, h3) {
@@ -97,7 +96,6 @@
     }
 
     &::part(aside) {
-      padding: 0;
       margin-bottom: calc(var(--testimonial-image-size-mobile) / -1) !important;
       overflow: visible;
     }
@@ -105,9 +103,5 @@
 
   &[mode="desktop"] {
     --inner-padding: var(--nt-space-6);
-
-    &::part(wrapper) {
-      padding-block: var(--nt-space-6);
-    }
   }
 }
