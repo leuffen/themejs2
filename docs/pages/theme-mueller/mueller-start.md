@@ -27,7 +27,7 @@ pid: site
 ---
 
 ---
-{: layout=".button-bar.-lg:column"}
+{: layout=";.button-bar.-lg:column"}
 
 [<i class="bi bi-calendar-plus-fill"></i> Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary }
 
