@@ -1,4 +1,4 @@
-// Definiert die wiederverwendbare Müller-Hero-Box-Ausprägung für den Hero-Inhalt.
+// Steuert die Müller-Hero-Box als wiederverwendbare Variante, damit Inhaltbreite, Glasfläche und Trennerposition im Hero einheitlich bleiben.
 ntl-hero.hero-box {
   &::part(content) {
     width: 100%;
