@@ -74,7 +74,10 @@ für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision u
 
 Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen und angenehmen Atmosphäre. Unser engagiertes Team steht Ihnen telefonisch, online und vor Ort jederzeit kompetent und vertrauensvoll zur Seite.
 
-![](https://cdn.leuffen.de/osman-k21///v2/17/c_g/DSC06665.webp)
+![Gerät zur modernen Augendiagnostik](https://cdn.leuffen.de//leu-stock/v2/80/77-51_gfedcba/AdobeStock_386634192_Editorial_Use_Only.webp)
+![Augenuntersuchung in der Augenpraxis Osman](https://cdn.leuffen.de//osman-k21/v2/15/c_gfedcba/DSC05900.webp)
+![Fachärztliche Augenuntersuchung](https://cdn.leuffen.de//leu-stock/v2/79/95-71_gfedcba/AdobeStock_284428528.webp)
+{: layout="nte-image" .aside }
 
 ---
 {: layout="1.5;ntl-card-row.style-noborder.align-buttons" section-style="--cols: 6"}
@@ -197,10 +200,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 
 
 <!-- Hält das Karten-iframe im direkten Template des Privacy-Wrappers bis zur Zustimmung inaktiv. -->
-<nte-consent-blocker class="google-maps-consent" slot="top">
-  <template>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.4509365261574!2d8.234400876779077!3d50.07784361412184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bdbddfeafd235f%3A0xe3f7b92f3f028056!2sRheinstra%C3%9Fe%2059%2C%2065185%20Wiesbaden!5e0!3m2!1sde!2sde!4v1691521076122!5m2!1sde!2sde" title="Karte zur Augenpraxis Osman" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </template>
+<nte-consent-blocker class="google-maps-consent" slot="top" style="--default-template-selector:#google-maps-default">
 </nte-consent-blocker>
 
 <!-- Statische Ausgabe des Address-Includes mit den Standortdaten des Quellcommits. -->
@@ -264,14 +264,6 @@ Bitte senden Sie uns per E-Mail keine medizinischen Notfälle. In dringenden Fä
 
 Wenn Sie uns schreiben, melden wir uns schnellstmöglich bei Ihnen zurück.
 
-<!-- Verhindert ausschließlich für dieses Demoformular den global registrierten Formmailer-Aufruf. -->
-<script>
-document.addEventListener('tj-form-submit', function (event) {
-  if (event.target.id !== 'osman-start-form') return;
-  event.preventDefault();
-  document.getElementById('osman-start-form-status').textContent = 'Demo geprüft – es wurde keine Nachricht versendet.';
-}, true);
-</script>
 <p id="osman-start-form-status" role="status">Formularvorschau – kein Nachrichtenversand.</p>
 
 <!-- Verbindet den unveränderten Inhaltsvergleich mit der ergänzenden Elementprüfung. -->
