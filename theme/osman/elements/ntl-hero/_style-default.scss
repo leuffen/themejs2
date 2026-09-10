@@ -1,9 +1,5 @@
-@use "@nextrap/ntl-hero" as hero;
-
 // Bindet die funktionale Hero-Baseline ein und bewahrt die bildgestützte Osman-Komposition.
 &.style-default {
-  @include hero.default-style();
-
   --height-offset: 12.75rem;
 
   position: relative;

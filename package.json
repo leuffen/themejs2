@@ -47,7 +47,7 @@
     "author": "",
     "dependencies": {
         "@leuffen/announcements": "^1.0.1",
-        "@leuffen/vite-jekyll-hmr-manager": "^1.0.1",
+        "@leuffen/vite-jekyll-hmr-manager": "^1.0.0",
         "@micx/lib-js": "^2.0.16",
         "@nextrap/nte-accordion": "^2.0.0",
         "@nextrap/nte-burger": "^2.0.0",

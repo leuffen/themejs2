@@ -1,10 +1,3 @@
-@use "@nextrap/ntl-hero" as hero;
-
-// Bindet die aktuelle funktionale Hero-Baseline an den automatisch gewählten Default-Style.
-ntl-hero.style-default {
-  @include hero.default-style();
-}
-
 // Legt den gläsernen Inhaltskasten als wiederverwendbare Müller-Hero-Ausprägung über die Baseline.
 ntl-hero.hero-box {
   &::part(content) {
