@@ -33,7 +33,6 @@
       overflow: hidden;
     }
 
-    // Gibt dem Storytitel oberhalb des flexiblen Textbereichs denselben horizontalen Innenraum.
     // Lässt den Text flexibel wachsen und bewahrt lange Wörter innerhalb der Kartenbreite.
     &::part(content) {
       display: flex;
@@ -43,7 +42,7 @@
       overflow-wrap: anywhere;
     }
 
-    // Schiebt eine vorhandene Story-Aktion unabhängig von der Textmenge an das Kartenende.
+    // Hält den redaktionellen Titelabstand innerhalb der Textregion.
     > h3 {
       margin: 0 0 var(--nt-space-3);
       color: var(--nt-header);
@@ -66,6 +65,8 @@
     &::part(wrapper) {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+      // Die parallele Textspalte behält ihr Padding; nur das Bild erweitert seine Blockkanten.
+      padding-block: var(--inner-padding);
       align-items: stretch;
     }
 
@@ -73,8 +74,7 @@
       grid-column: 1;
       height: auto;
       // Die linke Medienfläche reicht oben/unten zum Rahmen, aber nie in den Spalten-Gap.
-      --_nte-card-first: 1;
-      --_nte-card-last: 1;
+      margin-block: calc(-1 * var(--inner-padding));
       margin-inline-end: 0;
       aspect-ratio: auto;
     }

@@ -72,8 +72,6 @@
       gap: var(--nt-text-gap);
     }
 
-    &::part(footer) {
-    }
 
     :is(h1, h2, h3, h4, h5, h6) {
       color: var(--nt-primary);
