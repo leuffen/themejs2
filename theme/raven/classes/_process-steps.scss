@@ -1,3 +1,4 @@
+// Stellt editierbare Markdown-Schritte als nummerierte, getrennte Textgruppen dar.
 .process-steps {
   counter-reset: process-step;
   margin: var(--nt-spacing-layout) 0 0;
@@ -5,6 +6,7 @@
   list-style: none;
   border-top: var(--nt-border-width) solid color-mix(in srgb, currentColor 24%, transparent);
 
+  // Eine flexible Textspalte erhält auch bei langen Inhalten den Nummernabstand.
   > li {
     counter-increment: process-step;
     display: grid;
@@ -15,31 +17,37 @@
     border-bottom: var(--nt-border-width) solid color-mix(in srgb, currentColor 24%, transparent);
     transition: background-color .25s ease;
 
+    // Die Nummer überspannt Titel und Beschreibung, ohne deren Abstand aufzublähen.
     &::before {
       content: counter(process-step, decimal-leading-zero);
       grid-column: 1;
+      grid-row: 1 / span 2;
       color: var(--nt-link);
       font-family: "Garamond", Georgia, serif;
-      font-size: var(--nt-fs-h2);
+      font-size: calc(var(--nt-font-size) * 1.5);
       line-height: 1.2;
     }
 
+    // Schritttitel bleiben der Section-Überschrift typografisch untergeordnet.
     > h3 {
       grid-column: 2;
       margin: 0;
       color: var(--nt-header);
-      font-size: var(--nt-fs-h4);
+      font-size: calc(var(--nt-font-size) * 1.5);
       line-height: var(--nt-line-height-header);
     }
 
+    // Beschreibungen nutzen die vorhandene Serifenschrift in lesbarer Fließtextgröße.
     > p {
       grid-column: 2;
       margin: 0;
       color: var(--nt-text-muted);
-      font-size: var(--nt-fs-h5);
+      font-family: "Garamond", Georgia, serif;
+      font-size: var(--nt-font-size);
       line-height: var(--nt-line-height);
     }
 
+    // Eine dezente Fläche hebt den aktuell betrachteten Schritt hervor.
     &:hover {
       background: color-mix(in srgb, currentColor 4%, transparent);
     }
