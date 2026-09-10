@@ -141,15 +141,9 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 ## Kontakt und Anfahrt
 {: layout="ntl-2col"}
 
-<style>
-    .google-maps-consent {
-        --default-template: '<iframe src="https://www.google.com/maps/embed?pb=ANONYMIZED"></iframe>';
-    }
-</style>
-
----
-{: layout="nte-consent-blocker.google-maps-consent" .top  }
-
+<!-- Hält das Karten-iframe aus dem globalen Standard-Template bis zur Zustimmung inaktiv. -->
+<nte-consent-blocker class="google-maps-consent" slot="top" style="--default-template-selector:#google-maps-default">
+</nte-consent-blocker>
 
 
 ---
