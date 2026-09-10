@@ -4,14 +4,15 @@
 |---|---|---|
 | 2026-09-10 | dermatthes | §§ 1–7: Entwurf für Osman, Müller, Raven, Unify, ePraxis und Medic mit konkreten Anpassungsstellen und Abnahmeplan angelegt |
 | 2026-09-10 | dermatthes | §§ 1–7: Direkte Umsetzung freigegeben, regionsbezogenes Bleed ergänzt und Theme-Verwendungen angepasst |
+| 2026-09-10 | dermatthes | Gap-Default auf das zentrale --nt-spacing-text korrigiert; Bleed darf weder innere noch äußere Gaps aufheben |
 
 ## § 1 Ziel und Status
 
-Dieser PR enthält jetzt die konkrete Theme-Umsetzung zum Core-PR #196. Die freigegebene Ergänzung `with-region-bleed()` erhält randlose Titelbilder und erlaubt weitere randlose Card-Regionen. [geändert]
+Dieser PR enthält jetzt die konkrete Theme-Umsetzung zum Core-PR #196. Die freigegebene Ergänzung `with-region-bleed()` erhält randlose Titelbilder und erlaubt weitere randlose Card-Regionen.
 
 Ziel ist ein gemeinsamer Abstandsvertrag: Die Card besitzt einen Rahmenabstand am Wrapper und einen unabhängigen Gap zwischen ihren sichtbaren Regionen. Anders als bei 2COL gehören Header und Footer einer Card **in** ihren Rahmen. Die Kartenreihe steuert weiterhin den Abstand zwischen mehreren Cards.
 
-Der Entwurf ist gegen [ThemeJS2, 99aff706](https://github.com/leuffen/themejs2/tree/99aff7062346f276e45e490ab10133003370d194) und [NTE-Card, 894f0ffd](https://github.com/nextrap/nextrap-monorepo/tree/894f0ffd5e3fdb7d27ec62b2cf19759c427a46e7/nextrap-elements/nte-card) abgeglichen. Die aufgeführten Theme-Verwendungen wurden im Quellcode untersucht und angepasst; der aktuelle Prüfstatus steht in der PR-Beschreibung. [geändert]
+Der Entwurf ist gegen [ThemeJS2, 99aff706](https://github.com/leuffen/themejs2/tree/99aff7062346f276e45e490ab10133003370d194) und [NTE-Card, 894f0ffd](https://github.com/nextrap/nextrap-monorepo/tree/894f0ffd5e3fdb7d27ec62b2cf19759c427a46e7/nextrap-elements/nte-card) abgeglichen. Die aufgeführten Theme-Verwendungen wurden im Quellcode untersucht und angepasst; der aktuelle Prüfstatus steht in der PR-Beschreibung.
 
 ## § 2 Gemeinsamer Theme-Vertrag
 
@@ -26,15 +27,15 @@ Der Entwurf ist gegen [ThemeJS2, 99aff706](https://github.com/leuffen/themejs2/t
 | Responsive Styles | Bestehendes `mode`-Attribut verwenden, keine neuen Media Queries oder Responsive-Registrierungen |
 | Helper | Kanonische `.with-image-overlay` / `.with-image-fullsize` automatisch aus dem Default; bisherige Aliasse bleiben möglich |
 
-Der neue `$gap`-Parameter wird im Core am Ende der Parameterliste ergänzt. Als allgemeiner Default ist `var(--nt-text-gap)` vorgesehen. Jede Card initialisiert ihren Gap selbst, damit ein NTL-Eltern-Gap nicht versehentlich innerhalb der Card weiterwirkt. Themes können einen anderen vorhandenen Spacing-Token ausdrücklich wählen.
+Der neue `$gap`-Parameter wird im Core am Ende der Parameterliste ergänzt. Als allgemeiner Default ist `var(--nt-spacing-text)` vorgesehen. Jede Card initialisiert ihren Gap selbst, damit ein NTL-Eltern-Gap nicht versehentlich innerhalb der Card weiterwirkt. Themes können einen anderen vorhandenen Spacing-Token ausdrücklich wählen.
 
-Titelbilder bleiben über `with-region-bleed(image)` ausdrücklich randlos. Der gemeinsame Core berechnet die äußeren Kanten; Themes bauen den Abstand nicht mit eigenen negativen Margins nach. Avatar-Kompositionen verwenden weiterhin eingerückte Bildregionen. [geändert]
+Titelbilder bleiben über `with-region-bleed(image)` ausdrücklich randlos. Der gemeinsame Core berechnet die äußeren Kanten; Themes bauen den Abstand nicht mit eigenen negativen Margins nach. Avatar-Kompositionen verwenden weiterhin eingerückte Bildregionen.
 
 Karten mit gleicher Gesamthöhe dürfen Content weiterhin wachsen lassen. Zusätzliche Auto-Margins an Regionsgrenzen entfernen, wenn sie neben diesem Wachstum weiteren Zwischenraum verteilen. Die Position des letzten Textes innerhalb eines wachsenden Content-Bereichs ist von der Größe des Regions-Gaps zu unterscheiden.
 
 ## § 3 Konkrete Theme-Anpassungen
 
-Alle Pfade in diesem Abschnitt sind relativ zu `theme/`. Aufgeführte Dateien sind Umsetzungs- und Prüfstellen; die nachstehenden ursprünglichen Befunde erläutern die konkreten Änderungen. [geändert]
+Alle Pfade in diesem Abschnitt sind relativ zu `theme/`. Aufgeführte Dateien sind Umsetzungs- und Prüfstellen; die nachstehenden ursprünglichen Befunde erläutern die konkreten Änderungen.
 
 ### § 3.1 Osman
 
@@ -113,7 +114,7 @@ Beispiel für eine vorhandene Card-Row-Variant; die konkrete Datei behält ihre 
   > nte-card.style-default {
     @include card.default-style(
       $innerPadding: var(--nt-spacing-component),
-      $gap: var(--nt-text-gap),
+      $gap: var(--nt-spacing-text),
       $border: var(--nt-border-width) solid var(--nt-border),
       $background-color: var(--nt-surface-raised)
     );
@@ -140,8 +141,10 @@ Die Core-Entwurfsdatei enthält die technische Testmatrix mit P=24px und G=0px/1
 
 ## § 6 Getroffene Entscheidungen
 
-Bisher randlose Titelbilder verwenden das neue Image-Bleed. Ribbons erhalten unabhängige Gap-Tokens, Avatare verlieren doppelte Außen-Margins. Die Unify-Story erzeugt ihre Grid-Zeilen aus `data-card-regions`; fehlendes Bild oder fehlende Textregionen hinterlassen keine Phantom-Spalte/-Zeile. Legacy-NTL-Card behält ihre bisherigen Regeln. [geändert]
+Bisher randlose Titelbilder verwenden das neue Image-Bleed. Ribbons erhalten unabhängige Gap-Tokens, Avatare verlieren doppelte Außen-Margins. Die Unify-Story erzeugt ihre Grid-Zeilen aus `data-card-regions`; fehlendes Bild oder fehlende Textregionen hinterlassen keine Phantom-Spalte/-Zeile. Legacy-NTL-Card behält ihre bisherigen Regeln.
 
 ## § 7 Umfang dieses PRs und Prüfstand
 
-Der PR enthält die konkreten Theme-SCSS-Anpassungen und dieses aktualisierte Proposal. Alle betroffenen Card-Einstiegspunkte wurden gegen die aktualisierte Core-Sass-API kompiliert. Die PR-Beschreibung nennt Build-/Preview-Blocker und den tatsächlichen Prüfstatus. Keine Paketveröffentlichung oder manuelle produktive Bereitstellung wird ausgelöst. [geändert]
+Der PR enthält die konkreten Theme-SCSS-Anpassungen und dieses aktualisierte Proposal. Alle betroffenen Card-Einstiegspunkte wurden gegen die aktualisierte Core-Sass-API kompiliert. Die PR-Beschreibung nennt Build-/Preview-Blocker und den tatsächlichen Prüfstatus. Keine Paketveröffentlichung oder manuelle produktive Bereitstellung wird ausgelöst.
+
+Der Gap verwendet das zentrale `--nt-spacing-text`; das bisherige `--nt-text-gap` ist ausschließlich in Unify definiert. Randlose Medien verändern nur Außen-Padding, niemals den Abstand zum nächsten Inhalt oder zur nächsten Card. [geändert]

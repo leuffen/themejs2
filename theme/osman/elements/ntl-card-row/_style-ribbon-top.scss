@@ -46,7 +46,7 @@
   // Die Card Row erzeugt direkte Children mit style-parent; das Pairing bindet deshalb an die Struktur statt an eine Child-Variante.
   > nte-card {
     // Vollständige Card-Baseline statt zusätzlicher Theme-Padding-Schichten.
-    @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-text-gap), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: 0);
+    @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-spacing-text), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: 0);
     @include card.with-region-bleed(image);
     --image-aspect-ratio: 16/9;
     --border: 0;

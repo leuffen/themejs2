@@ -21,7 +21,7 @@
 
   // NTE-Card nutzt ausschließlich den gemeinsamen Rahmen- und Bleed-Vertrag.
   > nte-card.style-default {
-    @include nte-card.default-style($innerPadding: var(--nt-spacing-component), $gap: var(--nt-text-gap), $border: none, $border-radius: 20px, $background-color: var(--nt-surface-raised));
+    @include nte-card.default-style($innerPadding: var(--nt-spacing-component), $gap: var(--nt-spacing-text), $border: none, $border-radius: 20px, $background-color: var(--nt-surface-raised));
     @include nte-card.with-region-bleed(image);
   }
 

@@ -1,7 +1,7 @@
 @use "@nextrap/nte-card" as card;
 @use "sass:string";
 &.style-default nte-card {
-  @include card.default-style($innerPadding: var(--nt-spacing-component), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: var(--nt-border-radius-xl), $image-aspect-ratio: string.unquote("11 / 6"), $gap: var(--nt-text-gap));
+  @include card.default-style($innerPadding: var(--nt-spacing-component), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: var(--nt-border-radius-xl), $image-aspect-ratio: string.unquote("11 / 6"), $gap: var(--nt-spacing-text));
     // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.
     @include card.with-region-bleed(image);
   height: 100%;

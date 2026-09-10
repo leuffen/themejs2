@@ -2,6 +2,6 @@
 
 // Eigenständige Cards benötigen dieselbe vollständige Baseline wie Karten in einer Reihe.
 nte-card.style-default {
-  @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-text-gap), $background-color: var(--nt-white), $border: none, $border-radius: 0);
+  @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-spacing-text), $background-color: var(--nt-white), $border: none, $border-radius: 0);
   @include card.with-region-bleed(image);
 }
