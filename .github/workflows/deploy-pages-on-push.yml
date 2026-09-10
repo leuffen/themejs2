@@ -40,7 +40,7 @@ jobs:
 
       # Installiert die veröffentlichten Projektabhängigkeiten ohne lokale Workspace-Verknüpfungen.
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       # Erzeugt die aktuellen JavaScript- und CSS-Assets vor dem statischen Jekyll-Build.
       - name: Build frontend assets
