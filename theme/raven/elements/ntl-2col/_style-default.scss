@@ -2,7 +2,7 @@
 
 &.style-default {
   @include twoCol.default-style(
-    $innerPadding: 0,
+    $innerPadding: var(--nt-space-4),
     $gap: var(--nt-spacing-layout),
     $background: transparent,
     $border: 0,
