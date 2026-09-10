@@ -1,7 +1,4 @@
-// Hält den öffentlichen Default-Variantenselektor explizit stabil; die Basisstile liefert die Hero-Komponente selbst.
-ntl-hero.style-default {}
-
-// Legt den gläsernen Inhaltskasten als wiederverwendbare Müller-Hero-Ausprägung für den Hero-Inhalt fest.
+// Die Default-Variante bleibt unverändert komponentenseitig; dieser Block ergänzt nur die wiederverwendbare Hero-Box-Ausprägung.
 ntl-hero.hero-box {
   &::part(content) {
     width: 100%;
