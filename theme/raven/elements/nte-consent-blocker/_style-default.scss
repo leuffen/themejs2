@@ -1,0 +1,7 @@
+@use "@nextrap/nte-consent-blocker" as consentBlocker;
+
+// Bindet die öffentliche Komponenten-Baseline samt 2-Spalten-Pairing an Ravens Default-Variante.
+&.style-default {
+  @include consentBlocker.default-style();
+  @include consentBlocker.pairing-ntl-2col-in-nte-consent-blocker();
+}

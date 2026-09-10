@@ -43,6 +43,9 @@
   @layer themes.components {
     @include nextrapButton.style-button();
     @include meta.load-css("./elements/nte-input/nte-input.scss");
+
+    // Lädt die Osman-Standarddarstellung für zustimmungspflichtige externe Inhalte.
+    @include meta.load-css("./elements/nte-consent-blocker/nte-consent-blocker.scss");
     @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
 
 

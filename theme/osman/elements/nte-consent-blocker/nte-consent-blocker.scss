@@ -1,0 +1,6 @@
+@use "sass:meta";
+
+// Bindet die Osman-Standarddarstellung an den Consent Blocker statt an den Theme-Host.
+nte-consent-blocker {
+  @include meta.load-css("./_style-default.scss");
+}

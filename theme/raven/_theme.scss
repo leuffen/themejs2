@@ -83,6 +83,9 @@
 
   @include meta.load-css("./../../src/features/_data-kicker.scss");
   @include meta.load-css("./html-elements/_defaults.scss");
+
+  // Lädt die Raven-Standarddarstellung für zustimmungspflichtige externe Inhalte.
+  @include meta.load-css("./elements/nte-consent-blocker/nte-consent-blocker.scss");
   @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
   @include meta.load-css("./classes/_card-grid.scss");
   @include meta.load-css("./classes/_data-kicker.scss");
