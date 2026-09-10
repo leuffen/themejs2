@@ -46,8 +46,9 @@
       $border: none,
       $background-color: var(--nt-surface-raised),
       $border-radius: var(--theme-corner),
-      $image-aspect-ratio: string.unquote("16 / 9")
-    );
+      $image-aspect-ratio: string.unquote("16 / 9"), $gap: var(--nt-text-gap));
+    // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.
+    @include card.with-region-bleed(image);
 
     align-self: stretch;
     color: var(--nt-text);
@@ -71,10 +72,6 @@
       gap: var(--nt-text-gap);
     }
 
-    &::part(footer) {
-      margin-top: auto;
-      padding-top: 0;
-    }
 
     :is(h1, h2, h3, h4, h5, h6) {
       color: var(--nt-primary);

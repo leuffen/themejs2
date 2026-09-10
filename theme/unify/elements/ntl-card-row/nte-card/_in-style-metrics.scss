@@ -5,14 +5,12 @@
 &.style-metrics {
   > nte-card {
     @include card.default-style(
-      $innerPadding: 0,
+      $innerPadding: var(--nt-space-3),
       $border: 0,
       $background-color: transparent,
-      $border-radius: 0
-    );
+      $border-radius: 0, $gap: var(--nt-text-gap));
 
     min-width: 0;
-    padding-inline: var(--nt-space-3);
     color: var(--nt-text);
 
     // Ordnet den Kennzahlentitel als ruhige Beschriftung oberhalb des Werts ein.
@@ -40,7 +38,6 @@
 
   // Zentriert den mobilen Kennzahlen-Stack und begrenzt seine Zeilenlänge.
   &[mode="mobile"] > nte-card {
-    padding-block: var(--nt-space-3);
     text-align: center;
   }
 

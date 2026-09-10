@@ -9,8 +9,9 @@
       $innerPadding: calc(var(--nt-space-7) - var(--nt-space-1)),
       $border: var(--nt-border-width) solid var(--nt-border),
       $background-color: var(--nt-surface-raised),
-      $border-radius: var(--nt-radius)
-    );
+      $border-radius: var(--nt-radius), $gap: var(--nt-text-gap));
+    // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.
+    @include card.with-region-bleed(image);
 
     align-self: stretch;
     height: 100%;
@@ -35,8 +36,6 @@
 
     // Trennt die Aktionszeile dezent vom Karteninhalt und hält sie an der gemeinsamen Unterkante.
     &::part(footer) {
-      margin-top: auto;
-      padding-top: 0;
       border-top: var(--nt-border-width) solid var(--nt-border);
     }
 

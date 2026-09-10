@@ -9,8 +9,7 @@
       $innerPadding: var(--nt-space-6),
       $border: 0,
       $background-color: transparent,
-      $border-radius: 0
-    );
+      $border-radius: 0, $gap: var(--nt-text-gap));
 
     min-width: 0;
     height: 100%;
@@ -46,7 +45,7 @@
 
     // Behandelt ein redaktionell gepflegtes Bild im Bild-Slot als alternatives Feature-Icon.
     > [slot="image"] {
-      margin: var(--nt-space-6) var(--nt-space-6) 0;
+      margin: 0;
       color: var(--nt-primary);
     }
 

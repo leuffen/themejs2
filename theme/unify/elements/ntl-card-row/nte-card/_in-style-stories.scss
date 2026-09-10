@@ -6,12 +6,13 @@
 &.style-stories {
   > nte-card {
     @include card.default-style(
-      $innerPadding: 0,
+      $innerPadding: var(--nt-space-5),
       $border: 0,
       $background-color: transparent,
       $border-radius: 0,
-      $image-aspect-ratio: string.unquote("16 / 9")
-    );
+      $image-aspect-ratio: string.unquote("16 / 9"), $gap: var(--nt-text-gap));
+    // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.
+    @include card.with-region-bleed(image);
 
     min-width: 0;
     height: 100%;
@@ -32,27 +33,16 @@
       overflow: hidden;
     }
 
-    // Gibt dem Storytitel oberhalb des flexiblen Textbereichs denselben horizontalen Innenraum.
-    &::part(header) {
-      padding: var(--nt-space-5) var(--nt-space-5) 0;
-    }
-
     // Lässt den Text flexibel wachsen und bewahrt lange Wörter innerhalb der Kartenbreite.
     &::part(content) {
       display: flex;
       min-width: 0;
       flex: 1 1 auto;
       flex-direction: column;
-      padding: var(--nt-space-5);
       overflow-wrap: anywhere;
     }
 
-    // Schiebt eine vorhandene Story-Aktion unabhängig von der Textmenge an das Kartenende.
-    &::part(footer) {
-      margin-top: auto;
-      padding: 0 var(--nt-space-5) var(--nt-space-5);
-    }
-
+    // Hält den redaktionellen Titelabstand innerhalb der Textregion.
     > h3 {
       margin: 0 0 var(--nt-space-3);
       color: var(--nt-header);
@@ -71,16 +61,21 @@
 
   // Baut die markierte Leitgeschichte am Desktop aus derselben Card-Struktur zweispaltig auf.
   &[mode="desktop"] > nte-card.is-featured {
+    --inner-padding: var(--nt-space-8);
     &::part(wrapper) {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+      // Die parallele Textspalte behält ihr Padding; nur das Bild erweitert seine Blockkanten.
+      padding-block: var(--inner-padding);
       align-items: stretch;
     }
 
     &::part(image) {
       grid-column: 1;
-      grid-row: 1 / 4;
-      height: 100%;
+      height: auto;
+      // Die linke Medienfläche reicht oben/unten zum Rahmen, aber nie in den Spalten-Gap.
+      margin-block: calc(-1 * var(--inner-padding));
+      margin-inline-end: 0;
       aspect-ratio: auto;
     }
 
@@ -90,18 +85,37 @@
       grid-column: 2;
     }
 
-    &::part(header) {
-      padding: var(--nt-space-8) var(--nt-space-8) 0;
-    }
-
     &::part(content) {
       justify-content: center;
-      padding: var(--nt-space-5) var(--nt-space-8);
     }
 
-    &::part(footer) {
-      padding: 0 var(--nt-space-8) var(--nt-space-8);
+    // Nur tatsächlich belegte Textregionen erzeugen Grid-Zeilen; Textknoten zählen mit.
+    @each $header in (false, true) {
+      @each $content in (false, true) {
+        @each $footer in (false, true) {
+          $selector: '&[data-card-regions~="image"]';
+          $rows: 0;
+          @each $region, $present in (header: $header, content: $content, footer: $footer) {
+            @if $present {
+              $selector: $selector + '[data-card-regions~="' + $region + '"]';
+              $rows: $rows + 1;
+            } @else {
+              $selector: $selector + ':not([data-card-regions~="' + $region + '"])';
+            }
+          }
+          #{$selector} {
+            @if $rows == 0 {
+              &::part(wrapper) { grid-template-columns: minmax(0, 1fr); }
+              &::part(image) { grid-row: 1; margin-inline-end: calc(-1 * var(--inner-padding)); }
+            } @else {
+              &::part(image) { grid-row: 1 / span #{$rows}; }
+            }
+          }
+        }
+      }
     }
+    // Ohne Bild gibt es keine leere linke Spalte.
+    &:not([data-card-regions~="image"])::part(wrapper) { display: flex; flex-direction: column; }
 
     > h3 {
       font-size: clamp(1.5rem, calc(1.25rem + 1vw), 2.25rem);
