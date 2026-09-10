@@ -1,3 +1,16 @@
+@use "sass:meta";
+@use "@nextrap/ntl-hero" as hero;
+
+// Sichert die öffentliche Default-Variante über stabile Basiskonstanten und bindet vorhandene Paket-Baselines nur an, wenn sie exportiert sind.
+ntl-hero.style-default {
+  @if meta.mixin-exists("default-style", $module: "hero") {
+    @include hero.default-style();
+  }
+
+  --min-height: 600px;
+  --max-height: 1800px;
+}
+
 // Steuert die Müller-Hero-Box als wiederverwendbare Variante, damit Inhaltbreite, Glasfläche und Trennerposition im Hero einheitlich bleiben.
 ntl-hero.hero-box {
   &::part(content) {

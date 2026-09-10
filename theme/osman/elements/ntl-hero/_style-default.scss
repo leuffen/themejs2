@@ -1,5 +1,12 @@
+@use "sass:meta";
+@use "@nextrap/ntl-hero" as hero;
+
 // Steuert für den Osman-Default-Style die Hero-Höhe, das Overlay und die Part-Anordnung, damit Bildmotiv und Text in Desktop und Mobile konsistent bleiben.
 &.style-default {
+  @if meta.mixin-exists("default-style", $module: "hero") {
+    @include hero.default-style();
+  }
+
   --height-offset: 12.75rem;
 
   position: relative;
