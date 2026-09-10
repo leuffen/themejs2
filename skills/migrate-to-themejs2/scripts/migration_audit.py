@@ -399,7 +399,9 @@ def verify(args: argparse.Namespace) -> int:
         if source_page.get("frontmatter_content", {}) != protected_frontmatter:
             errors.append(f"Geschütztes Frontmatter verändert: {source_rel} -> {target_rel}")
         # Nur nach exaktem Paarabgleich wird die erlaubte Kicker-Struktur zurückgeführt.
-        _, source_body = split_frontmatter((source / source_rel).read_text(encoding="utf-8"))
+        source_path = source / source_rel
+        source_text = decode_text(source_path) if source_path.is_file() else None
+        source_body = split_frontmatter(source_text)[1] if source_text is not None else ""
         try:
             comparison_body = restore_kickers(source_body, body)
         except ValueError as error:

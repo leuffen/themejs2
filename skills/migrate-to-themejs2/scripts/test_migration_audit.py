@@ -142,6 +142,14 @@ class MigrationAuditTest(unittest.TestCase):
             "--inventory", self.inventory, "--mapping", self.mapping, expected=1,
         )
 
+    # Fehlende Sicherungsseiten erzeugen einen Prüfbericht statt eines unbehandelten Fehlers.
+    def test_missing_source_page_reports_failure(self) -> None:
+        self.make_valid_target()
+        (self.source / "docs/pages/index.de.md").unlink()
+        result = self.run_audit("verify", "--source", self.source, "--target", self.target,
+                                "--inventory", self.inventory, "--mapping", self.mapping, expected=1)
+        self.assertNotIn("Traceback", result.stderr)
+
     def test_old_directory_cannot_mask_missing_target(self) -> None:
         mapping = json.loads(self.mapping.read_text(encoding="utf-8"))
         mapping["pages"][0]["target"] = ".old/docs/pages/index.de.md"
