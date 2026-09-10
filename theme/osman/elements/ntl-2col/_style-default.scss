@@ -1,6 +1,7 @@
+@use "sass:meta";
 @use "@nextrap/ntl-2col" as ntl2col;
 
-// Der Default nutzt Wrapper-Padding und Gap direkt aus der gemeinsamen Baseline.
+// Text nutzt Wrapper-Padding; einzelne Medien füllen den Randbereich über die gemeinsame API.
 &.style-default {
   --cols: 6;
   --gap: clamp(1.75rem, 3vw, 3.5rem);
@@ -14,6 +15,12 @@
     $border-radius: 0,
     $objectFit: cover
   );
+
+  // Aktiviert randfüllende Medien, sobald die zugehörige Nextrap-Version installiert ist.
+  // Ältere veröffentlichte Versionen bleiben bis zum gemeinsamen Library-Release baubar.
+  @if meta.mixin-exists("with-media-frame", ntl2col) {
+    @include ntl2col.with-media-frame($enabled: false);
+  }
 
   > p[slot="aside"].auto {
     margin: 0;
@@ -60,7 +67,7 @@
     }
 
     // Der Texttrenner liegt innerhalb des Gaps und folgt allen Nextrap-Umkehrungen.
-    &:not(:has(> p[slot="aside"].auto)):not(.with-bg-primary) {
+    &:not(:has(> p[slot="aside"].auto, > :is(img, nte-image, nte-consent-blocker)[slot="aside"])):not(.with-bg-primary) {
       @include ntl2col.with-background-and-divider(
         $gap: clamp(1.75rem, 3vw, 3.5rem),
         $background: null,

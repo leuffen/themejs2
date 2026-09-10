@@ -1,6 +1,7 @@
+@use "sass:meta";
 @use "@nextrap/ntl-2col" as twoCol;
 
-// Ein Wrapper-Padding schützt Text und Bilder; der Zwischenraum wird ausschließlich als Gap gesetzt.
+// Wrapper-Padding schützt Text; einzelne Medien reichen bis zum Rand, zum Text bleibt der Gap.
 &.style-default {
   @include twoCol.default-style(
     $innerPadding: var(--nt-space-4),
@@ -11,6 +12,12 @@
     $objectFit: cover,
     $wrapper-bg-color: var(--nt-surface-raised)
   );
+
+  // Aktiviert randfüllende Medien, sobald die zugehörige Nextrap-Version installiert ist.
+  // Ältere veröffentlichte Versionen bleiben bis zum gemeinsamen Library-Release baubar.
+  @if meta.mixin-exists("with-media-frame", twoCol) {
+    @include twoCol.with-media-frame($enabled: false);
+  }
 
   &::part(wrapper) {
     align-items: stretch;
