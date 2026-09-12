@@ -1,3 +1,4 @@
+// Hält Leistungsnummern, Linktitel und Beschreibungen als kompakte Inhaltszeilen zusammen.
 .focus-list {
   counter-reset: focus-list-item;
   margin-top: var(--nt-spacing-layout);
@@ -20,7 +21,7 @@
       grid-row: 1;
       color: var(--nt-accent-emphasis);
       font-family: "Garamond", Georgia, serif;
-      font-size: var(--nt-fs-h1);
+      font-size: var(--nt-fs-5);
       line-height: var(--nt-line-height);
     }
 
@@ -29,7 +30,7 @@
       grid-row: 1;
       margin: 0;
       color: var(--nt-primary-emphasis);
-      font-size: var(--nt-fs-h2);
+      font-size: var(--nt-fs-h3);
       line-height: var(--nt-line-height-header);
 
       > a[href] {
@@ -54,7 +55,7 @@
       margin: 0;
       color: var(--nt-text-muted);
       font-family: "Garamond", Georgia, serif;
-      font-size: var(--nt-fs-h4);
+      font-size: var(--nt-font-size);
       line-height: var(--nt-line-height);
     }
 
@@ -89,6 +90,7 @@
   }
 }
 
+// Stellt Titel und Erläuterung bei voller Desktopbreite nebeneinander dar.
 .focus-list.desktop:not(.aside) {
   > section {
     grid-template-columns: var(--nt-space-7) minmax(12rem, .75fr) minmax(0, 1.25fr) var(--nt-space-5);

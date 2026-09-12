@@ -2,6 +2,8 @@
 @use "./../../font/_vendor/font-work-sans";
 @use "./../../font/_vendor/font-garamond";
 @use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-reset" as nextrapReset;
+@use "@nextrap/style-elements" as nextrapElements;
 @use "@nextrap/style-utils" as nextrapUtils;
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
@@ -9,94 +11,120 @@
 @use "@nextrap/nte-nav" as nteNav;
 @use "@nextrap/nte-navbar" as nteNavbar;
 
+// Rendert Raven in den Verbraucher-Scope und verwendet dieselbe Layer-Reihenfolge wie Osman.
 @mixin theme() {
-  @include nextrapBase.runtime-theme-scoped();
-  @include meta.load-css("./_runtime-settings.scss");
-
-  @content;
-
-  font-family: var(--nt-font-family);
-  color: var(--nt-text);
-  line-height: var(--nt-line-height);
-  background: var(--nt-surface);
-
-  @include nextrapUtils.style-utils();
-  @include nextrapTypography.style-typography();
-  @include nextrapButton.style-button();
-
-  // Applies the shared component defaults used by the Osman navigation and forms.
-  @include nteNavbar.default-style();
-
-  // Keeps the Raven burger visible as a light control on the dark navbar surface.
-  nte-burger {
-    --color: var(--nt-surface);
-    --color-hover: var(--nt-surface);
-  }
-  @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
-
-  nte-input.style-default {
-    @include nteInput.default-style();
-    padding-block-end: var(--nt-space-4);
+  @layer reset {
+    @include nextrapReset.reset();
   }
 
-  nte-nav.style-default {
-    @include nteNav.main-navigation(
-      $color: var(--nt-surface),
-      $hover-color: var(--nt-accent),
-      $current-background: var(--nt-accent),
-      $current-color: var(--nt-surface),
-      $focus-color: var(--nt-accent)
-    );
+  @layer themes.tokens {
+    @include nextrapBase.runtime-theme-scoped();
+    @include meta.load-css("./_runtime-settings.scss");
   }
 
-  nte-nav#osman-main-navigation-horizontal {
-    @include nteNav.horizontal();
+  @layer themes.base {
+    font-family: var(--nt-font-family);
+    color: var(--nt-text);
+    line-height: var(--nt-line-height);
+    background: var(--nt-surface);
+  }
 
-    // Keeps only the horizontal navbar navigation light on Raven's dark header.
-    &::part(nav) {
-      color: var(--nt-surface-raised, #fff);
+  @layer themes.typography {
+    @include nextrapTypography.style-typography();
+  }
+
+  @layer themes.elements {
+    @include nextrapElements.style-elements();
+    @include meta.load-css("./html-elements/_defaults.scss");
+  }
+
+  @layer themes.components {
+    @include nextrapButton.style-button();
+    // Applies the shared component defaults used by the Osman navigation and forms.
+    @include nteNavbar.default-style();
+
+    // Keeps the Raven burger visible as a light control on the dark navbar surface.
+    nte-burger {
+      --color: var(--nt-surface);
+      --color-hover: var(--nt-surface);
+    }
+    @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
+
+    nte-input.style-default {
+      @include nteInput.default-style();
+      padding-block-end: var(--nt-space-4);
     }
 
-    & nte-nav-item::part(link),
-    & nte-nav-item::part(text),
-    & nte-nav-item::part(disclosure),
-    & nte-nav-item::part(toggle) {
-      color: inherit;
+    nte-nav.style-default {
+      @include nteNav.main-navigation(
+        $color: var(--nt-surface),
+        $hover-color: var(--nt-accent),
+        $current-background: var(--nt-accent),
+        $current-color: var(--nt-surface),
+        $focus-color: var(--nt-accent)
+      );
     }
+
+    nte-nav#osman-main-navigation-horizontal {
+      @include nteNav.horizontal();
+
+      // Keeps only the horizontal navbar navigation light on Raven's dark header.
+      &::part(nav) {
+        color: var(--nt-surface-raised, #fff);
+      }
+
+      & nte-nav-item::part(link),
+      & nte-nav-item::part(text),
+      & nte-nav-item::part(disclosure),
+      & nte-nav-item::part(toggle) {
+        color: inherit;
+      }
+    }
+
+    nte-nav#osman-main-navigation-vertical {
+      @include nteNav.vertical();
+
+      // Restores dark navigation text inside the light offcanvas surface.
+      &::part(nav) {
+        color: var(--nt-text);
+      }
+
+      & nte-nav-item::part(link),
+      & nte-nav-item::part(text),
+      & nte-nav-item::part(disclosure),
+      & nte-nav-item::part(toggle) {
+        color: inherit;
+      }
+    }
+
+
+    // Lädt die bestehenden Inhaltskomponenten unterhalb der gemeinsamen Basis.
+    @include meta.load-css("./elements/nte-consent-blocker/nte-consent-blocker.scss");
+    @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
+    @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+    @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
   }
 
-  nte-nav#osman-main-navigation-vertical {
-    @include nteNav.vertical();
-
-    // Restores dark navigation text inside the light offcanvas surface.
-    &::part(nav) {
-      color: var(--nt-text);
-    }
-
-    & nte-nav-item::part(link),
-    & nte-nav-item::part(text),
-    & nte-nav-item::part(disclosure),
-    & nte-nav-item::part(toggle) {
-      color: inherit;
-    }
+  @layer themes.patterns {
+    @include meta.load-css("./../../src/features/_data-kicker.scss");
+    @include meta.load-css("./classes/_card-grid.scss");
+    @include meta.load-css("./classes/_data-kicker.scss");
+    @include meta.load-css("./classes/_focus-list.scss");
+    @include meta.load-css("./classes/_hero-specialties.scss");
+    @include meta.load-css("./classes/_hero-specialties-desktop.scss");
+    @include meta.load-css("./classes/_lead-serif.scss");
+    @include meta.load-css("./classes/_opening-hours.scss");
+    @include meta.load-css("./classes/_process-steps.scss");
+    @include meta.load-css("./classes/_profile-quote.scss");
+    @include meta.load-css("./classes/_timeline-table.scss");
   }
 
-  @include meta.load-css("./../../src/features/_data-kicker.scss");
-  @include meta.load-css("./html-elements/_defaults.scss");
+  @layer themes.utilities {
+    @include nextrapUtils.style-utils();
+  }
 
-  // Lädt die Raven-Standarddarstellung für zustimmungspflichtige externe Inhalte.
-  @include meta.load-css("./elements/nte-consent-blocker/nte-consent-blocker.scss");
-  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
-  @include meta.load-css("./classes/_card-grid.scss");
-  @include meta.load-css("./classes/_data-kicker.scss");
-  @include meta.load-css("./classes/_focus-list.scss");
-  @include meta.load-css("./classes/_hero-specialties.scss");
-  @include meta.load-css("./classes/_hero-specialties-desktop.scss");
-  @include meta.load-css("./classes/_lead-serif.scss");
-  @include meta.load-css("./classes/_opening-hours.scss");
-  @include meta.load-css("./classes/_process-steps.scss");
-  @include meta.load-css("./classes/_profile-quote.scss");
-  @include meta.load-css("./classes/_timeline-table.scss");
-  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
-  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+  // Explizite Anpassungen des Nutzprojekts bleiben gegenüber den Theme-Layern vorrangig.
+  @layer website {
+    @content;
+  }
 }

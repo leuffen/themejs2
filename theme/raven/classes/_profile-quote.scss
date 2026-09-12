@@ -1,7 +1,8 @@
+// Betont Zitate mit einer eigenen fließenden Größe unterhalb der Section-Überschrift.
 .profile-quote {
   margin-bottom: var(--nt-space-8);
   color: var(--nt-primary-emphasis);
   font-family: "Garamond", Georgia, serif;
-  font-size: clamp(var(--nt-fs-h2), 3vw, var(--nt-fs-h3));
+  font-size: clamp(var(--nt-fs-4), 3vw, var(--nt-fs-1));
   line-height: 1.33;
 }

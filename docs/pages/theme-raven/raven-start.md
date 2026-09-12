@@ -30,7 +30,7 @@ Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Ein
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ---
-{: layout="2;ntl-card-row.style-ribbon" style="--cols: 2;" }
+{: layout="2;ntl-card-row.style-ribbon" section-style="--cols: 2;" }
 
 ### News
 {: section-style="--cols: 4;" }
@@ -54,7 +54,7 @@ Sporttraumatologie und Return to Sport.
 Ärztlich tätig im OCP Darmstadt.
 
 ## Präzision statt Standard&shy;therapie.
-{: layout="ntl-2col.reverse.surface-white" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 8;" }
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 8;" }
 
 Im Mittelpunkt steht nicht das möglichst schnelle Anwenden einer Methode, sondern die saubere medizinische Einordnung der Beschwerde – auf Grundlage von Funktion, Belastung, Biomechanik und aktueller Evidenz.
 {: .lead-serif }
@@ -79,7 +79,7 @@ Konservative und funktionserhaltende Möglichkeiten werden differenziert geprüf
 Ziel ist nicht nur kurzfristige Beschwerdefreiheit, sondern die sichere Rückkehr zu Alltag, Training und sportlicher Leistungsfähigkeit.
 
 ## So entsteht die medizinische Ein&shy;ordnung.
-{: layout="ntl-2col.surface-primary" data-kicker="Vom Befund zur Entscheidung" section-style="--cols: 5;" }
+{: layout="ntl-2col.with-justify-top.surface-primary" data-kicker="Vom Befund zur Entscheidung" section-style="--cols: 5;" }
 
 Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapieentscheidungen – konservativ, regenerativ oder operativ.
 {: .lead-serif }
@@ -121,12 +121,12 @@ Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchi
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ## Kompetenz rund um Bewegung und Belast&shy;barkeit.
-{: layout="ntl-2col.reverse.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 8;" }
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 8;" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
 
 ---
-{: layout=".focus-list.footer" .xl:desktop }
+{: layout=".focus-list" section-slot="footer" .xl:desktop }
 
 ### [Sport&shy;traumatologie](/schwerpunkte/sporttraumatologie)
 
@@ -149,7 +149,7 @@ Strukturierte Belastungssteuerung für eine sichere, nachvollziehbare Rückkehr 
 Moderne konservative Orthopädie mit Fokus auf Funktionserhalt, Bewegungsqualität und langfristige Belastbarkeit.
 
 ## Aktuell tätig im OCP Darmstadt.
-{: layout="ntl-2col.reverse.surface-white" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 8;" }
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 8;" }
 
 Aktuell ist Dr. Raven im OCP Darmstadt tätig. Termine und organisatorische Rückfragen erfolgen über den dortigen Praxisstandort.
 {: .lead-serif }
@@ -174,17 +174,14 @@ Rheinstraße 97
 ---
 {: layout="=2" }
 
-- **Montag**  
-  08:00–13:00 · 14:00–17:00
-- **Dienstag**  
-  08:00–13:00 · 14:00–17:00
-- **Mittwoch**  
-  08:00–13:00 · 14:00–17:00
-- **Donnerstag**  
-  08:00–13:00 · 14:00–17:00
-- **Freitag**  
-  08:00–13:00
-{: .opening-hours .xl:desktop aria-label="Sprechzeiten" }
+| Tag | Sprechzeiten |
+| --- | --- |
+| Montag | 08:00–13:00 · 14:00–17:00 |
+| Dienstag | 08:00–13:00 · 14:00–17:00 |
+| Mittwoch | 08:00–13:00 · 14:00–17:00 |
+| Donnerstag | 08:00–13:00 · 14:00–17:00 |
+| Freitag | 08:00–13:00 |
+{: .opening-hours .bottom aria-label="Sprechzeiten" }
 
 ## Termin&shy;vereinbarung über das OCP Darmstadt.
 {: layout="ntl-2col.style-card.reverse" .aside data-kicker="Termin & Kontakt" section-style="--cols: 5;" }

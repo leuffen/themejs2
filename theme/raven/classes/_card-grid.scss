@@ -1,32 +1,40 @@
+// Bildet editierbare Informationseinheiten mit ruhigen Trennlinien statt großer Kartenflächen.
 .card-grid {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
   margin-top: var(--nt-spacing-layout);
-  border: var(--nt-border-width) solid var(--nt-border);
+  border-block: var(--nt-border-width) solid var(--nt-border);
 }
 
+// Lässt jede Einheit bei längeren Texten intrinsisch wachsen.
 .card-grid > section {
   min-width: 0;
   padding: var(--nt-spacing-component);
 }
 
+// Trennt gestapelte Einheiten ohne doppelte Außenrahmen.
 .card-grid > section:not(:first-child) {
   border-top: var(--nt-border-width) solid var(--nt-border);
 }
 
+// Hält Kartentitel deutlich kleiner als die übergeordnete Section-Überschrift.
 .card-grid > section > :is(h3, h4, h5, h6) {
   margin-bottom: var(--nt-spacing-text);
   color: var(--nt-primary-emphasis);
-  font-size: var(--nt-fs-h4);
+  font-size: var(--nt-font-size);
+  font-weight: var(--nt-font-weight-bold);
 }
 
+// Übernimmt den serifengeprägten Copy-Stil der Vorlage für kompakte Informationstexte.
 .card-grid > section > p {
   margin-bottom: 0;
   color: var(--nt-text-muted);
-  font-size: var(--nt-fs-h4);
+  font-family: "Garamond", Georgia, serif;
+  font-size: var(--nt-font-size);
 }
 
+// Aktiviert zwei gleichwertige Spalten über die vorhandene Responsive-Klasse.
 .card-grid.desktop {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
