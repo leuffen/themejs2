@@ -173,3 +173,7 @@ Historie: Commit `5aef0a403e157449be01528e0d591b5550ef819b` entfernte die
 Demo-Includes und verschob Varianten in Layout-Alternativen. Die Wiederherstellung
 übernimmt erhaltene Footer-Varianten und bewahrt die neueren Osman-/Unify-Rahmen,
 statt die gesamte Demo auf den damaligen Repository-Stand zurückzusetzen.
+
+## Nextrap-Entrypoints beim Seaming
+
+Alle JavaScript-/TypeScript-Imports von `@nextrap/nte-*` und `@nextrap/ntl-*` verwenden `/unstyled`, auch in Hilfsmodulen und Nutzprojekt-Vorlagen. Der normale Paketimport injiziert künftig die Default-Light-DOM-Styles für SPAs. `/unstyled` enthält keine direkten oder transitiven Light-DOM-Styles; das Theme bindet die öffentliche Sass-API ausdrücklich ein. Sass-Imports bleiben ohne `/unstyled`. Der Build benötigt Nextrap-Paketartefakte mit dem neuen `/unstyled`-Export.

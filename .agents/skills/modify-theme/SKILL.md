@@ -190,3 +190,7 @@ Jeder neue oder aktualisierte Pull Request aus diesem Repository löst `.github/
 - Verwende dieses Muster nur für eigene Theme-Klassen oder Light-DOM-Strukturen, nicht für `ntl-*`-Elemente mit eigener Breakpoint-Logik. Bei `ntl-*`-Komponenten bleiben responsive Regeln an deren dokumentiertem `mode`-Attribut und Parts gescoped.
 - Folge dem Ablauf für responsive und visuelle Prüfung aus [references/theme-file-contract.md](references/theme-file-contract.md).
 - Lege den Vorschlag vor und frage nach, bevor du mehr als fünf Dateien änderst oder das Ergebnis eine neue Token-Kategorie beziehungsweise Header-/Footer-Arbeit benötigt.
+
+## Nextrap-Entrypoints beim Seaming
+
+Alle JavaScript-/TypeScript-Imports von `@nextrap/nte-*` und `@nextrap/ntl-*` verwenden `/unstyled`, auch in Hilfsmodulen und Nutzprojekt-Vorlagen. Der normale Paketimport injiziert künftig die Default-Light-DOM-Styles für SPAs. `/unstyled` enthält keine direkten oder transitiven Light-DOM-Styles; das Theme bindet die öffentliche Sass-API ausdrücklich ein. Sass-Imports bleiben ohne `/unstyled`. Der Build benötigt Nextrap-Paketartefakte mit dem neuen `/unstyled`-Export.

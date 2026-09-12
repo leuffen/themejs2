@@ -1,0 +1,4 @@
+// Erhält die bisherige Darstellung nach dem Wechsel auf /unstyled; die Sass-API erzeugt allein noch kein CSS.
+@use "@nextrap/nte-image" as component;
+
+@include component.fullsize-style();

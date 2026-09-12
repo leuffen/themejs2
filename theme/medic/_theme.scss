@@ -7,6 +7,11 @@
 @use "@nextrap/style-button" as nextrapButton;
 
 :where(.theme-medic, .theme-mueller) {
+  // Diese zuvor per Komponenten-JavaScript gelieferten Styles gehören jetzt ausdrücklich dem Theme.
+  @include meta.load-css("./elements/nte-image/nte-image.scss");
+  @include meta.load-css("./elements/nte-feedback/nte-feedback.scss");
+  @include meta.load-css("./elements/nte-spinner/nte-spinner.scss");
+
   @include nextrapBase.runtime-theme-scoped();
 
   font-family: var(--nt-font-family);

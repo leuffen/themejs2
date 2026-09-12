@@ -2,7 +2,8 @@ import "@trunkjs/form";
 import { registerFormPreset } from "@trunkjs/form";
 import { sleep } from "@trunkjs/browser-utils";
 import { MicxFormmailerApi } from "@micx/lib-js";
-import { Feedback } from "@nextrap/nte-feedback";
+// /unstyled lädt kein Light-DOM-CSS: Die konsumierende Theme-/App-Schicht gestaltet es selbst über Sass-Mixins.
+import { Feedback } from "@nextrap/nte-feedback/unstyled";
 
 // Stellt die vom Layout gesetzte Formmailer-Konfiguration typsicher bereit.
 declare global {

@@ -1,0 +1,6 @@
+// Erhält die bisherige Darstellung nach dem Wechsel auf /unstyled; die Sass-API erzeugt allein noch kein CSS.
+@use "@nextrap/nte-spinner" as component;
+
+nte-spinner.style-default {
+  @include component.default-style();
+}
