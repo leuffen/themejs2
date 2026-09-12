@@ -1,22 +1,82 @@
-# Layer-Konzept für das Osman-Theme
+# Proposal: Self-contained Theme-Entrypoints
 
-## Ausgangslage
+## Status
 
-`theme/osman/` ist bereits sinnvoll nach Tokens, HTML-Defaults, Komponenten und semantischen Klassen gegliedert. Die Reihenfolge wird aktuell aber ausschließlich über die Reihenfolge der Includes in `theme/osman/_theme.scss` bestimmt.
+Dieser Text beschreibt die vorgeschlagene Zielarchitektur. Der Pull Request ändert noch keinen Theme-Code.
 
-Dadurch entstehen einige Probleme:
+## Beobachteter Ist-Stand
 
-- Später geladene Komponentenregeln können Utilities überschreiben.
-- Website-Anpassungen müssen teilweise höhere Spezifität verwenden.
-- Selektoren mit IDs wie `nte-nav#osman-main-navigation-horizontal` sind schwer zu überstimmen.
-- Der vorhandene `@content`-Hook liegt zu früh; danach geladene Theme-Regeln können Website-Anpassungen wieder überschreiben.
-- Es ist nicht eindeutig, welche Styles Theme-Basis und welche bewusst überschreibbare Komponentendarstellungen sind.
-- `!important` bei `ntl-hero --height-offset` verhindert bequeme Overrides.
-- Einige Werte sind direkt in Komponenten hinterlegt, beispielsweise `#fff`, Abstände oder Farben. Diese sind nicht über die öffentliche `--theme-*`-API anpassbar.
+Osman ist die aktuelle Referenz für die interne Theme-Struktur:
 
-## Vorgeschlagenes Layer-Modell
+- `theme/osman/_theme.scss` ordnet seine Ausgabe bereits den Layern `reset`, `themes.tokens`, `themes.base`, `themes.typography`, `themes.elements`, `themes.components`, `themes.patterns`, `themes.utilities` und `website` zu.
+- `theme/osman/_runtime-settings.scss` trennt öffentliche `--theme-*`-Eingaben vom Mapping auf `--nt-*`.
+- Der Consumer muss die globale Layer-Reihenfolge und die Scheme-Initialisierung trotzdem selbst kennen.
+- `dermatthes/leu-web-osman2/docs/_src/style.scss` importiert deshalb zusätzlich `@nextrap/style-base`, ruft `runtime-scheme-selectors()` auf und hält Theme- sowie Font-Mapping im Projekt.
+- Raven verwendet noch keine entsprechenden Layer und konfiguriert überwiegend `--nt-*` direkt. Damit ist Osman die geeignete Vorlage für die Angleichung.
 
-Es soll ein generisches Modell für alle Themes vorbereitet werden, auch wenn zunächst nur Osman migriert wird:
+Die interne Osman-Struktur ist damit weitgehend richtig, aber der öffentliche Einstieg leakt noch Infrastrukturwissen in jedes Nutzprojekt.
+
+## Zielbild
+
+Ein normales Nutzprojekt soll nur noch ein produktionsfertiges Theme importieren und dessen öffentliche Variablen konfigurieren. Es soll weder die Layer-Reihenfolge noch Nextrap Reset, Scheme-Initialisierung, Runtime-Token-Mapping oder die interne Reihenfolge der Theme-Teile kennen.
+
+Der gewünschte Consumer bleibt auf diese Entscheidungen begrenzt:
+
+1. Theme auswählen;
+2. optional eine Schrift laden und zuweisen;
+3. Farben, Typografie und andere freigegebene Spezialisierungen über `--theme-*` setzen;
+4. nur echte Projektausnahmen als Projekt-CSS ergänzen.
+
+## Vorgeschlagene öffentliche API
+
+Für Nutzprojekte wird ein neuer Side-effect-Entrypoint eingeführt. Der bestehende Mixin-Entrypoint bleibt für die Theme-Demo, Multi-Theme-Bundles und eine rückwärtskompatible Migration erhalten.
+
+Ein Osman-Nutzprojekt soll anschließend beispielsweise nur noch Folgendes benötigen:
+
+```scss
+@use "@leuffen/themejs2/font/opensans-regular" as font;
+
+@use "@leuffen/themejs2/theme/osman/site" with (
+  $font-family: font.$font-family-base,
+  $font-family-header: font.$font-family-header,
+  $theme-values: (
+    --theme-primary: #2b94d6,
+    --theme-accent: #2b94d6,
+    --theme-neutral: #6f6f6f,
+    --theme-secondary: #4c4c4c,
+    --theme-radius: 0
+  )
+);
+```
+
+Der Import erzeugt selbstständig das vollständige, auf `:where(.theme-osman)` begrenzte Theme. Ohne `with (...)` werden die Theme-Defaults verwendet. Das Projekt konfiguriert nur die dokumentierte `--theme-*`-API; direkte `--nt-*`-Werte bleiben ein Low-Level-Escape-Hatch.
+
+Die Sass-Map verwendet absichtlich die echten CSS-Custom-Property-Namen. Dadurch entsteht kein zweites Alias-System zwischen Sass-Konfiguration und Runtime-Variablen.
+
+Falls ein Projekt mehrere zur Laufzeit auswählbare Wertprofile benötigt, kann derselbe Vertrag optional erweitert werden:
+
+```scss
+@use "@leuffen/themejs2/theme/osman/site" with (
+  $theme-values: (
+    --theme-primary: #2b94d6,
+    --theme-radius: 0
+  ),
+  $theme-variants: (
+    high-contrast: (
+      --theme-primary: #005d75,
+      --theme-accent: #a33b00
+    )
+  )
+);
+```
+
+Der Entrypoint erzeugt daraus nur zusätzliche Variablen-Scopes, zum Beispiel `:where(.theme-osman[data-theme-variant="high-contrast"])`. Solche Theme-Varianten sind reine Wertprofile. Sie sind ausdrücklich nicht mit den Komponentenvarianten `.style-*` gleichzusetzen und dürfen keine kunden- oder seitenbezogenen Komponentenregeln enthalten.
+
+## Verantwortlichkeiten
+
+### Foundation
+
+Eine interne, einmal geladene Foundation registriert die vollständige Kaskade:
 
 ```scss
 @layer reset, schemes, themes, website;
@@ -26,293 +86,104 @@ Es soll ein generisches Modell für alle Themes vorbereitet werden, auch wenn zu
 }
 ```
 
-Die Priorität steigt von links nach rechts:
+Sie materialisiert außerdem genau einmal den globalen Nextrap Reset und die Scheme-Selektoren auf `:root`. Diese Infrastruktur ist für alle Themes identisch und darf nicht mehr in Nutzprojekten dupliziert werden.
 
-1. **`reset`**  
-   Nextrap Reset.
+### Theme
 
-2. **`schemes`**  
-   Globale Scheme-Selektoren und Runtime-Voraussetzungen auf `:root`.
+Das Theme besitzt:
 
-3. **`themes.tokens`**  
-   Öffentliche `--theme-*`-Defaults, Mapping auf `--nt-*` und die Runtime-Token-Ableitungen.
+- Defaultwerte und Mapping von `--theme-*` auf `--nt-*`;
+- Base, Typografie, HTML-Elemente, Komponenten, Patterns und Utilities;
+- den festen Scope `:where(.theme-<name>)`;
+- die Ausgabe der konfigurierten Theme-Werte und optionalen Wertprofile;
+- die Zuordnung jeder Deklaration zum festgelegten Layer.
 
-4. **`themes.base`**  
-   Root-Darstellung wie Schriftfamilie, Textfarbe und Zeilenhöhe.
+Das Theme lädt keine konkrete Textschrift mehr ungefragt. Theme-eigene Assets wie eine zwingend benötigte Icon-Schrift dürfen Bestandteil des Themes bleiben. Textschriften werden vom Consumer optional importiert und ausschließlich über die öffentliche Font-Konfiguration zugewiesen.
 
-5. **`themes.typography`**  
-   Die von Nextrap materialisierten Typografieklassen und nativen Textregeln.
+### Projekt
 
-6. **`themes.elements`**  
-   Elementklassen sowie globale Defaults für native Elemente wie Links, Tabellen und Listen.
+Ein Projekt besitzt nur seine Werte und echte Ausnahmen. Die normale Spezialisierung erfolgt über `--theme-*`. Eine Ausnahme, die Selektoren oder `::part()` benötigt, bleibt bewusst im `website`-Layer und wird nicht als neue Theme-Variable getarnt.
 
-7. **`themes.components`**  
-   NTL-/NTE-Varianten einschließlich Navbar, Hero, Card Row, Accordion und Input.
-
-8. **`themes.patterns`**  
-   Osman-spezifische semantische Klassen wie `.opening-hours`, `.warning-heading` und `.icon-grid`.
-
-9. **`themes.utilities`**  
-   Nextrap Utilities. Diese stehen innerhalb des Themes absichtlich zuletzt.
-
-10. **`website`**  
-   Alle Anpassungen der Website. Diese gewinnen unabhängig von der Selektor-Spezifität gegen normale Theme-Deklarationen.
-
-## Zuordnung der vorhandenen Dateien
-
-### `themes.tokens`
+## Vorgeschlagene Modulstruktur
 
 ```text
-theme/osman/_runtime-settings.scss
+theme/
+  _foundation.scss       # globale Layer-Reihenfolge, Reset und Schemes
+  osman.scss             # bestehende Low-Level-/Mixin-API
+  osman/
+    _theme.scss          # interne Layer-Zuordnung und Theme-Ausgabe
+    _runtime-settings.scss
+    site.scss            # produktionsfertiger Side-effect-Entrypoint
+  raven.scss
+  raven/
+    _theme.scss
+    _runtime-settings.scss
+    site.scss
 ```
 
-Zusätzlich:
+`site.scss` lädt die Foundation, setzt den festen Theme-Scope, ruft das vorhandene `theme()`-Mixin auf und gibt die konfigurierten `--theme-*`-Werte im `website`-Layer aus. Der Low-Level-Entrypoint bleibt frei von automatischer Ausgabe, damit `docs` mehrere Themes kontrolliert in einem Bundle darstellen kann.
 
-```scss
-@include nextrapBase.runtime-theme-scoped();
-```
+## Verhalten der Layer
 
-Die bestehende Trennung bleibt erhalten:
+Die Priorität bleibt:
 
-- `--theme-*` ist die öffentliche, bequem überschreibbare Theme-API.
-- `--nt-*` ist das Mapping und die Low-Level-API.
-- Abgeleitete Nextrap-Werte werden nicht dupliziert.
+1. `reset`
+2. `schemes`
+3. `themes.tokens`
+4. `themes.base`
+5. `themes.typography`
+6. `themes.elements`
+7. `themes.components`
+8. `themes.patterns`
+9. `themes.utilities`
+10. `website`
 
-### `themes.base`
+Theme-Defaults und das Mapping liegen in `themes.tokens`. Consumer-Werte werden im `website`-Layer ausgegeben, sodass sie unabhängig von Selektor-Spezifität gewinnen. Alle von diesen Variablen abhängigen Runtime-Ableitungen bleiben funktionsfähig, weil sie die Variablen zur Laufzeit auswerten.
 
-```scss
-font-family: var(--nt-font-family);
-color: var(--nt-text);
-line-height: var(--nt-line-height);
-```
+Normale Theme-Deklarationen verwenden kein `!important`. Ungelayertes Projekt-CSS bleibt während der Migration wirksam, soll langfristig aber nur für bewusst dokumentierte Ausnahmen bestehen.
 
-### `themes.typography`
+## Migration
 
-```scss
-@include nextrapTypography.style-typography();
-```
+### Phase 1: gemeinsamer Vertrag
 
-### `themes.elements`
+- Foundation als einzige Eigentümerin von Layer-Reihenfolge, Reset und Schemes einführen.
+- Osman um den neuen `site.scss`-Entrypoint ergänzen.
+- Die bestehende `osman.theme()`-API zunächst beibehalten.
+- Font-Loading von Font-Zuweisung trennen.
+- Eine minimale Compile-Fixture für den neuen Entrypoint hinzufügen.
 
-```text
-theme/osman/html-elements/_defaults.scss
-theme/osman/html-elements/a/
-theme/osman/html-elements/main/
-```
+### Phase 2: Osman-Referenzprojekt
 
-Zuerst wird die allgemeine Elements-API materialisiert, danach folgen die Osman-Defaults. Normale `ul` ohne explizite `.list`-Basisklasse erhalten nur die neutrale Listenbasis; dekorative Marker wie `list-diamond` werden normalerweise bewusst im Content per Klasse gesetzt:
+`leu-web-osman2/docs/_src/style.scss` auf den neuen Entrypoint umstellen. Dabei entfallen der direkte Style-Base-Import, die Scheme-Initialisierung, der manuelle Theme-Selector und das direkte `--nt-*`-Mapping. Der resultierende CSS-Build und die Desktop-/Mobile-Darstellung müssen unverändert bleiben.
 
-```scss
-@include nextrapElements.style-elements();
+### Phase 3: Raven angleichen
 
-:where(ul:not(.list)) {
-  @include nextrapElements.list();
-}
-```
+Raven nach demselben internen Vertrag wie Osman strukturieren:
 
-Verzierungen wie `list-diamond` gehören im Regelfall an das jeweilige Markup, z. B. per Kramdown `{: .list .list-diamond }`. Theme-weite oder contentbereich-weite Dekorationen sind nur als bewusst begründete Ausnahme zulässig. Eine Website kann diesen Layer gezielt ergänzen. Er bleibt durch die registrierte Reihenfolge immer nach Typography und vor Components.
+- `--theme-*` als öffentliche Eingaben definieren;
+- ausschließlich dort auf `--nt-*` mappen;
+- Ausgabe auf die benannten Layer verteilen;
+- feste Textschrift aus dem Theme-Renderer lösen;
+- produktionsfertigen `site.scss`-Entrypoint ergänzen.
 
-### `themes.components`
+Die visuelle Raven-Darstellung wird dabei nicht neu gestaltet. Die Migration ändert nur Ownership und Konfigurationsweg.
 
-```text
-theme/osman/elements/**
-```
+### Phase 4: weitere Themes und Dokumentation
 
-Sowie die momentan direkt in `_theme.scss` definierten Regeln für:
+Erst nach erfolgreicher Osman- und Raven-Prüfung wird das Muster auf weitere Themes übertragen. `docs/_src/style.scss` bleibt als Multi-Theme-Testumgebung bewusst auf der Low-Level-API und demonstriert zusätzlich mindestens einen produktionsnahen Compile-Test des Site-Entrypoints.
 
-- `nte-navbar`
-- `nte-nav`
-- Buttons
-- Komponenten-Mixins
+## Akzeptanzkriterien
 
-Die bestehenden Partials müssen dafür grundsätzlich nicht einzeln mit `@layer` versehen werden. Sie werden von `_theme.scss` innerhalb des passenden Layers geladen.
+- Ein Osman-Nutzprojekt benötigt keine eigene `@layer`-Deklaration.
+- Ein Osman-Nutzprojekt importiert `@nextrap/style-base` oder `@nextrap/style-reset` nicht direkt.
+- Reset, Scheme-Selektoren und Layer-Reihenfolge erscheinen im kompilierten CSS genau einmal.
+- Theme-CSS bleibt vollständig unter `:where(.theme-osman)` beziehungsweise `:where(.theme-raven)` gescoped; nur Foundation und unkritische globale Assets dürfen global sein.
+- Alle normalen Anpassungen des Osman-Referenzprojekts sind durch dokumentierte `--theme-*`-Werte ausdrückbar.
+- Ein optionales Theme-Wertprofil überschreibt nur Variablen und erzeugt keine Komponenten- oder Content-Struktur.
+- `docs` kann weiterhin Osman und Raven parallel laden.
+- `vite build` besteht in `themejs2` und anschließend im migrierten Osman-Referenzprojekt.
+- Desktop- und Mobile-Screenshots zeigen keine unbeabsichtigte visuelle Änderung.
 
-### `themes.patterns`
+## Bewusste Nicht-Ziele
 
-```text
-theme/osman/classes/**
-theme/osman/tools/**
-src/features/_data-kicker.scss
-```
-
-### `themes.utilities`
-
-```scss
-@include nextrapUtils.style-utils();
-```
-
-Utilities sollen bewusst nach Base, Komponenten und Patterns ausgegeben werden, damit eine Utility wie eine Farb-, Display- oder Spacing-Klasse nicht zufällig von einem später geladenen Theme-Partial neutralisiert wird.
-
-## Aufbau von `_theme.scss`
-
-Das `theme()`-Mixin bleibt die öffentliche API. Intern übernimmt es die Layer-Zuordnung:
-
-```scss
-@mixin theme() {
-  @layer themes.tokens {
-    @include nextrapBase.runtime-theme-scoped();
-    @include meta.load-css("./_runtime-settings.scss");
-  }
-
-  @layer themes.base {
-    // Root-Eigenschaften
-  }
-
-  @layer themes.typography {
-    // Typografie
-  }
-
-  @layer themes.elements {
-    // Elementklassen und native HTML-Defaults
-  }
-
-  @layer themes.components {
-    // NTL/NTE-Mixins und Partials
-  }
-
-  @layer themes.patterns {
-    // Semantische Klassen und Tools
-  }
-
-  @layer themes.utilities {
-    @include nextrapUtils.style-utils();
-  }
-
-  @layer website {
-    @content;
-  }
-}
-```
-
-Der letzte Block behebt zugleich das Problem des bestehenden `@content`-Hooks: Inhalte, die eine Website beim Include übergibt, landen garantiert nach dem Theme.
-
-## Verwendung in der Website
-
-### Globale Theme-Anpassung
-
-```scss
-:where(.theme-osman) {
-  @include osman.theme() {
-    --theme-primary: #005d75;
-    --theme-radius: 0;
-    --theme-container-max: 1200px;
-  }
-}
-```
-
-Damit bleibt die derzeitige Mixin-API erhalten, aber der übergebene Content wird künftig wirksam im `website`-Layer ausgegeben.
-
-### Größere Website-spezifische Anpassungen
-
-```scss
-@layer website {
-  :where(.theme-osman) {
-    --theme-primary: #005d75;
-
-    ntl-card-row.style-default::part(container) {
-      max-width: 1180px;
-    }
-
-    nte-nav#osman-main-navigation-horizontal {
-      --some-documented-property: ...;
-    }
-  }
-}
-```
-
-Obwohl das Theme teilweise ID-Selektoren verwendet, gewinnt der spätere `website`-Layer. Die Website muss keine noch spezifischeren Selektoren oder `!important` einsetzen.
-
-### Bestehende Websites
-
-Nicht gelayertes Website-CSS gewinnt bei normalen Deklarationen ebenfalls gegen gelayertes Theme-CSS. Dadurch bleiben einfache bestehende Overrides zunächst funktionsfähig. Langfristig sollte Website-CSS trotzdem ausdrücklich in `@layer website` liegen, damit die Kaskade nachvollziehbar bleibt.
-
-## Override-Vertrag für Website-Entwickler
-
-Die Website soll Anpassungen in dieser Reihenfolge umsetzen:
-
-1. **`--theme-*` überschreiben**  
-   Für Farben, Schrift, Radius, Containerbreite und andere globale Designentscheidungen.
-
-2. **Dokumentierte Komponentenvariablen verwenden**  
-   Für Anpassungen einer konkreten NTL-/NTE-Instanz.
-
-3. **Im `website`-Layer ein exportiertes `::part()` ansprechen**  
-   Für eine echte Website-Ausnahme.
-
-4. **Direkten Selektor verwenden**  
-   Nur wenn keine Variable oder Part-API existiert.
-
-5. **`--nt-*` direkt überschreiben**  
-   Nur als Low-Level-Escape-Hatch.
-
-6. **Kein `!important` verwenden**  
-   Weder Theme noch Website sollen die Layer-Reihenfolge damit umgehen.
-
-## Notwendige Bereinigungen
-
-### `!important` entfernen
-
-In `theme/osman/elements/ntl-hero/_style-default.scss` steht:
-
-```scss
---height-offset: 12.75rem !important;
-```
-
-CSS-Layer lösen `!important` nicht sinnvoll. Bei wichtigen Deklarationen kehrt sich die Layer-Priorität sogar um. Dieser Wert soll ohne `!important` oder über die Komponenten-API gesetzt werden.
-
-### Harte Werte prüfen
-
-Beispiele:
-
-- `background: #fff`
-- `color: #585b63`
-- `border: 1px solid #e7e4e1`
-- feste Spacing-Werte
-
-Nicht jeder Wert benötigt eine neue Variable. Wiederkehrende Designentscheidungen sollen aber auf bestehende semantische `--nt-*`-Tokens umgestellt werden. Einmalige strukturelle Werte dürfen in der Komponentenvariante bleiben.
-
-### Media Queries separat migrieren
-
-In `_warning-heading.scss` und `nte-offcanvas/_style-default.scss` existieren klassische Media Queries. Das betrifft nicht direkt die Layer-Migration, verstößt aber gegen die aktuelle Responsive-Konvention. Dies soll als getrennte Bereinigung behandelt werden, damit die Cascade-Umstellung nicht gleichzeitig das responsive Verhalten verändert.
-
-## Empfohlene Umsetzung in zwei Schritten
-
-### Schritt 1: Layer-Infrastruktur
-
-Voraussichtlich betroffen:
-
-- `theme/osman/_theme.scss`
-- `docs/_src/style.scss`
-- `docs/theme-architecture.md`
-
-Dabei:
-
-- globale Layer-Reihenfolge registrieren;
-- bestehende Includes den sieben Theme-Unterlayern zuordnen;
-- `@content` in `website` verschieben;
-- Reset und Scheme-Ausgabe layern;
-- keine Komponentenstruktur verändern.
-
-### Schritt 2: Override-Härtung
-
-Danach:
-
-- `!important` entfernen;
-- unnötig harte Farben auf bestehende Tokens umstellen;
-- eine kleine Override-Demo oder Testseite ergänzen;
-- prüfen, ob ungenutzte Dateien wie `nte-card/nte-card.scss`, `nte-offcanvas/` und `_site-shell.scss` absichtlich nicht geladen werden;
-- responsive Altregeln getrennt bereinigen.
-
-## Prüfung
-
-Die Migration soll mindestens diese Fälle testen:
-
-- `--theme-primary` wird von der Website überschrieben.
-- Link- und HTML-Defaults lassen sich im `website`-Layer ändern.
-- Ein Website-Override gewinnt gegen den vorhandenen Nav-ID-Selektor.
-- Utilities gewinnen innerhalb des Themes gegen Base- und Komponentenregeln.
-- Desktop- und Mobile-Darstellung bleiben visuell unverändert.
-- Das kompilierte CSS enthält die Layer in der festgelegten Reihenfolge.
-- Es entstehen keine ungelayerten Theme-Regeln, ausgenommen unkritische globale Dinge wie `@font-face`.
-
-Damit ist das Theme intern klar geordnet, während die Website mit niedriger Spezifität und ohne `!important` sowohl Tokens als auch konkrete Komponenten überschreiben kann.
+Dieser Proposal führt keine neue NTL-/NTE-Komponente ein, verändert keine Header-/Footer-Struktur und erweitert keine Komponenten-API. Er verschiebt keine einmaligen Kundenausnahmen in das Theme. Responsive Bereinigungen, harte Einzelwerte und bestehende `!important`-Fälle bleiben getrennte Folgearbeiten, damit die Entrypoint-Migration das visuelle Verhalten nicht gleichzeitig verändert.
