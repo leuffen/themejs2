@@ -42,9 +42,9 @@ jobs:
         with:
           node-version: 22
 
-      # Installiert die veröffentlichten Projektabhängigkeiten ohne lokale Workspace-Verknüpfungen.
+      # Installiert reproduzierbar den geprüften Lockfile-Stand ohne Updates während des Deployments.
       - name: Install dependencies
-        run: npm update
+        run: npm ci
 
       # Erzeugt die aktuellen JavaScript- und CSS-Assets vor dem statischen Jekyll-Build.
       - name: Build frontend assets
