@@ -1,7 +1,7 @@
 // Präsentiert ein breites Content-Medium mit Überschrift und überlagerter Handlungsfläche.
 @use "@nextrap/ntl-2col" as twoCol;
 
-// Nutzt Header und Bottom über volle Breite, während der leere Spaltenrahmen unsichtbar bleibt.
+// Nutzt Header und Bottom über volle Breite; die Komponente blendet ausschließlich leere Regionen aus.
 &.style-video {
   padding-block: var(--nt-spacing-section);
 
@@ -26,13 +26,9 @@
     color: var(--nt-primary);
   }
 
-  // Unterdrückt den unbenutzten Zweispaltenbereich dieser Header-/Bottom-Komposition.
-  &::part(wrapper) {
-    display: none;
-  }
-
   // Stellt das Medienmotiv als semantische Figure mit stabiler 3:2-Geometrie dar.
   .video-stage {
+    display: grid;
     position: relative;
     max-width: 53.5rem;
     margin: var(--nt-space-8) auto 0;
@@ -43,6 +39,7 @@
 
   // Füllt die Medienbühne ohne Verzerrung und ohne autorenseitige feste Maße.
   .video-stage img {
+    grid-area: 1 / 1;
     display: block;
     width: 100%;
     aspect-ratio: 3 / 2;
@@ -51,9 +48,13 @@
 
   // Legt die Handlung in der belegten Referenzbreite als lesbare Karte über das Motiv.
   .video-stage figcaption {
-    position: absolute;
-    right: var(--nt-space-5);
-    bottom: var(--nt-space-5);
+    // Beide Inhalte bestimmen die Track-Höhe; lange Captions werden nicht abgeschnitten.
+    grid-area: 1 / 1;
+    align-self: end;
+    justify-self: end;
+    min-width: 0;
+    margin: var(--nt-space-5);
+    overflow-wrap: anywhere;
     max-width: 20rem;
     padding: var(--nt-space-5);
     border-radius: calc(var(--nt-radius) * .75);
@@ -101,6 +102,7 @@
     padding-block: var(--nt-space-7);
 
     .video-stage {
+      display: block;
       margin-top: var(--nt-space-6);
       overflow: visible;
     }
@@ -111,6 +113,7 @@
 
     .video-stage figcaption {
       position: static;
+      margin: 0;
       box-sizing: border-box;
       max-width: none;
       padding: var(--nt-space-4);

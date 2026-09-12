@@ -33,8 +33,13 @@
     font-size: 1.3125rem;
   }
 
+  // Kramdown umschließt Links mit Absätzen; Aktionen behalten ihre eigene skalierbare Typografie.
+  > p:has(> .btn) {
+    font-size: 1rem;
+  }
+
   // Trennt den primären Hero-CTA klar von Einleitung und Bewertungszeile.
-  > .btn:not(.aside) {
+  > p:not(.aside):has(> .btn) {
     margin-top: var(--nt-space-4);
   }
 
@@ -93,6 +98,7 @@
   &::part(aside) {
     box-sizing: border-box;
     min-width: 0;
+    overflow-wrap: anywhere;
     padding: var(--nt-space-6);
     border-radius: var(--nt-radius);
     background: var(--nt-surface-raised);
@@ -199,6 +205,11 @@
       font-size: 2.1rem;
     }
 
+    // Die Tarifüberschrift bleibt gegenüber dem Haupttitel auch bei schmaler Breite untergeordnet.
+    > :is(h2, h3).aside {
+      font-size: 1.3125rem;
+    }
+
     .saas-reviews {
       flex-direction: column;
       gap: var(--nt-space-4);
@@ -237,6 +248,11 @@
 
     :is(h1, h2) {
       font-size: 3rem;
+    }
+
+    // Bewahrt die Kartenhierarchie unabhängig von der Display-Typografie.
+    > :is(h2, h3).aside {
+      font-size: 1.3125rem;
     }
   }
 }

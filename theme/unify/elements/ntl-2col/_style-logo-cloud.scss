@@ -23,10 +23,7 @@
     text-align: center;
   }
 
-  // Unterdrückt den unbenutzten Zweispaltenbereich dieser Header-/Bottom-Komposition.
-  &::part(wrapper) {
-    display: none;
-  }
+  // Leere Spalten blendet die Komponenten-API aus; der Wrapper bleibt für Bottom-Inhalte sichtbar.
 
   // Formt eine normale Markdown-Liste als flexibles Sechs-Spalten-Raster.
   .logo-cloud {

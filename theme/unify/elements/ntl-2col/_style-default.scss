@@ -24,6 +24,13 @@
     align-items: center;
   }
 
+  // Hält ausdrücklich zentrierte Header auch bei mehrzeiliger Copy in einer ruhigen Textbreite.
+  &:has(> .header.text-center)::part(header) {
+    max-width: 46rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
   // Öffnet die Feature-Bühne gezielt für überlagerte Mockups und Punktraster außerhalb der Bildkante.
   &:has(.feature-media)::part(wrapper) {
     overflow: visible;
