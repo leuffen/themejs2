@@ -1,27 +1,32 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
+// Richtet rahmenlose Inhalte an derselben Containerkante wie die übrigen Sections aus.
 &.style-default {
   @include twoCol.default-style(
-    $innerPadding: var(--nt-space-4),
-    $gap: var(--nt-spacing-layout),
+    $innerPadding: 0px,
+    $gap: clamp(var(--nt-space-7), 6vw, var(--nt-space-9)),
     $background: transparent,
     $border: 0,
     $border-radius: 0,
     $objectFit: cover
   );
 
-  &::part(wrapper) {
-    align-items: center;
-  }
-
+  // Bewahrt die Bildfläche bei kurzen Begleittexten ohne feste Höhe für den Text.
   &:has(> p[slot="aside"].auto)::part(aside) {
     min-height: clamp(22rem, 38vw, 42rem);
     overflow: hidden;
     background: var(--nt-surface-muted);
   }
 
+  // Kompakte Stapelung nutzt den mobilen Zustand der Komponente.
   &[mode="mobile"] {
-    --gap: var(--nt-space-7);
+    --gap: var(--nt-space-6);
+
+    // Gemeinsame Außenkanten gelten auch für Header und Footer außerhalb des Wrappers.
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
 
     &:has(> p[slot="aside"].auto)::part(aside) {
       min-height: 0;

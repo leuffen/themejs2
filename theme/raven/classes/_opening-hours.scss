@@ -13,6 +13,11 @@ table.opening-hours {
     border: 0;
   }
 
+  // Die Tagesüberschrift beginnt bündig mit den zugehörigen Wochentagen.
+  th {
+    text-align: left;
+  }
+
   tr > :last-child {
     text-align: right;
   }

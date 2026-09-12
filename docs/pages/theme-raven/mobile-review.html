@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /pages/theme-raven/mobile-review/
+---
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raven – mobile Vergleichsansicht</title>
+<style>
+/* Feste Framebreiten erzeugen echte mobile Viewports für die veröffentlichte Seite. */
+body { margin: 16px; font: 14px system-ui; background: #eee; }
+main { display: flex; align-items: start; gap: 24px; }
+section { flex: none; }
+h1 { font-size: 20px; }
+h2 { font-size: 16px; }
+iframe { display: block; border: 0; height: 780px; background: white; }
+</style>
+<h1>Raven: Mobilprüfung</h1>
+<main>
+<section><h2>Raven · 320 px</h2><iframe id="raven320" title="Raven bei 320 Pixeln" width="320" src="../raven-start/?review={{ site.time | date: '%s' }}"></iframe></section>
+<section><h2>Raven · 375 px</h2><iframe id="raven375" title="Raven bei 375 Pixeln" width="375" src="../raven-start/?review={{ site.time | date: '%s' }}"></iframe></section>
+<section><h2>Vorlage · 375 px</h2><iframe id="reference375" title="Vorlage bei 375 Pixeln" width="375" src="/design-templates/raven/webseiten-entwurf-raven/dr-tim-raven-webseite.html"></iframe></section>
+</main>
+</html>

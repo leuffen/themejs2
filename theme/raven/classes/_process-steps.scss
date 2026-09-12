@@ -1,6 +1,8 @@
+// Gruppiert jeden nummerierten Schritt mit direkt anschließender Überschrift und Erläuterung.
 .process-steps {
   counter-reset: process-step;
-  margin: var(--nt-spacing-layout) 0 0;
+  // Der Slot-Gap liefert bereits den Abstand zur Einleitung.
+  margin: 0;
   padding: 0;
   list-style: none;
   border-top: var(--nt-border-width) solid color-mix(in srgb, currentColor 24%, transparent);
@@ -8,8 +10,8 @@
   > li {
     counter-increment: process-step;
     display: grid;
-    grid-template-columns: clamp(3rem, 7vw, 4.625rem) minmax(0, 1fr);
-    gap: var(--nt-space-3) var(--nt-spacing-component);
+    grid-template-columns: clamp(var(--nt-space-5), 5vw, var(--nt-space-7)) minmax(0, 1fr);
+    gap: var(--nt-space-2) clamp(var(--nt-space-3), 2vw, var(--nt-spacing-component));
     align-items: start;
     padding-block: var(--nt-spacing-component);
     border-bottom: var(--nt-border-width) solid color-mix(in srgb, currentColor 24%, transparent);
@@ -18,9 +20,10 @@
     &::before {
       content: counter(process-step, decimal-leading-zero);
       grid-column: 1;
+      grid-row: 1 / span 2;
       color: var(--nt-link);
       font-family: "Garamond", Georgia, serif;
-      font-size: var(--nt-fs-h2);
+      font-size: var(--nt-fs-4);
       line-height: 1.2;
     }
 
@@ -28,7 +31,7 @@
       grid-column: 2;
       margin: 0;
       color: var(--nt-header);
-      font-size: var(--nt-fs-h4);
+      font-size: var(--nt-fs-h3);
       line-height: var(--nt-line-height-header);
     }
 
