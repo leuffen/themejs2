@@ -42,6 +42,10 @@ jobs:
         with:
           node-version: 22
 
+      # Umgeht den Arborist-edgesOut-Fehler des mit Node 22 ausgelieferten npm 10.9.8.
+      - name: Upgrade npm
+        run: npm install --global npm@11
+
       # Installiert die veröffentlichten Projektabhängigkeiten ohne lokale Workspace-Verknüpfungen.
       - name: Install dependencies
         run: npm update
