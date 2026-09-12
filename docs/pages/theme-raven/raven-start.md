@@ -167,7 +167,7 @@ Rheinstraße 97
 
 ### Zugangs&shy;informationen
 
-- 2. Obergeschoss mit Fahrstuhl
+- 2\. Obergeschoss mit Fahrstuhl
 - Barrierefreier Zugang
 - Gebührenpflichtige Parkplätze
 
@@ -176,11 +176,11 @@ Rheinstraße 97
 
 | Tag | Sprechzeiten |
 | --- | --- |
-| Montag | 08:00–13:00 · 14:00–17:00 |
-| Dienstag | 08:00–13:00 · 14:00–17:00 |
-| Mittwoch | 08:00–13:00 · 14:00–17:00 |
-| Donnerstag | 08:00–13:00 · 14:00–17:00 |
-| Freitag | 08:00–13:00 |
+| Montag | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Dienstag | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Mittwoch | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Donnerstag | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Freitag | 08:00&#8288;–&#8288;13:00 |
 {: .opening-hours .bottom aria-label="Sprechzeiten" }
 
 ## Termin&shy;vereinbarung über das OCP Darmstadt.
