@@ -1,3 +1,4 @@
+// Gruppiert jeden nummerierten Schritt mit direkt anschließender Überschrift und Erläuterung.
 .process-steps {
   counter-reset: process-step;
   margin: var(--nt-spacing-layout) 0 0;
@@ -18,9 +19,10 @@
     &::before {
       content: counter(process-step, decimal-leading-zero);
       grid-column: 1;
+      grid-row: 1 / span 2;
       color: var(--nt-link);
       font-family: "Garamond", Georgia, serif;
-      font-size: var(--nt-fs-h2);
+      font-size: var(--nt-fs-4);
       line-height: 1.2;
     }
 
@@ -28,7 +30,7 @@
       grid-column: 2;
       margin: 0;
       color: var(--nt-header);
-      font-size: var(--nt-fs-h4);
+      font-size: var(--nt-fs-h3);
       line-height: var(--nt-line-height-header);
     }
 
