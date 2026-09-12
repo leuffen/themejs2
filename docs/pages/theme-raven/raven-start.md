@@ -12,7 +12,7 @@ pid: site
 ---
 
 # Medizin mit Präzision
-{: layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" section-style="--cols: 7;" }
+{: layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" section-style="--cols: 6;" }
 
 Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktionell gedacht und auf nachhaltige Belastbarkeit ausgerichtet.
 {: .lead-serif }
@@ -54,7 +54,7 @@ Sporttraumatologie und Return to Sport.
 Ärztlich tätig im OCP Darmstadt.
 
 ## Präzision statt Standard&shy;therapie.
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 8;" }
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 7;" }
 
 Im Mittelpunkt steht nicht das möglichst schnelle Anwenden einer Methode, sondern die saubere medizinische Einordnung der Beschwerde – auf Grundlage von Funktion, Belastung, Biomechanik und aktueller Evidenz.
 {: .lead-serif }
@@ -104,7 +104,7 @@ Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapiee
 {: .process-steps .aside}
 
 ## Dr. med. Tim Raven
-{: layout="ntl-2col.reverse-desktop" data-kicker="Fachärztliche Perspektive" }
+{: layout="ntl-2col.reverse-desktop" data-kicker="Fachärztliche Perspektive" section-style="--cols: 7;" }
 
 „Mein Ziel ist eine Medizin, die präzise erklärt, nachvollziehbar entscheidet und die langfristige Funktion in den Mittelpunkt stellt.“
 {: .profile-quote }
@@ -121,7 +121,7 @@ Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchi
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ## Kompetenz rund um Bewegung und Belast&shy;barkeit.
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 8;" }
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
 
@@ -149,7 +149,7 @@ Strukturierte Belastungssteuerung für eine sichere, nachvollziehbare Rückkehr 
 Moderne konservative Orthopädie mit Fokus auf Funktionserhalt, Bewegungsqualität und langfristige Belastbarkeit.
 
 ## Aktuell tätig im OCP Darmstadt.
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 8;" }
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 7;" }
 
 Aktuell ist Dr. Raven im OCP Darmstadt tätig. Termine und organisatorische Rückfragen erfolgen über den dortigen Praxisstandort.
 {: .lead-serif }
