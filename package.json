@@ -36,7 +36,7 @@
         "*.js",
         "*.md"
     ],
-    "workspaces": [
+    "--workspaces": [
         "workspaces/leuffen-monorepo/packages/*",
         "workspaces/nextrap-monorepo/nextrap-elements/*",
         "workspaces/nextrap-monorepo/nextrap-layout/*",
