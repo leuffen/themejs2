@@ -8,8 +8,8 @@
     counter-increment: focus-list-item;
     position: relative;
     display: grid;
-    grid-template-columns: var(--nt-space-7) minmax(0, 1fr) var(--nt-space-5);
-    gap: var(--nt-space-2) var(--nt-spacing-component);
+    grid-template-columns: var(--nt-space-5) minmax(0, 1fr) var(--nt-space-2);
+    gap: var(--nt-space-2) var(--nt-space-3);
     align-items: start;
     padding-block: var(--nt-spacing-component);
     border-bottom: var(--nt-border-width) solid var(--nt-border);
@@ -93,6 +93,7 @@
 // Stellt Titel und Erläuterung bei voller Desktopbreite nebeneinander dar.
 .focus-list.desktop:not(.aside) {
   > section {
+    column-gap: var(--nt-spacing-component);
     grid-template-columns: var(--nt-space-7) minmax(12rem, .75fr) minmax(0, 1.25fr) var(--nt-space-5);
 
     > :is(h3, h4, h5, h6) {

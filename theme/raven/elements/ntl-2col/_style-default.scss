@@ -20,7 +20,13 @@
 
   // Kompakte Stapelung nutzt den mobilen Zustand der Komponente.
   &[mode="mobile"] {
-    --gap: var(--nt-space-7);
+    --gap: var(--nt-space-6);
+
+    // Gemeinsame Außenkanten gelten auch für Header und Footer außerhalb des Wrappers.
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
 
     &:has(> p[slot="aside"].auto)::part(aside) {
       min-height: 0;

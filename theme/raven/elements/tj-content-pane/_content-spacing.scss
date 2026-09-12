@@ -1,6 +1,6 @@
 // Trägt den Section-Rhythmus genau einmal am direkten Layout-Host einschließlich seiner Fläche.
 tj-content-pane {
-  --nt-spacing-section: clamp(var(--nt-space-8), 8vw, var(--nt-space-10));
+  --nt-spacing-section: clamp(var(--nt-space-7), 8vw, var(--nt-space-10));
   display: block;
 
   > :where(section, ntl-2col, ntl-card-row, ntl-card-grid) {

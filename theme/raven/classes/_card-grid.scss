@@ -10,7 +10,8 @@
 // Lässt jede Einheit bei längeren Texten intrinsisch wachsen.
 .card-grid > section {
   min-width: 0;
-  padding: var(--nt-spacing-component);
+  // Mobile Karten benötigen die ganze Textbreite innerhalb des Section-Containers.
+  padding: var(--nt-spacing-component) 0;
 }
 
 // Trennt gestapelte Einheiten ohne doppelte Außenrahmen.
@@ -57,4 +58,9 @@
 
 .card-grid.desktop > section:nth-child(n + 3) {
   border-top: var(--nt-border-width) solid var(--nt-border);
+}
+
+// Bewahrt die innere Trennung im zweispaltigen Desktop-Raster.
+.card-grid.desktop > section {
+  padding-inline: var(--nt-spacing-component);
 }

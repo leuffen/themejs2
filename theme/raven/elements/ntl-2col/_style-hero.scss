@@ -28,8 +28,14 @@
   }
 
   &[mode="mobile"] {
-    --gap: var(--nt-space-7);
-    --inner-padding: var(--nt-space-8) 0px;
+    --gap: var(--nt-space-6);
+    --inner-padding: var(--nt-space-7) 0px;
+
+    // Text und Porträt behalten mobil dieselben Seitenränder wie die Inhaltssections.
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
 
     &::part(wrapper) {
       min-height: 0;
