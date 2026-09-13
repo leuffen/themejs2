@@ -34,7 +34,7 @@
       aspect-ratio: 4 / 3;
     }
 
-    &::part(image) img {
+    > [slot="image"] {
       display: block;
       width: 100%;
       height: 100%;
