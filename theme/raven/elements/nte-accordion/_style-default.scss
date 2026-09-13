@@ -1,0 +1,75 @@
+// Verwendet die öffentliche Sass-API für Verhalten, Parts, Fokus und Hover-Zustände des Accordions.
+@use "@nextrap/nte-accordion" as accordion;
+
+// Überträgt Ravens nummerierte Prozessdarstellung auf wiederverwendbare aufklappbare Inhaltsgruppen.
+&.style-default {
+  @include accordion.default-style(
+    $item-gap: 0px,
+    $border: var(--nt-border-width) solid color-mix(in srgb, currentColor 24%, transparent),
+    $border-radius: 0,
+    $summary-padding: var(--nt-spacing-component) 0,
+    $content-padding: 0 0 var(--nt-spacing-component) calc(clamp(2.25rem, 5vw, var(--nt-space-7)) + clamp(var(--nt-space-3), 2vw, var(--nt-spacing-component))),
+    $summary-background: transparent,
+    $summary-background-hover: color-mix(in srgb, currentColor 4%, transparent),
+    $summary-color: var(--nt-header),
+    $content-background: transparent,
+    $marker-size: var(--nt-fs-4),
+    $marker-color: var(--nt-link),
+    $focus-outline: 2px solid var(--nt-focus)
+  );
+
+  counter-reset: process-step;
+  display: block;
+  width: 100%;
+  min-width: 0;
+
+  // Entfernt die vertikalen Rahmenkanten, damit die Schritte wie in der Raven-Vorlage horizontal gegliedert bleiben.
+  nte-accordion-item {
+    counter-increment: process-step;
+
+    &::part(details) {
+      border-inline: 0;
+    }
+  }
+
+  // Hält Überschrift und Öffnungsmarker in einer großzügigen, vollständig klickbaren Zeile.
+  nte-accordion-item::part(summary) {
+    gap: var(--nt-space-3);
+  }
+
+  // Stellt die fortlaufende Prozessnummer vor den unveränderten Überschriftentext.
+  nte-accordion-item > [slot="title"] {
+    display: grid;
+    grid-template-columns: clamp(2.25rem, 5vw, var(--nt-space-7)) minmax(0, 1fr);
+    column-gap: clamp(var(--nt-space-3), 2vw, var(--nt-spacing-component));
+    align-items: start;
+    min-width: 0;
+    color: var(--nt-header);
+    font-size: var(--nt-fs-h3);
+    line-height: var(--nt-line-height-header);
+    overflow-wrap: anywhere;
+
+    &::before {
+      content: counter(process-step, decimal-leading-zero);
+      color: var(--nt-link);
+      font-family: "Garamond", Georgia, serif;
+      font-size: var(--nt-fs-4);
+      font-weight: var(--nt-font-weight-normal);
+      line-height: 1.2;
+    }
+  }
+
+  // Bewahrt die ruhige Begleittypografie und verhindert zusätzliche Absatzabstände in der geöffneten Fläche.
+  nte-accordion-item > :last-child:not([slot="title"]) {
+    margin-bottom: 0;
+    color: var(--nt-text-muted);
+    font-size: var(--nt-fs-h5);
+    line-height: var(--nt-line-height);
+  }
+
+  // Verbindet den geöffneten Titel und Inhalt mit demselben subtilen Flächeneffekt wie beim Hover.
+  nte-accordion-item[open]::part(summary),
+  nte-accordion-item[open]::part(content) {
+    background: color-mix(in srgb, currentColor 4%, transparent);
+  }
+}
