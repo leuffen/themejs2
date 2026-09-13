@@ -7,13 +7,14 @@
 
   padding-block: var(--nt-space-7);
 
+  // Die Bildautomatik priorisiert mobil das Bild; hier steuert die Schrittfolge selbst Reihenfolge und Bildproportion.
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: var(--nt-space-7),
     $background: transparent,
     $border: 0,
     $border-radius: var(--nt-radius),
-    $objectFit: contain,
+    $objectFit: none,
     $wrapper-bg-color: transparent
   );
 
