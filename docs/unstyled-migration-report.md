@@ -67,3 +67,7 @@ Eine visuelle Desktop-/Mobil-Prüfung der veröffentlichten Vorschau steht aus. 
 - `theme/unify/elements/nte-image/nte-image.scss`
 - `theme/unify/elements/nte-spinner/_style-default.scss`
 - `theme/unify/elements/nte-spinner/nte-spinner.scss`
+
+## Beobachteter CI-Status
+
+Der erste [Pages-Lauf](https://github.com/leuffen/themejs2/actions/runs/34726779994) für Commit `00cea9325c3ee14b1d6fd1a8328c40866c0314e0` scheiterte bereits bei `npm update`: `Cannot read properties of null (reading 'edgesOut')`. Der Frontend-Build und die Vorschau wurden deshalb nicht ausgeführt. Dieser Installationsfehler ist zusätzlich zur noch ausstehenden Nextrap-Paketbereitstellung zu klären; er ist kein nachgewiesener Unstyled-Buildfehler.
