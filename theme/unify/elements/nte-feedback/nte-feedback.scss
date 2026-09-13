@@ -1,0 +1,3 @@
+// Das Theme übernimmt die Styles ausdrücklich, weil der JavaScript-Core keine Light-DOM-Styles lädt.
+@use "sass:meta";
+@include meta.load-css("./_style-default.scss");

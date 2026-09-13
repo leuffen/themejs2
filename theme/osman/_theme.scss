@@ -41,6 +41,11 @@
   }
 
   @layer themes.components {
+  // Diese zuvor per Komponenten-JavaScript gelieferten Styles gehören jetzt ausdrücklich dem Theme.
+  @include meta.load-css("./elements/nte-image/nte-image.scss");
+  @include meta.load-css("./elements/nte-feedback/nte-feedback.scss");
+  @include meta.load-css("./elements/nte-spinner/nte-spinner.scss");
+
     @include nextrapButton.style-button();
     @include meta.load-css("./elements/nte-input/nte-input.scss");
 

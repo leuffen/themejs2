@@ -168,3 +168,7 @@ Komponenten, Module, Varianten, Breakpoints, Slots, Zustände oder öffentliche
 APIs vor der Umsetzung geprüft werden. Wenn Seiteneffekte nicht eindeutig
 ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 Änderung darf bis zur Klärung nicht umgesetzt werden.
+
+## Nextrap-Entrypoints beim Seaming
+
+Alle JavaScript-/TypeScript-Imports von `@nextrap/nte-*` und `@nextrap/ntl-*` verwenden `/unstyled`, auch in Hilfsmodulen und Nutzprojekt-Vorlagen. Der normale Paketimport injiziert künftig die Default-Light-DOM-Styles für SPAs. `/unstyled` enthält keine direkten oder transitiven Light-DOM-Styles; das Theme bindet die öffentliche Sass-API ausdrücklich ein. Sass-Imports bleiben ohne `/unstyled`. Der Build benötigt Nextrap-Paketartefakte mit dem neuen `/unstyled`-Export.
