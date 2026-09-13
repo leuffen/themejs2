@@ -1,13 +1,10 @@
 ---
 layout: 20_body
 ---
-{% comment %}Wählt den Rahmen unabhängig vom Inhaltslayout; false blendet ihn aus.{% endcomment %}
+{% comment %}Wählt ausschließlich in der GitHub-Pages-Demo die Rahmenvariante; false blendet sie aus.{% endcomment %}
 {% if page.use_navbar != false and layout.use_navbar != false and page.skip-navbar != true %}
-    {% assign selected = layout.use_navbar | default: page.use_navbar | default: "default" %}
-    {% assign frame_file = "fragments/navbar.html" %}
-    {% if selected != "default" %}
-        {% assign frame_file = "fragments/navbar.alt-" | append: selected | append: ".html" %}
-    {% endif %}
+    {% assign selected = page.use_navbar | default: "default" %}
+    {% assign frame_file = "_styles/" | append: selected | append: "/navbar.html" %}
     {% include {{ frame_file }} %}
 {% endif %}
 

@@ -105,22 +105,25 @@ use_footer: raven
 ---
 ```
 
-`body_class` aktiviert das CSS-Theme. Header und Footer bleiben davon unabhängig:
-`use_navbar` und `use_footer` wählen `fragments/navbar.alt-<name>.html` bzw.
-`fragments/footer.alt-<name>.html`. Ohne Auswahl gelten `navbar.html` und `footer.html`.
-`false` deaktiviert den jeweiligen Bereich; `skip-navbar: true` bleibt unterstützt.
+`body_class` aktiviert das CSS-Theme. Nur die GitHub-Pages-Demo unter `docs/`
+wählt Header und Footer über `use_navbar` und `use_footer` aus
+`_includes/_styles/<variante>/navbar.html` bzw. `footer.html`.
+Ohne Angabe gilt `default`; `false` deaktiviert den Bereich und `skip-navbar: true`
+bleibt ausschließlich in der Demo unterstützt.
 
 Die Layout-Kette entspricht Osman2: `70_main → 60_footer → 50_navbar → 20_body → 10_blanc`.
 `20_body` übernimmt die bisherige Script-Stufe. Header stehen vor, Footer nach dem Inhalt.
-Die Auswahl funktioniert identisch in `docs` und `_root`; sie benötigt keine JavaScript-Laufzeit.
 
 ### Übergang von `docs/` zum Kundenprojekt
 
 1. `_root/` als Projektwurzel kopieren; Jekyll-Inhalte liegen darin unter `docs/`.
 2. Genau ein Theme unter `docs/_src/style.scss` konfigurieren; die Vorlage verwendet Osman.
-3. Kundendaten in `docs/_data/` eintragen und Header/Footer im Frontmatter getrennt auswählen.
-4. Eigene Rahmen als `fragments/navbar.alt-<name>.html` und `fragments/footer.alt-<name>.html` ablegen.
-5. Gemeinsame Includes unter `components/`, `helpers/` und `fragments/` synchron halten.
+3. Kundendaten in `docs/_data/` eintragen. Die Vorlage enthält genau einen festen Rahmen:
+   Navbar-Markup in `docs/_layouts/50_navbar.html`, Footer-Markup in `docs/_layouts/60_footer.html`.
+4. Für einen anderen Kundenrahmen das gewünschte Demo-Markup in diese Dateien übernehmen
+   oder dort direkt bearbeiten. Layout-Frontmatter und die Position von `{{ content }}` erhalten.
+   Keine Demo-Auswahl, `_styles`-Verzeichnisse, Alternativen oder Schaltwerkzeuge kopieren.
+5. Gemeinsame fachliche Includes unter `components/`, `helpers/` und `fragments/` synchron halten.
 6. Kategorie-Seiten wie Osman2 als `leistungen/index.md` und direkte Unterseiten organisieren;
    `ptags: [nav]` nimmt sie ins Menü auf. Nur die Demo verwendet `navigation_root: pages`.
 

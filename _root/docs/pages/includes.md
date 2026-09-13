@@ -1,8 +1,6 @@
 ---
 layout: website
 title: Includes verwenden
-use_navbar: default
-use_footer: default
 ---
 
 ## 1. Kontakt und Öffnungszeiten

@@ -1,7 +1,9 @@
 # Includes und Website-Rahmen
 
 `docs/_includes/` und `_root/docs/_includes/` verwenden die aktuelle Struktur von Osman2.
-Die alten Verzeichnisse `el/`, `do/`, `part/` und `_styles/` entfallen.
+Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
+Die Kunden-Navbar und der Kunden-Footer stehen fest in `_layouts/50_navbar.html`
+und `_layouts/60_footer.html`.
 
 | Pfad relativ zu `_includes/` | Aufgabe |
 | --- | --- |
@@ -21,4 +23,3 @@ Die alten Verzeichnisse `el/`, `do/`, `part/` und `_styles/` entfallen.
 | `helpers/urls/page.html` | Sprachabhängige Seiten-URL |
 | `helpers/text/remove-line-breaks.html` | Textaufbereitung |
 | `fragments/loader.html` | Seitenweiter Loader |
-| `fragments/navbar.html`, `fragments/footer.html` | Standardrahmen |

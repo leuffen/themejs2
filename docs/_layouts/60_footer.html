@@ -3,12 +3,9 @@ layout: 50_navbar
 ---
 {{ content }}
 
-{% comment %}Wählt den Rahmen unabhängig vom Inhaltslayout; false blendet ihn aus.{% endcomment %}
+{% comment %}Wählt ausschließlich in der GitHub-Pages-Demo die Rahmenvariante; false blendet sie aus.{% endcomment %}
 {% if page.use_footer != false and layout.use_footer != false %}
-    {% assign selected = layout.use_footer | default: page.use_footer | default: "default" %}
-    {% assign frame_file = "fragments/footer.html" %}
-    {% if selected != "default" %}
-        {% assign frame_file = "fragments/footer.alt-" | append: selected | append: ".html" %}
-    {% endif %}
+    {% assign selected = page.use_footer | default: "default" %}
+    {% assign frame_file = "_styles/" | append: selected | append: "/footer.html" %}
     {% include {{ frame_file }} %}
 {% endif %}

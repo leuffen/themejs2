@@ -1,7 +1,8 @@
 # Includes und Website-Rahmen
 
 `docs/_includes/` und `_root/docs/_includes/` verwenden die aktuelle Struktur von Osman2.
-Die alten Verzeichnisse `el/`, `do/`, `part/` und `_styles/` entfallen.
+Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
+`docs/_includes/_styles/` bleibt ausschließlich für die GitHub-Pages-Demo erhalten.
 
 | Pfad relativ zu `_includes/` | Aufgabe |
 | --- | --- |
@@ -21,7 +22,7 @@ Die alten Verzeichnisse `el/`, `do/`, `part/` und `_styles/` entfallen.
 | `helpers/urls/page.html` | Sprachabhängige Seiten-URL |
 | `helpers/text/remove-line-breaks.html` | Textaufbereitung |
 | `fragments/loader.html` | Seitenweiter Loader |
-| `fragments/navbar.html`, `fragments/footer.html` | Standardrahmen |
+| `_styles/<variante>/navbar.html`, `_styles/<variante>/footer.html` | Austauschbare Rahmen nur in `docs/` |
 
 ## 1. Standardseite
 
@@ -37,9 +38,9 @@ Adressen liegen wie bei Osman2 unter `site.data.general.standorte.default`.
 Die bisherige flache Standardadresse wird weiterhin unterstützt.
 Leuffen-Logos liegen unter `assets/leuffen/` und werden aus beiden Umgebungen identisch eingebunden.
 
-## 2. Header und Footer getrennt wählen
+## 2. Demo-Varianten und feste Kundenlayouts
 
-Diese Frontmatter ersetzt die Standardauswahl:
+Nur die GitHub-Pages-Demo unter `docs/` wählt Navbar und Footer über Frontmatter:
 
 ```yaml
 layout: website
@@ -47,13 +48,20 @@ use_navbar: osman
 use_footer: mueller
 ```
 
-`use_navbar: false` und `use_footer: false` blenden den jeweiligen Bereich aus.
-`skip-navbar: true` bleibt ebenfalls unterstützt; `layout: blanco` blendet beide Bereiche aus.
-Eigene Varianten liegen unter `fragments/navbar.alt-mein-header.html` bzw.
-`fragments/footer.alt-mein-footer.html` und werden mit `use_navbar: mein-header`
-bzw. `use_footer: mein-footer` ausgewählt. Das Inhaltslayout muss dafür nicht geändert werden.
-Die vorhandenen Varianten heißen für Navbar `default`, `osman`, `unify` und für Footer
-`default`, `osman`, `mueller`, `raven`, `unify`.
+Die Dateien liegen unter `docs/_includes/_styles/osman/navbar.html` und
+`docs/_includes/_styles/mueller/footer.html`. Ohne Auswahl gilt jeweils `default`.
+`use_navbar: false`, `use_footer: false` und `skip-navbar: true` werden ausschließlich
+in den Demo-Layouts ausgewertet; `layout: blanco` ist dort rahmenlos.
+Verfügbar sind die Navbar-Varianten `default`, `osman`, `unify` sowie die
+Footer-Varianten `default`, `osman`, `mueller`, `raven`, `unify`.
+
+`_root/` ist die Vorlage für Kunden-Repositories. Dort steht genau eine Navbar direkt
+in `docs/_layouts/50_navbar.html` und genau ein Footer direkt in
+`docs/_layouts/60_footer.html`, aktuell aus der Osman-Variante übernommen.
+Individuelle Änderungen erfolgen direkt in diesen beiden Dateien.
+Es gibt dort keine Variantenauswahl, Ausblendschalter, Theme-Switcher-Abhängigkeit
+oder alternativen Rahmenkopien. Das schlanke `blanco`-Layout verwendet direkt
+`20_body` und benötigt deshalb ebenfalls keine Umschaltlogik.
 
 ## 3. Navigation und Kategorie-Seiten
 
@@ -70,6 +78,8 @@ Die gemeinsame Kette lautet `10_blanc` → `20_body` → `50_navbar` → `60_foo
 Die bisherige Stufe `30_script` ist in `20_body` integriert.
 `index`, `legal/legal`, `default` und `website` ergänzen die übernommenen Osman2-Layouts;
 vorhandene Artikel- und Collection-Layouts bleiben nutzbar.
-Explizite Varianten liegen zusätzlich unter `_layouts/alternatives/`.
-`_root` enthält dieselben Includes, Rahmenfragmente, Logos und Beispieldaten.
+Die Rahmenvarianten liegen ausschließlich unter `docs/_includes/_styles/`;
+`_layouts/alternatives/` und zusätzliche Rahmenfragmente entfallen in beiden Umgebungen.
+`_root` enthält dieselben fachlichen Includes, Logos und Beispieldaten.
+Der gewählte Website-Rahmen ist dort fest in die beiden Layout-Dateien integriert.
 Unter `_root/docs/_src/style.scss` wird nur das gewählte Osman-Theme geladen.
