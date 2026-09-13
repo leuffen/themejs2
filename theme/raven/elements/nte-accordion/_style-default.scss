@@ -8,7 +8,7 @@
     $border: var(--nt-border-width) solid color-mix(in srgb, currentColor 24%, transparent),
     $border-radius: 0,
     $summary-padding: var(--nt-spacing-component) 0,
-    $content-padding: 0 0 var(--nt-spacing-component) calc(clamp(var(--nt-space-5), 5vw, var(--nt-space-7)) + clamp(var(--nt-space-3), 2vw, var(--nt-spacing-component))),
+    $content-padding: 0 0 var(--nt-spacing-component) calc(clamp(2.25rem, 5vw, var(--nt-space-7)) + clamp(var(--nt-space-3), 2vw, var(--nt-spacing-component))),
     $summary-background: transparent,
     $summary-background-hover: color-mix(in srgb, currentColor 4%, transparent),
     $summary-color: var(--nt-header),
@@ -40,7 +40,7 @@
   // Stellt die fortlaufende Prozessnummer vor den unveränderten Überschriftentext.
   nte-accordion-item > [slot="title"] {
     display: grid;
-    grid-template-columns: clamp(var(--nt-space-5), 5vw, var(--nt-space-7)) minmax(0, 1fr);
+    grid-template-columns: clamp(2.25rem, 5vw, var(--nt-space-7)) minmax(0, 1fr);
     column-gap: clamp(var(--nt-space-3), 2vw, var(--nt-spacing-component));
     align-items: start;
     min-width: 0;
