@@ -3,9 +3,12 @@ layout: 50_navbar
 ---
 {{ content }}
 
-{% comment %}Wählt nur in der Demo den Footer pro Seite; false unterdrückt den gesamten Footer.{% endcomment %}
-{% if page.use_footer != false %}
-    {% assign footer_style = page.use_footer | default: "default" %}
-    {% assign footer_file = "_styles/" | append: footer_style | append: "/footer.html" %}
-    {% include {{ footer_file }} %}
+{% comment %}Wählt den Rahmen unabhängig vom Inhaltslayout; false blendet ihn aus.{% endcomment %}
+{% if page.use_footer != false and layout.use_footer != false %}
+    {% assign selected = layout.use_footer | default: page.use_footer | default: "default" %}
+    {% assign frame_file = "fragments/footer.html" %}
+    {% if selected != "default" %}
+        {% assign frame_file = "fragments/footer.alt-" | append: selected | append: ".html" %}
+    {% endif %}
+    {% include {{ frame_file }} %}
 {% endif %}

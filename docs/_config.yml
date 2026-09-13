@@ -82,3 +82,6 @@ defaults:
 plugins:
   - jekyll-optional-front-matter
   - jekyll-sitemap
+
+# Die Demo-Kategorien liegen unter pages; Nutzprojekte beginnen direkt in docs.
+navigation_root: pages

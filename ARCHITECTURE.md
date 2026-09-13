@@ -105,71 +105,24 @@ use_footer: raven
 ---
 ```
 
-`body_class` aktiviert das CSS-Theme. `use_navbar` und `use_footer` wählen
-HTML-Includes unter `docs/_includes/_styles/<name>/`. Diese Dateien sind
-Jekyll-/HTML-Fragmente, keine SCSS-Dateien. Vorhandene Kombinationen:
+`body_class` aktiviert das CSS-Theme. Header und Footer bleiben davon unabhängig:
+`use_navbar` und `use_footer` wählen `fragments/navbar.alt-<name>.html` bzw.
+`fragments/footer.alt-<name>.html`. Ohne Auswahl gelten `navbar.html` und `footer.html`.
+`false` deaktiviert den jeweiligen Bereich; `skip-navbar: true` bleibt unterstützt.
 
-| Theme | `use_navbar` | `use_footer` |
-| --- | --- | --- |
-| ePraxis / allgemeine Demo | `default` | `default` |
-| Müller | `default` | `mueller` |
-| Osman | `osman` | `osman` |
-| Raven | `osman` | `raven` |
-| Unify | `unify` | `unify` |
-
-Ohne Angabe gilt jeweils `default`, auch über `docs/_config.yml`.
-`use_navbar: false` beziehungsweise `use_footer: false` unterdrückt den
-entsprechenden Baustein; `skip-navbar: true` bleibt ebenfalls unterstützt.
-`false` muss ein YAML-Boolean sein, kein Text in Anführungszeichen.
-Ein explizit gewählter Name muss als Include existieren; ein Tippfehler soll
-beim Jekyll-Build auffallen und nicht unbemerkt einen anderen Header anzeigen.
-
-Die Layout-Kette bleibt `70_main → 60_footer → 50_navbar → 30_script →
-20_body → 10_blanc`. `50_navbar` setzt den gewählten Header vor den Inhalt,
-`60_footer` den gewählten Footer dahinter. Die Demo-Auswahl erfolgt beim
-Jekyll-Build und benötigt keine zusätzliche JavaScript-Laufzeit.
+Die Layout-Kette entspricht Osman2: `70_main → 60_footer → 50_navbar → 20_body → 10_blanc`.
+`20_body` übernimmt die bisherige Script-Stufe. Header stehen vor, Footer nach dem Inhalt.
+Die Auswahl funktioniert identisch in `docs` und `_root`; sie benötigt keine JavaScript-Laufzeit.
 
 ### Übergang von `docs/` zum Kundenprojekt
 
-1. `_root/` als Projektwurzel kopieren; darin liegen die Jekyll-Dateien unter
-   `docs/`. Die Demo niemals vollständig über `_root/` kopieren.
-2. Ein Theme in `docs/_src/style.scss` des Kundenprojekts konfigurieren und
-   die passende Body-Klasse verwenden. Demo-Seiten, Theme-Galerie und parallele
-   Theme-Registrierungen werden nicht automatisch übernommen.
-3. Den gewünschten Header und Footer aus der Demo anhand folgender Zuordnung
-   mit den aktiven Kundenlayouts abgleichen:
+1. `_root/` als Projektwurzel kopieren; Jekyll-Inhalte liegen darin unter `docs/`.
+2. Genau ein Theme unter `docs/_src/style.scss` konfigurieren; die Vorlage verwendet Osman.
+3. Kundendaten in `docs/_data/` eintragen und Header/Footer im Frontmatter getrennt auswählen.
+4. Eigene Rahmen als `fragments/navbar.alt-<name>.html` und `fragments/footer.alt-<name>.html` ablegen.
+5. Gemeinsame Includes unter `components/`, `helpers/` und `fragments/` synchron halten.
+6. Kategorie-Seiten wie Osman2 als `leistungen/index.md` und direkte Unterseiten organisieren;
+   `ptags: [nav]` nimmt sie ins Menü auf. Nur die Demo verwendet `navigation_root: pages`.
 
-| Demo-Quelle im ThemeJS2-Repository | Ziel in der Vorlage |
-| --- | --- |
-| `docs/_includes/_styles/<navbar>/navbar.html` | `_root/docs/_layouts/50_navbar.html` |
-| `docs/_includes/_styles/<footer>/footer.html` | `_root/docs/_layouts/60_footer.html` |
-| `docs/_layouts/70_main.html` | `_root/docs/_layouts/70_main.html` |
-| gemeinsame Includes außerhalb `_styles/` | `_root/docs/_includes/` unter gleichem Namen |
-
-4. Nur das ausgewählte Fragment in das jeweilige Layout übernehmen: Im Header
-   bleiben `layout: 30_script`, die gewünschte Ausblendbedingung und genau ein
-   `{{ content }}` **nach** dem Header erhalten. Im Footer bleiben
-   `layout: 50_navbar` und genau ein `{{ content }}` **vor** dem Footer erhalten.
-   Den Demo-Dispatcher und `_includes/_styles/` nicht ins Kundenprojekt kopieren.
-5. `use_navbar` und `use_footer` zur Variantenauswahl aus übernommenen
-   Kundenseiten entfernen. Das Kundenprojekt enthält genau einen aktiven Header
-   und Footer. Die vorhandenen Dateien unter `_layouts/alternatives/` sind
-   inaktive Vorlagen, keine automatische Auswahl. Bei deren Verwendung das
-   Fragment in `50_navbar.html` beziehungsweise `60_footer.html` einsetzen;
-   historische `50_footer.alt-*.html`-Namen ändern nicht den aktiven Zielnamen
-   `60_footer.html`.
-6. Abhängige Includes, Datenfelder, Logos, Links und CSS-Varianten gezielt
-   abgleichen. Kundendaten und Inhalte nicht durch Demo-Daten ersetzen.
-   Danach Jekyll-Ausgabe und Website-Rahmen auf Desktop und Mobil prüfen:
-   genau ein Header, ein Hauptinhalt, ein Footer; passende Slots, IDs,
-   Navigation und Offcanvas-Verhalten. Bei Asset-Änderungen zusätzlich Vite bauen.
-
-Spätere Korrekturen folgen derselben Zuordnung: gemeinsame Funktionalität
-abgleichen, die Demo-Auswahl ausschließlich in `docs/` belassen. `_root` bleibt
-die Quelle für die gemeinsame Kundenstruktur und öffentliche Include-Namen;
-`_styles` ist die ausdrücklich getrennte Preview-Struktur.
-
-Historie: Commit `5aef0a403e157449be01528e0d591b5550ef819b` entfernte die
-Demo-Includes und verschob Varianten in Layout-Alternativen. Die Wiederherstellung
-übernimmt erhaltene Footer-Varianten und bewahrt die neueren Osman-/Unify-Rahmen,
-statt die gesamte Demo auf den damaligen Repository-Stand zurückzusetzen.
+Leuffen-Logos liegen in beiden Umgebungen unter `assets/leuffen/`.
+Die öffentlichen Include-Pfade, Parameter und Beispiele stehen in [README_INCLUDES.md](README_INCLUDES.md).

@@ -7,7 +7,7 @@ use_footer: unify
 description: "Unify-Demo für moderne Business-, Agentur- und Beratungsseiten mit Nextstrap-Layouts."
 ptags:
   - business
-  - subnav
+  - nav
 pid: site
 ---
 

@@ -6,7 +6,7 @@ description: "Absätze, Textauszeichnungen und Default-Elemente im Theme Müller
 use_footer: mueller
 ptags:
   - arzt
-  - subnav
+  - nav
 pid: site
 ---
 
