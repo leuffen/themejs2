@@ -32,10 +32,11 @@
       border-radius: 50%;
     }
 
-    &::part(image) img {
-      width: 100%;
-      height: 100%;
+    > [slot="image"] {
+      width: 3rem;
+      height: 3rem;
       object-fit: cover;
+      border-radius: 50%;
     }
 
     // Bewahrt Zitat und Quellenangabe als flexible, gut umbrechende Karteninhalte.
