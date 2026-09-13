@@ -19,6 +19,7 @@
   // Ordnet Hauptaussage und Tarifkarte an einer gemeinsamen vertikalen Mitte aus.
   &::part(wrapper) {
     align-items: center;
+    overflow: visible;
   }
 
   // Gibt der Textspalte die Referenzbreite und hält die Tarifkarte auf 5 von 12 Spalten.
@@ -99,7 +100,8 @@
     box-sizing: border-box;
     min-width: 0;
     overflow-wrap: anywhere;
-    padding: var(--nt-space-6);
+    position: relative;
+    padding: var(--nt-space-5);
     border-radius: var(--nt-radius);
     background: var(--nt-surface-raised);
     box-shadow: 0 var(--nt-space-4) 1.75rem rgba(45, 55, 75, .1);
@@ -116,10 +118,40 @@
 
   // Trennt Optionen durch eine klare Klickflächen-Geometrie statt fester Textlängen.
   .plan-options li {
-    padding: var(--nt-space-4);
-    border: 1px solid var(--nt-border);
+    position: relative;
+    min-width: 0;
+    border: 1px solid transparent;
     border-radius: calc(var(--nt-radius) / 2);
     transition: border-color .2s ease, background-color .2s ease;
+  }
+
+  // Die gesamte beschriftete Karte aktiviert das native Radio; der Fokus bleibt sichtbar.
+  .plan-options label {
+    display: block;
+    padding: var(--nt-space-4);
+    padding-right: var(--nt-space-7);
+    cursor: pointer;
+    font-size: .875rem;
+    overflow-wrap: anywhere;
+  }
+
+  .plan-options input {
+    position: absolute;
+    top: var(--nt-space-3);
+    right: var(--nt-space-3);
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--nt-primary);
+    cursor: pointer;
+  }
+
+  .plan-options li:focus-within {
+    outline: 2px solid var(--nt-focus);
+    outline-offset: 2px;
+  }
+
+  .plan-options li:hover {
+    background: var(--nt-surface-muted);
   }
 
   // Trennt Tarifname, Preis und Beschreibung auch bei längeren Übersetzungen lesbar.
@@ -131,7 +163,7 @@
   // Behandelt den Preis als kompakten Untertitel innerhalb der jeweiligen Option.
   .plan-options strong {
     color: var(--nt-header);
-    font-size: 1.125rem;
+    font-size: 1.3125rem;
     line-height: 1.4;
   }
 
@@ -145,7 +177,7 @@
   // Formt die Empfehlung als grünes, kontrastreiches Pill-Badge der Referenz.
   .plan-options mark {
     display: inline-block;
-    margin-top: var(--nt-space-2);
+    margin-left: var(--nt-space-1);
     padding: .2rem .55rem;
     border-radius: 999px;
     color: var(--nt-primary);
@@ -176,10 +208,30 @@
     text-align: center;
   }
 
-  // Markiert die empfohlene Option über den semantischen Mark-Inhalt.
-  .plan-options li:has(mark) {
+  // Färbt ausschließlich die tatsächlich gewählte Option, unabhängig von Empfehlung und Position.
+  .plan-options li:has(input:checked) {
     border-color: var(--nt-primary);
     background: color-mix(in srgb, var(--nt-primary) 6%, white);
+  }
+
+  // Übernimmt die dekorative Markierung der Vorlage außerhalb der Karte ohne Inhaltsüberlagerung.
+  &::part(aside)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: var(--nt-space-7);
+    height: var(--nt-space-7);
+    background: url("https://static.leanea.de/uni-v3.0-docs/assets/svg/components/pointer-up.svg") center / contain no-repeat;
+    pointer-events: none;
+  }
+
+  // Hält die Aktionspfeile am Textende auch bei mehrzeiligen Beschriftungen.
+  > p:not(.aside) > .btn::after,
+  .plan-contact a::after {
+    content: "\2192";
+    display: inline-block;
+    margin-left: var(--nt-space-2);
   }
 
   // Stapelt Hero-Inhalt und Tarifkarte auf kleinen Ansichten in natürlicher Lesereihenfolge.
@@ -210,17 +262,20 @@
       font-size: 1.3125rem;
     }
 
+    &::part(aside)::after {
+      display: none;
+    }
+
     .saas-reviews {
-      flex-direction: column;
       gap: var(--nt-space-4);
     }
 
     .saas-reviews li {
-      width: 100%;
+      flex: 1 1 8rem;
       max-width: none;
       padding: 0 0 var(--nt-space-4);
       border-right: 0;
-      border-bottom: 1px solid var(--nt-border);
+      border-bottom: 0;
       overflow-wrap: anywhere;
     }
 
