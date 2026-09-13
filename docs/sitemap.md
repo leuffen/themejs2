@@ -18,7 +18,5 @@ title: Sitemap
 
 
 <div class="container">
-  {% include el/navtree.html %}
+  {% include components/navigation/tree.html %}
 </div>
-
-

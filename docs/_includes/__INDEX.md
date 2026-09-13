@@ -1,36 +1,25 @@
-# Include-Index
+# Includes und Website-Rahmen
 
-| Datei | Funktion |
+`docs/_includes/` und `_root/docs/_includes/` verwenden die aktuelle Struktur von Osman2.
+Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
+`docs/_includes/_styles/` bleibt ausschließlich für die GitHub-Pages-Demo erhalten.
+
+| Pfad relativ zu `_includes/` | Aufgabe |
 | --- | --- |
-| `_styles/default/navbar.html` | Allgemeiner Demo-Header mit aktueller Navigations-API. |
-| `_styles/default/footer.html` | Allgemeiner Demo-Footer. |
-| `_styles/osman/navbar.html` | Osman-Header, auch in der Raven-Demo verwendet. |
-| `_styles/osman/footer.html` | Aktueller Osman-Footer. |
-| `_styles/mueller/footer.html` | Müller-Footer. |
-| `_styles/raven/footer.html` | Raven-Footer. |
-| `_styles/unify/navbar.html` | Unify-Header mit mobiler Navigation. |
-| `_styles/unify/footer.html` | Unify-Footer. |
-| `dist/README.md` | Hinweis/Dokumentation für generierte oder ausgelieferte Include-Artefakte. |
-| `do/link.html` | Hilfs-Include zur Link-Erzeugung bzw. Link-Normalisierung. |
-| `do/remove-line-breaks.html` | Entfernt Zeilenumbrüche aus übergebenem Inhalt. |
-| `do/trans.html` | Kleine Transformations-/Übersetzungshilfe für Include-Inhalte. |
-| `el/address.html` | Rendert Adressdaten. |
-| `el/lang-chooser-list.html` | Rendert eine Sprachwahl als Liste. |
-| `el/navbar.html` | Allgemeiner Navbar-Baustein. |
-| `el/navtree.html` | Rendert die hierarchische Navigationsstruktur. |
-| `el/openhours.html` | Rendert Öffnungszeiten. |
-| `el/pagebuilder-link.html` | Rendert bzw. erzeugt einen Pagebuilder-Link. |
-| `el/post-preview.html` | Vorschau eines einzelnen Posts. |
-| `el/post-previews-by-name.html` | Rendert Post-Vorschauen anhand vorgegebener Namen. |
-| `el/post-previews-per-category.html` | Gruppiert/rendert Post-Vorschauen nach Kategorie. |
-| `el/post-previews.html` | Rendert eine allgemeine Liste von Post-Vorschauen. |
-| `el/sitemap-table.html` | Rendert Sitemap-Inhalte tabellarisch. |
-| `el/tag-link-list.html` | Rendert eine Linkliste aus Tags. |
-| `el/TODO.md` | Arbeitsnotizen für Element-Includes. |
-| `global.md` | Globaler Markdown-Inhalt, der im Hauptlayout eingebunden wird. |
-| `part/loader.html` | Loader-/Runtime-Baustein, der im Body-Layout eingebunden wird. |
-
-`use_navbar` und `use_footer` im Seiten-Frontmatter wählen diese Demo-Varianten;
-ohne Angabe gilt `default`, mit `false` entfällt der Baustein.
-`_styles/` wird nicht nach `_root` kopiert: Das ausgewählte Markup wird in die
-aktiven Kundenlayouts übertragen, siehe [Architektur](../../ARCHITECTURE.md#übergang-von-docs-zum-kundenprojekt).
+| `components/contact/address.html` | Adresse, optional `standort`, `show_phone`, `show_fax`, `show_email` |
+| `components/site/opening-hours.html` | Tabelle aus `site.data.openhours.table` oder `hours` |
+| `components/navigation/main.html` | Hauptmenü aus Verzeichnishierarchie, `tag`, `root`, `max_depth` |
+| `components/navigation/footer.html` | Listenpunkte für Footer, `tag` oder `items` |
+| `components/navigation/footer-flat.html` | Flache Footer-Liste mit `ptag` |
+| `components/navigation/section-cards.html` | Karten für direkte Unterseiten |
+| `components/navigation/tree.html` | Erweiterte rekursive Baumdarstellung |
+| `components/navigation/sitemap-table.html` | Sitemap-Tabelle |
+| `components/navigation/language-list.html` | Sprachwahl |
+| `components/navigation/tag-links.html` | Links mit einem bestimmten Tag |
+| `components/posts/` | Vorhandene Blog-Vorschauen |
+| `helpers/i18n/translate.html` | Text mit `key`, optional `lang` und `fallback` |
+| `helpers/urls/pagebuilder.html` | URL zum Bearbeiten der aktuellen Seite |
+| `helpers/urls/page.html` | Sprachabhängige Seiten-URL |
+| `helpers/text/remove-line-breaks.html` | Textaufbereitung |
+| `fragments/loader.html` | Seitenweiter Loader |
+| `_styles/<variante>/navbar.html`, `_styles/<variante>/footer.html` | Austauschbare Rahmen nur in `docs/` |

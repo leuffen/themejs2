@@ -7,7 +7,7 @@ use_navbar: unify
 use_footer: unify
 ptags:
   - business
-  - subnav
+  - nav
 pid: site
 ---
 

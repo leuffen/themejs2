@@ -1,0 +1,20 @@
+{%- comment -%}
+Returns a translated scalar value.
+
+Required:
+- key: translation key
+
+Optional:
+- lang: translation language; defaults to page.lang
+- fallback: value for a missing translation; defaults to key
+{%- endcomment -%}
+{%- assign translation_key = include.key -%}
+{%- assign requested_lang = include.lang | default: page.lang -%}
+{%- assign fallback = include.fallback | default: translation_key -%}
+{%- if translation_key and requested_lang and site.data.translations[translation_key][requested_lang] -%}
+{{- site.data.translations[translation_key][requested_lang] -}}
+{%- elsif fallback -%}
+{{- fallback -}}
+{%- else -%}
+<!-- helpers/i18n/translate.html: required parameter "key" is missing -->
+{%- endif -%}

@@ -1,11 +1,11 @@
 ---
-layout: 30_script
+layout: 20_body
 ---
-{% comment %}Wählt nur in der Demo den Header pro Seite; false und skip-navbar blenden ihn aus.{% endcomment %}
-{% if page.use_navbar != false and page.skip-navbar != true %}
-    {% assign navbar_style = page.use_navbar | default: "default" %}
-    {% assign navbar_file = "_styles/" | append: navbar_style | append: "/navbar.html" %}
-    {% include {{ navbar_file }} %}
+{% comment %}Wählt ausschließlich in der GitHub-Pages-Demo die Rahmenvariante; false blendet sie aus.{% endcomment %}
+{% if page.use_navbar != false and layout.use_navbar != false and page.skip-navbar != true %}
+    {% assign selected = page.use_navbar | default: "default" %}
+    {% assign frame_file = "_styles/" | append: selected | append: "/navbar.html" %}
+    {% include {{ frame_file }} %}
 {% endif %}
 
 {{ content }}
