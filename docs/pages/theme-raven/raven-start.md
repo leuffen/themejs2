@@ -7,7 +7,7 @@ use_footer: raven
 description: "Dr. med. Tim Raven – Facharzt für Orthopädie und Unfallchirurgie mit Schwerpunkt Sporttraumatologie, funktionelle Orthopädie und regenerative Medizin."
 ptags:
   - arzt
-  - subnav
+  - nav
 pid: site
 ---
 

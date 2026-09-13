@@ -3,9 +3,9 @@ layout: 50_navbar
 ---
 {{ content }}
 
-{% comment %}Wählt nur in der Demo den Footer pro Seite; false unterdrückt den gesamten Footer.{% endcomment %}
-{% if page.use_footer != false %}
-    {% assign footer_style = page.use_footer | default: "default" %}
-    {% assign footer_file = "_styles/" | append: footer_style | append: "/footer.html" %}
-    {% include {{ footer_file }} %}
+{% comment %}Wählt ausschließlich in der GitHub-Pages-Demo die Rahmenvariante; false blendet sie aus.{% endcomment %}
+{% if page.use_footer != false and layout.use_footer != false %}
+    {% assign selected = page.use_footer | default: "default" %}
+    {% assign frame_file = "_styles/" | append: selected | append: "/footer.html" %}
+    {% include {{ frame_file }} %}
 {% endif %}

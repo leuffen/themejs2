@@ -5,7 +5,7 @@ title: ePraxis – Default Elements
 description: "Absätze, Textauszeichnungen und Default-Elemente im Theme ePraxis."
 ptags:
   - epraxis
-  - subnav
+  - nav
 pid: site
 ---
 

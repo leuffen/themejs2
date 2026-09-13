@@ -1,0 +1,98 @@
+{%- comment -%}
+Renders cards for direct child pages.
+
+Optional:
+- base: source path; defaults to page.path
+- tags: comma-separated transitional tag filter; defaults to no filter
+- lang: page language; defaults to page.lang
+- show_image, show_summary: output switches; default to true
+{%- endcomment -%}
+{%- assign base_source = include.base | default: page.path -%}
+{%- assign base_key = base_source | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
+{%- if base_key == 'index' -%}
+    {%- assign base_key = '' -%}
+{%- elsif base_key contains '/index' -%}
+    {%- assign base_key = base_key | replace: '/index', '' -%}
+{%- endif -%}
+{%- assign requested_tags = include.tags | default: '' | split: ',' -%}
+{%- assign requested_lang = include.lang | default: page.lang -%}
+{%- assign show_image = true -%}
+{%- assign show_summary = true -%}
+{%- if include.show_image == false -%}{%- assign show_image = false -%}{%- endif -%}
+{%- if include.show_summary == false -%}{%- assign show_summary = false -%}{%- endif -%}
+{%- assign tree_pages = site.pages | sort: 'path' | sort: 'order' -%}
+{%- for child in tree_pages -%}
+    {%- if child.published == false -%}{%- continue -%}{%- endif -%}
+    {%- if requested_lang and child.lang and child.lang != requested_lang -%}{%- continue -%}{%- endif -%}
+    {%- assign child_matches_ptag = true -%}
+    {%- if include.tags -%}
+        {%- assign child_matches_ptag = false -%}
+        {%- if child.ptags -%}
+            {%- for requested_tag in requested_tags -%}
+                {%- assign requested_tag = requested_tag | strip -%}
+                {%- if requested_tag != '' and child.ptags contains requested_tag -%}
+                    {%- assign child_matches_ptag = true -%}
+                    {%- break -%}
+                {%- endif -%}
+            {%- endfor -%}
+        {%- endif -%}
+    {%- endif -%}
+    {%- unless child_matches_ptag -%}
+        {%- continue -%}
+    {%- endunless -%}
+    {%- assign child_key = child.path | replace: '.markdown', '' | replace: '.md', '' | replace: '.html', '' -%}
+    {%- if child_key == 'index' -%}
+        {%- assign child_key = '' -%}
+    {%- elsif child_key contains '/index' -%}
+        {%- assign child_key = child_key | replace: '/index', '' -%}
+    {%- endif -%}
+    {%- if child_key == base_key -%}
+        {%- continue -%}
+    {%- endif -%}
+    {%- assign relative_key = '' -%}
+    {%- if base_key == '' -%}
+        {%- assign relative_key = child_key -%}
+    {%- else -%}
+        {%- assign base_prefix = base_key | append: '/' -%}
+        {%- assign child_prefix = child_key | slice: 0, base_prefix.size -%}
+        {%- if child_prefix == base_prefix -%}
+            {%- assign relative_key = child_key | remove_first: base_prefix -%}
+        {%- endif -%}
+    {%- endif -%}
+    {%- if relative_key == '' or relative_key contains '/' -%}
+        {%- continue -%}
+    {%- endif -%}
+    {%- assign child_label = child.nav_title | default: child.title -%}
+    {%- assign child_href = child.permalink | default: child.url -%}
+    {%- assign rendered_content = child.content | markdownify -%}
+    {%- assign child_summary = child.description | default: child.excerpt | default: '' -%}
+    {%- assign child_summary = child_summary | strip_html | strip_newlines | strip -%}
+    {%- if child_summary == '' and child.content -%}
+        {%- assign content_lines = child.content | newline_to_br | split: '<br />' -%}
+        {%- for content_line in content_lines -%}
+            {%- assign clean_line = content_line | strip -%}
+            {%- if clean_line == '' or clean_line == '---' -%}
+                {%- continue -%}
+            {%- endif -%}
+            {%- assign first_char = clean_line | slice: 0, 1 -%}
+            {%- if first_char == '#' -%}
+                {%- continue -%}
+            {%- endif -%}
+            {%- if clean_line contains '{:' or clean_line contains '![' or clean_line contains '<img' or clean_line contains '<iframe' -%}
+                {%- continue -%}
+            {%- endif -%}
+            {%- assign child_summary = clean_line | strip_html | strip_newlines | strip -%}
+            {%- if child_summary != '' -%}
+                {%- break -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+    {%- assign child_image = child.image | default: child.preview_image | default: child.hero_image | default: '' -%}
+    {%- if child_image == '' and rendered_content contains '<img' and rendered_content contains 'src="' -%}
+        {%- assign html_image_split = rendered_content | split: 'src="' -%}
+        {%- if html_image_split.size > 1 -%}
+            {%- assign child_image = html_image_split[1] | split: '"' | first | strip -%}
+        {%- endif -%}
+    {%- endif -%}
+<section><h3 class="">{{ child_label }}</h3>{%- if show_image and child_image != '' -%}<img src="{{ child_image }}" alt="{{ child_label | escape }}" />{%- endif -%}{%- if show_summary and child_summary != '' -%}<p>{{ child_summary | escape }}</p>{%- endif -%}<p class="footer"><a class="link" href="{{ child_href }}">{{ child_label }}</a></p></section>
+{%- endfor -%}

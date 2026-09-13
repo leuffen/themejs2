@@ -6,7 +6,7 @@ use_navbar: osman
 use_footer: osman
 ptags:
   - arzt
-  - subnav
+  - nav
 pid: site
 ---
 
