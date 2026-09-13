@@ -6,8 +6,9 @@
 &.style-testimonial {
   --cols: 6;
 
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
+  // Die Section liegt bereits im vollbreiten Inhaltsfluss; Prozentbreite berücksichtigt die Scrollbar.
+  width: 100%;
+  margin-inline: 0;
   padding-block: calc(var(--nt-space-8) + var(--nt-space-4));
   overflow: hidden;
   background: linear-gradient(to right, transparent 25%, rgba(45, 55, 75, .1) 25%);

@@ -4,6 +4,8 @@
   display: block;
   width: min(100%, 46.3125rem);
   align-items: end;
+  // Automatische Seitenränder zentrieren auch ein schmaleres Formular innerhalb seiner Textspalte.
+  margin-inline: auto;
   margin-top: var(--nt-space-4);
   padding: var(--nt-space-3);
   border: var(--nt-border-width) solid var(--nt-border);
@@ -34,7 +36,8 @@
   > p > .btn {
     min-height: 2.75rem;
     align-self: stretch;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
 

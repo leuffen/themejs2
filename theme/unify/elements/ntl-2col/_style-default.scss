@@ -62,6 +62,26 @@
     font-size: clamp(1.625rem, calc(1.35rem + 1.2vw), 2.25rem);
   }
 
+  // Ein einleitender Haupttitel erhält die Hero-Hierarchie, ohne normale Feature-Überschriften zu vergrößern.
+  > h1 {
+    margin: 0 0 var(--nt-space-6);
+    font-size: clamp(2.1rem, calc(1.5rem + 3vw), 3.75rem);
+    line-height: 1.2;
+  }
+
+  > h1 strong {
+    color: var(--nt-primary);
+  }
+
+  // Kundenbelege im Einstieg bleiben typografisch leicht und unabhängig von ihrer Textlänge.
+  &:has(> h1) > blockquote {
+    margin: var(--nt-space-4) 0;
+    padding: 0;
+    border: 0;
+    font-size: 1.25rem;
+    font-style: italic;
+  }
+
   // Gibt der vorhandenen Checklisten-Utility den 20-Pixel-Zeilen- und 32-Pixel-Außenrhythmus der Vorlage.
   .list-checked {
     display: grid;
@@ -186,6 +206,12 @@
     &::part(aside) {
       min-height: 0;
       order: 1;
+    }
+
+    // Die mobile Einleitung zeigt wie die Vorlage zuerst Aussage und Kundenbeleg; ihre dekorative Collage entfällt.
+    &:has(> h1) {
+      &::part(main) { order: 1; }
+      &::part(aside) { display: none; }
     }
 
     // Entspricht in allen drei Feature-Ausprägungen der mobilen 26-Pixel-Hierarchie der Vorlage.

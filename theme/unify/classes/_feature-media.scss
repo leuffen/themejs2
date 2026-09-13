@@ -61,10 +61,7 @@
   &::after {
     inset:
       calc(var(--nt-space-7) * -1)
-      max(
-        calc(var(--nt-space-7) * -1),
-        calc((var(--nt-space-5) + var(--nt-container-gutter)) * -1)
-      )
+      calc(var(--nt-container-gutter) * -1)
       auto
       auto;
   }
@@ -151,6 +148,7 @@ ntl-2col.style-default[mode="tablet"] .feature-media:not(.dots-end) {
   }
 
   &::after {
-    inset: calc(var(--nt-space-7) * -1) calc(var(--nt-space-7) * -1) auto auto;
+    // Nutzt nur den durch die schmalere Medienfläche frei gewordenen Rand.
+    inset: calc(var(--nt-space-7) * -1) calc(var(--nt-space-3) * -1) auto auto;
   }
 }

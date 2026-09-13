@@ -13,7 +13,7 @@ pid: site
 
 <!-- Erweitert die bestehende Bild-/Text-Komposition zu einem Services-Einstieg mit editierbarem Kundenbeleg. -->
 # Start your journey with **Unify**
-{: layout="ntl-2col.style-default" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-default" section-style="--cols: 6; --breakpoint: sm;" }
 
 > Amazing people to work with. A fast and professional partner for every stage of our growth.
 
@@ -117,7 +117,8 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 - ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg) **More**
 {: .logo-cloud .with-labels .bottom }
 
-[See all integrations](/leistungen){: .btn .btn-primary .footer }
+[See all integrations](/leistungen){: .btn .btn-primary }
+{: .footer }
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
 ## Loved by businesses and individuals across the globe
