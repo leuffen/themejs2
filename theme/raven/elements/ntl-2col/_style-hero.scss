@@ -1,12 +1,13 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
+// Hält Text und Porträt in einer gemeinsamen Bühne mit den Außenkanten des Content-Containers.
 &.style-hero {
   margin-block: 0;
   border-bottom: var(--nt-border-width) solid var(--nt-border);
 
   @include twoCol.default-style(
-    $innerPadding: var(--nt-spacing-section) var(--nt-space-4),
-    $gap: var(--nt-spacing-layout),
+    $innerPadding: var(--nt-spacing-section) 0px,
+    $gap: clamp(var(--nt-space-7), 6vw, var(--nt-space-9)),
     $background: var(--nt-surface),
     $border: 0,
     $border-radius: 0,
@@ -19,7 +20,7 @@
   }
 
   &:has(> p[slot="aside"].auto)::part(aside) {
-    min-height: clamp(32rem, 52vw, 46rem);
+    min-height: clamp(32rem, 48vw, 42rem);
     overflow: hidden;
     border: var(--nt-border-width) solid var(--nt-border);
     background: var(--nt-surface-muted);
@@ -27,8 +28,14 @@
   }
 
   &[mode="mobile"] {
-    --gap: var(--nt-space-7);
-    --inner-padding: var(--nt-space-8) var(--nt-space-4);
+    --gap: var(--nt-space-6);
+    --inner-padding: var(--nt-space-7) 0px;
+
+    // Text und Porträt behalten mobil dieselben Seitenränder wie die Inhaltssections.
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
 
     &::part(wrapper) {
       min-height: 0;

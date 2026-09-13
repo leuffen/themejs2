@@ -1,6 +1,11 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
+// Gibt der dunklen Kontaktkarte semantische Textrollen für alle enthaltenen Content-Muster.
 &.style-card {
+  --nt-text: var(--nt-white);
+  --nt-header: var(--nt-white);
+  --nt-text-muted: color-mix(in srgb, var(--nt-white) 78%, transparent);
+
   @include twoCol.default-style(
     $innerPadding: clamp(var(--nt-space-7), 6vw, calc(var(--nt-space-10) + var(--nt-space-2))),
     $gap: clamp(var(--nt-space-6), 6vw, calc(var(--nt-space-10) + var(--nt-space-1))),

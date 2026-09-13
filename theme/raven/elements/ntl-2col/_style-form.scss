@@ -22,4 +22,14 @@
     width: 100%;
     inline-size: 100%;
   }
+  // Vermeidet zusätzliche Einrückung gegenüber den übrigen mobilen Inhaltskanten.
+  &[mode="mobile"] {
+    --inner-padding: 0px;
+    --gap: var(--nt-space-5);
+
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
+  }
 }

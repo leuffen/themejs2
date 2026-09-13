@@ -1,8 +1,11 @@
+// Begrenzte Porträtproportionen verhindern, dass das natürliche Bildformat die Bühne aufzieht.
 &.style-hero {
   > p[slot="aside"].auto {
     margin: 0;
 
     > img {
+      height: auto;
+      aspect-ratio: 4 / 5;
       object-position: center top;
     }
   }

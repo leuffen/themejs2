@@ -1,8 +1,9 @@
 @use "@nextrap/ntl-card-row" as cardRow;
 
+// Füllt den bereits seitenbreiten Content-Pane ohne scrollbarbreitenbedingten Überlauf.
 &.style-ribbon {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
+  width: 100%;
+  margin-inline: 0;
   color: var(--nt-white);
   background: var(--nt-secondary);
 

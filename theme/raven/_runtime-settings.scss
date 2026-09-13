@@ -1,3 +1,4 @@
+// Hält Palette und Typografierollen im Raven-Scope zur Laufzeit überschreibbar.
 & {
   color-scheme: light;
 
@@ -9,13 +10,20 @@
   --nt-font-family: "Work Sans", sans-serif;
   --nt-font-family-header: var(--nt-font-family);
   --nt-font-size: 1.0625rem;
-  --nt-font-size-header: clamp(3rem, 5.4vw, 4.75rem);
+  --nt-font-size-header: clamp(2.625rem, 5.4vw, 4.75rem);
   --nt-font-size-small: .75rem;
   --nt-font-weight-base: 400;
   --nt-font-weight-header: 500;
   --nt-font-weight-bold: 700;
   --nt-line-height: 1.58;
   --nt-line-height-header: 1.08;
+
+  // Die Vorlage trennt große Section-Titel von kompakten Inhaltsüberschriften.
+  --nt-fs-h2: clamp(2.125rem, 3.8vw, 3.5rem);
+  --nt-fs-h3: clamp(1.1875rem, 1.8vw, 1.5625rem);
+  --nt-fs-h4: 1.1875rem;
+  --nt-fs-h5: var(--nt-font-size);
+  --nt-fs-h6: var(--nt-font-size);
 
   --nt-radius: .125rem;
   --nt-container-max: 1280px;
