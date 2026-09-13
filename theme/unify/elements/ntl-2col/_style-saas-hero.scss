@@ -39,6 +39,16 @@
     font-size: 1rem;
   }
 
+  // Nutzt die vorhandenen Button-Tokens für die helle Beschriftung und kompakte Referenzform.
+  > p > .btn {
+    --nt-text-on-primary: #fff;
+    --nt-btn-padding-y: var(--nt-space-3);
+    --nt-btn-padding-x: var(--nt-space-6);
+    --nt-border-radius: .1875rem;
+    font-size: .9375rem;
+    font-weight: 600;
+  }
+
   // Trennt den primären Hero-CTA klar von Einleitung und Bewertungszeile.
   > p:not(.aside):has(> .btn) {
     margin-top: var(--nt-space-4);
@@ -141,8 +151,17 @@
     right: var(--nt-space-3);
     width: 1rem;
     height: 1rem;
-    accent-color: var(--nt-primary);
+    appearance: none;
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--nt-border);
     cursor: pointer;
+  }
+
+  // Das Häkchen zeigt denselben Auswahlzustand zusätzlich zur Kartenfarbe an.
+  .plan-options input:checked {
+    background: var(--nt-primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 8 3 3 5-6' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 
   .plan-options li:focus-within {
@@ -267,15 +286,16 @@
     }
 
     .saas-reviews {
+      flex-direction: column;
       gap: var(--nt-space-4);
     }
 
     .saas-reviews li {
-      flex: 1 1 8rem;
+      width: 100%;
       max-width: none;
       padding: 0 0 var(--nt-space-4);
       border-right: 0;
-      border-bottom: 0;
+      border-bottom: 1px solid var(--nt-border);
       overflow-wrap: anywhere;
     }
 
