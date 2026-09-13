@@ -18,6 +18,7 @@
   // Hält Kennzahlen an einer gemeinsamen Oberkante und lässt variable Beschreibungen wachsen.
   &::part(main) {
     align-items: stretch;
+    min-width: 0;
   }
 
   // Hält die technisch erforderliche Row-Überschrift für Hilfstechnologien verfügbar, ohne Layoutfläche zu belegen.
@@ -38,15 +39,15 @@
     display: none;
   }
 
-  // Verbindet Kennzahlen opt-in mit einer vorausgehenden dunklen Vertrauensbühne der Services-Vorlage.
+  // Die Services-Komposition führt die Kennzahlen optisch an die helle Testimonial-Fläche an.
   &.surface-secondary {
+    box-sizing: border-box;
     padding-block-start: 0;
-    color: rgba(255, 255, 255, .72);
-    background: var(--nt-secondary);
+    color: var(--nt-text);
+    background: var(--nt-surface-muted);
 
-    // Die dunkle Bühne gliedert über Abstand und benötigt keine hellen Kartentrenner.
     > nte-card::after {
-      display: none;
+      background-color: var(--nt-border);
     }
   }
 }
