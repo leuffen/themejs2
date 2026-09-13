@@ -5,6 +5,8 @@
 &.style-saas-hero {
   --breakpoint: sm, lg;
 
+  // Dekoration darf am Viewportrand enden, ohne einen horizontalen Seitenscroll zu erzeugen.
+  overflow-x: clip;
   padding-block: clamp(var(--nt-space-8), 8vw, 6rem);
 
   @include twoCol.default-style(
