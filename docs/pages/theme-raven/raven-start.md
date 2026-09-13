@@ -84,24 +84,24 @@ Ziel ist nicht nur kurzfristige Beschwerdefreiheit, sondern die sichere Rückkeh
 Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapieentscheidungen – konservativ, regenerativ oder operativ.
 {: .lead-serif }
 
+---
+{: layout="nte-accordion.style-default.aside[initial-open-index='0'][exclusive]" }
 
+### Anamnese und Kontext
 
-1. ### Anamnese und Kontext
+Beschwerden, Belastung, Sport, Alltag und bisheriger Verlauf werden strukturiert zusammengeführt.
 
-   Beschwerden, Belastung, Sport, Alltag und bisheriger Verlauf werden strukturiert zusammengeführt.
+### Funktionelle Untersuchung
 
-2. ### Funktionelle Untersuchung
+Bewegung, Stabilität, Kraft und belastungsabhängige Mechanismen werden differenziert untersucht.
 
-   Bewegung, Stabilität, Kraft und belastungsabhängige Mechanismen werden differenziert untersucht.
+### Medizinische Einordnung
 
-3. ### Medizinische Einordnung
+Klinischer Befund, Bildgebung und weitere Diagnostik werden im Gesamtzusammenhang bewertet.
 
-   Klinischer Befund, Bildgebung und weitere Diagnostik werden im Gesamtzusammenhang bewertet.
+### Individueller Therapiepfad
 
-4. ### Individueller Therapiepfad
-
-   Aus der Diagnose entsteht ein nachvollziehbarer Plan – konservativ, regenerativ, operativ oder interdisziplinär.
-{: .process-steps .aside}
+Aus der Diagnose entsteht ein nachvollziehbarer Plan – konservativ, regenerativ, operativ oder interdisziplinär.
 
 ## Dr. med. Tim Raven
 {: layout="ntl-2col.reverse-desktop" data-kicker="Fachärztliche Perspektive" section-style="--cols: 7;" }
