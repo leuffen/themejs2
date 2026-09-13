@@ -3,7 +3,7 @@
     <nte-navbar-line class="style-default" style="--brand-height: 64px">
         <a slot="start" class="brand-logo" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
             <img
-                src="/assets/leuffen-logo-big.svg"
+                src="/assets/leuffen/leuffen-logo-big.svg"
                 alt="{{ site.data.general.logoalt | default: site.data.general.name }}"
                 class="loader-image"
                 height="64"
@@ -17,7 +17,7 @@
             aria-label="Hauptnavigation"
             style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto"
         >
-            {% include el/nav2.html ptag="nav" %}
+            {% include components/navigation/main.html tag="nav" root=site.navigation_root %}
         </nte-nav>
 
         <nte-burger

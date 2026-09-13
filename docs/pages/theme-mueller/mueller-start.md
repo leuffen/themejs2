@@ -7,7 +7,7 @@ description: "Meta Description Text"
 theme_classes: "default theme-medic-osman"
 ptags:
   - arzt
-  - subnav
+  - nav
 pid: site
 ---
 

@@ -1,0 +1,23 @@
+{%- comment -%}
+Renders opening hours as a semantic table.
+
+Optional:
+- hours: collection of rows with day and time; defaults to site.data.openhours.table
+- class: CSS class; defaults to "opening-hours"
+{%- endcomment -%}
+{%- assign hours = include.hours | default: site.data.openhours.table -%}
+{%- assign table_class = include.class | default: "opening-hours" -%}
+{%- if hours and hours != empty -%}
+<table class="{{ table_class | escape }}">
+  <tbody>
+    {%- for row in hours %}
+    <tr>
+      <th scope="row">{{ row.day | escape }}</th>
+      <td>{{ row.time }}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+{%- else -%}
+<!-- components/site/opening-hours.html: no opening hours configured -->
+{%- endif -%}

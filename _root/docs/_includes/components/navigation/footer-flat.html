@@ -1,0 +1,19 @@
+{%- comment -%}
+Renders a flat footer navigation as a sorted list.
+
+Required:
+- ptag: page/post ptag to include
+
+Optional:
+- lang: item language; defaults to page.lang
+- class: CSS classes for the ul element
+{%- endcomment -%}
+{%- assign requested_lang = include.lang | default: page.lang -%}
+{%- assign all_items = site.posts | concat: site.pages -%}
+{%- assign navigation_items = all_items | where: "ptags", include.ptag | sort: "order" -%}
+<ul{% if include.class %} class="{{ include.class }}"{% endif %}>
+{%- for item in navigation_items -%}
+    {%- if requested_lang and item.lang and item.lang != requested_lang -%}{%- continue -%}{%- endif -%}
+    <li><a href="{{ item.url }}">{{ item.nav_title | default: item.title }}</a></li>
+{%- endfor -%}
+</ul>

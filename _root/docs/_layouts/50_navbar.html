@@ -1,94 +1,47 @@
 ---
-layout: 30_script
+layout: 20_body
 ---
-{% if page.skip-navbar != true %}
-
-{% if page.use_navbar == "unify" %}
-<!-- Lädt die in der Originalvorlage verwendete Inter-Schrift ausschließlich für Seiten mit Unify-Website-Rahmen. -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
-
-<!-- Stellt für die Unify-Demo den kompakten Business-Header mit klar getrennten Navigations- und Aktionsbereichen bereit. -->
-<nte-navbar class="style-unify with-shadow-on-scroll" style="--nte-navbar-position: sticky; --nte-navbar-scroll-threshold: 12">
-    <nte-navbar-line class="with-shrink-on-scroll" style="--height: 75px; --height-scrolled: 60px">
-        <a slot="start" class="brand-logo unify-brand" href="/" aria-label="Unify Startseite">
-            <span class="unify-brand__mark" aria-hidden="true">U</span><span>nify</span>
-        </a>
-
-        <nte-nav
-            id="unify-main-navigation-horizontal"
-            class="style-unify"
-            slot="center"
-            aria-label="Hauptnavigation"
-            style="--nte-nav-flow: row; --nte-nav-align: stretch"
-        >
-            <nte-nav-item href="#leistungen">Landings</nte-nav-item>
-            <nte-nav-item href="#produkte">Pages</nte-nav-item>
-            <nte-nav-item href="#geschichte">Blog</nte-nav-item>
-            <nte-nav-item href="#fragen">Docs</nte-nav-item>
-        </nte-nav>
-
-        <div slot="end" class="unify-navbar-actions navbar-control" style="display: none" style-xl="display: flex">
-            <a href="/login" class="unify-navbar-login">Log in</a>
-            <a href="/kontakt" class="btn btn-secondary">Sign up</a>
-        </div>
-
-        <nte-burger
-            slot="end"
-            aria-label="Navigation öffnen"
-            aria-controls="unifyNavSidebar"
-            static-state
-            onclick="document.getElementById('unifyNavSidebar')?.toggle()"
-            style="display: block"
-            style-xl="display: none"
-        ></nte-burger>
-    </nte-navbar-line>
-</nte-navbar>
-
-<!-- Überführt dieselben Navigationspunkte auf kleinen Ansichten in das bestehende Offcanvas-Muster. -->
-<nte-offcanvas id="unifyNavSidebar" aria-label="Mobile Hauptnavigation">
-    <div slot="header"><strong>Navigation</strong></div>
-    <nte-nav
-        id="unify-main-navigation-vertical"
-        class="style-unify-vertical"
-        aria-label="Mobile Hauptnavigation"
-        style="--nte-nav-flow: column; --nte-nav-align: stretch"
-    ></nte-nav>
-    <tj-element-relocator
-        source="#unify-main-navigation-horizontal"
-        target="#unify-main-navigation-vertical"
-        class="-xl:relocate"
-    ></tj-element-relocator>
-</nte-offcanvas>
-{% else %}
-
-<nte-navbar class="style-default fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 104px">
+{% comment %}Fester Kundenrahmen; individuelle Anpassungen erfolgen direkt in dieser Datei.{% endcomment %}
+{% comment %}Verwendet den aktuellen Osman-Rahmen mit konfigurierbarer Standardadresse und Marke.{% endcomment %}
+{% assign location = site.data.general.standorte.default | default: site.data.general %}
+<nte-navbar class="style-default fixed autoborder" scroll-threshold="500" style="--spacer-height: 104px">
     <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
-        <div slot="start" class="site-topbar d-flex align-items-center justify-content-between gap-2 w-100">
-            <div class="site-topbar__info">
-                {% if site.data.general.phone1_text %}
-                    <span>Tel. {{ site.data.general.phone1_text }}</span>
-                {% endif %}
-                {% if site.data.general.email %}
-                    <span class="site-topbar__sep">|</span>
-                    <a href="mailto:{{ site.data.general.email }}">{{ site.data.general.email }}</a>
-                {% endif %}
-                {% if site.data.general.street or site.data.general.zip or site.data.general.city %}
-                    <span class="site-topbar__sep">|</span>
-                    <span>{{ site.data.general.street }}{% if site.data.general.zip or site.data.general.city %}, {% endif %}{{ site.data.general.zip }} {{ site.data.general.city }}</span>
-                {% endif %}
-            </div>
-            <div class="site-topbar__actions">
-                <a href="{{ site.data.general.termin_url | default: '/online-termin' }}" class="btn btn-primary">Termin online buchen</a>
-                <span class="site-topbar__lang"><i class="bi bi-globe2" aria-hidden="true"></i> DE</span>
-            </div>
+        <div slot="start" class="site-topbar__info">
+            {% if location.phone1_text %}
+                <span>Tel. {{ location.phone1_text }}</span>
+            {% endif %}
+            {% if location.email %}
+                <span class="site-topbar__sep">|</span>
+                <a href="mailto:{{ location.email }}">{{ location.email }}</a>
+            {% endif %}
+            {% if location.street or location.zip or location.city %}
+                <span class="site-topbar__sep">|</span>
+                <a href="{{ location.map_link }}" target="_blank" rel="noopener" aria-label="Praxisstandort in Google Maps öffnen">{{ location.street }}{% if location.zip or location.city %}, {% endif %}{{ location.zip }} {{ location.city }}</a>
+            {% endif %}
+        </div>
+        <a slot="end" href="{{ location.termin_url | default: '/online-termin' }}" class="btn btn-primary btn-sm">Termin online buchen</a>
+        <div slot="end" class="btn-group">
+            <button
+                id="osman-language-toggle"
+                class="btn btn-hover btn-sm dropdown-toggle"
+                type="button"
+                popovertarget="osman-language-menu"
+                aria-controls="osman-language-menu"
+            >
+                <i class="bi bi-globe2 me-1" aria-hidden="true"></i>
+                DE
+            </button>
+            <ul id="osman-language-menu" class="dropdown-menu" popover="auto" aria-labelledby="osman-language-toggle">
+                <li><a href="{{ page.url }}" lang="de" hreflang="de" aria-current="true">Deutsch</a></li>
+            </ul>
         </div>
     </nte-navbar-line>
 
     <nte-navbar-line class="style-default" style="--brand-height: 64px">
-        <a slot="start" class="brand-logo" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
+        <a slot="start" class="brand-logo" href="/" aria-label="{{ location.name | default: site.data.general.logoalt }}">
             <img
-                src="/assets/osman-logo.svg"
-                alt="{{ site.data.general.logoalt | default: site.data.general.name }}"
+                src="{{ site.data.general.logo | default: "/assets/leuffen/leuffen-logo-big.svg" }}"
+                alt="{{ site.data.general.logoalt | default: location.name }}"
                 class="loader-image"
                 height="64"
             />
@@ -101,8 +54,7 @@ layout: 30_script
             aria-label="Hauptnavigation"
             style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto"
         >
-            {% include el/nav2.html ptag="nav" %}
-            <nte-nav-item href="/#notfall" style="--order: 30">Notfall</nte-nav-item>
+            {% include components/navigation/main.html tag="nav" lang=page.lang root="" max_depth=2 %}
         </nte-nav>
 
         <nte-burger
@@ -118,7 +70,7 @@ layout: 30_script
 </nte-navbar>
 
 <nte-offcanvas id="navSidebar" aria-label="Mobile Hauptnavigation">
-    <div slot="header"><strong>Navigation</strong></div>
+
     <nte-nav
         id="osman-main-navigation-vertical"
         class="style-default nav-vertical"
@@ -131,8 +83,5 @@ layout: 30_script
         class="-xl:relocate"
     ></tj-element-relocator>
 </nte-offcanvas>
-
-{% endif %}
-{% endif %}
 
 {{ content }}
