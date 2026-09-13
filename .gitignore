@@ -6,7 +6,7 @@ libs/
 /node_modules
 /dist
 /.tmp/
-##/docs/assets/dist
+/docs/assets/dist/
 
 /workspaces
 .jekyll-metadata
