@@ -41,6 +41,8 @@
 
   // Begrenzt die Textzeilen auf die schmalere Fünf-Spalten-Rolle der Vorlage.
   &::part(main) {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
     padding-right: var(--nt-space-5);
   }
@@ -66,6 +68,7 @@
 
   // Kennzeichnet die Reihenfolge unabhängig von einer festen Anzahl an Schritten.
   .step-kicker {
+    order: -1;
     margin: 0 0 var(--nt-space-3);
     color: var(--nt-primary);
     font-size: .75rem;
@@ -80,6 +83,24 @@
     gap: var(--nt-space-2);
     margin: var(--nt-space-5) 0;
     padding: 0;
+    list-style: none;
+  }
+
+  // Hält Häkchen und mehrzeiligen Lerninhalt unabhängig von fett markierten Textteilen bündig.
+  .list-checked li {
+    position: relative;
+    padding-left: var(--nt-space-6);
+  }
+
+  .list-checked li::before {
+    content: "";
+    position: absolute;
+    top: .25em;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    background: var(--nt-primary);
+    clip-path: polygon(10% 48%, 38% 72%, 90% 15%, 100% 25%, 40% 90%, 0 60%);
   }
 
   // Hebt die Abschnittsüberschrift klar über Copy und Lernliste, ohne Hero-Größe zu erreichen.
@@ -142,6 +163,10 @@
   &[mode="mobile"],
   &[mode="tablet"] {
     --cols: 12;
+
+    // Im Stack steht wie in der Vorlage erst die Anleitung, dann das zugehörige Bild.
+    &::part(main) { order: 1; }
+    &::part(aside) { order: 2; }
   }
 
   // Reduziert Flächenraum und Überschrift auf schmalen Viewports ohne die Inhaltsreihenfolge zu ändern.
