@@ -24,14 +24,15 @@ Hand-picked professionals and expertly crafted components, designed for any kind
 {: .saas-reviews }
 
 ## Simple pricing
-{: .aside }
+{: layout="-2;" .aside }
 
 - **Professional · $19.99**<br><small>All the basics for starting a new business</small>
 - **Team · $39.99** <mark>Most popular</mark><br><small>Everything you need for a growing business</small>
 - **Enterprise · $59.99**<br><small>Advanced features for scaling your business</small>
 {: .plan-options .aside }
 
-[Try free for 14 days](/kontakt){: .btn .btn-primary .aside }
+[Try free for 14 days](/kontakt){: .btn .btn-primary }
+{: .aside }
 
 Need a custom plan? [Contact sales](/kontakt)
 {: .aside .plan-contact }
