@@ -1,23 +1,56 @@
-<!-- Verwendet die neutrale Demo-Marke und dieselbe aktuelle Navigations-API wie das Nutzprojekt. -->
-<nte-navbar class="style-default fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 64px">
+{% comment %}Verwendet den aktuellen Osman-Rahmen mit konfigurierbarer Standardadresse und Marke.{% endcomment %}
+{% assign location = site.data.general.standorte.default | default: site.data.general %}
+<nte-navbar class="style-default fixed autoborder" scroll-threshold="500" style="--spacer-height: 104px">
+    <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
+        <div slot="start" class="site-topbar__info">
+            {% if location.phone1_text %}
+                <span>Tel. {{ location.phone1_text }}</span>
+            {% endif %}
+            {% if location.email %}
+                <span class="site-topbar__sep">|</span>
+                <a href="mailto:{{ location.email }}">{{ location.email }}</a>
+            {% endif %}
+            {% if location.street or location.zip or location.city %}
+                <span class="site-topbar__sep">|</span>
+                <a href="{{ location.map_link }}" target="_blank" rel="noopener" aria-label="Praxisstandort in Google Maps öffnen">{{ location.street }}{% if location.zip or location.city %}, {% endif %}{{ location.zip }} {{ location.city }}</a>
+            {% endif %}
+        </div>
+        <a slot="end" href="{{ location.termin_url | default: '/online-termin' }}" class="btn btn-primary btn-sm">Termin online buchen</a>
+        <div slot="end" class="btn-group">
+            <button
+                id="osman-language-toggle"
+                class="btn btn-hover btn-sm dropdown-toggle"
+                type="button"
+                popovertarget="osman-language-menu"
+                aria-controls="osman-language-menu"
+            >
+                <i class="bi bi-globe2 me-1" aria-hidden="true"></i>
+                DE
+            </button>
+            <ul id="osman-language-menu" class="dropdown-menu" popover="auto" aria-labelledby="osman-language-toggle">
+                <li><a href="{{ page.url }}" lang="de" hreflang="de" aria-current="true">Deutsch</a></li>
+            </ul>
+        </div>
+    </nte-navbar-line>
+
     <nte-navbar-line class="style-default" style="--brand-height: 64px">
-        <a slot="start" class="brand-logo" href="/" aria-label="{{ site.data.general.name | default: site.data.general.logoalt }}">
+        <a slot="start" class="brand-logo" href="/" aria-label="{{ location.name | default: site.data.general.logoalt }}">
             <img
-                src="/assets/leuffen/leuffen-logo-big.svg"
-                alt="{{ site.data.general.logoalt | default: site.data.general.name }}"
+                src="{{ site.data.general.logo | default: "/assets/leuffen/leuffen-logo-big.svg" }}"
+                alt="{{ site.data.general.logoalt | default: location.name }}"
                 class="loader-image"
                 height="64"
             />
         </a>
 
         <nte-nav
-            id="default-main-navigation-horizontal"
+            id="osman-main-navigation-horizontal"
             class="style-default nav-horizontal"
             slot="end"
             aria-label="Hauptnavigation"
             style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto"
         >
-            {% include components/navigation/main.html tag="nav" root=site.navigation_root %}
+            {% include components/navigation/main.html tag="nav" lang=page.lang root=site.navigation_root max_depth=2 %}
         </nte-nav>
 
         <nte-burger
@@ -33,16 +66,16 @@
 </nte-navbar>
 
 <nte-offcanvas id="navSidebar" aria-label="Mobile Hauptnavigation">
-    <div slot="header"><strong>Navigation</strong></div>
+
     <nte-nav
-        id="default-main-navigation-vertical"
+        id="osman-main-navigation-vertical"
         class="style-default nav-vertical"
         aria-label="Mobile Hauptnavigation"
         style="--nte-nav-flow: column; --nte-nav-align: stretch"
     ></nte-nav>
     <tj-element-relocator
-        source="#default-main-navigation-horizontal"
-        target="#default-main-navigation-vertical"
+        source="#osman-main-navigation-horizontal"
+        target="#osman-main-navigation-vertical"
         class="-xl:relocate"
     ></tj-element-relocator>
 </nte-offcanvas>
