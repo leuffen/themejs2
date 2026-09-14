@@ -56,7 +56,7 @@
         "@nextrap/nte-demo-viewer": "^2.0.0",
         "@nextrap/nte-dialog-component": "^2.0.0",
         "@nextrap/nte-feedback": "^2.0.0",
-        "@nextrap/nte-image": "^2.0.0",
+        "@nextrap/nte-image": "^2.0.2",
         "@nextrap/nte-input": "^2.0.1",
         "@nextrap/nte-nav": "^2.0.1",
         "@nextrap/nte-navbar": "^2.0.3",

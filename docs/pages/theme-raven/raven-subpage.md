@@ -12,15 +12,15 @@ pid: raven-subpage
 
 <!-- Bündelt die wiederkehrenden Unterseitenmuster der bisherigen Raven-Website in einer einzigen Migrationsreferenz. -->
 # Schwerpunkte & Leistungen
-{: layout="ntl-2col.style-subpage-lead.surface-white" section-style="--cols: 6;" }
-
-Präzise Diagnostik und individuelle Therapiekonzepte für Beschwerden und Verletzungen des Bewegungsapparates.
-{: .lead-serif .aside }
-
-Die Unterseiten nutzen dieselbe klare medizinische Sprache wie die Startseite, bleiben aber stärker auf längere Inhalte, vertiefende Erläuterungen und strukturierte Detailinformationen ausgerichtet.
-{: .aside }
+{: layout="ntl-2col.style-subpage-lead" section-style="--cols: 6;" }
 
 ![Funktionelle orthopädische Untersuchung](https://cdn.leuffen.de//leu-stock/v2/273/138-61_gfedcba/AdobeStock_1061031656.webp)
+
+Präzise Diagnostik und individuelle Therapiekonzepte für Beschwerden und Verletzungen des Bewegungsapparates.
+{: .lead-serif }
+
+Die Unterseiten nutzen dieselbe klare medizinische Sprache wie die Startseite, bleiben aber stärker auf längere Inhalte, vertiefende Erläuterungen und strukturierte Detailinformationen ausgerichtet.
+
 
 <!-- Zeigt den wiederkehrenden Artikelaufbau aus Bild, Leitgedanke, Fließtext und nachgelagerten Detailpunkten. -->
 ## Orthopädie, Unfallchirurgie und Sporttraumatologie
