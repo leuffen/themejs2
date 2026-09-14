@@ -53,6 +53,16 @@
     nte-input.style-default {
       @include nteInput.default-style();
       padding-block-end: var(--nt-space-4);
+
+      // Hebt Eingabefelder auf Raven mit einer klaren weißen Fläche vom Seitenhintergrund ab.
+      &:not([type='checkbox'])::part(control) {
+        background: #fff;
+      }
+
+      // Hält auch die native Checkbox selbst auf der hellen Formularfläche deutlich erkennbar.
+      &[type='checkbox']::part(checkbox-input) {
+        background-color: #fff;
+      }
     }
 
     nte-nav.style-default {
