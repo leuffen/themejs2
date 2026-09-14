@@ -43,12 +43,12 @@
     text-align: center;
   }
 
-  // Auf der Services-Fläche bleiben Kennzahlen hell, ruhig und kontraststark statt invertiert.
+  // Bewahrt Wertkontrast und sekundäre Textrollen auf der dunklen Services-Bühne.
   &.surface-secondary > nte-card {
-    color: var(--nt-text);
+    color: rgba(255, 255, 255, .72);
 
     &::part(header) {
-      color: var(--nt-header);
+      color: #fff;
     }
 
     strong:first-child {
