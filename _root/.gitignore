@@ -1,0 +1,10 @@
+.idea
+composer.lock
+/vendor/
+libs/
+/.sass-cache
+.jekyll-metadata
+/node_modules
+/dist
+
+/workspaces
