@@ -121,7 +121,7 @@ Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchi
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ## Kompetenz rund um Bewegung und Belast&shy;barkeit.
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
+{: layout="ntl-2col.reverse.with-justify-bottom.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
 
