@@ -12,12 +12,13 @@ pid: raven-subpage
 
 <!-- Bündelt die wiederkehrenden Unterseitenmuster der bisherigen Raven-Website in einer einzigen Migrationsreferenz. -->
 # Schwerpunkte & Leistungen
-{: layout="ntl-2col.reverse.with-justify-bottom.surface-white" .aside data-kicker="Raven Unterseite" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-subpage-lead.surface-white" section-style="--cols: 6;" }
 
 Präzise Diagnostik und individuelle Therapiekonzepte für Beschwerden und Verletzungen des Bewegungsapparates.
-{: .lead-serif }
+{: .lead-serif .aside }
 
 Die Unterseiten nutzen dieselbe klare medizinische Sprache wie die Startseite, bleiben aber stärker auf längere Inhalte, vertiefende Erläuterungen und strukturierte Detailinformationen ausgerichtet.
+{: .aside }
 
 ![Funktionelle orthopädische Untersuchung](https://cdn.leuffen.de//leu-stock/v2/273/138-61_gfedcba/AdobeStock_1061031656.webp)
 
@@ -25,8 +26,8 @@ Die Unterseiten nutzen dieselbe klare medizinische Sprache wie die Startseite, b
 ## Orthopädie, Unfallchirurgie und Sporttraumatologie
 {: layout="ntl-2col.with-justify-top.surface-white" section-style="--cols: 7;" data-kicker="Beispiel: Artikelabschnitt" }
 
-> Eine fundierte Therapie beginnt mit einer präzisen medizinischen Einordnung.
-{: .profile-quote }
+Eine fundierte Therapie beginnt mit einer präzisen medizinischen Einordnung.
+{: .lead-serif }
 
 Sportverletzungen erfordern mehr als eine standardisierte Behandlung. Entscheidend sind das Verständnis des Verletzungsmechanismus, eine differenzierte funktionelle Analyse und die Berücksichtigung der individuellen Anforderungen an Belastbarkeit und Leistungsfähigkeit.
 
@@ -57,8 +58,8 @@ Versorgung akuter orthopädischer und unfallchirurgischer Fragestellungen mit kl
 ## Funktionelle Orthopädie & Präzisionsdiagnostik
 {: layout="ntl-2col.reverse-desktop.with-justify-top" section-style="--cols: 7;" data-kicker="Beispiel: alternierender Artikel" }
 
-> Die richtige Therapie beginnt mit der richtigen Diagnose.
-{: .profile-quote }
+Die richtige Therapie beginnt mit der richtigen Diagnose.
+{: .lead-serif }
 
 Beschwerden entstehen häufig durch das Zusammenspiel von Biomechanik, Belastung und individuellen Bewegungsmustern. Deshalb steht am Anfang jeder Behandlung eine strukturierte klinische und funktionelle Analyse.
 
@@ -97,12 +98,12 @@ Konservative und interventionelle Strategien mit Fokus auf Funktionserhalt und l
 
 Funktionelle Orthopädie als Grundlage präziser Diagnostik und individualisierter Therapieentscheidungen.
 
-<!-- Demonstriert lange strukturierte Profildaten, wie sie auf der bisherigen Profilseite vorkommen. -->
+<!-- Demonstriert lange strukturierte Profildaten seitlich neben dem einordnenden Text statt als nachgelagerten Vollbreitenblock. -->
 ## Werdegang und fachlicher Hintergrund
-{: layout="ntl-2col.with-justify-top.surface-white" section-style="--cols: 12;" data-kicker="Beispiel: strukturierte Daten" }
+{: layout="ntl-2col.with-justify-top.surface-white" section-style="--cols: 5;" data-kicker="Beispiel: strukturierte Daten" }
 
-> Universitäre Ausbildung und klinische Erfahrung in Orthopädie, Unfallchirurgie und Sportmedizin.
-{: .profile-quote }
+Universitäre Ausbildung und klinische Erfahrung in Orthopädie, Unfallchirurgie und Sportmedizin.
+{: .lead-serif }
 
 | Station | Details |
 | --- | --- |
@@ -112,10 +113,10 @@ Funktionelle Orthopädie als Grundlage präziser Diagnostik und individualisiert
 | Studium & Promotion | Ruprecht-Karls-Universität Heidelberg |
 | Facharztausbildung | Universitätsklinikum Heidelberg · Klinikum Aschaffenburg-Alzenau · Universitätsklinikum Frankfurt |
 | Fachgesellschaften | DGOU · GOTS · DGMSM · DGSP · humedica e. V. |
-{: .timeline-table .bottom }
+{: .timeline-table .aside }
 
 <!-- Übernimmt die kompakte organisatorische Informationsform der Kontakt-Unterseite als normale Markdown-Liste. -->
-## Patienteninformationen
+## Patienten&shy;informationen
 {: layout="ntl-2col.reverse.with-justify-top" .aside section-style="--cols: 6;" data-kicker="Beispiel: Informationsliste" }
 
 Organisatorische Hinweise für einen Termin lassen sich ohne Sonderkomponente als klar gegliederte Liste pflegen.
