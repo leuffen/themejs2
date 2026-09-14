@@ -36,7 +36,7 @@ We enrich human lives through the thoughtful application of design and technolog
 - [**Advanced tools** — Use thoroughly considered libraries to manage your business.](/leistungen)
 - [**Smart dashboards** — Combine proven components and get started quickly.](/leistungen)
 - [**Powerful features** — Reduce the effort required to create a modern service experience.](/leistungen)
-{: .feature-links }
+{: .list-checked }
 
 ![Smart service dashboard](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img7.png)
 
