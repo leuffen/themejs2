@@ -15,7 +15,7 @@ pid: site
 # Start your journey with **Unify**
 {: layout="ntl-2col.style-default" section-style="--cols: 6; --breakpoint: sm;" }
 
-> Amazing people to work with. A fast and professional partner for every stage of our growth.
+> Amazing people to work with. Very fast and professional partner.
 
 **Nicole Grazioso**  
 Director Payments & Risk \| Airbnb
@@ -114,19 +114,19 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 - ![Asana](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/asana-icon.svg) **Asana**
 - ![Slack](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/slack-icon.svg) **Slack**
 - ![Dropbox](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/dropbox-icon.svg) **Dropbox**
-- ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg) **More**
+- ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg)
 {: .logo-cloud .with-labels .bottom }
 
 [See all integrations](/leistungen){: .btn .btn-primary }
 {: .footer }
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
-## Loved by businesses and individuals across the globe
+## Loved by business and individuals across the globe
 {: layout="ntl-card-row.style-testimonial-slider.with-horizontal-flow.surface-secondary" section-style="--cols: 4; --visible-cols-mobile: 1.15;" }
 
 ### Nicole Grazioso
 
-![Nicole Grazioso](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img6.jpg)
+![Nicole Grazioso](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img7.jpg)
 
 > The care and attention to detail make Unify an essential partner for our team.
 
@@ -134,7 +134,7 @@ Director Payments & Risk \| HubSpot
 
 ### Josh Tyson
 
-![Josh Tyson](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img10.jpg)
+![Josh Tyson](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img6.jpg)
 
 > We can track performance in detail and focus our energy on growing the business.
 
@@ -142,7 +142,7 @@ Product Manager \| Capsule
 
 ### Luisa Martinez
 
-![Luisa Martinez](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img9.jpg)
+![Luisa Martinez](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img10.jpg)
 
 > The system stays consistent through every update and remains a pleasure to use.
 
@@ -150,7 +150,7 @@ Senior Director of Operations \| Fitbit
 
 ### Alisa Williams
 
-![Alisa Williams](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img7.jpg)
+![Alisa Williams](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img9.jpg)
 
 > Refreshing typography and thoughtful details changed the way we approach service design.
 
@@ -172,7 +172,7 @@ in fulfilling orders
 
 partner with Unify
 
-### Happy customers
+### Happy customer
 
 **85%**
 
@@ -198,15 +198,11 @@ Millions of people expect a great customer experience. A shared design language 
 
 ![Team discussing a service concept](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img1.jpg)
 
-Make complex journeys easier to understand, manage and improve.
-
 [Read customer story](/referenzen){: .footer }
 
 ### The road to global expansion
 
 ![Colleagues reviewing a product](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img2.jpg)
-
-Connect distributed teams through a shared and resilient service workflow.
 
 [Read customer story](/referenzen){: .footer }
 
@@ -214,15 +210,11 @@ Connect distributed teams through a shared and resilient service workflow.
 
 ![Founder working on a growth plan](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img4.jpg)
 
-Turn a focused launch into a flexible foundation for new markets.
-
 [Read customer story](/referenzen){: .footer }
 
 <!-- Beendet den Inhalt mit der kompakten Subscribe-Variante und der vorhandenen Formularsprache. -->
-## Get industry insights straight in your inbox
+## Get industry insights that you won't delete, straight in your inbox
 {: layout="ntl-2col.style-subscribe" section-style="--cols: 6;" }
-
-Practical ideas for better digital services, delivered occasionally.
 
 ---
 {: layout="3;.hero-form.aside" }
