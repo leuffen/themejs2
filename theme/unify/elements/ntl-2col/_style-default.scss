@@ -82,14 +82,6 @@
     font-style: italic;
   }
 
-  // Gibt der vorhandenen Checklisten-Utility den 20-Pixel-Zeilen- und 32-Pixel-Außenrhythmus der Vorlage.
-  .list-checked {
-    display: grid;
-    gap: calc(var(--nt-space-3) + var(--nt-space-2));
-    margin: var(--nt-space-6) 0;
-    padding: 0;
-  }
-
   // Ordnet ein semantisches Markdown-Linkangebot wie in der Referenz in drei ruhige Zweierspalten mit Zeilentrennern.
   .feature-links {
     display: grid;
