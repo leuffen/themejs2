@@ -183,8 +183,8 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 
 
 
-## Über uns – Modifier `with-justify-top`
-{: layout="ntl-2col.style-default.reverse.with-justify-top"}
+## Über uns – Modifier `with-justify-center`
+{: layout="ntl-2col.style-default.reverse.with-justify-center"}
 
 ![](https://cdn.leuffen.de//osman-k21///v2/18/c_g/DSC06603.webp)
 
@@ -244,7 +244,7 @@ Für Rückfragen und Terminwünsche sind wir gerne für Sie da. Nutzen Sie die f
 {: layout="2;tj-form#osman-start-form" }
 
 ## Schreiben Sie uns
-{: #osman-start-formular layout="2.1;ntl-2col.style-default.with-justify-top" .top }
+{: #osman-start-formular layout="2.1;ntl-2col.style-default" .top }
 
 #[nte-input.style-default.hoverlabel type="text" name="name" label="Name" required]
 #[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]
