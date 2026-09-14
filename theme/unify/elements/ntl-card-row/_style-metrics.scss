@@ -39,15 +39,15 @@
     display: none;
   }
 
-  // Die Services-Komposition führt die Kennzahlen optisch an die helle Testimonial-Fläche an.
+  // Führt die Kennzahlen wie in der Services-Vorlage direkt auf der dunklen Testimonial-Bühne fort.
   &.surface-secondary {
     box-sizing: border-box;
     padding-block-start: 0;
-    color: var(--nt-text);
-    background: var(--nt-surface-muted);
+    color: rgba(255, 255, 255, .72);
+    background: var(--nt-secondary);
 
     > nte-card::after {
-      background-color: var(--nt-border);
+      display: none;
     }
   }
 }
