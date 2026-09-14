@@ -26,9 +26,9 @@ Hand-picked professionals and expertly crafted components, designed for any kind
 ## Simple pricing
 {: layout="-2;" .aside }
 
-- **Professional · $19.99**<br><small>All the basics for starting a new business</small>
-- **Team · $39.99** <mark>Most popular</mark><br><small>Everything you need for a growing business</small>
-- **Enterprise · $59.99**<br><small>Advanced features for scaling your business</small>
+- <input type="radio" name="saas-plan" id="plan-professional" value="professional"><label for="plan-professional">Professional<strong>$19.99</strong><small>All the basics for starting a new business</small></label>
+- <input type="radio" name="saas-plan" id="plan-team" value="team" checked><label for="plan-team">Team <mark>Most popular</mark><strong>$39.99</strong><small>Everything you need for a growing business</small></label>
+- <input type="radio" name="saas-plan" id="plan-enterprise" value="enterprise"><label for="plan-enterprise">Enterprise<strong>$59.99</strong><small>Advanced features for scaling your business</small></label>
 {: .plan-options .aside }
 
 [Try free for 14 days](/kontakt){: .btn .btn-primary }

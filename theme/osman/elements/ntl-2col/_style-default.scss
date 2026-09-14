@@ -16,6 +16,14 @@
     $objectFit: cover
   );
 
+  // Richtet Osman-Zweispalter standardmäßig oben aus; explizite Justify-Modifier bleiben als bewusste Ausnahmen wirksam.
+  &[mode="desktop"]::part(main),
+  &[mode="desktop"]::part(aside) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
   // Aktiviert randfüllende Medien, sobald die zugehörige Nextrap-Version installiert ist.
   // Ältere veröffentlichte Versionen bleiben bis zum gemeinsamen Library-Release baubar.
   @if meta.mixin-exists("with-media-frame", ntl2col) {

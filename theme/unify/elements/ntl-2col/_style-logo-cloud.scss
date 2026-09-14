@@ -18,12 +18,10 @@
 
   // Zentriert die Vertrauensbotschaft oberhalb der Logos.
   &::part(header) {
-    max-width: 50rem;
+    max-width: 46rem;
     margin-inline: auto;
     text-align: center;
   }
-
-  // Leere Spalten blendet die Komponenten-API aus; der Wrapper bleibt für Bottom-Inhalte sichtbar.
 
   // Formt eine normale Markdown-Liste als flexibles Sechs-Spalten-Raster.
   .logo-cloud {
@@ -54,34 +52,43 @@
     filter: grayscale(0);
   }
 
-  // Erweitert die neutrale Logo-Liste opt-in zu beschrifteten Integrationskacheln.
+  // Die Services-Referenz verwendet kompakte, frei stehende Integrations-Icons statt großer Karten.
+  .logo-cloud.with-labels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--nt-space-6) var(--nt-space-5);
+  }
+
   .logo-cloud.with-labels li {
     display: flex;
+    width: 6.75rem;
     min-width: 0;
-    min-height: 8rem;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: var(--nt-space-3);
-    padding: var(--nt-space-4);
-    border: var(--nt-border-width) solid var(--nt-border);
-    border-radius: var(--nt-border-radius-xl);
-    background: var(--nt-surface-raised);
+    padding: 0;
     color: var(--nt-text);
     text-align: center;
   }
 
-  // Bewahrt Markenfarben und hält Icon sowie Beschriftung auch bei langen Namen stabil.
+  // Das Icon selbst bildet die helle, leicht angehobene Kachel der Vorlage.
   .logo-cloud.with-labels img {
-    width: 3rem;
-    height: 3rem;
+    width: 4.5rem;
+    height: 4.5rem;
     margin: 0;
+    padding: var(--nt-space-3);
+    border-radius: var(--nt-radius);
+    background: var(--nt-surface-raised);
+    box-shadow: 0 var(--nt-space-2) var(--nt-space-5) rgba(45, 55, 75, .1);
     opacity: 1;
     filter: none;
   }
 
   .logo-cloud.with-labels strong {
     max-width: 100%;
+    font-size: var(--nt-font-size-small);
+    font-weight: 500;
     overflow-wrap: anywhere;
   }
 
@@ -89,11 +96,11 @@
   &:has(.logo-cloud.with-labels)::part(footer) {
     display: flex;
     justify-content: center;
-    padding-top: var(--nt-space-6);
+    padding-top: var(--nt-space-7);
     text-align: center;
   }
 
-  // Verdichtet die Logo-Cloud auf schmalen Ansichten zu drei gut lesbaren Spalten.
+  // Verdichtet die Logo-Cloud auf schmalen Ansichten, ohne die Icon-Kacheln zu strecken.
   &[mode="mobile"] {
     padding-block: var(--nt-space-7);
 
@@ -108,23 +115,24 @@
       height: 2rem;
     }
 
-    // Verdichtet die beschrifteten Kacheln, ohne das allgemeine Drei-Spalten-Raster zu verändern.
+    .logo-cloud.with-labels {
+      display: flex;
+      gap: var(--nt-space-5) var(--nt-space-3);
+    }
+
     .logo-cloud.with-labels li {
-      min-height: 6.5rem;
-      gap: var(--nt-space-2);
-      padding: var(--nt-space-3);
+      width: calc((100% - 2 * var(--nt-space-3)) / 3);
     }
 
     .logo-cloud.with-labels img {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 4rem;
+      height: 4rem;
+      padding: var(--nt-space-3);
     }
   }
 
-  // Übernimmt im mittleren Komponentenmodus die vier Spalten der Referenz.
-  &[mode="tablet"] {
-    .logo-cloud {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+  // Die mittlere Ansicht bleibt kompakt und bricht die sechs Einträge in zwei ruhige Reihen um.
+  &[mode="tablet"] .logo-cloud.with-labels li {
+    width: calc((100% - 2 * var(--nt-space-5)) / 3);
   }
 }

@@ -121,7 +121,7 @@ Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchi
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ## Kompetenz rund um Bewegung und Belast&shy;barkeit.
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
+{: layout="ntl-2col.reverse.with-justify-bottom.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
 
@@ -190,6 +190,60 @@ Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das
 {: .lead-serif }
 
 [Termin buchen](/kontakt){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }
+
+## Häufig gestellte Fragen
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="FAQ" section-style="--cols: 6;" }
+
+---
+{: layout="nte-accordion.style-faq[exclusive]" }
+
+### Wie vereinbare ich einen Termin?
+
+Termine und organisatorische Rückfragen werden aktuell über das OCP Darmstadt koordiniert.
+
+### Welche Beschwerden werden orthopädisch eingeordnet?
+
+Im Mittelpunkt stehen Beschwerden und Verletzungen des Bewegungsapparates sowie deren funktionelle, sportmedizinische und belastungsbezogene Einordnung.
+
+### Welche Rolle spielt die funktionelle Diagnostik?
+
+Bewegung, Stabilität, Kraft, Belastung und biomechanische Zusammenhänge werden gemeinsam mit dem klinischen Befund betrachtet, um Therapieentscheidungen nachvollziehbar einzuordnen.
+
+### Werden regenerative Verfahren eingesetzt?
+
+Regenerative Therapieansätze werden wissenschaftlich und indikationsbezogen eingeordnet. Welche Behandlung sinnvoll ist, richtet sich nach Diagnose, Befund und individueller Situation.
+
+## Kontakt & Anfahrt
+{: layout="ntl-2col.with-justify-top.surface-white" data-kicker="OCP Darmstadt" section-style="--cols: 5;" }
+
+**OCP Darmstadt**  
+Dres. Behr, Erben, Primbs, Rau  
+Rheinstraße 97  
+64295 Darmstadt
+
+Termine und organisatorische Rückfragen erfolgen über den Praxisstandort des OCP Darmstadt.
+
+<!-- Hält die Darmstadt-Karte bis zur ausdrücklichen Zustimmung inaktiv und verwendet dafür ein lokales inertes Template. -->
+<nte-consent-blocker class="style-default aside">
+  <template>
+    <iframe src="https://www.google.com/maps?q=Rheinstra%C3%9Fe%2097%2C%2064295%20Darmstadt&output=embed" title="Karte zum OCP Darmstadt" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </template>
+</nte-consent-blocker>
+
+---
+{: layout="nte-accordion.style-default.bottom[exclusive]" }
+
+### Anreise mit Bus und Bahn
+
+Für die Anreise mit öffentlichen Verkehrsmitteln nutzen Sie bitte die aktuellen Verbindungen zum Standort Rheinstraße 97 in Darmstadt. Die passende Verbindung richtet sich nach Ihrem Startpunkt und dem aktuellen Fahrplan.
+
+### Anreise mit dem Auto
+
+Am Standort stehen gebührenpflichtige Parkplätze zur Verfügung.
+
+### Barrierefreier Zugang
+
+Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefrei erreichbar.
 
 ---
 {: layout="2;tj-form"}

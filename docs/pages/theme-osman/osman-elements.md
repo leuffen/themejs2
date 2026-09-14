@@ -74,10 +74,10 @@ Erfahren Sie mehr über Symptome, Diagnostik und Behandlung der altersbedingten 
 {: .footer }
 
 
-<!-- Prüft die Originalkomposition aus docs/leistungen/diagnostik.md; Texte und Layout-Modifier bleiben erhalten. -->
+<!-- Prüft die Originalkomposition aus docs/leistungen/diagnostik.md und verwendet die Osman-Standardausrichtung oben. -->
 
 ## Untersuchung bei Sehminderung oder Sehstörung
-{: #osman-galerie layout="ntl-2col.style-default.with-justify-top"}
+{: #osman-galerie layout="ntl-2col.style-default"}
 
 Um die Sehkraft zu erhalten oder wiederherzustellen, ist es ratsam, auftretende Sehminderungen oder Sehstörungen von einem Facharzt abklären zu lassen. Die Ursachen können dabei sowohl innerhalb des Auges liegen als auch neurologischer Natur sein. Zu Beginn steht eine gründliche Anamnese durch einen Augenarzt, bei der der Patient seine auftretenden Beschwerden und deren Verlauf detailliert beschreibt. Dies kann möglicherweise bereits erste Hinweise auf die potenzielle Ursache liefern.
 
@@ -91,10 +91,10 @@ Diese diagnostischen Verfahren ermöglichen es uns, hochauflösende Bilder der N
 ![Fachärztliche Augenuntersuchung](https://cdn.leuffen.de//leu-stock/v2/79/95-71_gfedcba/AdobeStock_284428528.webp)
 {: layout="nte-image" .aside }
 
-<!-- Prüft die Originalkomposition aus docs/leistungen/diagnostik.md; Texte und Layout-Modifier bleiben erhalten. -->
+<!-- Prüft die Reverse-Komposition aus docs/leistungen/diagnostik.md mit derselben Osman-Standardausrichtung oben. -->
 
 ## Glaukom (Grüner Star)
-{: #osman-galerie-reverse layout="ntl-2col.style-default.reverse.with-justify-top"}
+{: #osman-galerie-reverse layout="ntl-2col.style-default.reverse"}
 
 Das Glaukom, umgangssprachlich auch Grüner Star genannt, ist eine Augenerkrankung, die den Sehnerv schädigen und unbehandelt zu einem permanenten Verlust des Sehvermögens führen kann. Es gehört zu den weltweit häufigsten Ursachen für irreversible Blindheit. Ein Glaukom tritt auf, wenn der Druck im Inneren des Auges (Intraokulardruck) über einen längeren Zeitraum erhöht bleibt und dadurch den Sehnerv und die Nervenfasern in der Netzhaut schädigen kann.
 
@@ -106,10 +106,10 @@ Es ist wichtig zu betonen, dass ein normaler Augeninnendruck allein nicht aussch
 ![Gerät zur Glaukomdiagnostik](https://cdn.leuffen.de///osman-k21/v2/22/127-91_cba/Glaukom-Heidelberg.webp)
 {: layout="nte-image" .aside }
 
-<!-- Prüft die Originalkomposition aus docs/leistungen/therapien.md; Texte und Layout-Modifier bleiben erhalten. -->
+<!-- Prüft die Originalkomposition aus docs/leistungen/therapien.md mit der Osman-Standardausrichtung oben. -->
 
 ## Therapie bei Netzhauterkrankungen & Netzhautdegeneration
-{: #osman-video layout="ntl-2col.style-default.with-justify-top"}
+{: #osman-video layout="ntl-2col.style-default"}
 
 Regelmäßige Kontrolltermine zur Überprüfung der Netzhaut sind besonders für Patienten mit Diabetes oder Kurzsichtigkeit empfehlenswert, da Netzhautschädigungen oft lange Zeit unbemerkt bleiben können und eine frühzeitige Erkennung der Schädigungen den Therapieerfolg maßgeblich beeinflusst. Spezielle Augentropfen bewirken eine Pupillenerweiterung, um eine präzise Netzhautüberprüfung durch das augenärztliche Fachpersonal zu ermöglichen.
 
@@ -140,10 +140,10 @@ Intravitreale Implantate werden bei Erkrankungen wie feuchter altersbedingter Ma
 
 Die Behandlung sollte regelmäßig vom Augenarzt überwacht werden, um gegebenenfalls Anpassungen am Therapieplan vornehmen zu können und den allgemeinen Therapieerfolg zu kontrollieren. (siehe dazu auch: [Intravitrealen Implantate bei Makulaerkrankungen](https://www.augenarzt-osman.de/leistungen/therapien.html#intravitreale-implantate-bei-makulaerkrankungen) )
 
-<!-- Prüft die Originalkomposition aus docs/ueber-uns/praxis.md; Texte und Layout-Modifier bleiben erhalten. -->
+<!-- Zeigt für die Praxis-Komposition bewusst die Center-Ausnahme gegenüber dem Osman-Default oben. -->
 
 ## Gut erreichbar und barrierefrei
-{: #osman-praxis layout="ntl-2col.style-default.reverse"}
+{: #osman-praxis layout="ntl-2col.style-default.reverse.with-justify-center"}
 
 Die Buslinien **6, 16, 3, 33, 28, 22 und N10** halten in unmittelbarer Nähe an der Haltestelle Landesbibliothek. Parkmöglichkeiten finden Sie in den nahegelegenen Parkhäusern **Luisenplatz**, **Luisenforum** und **Rhein Main Congress Center**.
 
@@ -274,7 +274,7 @@ Für Rückfragen und Terminwünsche sind wir gerne für Sie da. Nutzen Sie die f
 {: layout="2;tj-form#osman-demo-form" }
 
 ## Schreiben Sie uns
-{: #osman-formular layout="2.1;ntl-2col.style-default.with-justify-top" .top }
+{: #osman-formular layout="2.1;ntl-2col.style-default" .top }
 
 #[nte-input.style-default.hoverlabel type="text" name="name" label="Name" required]
 #[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]

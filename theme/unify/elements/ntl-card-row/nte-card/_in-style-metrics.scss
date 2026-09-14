@@ -8,7 +8,9 @@
       $innerPadding: var(--nt-space-3),
       $border: 0,
       $background-color: transparent,
-      $border-radius: 0, $gap: var(--nt-text-gap));
+      $border-radius: 0,
+      $gap: var(--nt-text-gap)
+    );
 
     min-width: 0;
     color: var(--nt-text);
@@ -41,7 +43,7 @@
     text-align: center;
   }
 
-  // Bewahrt Wertkontrast und sekundäre Textrollen, wenn die Metrics-Reihe auf einer dunklen Surface steht.
+  // Bewahrt Wertkontrast und sekundäre Textrollen auf der dunklen Services-Bühne.
   &.surface-secondary > nte-card {
     color: rgba(255, 255, 255, .72);
 

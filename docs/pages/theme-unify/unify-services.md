@@ -13,9 +13,9 @@ pid: site
 
 <!-- Erweitert die bestehende Bild-/Text-Komposition zu einem Services-Einstieg mit editierbarem Kundenbeleg. -->
 # Start your journey with **Unify**
-{: layout="ntl-2col.style-default" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-default" section-style="--cols: 6; --breakpoint: sm;" }
 
-> Amazing people to work with. A fast and professional partner for every stage of our growth.
+> Amazing people to work with. Very fast and professional partner.
 
 **Nicole Grazioso**  
 Director Payments & Risk \| Airbnb
@@ -36,7 +36,7 @@ We enrich human lives through the thoughtful application of design and technolog
 - [**Advanced tools** — Use thoroughly considered libraries to manage your business.](/leistungen)
 - [**Smart dashboards** — Combine proven components and get started quickly.](/leistungen)
 - [**Powerful features** — Reduce the effort required to create a modern service experience.](/leistungen)
-{: .feature-links }
+{: .list-checked }
 
 ![Smart service dashboard](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img7.png)
 
@@ -70,35 +70,51 @@ The powerful and flexible theme for all kinds of businesses.
 Build a consistent service experience from first contact to ongoing optimization.
 {: .header }
 
-### <span class="feature-icon">◎</span> Mobile first
+### Mobile first
+
+#[i class="bi-tablet-landscape feature-icon" slot="image"]
 
 Every section remains readable and actionable on smaller screens.
 
-### <span class="feature-icon">◇</span> Made for teams
+### Made for teams
+
+#[i class="bi-shield-check feature-icon" slot="image"]
 
 Designers and developers share the same content contract.
 
-### <span class="feature-icon">↗</span> Easy integration
+### Easy integration
+
+#[i class="bi-hdd-network feature-icon" slot="image"]
 
 Connect existing workflows without rebuilding the theme.
 
-### <span class="feature-icon">⌁</span> Flexible delivery
+### Flexible delivery
+
+#[i class="bi-gear feature-icon" slot="image"]
 
 Scale from a focused landing page to a broad service portfolio.
 
-### <span class="feature-icon">◌</span> Documented patterns
+### Documented patterns
+
+#[i class="bi-sliders feature-icon" slot="image"]
 
 Reuse proven layouts for changing content and audiences.
 
-### <span class="feature-icon">✦</span> Clear insights
+### Clear insights
+
+#[i class="bi-journal-text feature-icon" slot="image"]
 
 Present meaningful information with a calm visual hierarchy.
 
-### <span class="feature-icon">✓</span> Automated routines
+### Automated routines
+
+#[i class="bi-patch-check feature-icon" slot="image"]
 
 Reduce repetitive work and focus on valuable customer moments.
 
-### <span class="feature-icon">◎</span> Measurable results
+### Measurable results
+
+#[i class="bi-lightbulb feature-icon" slot="image"]
 
 Use robust components that support iteration and learning.
 
@@ -114,18 +130,19 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 - ![Asana](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/asana-icon.svg) **Asana**
 - ![Slack](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/slack-icon.svg) **Slack**
 - ![Dropbox](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/dropbox-icon.svg) **Dropbox**
-- ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg) **More**
+- ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg)
 {: .logo-cloud .with-labels .bottom }
 
-[See all integrations](/leistungen){: .btn .btn-primary .footer }
+[See all integrations](/leistungen){: .btn .btn-primary }
+{: .footer }
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
-## Loved by businesses and individuals across the globe
+## Loved by business and individuals across the globe
 {: layout="ntl-card-row.style-testimonial-slider.with-horizontal-flow.surface-secondary" section-style="--cols: 4; --visible-cols-mobile: 1.15;" }
 
 ### Nicole Grazioso
 
-![Nicole Grazioso](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img6.jpg)
+![Nicole Grazioso](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img7.jpg)
 
 > The care and attention to detail make Unify an essential partner for our team.
 
@@ -133,7 +150,7 @@ Director Payments & Risk \| HubSpot
 
 ### Josh Tyson
 
-![Josh Tyson](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img10.jpg)
+![Josh Tyson](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img6.jpg)
 
 > We can track performance in detail and focus our energy on growing the business.
 
@@ -141,7 +158,7 @@ Product Manager \| Capsule
 
 ### Luisa Martinez
 
-![Luisa Martinez](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img9.jpg)
+![Luisa Martinez](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img10.jpg)
 
 > The system stays consistent through every update and remains a pleasure to use.
 
@@ -149,7 +166,7 @@ Senior Director of Operations \| Fitbit
 
 ### Alisa Williams
 
-![Alisa Williams](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img7.jpg)
+![Alisa Williams](https://static.leanea.de/uni-v3.0-docs/assets/img/160x160/img9.jpg)
 
 > Refreshing typography and thoughtful details changed the way we approach service design.
 
@@ -171,7 +188,7 @@ in fulfilling orders
 
 partner with Unify
 
-### Happy customers
+### Happy customer
 
 **85%**
 
@@ -197,15 +214,11 @@ Millions of people expect a great customer experience. A shared design language 
 
 ![Team discussing a service concept](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img1.jpg)
 
-Make complex journeys easier to understand, manage and improve.
-
 [Read customer story](/referenzen){: .footer }
 
 ### The road to global expansion
 
 ![Colleagues reviewing a product](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img2.jpg)
-
-Connect distributed teams through a shared and resilient service workflow.
 
 [Read customer story](/referenzen){: .footer }
 
@@ -213,15 +226,11 @@ Connect distributed teams through a shared and resilient service workflow.
 
 ![Founder working on a growth plan](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img4.jpg)
 
-Turn a focused launch into a flexible foundation for new markets.
-
 [Read customer story](/referenzen){: .footer }
 
 <!-- Beendet den Inhalt mit der kompakten Subscribe-Variante und der vorhandenen Formularsprache. -->
-## Get industry insights straight in your inbox
+## Get industry insights that you won't delete, straight in your inbox
 {: layout="ntl-2col.style-subscribe" section-style="--cols: 6;" }
-
-Practical ideas for better digital services, delivered occasionally.
 
 ---
 {: layout="3;.hero-form.aside" }

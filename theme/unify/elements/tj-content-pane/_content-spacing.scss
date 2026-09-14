@@ -8,6 +8,12 @@
     padding-block: var(--nt-spacing-section);
   }
 
+  // Der mobile 2Col-Container ist absichtlich vollbreit; der Seitenfluss stellt den äußeren Leseraum bereit.
+  > ntl-2col[mode="mobile"]:not(.surface-secondary) {
+    box-sizing: border-box;
+    padding-inline: var(--nt-container-gutter);
+  }
+
   // Verhindert bei der dunklen Feature-Bühne einen zusätzlichen Außenabstand innerhalb ihrer eigenen Fläche.
   > ntl-2col.surface-secondary {
     margin-block: var(--nt-spacing-section);

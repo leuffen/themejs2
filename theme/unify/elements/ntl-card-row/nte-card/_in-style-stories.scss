@@ -1,4 +1,4 @@
-// Formt Kundenstories zu flachen Medienkarten und erweitert eine optionale Leitgeschichte.
+// Formt Kundenstories zu stabilen Medienkarten und erweitert eine optionale Leitgeschichte.
 @use "sass:string";
 @use "@nextrap/nte-card" as card;
 
@@ -10,30 +10,39 @@
       $border: 0,
       $background-color: transparent,
       $border-radius: 0,
-      $image-aspect-ratio: string.unquote("16 / 9"), $gap: var(--nt-text-gap));
-    // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.
-    @include card.with-region-bleed(image);
+      $image-aspect-ratio: string.unquote("16 / 9"),
+      $gap: var(--nt-text-gap)
+    );
 
     min-width: 0;
     height: 100%;
     color: var(--nt-text);
 
-    // Hält Bild, Text und Aktion auch bei unterschiedlich langen Inhalten als Einheit zusammen.
+    // Hält Bild, Text und Aktion auch bei unterschiedlich langen Inhalten als geschlossene Karte zusammen.
     &::part(wrapper) {
       height: 100%;
+      min-width: 0;
       overflow: hidden;
       border-radius: var(--nt-radius);
       background: var(--nt-surface-raised);
       box-shadow: 0 var(--nt-space-3) var(--nt-space-8) rgba(45, 55, 75, .08);
     }
 
-    // Verhindert, dass variable Bildformate die Geometrie der Karten verändern.
+    // Normalisiert unterschiedliche Quellformate, damit nachfolgende Karten nicht springen.
     &::part(image) {
+      width: 100%;
       min-width: 0;
       overflow: hidden;
+      aspect-ratio: 16 / 9;
     }
 
-    // Lässt den Text flexibel wachsen und bewahrt lange Wörter innerhalb der Kartenbreite.
+    > [slot="image"] {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     &::part(content) {
       display: flex;
       min-width: 0;
@@ -42,7 +51,6 @@
       overflow-wrap: anywhere;
     }
 
-    // Hält den redaktionellen Titelabstand innerhalb der Textregion.
     > h3 {
       margin: 0 0 var(--nt-space-3);
       color: var(--nt-header);
@@ -59,71 +67,55 @@
     }
   }
 
-  // Baut die markierte Leitgeschichte am Desktop aus derselben Card-Struktur zweispaltig auf.
+  // Die Leitgeschichte wird am Desktop ohne negative Bleeds als belastbare Bild/Text-Komposition aufgebaut.
   &[mode="desktop"] > nte-card.is-featured {
-    --inner-padding: var(--nt-space-8);
     &::part(wrapper) {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-      // Die parallele Textspalte behält ihr Padding; nur das Bild erweitert seine Blockkanten.
-      padding-block: var(--inner-padding);
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+      grid-template-rows: auto 1fr auto;
+      gap: 0;
       align-items: stretch;
+      padding: 0;
     }
 
     &::part(image) {
       grid-column: 1;
-      height: auto;
-      // Die linke Medienfläche reicht oben/unten zum Rahmen, aber nie in den Spalten-Gap.
-      margin-block: calc(-1 * var(--inner-padding));
-      margin-inline-end: 0;
+      grid-row: 1 / -1;
+      height: 100%;
+      min-height: 22rem;
       aspect-ratio: auto;
+      border-radius: 0;
     }
 
     &::part(header),
     &::part(content),
     &::part(footer) {
       grid-column: 2;
+      min-width: 0;
+      padding-inline: var(--nt-space-7);
+    }
+
+    &::part(header) {
+      padding-top: var(--nt-space-7);
     }
 
     &::part(content) {
       justify-content: center;
+      padding-block: var(--nt-space-4);
     }
 
-    // Nur tatsächlich belegte Textregionen erzeugen Grid-Zeilen; Textknoten zählen mit.
-    @each $header in (false, true) {
-      @each $content in (false, true) {
-        @each $footer in (false, true) {
-          $selector: '&[data-card-regions~="image"]';
-          $rows: 0;
-          @each $region, $present in (header: $header, content: $content, footer: $footer) {
-            @if $present {
-              $selector: $selector + '[data-card-regions~="' + $region + '"]';
-              $rows: $rows + 1;
-            } @else {
-              $selector: $selector + ':not([data-card-regions~="' + $region + '"])';
-            }
-          }
-          #{$selector} {
-            @if $rows == 0 {
-              &::part(wrapper) { grid-template-columns: minmax(0, 1fr); }
-              &::part(image) { grid-row: 1; margin-inline-end: calc(-1 * var(--inner-padding)); }
-            } @else {
-              &::part(image) { grid-row: 1 / span #{$rows}; }
-            }
-          }
-        }
-      }
+    &::part(footer) {
+      padding-bottom: var(--nt-space-7);
     }
-    // Ohne Bild gibt es keine leere linke Spalte.
-    &:not([data-card-regions~="image"])::part(wrapper) { display: flex; flex-direction: column; }
 
     > h3 {
       font-size: clamp(1.5rem, calc(1.25rem + 1vw), 2.25rem);
     }
   }
 
-  // Erzwingt mobil auch innerhalb der Leitgeschichte die natürliche Bild-über-Text-Reihenfolge.
-  &[mode="mobile"] > nte-card.is-featured::part(wrapper) {
+  // Mobil und Tablet bleiben alle Story-Karten in natürlicher Bild-über-Text-Reihenfolge.
+  &[mode="mobile"] > nte-card.is-featured::part(wrapper),
+  &[mode="tablet"] > nte-card.is-featured::part(wrapper) {
     display: flex;
     flex-direction: column;
   }

@@ -7,13 +7,14 @@
 
   padding-block: var(--nt-space-7);
 
+  // Die Bildautomatik priorisiert mobil das Bild; hier steuert die Schrittfolge selbst Reihenfolge und Bildproportion.
   @include twoCol.default-style(
     $innerPadding: 0,
     $gap: var(--nt-space-7),
     $background: transparent,
     $border: 0,
     $border-radius: var(--nt-radius),
-    $objectFit: contain,
+    $objectFit: none,
     $wrapper-bg-color: transparent
   );
 
@@ -41,6 +42,8 @@
 
   // Begrenzt die Textzeilen auf die schmalere Fünf-Spalten-Rolle der Vorlage.
   &::part(main) {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
     padding-right: var(--nt-space-5);
   }
@@ -66,6 +69,7 @@
 
   // Kennzeichnet die Reihenfolge unabhängig von einer festen Anzahl an Schritten.
   .step-kicker {
+    order: -1;
     margin: 0 0 var(--nt-space-3);
     color: var(--nt-primary);
     font-size: .75rem;
@@ -80,6 +84,24 @@
     gap: var(--nt-space-2);
     margin: var(--nt-space-5) 0;
     padding: 0;
+    list-style: none;
+  }
+
+  // Hält Häkchen und mehrzeiligen Lerninhalt unabhängig von fett markierten Textteilen bündig.
+  .list-checked li {
+    position: relative;
+    padding-left: var(--nt-space-6);
+  }
+
+  .list-checked li::before {
+    content: "";
+    position: absolute;
+    top: .25em;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    background: var(--nt-primary);
+    clip-path: polygon(10% 48%, 38% 72%, 90% 15%, 100% 25%, 40% 90%, 0 60%);
   }
 
   // Hebt die Abschnittsüberschrift klar über Copy und Lernliste, ohne Hero-Größe zu erreichen.
@@ -91,7 +113,7 @@
   }
 
   // Verleiht dem weiterführenden Link die wiederkehrende Unify-Pfeilbewegung.
-  > a {
+  > p > a {
     position: relative;
     display: inline-block;
     padding-right: var(--nt-space-7);
@@ -101,7 +123,7 @@
   }
 
   // Zeichnet einen einfachen, in der aktuellen Textfarbe skalierenden Richtungspfeil.
-  > a::after {
+  > p > a::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -115,29 +137,37 @@
   }
 
   // Bestätigt Hover und Tastaturfokus mit derselben kleinen Vorwärtsbewegung.
-  > a:is(:hover, :focus-visible)::after {
+  > p > a:is(:hover, :focus-visible)::after {
     transform: translate(.2rem, -50%);
   }
 
-  // Verbindet Folgeschritte mit einer stärkeren neutralen Führung als robuste Näherung der grauen Referenzkurve.
-  & + & {
-    position: relative;
-  }
-
+  // Verankert die gestrichelte Kurve am Übergang zweier Schritte statt an einer festen Texthöhe.
   & + &::before {
     content: "";
     position: absolute;
-    top: calc(-1 * var(--nt-space-7));
+    z-index: 1;
+    top: calc(-1 * var(--nt-spacing-section));
     left: 50%;
-    width: 2px;
-    height: calc(var(--nt-space-7) * 2);
-    background: var(--nt-border);
+    width: var(--nt-space-7);
+    height: calc(2 * var(--nt-spacing-section));
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 144' fill='none'%3E%3Cpath d='M42 3C-8 42-8 92 40 137' stroke='%23bdc5d1' stroke-width='3' stroke-linecap='round' stroke-dasharray='6 6'/%3E%3Cpath d='M26 137h15v-15' stroke='%23bdc5d1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  // Spiegelt die Führung abwechselnd, unabhängig davon, wie viele Schritte Autoren ergänzen.
+  &:nth-child(even of .style-step)::before {
+    transform: translateX(-50%) scaleX(-1);
   }
 
   // Entfernt im Stack feste Medienhöhen und bewahrt die natürliche Bildproportion.
   &[mode="mobile"],
   &[mode="tablet"] {
     --cols: 12;
+
+    // Im Stack steht wie in der Vorlage erst die Anleitung, dann das zugehörige Bild.
+    &::part(main) { order: 1; }
+    &::part(aside) { order: 2; }
   }
 
   // Reduziert Flächenraum und Überschrift auf schmalen Viewports ohne die Inhaltsreihenfolge zu ändern.
@@ -150,9 +180,9 @@
 
     &::after {
       top: var(--nt-space-5);
-      bottom: auto;
-      width: 100%;
-      height: 65%;
+      bottom: var(--nt-space-5);
+      left: var(--nt-container-gutter);
+      width: calc(100% - 2 * var(--nt-container-gutter));
     }
 
     &::part(main) {
@@ -165,12 +195,11 @@
     }
 
     .list-checked {
-      padding-left: var(--nt-space-5);
+      padding-left: 0;
     }
 
     & + &::before {
-      top: calc(-1 * var(--nt-space-5));
-      height: calc(var(--nt-space-5) * 2);
+      display: none;
     }
   }
 }

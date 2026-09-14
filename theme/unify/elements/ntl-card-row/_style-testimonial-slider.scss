@@ -1,4 +1,4 @@
-// Ordnet mehrere Kundenstimmen als kompakte dunkle Vertrauensbühne mit optionalem Horizontal-Flow an.
+// Ordnet mehrere Kundenstimmen als dunkle Vertrauensbühne mit optionalem Horizontal-Flow an.
 @use "@nextrap/ntl-card-row" as cardRow;
 
 // Nutzt die Card-Row als vierteilige Referenzkomposition und hält die Scrollfunktion als separaten Modifier kombinierbar.
@@ -13,24 +13,34 @@
     $container-border-radius: 0
   );
 
+  box-sizing: border-box;
   color: rgba(255, 255, 255, .72);
   background: var(--nt-secondary);
 
-  // Begrenzt und zentriert die helle Überschrift oberhalb der vier Stimmen.
+  // Hält die Überschrift wie in der Services-Referenz hell und über der Kartenreihe ausgerichtet.
   &::part(header) {
     max-width: 44rem;
-    margin: 0 auto var(--nt-space-8);
+    margin: 0 0 var(--nt-space-8);
     color: #fff;
-    text-align: center;
+    text-align: left;
   }
 
-  // Hält die Karten in der Desktop-Zeile auf einer gemeinsamen Höhe.
+  // Hält die Karten in einer stabilen Zeile und verhindert, dass einzelne Inhalte das Raster aufziehen.
   &::part(main) {
     align-items: stretch;
+    min-width: 0;
   }
 
-  // Verdichtet den Header im mobilen Horizontal-Flow, ohne die Kartenbreite selbst zu überschreiben.
-  &[mode="mobile"]::part(header) {
-    margin-bottom: var(--nt-space-6);
+  > nte-card {
+    min-width: 0;
+  }
+
+  // Verdichtet den Header im mobilen Horizontal-Flow und hält die Scrollfläche innerhalb der Section.
+  &[mode="mobile"] {
+    overflow: hidden;
+
+    &::part(header) {
+      margin-bottom: var(--nt-space-6);
+    }
   }
 }

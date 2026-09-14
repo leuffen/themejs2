@@ -1,0 +1,63 @@
+---
+layout: null
+permalink: /pages/theme-unify/responsive-review/
+---
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unify – responsiver Vorlagenvergleich</title>
+<style>
+/* Feste Inhaltsbreiten prüfen die echten responsiven Zustände beider Websites. */
+body { margin: 16px; font: 14px system-ui; background: #edf0f3; color: #263348; }
+nav { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+main { display: flex; flex-wrap: wrap; gap: 24px; align-items: start; }
+section { flex: none; }
+h1 { font-size: 20px; } h2 { font-size: 16px; }
+iframe { display: block; border: 0; height: 780px; background: white; }
+a { color: #176238; }
+</style>
+<h1>Unify: Vorlage und Theme</h1>
+<nav aria-label="Vergleichsansicht"></nav>
+<main>
+<section><h2>Vorlage</h2><iframe id="reference" title="Originalvorlage"></iframe></section>
+<section><h2>ThemeJS2</h2><iframe id="theme" title="Unify Theme"></iframe></section>
+</main>
+<script>
+// Seiten- und Breitenwahl bleiben als URL reproduzierbar und verändern keine gespeicherten Inhalte.
+const params = new URLSearchParams(location.search);
+const pages = {saas: 'saas', services: 'services', start: 'business'};
+const page = Object.hasOwn(pages, params.get('page')) ? params.get('page') : 'saas';
+const width = [320, 375, 768, 1200].includes(Number(params.get('width'))) ? Number(params.get('width')) : 375;
+const stress = params.get('stress') === '1';
+const nav = document.querySelector('nav');
+for (const [label, query] of [
+  ...Object.keys(pages).map(p => [p, {page:p, width}]),
+  ...[320,375,768,1200].map(w => [`${w} px`, {page,width:w}]),
+  [stress ? 'Originaltexte' : 'Lange Texte', {page,width,stress:stress ? 0 : 1}]
+]) {
+  const link = document.createElement('a');
+  link.textContent = label;
+  link.href = '?' + new URLSearchParams(query);
+  nav.append(link);
+}
+const theme = document.querySelector('#theme');
+const reference = document.querySelector('#reference');
+for (const frame of [theme, reference]) frame.width = width;
+reference.src = `https://static.leanea.de/uni-v3.0-docs/landing-${pages[page]}.html`;
+theme.src = `../unify-${page}/?review={{ site.time | date: '%s' }}`;
+// Die optionale Belastungsprobe verlängert nur sichtbaren Text im lokalen Vorschau-Frame.
+theme.addEventListener('load', async () => {
+  if (!stress) return;
+  const doc = theme.contentDocument;
+  await theme.contentWindow.customElements.whenDefined('ntl-2col');
+  const title = doc.querySelector('tj-content-pane h1');
+  if (title) title.textContent = 'Sustainable digital services for growing international businesses and their customers';
+  for (const label of doc.querySelectorAll('.plan-options small')) label.textContent += ' — including personal onboarding, detailed reporting and ongoing support for distributed teams in multiple countries.';
+  for (const step of doc.querySelectorAll('.style-step')) {
+    const heading = step.querySelector('h2');
+    if (heading) heading.textContent += ' with your distributed team and a sustainable long-term strategy';
+  }
+});
+</script>
+</html>

@@ -8,10 +8,6 @@ Optional:
 {%- endcomment -%}
 {%- assign standort = include.standort | default: "default" -%}
 {%- assign address = site.data.general.standorte[standort] -%}
-{%- comment -%}Unterstützt bestehende Projekte mit einer flachen Standardadresse.{%- endcomment -%}
-{%- if address == nil and standort == "default" -%}
-    {%- assign address = site.data.general -%}
-{%- endif -%}
 {%- assign requested_lang = include.lang | default: page.lang -%}
 {%- assign show_phone = true -%}
 {%- assign show_fax = true -%}
