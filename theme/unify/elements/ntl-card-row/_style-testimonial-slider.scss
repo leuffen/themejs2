@@ -1,4 +1,4 @@
-// Ordnet mehrere Kundenstimmen als ruhige Vertrauensbühne mit optionalem Horizontal-Flow an.
+// Ordnet mehrere Kundenstimmen als dunkle Vertrauensbühne mit optionalem Horizontal-Flow an.
 @use "@nextrap/ntl-card-row" as cardRow;
 
 // Nutzt die Card-Row als vierteilige Referenzkomposition und hält die Scrollfunktion als separaten Modifier kombinierbar.
@@ -14,15 +14,15 @@
   );
 
   box-sizing: border-box;
-  color: var(--nt-text);
-  background: var(--nt-surface-muted);
+  color: rgba(255, 255, 255, .72);
+  background: var(--nt-secondary);
 
-  // Begrenzt und zentriert die Überschrift oberhalb der Stimmen wie in der Services-Referenz.
+  // Hält die Überschrift wie in der Services-Referenz hell und über der Kartenreihe ausgerichtet.
   &::part(header) {
     max-width: 44rem;
-    margin: 0 auto var(--nt-space-8);
-    color: var(--nt-header);
-    text-align: center;
+    margin: 0 0 var(--nt-space-8);
+    color: #fff;
+    text-align: left;
   }
 
   // Hält die Karten in einer stabilen Zeile und verhindert, dass einzelne Inhalte das Raster aufziehen.
