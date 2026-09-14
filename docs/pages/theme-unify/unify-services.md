@@ -70,35 +70,35 @@ The powerful and flexible theme for all kinds of businesses.
 Build a consistent service experience from first contact to ongoing optimization.
 {: .header }
 
-### <span class="feature-icon">◎</span> Mobile first
+### <i class="bi-tablet-landscape feature-icon"></i> Mobile first
 
 Every section remains readable and actionable on smaller screens.
 
-### <span class="feature-icon">◇</span> Made for teams
+### <i class="bi-shield-check feature-icon"></i> Made for teams
 
 Designers and developers share the same content contract.
 
-### <span class="feature-icon">↗</span> Easy integration
+### <i class="bi-hdd-network feature-icon"></i> Easy integration
 
 Connect existing workflows without rebuilding the theme.
 
-### <span class="feature-icon">⌁</span> Flexible delivery
+### <i class="bi-gear feature-icon"></i> Flexible delivery
 
 Scale from a focused landing page to a broad service portfolio.
 
-### <span class="feature-icon">◌</span> Documented patterns
+### <i class="bi-sliders feature-icon"></i> Documented patterns
 
 Reuse proven layouts for changing content and audiences.
 
-### <span class="feature-icon">✦</span> Clear insights
+### <i class="bi-journal-text feature-icon"></i> Clear insights
 
 Present meaningful information with a calm visual hierarchy.
 
-### <span class="feature-icon">✓</span> Automated routines
+### <i class="bi-patch-check feature-icon"></i> Automated routines
 
 Reduce repetitive work and focus on valuable customer moments.
 
-### <span class="feature-icon">◎</span> Measurable results
+### <i class="bi-lightbulb feature-icon"></i> Measurable results
 
 Use robust components that support iteration and learning.
 
