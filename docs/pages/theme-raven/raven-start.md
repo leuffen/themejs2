@@ -192,10 +192,10 @@ Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das
 [Termin buchen](/kontakt){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }
 
 ## Häufig gestellte Fragen
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="FAQ" section-style="--cols: 5;" }
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="FAQ" section-style="--cols: 6;" }
 
 ---
-{: layout="nte-accordion.style-default[exclusive]" }
+{: layout="nte-accordion.style-faq[exclusive]" }
 
 ### Wie vereinbare ich einen Termin?
 
