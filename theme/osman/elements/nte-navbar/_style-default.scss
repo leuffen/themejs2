@@ -21,10 +21,21 @@ nte-navbar.style-default > nte-navbar-line.style-default:not(.style-topbar) {
   --height: var(--brand-height, 64px);
 }
 
-// Bewahrt die helle Osman-Topbar, auch wenn das Layout eigene Inline-Werte setzt.
+// Bewahrt die helle Osman-Topbar und stellt ihre Textlinks in der allgemeinen Textfarbe dar.
 nte-navbar.style-default > nte-navbar-line.style-topbar {
   --background: #f3f3f3;
-  --text-color: #666;
+  --text-color: var(--nt-text);
+
+  a {
+    color: var(--nt-text);
+    text-decoration: none;
+  }
+
+  // Gibt Textlinks beim Hover eine dezente dunklere Rückmeldung und Unterstreichung.
+  a:hover {
+    color: color-mix(in srgb, var(--nt-text) 85%, #000);
+    text-decoration: underline;
+  }
 }
 
 // Aktiviert Schatten und die Glasfläche nach dem Scrollen.
