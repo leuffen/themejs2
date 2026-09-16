@@ -45,8 +45,8 @@
 
   // Die Card Row erzeugt direkte Children mit style-parent; das Pairing bindet deshalb an die Struktur statt an eine Child-Variante.
   > nte-card {
-    // Die Card bleibt außen bündig; nur der Textbereich erhält einen kleinen horizontalen Innenabstand.
-    @include card.default-style($innerPadding: 0, $gap: var(--nt-spacing-text), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: 0);
+    // Behält die ursprüngliche Card-Baseline bei; nur der Content wird horizontal etwas stärker eingerückt als der Footer-Button.
+    @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-spacing-text), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: 0);
     @include card.with-region-bleed(image);
     --image-aspect-ratio: 16/9;
     --border: 0;
@@ -65,7 +65,7 @@
 
     &::part(content) {
       flex: 1 1 auto;
-      padding: var(--nt-spacing-text) var(--nt-space-2);
+      padding-inline: var(--nt-space-2);
     }
 
     // Die Ribbon-Top-Kartenüberschrift bleibt so groß wie der normale Text und wird nur hervorgehoben.
