@@ -1,5 +1,3 @@
-@use "@nextrap/style-button" as button;
-
 // Verbindet die Legacy-Klassen des Layouts mit den Runtime-Variablen der Navbar-Komponente.
 nte-navbar.style-default {
   --nte-navbar-position: sticky;
@@ -10,12 +8,6 @@ nte-navbar.style-default {
 
   background: transparent;
   backdrop-filter: none;
-
-  // Stellt normale Navbar-Links als prominente Textaktionen dar, ohne Brand und Primary-CTA zu verändern.
-  a:not(.brand-logo):not(.btn-primary) {
-    @include button.btn();
-    @include button.btn-text();
-  }
 }
 
 // Stellt die beiden sichtbaren Navbar-Zeilen auf die Osman-Grunddarstellung ein.
