@@ -1,4 +1,7 @@
 &.style-default {
+  // Hält den Osman-Hero ohne zusätzlichen Außenabstand direkt am nachfolgenden Ribbon.
+  margin-bottom: 0;
+
   .box {
     position: absolute;
     left: clamp(4rem, 6.25vw, 7.25rem);
@@ -8,6 +11,12 @@
     margin: 0;
     padding: var(--nt-spacing-text) var(--nt-spacing-text) var(--nt-spacing-text) 0;
     background: transparent;
+    color: var(--nt-primary);
+
+    // Stellt sicher, dass die Überschrift die Primärfarbe der gesamten Hero-Box übernimmt.
+    h1 {
+      color: inherit;
+    }
 
     &::before {
       content: "";
