@@ -18,6 +18,12 @@
       color: inherit;
     }
 
+    // Uses the Osman primary color consistently for copy, headings and links inside the hero text box.
+    color: var(--nt-primary);
+    --nt-text: var(--nt-primary);
+    --nt-header: var(--nt-primary);
+    --nt-link: var(--nt-primary);
+
     &::before {
       content: "";
       position: absolute;

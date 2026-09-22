@@ -50,6 +50,9 @@
   --nt-radius: var(--theme-radius);
   --nt-container-max: var(--theme-container-max);
 
+  // Uses the existing secondary dark gray as the Osman default body text color.
+  --nt-text: var(--theme-secondary);
+
   // -------------------------------------------------------------------------
   // Additional theme semantics
   // -------------------------------------------------------------------------
