@@ -8,8 +8,18 @@ Global dependency:
 - tj-loader state classes and the #loader DOM contract
 {%- endcomment -%}
 <style>
-    tj-loader:not(.ready) * {
-        display: none !important; /* Hide the loader by default */
+    tj-loader {
+        display: none;
+        visibility: hidden;
+    }
+
+    tj-loader.pre-visual {
+        display: block; /* Show the loader when visual state is active */
+        visibility: hidden;
+    }
+    tj-loader.visual {
+        display: block !important; /* Show the loader when visual state is active */
+        visibility: visible !important;
     }
 
     :where(#loader) {
