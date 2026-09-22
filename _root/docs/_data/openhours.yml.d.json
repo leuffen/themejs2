@@ -58,24 +58,24 @@
           "from": {
             "type": "string",
             "format": "date-time",
-            "description": "Start date and time of the vacation, e.g. '2022-01-01 00:00:00'"
+            "description": "Start date and time of the vacation, e.g. '2022-01-01'"
           },
           "till": {
             "type": "string",
             "format": "date-time",
-            "description": "End date and time of the vacation, e.g. '2022-01-01 00:00:00'"
+            "description": "End date and time of the vacation, e.g. '2022-01-01'"
           },
           "short_text": {
             "type": "string",
-            "description": "Short text description, e.g. 'New Year's Day'"
+            "description": "Short text description, e.g. 'Urlaub vom 01.01. bis 01.01.2022'"
           },
           "text": {
             "type": "string",
-            "description": "Long text description, e.g. 'Wir haben geschlossen. Bitte beachten Sie unsere Öffnungszeiten.'"
+            "description": "Long text description, e.g. 'Vertretung übernimmt...'"
           },
           "title": {
             "type": "string",
-            "description": "Title, e.g. 'Neujahr'"
+            "description": "Title, e.g. 'Urlaub vom 01.01. bis 01.01.2022'"
           }
         },
         "required": ["from", "till", "short_text", "text", "title"]

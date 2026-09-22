@@ -1,0 +1,263 @@
+---
+layout: website
+body_class: theme-raven
+title: Theme Raven
+use_navbar: osman
+use_footer: raven
+description: "Dr. med. Tim Raven – Facharzt für Orthopädie und Unfallchirurgie mit Schwerpunkt Sporttraumatologie, funktionelle Orthopädie und regenerative Medizin."
+ptags:
+  - arzt
+  - nav
+pid: site
+---
+
+# Medizin mit Präzision
+{: layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" section-style="--cols: 6;" }
+
+Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktionell gedacht und auf nachhaltige Belastbarkeit ausgerichtet.
+{: .lead-serif }
+
+- Sporttraumatologie
+- Funktionelle Orthopädie
+- Regenerative Medizin
+{: .hero__specialties .xl:desktop aria-label="Medizinische Schwerpunkte" }
+
+Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Einordnung und einem klaren Blick auf langfristige Belastbarkeit.
+
+[Termin buchen](/kontakt){: .btn .btn-primary .btn-lead .btn-glow .btn-glow-on-view .me-2 .mb-2 }
+[Medizinischen Ansatz ansehen](/leistungen){: .btn .btn-outline-primary .mb-2 }
+
+![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
+
+---
+{: layout="2;ntl-card-row.style-ribbon" section-style="--cols: 2;" }
+
+### News
+{: section-style="--cols: 4;" }
+
+<leuffen-announcements>Keine aktuellen Hinweise</leuffen-announcements>
+
+### Fachärztliche Expertise
+
+Orthopädie und Unfallchirurgie mit deutscher Approbation.
+
+### Universitäre Ausbildung
+
+Studium und Promotion an der Universität Heidelberg.
+
+### Sport&shy;medizinischer Fokus
+
+Sporttraumatologie und Return to Sport.
+
+### Aktuelle Tätigkeit
+
+Ärztlich tätig im OCP Darmstadt.
+
+## Präzision statt Standard&shy;therapie.
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 7;" }
+
+Im Mittelpunkt steht nicht das möglichst schnelle Anwenden einer Methode, sondern die saubere medizinische Einordnung der Beschwerde – auf Grundlage von Funktion, Belastung, Biomechanik und aktueller Evidenz.
+{: .lead-serif }
+
+---
+{: layout=".card-grid" .xl:desktop }
+
+### Funktionelle Diagnostik
+
+Beschwerden werden nicht isoliert betrachtet, sondern im Zusammenhang mit Bewegung, Belastung und individueller Leistungsfähigkeit.
+
+### Evidenzbasierte Entscheidungen
+
+Therapieempfehlungen folgen medizinischer Indikation und wissenschaftlicher Einordnung – nicht einem standardisierten Verfahren.
+
+### Gelenkerhalt vor Eskalation
+
+Konservative und funktionserhaltende Möglichkeiten werden differenziert geprüft, bevor invasive Schritte erwogen werden.
+
+### Nachhaltige Belastbarkeit
+
+Ziel ist nicht nur kurzfristige Beschwerdefreiheit, sondern die sichere Rückkehr zu Alltag, Training und sportlicher Leistungsfähigkeit.
+
+## So entsteht die medizinische Ein&shy;ordnung.
+{: layout="ntl-2col.with-justify-top.surface-primary" data-kicker="Vom Befund zur Entscheidung" section-style="--cols: 5;" }
+
+Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapieentscheidungen – konservativ, regenerativ oder operativ.
+{: .lead-serif }
+
+---
+{: layout="nte-accordion.style-default.aside[initial-open-index='0'][exclusive]" }
+
+### Anamnese und Kontext
+
+Beschwerden, Belastung, Sport, Alltag und bisheriger Verlauf werden strukturiert zusammengeführt.
+
+### Funktionelle Untersuchung
+
+Bewegung, Stabilität, Kraft und belastungsabhängige Mechanismen werden differenziert untersucht.
+
+### Medizinische Einordnung
+
+Klinischer Befund, Bildgebung und weitere Diagnostik werden im Gesamtzusammenhang bewertet.
+
+### Individueller Therapiepfad
+
+Aus der Diagnose entsteht ein nachvollziehbarer Plan – konservativ, regenerativ, operativ oder interdisziplinär.
+
+## Dr. med. Tim Raven
+{: layout="ntl-2col.reverse-desktop" data-kicker="Fachärztliche Perspektive" section-style="--cols: 7;" }
+
+„Mein Ziel ist eine Medizin, die präzise erklärt, nachvollziehbar entscheidet und die langfristige Funktion in den Mittelpunkt stellt.“
+{: .profile-quote }
+
+Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchirurgie mit sporttraumatologischer Erfahrung und einem besonderen Interesse an funktioneller Diagnostik und regenerativen Therapieansätzen.
+
+| Station | Details |
+| --- | --- |
+| Studium & Promotion | Ruprecht-Karls-Universität Heidelberg |
+| Facharztausbildung | Universitätsklinikum Heidelberg · Klinikum Aschaffenburg-Alzenau · Universitätsklinikum Frankfurt |
+| Mitgliedschaften | DGOU · GOTS · DGMSM · DGSP · humedica e. V. |
+{: .timeline-table .xl:desktop }
+
+![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
+
+## Kompetenz rund um Bewegung und Belast&shy;barkeit.
+{: layout="ntl-2col.reverse.with-justify-bottom.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
+
+Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
+
+---
+{: layout=".focus-list" section-slot="footer" .xl:desktop }
+
+### [Sport&shy;traumatologie](/schwerpunkte/sporttraumatologie)
+
+Diagnostik und Behandlung akuter Sportverletzungen, Überlastungsschäden und anhaltender Beschwerden des Bewegungsapparates.
+
+### [Funktionelle Orthopädie](/schwerpunkte/funktionelle-orthopaedie)
+
+Analyse von Bewegungsmustern, muskulären Dysbalancen und biomechanischen Zusammenhängen als Grundlage der Therapieentscheidung.
+
+### [Regenerative Medizin](/schwerpunkte/regenerative-medizin)
+
+Wissenschaftlich differenzierte Einordnung regenerativer Therapieansätze – indikationsbezogen, transparent und ohne Heilsversprechen.
+
+### [Return to Sport](/schwerpunkte/return-to-sport)
+
+Strukturierte Belastungssteuerung für eine sichere, nachvollziehbare Rückkehr in Training, Wettkampf und leistungsorientierte Bewegung.
+
+### [Gelenk&shy;erhaltende Konzepte](/schwerpunkte/gelenkerhaltende-konzepte)
+
+Moderne konservative Orthopädie mit Fokus auf Funktionserhalt, Bewegungsqualität und langfristige Belastbarkeit.
+
+## Aktuell tätig im OCP Darmstadt.
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 7;" }
+
+Aktuell ist Dr. Raven im OCP Darmstadt tätig. Termine und organisatorische Rückfragen erfolgen über den dortigen Praxisstandort.
+{: .lead-serif }
+
+---
+{: layout=".card-grid" .xl:desktop }
+
+### OCP Darmstadt
+
+Dres. Behr, Erben, Primbs, Rau  
+Rheinstraße 97  
+64295 Darmstadt
+
+[Zur Terminvereinbarung](/kontakt){: .btn .btn-outline-primary .btn-lead .btn-glow .mt-3 }
+
+### Zugangs&shy;informationen
+
+- 2\. Obergeschoss mit Fahrstuhl
+- Barrierefreier Zugang
+- Gebührenpflichtige Parkplätze
+
+---
+{: layout="=2" }
+
+| Tag | Sprechzeiten |
+| --- | --- |
+| Montag | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Dienstag | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Mittwoch | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Donnerstag | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
+| Freitag | 08:00&#8288;–&#8288;13:00 |
+{: .opening-hours .bottom aria-label="Sprechzeiten" }
+
+## Termin&shy;vereinbarung über das OCP Darmstadt.
+{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Termin & Kontakt" section-style="--cols: 5;" }
+
+Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das OCP Darmstadt. Dort erhalten Sie alle Informationen zu Sprechzeiten, Anfahrt und Zugang.
+{: .lead-serif }
+
+[Termin buchen](/kontakt){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }
+
+## Häufig gestellte Fragen
+{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="FAQ" section-style="--cols: 6;" }
+
+---
+{: layout="nte-accordion.style-faq[exclusive]" }
+
+### Wie vereinbare ich einen Termin?
+
+Termine und organisatorische Rückfragen werden aktuell über das OCP Darmstadt koordiniert.
+
+### Welche Beschwerden werden orthopädisch eingeordnet?
+
+Im Mittelpunkt stehen Beschwerden und Verletzungen des Bewegungsapparates sowie deren funktionelle, sportmedizinische und belastungsbezogene Einordnung.
+
+### Welche Rolle spielt die funktionelle Diagnostik?
+
+Bewegung, Stabilität, Kraft, Belastung und biomechanische Zusammenhänge werden gemeinsam mit dem klinischen Befund betrachtet, um Therapieentscheidungen nachvollziehbar einzuordnen.
+
+### Werden regenerative Verfahren eingesetzt?
+
+Regenerative Therapieansätze werden wissenschaftlich und indikationsbezogen eingeordnet. Welche Behandlung sinnvoll ist, richtet sich nach Diagnose, Befund und individueller Situation.
+
+## Kontakt & Anfahrt
+{: layout="ntl-2col.with-justify-top.surface-white" data-kicker="OCP Darmstadt" section-style="--cols: 5;" }
+
+**OCP Darmstadt**  
+Dres. Behr, Erben, Primbs, Rau  
+Rheinstraße 97  
+64295 Darmstadt
+
+Termine und organisatorische Rückfragen erfolgen über den Praxisstandort des OCP Darmstadt.
+
+<!-- Hält die Darmstadt-Karte bis zur ausdrücklichen Zustimmung inaktiv und verwendet dafür ein lokales inertes Template. -->
+<nte-consent-blocker class="style-default aside">
+  <template>
+    <iframe src="https://www.google.com/maps?q=Rheinstra%C3%9Fe%2097%2C%2064295%20Darmstadt&output=embed" title="Karte zum OCP Darmstadt" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </template>
+</nte-consent-blocker>
+
+---
+{: layout="nte-accordion.style-default.bottom[exclusive]" }
+
+### Anreise mit Bus und Bahn
+
+Für die Anreise mit öffentlichen Verkehrsmitteln nutzen Sie bitte die aktuellen Verbindungen zum Standort Rheinstraße 97 in Darmstadt. Die passende Verbindung richtet sich nach Ihrem Startpunkt und dem aktuellen Fahrplan.
+
+### Anreise mit dem Auto
+
+Am Standort stehen gebührenpflichtige Parkplätze zur Verfügung.
+
+### Barrierefreier Zugang
+
+Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefrei erreichbar.
+
+---
+{: layout="2;tj-form"}
+
+## Schreiben Sie uns
+{: layout="2.1;ntl-2col.style-form" .top }
+
+#[nte-input.style-default type="text" name="name" label="Name" required]
+#[nte-input.style-default type="email" name="email" label="E-Mail" required]
+#[nte-input.style-default type="text" name="telefon" label="Telefon"]
+
+---
+{: layout=".aside" }
+
+#[nte-input.style-default type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
+#[button type="submit" class="btn btn-primary" > Absenden]

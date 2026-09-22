@@ -1,11 +1,16 @@
 version: "3.8"
 services:
     # This service will be available as: project_name_some_service
-    chromium:
-        image: ghcr.io/browserless/chromium
-        networks:
-            - kickstart-stack
+    schiller:
+        image: ghcr.io/leuffen/schiller:unstable
+        secrets:
+            - open_ai
+        ports:
+            -   "5000:80"
+        volumes:
+            - ./:/data
 
-networks:
-  kickstart-stack:
-    external: true
+## Use Secrets already existing
+secrets:
+    open_ai:
+        external: true

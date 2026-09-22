@@ -1,18 +1,13 @@
 {
-  "name": "project",
+  "name": "leu-web-t-raven-k201",
   "version": "1.0.0",
   "description": "",
   "license": "proprietary",
   "main": "./index.js",
   "module": "./index.js",
-
-  "--workspaces": [
-    "workspaces/themejs2/"
-  ],
   "author": "",
   "dependencies": {
-    "@leuffen/themejs2": "^1.0.10"
-
+    "@leuffen/themejs2": "^1.0.11"
   },
   "devDependencies": {
     "@leuffen/vite-jekyll-hmr-manager": "^1.0.4",

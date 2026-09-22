@@ -11,11 +11,11 @@ type TableJson = {
     status: "" // Reserved for future use
 }
 type Vacation = {
-    from: string, // Date Time string e.g. 2022-01-01 00:00:00
-    till: string, // Date Time string e.g. 2022-01-01 00:00:00
+    from: string, // Date Time string e.g. 2022-01-01 - leave empty if no data
+    till: string, // Date Time string e.g. 2029-01-01
     short_text: string, // e.g. "New Year's Day"
-    text: string, // e.g. "Wir haben geschlossen. Bitte beachten Sie unsere Öffnungszeiten."
-    title: string, // e.g. "Neujahr"
+    text: string, // e.g. "Vertretung durch ..."
+    title: string, // e.g. "Urlaub vom 01.01. bis 01.01.2022"
 }
 
 /**

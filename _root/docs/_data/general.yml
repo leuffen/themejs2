@@ -1,45 +1,44 @@
-# Globale Website-Konfiguration
-pagebuilder: https://pagebuilder.leuffen.de/e/falk-k43/default
-# Important: site_base_url - Always with https://www.! - No trailing slash! - Keep UNKNOWN_DOMAIN.XXX unless domain was explicitly stated!
-site_base_url: "https://www.UNKNOWN_DOMAIN.XXX" ## Change to the domain of the website (leave UNKNOWN_DOMAIN.XXX if not known)
-subscription_id: leuffen
-title: Praxis Dr. Heike Muster - hausärztlich internistische Praxis in Musterstadt
-logoalt: Dr. Heike Muster
-domain: "www.UNKNOWN_DOMAIN.XXX"  ## Change to the domain of the website (leave UNKNOWN_DOMAIN.XXX if not known) - Dont add http:// or https:// - keep www.
+pagebuilder: https://pagebuilder.leuffen.de/e/t-raven-k201/default
+site_base_url: "https://www.undefined-domain.de"
+subscription_id: t-raven-k201
 
-# Standorte
-# Standortabhängige Angaben gehören in den jeweiligen Eintrag. Die Website
-# verwendet normalerweise "default". Weitere Standorte können daneben nach
-# demselben Schema ergänzt und gezielt über site.data.general.standorte.<id>
-# angesprochen werden.
-standorte:
-  default:
-    name: Praxis Dr. Heike Muster
-    name2: ~
-    desc: Fachärztin für Innere Medizin
-    fachrichtung: Hausärztlich internistische Praxis
-
-    street: Musterstraße. 13
-    zip: 72250
-    city: Musterstadt
-
-    # Telefonnummer wie sie angezeigt wird
-    phone1_text: "(0 74 41) 81 605"
-    # Telefonnummer mit Länderpräfix für tel:-Links (ohne Leerzeichen)
-    phone1: "+49744181605"
-    fax1_text: "(07441) 51 722"
-    email: mail@UNKNOWN_DOMAIN.XXX
-
-    termin_url: "/online-termin" ## Auf /online-termin stehen lassen, wenn nichts anderes angegeben wurde.
-    google_rating_link: ""
-    map_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.188825789242!2d8.449496546318292!3d48.47202968557242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479735c1aeacb92d%3A0x9eeaecce18dcfa29!2sOrtsstra%C3%9Fe%2013%2C%2072250%20Freudenstadt!5e0!3m2!1sde!2sde!4v1695118965248!5m2!1sde!2sde"
-    map_link: "https://www.google.com/maps/place/Ortsstr.+13+%2C+72250+Freudenstadt-Wittlensweiler/@,"
-
-datenschutzbeauftragter: |
+title: Dr. med. Tim Raven – Evidenzbasierte Orthopädie, Sporttraumatologie und regenerative Medizin
+name: Dr. med. Tim Raven
+name2: Facharzt für Orthopädie und Unfallchirurgie · aktuell tätig im OCP Darmstadt
+desc: Evidenzbasierte Medizin des Bewegungsapparates mit Schwerpunkt Sporttraumatologie, funktioneller Diagnostik, gelenkerhaltenden Therapiekonzepten und regenerativer Medizin.
+fachrichtung: Facharzt für Orthopädie und Unfallchirurgie
+logoalt: Dr. med. Tim Raven
+logo: /assets/logo.webp
+street: Rheinstraße 97
+zip: "64295"
+city: Darmstadt
+termin_url: "/online-termin"
+map_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.184011003837!2d8.63782931567444!3d49.8704419793981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bda6c1e0e2e5e7%3A0x2b2e7e8e8e8e8e8e!2sRheinstra%C3%9Fe+97%2C+64295+Darmstadt!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
+map_link: "https://www.google.com/maps/place/Rheinstraße+97,+64295+Darmstadt"
+datenschutzbeauftragter: null
 bildnachweise: |
     <br>Bilder von <a href="https://stock.adobe.com">Adobe Stock</a>
-
+phone1_text: "(06151) 780750"
+phone1: "+496151780750"
+fax1_text: ~
+email: ~
+domain: "undefined-domain.de"
 tools:
   googlemaps: true
   jameda: false
   recaptcha: false
+
+# Spiegelt die bestehenden Kontaktdaten für Komponenten, die den neuen Standort-Vertrag verwenden.
+standorte:
+  default:
+    name: Dr. med. Tim Raven
+    name2: Facharzt für Orthopädie und Unfallchirurgie · aktuell tätig im OCP Darmstadt
+    street: Rheinstraße 97
+    zip: "64295"
+    city: Darmstadt
+    termin_url: "/online-termin"
+    map_link: "https://www.google.com/maps/place/Rheinstraße+97,+64295+Darmstadt"
+    phone1_text: "(06151) 780750"
+    phone1: "+496151780750"
+    fax1_text: ~
+    email: ~

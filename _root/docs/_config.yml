@@ -1,66 +1,42 @@
-lang: de-DE
-url: ""
-baseurl: ""
-markdown: kramdown
-permalink: /news/:year/:month/:day/:title/
+# Changes to this file will NOT be reloaded in jekyll --watch mode! Restart
+# jekyll after updating this file!
 
-plugins:
-  - jekyll-sitemap
+google_analytics:
+show_downloads: true
 
-collections:
-  wissen:
-    output: true
-    permalink: /magazin/:path/
-  autoren:
-    output: true
-    permalink: /autoren/:path/
-  themen:
-    output: true
-    permalink: /themen/:path/
-  partner:
-    output: true
-    permalink: /partner/:path/
-  landing_pages:
-    output: true
-    permalink: /landingpages/:path/
-  posts:
-    output: true
+# Make directory-style links
+#permalink: pretty
+#exclude: ['assets']
+
+sass:
+  sass_dir: _sass_disabled
+
+livereload: true
+exclude:
+    - "*.bak"
+    - ".*"
+    - "*~"
+    - "~*"
 
 defaults:
   - scope:
       path: ""
     values:
-      layout: default
-      body_class: theme-osman
+      layout: "default"
   - scope:
-      path: ""
-      type: posts
+      path: "_posts"
     values:
-      layout: article
-      content_type: news
-  - scope:
-      path: ""
-      type: wissen
-    values:
-      layout: article
-      content_type: wissen
-  - scope:
-      path: ""
-      type: autoren
-    values:
-      layout: author
-  - scope:
-      path: ""
-      type: themen
-    values:
-      layout: topic
-  - scope:
-      path: ""
-      type: partner
-    values:
-      layout: partner
-  - scope:
-      path: ""
-      type: landing_pages
-    values:
-      layout: landing-page
+      layout: "post"
+
+collections:
+    elements:
+        output: false
+    snippets:
+        output: false
+
+collections_dir: .
+
+plugins:
+- jekyll-optional-front-matter
+- jekyll-sitemap
+

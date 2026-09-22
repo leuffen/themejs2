@@ -1,11 +1,11 @@
-// Lädt die gemeinsame Farbmodus-API und genau das gewählte Website-Theme.
+// Lädt die gemeinsame Farbmodus-API und ausschließlich das Raven-Theme dieser Website.
 @use "@nextrap/style-base" as nextrapBase;
-@use "@leuffen/themejs2/theme/osman";
+@use "@leuffen/themejs2/theme/raven";
 
 :root {
   @include nextrapBase.runtime-scheme-selectors();
 }
 
-:where(.theme-osman) {
-  @include osman.theme();
+html {
+  @include raven.theme();
 }

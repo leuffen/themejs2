@@ -3,21 +3,22 @@ layout: default
 ---
 
 
-<h2>Pflichtangaben</h2>
+
+<h2 layout="ntl-2col">Pflichtangaben</h2>
 
 <p>
-    <span class="fw-bold">{{ site.data.general.name}}</span><br>
-    {%- if site.data.general.name2 -%}
-    {{site.data.general.name2}}<br>
+    <span class="fw-bold">{{ site.data.general.standorte.default.name}}</span><br>
+    {%- if site.data.general.standorte.default.name2 -%}
+    {{site.data.general.standorte.default.name2}}<br>
     {%- endif -%}
-    {{site.data.general.street}}<br>
-    {{site.data.general.zip}} {{site.data.general.city}}<br><br>
+    {{site.data.general.standorte.default.street}}<br>
+    {{site.data.general.standorte.default.zip}} {{site.data.general.standorte.default.city}}<br><br>
     <span class="fw-bold">Kontakt:</span><br>
-    Telefon: <a href="tel:{{site.data.general.phone1}}">{{site.data.general.phone1_text}}</a><br>
-    {% if site.data.general.fax1_text %}
-    Telefax: {{site.data.general.fax1_text}}<br>
+    Telefon: <a href="tel:{{site.data.general.standorte.default.phone1}}">{{site.data.general.standorte.default.phone1_text}}</a><br>
+    {% if site.data.general.standorte.default.fax1_text %}
+    Telefax: {{site.data.general.standorte.default.fax1_text}}<br>
     {% endif %}
-    <a href="tel:{{site.data.general.email}}">{{site.data.general.email}}</a><br>
+    <a href="tel:{{site.data.general.standorte.default.email}}">{{site.data.general.standorte.default.email}}</a><br>
 </p>
 
 
@@ -25,16 +26,16 @@ layout: default
 
 
 
-<h2>Design & Umsetzung</h2>
+<h2 layout="ntl-2col">Design & Umsetzung</h2>
 
-<a href="https://leuffen.de/"><img style="width: 150px;margin-left:-10px" src="/assets/leuffen/leuffen-logo-big.svg" alt="leuffen.de logo"></a>
+<a href="https://leuffen.de/"><img style="width: 150px" src="/assets/leuffen/leuffen-logo-big.svg" alt="leuffen.de logo"></a>
 
 <p class="mt-2">leuffen.de<br>Webprogrammierung & Webservices</p>
 <a href="https://med.leuffen.de" target="_blank" class="link-pointer">Websites für Ärzte</a>
 
 
 
-<h2>Bildnachweise</h2>
+<h2 layout="ntl-2col">Bildnachweise</h2>
 <p class="mt-2">
     {% if site.data.general.bildnachweise %}
     {{ site.data.general.bildnachweise}}
@@ -42,3 +43,5 @@ layout: default
     Bilder in Lizenz von <a href="https://stock.adobe.com/" target="_blank">stock.adobe.com</a>.
     {% endif %}
 </p>
+
+
