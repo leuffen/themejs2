@@ -52,7 +52,7 @@
         "@nextrap/nte-accordion": "^2.0.0",
         "@nextrap/nte-burger": "^2.0.0",
         "@nextrap/nte-card": "^2.0.1",
-        "@nextrap/nte-consent-blocker": "^2.0.1",
+        "@nextrap/nte-consent-blocker": "^2.0.2",
         "@nextrap/nte-demo-viewer": "^2.0.0",
         "@nextrap/nte-dialog-component": "^2.0.0",
         "@nextrap/nte-feedback": "^2.0.0",
