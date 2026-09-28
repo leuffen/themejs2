@@ -1,4 +1,7 @@
 ---
+schiller:
+  tags: [raven]
+  target: docs/kontakt.md
 layout: website
 body_class: theme-raven
 title: Kontakt & Termin

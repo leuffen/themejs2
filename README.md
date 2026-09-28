@@ -86,3 +86,21 @@ Do you think you need a new CSS class? Please check the following:
 - [ ] The class is used in more than one place
 - [ ] The class is univerally useful (e.g. `.info-box` is not, `.text-box` is) and is not too specific
 - [ ] The class has no side effects with other classes or requires specific ordering
+
+## Schiller-Projektvorlage
+
+Das veröffentlichte Paket enthält `_tpl/_root/` als kopierbare Projektwurzel. Die Raven-Seiten unter `_tpl/pages/` sind mit `schiller.tags` und `schiller.target` gekennzeichnet und werden nur bei Auswahl installiert. Die ausführbare `schiller`-Datei kommt aus `leuffen/leuffen-shiller-lib` (Composer); ThemeJS2 wird über npm bezogen.
+
+In einem neuen Projekt mit beiden Abhängigkeiten:
+
+```sh
+schiller init --template-dir ./node_modules/@leuffen/themejs2/_tpl --tags raven
+```
+
+`init` kopiert zuerst den gesamten Inhalt von `_tpl/_root/` in das aktuelle Verzeichnis und installiert die Raven-Seiten als `docs/index.md` und `docs/kontakt.md`. Bestehende Zieldateien werden ersetzt. Die kopierte `.shiller.yml` verweist für spätere Aufrufe auf das npm-Paket:
+
+```sh
+schiller install --tags raven
+```
+
+Der `schiller`-Front-Matter-Block bleibt in Markdown-Seiten erhalten. Weitere Varianten können unter `_tpl/` denselben Zielpfad mit anderen Tags anbieten; mehrere gleichzeitig ausgewählte Varianten für dasselbe Ziel sind ein Fehler.
