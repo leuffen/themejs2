@@ -104,3 +104,7 @@ schiller install --tags raven
 ```
 
 Der `schiller`-Front-Matter-Block bleibt in Markdown-Seiten erhalten. Weitere Varianten können unter `_tpl/` denselben Zielpfad mit anderen Tags anbieten; mehrere gleichzeitig ausgewählte Varianten für dasselbe Ziel sind ein Fehler.
+
+## Skills für die Bearbeitung
+
+Das npm-Paket liefert die Autorenanleitungen unter `skills/` mit. Für Änderungen an installierten Seiten, Layouts und Includes beginne mit [edit-themejs2-site](skills/edit-themejs2-site/SKILL.md). Bei responsiven Klassen lies zusätzlich [trunkjs-responsive](skills/trunkjs-responsive/SKILL.md); für Markdown mit Content Pane [content-pane-usage](skills/content-pane-usage/SKILL.md) und bei `layout`-Attributen [content-pane-layout](skills/content-pane-layout/SKILL.md). Die technischen Beispiele liegen jeweils bei den Skills und werden nicht in das Kundenprojekt kopiert.
