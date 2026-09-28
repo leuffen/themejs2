@@ -3,7 +3,6 @@
 :is(ntl-consent-blocker, nte-consent-blocker) {
   @include consent.default-style(
     $border-radius: var(--nt-border-radius),
-    $overlay-background: rgb(255 255 255 / .9),
     $pre-consent-padding: var(--nt-space-6)
   );
 

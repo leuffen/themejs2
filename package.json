@@ -23,7 +23,7 @@
         "/src",
         "/templates",
         "/theme",
-        "/_root",
+      "/_tpl/_root",
         "/skills",
         "/docs",
         "/font",
@@ -77,7 +77,7 @@
         "@trunkjs/content-pane": "^1.1.0",
         "@trunkjs/element-relocator": "^1.0.1",
         "@trunkjs/form": "^1.0.0",
-        "@trunkjs/loader": "^1.0.5",
+        "@trunkjs/loader": "^1.1.0",
         "@trunkjs/responsive": "^1.0.0",
         "lit": "^3.3.3",
         "tslib": "^2.8.1"
