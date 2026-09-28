@@ -1,0 +1,3 @@
+doc_root: .
+template_dir: ../node_modules/@leuffen/themejs2/_tpl
+context_file: ../.shiller-context.d.txt

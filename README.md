@@ -97,11 +97,13 @@ In einem neuen Projekt mit beiden Abhängigkeiten:
 schiller init --template-dir ./node_modules/@leuffen/themejs2/_tpl --tags raven
 ```
 
-`init` kopiert zuerst den gesamten Inhalt von `_tpl/_root/` in das aktuelle Verzeichnis und installiert die Raven-Seiten als `docs/index.md` und `docs/kontakt.md`. Bestehende Zieldateien werden ersetzt. Die kopierte `.shiller.yml` verweist für spätere Aufrufe auf das npm-Paket:
+`init` kopiert zuerst den gesamten Inhalt von `_tpl/_root/` in das aktuelle Verzeichnis und installiert die Raven-Seiten als `docs/index.md` und `docs/kontakt.md`. Die `schiller.target`-Werte `index.md` und `kontakt.md` sind relativ zum Document Root. Bestehende Zieldateien werden ersetzt. Die kopierte `docs/.shiller.yml` verweist für spätere Aufrufe relativ zu `docs/` auf das npm-Paket:
 
 ```sh
 schiller install --tags raven
 ```
+
+Ohne `--root` wird `docs/` im aktuellen Projekt verwendet. Für eine weitere Website wählt `--root ./site-b/public` deren Document Root; `_root/docs/` und die markierten Seiten werden dann nach `site-b/public/` kopiert, die übrigen `_root`-Dateien nach `site-b/`.
 
 Der `schiller`-Front-Matter-Block bleibt in Markdown-Seiten erhalten. Weitere Varianten können unter `_tpl/` denselben Zielpfad mit anderen Tags anbieten; mehrere gleichzeitig ausgewählte Varianten für dasselbe Ziel sind ein Fehler.
 
