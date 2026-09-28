@@ -89,7 +89,7 @@ Do you think you need a new CSS class? Please check the following:
 
 ## Schiller-Projektvorlage
 
-Das veröffentlichte Paket enthält `_tpl/_root/` als kopierbare Projektwurzel. Die Raven-Seiten unter `_tpl/pages/` sind mit `schiller.tags` und `schiller.target` gekennzeichnet und werden nur bei Auswahl installiert. Die ausführbare `schiller`-Datei kommt aus `leuffen/leuffen-shiller-lib` (Composer); ThemeJS2 wird über npm bezogen.
+Das veröffentlichte Paket enthält `_tpl/_root/` als kopierbare Projektwurzel. Die Raven-Seiten unter `_tpl/` sind mit `schiller.tags` und `schiller.target` gekennzeichnet und werden nur bei Auswahl installiert. Die ausführbare `schiller`-Datei kommt aus `leuffen/leuffen-shiller-lib` (Composer); ThemeJS2 wird über npm bezogen.
 
 In einem neuen Projekt mit beiden Abhängigkeiten:
 

@@ -1,0 +1,14 @@
+---
+name: edit-themejs2-site
+description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines aus @leuffen/themejs2 installierten Projekts. Bei jeder solchen Website-Bearbeitung diesen Skill lesen; für responsive Klassen und Content Pane zusätzlich die passenden Skills im selben Paket.
+---
+
+# ThemeJS2-Projektdateien bearbeiten
+
+1. Lies die Projektkonfiguration `.shiller.yml`, falls vorhanden, und die projektspezifischen Informationen aus der dort genannten `context_file`. Prüfe für jede zu bearbeitende Markdown-Datei das Jekyll Front Matter einschließlich `schiller`. Der `schiller`-Block bleibt in installierten Markdown-Dateien erhalten.
+2. Falls `schiller.instructions` angegeben ist, lies **alle** referenzierten Anleitungen vor dem Editieren. `tpl:/pfad` bezeichnet eine Datei relativ zu `template_dir` aus `.shiller.yml`; die Anleitungen gehören zum installierten npm-Paket und werden nicht als Website-Dateien kopiert. Fehlt eine Referenz, melde den Pfad konkret und erfinde keine Regeln.
+3. Bearbeite die Datei im Projekt unter ihrem installierten Zielpfad. `_tpl/_root/` ist die Vorlage für die Grundinstallation; andere Dateien direkt unter `_tpl/` können per `schiller.tags` ausgewählt werden und über `schiller.target` denselben Zielpfad für verschiedene Varianten liefern. Beachte, dass erneutes `schiller init` oder `schiller install` vorhandene Ziele überschreibt.
+4. Erhalte Jekyll Front Matter, Permalinks, Layout-Kette, Liquid-Includes, Überschriftenhierarchie und Kramdown-Attribute. Wähle vorhandene `ntl-*`-Layouts und `nte-*`-Elemente sowie Standard-Markdown vor neuen HTML-Strukturen. Für `layout`-Attribute lies [Content Pane Layout](../content-pane-layout/SKILL.md) und [Content Pane Usage](../content-pane-usage/SKILL.md); für responsive Klassen und `style-{breakpoint}` lies [TrunkJS Responsive](../trunkjs-responsive/SKILL.md).
+5. Prüfe betroffene Dateien auf gültiges Front Matter, auflösbare Includes und Anleitungen, interne Links und die tatsächliche Darstellung an schmalen und breiten Viewports. Bei Änderungen an Theme-Styles, gemeinsamen Komponenten oder öffentlich genutzten Include-Pfaden gelten zusätzlich die Regeln des jeweiligen Quell-Repositories; ändere diese Strukturen nicht beiläufig bei einer Seitenbearbeitung.
+
+Die Kundenvorlage unter `_tpl/_root/docs/_layouts/default.html` verwendet `<tj-content-pane pre-parser="text-block">`. Schreibe einzelne HTML-Elemente in Markdown dort möglichst als eigene `#[...]`-Zeile; für komplex verschachtelte Strukturen bleibt HTML möglich.
