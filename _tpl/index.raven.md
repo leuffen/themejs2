@@ -1,4 +1,7 @@
 ---
+schiller:
+  tags: [raven]
+  target: index.md
 layout: website
 body_class: theme-raven
 title: Start

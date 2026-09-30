@@ -86,3 +86,27 @@ Do you think you need a new CSS class? Please check the following:
 - [ ] The class is used in more than one place
 - [ ] The class is univerally useful (e.g. `.info-box` is not, `.text-box` is) and is not too specific
 - [ ] The class has no side effects with other classes or requires specific ordering
+
+## Schiller-Projektvorlage
+
+Das veröffentlichte Paket enthält `_tpl/_root/` als kopierbare Projektwurzel. Die Raven-Seiten unter `_tpl/` sind mit `schiller.tags` und `schiller.target` gekennzeichnet und werden nur bei Auswahl installiert. Die ausführbare `schiller`-Datei kommt aus `leuffen/leuffen-shiller-lib` (Composer); ThemeJS2 wird über npm bezogen.
+
+In einem neuen Projekt mit beiden Abhängigkeiten:
+
+```sh
+schiller init --template-dir ./node_modules/@leuffen/themejs2/_tpl --tags raven
+```
+
+`init` kopiert zuerst den gesamten Inhalt von `_tpl/_root/` in das aktuelle Verzeichnis und installiert die Raven-Seiten als `docs/index.md` und `docs/kontakt.md`. Die `schiller.target`-Werte `index.md` und `kontakt.md` sind relativ zum Document Root. Bestehende Zieldateien werden ersetzt. Die kopierte `docs/.shiller.yml` verweist für spätere Aufrufe relativ zu `docs/` auf das npm-Paket:
+
+```sh
+schiller install --tags raven
+```
+
+Ohne `--root` wird `docs/` im aktuellen Projekt verwendet. Für eine weitere Website wählt `--root ./site-b/public` deren Document Root; `_root/docs/` und die markierten Seiten werden dann nach `site-b/public/` kopiert, die übrigen `_root`-Dateien nach `site-b/`.
+
+Der `schiller`-Front-Matter-Block bleibt in Markdown-Seiten erhalten. Weitere Varianten können unter `_tpl/` denselben Zielpfad mit anderen Tags anbieten; mehrere gleichzeitig ausgewählte Varianten für dasselbe Ziel sind ein Fehler.
+
+## Skills für die Bearbeitung
+
+Das npm-Paket liefert die Autorenanleitungen unter `skills/` mit. Für Änderungen an installierten Seiten, Layouts und Includes beginne mit [edit-themejs2-site](skills/edit-themejs2-site/SKILL.md). Bei responsiven Klassen lies zusätzlich [trunkjs-responsive](skills/trunkjs-responsive/SKILL.md); für Markdown mit Content Pane [content-pane-usage](skills/content-pane-usage/SKILL.md) und bei `layout`-Attributen [content-pane-layout](skills/content-pane-layout/SKILL.md). Die technischen Beispiele liegen jeweils bei den Skills und werden nicht in das Kundenprojekt kopiert.
