@@ -7,14 +7,5 @@
 }
 
 html {
-  @include raven.theme() {
-    // Zentrale Runtime-Tokens können hier bei Bedarf aktiviert und angepasst werden.
-    // --nt-primary: #3f4632;
-    // --nt-accent: #b8734a;
-    // --nt-radius: .125rem;
-    // --nt-font-family: "Work Sans", sans-serif;
-    // --nt-container-max: 1280px;
-    // --nt-surface: #f7f5f1;
-    // --nt-text: #1e1e1e;
-  }
+  @include raven.theme();
 }
