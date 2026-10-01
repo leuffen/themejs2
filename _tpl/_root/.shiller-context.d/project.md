@@ -1,4 +1,3 @@
-
 Website für [Praxistyp] [unbekannt] in [unbekannt]
 
 ## Praxisname, Praxisart, Anschrift, Telefon, Telefax, E-Mail, Website etc.
@@ -36,6 +35,10 @@ Website für [Praxistyp] [unbekannt] in [unbekannt]
 ## Hinweise zur Praxis (z.B. Barrierefreiheit, Parkplätze, Anfahrt, Fahrradstellplätze)
 
 [hier einfügen]
+
+## Zuständige Kammer / Aufsichtsbehöre (mit Anschrift & Website)
+
+[im Internet recherchieren und hier einfügen]
 
 ## Bearbeitungshinweise
 
