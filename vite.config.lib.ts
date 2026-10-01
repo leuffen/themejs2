@@ -2,11 +2,11 @@ import { defineConfig } from "vite";
 import { resolve } from "node:path";
 import { nxCopyAssetsPlugin } from "@nx/vite/plugins/nx-copy-assets.plugin";
 
-// Kopiert ausschließlich beim Library-Build alle öffentlichen Paketquellen und Metadaten nach dist.
+// Kopiert ausschließlich beim Library-Build alle öffentlichen Paketquellen, Vorlagen und Metadaten nach dist.
 const packageAssets = [
   { input: "src", glob: "**/*", output: "src" },
   { input: "theme", glob: "**/*", output: "theme" },
-  { input: "_root", glob: "**/*", output: "_root" },
+  { input: "_tpl", glob: "**/*", output: "_tpl" },
   { input: "skills", glob: "**/*", output: "skills" },
   { input: "docs", glob: "**/*", output: "docs" },
   { input: "font", glob: "**/*", output: "font" },
