@@ -23,7 +23,9 @@
         --nt-primary: currentColor;
     }
 
-    #footer .site-footer__nav-list {
+    /* Entfernt Listenmarker auch aus verschachtelten Footer-Navigationen. */
+    #footer .site-footer__nav-list,
+    #footer .site-footer__nav-list ul {
         margin: 0;
         padding: 0;
         list-style: none;
