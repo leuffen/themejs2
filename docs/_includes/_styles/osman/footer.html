@@ -23,7 +23,7 @@
         --nt-primary: currentColor;
     }
 
-    /* Entfernt Listenmarker auch aus verschachtelten Footer-Navigationen. */
+    /* Entfernt native und per Diamond-Pseudoelement erzeugte Listenmarker auch aus verschachtelten Footer-Navigationen. */
     #footer .site-footer__nav-list,
     #footer .site-footer__nav-list ul {
         margin: 0;
@@ -34,6 +34,12 @@
     #footer .site-footer__nav-list li {
         margin: 0;
         padding: 0;
+        list-style: none;
+    }
+
+    #footer .site-footer__nav-list li::marker,
+    #footer .site-footer__nav-list li::before {
+        content: none;
     }
 
     #footer .site-footer__nav-list a,

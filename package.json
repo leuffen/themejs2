@@ -71,7 +71,7 @@
         "@nextrap/style-base": "^2.0.0",
         "@nextrap/style-button": "^2.0.0",
         "@nextrap/style-reset": "^2.0.0",
-        "@nextrap/style-typography": "^2.0.0",
+        "@nextrap/style-typography": "^2.0.4",
         "@nextrap/style-utils": "^2.0.0",
         "@trunkjs/browser-utils": "^1.0.55",
         "@trunkjs/content-pane": "^1.1.0",
