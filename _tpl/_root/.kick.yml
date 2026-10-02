@@ -1,0 +1,36 @@
+# Kickstart container config file - see https://gitub.com/infracamp/kickstart
+# Run ./kickstart.sh to start a development-container for this project
+version: 1
+from: "ghcr.io/nfra-project/kickstart-flavor-jekyll:unstable"
+ports: "4000:4000;4100:4100;4999:4999"
+secrets: "open_ai"
+
+
+command:
+  build:
+  #  - "yarn install"
+
+  jekyll: |
+      jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4999 --livereload-port 4100 --host 0.0.0.0
+
+  dev:
+      - 'kick killall'
+      - "D:npm run dev"
+
+  dev-b:
+      - 'kick killall'
+      - "D:npm run dev-b"
+
+  init-workspaces:
+      - "mkdir -p workspaces"
+      - "git -C ./workspaces/ clone git@github.com:nextrap/nextrap-monorepo.git"
+      - "npm install"
+
+  update:
+      - "npm update"
+      - "webpack build"
+
+  killall:
+      - 'killall  "npm run dev" ||  true'
+      - 'killall  "npm run dev-b" || true'
+      - sleep 1
