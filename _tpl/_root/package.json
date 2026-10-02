@@ -27,6 +27,6 @@
     "dev": "concurrently 'npm run vite-prox' 'npm run jekyll-prox'",
     "dev-b": "concurrently 'npm run vite-build' 'npm run jekyll-build'",
     "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build"
   }
 }
