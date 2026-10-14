@@ -6,3 +6,8 @@ $font-size-base: 1.0rem !default;
 
 $font-family-header: 'Urbanist', sans-serif !default;
 $font-size-header: 2rem !default;
+
+// Zielmetriken fuer vergleichbare optische Groesse verschiedener Schriftfamilien.
+// Basistext nutzt x-Hoehe, H1-H6 nutzen Versalhöhe; beide Werte sind konfigurierbar.
+$font-size-adjust-base: 0.52 !default;
+$font-size-adjust-header: 0.72 !default;
