@@ -1,0 +1,26 @@
+@use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-reset" as nextrapReset;
+
+// Registriert die einheitliche Kaskade und initialisiert das Farbschema zentral.
+// Das konkrete Theme wird im html-Scope eingesetzt; der Website-Layer folgt zuletzt.
+@mixin global() {
+  @layer reset, schemes, themes, website;
+
+  @layer themes {
+    @layer tokens, base, typography, elements, components, patterns, utilities;
+  }
+
+  @layer reset {
+    @include nextrapReset.reset();
+  }
+
+  @layer schemes {
+    :root {
+      @include nextrapBase.runtime-scheme-selectors();
+    }
+  }
+
+  html {
+    @content;
+  }
+}
