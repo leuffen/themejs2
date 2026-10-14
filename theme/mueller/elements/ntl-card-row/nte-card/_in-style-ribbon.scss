@@ -20,9 +20,9 @@
       justify-content: flex-start;
     }
 
-    // Kartenüberschriften wirken als kompakte Labels statt als große Headlines.
+    // Kartenüberschriften wirken als kompakte Labels und erhalten Abstand zum nachfolgenden Inhalt.
     > :is(h1, h2, h3, h4, h5, h6) {
-      margin: 0;
+      margin: 0 0 var(--nt-space-3);
       color: var(--nt-text-muted);
       font-size: var(--nt-font-size);
       font-weight: var(--nt-font-weight-bold);

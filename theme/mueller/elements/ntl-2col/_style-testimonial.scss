@@ -1,9 +1,9 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
-// Der Wrapper trägt das gemeinsame Padding; der mobile Bildüberstand bleibt eine bewusste Komposition.
+// Der Wrapper trägt das gemeinsame Padding; die Fläche verwendet die helle Primärfarbe des Runtime-Themes.
 &.style-testimonial {
   --cols: 9;
-  --testimonial-section-background: #f8c4c8;
+  --testimonial-section-background: var(--nt-primary-subtle);
   --testimonial-image-size: 12.5rem;
   --testimonial-image-size-mobile: 250px;
   --testimonial-content-padding: 2.5rem;
