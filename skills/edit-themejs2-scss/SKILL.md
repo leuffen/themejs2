@@ -40,41 +40,56 @@ Andere Themes statt Raven über ihren veröffentlichten Einstiegspunkt laden.
 `theme.global()` ist für ein einzelnes Theme auf der gesamten Website;
 die Multi-Theme-Demo kann weiterhin `theme.theme()` in ihren Selektoren nutzen.
 
-## Vorhandene Schrift einbinden und Schriftgrößen ändern
+## Vorhandene Schriften und optische Schriftgröße
 
-Die Schriftmodule liegen bereits unter `@leuffen/themejs2/font/`. Keine
-zusätzlichen Font-Dateien oder `@font-face`-Blöcke anlegen, wenn ein passendes
-SCSS-Fontmodul vorhanden ist. Für Open Sans das vorhandene Modul mit
-`sass:meta` als CSS laden und anschließend die Theme-Tokens überschreiben:
+Importiere eines der bereits vorhandenen SCSS-Fontmodule über `@use`.
+Die Module liefern Body- und Heading-Familie sowie zwei getrennte
+Zielmetriken, **ohne** je Schrift eigene CSS-Regeln oder Mixins zu benötigen.
 
 ```scss
-@use "sass:meta";
 @use "@leuffen/themejs2/theme/raven" as theme;
+@use "@leuffen/themejs2/font/garamond-opensans" as font;
 
 @include theme.global();
-
-// Lädt die vorhandenen Open-Sans-Definitionen aus ThemeJS2.
-@include meta.load-css("@leuffen/themejs2/font/opensans-regular");
 
 @layer website {
   html {
     --nt-primary: #3f4632;
-    --nt-font-family: "Open Sans", sans-serif;
-    --nt-font-family-header: var(--nt-font-family);
-    --nt-font-size: 1.125rem;
-    --nt-font-size-header: clamp(2rem, 4vw, 3.5rem);
-    --nt-fs-h2: 2rem;
+    --nt-font-family: #{font.$font-family-base};
+    --nt-font-family-header: #{font.$font-family-header};
+    --nt-font-size-adjust: #{font.$font-size-adjust-base};
+    --nt-font-size-adjust-header: #{font.$font-size-adjust-header};
+
+    // Optional pro Website manuell statt der importierten Werte setzen:
+    // --nt-font-size-adjust: 0.54;
+    // --nt-font-size-adjust-header: 0.70;
   }
 }
 ```
 
-`--nt-font-size` bestimmt die Basis-Schriftgröße; `--nt-font-size-header`
-die große Überschriftengröße und `--nt-fs-h2` die zweite
-Überschriftenebene. Die konkrete Auswirkung hängt von den Theme- und
-Komponentenregeln ab. Die Include-Zeile lädt die Font-Definitionen; erst
-`--nt-font-family` wählt die neue Schrift aktiv aus. Für andere Schriftarten
-vorhandene SCSS-Dateien unter `themejs2/font/` prüfen und deren tatsächliche
-`font-family`-Bezeichnung übernehmen.
+Der globale Theme-Entrypoint setzt `font-size-adjust: ex-height` für
+Fließtext auf `html` und `font-size-adjust: cap-height` auf
+`h1` bis `h6`. Die zwei Zielwerte sind bewusst unabhängig von den
+normalen Größen-Tokens `--nt-font-size` und `--nt-font-size-header`.
+Mit `font-size-adjust` wird die optische Buchstabenhöhe angeglichen;
+die Schriftgröße und Hierarchie des Themes bleiben erhalten.
+
+Die mit `!default` definierten Sass-Variablen dürfen über
+`@use ".../font/..." with (...)` überschrieben werden. Alternativ
+überschreibe die CSS-Variablen im `website`-Layer wie oben.
+Die vorläufigen Ausgangswerte 0.52 (x-Höhe) und 0.72 (Versalhöhe) sind
+**gemeinsame Referenz-Zielhöhen**, keine gemessenen Individualmetriken
+jeder einzelnen Schrift. Der Browser ermittelt die tatsächliche
+Anpassung anhand der jeweiligen Font-Metriken selbst. Die Werte vor
+dem Einsatz auf einer Kundenseite mit den tatsächlich geladenen Fonts
+visuell überprüfen und gegebenenfalls kalibrieren.
+
+Verfügbare Fontmodule: `ubuntu`, `work-sans`, `metropolis`,
+`opensans-regular`, `opensans-condensed`, `cinzel-opensans`,
+`forum-opensans`, `garamond-opensans`, `urbanist-opensans`.
+Die mit `@use` geladenen Dateien importieren ihre vorhandenen
+`font/_vendor/`-Schriftdefinitionen. Keine eigenen `@font-face`-
+Deklarationen und keine festen Ersatz-Schriftgrößen hinzufügen.
 
 ## Layer-Reihenfolge
 
