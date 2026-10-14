@@ -1,4 +1,4 @@
-# SEO für patientenorientierte Praxisseiten
+# SEO für Website-Texte: Nutzerfragen, Seitentitel und Keywords
 
 Recherchegrundlage geprüft am 2026-10-14. Die folgenden Arbeitsregeln sind
 redaktionelle Entscheidungen auf Basis der verlinkten Google-Dokumentation,
@@ -6,10 +6,9 @@ keine Rankinggarantie. Bei relevanten Änderungen aktuelle Originalquellen prüf
 
 ## Suchaufgabe vor Keywords
 
-Patientenanliegen, tatsächliches Angebot und echte Region bestimmen. Eine
-Startseite ordnet die Praxis ein; eine Leistungsseite beantwortet eine konkrete
-Behandlungsfrage. Suchbegriffe von Praxisinhabern für Marketingleistungen nicht
-mit Patientensuchen verwechseln. Fach- und Alltagsbegriffe natürlich kombinieren.
+Nutzeranliegen, tatsächliches Angebot und echte Region bestimmen. Eine
+Startseite ordnet den Anbieter ein, eine Leistungsseite beantwortet eine
+konkrete Angebotsfrage. Suchintention je nach B2B-/B2C-Zielgruppe prüfen. Fach- und Alltagsbegriffe natürlich kombinieren.
 Google benötigt nicht jede exakte Wortvariante [G1].
 
 Pro Suchintention eine zuständige Zielseite bestimmen und mit Bestand abgleichen.
@@ -17,7 +16,7 @@ Gemeinsame Wörter auf Start- und Detailseite sind nicht automatisch schädliche
 Kannibalisierung. Keine nahezu identischen Orts-/Synonymseiten erzeugen und
 keine Orte oder Leistungen vortäuschen; reine Ranking-Masseninhalte und
 Doorway-Seiten vermeiden [G2]. Nutzermehrwert, nachvollziehbare Quellen und echte
-Expertise statt erfundener Arztprofile oder bloßer Textlänge bevorzugen [G3].
+Expertise statt erfundener Expertenprofile oder bloßer Textlänge bevorzugen [G3].
 
 ## Recherche sparsam und nachvollziehbar
 
@@ -38,7 +37,7 @@ oder Rankinganalyse behaupten. Keine Metriken erfinden oder Nullwerte ableiten.
 ## Titel, Überschriften und Description
 
 HTML-Title eindeutig und knapp auf die konkrete Seite ausrichten; Hauptthema
-und bei lokalem Bezug den echten Ort sinnvoll nennen. Praxisname/Titel nur in
+und bei lokalem Bezug den echten Ort sinnvoll nennen. Anbietername/Titel nur in
 exakter freigegebener Form verwenden; ein Layout-Suffix nicht verdoppeln.
 Keine langen Listen gleicher Keywords. Google kann den Suchergebnistitel aus
 anderen Seitenstellen bilden; feste Zeichenzahlen garantieren keine Anzeige [G4].

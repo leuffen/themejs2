@@ -1,0 +1,5 @@
+# UI-Metadaten fuer den branchenuebergreifenden Schreibskill.
+interface:
+  display_name: "Website-Texte generieren"
+  short_description: "Website-Content mit Recherche, Fakten- und SEO-Checks"
+  default_prompt: "Erstelle mit $generate-website-content faktenbasierte Website-Texte und nutze bei Arzt- und Zahnarztseiten das DACH-Medizinprofil."

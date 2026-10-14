@@ -1,5 +1,0 @@
-# Auffindbarkeit des einen Content-Skills in der Skill-Auswahl.
-interface:
-  display_name: "Praxistexte generieren"
-  short_description: "Deutsche Praxistexte mit Fakten-, SEO- und DACH-Prüfung"
-  default_prompt: "Erstelle mit $generate-practice-content patientenorientierte deutsche Webseitentexte aus dem freigegebenen Projektkontext."
