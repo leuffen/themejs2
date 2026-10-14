@@ -15,19 +15,19 @@
     --nt-font-family-header: #{font.$font-family-header};
 
     // Getrennte Normalisierung: x-Hoehe fuer Fliesstext, Versalhoehe fuer H1-H6.
-    --nt-font-size-adjust: #{font.$font-size-adjust-base};
-    --nt-font-size-adjust-header: #{font.$font-size-adjust-header};
+    --theme-font-size-adjust: #{font.$font-size-adjust-base};
+    --theme-font-size-adjust-header: #{font.$font-size-adjust-header};
 
     // Bei Bedarf unabhaengig anpassen:
-    // --nt-font-size-adjust: 0.54;
-    // --nt-font-size-adjust-header: 0.70;
+    // --theme-font-size-adjust: 0.54;
+    // --theme-font-size-adjust-header: 0.70;
 
     // Aktiviert die optische Normalisierung fuer den normalen Text.
-    font-size-adjust: ex-height var(--nt-font-size-adjust);
+    font-size-adjust: ex-height var(--theme-font-size-adjust);
   }
 
   // Ueberschriften nutzen ihre eigene Schriftfamilie und Versalhoehen-Korrektur.
   h1, h2, h3, h4, h5, h6 {
-    font-size-adjust: cap-height var(--nt-font-size-adjust-header);
+    font-size-adjust: cap-height var(--theme-font-size-adjust-header);
   }
 }
