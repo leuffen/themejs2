@@ -73,8 +73,10 @@ erhalten. Keine ungefragten Aenderungen an weiteren Dateien.
    vortaeuschen. Mit bereitgestellten Informationen nur einen
    klar als vorlaeufig gekennzeichneten Entwurf anbieten oder
    bei kritischer Aktualitaet nach Zugang fragen.
-3. **Text schreiben:** Nach Nutzeranliegen, Seitentyp und
-   Website-Ziel gliedern. Konkrete, hilfreiche Einfuehrungen,
+3. **Text schreiben:** Ueberzeugende Abschnitte vom belegten Leserproblem
+   ueber das gewuenschte Ergebnis (Outcome) zu geeigneten Loesungswegen
+   und einer passenden Handlung fuehren; Details in der Schreibreference.
+   Nach Nutzeranliegen, Seitentyp und Website-Ziel gliedern. Konkrete, hilfreiche Einfuehrungen,
    Leistungsinformationen und angemessene naechste Schritte
    formulieren. Allgemeine Erklaerungen sind erlaubt, aber
    keine erfundenen Anbieterqualitaeten, Preise oder Garantien.
