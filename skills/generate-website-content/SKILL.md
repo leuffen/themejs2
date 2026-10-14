@@ -57,17 +57,28 @@ erhalten. Keine ungefragten Aenderungen an weiteren Dateien.
 4. **Stil und AI-Slop pruefen:** Floskeln, leere Superlative,
    schematische Dreierlisten und Duplikate entfernen, ohne
    belegte Details oder wichtige Einschraenkungen zu verlieren.
-5. **Verstaendlichkeit pruefen:** Die Zielgruppe muss den Text,
+5. **Fach- und zielgruppengerechte Terminologie validieren:**
+   Nach der Stilpruefung verwendete Rollenbezeichnungen,
+   Organisationsbegriffe, Fachausdruecke, Vorgangs- und
+   Zustandswoerter mit Branche, Fachgebiet, Zielgruppe und
+   Projektkontext abgleichen. Branchentypische Fachsprache
+   korrekt verwenden, aber fuer Laien verstaendlich erklaeren.
+   Fremde Branchenmetaphern und sachlich falsche Synonyme
+   korrigieren. Geltungsbereich und konkrete Beispiele stehen
+   in der allgemeinen Schreibreference, fuer Medizin zusaetzlich
+   in der Patientenreference. Keine reine Such-und-Ersetz-Liste:
+   Fachbegriffe anhand der Bedeutung pruefen.
+6. **Verstaendlichkeit pruefen:** Die Zielgruppe muss den Text,
    die tatsaechliche Leistung und den naechsten Schritt ohne
    Autorenkommentar verstehen. Fachbegriffe angemessen erklaeren.
-6. **Relevanz und Ziel pruefen:** Jeder Abschnitt hilft beim
+7. **Relevanz und Ziel pruefen:** Jeder Abschnitt hilft beim
    Verstehen oder Handeln. Reale Buchungs-/Kontaktwege sinnvoll
    priorisieren. Projektziele beachten, keine Formulare erfinden.
-7. **SEO und Fakten kontrollieren:** HTML-Title, H1, H2,
+8. **SEO und Fakten kontrollieren:** HTML-Title, H1, H2,
    Meta-Description, Links und Inhalt auf Suchintention und
    Wahrheitsgehalt abstimmen. Metadaten nur in tatsaechlich
    unterstuetzten Feldern ablegen. Aussagen erneut belegen.
-8. **Branchenrecht bedingt pruefen:** Fuer Medizinwebsites
+9. **Branchenrecht bedingt pruefen:** Fuer Medizinwebsites
    die beiden Fachreferenzen und laenderspezifische
    Werberegeln anwenden. Bei anderen Branchen geltendes
    Recht nur anhand recherchierter zutreffender Quellen
@@ -80,6 +91,6 @@ erhalten. Keine ungefragten Aenderungen an weiteren Dateien.
 Nach Aenderungen betroffene Checks wiederholen. Echte
 Subagents fuer unabhaengige Reviews nutzen, wenn verfuegbar;
 sonst ehrlich als sequenziellen Selbstcheck ausweisen.
-Quellen, offene Fragen, Ausnahmen und nicht erfolgte
+Quellen, Terminologie-Befunde, offene Fragen, Ausnahmen und nicht erfolgte
 Pruefungen in getrennten Arbeitsnotizen vermerken, statt
 sie ungefragt in Kundendateien zu schreiben.

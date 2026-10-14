@@ -9,6 +9,42 @@
 - [Termin- und Kontaktführung](#termin--und-kontaktführung)
 - [Leserprobe und Relevanzschnitt](#leserprobe-und-relevanzschnitt)
 
+## Medizinische Terminologie und Rollen
+
+Diese Section ergaenzt die allgemeine Terminologievalidierung fuer Arzt-,
+Zahnarzt- und andere medizinische Websites. Patienten und ihre konkreten
+Anliegen stehen im Vordergrund. Rollen und Begriffe anhand der
+tatsaechlichen Versorgungssituation pruefen:
+
+- `Patient` beziehungsweise `Patientin` statt generischem `Kunde`,
+  wenn eine medizinische Behandlung oder Versorgung gemeint ist;
+  `Kunde` kann fuer eine echte Verkaufsbeziehung passend bleiben.
+- `Arztpraxis`, `Zahnarztpraxis` oder `Praxis` statt `Werkstatt`,
+  `Shop` oder `Studio`, wenn der medizinische Leistungserbringer
+  gemeint ist. Ein tatsaechliches Labor nicht pauschal `Praxis` nennen.
+- `Erkrankung`, `Beschwerden`, `Befund`, `Verletzung`,
+  `Schaedigung` oder `Schaeden` je nach medizinischem Sachverhalt
+  differenzieren. `Schaden` nicht pauschal als Ersatz fuer
+  `Erkrankung` verwenden; etwa `Zahnschaden` oder
+  `Gewebeschaedigung` kann fachlich richtig sein.
+- `Untersuchung`, `Diagnostik`, `Beratung`, `Behandlung`,
+  `Therapie` und `Eingriff` nicht als beliebig austauschbare
+  Synonyme benutzen. Nur angebotene und belegte Verfahren nennen.
+- `Termin vereinbaren`, `Termin online buchen` und
+  `Termin anfragen` gemaess der realen Buchungsfunktion unterscheiden.
+
+Bei Zahnmedizin fachgerechte Woerter wie `Zahnfleischentzuendung`,
+`Karies`, `Zahnersatz` und `Zahnimplantat` nur im zutreffenden
+Zusammenhang einsetzen; nicht ohne belegtes Angebot zu jeder
+Zahnarztpraxis hinzudichten. Bei anderen Fachrichtungen die
+passenden Begriffe anhand seriöser Fachquellen bestimmen.
+
+Den richtigen medizinischen Begriff klar und patientenverstaendlich
+formulieren, gegebenenfalls beim ersten Auftreten kurz erklaeren.
+DACH-Sprachgebrauch und vom Kontext vorgegebene Bezeichnungen
+beruecksichtigen. Fachsprachcheck ist eigenstaendig und kann nicht
+durch SEO-Keywords oder den allgemeinen Stilcheck ersetzt werden.
+
 ## Stil und inhaltlicher Nutzen
 
 Eine konkrete Patientenfrage beantworten, statt die Praxis abstrakt zu loben.

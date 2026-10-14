@@ -12,6 +12,36 @@ unbelegte Spitzenstellung, schablonenhafte Dreierketten,
 austauschbare Floskeln oder kuenstliche Dringlichkeit.
 Keine blosse Wortverbotsliste; die tatsaechliche Aussage zaehlt.
 
+## Fach- und zielgruppengerechte Terminologie
+
+Vor der abschliessenden Verstaendlichkeits- und SEO-Pruefung eine
+eigenstaendige Terminologievalidierung durchfuehren. Aus dem bestaetigten
+Kontext die Branche und das Fachgebiet, die angesprochene Personengruppe,
+ihre Rolle, den Organisationstyp, die angebotenen Leistungen und die
+gewuenschte Anrede ableiten. Danach alle Titel, Ueberschriften, Teaser,
+Fliesstexte, Metadaten und CTAs auf passende Begriffe pruefen.
+
+Kontrollfragen: Bezeichnet der Text Personen fachlich richtig, etwa
+als Kunden, Gaeste, Mandanten, Patienten oder Auftraggeber? Stimmen
+Betriebsbezeichnung und Rollen, etwa Kanzlei, Hotel, Praxis, Betrieb
+oder Werkstatt? Sind fachliche Gegenstaende, Vorgaenge und Zustaende
+korrekt beschrieben, ohne sie mit nur aehnlich klingenden Begriffen
+eines fremden Fachgebiets zu verwechseln? Passen Fachbegriff und
+Alltagserklaerung zur tatsaechlichen Leserschaft?
+
+Ein unpassender Ausdruck wird im konkreten Satz fachlich korrigiert;
+Wortlisten nur als Pruefhilfe verwenden. Ein Wort kann je nach Kontext
+bewusst korrekt sein. Weder Fachjargon erzwingen noch Fachbegriffe
+so vereinfachen, dass ihre Bedeutung falsch wird. Bei unklarer
+Terminologie die bereits beauftragte Internetrecherche mit
+geeigneten Fachquellen ergaenzen; keine Berufsbezeichnungen oder
+Qualifikationen aus typischen Branchenmustern ableiten.
+
+Die Pruefung separat dokumentieren: auffaellige Textstelle,
+gemeinter Sachverhalt, fachgerechte Ersatzformulierung und
+gegebenenfalls benoetigte Quelle. Nach Terminologiekorrekturen
+Verstaendlichkeit, Faktenbasis und SEO erneut kontrollieren.
+
 ## Seitentypen
 
 **Startseite:** Wer ist der Anbieter, wem hilft das tatsaechliche
