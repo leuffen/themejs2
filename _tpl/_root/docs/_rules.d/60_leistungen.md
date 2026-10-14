@@ -58,3 +58,10 @@ verwenden, Karten eher für Auswahl und Navigation.
 
 Als Muster dienen leuffen/themejs2/docs/pages/theme-raven/raven-subpage.md
 und docs/pages/theme-osman/osman-elements.md.
+
+## Zugehörige Paket-Skills
+
+Für Leistungsseiten `skills/edit-themejs2-site/SKILL.md` verwenden;
+Abschnittsstruktur und Kramdown sind unter `skills/content-pane-usage/SKILL.md`
+und `skills/content-pane-layout/SKILL.md` erläutert. Die Pfade gelten
+relativ zur Paketwurzel von `@leuffen/themejs2`.

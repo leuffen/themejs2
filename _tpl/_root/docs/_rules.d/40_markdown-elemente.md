@@ -67,3 +67,17 @@ Details ausrichten, Startseiten auf Orientierung und Navigation.
 Quellen: leuffen/themejs2/docs/pages/theme-raven/raven-start.md,
 raven-subpage.md, docs/pages/theme-osman/osman-start.md und
 osman-elements.md sowie docs/pages/theme-unify/unify-services.md.
+
+## Zugehörige Paket-Skills
+
+Bei der Bearbeitung von ThemeJS2-Websites zuerst
+`skills/edit-themejs2-site/SKILL.md` verwenden. Ergänzend gelten
+`skills/content-pane-usage/SKILL.md`, bei Layout-Attributen
+`skills/content-pane-layout/SKILL.md` und für responsive Klassen
+`skills/trunkjs-responsive/SKILL.md`.
+
+Die genannten Pfade beziehen sich auf die **Paketwurzel** von
+`@leuffen/themejs2`, nicht auf das installierte Document Root. Schiller
+liest die Skills durch diese Verweise **nicht automatisch** ein: Beim
+normalen `ai adjust` werden die passenden Rules selbst als Prompt-Inhalt
+geladen. Die fachlichen Grundregeln stehen deshalb weiterhin hier.

@@ -104,3 +104,14 @@ Den Pre-Parser niemals für nicht vertrauenswürdigen HTML-Inhalt aktivieren.
 Referenzen aus TrunkJS: packages/content-pane/skills/content-pane-usage/SKILL.md,
 packages/content-pane/skills/content-pane-layout/SKILL.md und
 packages/content-pane/skills/content-pane-usage/references/best-practices.md.
+
+## Zugehörige Paket-Skills
+
+Für die vollständige Erklärung von Content Pane und seiner Layout-Syntax
+sind die folgenden Dateien im ThemeJS2-Paket maßgeblich:
+
+- `skills/content-pane-usage/SKILL.md` – Markdown, Jekyll und Shortcuts
+- `skills/content-pane-usage/references/best-practices.md` – Layout-Beispiele
+- `skills/content-pane-layout/SKILL.md` – Section-Level und Layout-Selector
+
+Alle Pfade sind relativ zur **Paketwurzel** von `@leuffen/themejs2`.

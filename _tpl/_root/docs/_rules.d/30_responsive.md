@@ -62,3 +62,13 @@ eine seltene Arbitrary-Value-Klasse. Für wiederkehrende Werte Theme-Token
 oder gemeinsame Utility vorziehen. Die bestehenden ThemeJS2-Komponenten
 mit eigenem mode-Attribut nicht durch zusätzliche Responsive-Klassen
 intern nachbauen.
+
+## Zugehörige Paket-Skills
+
+Für responsive Klassen, Breakpoint-Syntax und Runtime Arbitrary Values
+die im ThemeJS2-Paket mitgelieferten Skills heranziehen:
+
+- `skills/trunkjs-responsive/SKILL.md`
+- `skills/trunkjs-responsive/references/ai-usage-info.md`
+
+Diese Pfade sind relativ zur **Paketwurzel** von `@leuffen/themejs2`.

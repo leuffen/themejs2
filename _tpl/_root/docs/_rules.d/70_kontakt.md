@@ -81,3 +81,11 @@ Die Variante muss zum gewünschten Seitenziel und aktiven Theme passen.
 Quellen: leuffen/themejs2/docs/pages/theme-raven/raven-start.md
 (Kontakt & Anfahrt, Formular) sowie
 docs/pages/theme-osman/osman-elements.md (Top-Slot, Aside, Formular).
+
+## Zugehörige Paket-Skills
+
+Für Kontaktseiten `skills/edit-themejs2-site/SKILL.md` verwenden;
+Formular-/Aside-Layouts nach `skills/content-pane-usage/SKILL.md` und
+`skills/content-pane-layout/SKILL.md` strukturieren. Bei responsiven
+Klassen zusätzlich `skills/trunkjs-responsive/SKILL.md` beachten.
+Alle Pfade gelten relativ zur Paketwurzel von `@leuffen/themejs2`.

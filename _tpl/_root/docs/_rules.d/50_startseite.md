@@ -56,3 +56,10 @@ Die Überschriftenhierarchie und direkt folgende Kramdown-Attribute
 sind Bestandteil der Renderstruktur. Quelle:
 leuffen/themejs2/docs/pages/theme-raven/raven-start.md sowie
 docs/pages/theme-osman/osman-start.md.
+
+## Zugehörige Paket-Skills
+
+Für Website-Bearbeitungen gilt `skills/edit-themejs2-site/SKILL.md`.
+Für Startseiten-Layouts außerdem `skills/content-pane-usage/SKILL.md`
+und `skills/content-pane-layout/SKILL.md` beachten. Die Pfade gelten
+relativ zur Paketwurzel von `@leuffen/themejs2`.
