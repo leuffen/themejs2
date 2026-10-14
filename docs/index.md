@@ -32,7 +32,7 @@ type: website
 {% endfor %}
 
 ## Design-Templates
-{: layout="ntl-2col" data-kicker="Direkte Vorlagen" }
+{: layout="ntl-2col.style-cta" data-kicker="Direkte Vorlagen" }
 
 <!-- Die Dateiliste verlinkt alle statischen Design-Templates direkt und wächst mit dem Verzeichnisinhalt. -->
 {% assign design_templates = site.static_files | where_exp: "template", "template.path contains '/design-templates/'" | sort: "path" %}

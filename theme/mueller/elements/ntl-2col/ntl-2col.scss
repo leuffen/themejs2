@@ -3,4 +3,5 @@
 ntl-2col {
   @include meta.load-css("./_style-default.scss");
   @include meta.load-css("./_style-testimonial.scss");
+  @include meta.load-css("./_style-cta.scss");
 }

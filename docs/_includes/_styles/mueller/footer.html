@@ -11,6 +11,11 @@
     --minifooter-background: var(--nt-black);
   }
 
+  /* Entfernt den regulären Footer-Abstand, wenn ein abschließender CTA direkt in den Footer übergeht. */
+  main:has(ntl-2col.style-cta:last-child) + #footer-mueller {
+    margin-top: 0;
+  }
+
   #footer-mueller :is(p, address, table, td, span) {
     color: inherit;
   }

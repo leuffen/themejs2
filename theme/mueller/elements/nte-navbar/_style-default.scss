@@ -1,0 +1,15 @@
+// Verbindet die Legacy-Klassen mit Sticky-Positionierung, Trennlinie und Scroll-Schatten wie im Osman-Theme.
+nte-navbar.style-default.fixed {
+  --nte-navbar-position: sticky;
+  --nte-navbar-top: 0;
+  --nte-navbar-shadow: 0 0.25rem 1rem rgb(0 0 0 / 12%);
+}
+
+nte-navbar.style-default.autoborder {
+  border-bottom: var(--nt-border-width) solid var(--nt-border);
+}
+
+nte-navbar.style-default.autoshadow,
+nte-navbar.style-default.is-scrolled {
+  box-shadow: var(--nte-navbar-shadow);
+}

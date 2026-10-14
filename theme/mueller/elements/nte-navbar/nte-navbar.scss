@@ -1,0 +1,4 @@
+@use "sass:meta";
+
+// Lädt die Müller-spezifische Positionierung der Standardnavigation.
+@include meta.load-css("./_style-default.scss");

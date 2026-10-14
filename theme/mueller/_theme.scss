@@ -61,6 +61,7 @@
     }
 
     // Lädt die bestehenden Müller-Komponenten innerhalb des Komponenten-Layers.
+    @include meta.load-css("./elements/nte-navbar/nte-navbar.scss");
     @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
     @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
     @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");

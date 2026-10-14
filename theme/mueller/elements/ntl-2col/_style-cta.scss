@@ -1,0 +1,40 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Die CTA-Fläche schließt ohne unteren Außenabstand an den Footer an und bündelt Überschrift sowie Aktionen mittig.
+&.style-cta {
+  --cols: 12;
+
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-bottom: 0;
+  color: var(--nt-text);
+  text-align: center;
+  background-color: var(--nt-primary-subtle);
+
+  @include twoCol.default-style(
+    $innerPadding: var(--nt-spacing-section),
+    $gap: var(--nt-spacing-text),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover,
+    $wrapper-bg-color: transparent
+  );
+
+  &::part(wrapper) {
+    align-items: center;
+  }
+
+  &::part(main) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  > :is(h1, h2, h3) {
+    width: 100%;
+    padding-bottom: var(--nt-spacing-text);
+    text-align: center;
+  }
+}
