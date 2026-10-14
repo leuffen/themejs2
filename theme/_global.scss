@@ -23,4 +23,16 @@
   html {
     @content;
   }
+
+  // Normalisiert die optische Texthoehe und erlaubt unterschiedliche Heading-Fonts.
+  // Die Website kann beide CSS-Variablen unabhaengig voneinander ueberschreiben.
+  @layer themes.typography {
+    html {
+      font-size-adjust: ex-height var(--nt-font-size-adjust, 0.52);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size-adjust: cap-height var(--nt-font-size-adjust-header, 0.72);
+    }
+  }
 }
