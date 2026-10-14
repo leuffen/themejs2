@@ -1,0 +1,62 @@
+# @trunkjs/responsive — AI Usage
+
+Assume responsive styling is already active for application content. Prefer existing reusable classes and `@trunkjs/responsive` breakpoint syntax over handwritten resize logic or one-off CSS media queries.
+
+## Class syntax
+
+Breakpoint ranges are `[from, to)`:
+
+| Syntax | Active when |
+| --- | --- |
+| `-md:x` | `< md` |
+| `md:x` | `>= md` |
+| `md-:x` | `>= md` |
+| `md-xl:x` | `>= md && < xl` |
+| `md:a.b` | apply both `a` and `b` |
+| `base:md:a:xl:b` | `base` below md, `a` from md, `b` from xl |
+
+## Complete example
+
+```html
+<div
+  class="card -md:d-none md-xl:d-block.shadow xl:d-flex"
+  style="width:100%;color:black"
+  style-md="width:50%"
+  style-xl="width:33%;color:red"
+>
+  Content
+</div>
+```
+
+This covers base classes, below/from/between breakpoint ranges, multiple classes, and responsive inline styles.
+
+## Runtime arbitrary values
+
+Square-bracket utilities are compiled on the fly in the browser. There is no build-time extraction or precompilation.
+
+```html
+<div class="width-[100%]:md:width-[50%]:xl:width-[33.333%]"></div>
+<p class="md:text-size-[22px]">Content</p>
+```
+
+ThemeJS2 already registers `tj-responsive` in its site layout. Do not add another wrapper around pages or components. The optional `layer` attribute on that existing registration places generated rules in a CSS cascade layer. Use underscores for spaces, for example `width-[calc(100%_-_2rem)]`.
+
+Supported utility groups are sizing, spacing, typography, positioning, selected flex/grid dimensions, border size/radius, opacity and z-index. `text-size` is an alias for `font-size`. URL values and arbitrary property names are intentionally unsupported.
+
+## Agent rule
+
+Arbitrary values are an exception. Apply this order:
+
+1. Reuse an existing semantic or utility class.
+2. Use the responsive breakpoint syntax with that class.
+3. Use `style-{bp}` when a suitable class does not exist and the value is genuinely element-specific.
+4. Use a bracket utility only for a rare, deliberate one-off value where class syntax is materially clearer.
+
+Do not use bracket utilities to establish a recurring spacing, typography or layout scale. Create or request a shared design token or utility for recurring values.
+
+## Responsive styles
+
+Use `style-{breakpoint}`. Matching breakpoint declarations are merged by property; later breakpoints override only properties they declare.
+
+Default breakpoints: `xs 0`, `sm 576`, `md 768`, `lg 992`, `xl 1200`, `xxl 1400`.
+
