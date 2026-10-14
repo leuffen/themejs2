@@ -44,10 +44,13 @@ Verstaendlichkeit, Faktenbasis und SEO erneut kontrollieren.
 
 ## Ueberzeugen: Problem, Outcome, Loesungswege und Handlung
 
-Bei argumentierenden Website-Texten zuerst den tatsaechlichen Leser
-und dessen Situation bestimmen. Nicht den Verkaufswunsch des
-Anbieters als Problem der Besucher darstellen. Den Argumentationsgang
-in dieser Reihenfolge gestalten, ohne starre Abschnittsueberschriften:
+**Nur fuer Texte mit Ueberzeugungsabsicht** diese Methode anwenden.
+Vorher das originaere Anliegen des Lesers ermitteln: Was will diese
+Person unabhaengig vom Angebot erreichen oder vermeiden? Welches
+Problem steht dem im Weg, und welche Folge hat das fuer die Person?
+Das Anbieterziel nicht mit dem Leserziel verwechseln. Bei einem
+positiven Leserziel kein Problem erfinden. Erst danach gegebenenfalls
+den folgenden Argumentationsgang nutzen, ohne starre Ueberschriften:
 
 1. **Leserproblem:** Eine konkrete Frage, Huerde oder nachvollziehbare
    Folge aus der Leserperspektive benennen. Hypothesen als solche
