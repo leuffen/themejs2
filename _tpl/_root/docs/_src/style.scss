@@ -15,11 +15,12 @@
     --nt-font-family-header: #{font.$font-family-header};
 
     // Getrennte Normalisierung: x-Hoehe fuer Fliesstext, Versalhoehe fuer H1-H6.
-    --nt-font-size-adjust: #{font.$font-size-adjust-base};
-    --nt-font-size-adjust-header: #{font.$font-size-adjust-header};
+    --theme-font-size-adjust: #{font.$font-size-adjust-base};
+    --theme-font-size-adjust-header: #{font.$font-size-adjust-header};
 
     // Bei Bedarf unabhaengig anpassen:
-    // --nt-font-size-adjust: 0.54;
-    // --nt-font-size-adjust-header: 0.70;
+    // --theme-font-size-adjust: 0.54;
+    // --theme-font-size-adjust-header: 0.70;
+
   }
 }
