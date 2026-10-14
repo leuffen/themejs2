@@ -1,7 +1,12 @@
+@use "sass:meta";
 @use "@leuffen/themejs2/theme/raven" as theme;
 
 // Initialisiert Reset, Schemes, Layer-Reihenfolge und Raven fuer die ganze Website.
 @include theme.global();
+
+// Beispiel: Eine zusaetzliche Schrift ueber das ThemeJS2-Fontmodul einbinden.
+// Zum Aktivieren die folgende Zeile einkommentieren.
+// @include meta.load-css("@leuffen/themejs2/font/opensans-regular");
 
 // Setzt die individuelle Primaerfarbe und Schrift; weitere Website-Regeln hier ergaenzen.
 @layer website {
@@ -9,5 +14,9 @@
     --nt-primary: #3f4632;
     --nt-font-family: "Work Sans", sans-serif;
     --nt-font-family-header: var(--nt-font-family);
+
+    // Beispiel: Nach dem Font-Include oben die Schrift fuer die Website austauschen.
+    // --nt-font-family: "Open Sans", sans-serif;
+    // --nt-font-family-header: var(--nt-font-family);
   }
 }
