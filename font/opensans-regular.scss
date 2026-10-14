@@ -6,7 +6,7 @@ $font-size-base: 0.9rem !default;
 $font-family-header: $font-family-base !default;
 $font-size-header: 2rem !default;
 
-// Zielmetriken fuer vergleichbare optische Groesse verschiedener Schriftfamilien.
+// Zielmetriken basierend auf Work Sans (x-Hoehe 0.50 em, Versalhoehe 0.66 em).
 // Basistext nutzt x-Hoehe, H1-H6 nutzen Versalhöhe; beide Werte sind konfigurierbar.
-$font-size-adjust-base: 0.52 !default;
-$font-size-adjust-header: 0.72 !default;
+$font-size-adjust-base: 0.50 !default;
+$font-size-adjust-header: 0.66 !default;
