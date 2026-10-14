@@ -32,82 +32,82 @@
   @layer themes.components {
     @include nextrapButton.style-button();
 
-  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
-  @include meta.load-css("./elements/ntl-card/ntl-card.scss");
-  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
-  @include meta.load-css("./elements/ntl-card-grid/ntl-card-grid.scss");
-  @include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
-  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
-  @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
-  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
+    @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+    @include meta.load-css("./elements/ntl-card/ntl-card.scss");
+    @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+    @include meta.load-css("./elements/ntl-card-grid/ntl-card-grid.scss");
+    @include meta.load-css("./elements/ntl-slider/ntl-slider.scss");
+    @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+    @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
+    @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
   }
 
   // Hält bestehende Kicker-, Raster- und Content-Klassen im ePraxis-Theme.
   @layer themes.patterns {
     @include meta.load-css("./classes/kicker");
 
-  /* grid container */
-  .grid-container {
-    --rows: 1;
-    --cols: 1;
-    --gap: 16px;
+    // Stellt ein konfigurierbares Raster für ePraxis-Content bereit.
+    .grid-container {
+      --rows: 1;
+      --cols: 1;
+      --gap: 16px;
 
-    display: grid;
-    gap: var(--gap);
-    grid-auto-flow: row;
-    justify-items: stretch;
-    align-items: stretch;
-    justify-content: start;
-    align-content: start;
-    grid-template-columns: repeat(var(--cols), auto);
-    grid-template-rows: repeat(var(--rows), auto);
+      display: grid;
+      gap: var(--gap);
+      grid-auto-flow: row;
+      justify-items: stretch;
+      align-items: stretch;
+      justify-content: start;
+      align-content: start;
+      grid-template-columns: repeat(var(--cols), auto);
+      grid-template-rows: repeat(var(--rows), auto);
 
-    & > * {
-      --row: 1;
-      --col: 1;
-      --row-span: 1;
-      --col-span: 1;
+      & > * {
+        --row: 1;
+        --col: 1;
+        --row-span: 1;
+        --col-span: 1;
 
-      grid-column: var(--col) / span var(--col-span);
-      grid-row: var(--row) / span var(--row-span);
-    }
-  }
-
-  .box-primary {
-    padding: 20px 0;
-  }
-
-  .badges {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-
-    p {
-      border-radius: 50rem;
-      background-color: var(--nt-primary-subtle);
-      padding: 0.5rem 1rem;
-      color: var(--nt-primary);
-      width: fit-content;
-    }
-  }
-
-  .box-secondary {
-    h3 {
-      font-weight: normal !important;
+        grid-column: var(--col) / span var(--col-span);
+        grid-row: var(--row) / span var(--row-span);
+      }
     }
 
-    :has(h3) {
-      margin: 0;
-      padding-bottom: calc(var(--prose-para-space) / 2);
-      padding-top: calc(var(--prose-para-space) / 2);
+    .box-primary {
+      padding: 20px 0;
     }
 
-    :has(h3):not(:last-child) {
-      border-bottom: 1px solid var(--nt-tertiary-emphasis);
+    .badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: center;
+
+      p {
+        border-radius: 50rem;
+        background-color: var(--nt-primary-subtle);
+        padding: 0.5rem 1rem;
+        color: var(--nt-primary);
+        width: fit-content;
+      }
     }
-  }
+
+    .box-secondary {
+      h3 {
+        font-weight: normal !important;
+      }
+
+      :has(h3) {
+        margin: 0;
+        padding-bottom: calc(var(--prose-para-space) / 2);
+        padding-top: calc(var(--prose-para-space) / 2);
+      }
+
+      :has(h3):not(:last-child) {
+        border-bottom: 1px solid var(--nt-tertiary-emphasis);
+      }
+    }
   }
 
   // Stellt Utility-Klassen nach den Komponenten und Content-Mustern bereit.
