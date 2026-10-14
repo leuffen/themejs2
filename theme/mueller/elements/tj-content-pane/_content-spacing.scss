@@ -9,4 +9,9 @@ tj-content-pane {
   > :where(ntl-hero, .style-ribbon, .style-testimonial, .footer-separators) {
     padding-block: 0;
   }
+
+  // Accordions halten zum Folgeinhalt nur den normalen Absatzabstand.
+  nte-accordion {
+    padding-bottom: var(--nt-spacing-text);
+  }
 }

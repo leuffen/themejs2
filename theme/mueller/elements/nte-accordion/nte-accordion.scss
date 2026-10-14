@@ -2,11 +2,11 @@
 
 nte-accordion {
   @include accordion.default-style(
-    $item-gap: var(--nt-space-3),
+    $item-gap: 0,
     $border: var(--nt-border-width) solid var(--nt-border),
     $border-radius: var(--nt-border-radius),
-    $summary-padding: var(--nt-space-5),
-    $content-padding: var(--nt-space-5),
+    $summary-padding: var(--nt-space-3),
+    $content-padding: var(--nt-space-3),
     $summary-background: var(--nt-surface-raised),
     $summary-background-hover: #ededed,
     $summary-color: var(--nt-header),
@@ -18,7 +18,9 @@ nte-accordion {
   --marker-icon-closed: var(--marker-icon-plus);
   --marker-icon-open: var(--marker-icon-minus);
 
+  // Accordion-Titel heben sich moderat vom Fließtext ab, ohne Überschriftengröße anzunehmen.
   nte-accordion-item > [slot="title"] {
+    font-size: calc(var(--nt-font-size) * 1.125);
     font-weight: var(--nt-font-weight-bold);
   }
 }
