@@ -2,6 +2,8 @@
 @use "./../../font/opensans-regular";
 @use "./../../font/_vendor/font-bootstrap-icons";
 @use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-reset" as nextrapReset;
+@use "@nextrap/style-elements" as nextrapElements;
 @use "@nextrap/style-utils" as nextrapUtils;
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
@@ -9,47 +11,75 @@
 @use "@nextrap/nte-nav" as nteNav;
 @use "@nextrap/nte-navbar" as nteNavbar;
 
+// Rendert Müller in den Verbraucher-Scope und verwendet dieselbe Layer-Reihenfolge wie Raven und Osman.
 @mixin theme() {
-  @include nextrapBase.runtime-theme-scoped();
-  @include meta.load-css("./_runtime-settings.scss");
-
-  @content;
-
-  font-family: var(--nt-font-family);
-  color: var(--nt-text);
-  line-height: var(--nt-line-height);
-  background: var(--nt-surface);
-
-  @include nextrapUtils.style-utils();
-  @include nextrapTypography.style-typography();
-  @include nextrapButton.style-button();
-
-  // Applies the shared navbar, navigation, and form component structure.
-  @include nteNavbar.default-style();
-
-  nte-input.style-default {
-    @include nteInput.default-style(nteInput.$themeCarbon);
+  @layer reset {
+    @include nextrapReset.reset();
   }
 
-  nte-nav.style-default {
-    @include nteNav.main-navigation();
+  @layer themes.tokens {
+    @include nextrapBase.runtime-theme-scoped();
+    @include meta.load-css("./_runtime-settings.scss");
   }
 
-  nte-nav.nav-horizontal {
-    @include nteNav.horizontal();
+  @layer themes.base {
+    font-family: var(--nt-font-family);
+    color: var(--nt-text);
+    line-height: var(--nt-line-height);
+    background: var(--nt-surface);
   }
 
-  nte-nav.nav-vertical {
-    @include nteNav.vertical();
+  @layer themes.typography {
+    @include nextrapTypography.style-typography();
   }
 
-  @include meta.load-css("./../../src/features/_data-kicker.scss");
-  @include meta.load-css("./html-elements/_defaults.scss");
-  @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
-  @include meta.load-css("./classes/_button-bar.scss");
-  @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
-  @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
-  @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
-  @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
-  @include meta.load-css("./elements/nte-consent-blocker/nte-consent-blocker.scss");
+  @layer themes.elements {
+    @include nextrapElements.style-elements();
+    @include meta.load-css("./html-elements/_defaults.scss");
+  }
+
+  @layer themes.components {
+    @include nextrapButton.style-button();
+
+    // Lädt die gemeinsame Navbar-, Navigations- und Formularstruktur für Müller.
+    @include nteNavbar.default-style();
+
+    nte-input.style-default {
+      @include nteInput.default-style(nteInput.$themeCarbon);
+    }
+
+    nte-nav.style-default {
+      @include nteNav.main-navigation();
+    }
+
+    nte-nav.nav-horizontal {
+      @include nteNav.horizontal();
+    }
+
+    nte-nav.nav-vertical {
+      @include nteNav.vertical();
+    }
+
+    // Lädt die bestehenden Müller-Komponenten innerhalb des Komponenten-Layers.
+    @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
+    @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
+    @include meta.load-css("./elements/ntl-card-row/ntl-card-row.scss");
+    @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
+    @include meta.load-css("./elements/nte-accordion/nte-accordion.scss");
+    @include meta.load-css("./elements/nte-consent-blocker/nte-consent-blocker.scss");
+  }
+
+  @layer themes.patterns {
+    @include meta.load-css("./../../src/features/_data-kicker.scss");
+    @include meta.load-css("./classes/_button-bar.scss");
+  }
+
+  @layer themes.utilities {
+    @include nextrapUtils.style-utils();
+  }
+
+  // Explizite Anpassungen des Nutzprojekts bleiben gegenüber den Theme-Layern vorrangig.
+  @layer website {
+    @content;
+  }
 }

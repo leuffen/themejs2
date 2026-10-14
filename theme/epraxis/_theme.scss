@@ -8,18 +8,29 @@
 
 @forward "../../src/style/base";
 
+// Ordnet die bestehenden ePraxis-Styles in dieselbe Cascade wie Osman, Raven und Müller ein.
 @mixin theme() {
-  @include nextrapBase.runtime-theme-scoped();
-  @include meta.load-css("./_runtime-settings.scss");
-  @content;
+  // Erzeugt die Runtime-Tokens ausschließlich innerhalb des ePraxis-Scopes.
+  @layer themes.tokens {
+    @include nextrapBase.runtime-theme-scoped();
+    @include meta.load-css("./_runtime-settings.scss");
+  }
 
-  font-family: var(--nt-font-family);
-  color: var(--nt-text);
-  line-height: var(--nt-line-height);
+  // Bewahrt Grundtypografie und Farbvererbung des bisherigen ePraxis-Themes.
+  @layer themes.base {
+    font-family: var(--nt-font-family);
+    color: var(--nt-text);
+    line-height: var(--nt-line-height);
+  }
 
-  @include nextrapUtils.style-utils();
-  @include nextrapTypography.style-typography();
-  @include nextrapButton.style-button();
+  // Bindet die bisherige Typografie unabhängig von Komponenten- und Utility-Prioritäten ein.
+  @layer themes.typography {
+    @include nextrapTypography.style-typography();
+  }
+
+  // Erhält die vorhandenen Komponentenvarianten ohne neue Styles einzuführen.
+  @layer themes.components {
+    @include nextrapButton.style-button();
 
   @include meta.load-css("./elements/ntl-hero/ntl-hero.scss");
   @include meta.load-css("./elements/ntl-card/ntl-card.scss");
@@ -29,68 +40,83 @@
   @include meta.load-css("./elements/ntl-2col/ntl-2col.scss");
   @include meta.load-css("./elements/ntl-accordion-item/ntl-accordion-item.scss");
   @include meta.load-css("./elements/tj-content-pane/tj-content-pane.scss");
-  @include meta.load-css("./classes/kicker");
-}
-
-/* grid container */
-.grid-container {
-  --rows: 1;
-  --cols: 1;
-  --gap: 16px;
-
-  display: grid;
-  gap: var(--gap);
-  grid-auto-flow: row;
-  justify-items: stretch;
-  align-items: stretch;
-  justify-content: start;
-  align-content: start;
-  grid-template-columns: repeat(var(--cols), auto);
-  grid-template-rows: repeat(var(--rows), auto);
-
-  & > * {
-    --row: 1;
-    --col: 1;
-    --row-span: 1;
-    --col-span: 1;
-
-    grid-column: var(--col) / span var(--col-span);
-    grid-row: var(--row) / span var(--row-span);
-  }
-}
-
-.box-primary {
-  padding: 20px 0;
-}
-
-.badges {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: center;
-
-  p {
-    border-radius: 50rem;
-    background-color: var(--nt-primary-subtle);
-    padding: 0.5rem 1rem;
-    color: var(--nt-primary);
-    width: fit-content;
-  }
-}
-
-.box-secondary {
-  h3 {
-    font-weight: normal !important;
   }
 
-  :has(h3) {
-    margin: 0;
-    padding-bottom: calc(var(--prose-para-space) / 2);
-    padding-top: calc(var(--prose-para-space) / 2);
+  // Hält bestehende Kicker-, Raster- und Content-Klassen im ePraxis-Theme.
+  @layer themes.patterns {
+    @include meta.load-css("./classes/kicker");
+
+  /* grid container */
+  .grid-container {
+    --rows: 1;
+    --cols: 1;
+    --gap: 16px;
+
+    display: grid;
+    gap: var(--gap);
+    grid-auto-flow: row;
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: start;
+    align-content: start;
+    grid-template-columns: repeat(var(--cols), auto);
+    grid-template-rows: repeat(var(--rows), auto);
+
+    & > * {
+      --row: 1;
+      --col: 1;
+      --row-span: 1;
+      --col-span: 1;
+
+      grid-column: var(--col) / span var(--col-span);
+      grid-row: var(--row) / span var(--row-span);
+    }
   }
 
-  :has(h3):not(:last-child) {
-    border-bottom: 1px solid var(--nt-tertiary-emphasis);
+  .box-primary {
+    padding: 20px 0;
+  }
+
+  .badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+
+    p {
+      border-radius: 50rem;
+      background-color: var(--nt-primary-subtle);
+      padding: 0.5rem 1rem;
+      color: var(--nt-primary);
+      width: fit-content;
+    }
+  }
+
+  .box-secondary {
+    h3 {
+      font-weight: normal !important;
+    }
+
+    :has(h3) {
+      margin: 0;
+      padding-bottom: calc(var(--prose-para-space) / 2);
+      padding-top: calc(var(--prose-para-space) / 2);
+    }
+
+    :has(h3):not(:last-child) {
+      border-bottom: 1px solid var(--nt-tertiary-emphasis);
+    }
+  }
+  }
+
+  // Stellt Utility-Klassen nach den Komponenten und Content-Mustern bereit.
+  @layer themes.utilities {
+    @include nextrapUtils.style-utils();
+  }
+
+  // Website-Anpassungen sind höher priorisiert als die regulären Theme-Layer.
+  @layer website {
+    @content;
   }
 }
