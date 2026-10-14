@@ -1,10 +1,10 @@
 ---
 layout: website
 body_class: theme-raven
-title: Theme Raven Unterseiten
+title: Raven – Leistungen
 use_navbar: osman
 use_footer: raven
-description: "Raven-Unterseiten-Demo mit den wiederkehrenden Inhaltsmustern der bestehenden Website."
+description: "Raven-Leistungsseite mit medizinischen Schwerpunkten und Kontaktaktion."
 ptags:
   - arzt
 pid: raven-subpage
@@ -136,4 +136,4 @@ Vertiefende Inhalte können von jeder Unterseite gezielt zum medizinischen Ansat
 {: .lead-serif }
 
 [Medizinischer Ansatz](/pages/theme-raven/raven-start.html){: .btn .btn-light .btn-lead }
-[Kontakt & Anfahrt](/pages/theme-raven/raven-start.html){: .btn .btn-accent .btn-lead }
+[Kontakt & Anfahrt]({{ '/pages/theme-raven/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }

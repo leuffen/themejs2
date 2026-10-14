@@ -61,3 +61,10 @@ Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefr
 #[nte-input.style-default type="textarea" name="nachricht" label="Nachricht" required]
 #[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
+
+
+<!-- Auch die Kontaktvorlage endet mit einer konkreten Kontaktaktion. -->
+## Noch Fragen zum Termin?
+{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Nächster Schritt" section-style="--cols: 6;" }
+
+[Termin vereinbaren](/kontakt){: .btn .btn-accent .btn-lead }
