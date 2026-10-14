@@ -42,6 +42,45 @@ gemeinter Sachverhalt, fachgerechte Ersatzformulierung und
 gegebenenfalls benoetigte Quelle. Nach Terminologiekorrekturen
 Verstaendlichkeit, Faktenbasis und SEO erneut kontrollieren.
 
+## Ueberzeugen: Problem, Outcome, Loesungswege und Handlung
+
+Bei argumentierenden Website-Texten zuerst den tatsaechlichen Leser
+und dessen Situation bestimmen. Nicht den Verkaufswunsch des
+Anbieters als Problem der Besucher darstellen. Den Argumentationsgang
+in dieser Reihenfolge gestalten, ohne starre Abschnittsueberschriften:
+
+1. **Leserproblem:** Eine konkrete Frage, Huerde oder nachvollziehbare
+   Folge aus der Leserperspektive benennen. Hypothesen als solche
+   markieren. Weder unbelegte Probleme noch Angst erfinden.
+2. **Gewuenschtes Ergebnis (Outcome):** Den Zustand erklaeren, den
+   dieselbe Person erreichen moechte, und nachvollziehbar vom
+   Problem zu diesem Ziel ueberleiten. Eine Buchung oder ein
+   Produkt ist ein Mittel, nicht automatisch das Ergebnisziel.
+3. **Loesungswege:** Geeignete Optionen, Bedingungen, Grenzen,
+   moeglichen Aufwand und entscheidende Unterschiede erlaeutern.
+   Das eigene Angebot nur auf belegter Grundlage einordnen.
+   Keine Alternativen allein fuer ein festes Schema erfinden.
+4. **Naechste Handlung:** Einen passenden CTA anbieten, etwa
+   online buchen, bestellen, ein Formular nutzen oder mehr
+   erfahren. Kein kuenstlicher Druck oder unbelegtes Versprechen.
+
+Bei medizinischen Texten keine Diagnose, Heilgarantie oder
+behandlungsbedingte Angst aus der Dramaturgie ableiten.
+Das Outcome kann informierte Entscheidung, diagnostische
+Klaerung oder moegliche Beschwerdelinderung sein, nicht
+ein zugesicherter Heilungserfolg.
+
+**Ausnahmen:** Eine Startseite darf mit Anbieter, Fachrichtung
+oder Zugangsvoraussetzungen beginnen. Reine Kontaktangaben,
+Terminbestaetigungen und neutrale Informationen brauchen keine
+konstruierte Problemerzählung. Die gedankliche Reihenfolge
+ist wichtiger als ein sichtbares Vier-Abschnitts-Schema.
+
+Abschliessend pruefen: Wurde das Problem der richtigen Person
+beschrieben? Ist das Outcome wirklich ein Ergebnis und kein
+bereits vorausgesetztes Mittel? Werden Optionen erst danach
+abgewogen? Ergibt sich der CTA logisch aus der Information?
+
 ## Seitentypen
 
 **Startseite:** Wer ist der Anbieter, wem hilft das tatsaechliche
