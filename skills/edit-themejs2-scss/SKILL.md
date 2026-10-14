@@ -40,29 +40,41 @@ Andere Themes statt Raven über ihren veröffentlichten Einstiegspunkt laden.
 `theme.global()` ist für ein einzelnes Theme auf der gesamten Website;
 die Multi-Theme-Demo kann weiterhin `theme.theme()` in ihren Selektoren nutzen.
 
-## Eigene Schrift einbinden
+## Vorhandene Schrift einbinden und Schriftgrößen ändern
 
-Lade die Font-Dateien vor der Verwendung: per `@use` eines verfügbaren
-ThemeJS2-Fontmoduls oder mit eigenem `@font-face` samt statisch auslieferbarer
-Font-Datei im Kundenprojekt. Nur eine CSS-Variable umzuschalten lädt keine Font.
+Die Schriftmodule liegen bereits unter `@leuffen/themejs2/font/`. Keine
+zusätzlichen Font-Dateien oder `@font-face`-Blöcke anlegen, wenn ein passendes
+SCSS-Fontmodul vorhanden ist. Für Open Sans das vorhandene Modul mit
+`sass:meta` als CSS laden und anschließend die Theme-Tokens überschreiben:
 
 ```scss
-// Eigenen Webfont laden, falls die Website ihn mitliefert.
-@font-face {
-  font-family: "Kundenfont";
-  src: url("/assets/fonts/kundenfont.woff2") format("woff2");
-  font-display: swap;
-}
+@use "sass:meta";
+@use "@leuffen/themejs2/theme/raven" as theme;
+
+@include theme.global();
+
+// Lädt die vorhandenen Open-Sans-Definitionen aus ThemeJS2.
+@include meta.load-css("@leuffen/themejs2/font/opensans-regular");
 
 @layer website {
   html {
-    --nt-font-family: "Kundenfont", sans-serif;
+    --nt-primary: #3f4632;
+    --nt-font-family: "Open Sans", sans-serif;
     --nt-font-family-header: var(--nt-font-family);
+    --nt-font-size: 1.125rem;
+    --nt-font-size-header: clamp(2rem, 4vw, 3.5rem);
+    --nt-fs-h2: 2rem;
   }
 }
 ```
 
-Achte auf gültige Pfade im statischen Build, insbesondere bei Unterpfad-Hosting.
+`--nt-font-size` bestimmt die Basis-Schriftgröße; `--nt-font-size-header`
+die große Überschriftengröße und `--nt-fs-h2` die zweite
+Überschriftenebene. Die konkrete Auswirkung hängt von den Theme- und
+Komponentenregeln ab. Die Include-Zeile lädt die Font-Definitionen; erst
+`--nt-font-family` wählt die neue Schrift aktiv aus. Für andere Schriftarten
+vorhandene SCSS-Dateien unter `themejs2/font/` prüfen und deren tatsächliche
+`font-family`-Bezeichnung übernehmen.
 
 ## Layer-Reihenfolge
 
