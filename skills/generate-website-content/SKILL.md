@@ -73,9 +73,13 @@ erhalten. Keine ungefragten Aenderungen an weiteren Dateien.
    vortaeuschen. Mit bereitgestellten Informationen nur einen
    klar als vorlaeufig gekennzeichneten Entwurf anbieten oder
    bei kritischer Aktualitaet nach Zugang fragen.
-3. **Text schreiben:** Ueberzeugende Abschnitte vom belegten Leserproblem
-   ueber das gewuenschte Ergebnis (Outcome) zu geeigneten Loesungswegen
-   und einer passenden Handlung fuehren; Details in der Schreibreference.
+3. **Text schreiben:** Zuerst das originaere Anliegen, Problem oder
+   Ergebnisziel des tatsaechlichen Lesers bestimmen, unabhaengig vom
+   Verkaufsziel des Anbieters. **Nur wenn der Text ueberzeugen soll**,
+   nach dem Leserproblem den gewuenschten Outcome, geeignete
+   Loesungswege und eine passende Handlung darstellen; Details in
+   der Schreibreference. Rein informative Texte nicht in dieses
+   Schema zwingen.
    Nach Nutzeranliegen, Seitentyp und Website-Ziel gliedern. Konkrete, hilfreiche Einfuehrungen,
    Leistungsinformationen und angemessene naechste Schritte
    formulieren. Allgemeine Erklaerungen sind erlaubt, aber
