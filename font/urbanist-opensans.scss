@@ -1,5 +1,5 @@
-@import "./_vendor/font-opensans";
-@import "./_vendor/font-urbanist";
+@use "./_vendor/font-opensans";
+@use "./_vendor/font-urbanist";
 
 $font-family-base: 'Open Sans', sans-serif;
 $font-size-base: 1.0rem !default;
