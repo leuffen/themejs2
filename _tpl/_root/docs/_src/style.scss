@@ -1,23 +1,25 @@
 @use "@leuffen/themejs2/theme/raven" as theme;
 
-// Laedt die bereits in ThemeJS2 vorhandene Open-Sans-Schrift aus font/.
-@use "@leuffen/themejs2/font/opensans-regular" as font;
+// Vorhandenes Fontpaar aus ThemeJS2 laden; z.B. cinzel-opensans oder work-sans.
+@use "@leuffen/themejs2/font/garamond-opensans" as font;
 
-// Initialisiert Reset, Schemes, Layer-Reihenfolge und Raven fuer die ganze Website.
+// Initialisiert das Theme mit Reset, Farbschema und einheitlicher Layer-Reihenfolge.
 @include theme.global();
 
-// Setzt Primaerfarbe, Schrift und Schriftgroessen im vorrangigen Website-Layer.
+// Setzt Farben, Schriftfamilien und deren optische Zielhoehen fuer die Website.
 @layer website {
   html {
     --nt-primary: #3f4632;
 
-    // Font-Familie aus dem eingebundenen SCSS-Modul uebernehmen.
     --nt-font-family: #{font.$font-family-base};
     --nt-font-family-header: #{font.$font-family-header};
 
-    // Schriftgroessen aus dem Fontmodul nutzen oder direkt ueberschreiben.
-    --nt-font-size: #{font.$font-size-base};
-    --nt-font-size-header: 3rem;
-    --nt-fs-h2: 2rem;
+    // Getrennte Normalisierung: x-Hoehe fuer Fliesstext, Versalhoehe fuer H1-H6.
+    --nt-font-size-adjust: #{font.$font-size-adjust-base};
+    --nt-font-size-adjust-header: #{font.$font-size-adjust-header};
+
+    // Bei Bedarf unabhaengig anpassen:
+    // --nt-font-size-adjust: 0.54;
+    // --nt-font-size-adjust-header: 0.70;
   }
 }
