@@ -15,6 +15,30 @@ Dieser Skill ist branchenuebergreifend; die Medizinregeln sind ein
 bedingtes Fachprofil, kein allgemeines Schreibgesetz. Interne
 Pruefschritte sind keine eigenstaendigen Skills.
 
+## Ziel
+
+Erstelle informative, gut lesbare, fachlich korrekte und
+branchengerechte Website-Texte, die drei Aufgaben verbinden:
+
+1. **Auffindbarkeit:** Relevante Suchbegriffe, Nutzerfragen und
+   Zusammenhaenge so klar strukturieren, dass klassische
+   Suchmaschinen und KI-gestuetzte Antwortsysteme den Inhalt
+   verstehen und einordnen koennen. Keine Sichtbarkeit garantieren.
+2. **Orientierung und Entscheidung:** Besuchern die wichtigsten
+   Informationen frueh, verstaendlich und transparent vermitteln,
+   damit sie Angebote, Eignung, Voraussetzungen und Grenzen
+   beurteilen koennen.
+3. **Passende Handlung:** Je nach Website-Ziel zu einem sinnvollen
+   naechsten Schritt fuehren, etwa Online-Terminbuchung, Nutzung
+   digitaler Services, Bestellung, Kontaktanfrage oder vertiefende
+   Information. Conversion unterstuetzen, ohne Druck oder
+   irrefuehrende Versprechen.
+
+**Massstab:** Nicht mehr Text, sondern die richtige Information
+in der richtigen Reihenfolge und eine klare, passende Handlung.
+SEO, KI-Verstaendlichkeit, Lesernutzen und Conversion duerfen
+sich nicht zulasten der Fakten oder der Zielgruppe optimieren.
+
 ## Referenzen gezielt laden
 
 - Immer: [Fakten, Kontext und Ausgabe](references/context-and-output.md).
