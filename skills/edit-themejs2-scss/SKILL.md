@@ -57,12 +57,12 @@ Zielmetriken, **ohne** je Schrift eigene CSS-Regeln oder Mixins zu benötigen.
     --nt-primary: #3f4632;
     --nt-font-family: #{font.$font-family-base};
     --nt-font-family-header: #{font.$font-family-header};
-    --nt-font-size-adjust: #{font.$font-size-adjust-base};
-    --nt-font-size-adjust-header: #{font.$font-size-adjust-header};
+    --theme-font-size-adjust: #{font.$font-size-adjust-base};
+    --theme-font-size-adjust-header: #{font.$font-size-adjust-header};
 
     // Optional pro Website manuell statt der importierten Werte setzen:
-    // --nt-font-size-adjust: 0.54;
-    // --nt-font-size-adjust-header: 0.70;
+    // --theme-font-size-adjust: 0.54;
+    // --theme-font-size-adjust-header: 0.70;
   }
 }
 ```
