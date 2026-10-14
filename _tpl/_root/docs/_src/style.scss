@@ -22,12 +22,5 @@
     // --theme-font-size-adjust: 0.54;
     // --theme-font-size-adjust-header: 0.70;
 
-    // Aktiviert die optische Normalisierung fuer den normalen Text.
-    font-size-adjust: ex-height var(--theme-font-size-adjust);
-  }
-
-  // Ueberschriften nutzen ihre eigene Schriftfamilie und Versalhoehen-Korrektur.
-  h1, h2, h3, h4, h5, h6 {
-    font-size-adjust: cap-height var(--theme-font-size-adjust-header);
   }
 }
