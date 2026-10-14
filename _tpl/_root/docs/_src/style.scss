@@ -4,8 +4,8 @@
 // Initialisiert Reset, Schemes, Layer-Reihenfolge und Raven fuer die ganze Website.
 @include theme.global();
 
-// Beispiel: Eine zusaetzliche Schrift ueber das ThemeJS2-Fontmodul einbinden.
-// Zum Aktivieren die folgende Zeile einkommentieren.
+// Optional: Vorhandenen Font aus themejs2/font per Include laden.
+// Zum Wechsel auf Open Sans diesen Include und die Werte unten aktivieren.
 // @include meta.load-css("@leuffen/themejs2/font/opensans-regular");
 
 // Setzt die individuelle Primaerfarbe und Schrift; weitere Website-Regeln hier ergaenzen.
@@ -18,5 +18,8 @@
     // Beispiel: Nach dem Font-Include oben die Schrift fuer die Website austauschen.
     // --nt-font-family: "Open Sans", sans-serif;
     // --nt-font-family-header: var(--nt-font-family);
+    // --nt-font-size: 1.125rem; // Fliesstext (statt 1.0625rem)
+    // --nt-font-size-header: clamp(2rem, 4vw, 3.5rem); // Hauptueberschriften
+    // --nt-fs-h2: 2rem; // Abschnittsueberschriften
   }
 }
