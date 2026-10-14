@@ -1,9 +1,7 @@
----
-selector: "kontakt/**/*.md"
----
 # Kontaktseite: erreichbare Informationen und Layoutvarianten
 
-Diese Rule gilt für alle Markdown-Seiten unter kontakt/. Bei normaler
+Dieser Leitfaden gilt für Kontaktseiten wie `kontakt.md` oder
+`kontakt/index.md`. Bei normaler
 Anpassung die bestehende Position von Kontaktdaten, Karte, Formular,
 Consent-Blocker und Layout-Slots erhalten. Nur nach ausdrücklichem
 Layoutauftrag zwischen den folgenden Varianten wechseln.
@@ -23,21 +21,23 @@ Ein klarer Kontaktblock direkt nach der Überschrift, gefolgt von
 Anfahrtsbeschreibung und einer optionalen Karte. Das ist besonders
 geeignet, wenn Telefonnummer und Adresse im Vordergrund stehen.
 
-    # Kontakt
-    {: layout="ntl-2col.with-justify-top.surface-white" }
+```markdown
+# Kontakt
+{: layout="ntl-2col.with-justify-top.surface-white" }
 
-    **Praxisname**
+**Praxisname**
 
-    Straße und Ort laut Projektkontext.
+Straße und Ort laut Projektkontext.
 
-    [Anrufen](tel:+49000000000){: .btn .btn-primary }
+[Anrufen](tel:+49000000000){: .btn .btn-primary }
 
-    ---
-    {: layout="nte-accordion.style-default.bottom[exclusive]" }
+---
+{: layout="nte-accordion.style-default.bottom[exclusive]" }
 
-    ### Anreise
+### Anreise
 
-    Bestätigte Hinweise zur Anfahrt.
+Bestätigte Hinweise zur Anfahrt.
+```
 
 Die Telefonnummer ist im Beispiel nur ein Platzhalter und darf niemals
 als echte Kundennummer übernommen werden.
@@ -48,18 +48,20 @@ Die Raven-Demo nutzt eine ntl-2col-Section mit Kontaktinformationen im
 Hauptinhalt und Consent-Blocker als Aside; darunter optional ein
 eigenständiges Formular oder ein CTA:
 
-    ## Kontakt und Anfahrt
-    {: layout="ntl-2col.with-justify-top.surface-white" section-style="--cols: 5;" }
+```markdown
+## Kontakt und Anfahrt
+{: layout="ntl-2col.with-justify-top.surface-white" section-style="--cols: 5;" }
 
-    **Bestätigter Standort**
+**Bestätigter Standort**
 
-    Straße und Ort aus dem Projektkontext.
+Straße und Ort aus dem Projektkontext.
 
-    <nte-consent-blocker class="style-default aside">
-      <template>
-        <!-- Hier nur ein bereits bestätigtes iframe aus dem Projekt einsetzen. -->
-      </template>
-    </nte-consent-blocker>
+<nte-consent-blocker class="style-default aside">
+  <template>
+    <!-- Hier nur ein bereits bestätigtes iframe aus dem Projekt einsetzen. -->
+  </template>
+</nte-consent-blocker>
+```
 
 Für ein Medien-/Map-Element im Top-Slot statt im Aside nur das
 dokumentierte Slot-Muster des aktiven Themes verwenden, wie in der
@@ -81,11 +83,3 @@ Die Variante muss zum gewünschten Seitenziel und aktiven Theme passen.
 Quellen: leuffen/themejs2/docs/pages/theme-raven/raven-start.md
 (Kontakt & Anfahrt, Formular) sowie
 docs/pages/theme-osman/osman-elements.md (Top-Slot, Aside, Formular).
-
-## Zugehörige Paket-Skills
-
-Für Kontaktseiten `skills/edit-themejs2-site/SKILL.md` verwenden;
-Formular-/Aside-Layouts nach `skills/content-pane-usage/SKILL.md` und
-`skills/content-pane-layout/SKILL.md` strukturieren. Bei responsiven
-Klassen zusätzlich `skills/trunkjs-responsive/SKILL.md` beachten.
-Alle Pfade gelten relativ zur Paketwurzel von `@leuffen/themejs2`.

@@ -1,9 +1,6 @@
----
-selector: index.md
----
 # Startseite: Einordnung, Leistungen und nächste Schritte
 
-Diese Rule gilt für die Startseite index.md im Document Root.
+Diese Anleitung gilt für die Startseite `index.md` im Document Root.
 Bei normaler KI-Anpassung die vorhandenen Sections, Layoutvarianten und
 Reihenfolge erhalten und nur belegte Inhalte ersetzen. Die folgende
 Gliederung ist ein Gestaltungsangebot für einen ausdrücklich gewünschten
@@ -29,21 +26,23 @@ wo dies der Benutzerführung dient.
 Die Raven-Demo verwendet ein bildorientiertes Zweispalten-Hero und
 anschließend Fach-/Leistungssections sowie einen Kontakt-CTA:
 
-    # Fachlicher Schwerpunkt
-    {: layout="ntl-2col.style-hero" section-style="--cols: 6;" }
+```markdown
+# Fachlicher Schwerpunkt
+{: layout="ntl-2col.style-hero" section-style="--cols: 6;" }
 
-    Kurzbeschreibung mit konkretem Nutzen.
+Kurzbeschreibung mit konkretem Nutzen.
 
-    [Kontakt](/kontakt){: .btn .btn-primary }
+[Kontakt](/kontakt){: .btn .btn-primary }
 
-    ![Passendes Bestandsbild](/assets/hero.webp)
+![Passendes Bestandsbild](/assets/hero.webp)
 
-    ## Unsere Leistungen
-    {: layout="ntl-card-row.style-default" section-style="--cols: 3;" }
+## Unsere Leistungen
+{: layout="ntl-card-row.style-default" section-style="--cols: 3;" }
 
-    ### Bereich A
+### Bereich A
 
-    Kurztext und weiterführender Link.
+Kurztext und weiterführender Link.
+```
 
 ## Variante B: Osman-artiger Einstieg
 
@@ -56,10 +55,3 @@ Die Überschriftenhierarchie und direkt folgende Kramdown-Attribute
 sind Bestandteil der Renderstruktur. Quelle:
 leuffen/themejs2/docs/pages/theme-raven/raven-start.md sowie
 docs/pages/theme-osman/osman-start.md.
-
-## Zugehörige Paket-Skills
-
-Für Website-Bearbeitungen gilt `skills/edit-themejs2-site/SKILL.md`.
-Für Startseiten-Layouts außerdem `skills/content-pane-usage/SKILL.md`
-und `skills/content-pane-layout/SKILL.md` beachten. Die Pfade gelten
-relativ zur Paketwurzel von `@leuffen/themejs2`.

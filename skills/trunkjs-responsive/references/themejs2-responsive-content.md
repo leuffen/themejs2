@@ -1,11 +1,7 @@
----
-selector: "**/*.md"
----
 # TrunkJS Responsive: Klassen und Styles im Markdown
 
-Diese Rule übernimmt den fachlichen Umfang von
-trunkjs/trunkjs-monorepo/packages/responsive/skills/trunkjs-responsive/SKILL.md
-und packages/responsive/.ai-usage-info.md. Die Website bindet tj-responsive
+Dieser Leitfaden ergänzt `trunkjs-responsive` und
+`references/ai-usage-info.md` um konkrete ThemeJS2-Markdown-Beispiele. Die Website bindet tj-responsive
 bereits über ihren Seitenrahmen ein: keine zweite Registrierung oder einen
 zusätzlichen tj-responsive-Wrapper in Content-Sections erzeugen.
 
@@ -28,19 +24,23 @@ xs=0, sm=576, md=768, lg=992, xl=1200, xxl=1400 (Pixel).
 
 Kramdown-Klassen gehören ohne Leerzeile direkt zum vorhergehenden Block:
 
-    - Erstes Leistungsmerkmal
-    - Zweites Leistungsmerkmal
-    {: .features-list .-md:compact .xl:desktop }
+```markdown
+- Erstes Leistungsmerkmal
+- Zweites Leistungsmerkmal
+{: .features-list .-md:compact .xl:desktop }
+```
 
 Ein HTML-Element kann Klassen und breakpoint-spezifische Styles
 kombinieren:
 
-    <div class="card -md:d-none md-xl:d-block.shadow xl:d-flex"
-         style="width:100%;color:black"
-         style-md="width:50%"
-         style-xl="width:33%;color:red">
-      Inhalt
-    </div>
+```html
+<div class="card -md:d-none md-xl:d-block.shadow xl:d-flex"
+     style="width:100%;color:black"
+     style-md="width:50%"
+     style-xl="width:33%;color:red">
+  Inhalt
+</div>
+```
 
 style-{breakpoint} ergänzt beziehungsweise überschreibt nur die dort
 angegebenen CSS-Properties; die übrigen Properties bleiben wirksam.
@@ -62,13 +62,3 @@ eine seltene Arbitrary-Value-Klasse. Für wiederkehrende Werte Theme-Token
 oder gemeinsame Utility vorziehen. Die bestehenden ThemeJS2-Komponenten
 mit eigenem mode-Attribut nicht durch zusätzliche Responsive-Klassen
 intern nachbauen.
-
-## Zugehörige Paket-Skills
-
-Für responsive Klassen, Breakpoint-Syntax und Runtime Arbitrary Values
-die im ThemeJS2-Paket mitgelieferten Skills heranziehen:
-
-- `skills/trunkjs-responsive/SKILL.md`
-- `skills/trunkjs-responsive/references/ai-usage-info.md`
-
-Diese Pfade sind relativ zur **Paketwurzel** von `@leuffen/themejs2`.

@@ -1,10 +1,8 @@
----
-selector: "leistungen/**/*.md"
----
 # Leistungsseiten: Übersicht und fachliche Details
 
-Diese Rule gilt für Markdown unter leistungen/, inklusive
-leistungen/index.md. Bei normaler KI-Anpassung Section-Struktur, Links
+Dieser Leitfaden gilt für Leistungsübersichten und Leistungsdetails,
+beispielsweise unter `leistungen/` inklusive `leistungen/index.md` oder
+unter einem entsprechenden projektbezogenen Seitenpfad. Bei normaler KI-Anpassung Section-Struktur, Links
 und Layoutvarianten erhalten. Nur bei ausdrücklich gewünschtem neuen
 Seitenaufbau die folgenden Vorlagen als Auswahlmuster verwenden.
 
@@ -16,19 +14,21 @@ sofern die gewählte Theme-Variante vorhanden ist. Jede Karte erhält eine
 aussagekräftige Überschrift, einen eigenständigen Kurztext und den
 zutreffenden Detail-Link; keine Leistungen aus anderen Demos übernehmen.
 
-    # Leistungen
-    {: layout="ntl-2col.style-subpage-lead" section-style="--cols: 6;" }
+```markdown
+# Leistungen
+{: layout="ntl-2col.style-subpage-lead" section-style="--cols: 6;" }
 
-    Was wir anbieten und für wen es geeignet ist.
+Was wir anbieten und für wen es geeignet ist.
 
-    ## Schwerpunkte
-    {: layout="ntl-card-row.style-default" section-style="--cols: 3;" }
+## Schwerpunkte
+{: layout="ntl-card-row.style-default" section-style="--cols: 3;" }
 
-    ### Leistung A
+### Leistung A
 
-    Kurzbeschreibung.
+Kurzbeschreibung.
 
-    [Mehr erfahren](/leistungen/leistung-a){: .btn .btn-primary }
+[Mehr erfahren](/leistungen/leistung-a){: .btn .btn-primary }
+```
 
 ## Einzelne Leistungsseite
 
@@ -44,24 +44,19 @@ reverse-desktop-Variante Abwechslung schaffen; nicht durch zufällige
 Responsive-Klassen ersetzen. Tabellen für echte strukturierte Daten
 verwenden, Karten eher für Auswahl und Navigation.
 
-    ## So läuft die Leistung ab
-    {: layout="ntl-2col.with-justify-top.surface-white" }
+```markdown
+## So läuft die Leistung ab
+{: layout="ntl-2col.with-justify-top.surface-white" }
 
-    Belegte Beschreibung der einzelnen Schritte.
+Belegte Beschreibung der einzelnen Schritte.
 
-    ---
-    {: layout="nte-accordion.style-default[exclusive]" }
+---
+{: layout="nte-accordion.style-default[exclusive]" }
 
-    ### Häufige Frage
+### Häufige Frage
 
-    Konkrete Antwort.
+Konkrete Antwort.
+```
 
 Als Muster dienen leuffen/themejs2/docs/pages/theme-raven/raven-subpage.md
 und docs/pages/theme-osman/osman-elements.md.
-
-## Zugehörige Paket-Skills
-
-Für Leistungsseiten `skills/edit-themejs2-site/SKILL.md` verwenden;
-Abschnittsstruktur und Kramdown sind unter `skills/content-pane-usage/SKILL.md`
-und `skills/content-pane-layout/SKILL.md` erläutert. Die Pfade gelten
-relativ zur Paketwurzel von `@leuffen/themejs2`.

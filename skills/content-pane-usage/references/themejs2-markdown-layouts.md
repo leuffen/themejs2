@@ -1,11 +1,13 @@
----
-selector: "**/*.md"
----
 # Content Pane: Markdown und Layout
 
-Diese Rule übernimmt die für Website-Content relevanten Anwendungsregeln von
-trunkjs/trunkjs-monorepo/packages/content-pane/skills/content-pane-usage,
-content-pane-layout und den zugehörigen Best-Practice-Demos.
+## Inhalt
+
+- [Kramdown: ein Block und seine Attribute](#kramdown-ein-block-und-seine-attribute)
+- [Layout-Index und Section-Grenzen](#layout-index-und-section-grenzen)
+- [HTML, Jekyll und Shortcuts](#html-jekyll-und-shortcuts)
+
+Dieser Leitfaden ergänzt die Regeln der mitgelieferten Skills
+`content-pane-usage` und `content-pane-layout` mit konkreten ThemeJS2-Beispielen.
 Für Markdown, Kramdown und Jekyll gilt: Ist Content Pane Bestandteil der
 Website, werden Überschriften zu einer Section-Hierarchie und layout-Attribute
 zu Layout-Elementen. Das vorhandene Jekyll-Front-Matter erhalten.
@@ -21,14 +23,16 @@ Attribute stets unmittelbar nach dem zugehörigen Block ohne Leerzeile
 schreiben. Auch Tabellen, Links, Bilder und horizontale Linien dürfen
 Kramdown-Attribute besitzen.
 
-    ## Unsere Leistungen
-    {: layout="ntl-2col.style-default" section-style="--cols: 6;" }
+```markdown
+## Unsere Leistungen
+{: layout="ntl-2col.style-default" section-style="--cols: 6;" }
 
-    Ein kurzer Einleitungstext.
+Ein kurzer Einleitungstext.
 
-    ### Diagnostik
+### Diagnostik
 
-    Fachliche Details.
+Fachliche Details.
+```
 
 Eine Heading mit layout gehört zur gleichen Section. Die Gliederung ergibt
 sich aus den Heading-Leveln: h1 und h2 entsprechen dem Layout-Index 2, h3
@@ -53,37 +57,41 @@ Bei einem Container ohne eigene Überschrift stattdessen eine horizontale
 Linie mit Layout verwenden. Das HR erhält ohne expliziten Index die Ebene
 der letzten festen Section plus 0,5:
 
-    ## Häufige Fragen
+```markdown
+## Häufige Fragen
 
-    Einleitender Absatz außerhalb des Akkordeons.
+Einleitender Absatz außerhalb des Akkordeons.
 
-    ---
-    {: layout="nte-accordion.style-default[exclusive]" }
+---
+{: layout="nte-accordion.style-default[exclusive]" }
 
-    ### Wie vereinbare ich einen Termin?
+### Wie vereinbare ich einen Termin?
 
-    Über die im Projektkontext genannte Kontaktmöglichkeit.
+Über die im Projektkontext genannte Kontaktmöglichkeit.
 
-    ### Was sollte ich mitbringen?
+### Was sollte ich mitbringen?
 
-    Nur belegte Angaben aufführen.
+Nur belegte Angaben aufführen.
+```
 
 Für Layouts, die mehrere gleichrangige Sections umfassen, einen expliziten
 HR-Wrapper mit anschließendem Abschluss einsetzen:
 
-    ---
-    {: layout="1;div.page-background" }
+```markdown
+---
+{: layout="1;div.page-background" }
 
-    ## Einstieg
+## Einstieg
 
-    Einführung.
+Einführung.
 
-    ## Weitere Inhalte
+## Weitere Inhalte
 
-    Details.
+Details.
 
-    ---
-    {: layout="/1;" }
+---
+{: layout="/1;" }
+```
 
 ## HTML, Jekyll und Shortcuts
 
@@ -92,8 +100,10 @@ Strukturen verwenden, die sich nicht sinnvoll so abbilden lassen.
 Ist der optionale Content-Pane-Pre-Parser text-block im Seitenrahmen aktiviert,
 einzelne Elemente als eigenen Zeilen-Shortcut schreiben:
 
-    #[i class="bi bi-shield-check" aria-hidden="true"]
-    #[nte-input.style-default type="email" name="email" label="E-Mail"]
+```markdown
+#[i class="bi bi-shield-check" aria-hidden="true"]
+#[nte-input.style-default type="email" name="email" label="E-Mail"]
+```
 
 Shortcuts nicht inline in Überschriften, Links oder Fließtext schreiben.
 Bei text-block kann ein Element-Selector aus Tag, #ID und .Klassen mit
@@ -104,14 +114,3 @@ Den Pre-Parser niemals für nicht vertrauenswürdigen HTML-Inhalt aktivieren.
 Referenzen aus TrunkJS: packages/content-pane/skills/content-pane-usage/SKILL.md,
 packages/content-pane/skills/content-pane-layout/SKILL.md und
 packages/content-pane/skills/content-pane-usage/references/best-practices.md.
-
-## Zugehörige Paket-Skills
-
-Für die vollständige Erklärung von Content Pane und seiner Layout-Syntax
-sind die folgenden Dateien im ThemeJS2-Paket maßgeblich:
-
-- `skills/content-pane-usage/SKILL.md` – Markdown, Jekyll und Shortcuts
-- `skills/content-pane-usage/references/best-practices.md` – Layout-Beispiele
-- `skills/content-pane-layout/SKILL.md` – Section-Level und Layout-Selector
-
-Alle Pfade sind relativ zur **Paketwurzel** von `@leuffen/themejs2`.

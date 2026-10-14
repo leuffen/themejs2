@@ -20,3 +20,7 @@ Arbitrary Values wie `width-[100%]` oder `md:text-size-[22px]` werden vollständ
 Arbitrary Values werden zur Laufzeit erzeugt; ihre Verwendung muss mit dem bereits eingebundenen `tj-responsive` funktionieren. Es findet keine Vorkompilierung statt.
 
 Lies vor der Verwendung von Arbitrary Values [die mitgelieferte technische Referenz](references/ai-usage-info.md). Dort stehen die unterstützten Utilities, Sicherheitsgrenzen und die vollständige Syntax.
+
+Für konkrete Anwendungen responsiver Klassen und `style-{breakpoint}`
+in ThemeJS2-Markdown lies
+[Responsive Klassen im Website-Content](references/themejs2-responsive-content.md).

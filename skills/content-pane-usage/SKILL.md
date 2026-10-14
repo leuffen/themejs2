@@ -49,3 +49,7 @@ Malformed shortcuts are left unchanged and reported as warnings so Content Pane 
 For heading-owned layouts, headingless HR containers, Demo Viewer wrappers,
 Jekyll, selectors, and closing controls, read
 [Best-practice examples](references/best-practices.md).
+
+Für zusätzliche ThemeJS2-Layoutregeln mit Kramdown-Beispielen, HR-Sections,
+expliziten Indizes und text-block-Shortcuts lies
+[ThemeJS2 Markdown und Layout](references/themejs2-markdown-layouts.md).

@@ -31,3 +31,7 @@ layout="/;"   close the current HR wrapper; HR only
 
 For authoring Markdown, Kramdown, demos, or Jekyll, also use
 `content-pane-usage`. For custom elements, slot routing, and nested component layouts, consult the upstream TrunkJS `content-pane-content-elements` skill.
+
+For complete ThemeJS2 Markdown authoring examples, including explicit and
+inferred layout levels and HR controls, read
+[ThemeJS2 Markdown layout examples](../content-pane-usage/references/themejs2-markdown-layouts.md).

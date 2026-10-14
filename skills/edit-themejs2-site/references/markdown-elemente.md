@@ -1,10 +1,7 @@
----
-selector: "**/*.md"
----
 # Markdown-Seiten mit vorhandenen ThemeJS2-Elementen bearbeiten
 
-Diese Rule gilt für gewöhnliche Website-Inhalte im Document Root.
-Technisches Layout und Jekyll-Front-Matter bei normalem shiller ai adjust
+Dieser Leitfaden gilt für gewöhnliche Website-Inhalte im Document Root.
+Technisches Layout und Jekyll-Front-Matter bei normaler Content-Anpassung
 erhalten; Texte, Bilder, Links und Metadaten nur anhand des Projektkontexts
 aktualisieren. Keine erfundenen Kontaktdaten, Qualifikationen, Leistungen,
 Testimonials oder URLs einsetzen.
@@ -40,23 +37,25 @@ Testimonials oder URLs einsetzen.
 
 Beispiel einer Kartenübersicht aus der Layout-Sprache von Osman und Raven:
 
-    ## Leistungen
-    {: layout="ntl-card-row.style-default" section-style="--cols: 3;" }
+```markdown
+## Leistungen
+{: layout="ntl-card-row.style-default" section-style="--cols: 3;" }
 
-    Unsere Schwerpunkte im Überblick.
-    {: .header }
+Unsere Schwerpunkte im Überblick.
+{: .header }
 
-    ### Diagnostik
+### Diagnostik
 
-    Abklärung und Untersuchung.
+Abklärung und Untersuchung.
 
-    [Details](/leistungen/diagnostik){: .btn .btn-primary }
+[Details](/leistungen/diagnostik){: .btn .btn-primary }
 
-    ### Therapie
+### Therapie
 
-    Individuelle Behandlung.
+Individuelle Behandlung.
 
-    [Details](/leistungen/therapie){: .btn .btn-primary }
+[Details](/leistungen/therapie){: .btn .btn-primary }
+```
 
 Variationen aus ThemeJS2-Demos nicht blind mischen: Die Raven-Startseite
 zeigt etwa ntl-2col.style-hero, style-card und Akkordeons, Osman nutzt
@@ -67,17 +66,3 @@ Details ausrichten, Startseiten auf Orientierung und Navigation.
 Quellen: leuffen/themejs2/docs/pages/theme-raven/raven-start.md,
 raven-subpage.md, docs/pages/theme-osman/osman-start.md und
 osman-elements.md sowie docs/pages/theme-unify/unify-services.md.
-
-## Zugehörige Paket-Skills
-
-Bei der Bearbeitung von ThemeJS2-Websites zuerst
-`skills/edit-themejs2-site/SKILL.md` verwenden. Ergänzend gelten
-`skills/content-pane-usage/SKILL.md`, bei Layout-Attributen
-`skills/content-pane-layout/SKILL.md` und für responsive Klassen
-`skills/trunkjs-responsive/SKILL.md`.
-
-Die genannten Pfade beziehen sich auf die **Paketwurzel** von
-`@leuffen/themejs2`, nicht auf das installierte Document Root. Schiller
-liest die Skills durch diese Verweise **nicht automatisch** ein: Beim
-normalen `ai adjust` werden die passenden Rules selbst als Prompt-Inhalt
-geladen. Die fachlichen Grundregeln stehen deshalb weiterhin hier.
