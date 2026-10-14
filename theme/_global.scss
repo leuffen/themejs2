@@ -28,11 +28,11 @@
   // Die Website kann beide CSS-Variablen unabhaengig voneinander ueberschreiben.
   @layer themes.typography {
     html {
-      font-size-adjust: ex-height var(--theme-font-size-adjust, 0.52);
+      font-size-adjust: ex-height var(--theme-font-size-adjust, 0.50);
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-size-adjust: cap-height var(--theme-font-size-adjust-header, 0.72);
+      font-size-adjust: cap-height var(--theme-font-size-adjust-header, 0.66);
     }
   }
 }
