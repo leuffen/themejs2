@@ -1,0 +1,38 @@
+@use "@nextrap/style-base" as nextrapBase;
+@use "@nextrap/style-reset" as nextrapReset;
+
+// Registriert die einheitliche Kaskade und initialisiert das Farbschema zentral.
+// Das konkrete Theme wird im html-Scope eingesetzt; der Website-Layer folgt zuletzt.
+@mixin global() {
+  @layer reset, schemes, themes, website;
+
+  @layer themes {
+    @layer tokens, base, typography, elements, components, patterns, utilities;
+  }
+
+  @layer reset {
+    @include nextrapReset.reset();
+  }
+
+  @layer schemes {
+    :root {
+      @include nextrapBase.runtime-scheme-selectors();
+    }
+  }
+
+  html {
+    @content;
+  }
+
+  // Normalisiert die optische Texthoehe und erlaubt unterschiedliche Heading-Fonts.
+  // Die Website kann beide CSS-Variablen unabhaengig voneinander ueberschreiben.
+  @layer themes.typography {
+    html {
+      font-size-adjust: ex-height var(--nt-font-size-adjust, 0.52);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size-adjust: cap-height var(--nt-font-size-adjust-header, 0.72);
+    }
+  }
+}

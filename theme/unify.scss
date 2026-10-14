@@ -1,2 +1,12 @@
 // Stellt den öffentlichen Entrypoint für das gekapselte Unify-Theme bereit.
 @forward "./unify/_theme";
+
+@use "./_global" as themeGlobal;
+@use "./unify/_theme" as selectedTheme;
+
+// Initialisiert die Website mit der gemeinsamen Kaskade und diesem Theme.
+@mixin global() {
+  @include themeGlobal.global() {
+    @include selectedTheme.theme();
+  }
+}

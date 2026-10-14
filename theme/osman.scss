@@ -1,1 +1,11 @@
 @forward "./osman/_theme";
+
+@use "./_global" as themeGlobal;
+@use "./osman/_theme" as selectedTheme;
+
+// Initialisiert die Website mit der gemeinsamen Kaskade und diesem Theme.
+@mixin global() {
+  @include themeGlobal.global() {
+    @include selectedTheme.theme();
+  }
+}

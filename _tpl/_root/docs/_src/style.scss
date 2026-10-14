@@ -1,35 +1,25 @@
-// Stellt für die kopierte Kundenvorlage dieselbe Layer-Reihenfolge wie in der Demo bereit.
-@use "@nextrap/style-base" as nextrapBase;
-@use "@nextrap/style-reset" as nextrapReset;
 @use "@leuffen/themejs2/theme/raven" as theme;
 
-@layer reset, schemes, themes, website;
+// Vorhandenes Fontpaar aus ThemeJS2 laden; z.B. cinzel-opensans oder work-sans.
+@use "@leuffen/themejs2/font/garamond-opensans" as font;
 
-@layer themes {
-  @layer tokens, base, typography, elements, components, patterns, utilities;
-}
+// Initialisiert das Theme mit Reset, Farbschema und einheitlicher Layer-Reihenfolge.
+@include theme.global();
 
-// Initialisiert Browser-Defaults und das vorhandene Nextrap-Farbmodus-System.
-@layer reset {
-  @include nextrapReset.reset();
-}
+// Setzt Farben, Schriftfamilien und deren optische Zielhoehen fuer die Website.
+@layer website {
+  html {
+    --nt-primary: #3f4632;
 
-@layer schemes {
-  :root {
-    @include nextrapBase.runtime-scheme-selectors();
-  }
-}
+    --nt-font-family: #{font.$font-family-base};
+    --nt-font-family-header: #{font.$font-family-header};
 
-// Scope für die gesamte Kundenwebsite: auch Rechtstexte ohne body_class bleiben gestylt.
-html {
-  @include theme.theme() {
-    // Anpassungen für die konkrete Website landen gezielt im website-Layer.
-    // --nt-primary: #3f4632;
-    // --nt-accent: #b8734a;
-    // --nt-radius: .125rem;
-    // --nt-font-family: "Work Sans", sans-serif;
-    // --nt-container-max: 1280px;
-    // --nt-surface: #f7f5f1;
-    // --nt-text: #1e1e1e;
+    // Getrennte Normalisierung: x-Hoehe fuer Fliesstext, Versalhoehe fuer H1-H6.
+    --nt-font-size-adjust: #{font.$font-size-adjust-base};
+    --nt-font-size-adjust-header: #{font.$font-size-adjust-header};
+
+    // Bei Bedarf unabhaengig anpassen:
+    // --nt-font-size-adjust: 0.54;
+    // --nt-font-size-adjust-header: 0.70;
   }
 }
