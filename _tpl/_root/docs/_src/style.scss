@@ -1,35 +1,13 @@
-// Stellt für die kopierte Kundenvorlage dieselbe Layer-Reihenfolge wie in der Demo bereit.
-@use "@nextrap/style-base" as nextrapBase;
-@use "@nextrap/style-reset" as nextrapReset;
 @use "@leuffen/themejs2/theme/raven" as theme;
 
-@layer reset, schemes, themes, website;
+// Initialisiert Reset, Schemes, Layer-Reihenfolge und Raven fuer die ganze Website.
+@include theme.global();
 
-@layer themes {
-  @layer tokens, base, typography, elements, components, patterns, utilities;
-}
-
-// Initialisiert Browser-Defaults und das vorhandene Nextrap-Farbmodus-System.
-@layer reset {
-  @include nextrapReset.reset();
-}
-
-@layer schemes {
-  :root {
-    @include nextrapBase.runtime-scheme-selectors();
-  }
-}
-
-// Scope für die gesamte Kundenwebsite: auch Rechtstexte ohne body_class bleiben gestylt.
-html {
-  @include theme.theme() {
-    // Anpassungen für die konkrete Website landen gezielt im website-Layer.
-    // --nt-primary: #3f4632;
-    // --nt-accent: #b8734a;
-    // --nt-radius: .125rem;
-    // --nt-font-family: "Work Sans", sans-serif;
-    // --nt-container-max: 1280px;
-    // --nt-surface: #f7f5f1;
-    // --nt-text: #1e1e1e;
+// Setzt die individuelle Primaerfarbe und Schrift; weitere Website-Regeln hier ergaenzen.
+@layer website {
+  html {
+    --nt-primary: #3f4632;
+    --nt-font-family: "Work Sans", sans-serif;
+    --nt-font-family-header: var(--nt-font-family);
   }
 }
