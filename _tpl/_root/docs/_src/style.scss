@@ -1,7 +1,7 @@
 // Stellt für die kopierte Kundenvorlage dieselbe Layer-Reihenfolge wie in der Demo bereit.
 @use "@nextrap/style-base" as nextrapBase;
 @use "@nextrap/style-reset" as nextrapReset;
-@use "@leuffen/themejs2/theme/raven";
+@use "@leuffen/themejs2/theme/raven" as theme;
 
 @layer reset, schemes, themes, website;
 
@@ -22,7 +22,7 @@
 
 // Scope für die gesamte Kundenwebsite: auch Rechtstexte ohne body_class bleiben gestylt.
 html {
-  @include raven.theme() {
+  @include theme.theme() {
     // Anpassungen für die konkrete Website landen gezielt im website-Layer.
     // --nt-primary: #3f4632;
     // --nt-accent: #b8734a;
