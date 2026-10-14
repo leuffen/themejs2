@@ -107,6 +107,7 @@
         "dev-b": "concurrently 'npm run vite-build' 'npm run jekyll-build'",
         "build": "vite build",
         "build:site": "vite build",
-        "build:lib": "vite build --config vite.config.lib.ts"
+        "build:lib": "vite build --config vite.config.lib.ts",
+        "test": "npm run build:site"
     }
 }
