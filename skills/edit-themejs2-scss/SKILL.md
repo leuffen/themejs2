@@ -77,9 +77,10 @@ die Schriftgröße und Hierarchie des Themes bleiben erhalten.
 Die mit `!default` definierten Sass-Variablen dürfen über
 `@use ".../font/..." with (...)` überschrieben werden. Alternativ
 überschreibe die CSS-Variablen im `website`-Layer wie oben.
-Die vorläufigen Ausgangswerte 0.52 (x-Höhe) und 0.72 (Versalhöhe) sind
-**gemeinsame Referenz-Zielhöhen**, keine gemessenen Individualmetriken
-jeder einzelnen Schrift. Der Browser ermittelt die tatsächliche
+Die Ausgangswerte 0.50 (x-Höhe) und 0.66 (Versalhöhe) orientieren sich
+an publizierten Font-Metriken von Work Sans. Es sind **gemeinsame
+Referenz-Zielhöhen**, keine gemessenen Individualmetriken der anderen
+Schriftarten. Quelle: https://fontkind.com/font/work-sans Der Browser ermittelt die tatsächliche
 Anpassung anhand der jeweiligen Font-Metriken selbst. Die Werte vor
 dem Einsatz auf einer Kundenseite mit den tatsächlich geladenen Fonts
 visuell überprüfen und gegebenenfalls kalibrieren.
