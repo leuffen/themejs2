@@ -51,7 +51,7 @@ sich nicht zulasten der Fakten oder der Zielgruppe optimieren.
   autoritativen Shiller-Kundenkontext uebernehmen; nicht erneut herleiten.
 
 Bei ThemeJS2-Dateioperationen den bestehenden
-`skills/edit-themejs2-site/SKILL.md` und passende Referenzen
+`skills/edit-site/SKILL.md` und passende Referenzen
 lesen. Bestehende Front Matter, `schiller`, Layouts und Includes
 erhalten. Keine ungefragten Aenderungen an weiteren Dateien.
 
