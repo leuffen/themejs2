@@ -47,6 +47,8 @@ sich nicht zulasten der Fakten oder der Zielgruppe optimieren.
 - **Nur fuer Arzt- und Zahnarztwebsites** zusaetzlich
   [Patientenansprache](references/medical-patient.md) und
   [DACH-Werberecht](references/medical-legal-dach.md).
+  Praxis-SEO und spezifische Patientenfragen ausschliesslich aus dem
+  autoritativen Shiller-Kundenkontext uebernehmen; nicht erneut herleiten.
 
 Bei ThemeJS2-Dateioperationen den bestehenden
 `skills/edit-themejs2-site/SKILL.md` und passende Referenzen
