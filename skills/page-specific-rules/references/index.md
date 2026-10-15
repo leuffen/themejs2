@@ -24,6 +24,26 @@ neue Überschriften-/Layoutbereiche oder Änderungen an bestehenden
 Accordion-Markern. Ohne vorhandenes Accordion keine neuen
 Accordion-Elemente erfinden; nutze passende bestehende Texte.
 
+## Mehrere Ärzte und bestehende Testimonials
+
+Bei mehreren im Projektkontext genannten Ärztinnen oder Ärzten
+**keine** neue Team-Section, `team-grid`, Ärzteübersicht, HTML-`div`,
+Card oder Auflistung erzeugen und nicht alle Personen einzeln in die
+Homepage aufnehmen. Falls eine Nennung für die Nutzerorientierung
+nötig und belegt ist, den vorhandenen Willkommens-/Einleitungstext
+neutral und knapp als Praxis oder Behandlungsteam formulieren;
+weitere Details gehören nur in bereits vorhandene passende Inhalte.
+
+Die vorhandene Arzt-Testimonial-, Statement- oder Zitat-Section
+**immer behalten**, einschließlich Reihenfolge, Layout, Markern,
+Bild, Zitat-/Statement-Komponente und HTML-/Liquid-Struktur. Weder
+löschen noch in eine normale Textspalte umwandeln oder durch eine
+Teamdarstellung ersetzen. Persönliche Zuschreibungen nur dann
+redaktionell anpassen, wenn sie für den neuen Projektkontext
+nachweislich zutreffen; andernfalls unverändert lassen und eine
+fehlende Zuordnung melden. Eine größere Anzahl von Ärzten ist
+keine Erlaubnis zur Veränderung oder Vervielfältigung dieser Section.
+
 Vorhandene Hinweise, besonders „Aktuelle Hinweise zum Coronavirus“,
 Bilder, Statement-Komponenten, Liquid und Includes unangetastet
 lassen. Die Datenschutz- und Impressumsregeln bleiben unberührt.
