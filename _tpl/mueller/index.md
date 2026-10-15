@@ -1,136 +1,174 @@
 ---
+description: "Entdecken Sie die Hausarztpraxis Graß in Frensdorf. Professionelle medizinische
+  Versorgung, Vorsorge, Diagnostik und IGeL-Leistungen. \U0001FA7A\U0001F469‍⚕️ Jetzt
+  Termin vereinbaren! \U0001F4DE"
+_schiller_instructions: |-
+  Aktualisiere die Leistungen nach den Gliederungspunkte. Ersetze Bilder der Leistungen durch passende Bilder. Aktualisiere alle Texte passend zum Context. Ersetze die Namen durch die echten Namen aus dem Context.
+  Übernimm wörtliche Textblöcke aus dem Context, wenn diese passen. Orientiere dich im Schreibstil am Context. Ändere die Buttons in der ersten Section (Neuer Patient - Videosprechstunde) nicht!
+_shiller_tags: base
+_shiller_target_pid: pages/index
+keywords: ~
 lang: de
-body_class: theme-mueller
-published: true
 layout: website
-title: 'Arztpraxis Scheche: Innere Medizin / Diabetologie'
-short_title: Home
-description: Ihre Praxis für Innere Medizin und Diabetologie in Norden. Innere Medizin,
-  Diabetologie und Adipositasbehandlung bei Dr. med. Elmar Scheche.
 permalink: /
+pid: pages/index
 ptags:
 - nav
-- footer
+published: true
+seoScore: 8
+short_title: Home
+body_class: ~
+title: ~
+type: website
 ---
-
 ---
-{: layout="2;ntl-hero.hero-box"}
+{: layout="use: #hero-max;"}
 
-![](https://cdn.leuffen.de//leu-stock/v2/31/c_gfedcba/AdobeStock_114414482.webp)
-{: slot="bg"}
+![](https://cdn.leuffen.de//leu-stock/v2/212/125-58_gfedcba/AdobeStock_437404171.webp)
+{: .background}
 
----
-{: layout="2.5;.box.-lg:w-100"}
-
-![Arztpraxis Dr. med. Elmar Scheche](/assets/logo64t.png){: style="width: 100%; max-width: 24rem; height: auto;"}
-
-# Ihre Praxis für Innere Medizin und Diabetologie in Norden
-{: layout="3"}
-
-[Jetzt Termin online vereinbaren](/kontakt){: .btn .btn-primary .btn-lg}
+# Augenarzt<br>Prof. Dr. Daniel Mustermann
+{: .section-h3 layout="use: #hero-slide; align-self: center; cols: 6; justify-self: left; x-adjust: 0%; y-adjust: 0% " .sec-box .sec-slide}
 
 ---
-{: layout="2;ntl-card-row.style-ribbon.align-buttons"}
+{: .section-h4 layout="use: #button-group"}
+[[i class="bi bi-house-add-fill fs-3"]<br>Jetzt als **neuer Patient** anmelden](/online-anmeldung){: .btn .btn-primary}
+[[i class="bi bi-calendar-plus-fill fs-3"]<br>Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary .text-center}
+[[i class="bi bi-people-fill fs-3"]<br>**Infos für Zuweiser**](/online-zuweiser){: .btn .btn-primary .text-center}
+
+[[i class="bi bi-card-heading fs-3"]<br>**Rezept** online anfragen](/online-rezept){: .btn .btn-primary .text-center }
+[[i class="bi bi-box-arrow-up-right fs-3"]<br>**Überweisung** an Facharzt](/online-ueberweisung){: .btn .btn-primary .text-center}
+[[i class="bi bi-camera-video-fill fs-3"]<br>**Videosprechstunde**](/online-videosprechstunde){: .btn .btn-primary .text-center}
+
+
+
+
+
+## Übersicht
+{: layout="use: #hero-ribbon"}
 
 ### Aktuelles
 
 <liweco-news>Keine aktuellen Meldungen</liweco-news>
 
-### Notfall?
+### Sprechstundenzeiten
 
-Außerhalb der Öffnungszeiten erreichen Sie den Notdienst unter [112](tel:112).
+<liweco-collapse-openhour-table>
+{% include el/openhours.html %}
+</liweco-collapse-openhour-table>
 
-### Unsere Sprechzeiten
+Wir bitten um eine Terminvereinbarung.
 
-{% include components/site/opening-hours.html class="table opening-hours" %}
+### Notfälle
 
-## Ein Herz für Sie und Ihre Gesundheit
-{: layout="ntl-2col" data-kicker="Arztpraxis Dr. med. Elmar Scheche in Norden" }
+Außerhalb der Sprechstundenzeiten wenden sie sich bitte an den KV-Bereitschaftsdienst unter der Telefonnummer [116 117](tel:116117) oder den Notruf unter [112](tel:112).
 
-Wir bieten erstklassige medizinische Leistungen auf höchstem Niveau im Bereich
-Innere Medizin und Diabetologie. Professionelle Betreuung,
-Früherkennungsuntersuchungen, Individualprophylaxe, hochwertige Behandlungen und
-mehr.
 
-[Kontaktieren Sie uns für einen Termin!](/kontakt){: .btn .btn-primary}
 
-![](https://cdn.leuffen.de//leu-stock/v2/32/304-205_gfedcba/AdobeStock_138200241.webp)
+## Hausarztpraxis in Frensdorf
+{: layout="use: #sec-card-2col" }
 
-## Unsere Behandlungen
-{: layout="ntl-card-row" section-style="--cols: 4;"}
+> Individuelle und professionelle medizinische Versorgung
 
-### Innere Medizin
+In unserer Praxis bieten wir individuelle und professionelle medizinische Versorgung an. Unser Angebot umfasst Vorsorgemedizin, Impfungen, Herz-Lungen Diagnostik, Sonografie, Altersmedizin, Kleine Chirurgie und Begleitung bei chronischen Erkrankungen. 
 
-![Ultraschall des Halses](https://cdn.leuffen.de//leu-stock/v2/56/1048-699_gfedcba/woman-getting-her-neck-examined-by-female-doctor-u-2022-05-31-02-21-32-utc.webp)
+Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns bitte!
 
-Wir sind spezialisiert auf die Versorgung im Bereich Innere Medizin.
+![](https://cdn.leuffen.de//leu-stock/v2/69/131-86_gfedcba/AdobeStock_319898261.webp)
 
-- Diagnostik von Herz-Kreislauf-Erkrankungen
-- Allgemeine Gesundheitsuntersuchung
-- Lungenfunktionstests
-- Sonographische Untersuchungen
-- Beratung und Therapie bei gastroenterologischen Beschwerden
+## Jobs & Bewerbung
+{: layout="use: #sec-card-2col; cols:8"}
 
-[](/leistungen/innere-medizin.de.html){: slot="link" }
+> Werden Sie Teil unseres Teams
 
-### Diabetologie
+![](https://cdn.leuffen.de//leu-stock/v2/147/c_gfedcba/AdobeStock_131548362.webp)
 
-![Blutzuckeruntersuchung am Finger](https://cdn.leuffen.de//leu-stock/v2/9/1024-683_gfedcba/AdobeStock_417585744.webp)
+Wir suchen neue Mitarbeiter für unser Team. Werden Sie Teil unseres Teams und unterstützen Sie uns bei der medizinischen Versorgung unserer Patienten. Wir freuen uns auf Ihre Bewerbung.
 
-Wir sind spezialisiert in der Versorgung und Betreuung von Diabetespatienten.
-
-- Diagnostik von Diabetes mellitus und verwandten Störungen
-- Individuelle Therapieplanung und -anpassung
-- Kontinuierliche Überwachung und Management von Diabetes-Komplikationen
-- Schulung und Aufklärung
-- Interdisziplinäre Zusammenarbeit
-
-[](/leistungen/diabetologie.de.html){: slot="link" }
-
-### Adipositasbehandlung
-
-![](https://cdn.leuffen.de//leu-stock/v2/91/71-24_gfedcba/obese-woman-with-fat-belly-in-dieting-concept-2023-01-18-01-36-31-utc.webp)
-
-Wir sind Mitglied im Adipositaszentrum Nordwest und bieten Ihnen eine umfassende
-Betreuung und Unterstützung auf Ihrem Weg zur Gewichtsreduktion.
-
-- Konservative Therapie
-- Chirurgische Therapie
-- Vorsorge
-- Nachsorge
-
-[](/leistungen/adipositasbehandlung.de.html){: slot="link" }
+[Offene Stellen & Bewerbung](/karriere){: .btn .btn-primary .btn-lg .mb-3}
 
 ---
-{: layout="2;ntl-2col.style-testimonial"}
+{: layout="use: #sec-card-2col; cols: 12" .section-h2 }
 
-![Portrait Dr. med. Elmar Scheche](https://cdn.leuffen.de//scheche-k30/v2/5/164-163_ba/scheche-portrait1.webp)
 
-„Zuwendung, Vertrauen und Einfühlung bilden die Grundpfeiler meiner Praxis. Ich
-kümmere mich nicht nur um Ihre Gesundheit, sondern begleite Sie auch mit
-Verständnis und Fürsorge. Mit modernen Innovationen und umfassender Vorsorge sorge
-ich für Ihr Wohlbefinden. In meiner Praxis finden Sie eine Atmosphäre der
-Geborgenheit, in der Sie sich rundum wohlfühlen können. Ihre Gesundheit steht bei
-mir im Mittelpunkt. Vertrauen Sie auf meine Expertise und lassen Sie sich
-einfühlsam behandeln.“
+### Aktuelle Informationen zum Coronavirus
+{: layout="use: #infobox; type: danger; icon: bi-exclamation-octagon-fill"}
 
-— Dr. med. Elmar Scheche
+Corona- Test positiv bitte zuerst **NUR** telefonisch melden
 
-## Ein Team mit Herz
-{: layout="ntl-2col" data-kicker="Ein kompetentes Team für moderne Medizin" }
-
-![Praxisteam](https://cdn.leuffen.de//scheche-k30/v2/4/76-51_gfedcba/IMG_3388-mod.webp)
+Coronaimpfung ab sofort nach Terminvereinbarung
 
 
 
-Sie werden in unserer Praxis von einem kompetenten Team behandelt.
+## Unsere Leistungen
+{: layout="use: #sec-multi-card; cols:3"}
 
-Unterstützt werden die Behandler durch ein intensiv geschultes und langjährig
-erfahrenes Team von medizinischen Assistenten.
+### Vorsorge
 
-[Mehr zu uns...](/ueber-uns){: .btn .btn-primary }
+![](https://cdn.leuffen.de//leu-stock/v2/70/77-51_gfedcba/AdobeStock_87378997.webp)
 
-## Sie haben Fragen? Wir helfen gerne weiter
-{: layout="ntl-2col.style-cta" section-style="--cols: 12;"}
+Wir bieten eine umfassende Vorsorgeuntersuchung an, um Krankheiten frühzeitig zu erkennen und zu behandeln.
 
-[Kontakt](/kontakt){: .btn .btn-primary .btn-lg}
+### Diagnostik
+
+![](https://cdn.leuffen.de//leu-stock/v2/22/460-307_gfedcba/AdobeStock_484261570.webp)
+
+Unsere Praxis ist mit modernsten Diagnosegeräten ausgestattet, um eine genaue und schnelle Diagnose zu gewährleisten.
+
+### Therapie
+
+![](https://cdn.leuffen.de//leu-stock/v2/9/1024-683_gfedcba/AdobeStock_417585744.webp)
+
+Wir bieten eine breite Palette von Therapien an, um eine effektive Behandlung zu gewährleisten.
+
+---
+{: .section-h2}
+
+
+[Unsere Leistungen](/leistungen){: .btn .btn-primary .btn-lg .mb-3}
+{: .text-center}
+
+
+
+## Testimonial
+{: layout="use: #sec-testimonial-ribbon"}
+
+![](https://cdn.leuffen.de//leu-stock/v2/73/991-661_gfedcba/AdobeStock_185581198.webp)
+
+„In unserer Praxis legen wir großen Wert auf individuelle und professionelle medizinische Versorgung. Wir nutzen modernste Diagnoseverfahren und Behandlungsmethoden, um unseren Patienten die bestmögliche Versorgung zu bieten. Unser Ziel ist es, dass sich jeder Patient bei uns gut aufgehoben fühlt.“
+
+— Parissa Graß, Hausärztin
+
+
+
+
+## Lernen Sie uns kennen
+{: layout="use: #sec-card-2col"}
+
+> Ihr vertrauensvolles Team
+
+![](https://cdn.leuffen.de//leu-stock/v2/60/418-279_gfedcba/AdobeStock_99592855.webp)
+
+
+
+
+Unser freundliches und kompetentes Team unterstützt die Ärzte mit langjähriger Erfahrung und professioneller Betreuung.
+
+[Erfahren Sie mehr über uns...](/ueber-uns){: .btn .btn-primary }
+
+
+## Haben Sie Fragen? Schreiben Sie uns
+{: layout="use: #cta-form"}
+
+
+---
+
+[input type="text"  name="Name" required .mb-3]
+[input type="email" name="E-Mail" required data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" .mb-3]
+[input type="tel" name="Telefon" required .mb-3]
+
+---
+
+[textarea name="Ihre Nachricht" required .mb-3 style="height: 120px;"]
+[input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required .mb-3]
+[input type="submit" name="Absenden" value="Absenden" class="btn btn-primary btn-lg" .my-3]
