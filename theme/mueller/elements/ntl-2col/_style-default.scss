@@ -10,7 +10,8 @@
     $border: var(--nt-border-width) solid var(--nt-border),
     $border-radius: var(--nt-border-radius),
     $objectFit: cover,
-    $wrapper-bg-color: var(--nt-surface-raised)
+    $wrapper-bg-color: var(--nt-surface-raised),
+    $justify: flex-start
   );
 
   // Aktiviert randfüllende Medien, sobald die zugehörige Nextrap-Version installiert ist.

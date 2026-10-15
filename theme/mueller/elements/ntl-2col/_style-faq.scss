@@ -1,0 +1,31 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Stellt FAQs ohne umgebende Fläche dar und zentriert ihre alleinstehende Abschnittsüberschrift.
+&.style-faq {
+  --cols: 12;
+
+  @include twoCol.default-style(
+    $innerPadding: 0,
+    $gap: var(--nt-spacing-text),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: none,
+    $wrapper-bg-color: transparent,
+    $justify: flex-start
+  );
+
+  &::part(wrapper) {
+    align-items: stretch;
+  }
+
+  &::part(main) {
+    width: 100%;
+  }
+
+  > :is(h1, h2, h3) {
+    width: 100%;
+    padding-bottom: var(--nt-spacing-text);
+    text-align: center;
+  }
+}

@@ -1,0 +1,6 @@
+@use "sass:meta";
+
+nte-input {
+  // Lädt die Müller-spezifischen Darstellungsvarianten für Formulareingaben.
+  @include meta.load-css("./_style-default.scss");
+}

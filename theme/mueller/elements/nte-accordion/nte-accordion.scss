@@ -7,7 +7,7 @@ nte-accordion {
     $border-radius: var(--nt-border-radius),
     $summary-padding: var(--nt-space-3),
     $content-padding: var(--nt-space-3),
-    $summary-background: var(--nt-surface-raised),
+    $summary-background: color-mix(in srgb, var(--nt-surface-raised) 96%, var(--nt-text)),
     $summary-background-hover: #ededed,
     $summary-color: var(--nt-header),
     $content-background: var(--nt-surface-raised),
@@ -18,9 +18,27 @@ nte-accordion {
   --marker-icon-closed: var(--marker-icon-plus);
   --marker-icon-open: var(--marker-icon-minus);
 
-  // Accordion-Titel heben sich moderat vom Fließtext ab, ohne Überschriftengröße anzunehmen.
+  // Ordnet den Auf-/Zuklapp-Marker im Müller-Theme vor dem Titel an.
+  @include accordion.with-marker-start();
+
+  // Trennt Marker und Titel deutlich und richtet beide innerhalb der Summary mittig aus.
+  nte-accordion-item::part(summary) {
+    align-items: center;
+    gap: var(--nt-space-3);
+  }
+
+  nte-accordion-item::part(title) {
+    display: flex;
+    align-items: center;
+    min-height: var(--marker-size);
+  }
+
+  // Accordion-Titel nutzen die Fließtext-Schrift und heben sich nur über Größe und Gewicht ab.
   nte-accordion-item > [slot="title"] {
-    font-size: calc(var(--nt-font-size) * 1.125);
+    font-family: var(--nt-font-family);
+    font-size: var(--nt-font-size-base, 1rem);
+    font-size-adjust: ex-height var(--theme-font-size-adjust, 0.50);
     font-weight: var(--nt-font-weight-bold);
+    text-transform: none;
   }
 }

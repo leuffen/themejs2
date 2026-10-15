@@ -1,0 +1,18 @@
+// Entfernt Abschlussabstände in Cards, solange keine reguläre, inhaltlich folgende Section den Abstand benötigt.
+ntl-card-row:is(.style-default, .style-ribbon, .style-footer, .footer-separators) {
+  nte-card > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]):not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]))):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+    margin-bottom: 0;
+  }
+}
+
+// Behandelt den letzten normalen Inhalt im Main-Bereich aller Müller-Zweispaltenvarianten.
+ntl-2col:is(.style-default, .style-testimonial, .style-cta, .style-faq) {
+  > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]):not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]))):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+    margin-bottom: 0;
+  }
+
+  // Behandelt den optionalen Aside-Bereich als unabhängige Inhaltsregion.
+  > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure)[slot="aside"]:not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure)[slot="aside"])):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+    margin-bottom: 0;
+  }
+}

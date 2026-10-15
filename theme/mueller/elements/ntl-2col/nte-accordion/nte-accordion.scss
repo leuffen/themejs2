@@ -1,0 +1,4 @@
+@use "sass:meta";
+
+// Lädt die an FAQ-Kompositionen gebundene Accordion-Darstellung.
+@include meta.load-css("./_in-style-faq.scss");

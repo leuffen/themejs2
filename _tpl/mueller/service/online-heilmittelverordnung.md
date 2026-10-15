@@ -1,13 +1,11 @@
 ---
 description: ""
-layout: article
 order: 71
 ptags: ~
 published: true
 title: Online Heilmittelverordnung
 shiller:
-  tags: [mueller]
-  target: service/online-heilmittelverordnung.md
+  source: mueller/service/online-heilmittelverordnung.md
 ---
 ## Jetzt Heilmittelverordnung für Wiederholungstermin bestellen!
 {: layout="ntl-2col" data-kicker="Online Heilmittelverordnung" }
@@ -20,16 +18,16 @@ Ganz einfach online eine Heilmittelverordnung online anfragen! Dies betrifft Hei
 
 
 ---
-{: layout="2;tj-form" .mt-5}
+{: layout="tj-form" .mt-5}
 
 #[input type="hidden" name="type" value="Heilmittelverordnung"]
-#[nte-input type="text"  name="Name" required]
-#[nte-input type="text" name="Geburtsdatum" required]
-#[nte-input type="email" name="E-Mail" required]
-#[nte-input type="tel" name="Telefon" required]
-#[nte-input type="text" name="Verordnetes Heilmittel" required]
-#[nte-input type="textarea" name="Ihre Nachricht (optional)" style="height: 120px;"]
-#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[nte-input.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.hoverlabel type="text" name="geburtsdatum" label="Geburtsdatum" required]
+#[nte-input.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.hoverlabel type="tel" name="telefon" label="Telefon" required]
+#[nte-input.hoverlabel type="text" name="heilmittel" label="Verordnetes Heilmittel" required]
+#[nte-input.hoverlabel type="textarea" name="nachricht" label="Ihre Nachricht (optional)" style="height: 120px;"]
+#[nte-input type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
 ## Fragen? Wir sind für Sie da!
 {: layout="ntl-2col.style-cta"}

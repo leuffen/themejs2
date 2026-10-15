@@ -1,15 +1,13 @@
 ---
 description: "Schützen Sie Ihre Gesundheit mit unseren Vorsorgeuntersuchungen \U0001FA7A.
   Früherkennung ist der Schlüssel zur Prävention. Jetzt Termin vereinbaren! \U0001F4C5"
-layout: article
 order: 90
 ptags:
 - nav
 published: true
 title: Ablauf & Kosten
 shiller:
-  tags: [mueller]
-  target: service/info-privatpraxis.md
+  source: mueller/service/info-privatpraxis.md
 ---
 ## Ihr Weg zur Behandlung
 {: layout="ntl-2col" data-kicker="PATIENT WERDEN" }

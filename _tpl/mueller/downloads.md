@@ -1,15 +1,13 @@
 ---
 description: "Entdecken Sie unsere moderne Kinderarztpraxis in Plauen \U0001F476\U0001F33C
   – freundliches Team, barrierefreier Zugang & umfassende Betreuung für Kinder & Jugendliche!"
-layout: article
 order: 40
 ptags:
 - nav
 published: true
 title: Downloads
 shiller:
-  tags: [mueller]
-  target: downloads.md
+  source: mueller/downloads.md
 ---
 
 ## Fragebögen & Informationsmaterial zum Download

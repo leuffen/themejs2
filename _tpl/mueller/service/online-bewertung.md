@@ -12,13 +12,14 @@ shiller:
 ---
 ## Ihre Meinung zählt!
 {: layout="ntl-2col" data-kicker="Online bewerten" }
+
 ![](https://cdn.leuffen.de//leu-stock/v2/260/134-87_gfedcba/AdobeStock_860408697.webp)
 
 
 Wenn Sie mit unserem Service zufrieden waren, freuen wir uns über Ihre Bewertung bei Google. Ihre positive Rückmeldung hilft uns, anderen Patienten zu zeigen, dass sie bei uns in guten Händen sind.
 
 
-[![](https://cdn.leuffen.de//leu-stock-free/v2/68/a_ba/google_g_icon_download.webp){: style="height:30px;width:auto"} Jetzt bei Google bewerten]({{ site.data.general.google_rating_link }}){: .btn .btn-primary .btn-lg .mt-3}
+[![](https://cdn.leuffen.de//leu-stock-free/v2/68/a_ba/google_g_icon_download.webp){: style="height:30px;width:auto" .keep} Jetzt bei Google bewerten]({{ site.data.general.google_rating_link }}){: .btn .btn-primary .btn-lg .mt-3}
 
 
 ### Kritik oder Verbesserungs&shy;vorschläge?
@@ -29,12 +30,12 @@ Wir legen großen Wert auf die Zufriedenheit unserer Patienten und möchten unse
 Bitte nutzen Sie das untenstehende Formular, um uns Ihre Anregungen mitzuteilen. Ihre Angaben bleiben selbstverständlich anonym.
 
 ---
-{: layout="2;tj-form"  .mt-5}
+{: layout="tj-form" .mt-5}
 
 #[input type="hidden" name="type" value="Bewertung"]
-#[nte-input type="textarea" name="Ihr Verbesserungsvorschlag*" placeholder="Ihr Verbesserungsvorschlag" required style="height: 120px;"]
+#[nte-input.hoverlabel type="textarea" name="verbesserungsvorschlag" label="Ihr Verbesserungsvorschlag" required style="height: 120px;"]
 #[button type="submit" class="btn btn-primary" > Absenden]
----
+
 
 
 

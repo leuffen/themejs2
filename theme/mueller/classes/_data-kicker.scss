@@ -1,0 +1,10 @@
+// Verwendet für Kicker die normale Textschrift statt der Schriftrolle der zugehörigen Überschrift.
+:is(h1, h2, h3, h4, h5, h6).data-kicker,
+:is(h1, h2, h3, h4, h5, h6)[data-kicker] {
+  &::before {
+    font-family: var(--nt-font-family);
+    font-size: var(--nt-font-size-base, 1rem);
+    font-size-adjust: ex-height var(--theme-font-size-adjust, 0.50);
+    margin-bottom: var(--typography-heading-margin-bottom, calc(var(--nt-spacing-text, 1rem) * 0.5));
+  }
+}

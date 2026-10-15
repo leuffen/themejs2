@@ -4,4 +4,7 @@ ntl-2col {
   @include meta.load-css("./_style-default.scss");
   @include meta.load-css("./_style-testimonial.scss");
   @include meta.load-css("./_style-cta.scss");
+  @include meta.load-css("./_style-faq.scss");
+  @include meta.load-css("./nte-accordion/nte-accordion.scss");
+  @include meta.load-css("./nte-input/nte-input.scss");
 }

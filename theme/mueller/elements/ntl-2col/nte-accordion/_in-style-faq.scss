@@ -1,0 +1,6 @@
+// Hebt die eigentlichen FAQ-Einträge auf einer hellen Fläche vom transparenten Abschnitt ab.
+&.style-faq {
+  nte-accordion {
+    --content-background: var(--nt-surface-raised);
+  }
+}

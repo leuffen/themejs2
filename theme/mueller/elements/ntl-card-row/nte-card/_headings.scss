@@ -1,0 +1,8 @@
+// Vereinheitlicht Kartentitel mit den Accordion-Titeln, ohne variantenspezifische Farben und Abstände zu ersetzen.
+nte-card > :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--nt-font-family);
+  font-size: var(--nt-font-size-base, 1rem);
+  font-size-adjust: ex-height var(--theme-font-size-adjust, 0.50);
+  font-weight: var(--nt-font-weight-bold);
+  text-transform: none;
+}

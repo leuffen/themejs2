@@ -1,13 +1,11 @@
 ---
 description: ""
-layout: article
 order: 70
 ptags: ~
 published: true
 title: Online-Rezept
 shiller:
-  tags: [mueller]
-  target: service/online-rezept.md
+  source: mueller/service/online-rezept.md
 ---
 ## Jetzt Wiederholungsrezept online anfragen
 {: layout="ntl-2col" data-kicker="Online Rezept" }
@@ -22,16 +20,16 @@ Mit unserem Online-Rezeptformular können Sie bequem von zu Hause aus ein neues 
 
 
 ---
-{: layout="2;tj-form" .mt-5}
+{: layout="tj-form" .mt-5}
 
 #[input type="hidden" name="type" value="Rezept"]
-#[nte-input type="text"  name="Name" required]
-#[nte-input type="text" name="Geburtsdatum" required]
-#[nte-input type="email" name="E-Mail" required]
-#[nte-input type="tel" name="Telefon" required]
-#[nte-input type="textarea" name="Medikament mit Dosierung" required]
-#[nte-input type="textarea" name="Ihre Nachricht (optional)" style="height: 120px;"]
-#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[nte-input.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.hoverlabel type="text" name="geburtsdatum" label="Geburtsdatum" required]
+#[nte-input.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.hoverlabel type="tel" name="telefon" label="Telefon" required]
+#[nte-input.hoverlabel type="textarea" name="medikament" label="Medikament mit Dosierung" required]
+#[nte-input.hoverlabel type="textarea" name="nachricht" label="Ihre Nachricht (optional)" style="height: 120px;"]
+#[nte-input type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
 ## Fragen? Wir sind für Sie da!
 {: layout="ntl-2col.style-cta"}

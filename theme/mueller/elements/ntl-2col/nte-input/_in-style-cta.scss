@@ -1,0 +1,10 @@
+// Setzt Formulareingaben in der getönten CTA-Fläche auf einen klaren weißen Hintergrund.
+&.style-cta {
+  nte-input:not([type="checkbox"]) {
+    --nte-input-hoverlabel-background: var(--nt-surface-raised);
+
+    &::part(control) {
+      background: var(--nt-surface-raised);
+    }
+  }
+}

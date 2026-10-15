@@ -1,12 +1,11 @@
 @use "@nextrap/ntl-2col" as twoCol;
 
-// Die CTA-Fläche schließt ohne unteren Außenabstand an den Footer an und bündelt Überschrift sowie Aktionen mittig.
+// Die CTA-Fläche verwendet oben und unten denselben Section-Abstand und bündelt Überschrift sowie Aktionen mittig.
 &.style-cta {
   --cols: 12;
 
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  padding-bottom: 0;
   color: var(--nt-text);
   text-align: center;
   background-color: var(--nt-primary-subtle);
@@ -18,11 +17,14 @@
     $border: 0,
     $border-radius: 0,
     $objectFit: cover,
-    $wrapper-bg-color: transparent
+    $wrapper-bg-color: transparent,
+    $justify: flex-start
   );
 
+  // Hält den großzügigen vertikalen CTA-Rhythmus bei reduziertem Seitenabstand.
   &::part(wrapper) {
     align-items: center;
+    padding-inline: var(--nt-space-4);
   }
 
   &::part(main) {
@@ -30,6 +32,27 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  // Formulareingaben nutzen unabhängig von der Spaltenbelegung die komplette verfügbare Breite.
+  nte-input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  // Ein optionaler Aside aktiviert eine gleichmäßige Zweispalten-Komposition mit linksbündigem Formularinhalt.
+  &:has(> :is(.aside, [slot="aside"], p.auto)) {
+    --cols: 6;
+
+    &::part(wrapper) {
+      align-items: stretch;
+    }
+
+    &::part(main),
+    &::part(aside) {
+      align-items: stretch;
+      text-align: start;
+    }
   }
 
   > :is(h1, h2, h3) {

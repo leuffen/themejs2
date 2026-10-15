@@ -1,0 +1,13 @@
+@use "@nextrap/nte-input" as nteInput;
+
+// Übernimmt die Osman-Formulardarstellung mit Carbon-Basis und einheitlichem Feldabstand.
+&.style-default {
+  @include nteInput.default-style(nteInput.$themeCarbon);
+
+  // Aktiviert schwebende Labels nur für ausdrücklich markierte Eingabefelder.
+  &.hoverlabel {
+    @include nteInput.floating-labels();
+  }
+
+  padding-block-end: var(--nt-space-4);
+}

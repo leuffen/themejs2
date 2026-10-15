@@ -1,15 +1,13 @@
 ---
 description: ""
-layout: article
 order: 71
-ptags: 
-    - nav
+ptags:
+- nav
 published: true
 title: Online Patienten-Infos
 short_title: Infos
 shiller:
-  tags: [mueller]
-  target: service/online-patienteninformation.md
+  source: mueller/service/online-patienteninformation.md
 ---
 
 

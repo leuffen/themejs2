@@ -1,13 +1,11 @@
 ---
 description: ""
-layout: article
 order: 71
-ptags:
+ptags: ~
 published: true
 title: Terminanfrage / Online Termin
 shiller:
-  tags: [mueller]
-  target: service/online-termin.md
+  source: mueller/service/online-termin.md
 ---
 ## Jetzt Termin anfragen
 {: layout="ntl-2col" data-kicker="Online Termin vereinbaren" }
@@ -17,16 +15,17 @@ shiller:
 Bitte nutzen Sie unser Terminformular für Ihre Anfrage:
 
 ---
-{: layout="2;tj-form" .mt-5}
+{: layout="tj-form" .mt-5}
 
 #[input type="hidden" name="type" value="Termin"]
-#[nte-input type="text"  name="Name" required]
-#[nte-input type="email" name="E-Mail" required]
-#[nte-input type="tel" name="Telefon" required]
-#[nte-input type="select" required type="select" name="Termingrund" options="Vorsorgekoloskopie, Koloskopie,  Gastroskopie, Sprechstunde und Beratung, Sonografie, Lebersprechstunde,  Sprechstunde für chr. entzündliche Darmerkrankung, allgemeine gastroenterologische Sprecdhstunde"]
-#[nte-input type="select" required type="select" name="Überweisung vom Hausarzt" options="Ja, Nein"]
-#[nte-input type="textarea" name="Ihre Nachricht" style="height: 120px;"]
-#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[nte-input.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.hoverlabel type="tel" name="telefon" label="Telefon" required]
+#[nte-input.hoverlabel type="select" name="termingrund" label="Termingrund" data-options="Vorsorgekoloskopie;Koloskopie;Gastroskopie;Sprechstunde und Beratung;Sonografie;Lebersprechstunde;Sprechstunde für chronisch entzündliche Darmerkrankungen;Allgemeine gastroenterologische Sprechstunde" required]
+#[nte-input.hoverlabel type="select" name="ueberweisung_hausarzt" label="Überweisung vom Hausarzt" data-options="Ja;Nein" required]
+#[nte-input.hoverlabel type="textarea" name="nachricht" label="Ihre Nachricht" style="height: 120px;"]
+
+#[nte-input type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
 ## Erfahren Sie mehr über uns
 {: layout="ntl-2col.style-cta"}

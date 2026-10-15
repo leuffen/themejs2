@@ -1,14 +1,12 @@
 ---
 description: ""
-layout: article
 order: 30
 ptags:
 - nav
 published: true
 title: Praxis
 shiller:
-  tags: [mueller]
-  target: praxis-gallery.md
+  source: mueller/praxis-gallery.md
 ---
 ## Unsere Praxis
 {: layout="ntl-2col" .d-none}

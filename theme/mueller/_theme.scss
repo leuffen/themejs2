@@ -7,7 +7,6 @@
 @use "@nextrap/style-utils" as nextrapUtils;
 @use "@nextrap/style-typography" as nextrapTypography;
 @use "@nextrap/style-button" as nextrapButton;
-@use "@nextrap/nte-input" as nteInput;
 @use "@nextrap/nte-nav" as nteNav;
 @use "@nextrap/nte-navbar" as nteNavbar;
 
@@ -41,12 +40,11 @@
   @layer themes.components {
     @include nextrapButton.style-button();
 
-    // Lädt die gemeinsame Navbar-, Navigations- und Formularstruktur für Müller.
+    // Lädt die gemeinsame Navbar- und Navigationsstruktur für Müller.
     @include nteNavbar.default-style();
 
-    nte-input.style-default {
-      @include nteInput.default-style(nteInput.$themeCarbon);
-    }
+    // Lädt die Müller-Standarddarstellung für Formulareingaben.
+    @include meta.load-css("./elements/nte-input/nte-input.scss");
 
     nte-nav.style-default {
       @include nteNav.main-navigation();
@@ -72,7 +70,10 @@
 
   @layer themes.patterns {
     @include meta.load-css("./../../src/features/_data-kicker.scss");
+    @include meta.load-css("./classes/_data-kicker.scss");
     @include meta.load-css("./classes/_button-bar.scss");
+    @include meta.load-css("./classes/_opening-hours.scss");
+    @include meta.load-css("./tools/_content-end.scss");
   }
 
   @layer themes.utilities {

@@ -1,0 +1,4 @@
+@use "sass:meta";
+
+// Lädt die an CTA-Kompositionen gebundene Input-Darstellung.
+@include meta.load-css("./_in-style-cta.scss");

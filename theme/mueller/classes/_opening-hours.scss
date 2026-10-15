@@ -1,0 +1,19 @@
+// Richtet kompakte Öffnungszeiten mit Bezeichnung links und Zeitangabe rechts aus.
+table.opening-hours {
+  padding-block: 0;
+
+  th,
+  td {
+    vertical-align: top;
+  }
+
+  th {
+    padding-block: 0;
+    text-align: left;
+  }
+
+  td {
+    padding: 0;
+    text-align: right;
+  }
+}

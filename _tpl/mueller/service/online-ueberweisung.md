@@ -1,13 +1,11 @@
 ---
 description: ""
-layout: article
 order: 71
 ptags: ~
 published: true
 title: Online-Überweisung
 shiller:
-  tags: [mueller]
-  target: service/online-ueberweisung.md
+  source: mueller/service/online-ueberweisung.md
 ---
 ## Jetzt Überweisung für Wiederholungstermin bestellen!
 {: layout="ntl-2col" data-kicker="Online Überweisung" }
@@ -22,17 +20,17 @@ Ganz einfach online eine Überweisung zu einem Facharzt bestellen! Bitte beachte
 
 
 ---
-{: layout="2;tj-form" .mt-5}
+{: layout="tj-form" .mt-5}
 
 #[input type="hidden" name="type" value="Überweisung"]
-#[nte-input type="text"  name="Name" required]
-#[nte-input type="text" name="Geburtsdatum" required]
-#[nte-input type="email" name="E-Mail" required]
-#[nte-input type="tel" name="Telefon" required]
-#[nte-input type="select" name="Überweisung an" options="Gastroenterologie, Kardiologe, Dermatologe, Gefäßchirurg, Psychiater, Gastroenterologe, Urologe, HNO, Augenarzt, Neurologe, Orthopäde, Chirurg, Proktologe, Endokrinologe, Hämatologe/Onkologe, Angiologe, Diabetologe, Nephrologe, Pneumologe" required]
-#[nte-input type="text"  name="Grund der Überweisung" required]
-#[nte-input type="textarea" name="Ihre Nachricht (optional)" style="height: 120px;"]
-#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[nte-input.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.hoverlabel type="text" name="geburtsdatum" label="Geburtsdatum" required]
+#[nte-input.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.hoverlabel type="tel" name="telefon" label="Telefon" required]
+#[nte-input.hoverlabel type="select" name="ueberweisung_an" label="Überweisung an" data-options="Gastroenterologie;Kardiologe;Dermatologe;Gefäßchirurg;Psychiater;Gastroenterologe;Urologe;HNO;Augenarzt;Neurologe;Orthopäde;Chirurg;Proktologe;Endokrinologe;Hämatologe/Onkologe;Angiologe;Diabetologe;Nephrologe;Pneumologe" required]
+#[nte-input.hoverlabel type="text" name="grund" label="Grund der Überweisung" required]
+#[nte-input.hoverlabel type="textarea" name="nachricht" label="Ihre Nachricht (optional)" style="height: 120px;"]
+#[nte-input type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
 ## Fragen? Wir sind für Sie da!
 {: layout="ntl-2col.style-cta"}

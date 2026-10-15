@@ -1,73 +1,51 @@
 ---
-description: 'Ihr Zahnarzt in Hannover-Südstadt:  Dr. M.C. Müller . Kontaktieren Sie
-  uns für Ihren Termin!'
-layout: article
-order: 80
+published: true
+layout: default
+title: Über uns
+description: 'Ein Team mit Leidenschaft: Dr. Elmar Scheche und sein Praxisteam in Norden.'
 ptags:
 - nav
-published: true
-short_title: Über uns
-title: Über uns
-shiller:
-  tags: [mueller]
-  target: ueber-uns.md
+order: 90
 ---
-## Ein Team mit Leidenschaft
-{: layout="ntl-2col" data-kicker="Ein kompetentes Team für Ihre Augengesundheit" }
-![](https://cdn.leuffen.de//leu-stock/v2/60/418-279_gfedcba/AdobeStock_99592855.webp)
 
+## Über uns
+{: layout="ntl-2col" data-kicker="Ein Team mit Leidenschaft"}
 
-In unserer Praxis werden Sie von Augenarzt Bassel Osman behandelt. Er ist ein erfahrener Facharzt für Augenheilkunde. Unterstützt wird er durch ein intensiv geschultes und langjährig erfahrenes Team von medizinischen Fachangestellten, spezialisiert auf Makuladiagnostik und Lasertherapie. 
+![](https://cdn.leuffen.de//scheche-k30/v2/4/76-51_gfedcba/IMG_3388-mod.webp)
 
-## Facharzt für Augenheilkunde
-{: layout="ntl-2col" data-kicker="Bassel Osman" }
-![Bild des Arztes](https://cdn.leuffen.de/hyperpage-components/v1.0//img/default-person-male.jpg)
+In unserer Praxis werden Sie von Dr. Elmar Scheche behandelt. Er ist ein
+erfahrener Facharzt für Innere Medizin und Diabetologie. Unterstützt wird er durch
+ein intensiv geschultes und langjährig erfahrenes Team von medizinischen
+Fachangestellten, spezialisiert auf die Behandlung von Adipositas und Diabetes.
 
-Als Facharzt für Augenheilkunde führe ich eine spezialisierte Praxis in Wiesbaden Mitte. Ihre Augen sind bei uns in sicheren Händen. In meiner Praxis bieten wir neben allgemeines Spektrum auch eine professionelle Makuladiagnostik und Behandlung, Lasertherapie und Intravitreale Injektionen.
+## Facharzt für Innere Medizin und Diabetologie
+{: layout="ntl-2col" data-kicker="Dr. Elmar Scheche" }
 
-|----|--------------------------------------------------------------------|
-| 01.07.2023–heute  | Niedergelassen in eigene Praxis in der Rheinstr. 59 in 65185 Wiesbaden** |
-| 2020-2023         | Tätigkeit als Facharzt für Augenheilkunde, Schwerpunkt Medical Retina und Makulaerkrankungen |
-|  2016-2020        | Weiterbildung in der Universitätsklinikum Giessen und Marburg-Augenklinik** |
-|  2014-2016        | Assistenzarzt  (Städtisches Klinikum Dresden-Augenklinik und Augenärzte im Gäubodenpark) |
-|  2009-2013        | Assistenzarzt (Allgemeinchirurgie, ER-Doctor American University of Beirut- Medical Center) |
-|  2009             |  Promotion : ST-Elevation Myocardial Infarktion - University of Aleppo |
-|  2003-2009        | Medizinstudium - University of Aleppo     |
+![](https://cdn.leuffen.de//scheche-k30/v2/5/164-163_ba/scheche-portrait1.webp)
+
+Als Facharzt für Innere Medizin und Diabetologie führe ich eine spezialisierte
+Praxis in Norden. Ihre Gesundheit ist bei uns in sicheren Händen. In meiner Praxis
+bieten wir neben dem allgemeinen Spektrum auch eine professionelle Behandlung von
+Adipositas und Diabetes.
+
+| Zeitraum | Beruflicher Werdegang |
+| --- | --- |
+| seit 15.12.1994  | Niedergelassen in eigene Praxis in der Osterstr. 152 in Norden |
+| seit 2000  | Kooperationspartner des Adipostiaszentrums Nordwest |
+| 1994-heute         | Tätigkeit als Facharzt für Innere Medizin und Diabetologie |
+|  1990-1994        | Ausbildung zum Facharzt, Friederikenstift Hannover |
+|  1990       | Promotion zum Dr. med. |
+|  1987-1990        | Ausbildung zum Facharzt, Krankenhaus Johanneum, Wildeshausen |
+|  1981-1987             |  Studium der Humanmedizin, Medizinische Hochschule Hannover |
 {: .table}
 
-
-
-
-
-
-## Unsere Mitarbeiter
-{: layout="ntl-card-row" section-style="--cols: 4;"}
-
-### Vorname Name1
-
-![Vorname Name1](https://cdn.leuffen.de//leu-stock/v2/165/91-87_ba/default-person-female.webp)
-
-Medizinische Fachangestellte
-
-### Vorname Name 2
-
-![Vorname Name2](https://cdn.leuffen.de//leu-stock/v2/165/91-87_ba/default-person-female.webp)
-
-Medizinische Fachangestellte
-
-### Vorname Name 3 usw.
-
-![Vorname Name 3](https://cdn.leuffen.de//leu-stock/v2/164/107-92_ba/default-person-male.webp)
-
-Medizinische Fachangestellte
-
-
-
 ## Kontakt
-{: layout="ntl-2col.style-cta"}
+{: layout="ntl-2col.style-cta" }
 
-Informationen zu Behandlungen, Sprechstundenzeiten und Kontaktdaten finden Sie auf den nachfolgenden Seiten. 
+Informationen zu Behandlungen, Sprechstundenzeiten und Kontaktdaten finden Sie auf
+den nachfolgenden Seiten.
 
-[Home](/)
-[Leistungen](/leistungen)
-[Kontakt & Anfahrt](/kontakt)
+[Innere Medizin](/leistungen/innere-medizin.de.html){: .btn .btn-primary}
+[Diabetologie](/leistungen/diabetologie.de.html){: .btn .btn-primary}
+[Adipositasbehandlung](/leistungen/adipositasbehandlung.de.html){: .btn .btn-primary}
+[Kontakt & Anfahrt](/kontakt){: .btn .btn-primary}

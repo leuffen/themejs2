@@ -21,7 +21,8 @@
     $border: 0,
     $border-radius: 0,
     $objectFit: cover,
-    $wrapper-bg-color: transparent
+    $wrapper-bg-color: transparent,
+    $justify: flex-start
   );
 
   &::part(wrapper) {

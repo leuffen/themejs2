@@ -18,24 +18,28 @@ shiller:
 ![](https://cdn.leuffen.de//leu-stock/v2/212/125-58_gfedcba/AdobeStock_437404171.webp)
 {: slot="bg"}
 
+---
+{: layout="2.5;.box.-lg:w-100"}
+
 # Augenarzt<br>Prof. Dr. Daniel Mustermann
 {: .section-h3 layout="3" .sec-box .sec-slide}
 
 ---
-{: .section-h4 layout="2.5;ntl-card-row"}
-[[i class="bi bi-house-add-fill fs-3"]<br>Jetzt als **neuer Patient** anmelden](/online-anmeldung){: .btn .btn-primary}
-[[i class="bi bi-calendar-plus-fill fs-3"]<br>Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary .text-center}
-[[i class="bi bi-people-fill fs-3"]<br>**Infos für Zuweiser**](/online-zuweiser){: .btn .btn-primary .text-center}
+{: .section-h4 layout="3;.button-bar"}
 
-[[i class="bi bi-card-heading fs-3"]<br>**Rezept** online anfragen](/online-rezept){: .btn .btn-primary .text-center }
-[[i class="bi bi-box-arrow-up-right fs-3"]<br>**Überweisung** an Facharzt](/online-ueberweisung){: .btn .btn-primary .text-center}
-[[i class="bi bi-camera-video-fill fs-3"]<br>**Videosprechstunde**](/online-videosprechstunde){: .btn .btn-primary .text-center}
+[<i class="bi bi-house-add-fill fs-3"></i>Jetzt als **neuer Patient** anmelden](/online-anmeldung){: .btn .btn-primary}
+[<i class="bi bi-calendar-plus-fill fs-3"></i>Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary .text-center}
+[<i class="bi bi-people-fill fs-3"></i>**Infos für Zuweiser**](/online-zuweiser){: .btn .btn-primary .text-center}
 
-
-
+[<i class="bi bi-card-heading fs-3"></i>**Rezept** online anfragen](/online-rezept){: .btn .btn-primary .text-center }
+[<i class="bi bi-box-arrow-up-right fs-3"></i>**Überweisung** an Facharzt](/online-ueberweisung){: .btn .btn-primary .text-center}
+[<i class="bi bi-camera-video-fill fs-3"></i>**Videosprechstunde**](/online-videosprechstunde){: .btn .btn-primary .text-center}
 
 
-## Übersicht
+
+
+
+---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}
 
 ### Aktuelles
@@ -58,7 +62,7 @@ Außerhalb der Sprechstundenzeiten wenden sie sich bitte an den KV-Bereitschafts
 
 ## Individuelle und professionelle medizinische Versorgung
 {: layout="ntl-2col" data-kicker="Hausarztpraxis in Frensdorf" }
-In unserer Praxis bieten wir individuelle und professionelle medizinische Versorgung an. Unser Angebot umfasst Vorsorgemedizin, Impfungen, Herz-Lungen Diagnostik, Sonografie, Altersmedizin, Kleine Chirurgie und Begleitung bei chronischen Erkrankungen. 
+In unserer Praxis bieten wir individuelle und professionelle medizinische Versorgung an. Unser Angebot umfasst Vorsorgemedizin, Impfungen, Herz-Lungen Diagnostik, Sonografie, Altersmedizin, Kleine Chirurgie und Begleitung bei chronischen Erkrankungen.
 
 Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns bitte!
 
@@ -72,11 +76,10 @@ Wir suchen neue Mitarbeiter für unser Team. Werden Sie Teil unseres Teams und u
 
 [Offene Stellen & Bewerbung](/karriere){: .btn .btn-primary .btn-lg .mb-3}
 
----
-{: layout="ntl-2col" .section-h2 }
 
 
-### Aktuelle Informationen zum Coronavirus
+
+## Aktuelle Informationen zum Coronavirus
 {: layout="ntl-2col"}
 
 Corona- Test positiv bitte zuerst **NUR** telefonisch melden
@@ -107,7 +110,7 @@ Unsere Praxis ist mit modernsten Diagnosegeräten ausgestattet, um eine genaue u
 Wir bieten eine breite Palette von Therapien an, um eine effektive Behandlung zu gewährleisten.
 
 ---
-{: .section-h2}
+{: layout="2;.container"}
 
 
 [Unsere Leistungen](/leistungen){: .btn .btn-primary .btn-lg .mb-3}
@@ -138,20 +141,37 @@ Unser freundliches und kompetentes Team unterstützt die Ärzte mit langjährige
 
 [Erfahren Sie mehr über uns...](/ueber-uns){: .btn .btn-primary }
 
+## Häufig gestellte Fragen
+{: layout="ntl-2col.style-faq" }
 
-## Haben Sie Fragen? Schreiben Sie uns
-{: layout="ntl-2col.style-cta"}
+---
+{: layout="nte-accordion[initial-open-index='-1']" }
 
+### Wie kann ich einen Termin vereinbaren?
+
+Nutzen Sie unsere [Online-Terminvereinbarung](/termin), um einen passenden Termin anzufragen.
+
+### Wie kann ich ein Rezept oder eine Überweisung anfragen?
+
+Wiederholungsrezepte können Sie über die [Online-Rezeptanfrage](/online-rezept) bestellen. Für Überweisungen steht Ihnen die [Online-Überweisungsanfrage](/online-ueberweisung) zur Verfügung.
+
+### Was soll ich außerhalb der Sprechstundenzeiten in einem Notfall tun?
+
+Wenden Sie sich an den ärztlichen Bereitschaftsdienst unter [116 117](tel:116117). In lebensbedrohlichen Notfällen wählen Sie den Notruf unter [112](tel:112).
 
 ---
 {: layout="2;tj-form" }
 
-#[nte-input type="text"  name="Name" required]
-#[nte-input type="email" name="E-Mail" required data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein"]
-#[nte-input type="tel" name="Telefon" required]
----
-{: layout="2;tj-form" }
+## Schreiben Sie uns
+{: layout="2.1;ntl-2col.style-cta" .top }
 
-#[nte-input type="textarea" name="Ihre Nachricht" required style="height: 120px;"]
-#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[nte-input.style-default.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.style-default.hoverlabel type="text" name="telefon" label="Telefon"]
+
+---
+{: layout=".aside" }
+
+#[nte-input.style-default.hoverlabel type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
