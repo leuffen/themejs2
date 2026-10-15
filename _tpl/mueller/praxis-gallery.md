@@ -1,24 +1,17 @@
 ---
-_shiller_instructions: "Passe bilder an"
 description: ""
-icon: bi bi-phone
-image: ~
-lang: de
 layout: article
 order: 30
-_shiller_tags: base
-permalink: /praxis
-pid: pages/praxis
 ptags:
 - nav
 published: true
-skipHead: false
-body_class: ~
 title: Praxis
-type: article
+shiller:
+  tags: [mueller]
+  target: praxis-gallery.md
 ---
 ## Unsere Praxis
-{: layout="use: #image-gallery1" .d-none}
+{: layout="ntl-2col" .d-none}
 
 - ![](https://cdn.leuffen.de//falk-k43/v2/12/460-307_gfedcba/Praxis_Falk_8312.webp)
 - ![](https://cdn.leuffen.de//falk-k43/v2/10/508-339_gfedcba/Praxis_Falk_8316.webp)
@@ -28,7 +21,7 @@ type: article
 
 
 ## Kontakt
-{: layout="use: #cta-base"}
+{: layout="ntl-2col.style-cta"}
 
 Informationen zu unseren Leistungen, Sprechstundenzeiten und Kontaktdaten finden Sie auf den nachfolgenden Seiten. 
 

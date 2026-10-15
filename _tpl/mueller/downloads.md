@@ -1,26 +1,19 @@
 ---
-_shiller_instructions: Passe bilder an
 description: "Entdecken Sie unsere moderne Kinderarztpraxis in Plauen \U0001F476\U0001F33C
   – freundliches Team, barrierefreier Zugang & umfassende Betreuung für Kinder & Jugendliche!"
-icon: bi bi-phone
-image: ~
-lang: de
 layout: article
 order: 40
-_shiller_tags: base
-permalink: /downloads
-pid: pages/downloads
 ptags:
 - nav
 published: true
-skipHead: false
-body_class: ~
 title: Downloads
-type: article
+shiller:
+  tags: [mueller]
+  target: downloads.md
 ---
 
 ## Fragebögen & Informationsmaterial zum Download
-{: layout="use: #sec-card-2col" }
+{: layout="ntl-2col" }
 
 Liebe Eltern, hier finden Sie wichtige Formulare und Informationsmaterialien zum Download. 
 Bitte laden Sie die entsprechenden Dokumente herunter, füllen Sie diese aus und bringen Sie sie zu Ihrem nächsten Termin mit.
@@ -45,7 +38,7 @@ Bitte laden Sie die entsprechenden Dokumente herunter, füllen Sie diese aus und
 - [J2 Jugendvorsorgeuntersuchungen (PDF)](/downloads/j1-j2-vorsorgeuntersuchungen.pdf)
 
 ## Links
-{: layout="use: #sec-card-2col; cols: 12;" }
+{: layout="ntl-2col" }
 
 Nachfolgend finden Sie wichtige Links.
 
@@ -56,7 +49,7 @@ Nachfolgend finden Sie wichtige Links.
 
 
 ## Kontakt
-{: layout="use: #cta-base"}
+{: layout="ntl-2col.style-cta"}
 
 Informationen zu unseren Leistungen, Sprechstundenzeiten und Kontaktdaten finden Sie auf den nachfolgenden Seiten. 
 

@@ -1,36 +1,25 @@
 ---
-_shiller_tags: base
-_schiller_instructions: Lasse liquid-platzhalter und includes so stehen. Die Adresse
-  wird damit eingeblendet!
 description: 'Bisher keine Beschreibung'
-icon: bi bi-phone
-image: ~
-lang: de
 layout: article
 order: 99
-permalink: /kontakt
-pid: pages/kontakt-anfahrt
 ptags:
 - nav
 published: true
-body_class: ~
-skipHead: false
 title: Kontakt & Anfahrt
-type: article
+shiller:
+  tags: [mueller]
+  target: kontakt-anfahrt.md
 ---
-## Hier finden Sie uns
-{: layout="use: #sec-card-feature"}
-
-> Ihre Hausarztpraxis in Neuss Zentrum.
-
+## Ihre Hausarztpraxis in Neuss Zentrum.
+{: layout="ntl-2col" data-kicker="Hier finden Sie uns" }
 <map data-map-url="{{site.data.general.map_url}}" style="--joda-use: map()"></map>
 
-{% include el/address.html %}
+{% include components/contact/address.html %}
 
 **Unsere Praxis im 1. OG ist barrierefrei über den Aufzug erreichbar ???!!!**
 
 ---
-{: layout="use: accordion()"}
+{: layout="nte-accordion"}
 
 ### [i class="bi bi-bus-front-fill text-primary"] Anfahrt mit Bus und Bahn
 
@@ -49,7 +38,7 @@ Anfahrtsbeschreibung mit dem Auto
 
 
 ## Schreiben Sie uns. Wir melden uns umgehend bei Ihnen.
-{: layout="use: #cta-form"}
+{: layout="ntl-2col.style-cta"}
 
 
 ---
