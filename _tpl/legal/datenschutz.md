@@ -6,6 +6,9 @@ description: "Ihre Daten sind bei uns sicher! \U0001F512 Datenschutz nach DSGVO 
 order: 0
 body_class: ~
 image: ""
+ptags:
+  - footernav
+  - mininav
 shiller:
   tags:
     - base
