@@ -1,7 +1,7 @@
 ---
 name: generate-website-content
 description: >-
-  Erstelle oder ueberarbeite professionelle deutschsprachige Website-Texte
+  Bei jeder Generierung oder redaktionellen Anpassung sichtbarer Website-Texte verpflichtend laden, auch bei Shiller AI Adjust. Erstelle oder ueberarbeite professionelle deutschsprachige Website-Texte
   fuer Unternehmen, Organisationen und Praxen. Verwende den Skill bei
   Startseiten, Leistungsseiten, Landingpages, Kontaktseiten sowie
   SEO-Titeln und Meta-Descriptions. Pruefe Projektkontext, Internetquellen,
