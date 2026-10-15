@@ -24,7 +24,7 @@ Das Verzeichnis `.agents/skills/` enthält ausschließlich Skills für die lokal
 Entwicklung von ThemeJS2. Es darf nicht mit dem npm-Paket veröffentlicht und
 nicht als Ablage für Skills verwendet werden, die Paketnutzer benötigen.
 
-Alle extern genutzten Skills, insbesondere Migrations-Skills, müssen unter
+Alle extern genutzten Skills, beispielsweise Bearbeitungs- und Content-Skills, müssen unter
 `skills/<skillName>/` liegen. Das Root-Verzeichnis `skills/` ist Bestandteil
 des veröffentlichten npm-Pakets; jeder Skill erhält dort ein eigenes
 Unterverzeichnis.
