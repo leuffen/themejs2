@@ -29,6 +29,19 @@ Bei Kontextwechsel, Datenkopie, Kundenanpassung oder redaktionellem Austausch
 bestehender Markdown-Dateien ist die Ausgangsdatei die verbindliche
 Strukturvorlage. Ersetze ausschließlich sichtbare Textinhalte und ausdrücklich
 beauftragte inhaltliche Werte (etwa belegte Kontaktdaten oder Linkziele).
+Ein in der Vorlage vorhandenes `data-kicker`-Attribut bezeichnet eine
+kleine Vorüberschrift über dem eigentlichen Heading und zählt mit seinem
+Attributwert zu den sichtbaren Textinhalten: Aktualisiere diesen Wert bei
+jedem Website-Adjust passend zum konkreten Abschnitt und belegten
+Projektkontext, sofern ein sinnvoller Kicker-Text möglich ist. Lass die
+Attributsyntax, Position und übrige Struktur unverändert; füge keinen
+neuen Kicker hinzu und erfinde keinen bloßen Fülltext. Wo ein Kicker
+inhaltlich nicht sinnvoll oder nicht belegbar ist, behalte die bestehende
+technische Struktur bei und kennzeichne den offenen Inhaltskonflikt.
+Die ausdrücklich in `page-specific-rules/references/ueber-uns.md`
+erlaubten Arzt-/Mitarbeiter-Blockduplikationen und das Entfernen einer
+unbelegten Mitarbeiter-Section bilden eine eng begrenzte Ausnahme
+vom Structure Lock.
 Bewahre Front-Matter-Begrenzer `---`, Einrückung, Schlüssel, Datentypen,
 Reihenfolge und Schachtelung; ändere weder `schiller`/`shiller`-Metadaten
 noch Layout-, Style-, Slot-, Formular- oder Komponentenattribute. Markdown-
