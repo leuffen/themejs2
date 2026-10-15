@@ -55,11 +55,11 @@ Formularelemente bleiben exakt erhalten. Nur sichtbare Texte und explizit
 freigegebene Datenwerte werden ersetzt. Neue oder duplizierte Elemente
 dürfen nur auf konkreten Auftrag als vollständige Strukturblöcke
 hinzukommen; innerhalb solcher Blöcke wird keine Syntax umgeschrieben.
-Die Text-only- und Diff-Prüfungen aus `edit-themejs2-site` gelten auch
+Die Text-only- und Diff-Prüfungen aus `edit-site` gelten auch
 für Dateien ohne Treffer in der Zuordnungstabelle. Bei Widerspruch
 zwischen Textinhalt und unveränderlicher Struktur den Konflikt melden.
 
-Dieser Skill ergänzt [edit-themejs2-site](../edit-themejs2-site/SKILL.md)
+Dieser Skill ergänzt [edit-site](../edit-site/SKILL.md)
 und dessen bestehende Projektdaten-, Front-Matter- und Layoutregeln.
 Bei rechtlichen Seiten sind die spezifischeren References maßgeblich:
 keine zusätzliche CTA, Gestaltung oder automatisch eingefügte Inhalte.
