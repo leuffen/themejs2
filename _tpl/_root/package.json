@@ -9,6 +9,9 @@
   "dependencies": {
     "@leuffen/themejs2": "^1.0.11"
   },
+  "workspaces": [
+    "workspaces/*"
+  ],
   "devDependencies": {
     "@leuffen/vite-jekyll-hmr-manager": "^1.0.4",
     "concurrently": "^8.2.2",

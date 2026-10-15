@@ -23,7 +23,7 @@ command:
 
   init-workspaces:
       - "mkdir -p workspaces"
-      - "git -C ./workspaces/ clone git@github.com:nextrap/nextrap-monorepo.git"
+      - "git -C ./workspaces/ clone git@github.com:leuffen/themejs2.git"
       - "npm install"
 
   update:
