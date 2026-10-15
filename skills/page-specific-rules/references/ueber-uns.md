@@ -23,6 +23,24 @@ oder setze dort einen eindeutig als Platzhalter gekennzeichneten Wert,
 ohne dafür die Section-Struktur umzubauen. Wo die Vorlage kein Bildfeld
 hat, nicht eigenmächtig eines hinzufügen.
 
+## Lebenslauf nur bei belegten Angaben
+
+Prüfe pro vorgestellter Person, ob tatsächlich konkrete,
+personenbezogene Lebenslaufdaten vorliegen. Eine vorhandene
+Lebenslauf-Tabelle darf nur bestehen bleiben, wenn sie mit belegten
+Stationen oder Zeitangaben dieser Person sinnvoll befüllt werden kann.
+Fehlen solche Lebenslaufangaben, entferne die gesamte Lebenslauf-Tabelle
+einschließlich Überschriften und leerer Tabellenzeilen; erfinde keine
+Ausbildung, Stationen, Zeiträume oder Qualifikationen. Zeige stattdessen
+die belegte Berufsbezeichnung beziehungsweise Facharztbezeichnung.
+Ein kurzer einführender Fließtext ist nur sinnvoll, wenn dafür
+zusätzliche belegte personenbezogene Informationen vorliegen. Sind
+außer Name und Berufs- oder Facharztbezeichnung keine weiteren
+Informationen vorhanden, beschränke den Inhalt auf diese Angaben;
+verwende keine generische Biografie und keine Füllsätze. Die
+Lebenslauf-Tabelle darf unabhängig von der übrigen Arzt-H2-Section
+entfernt werden; alle anderen Strukturteile bleiben erhalten.
+
 ## Mitarbeitende: vorhandene Card-Column verwenden
 
 Existiert eine Mitarbeiter-Section mit `ntl-card-column` beziehungsweise
@@ -45,8 +63,8 @@ genügen nicht für eine personenbezogene Mitarbeiterkarte.
 Diese Regeln sind eng begrenzte Ausnahmen vom Structure Lock in
 `edit-site` und `page-specific-rules`: zulässig sind ausschließlich
 das vollständige Duplizieren vorhandener Arzt- und Mitarbeiterblöcke,
-das Aktualisieren ihrer belegten Texte und Bildwerte sowie das
-Entfernen der gesamten Mitarbeiter-Section, falls keine Namen belegt
+das Aktualisieren ihrer belegten Texte und Bildwerte, das Entfernen
+unbelegter Lebenslauf-Tabellen sowie das Entfernen der gesamten Mitarbeiter-Section, falls keine Namen belegt
 sind. Die Reihenfolge und innere Syntax aller übrigen Sections bleiben
 unverändert. Vorhandene `data-kicker`-Textwerte werden passend zum
 jeweiligen Abschnitt angepasst, sofern sinnvoll, aber nicht neu
