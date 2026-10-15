@@ -12,7 +12,11 @@ shiller:
 ---
 ## Ihre Hausarztpraxis in Neuss Zentrum.
 {: layout="ntl-2col" data-kicker="Hier finden Sie uns" }
-<map data-map-url="{{site.data.general.map_url}}" style="--joda-use: map()"></map>
+<nte-consent-blocker class="google-maps-consent" slot="top">
+  <template>
+    <iframe src="{{ site.data.general.map_url }}" title="Anfahrt zur Praxis" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </template>
+</nte-consent-blocker>
 
 {% include components/contact/address.html %}
 
@@ -42,13 +46,14 @@ Anfahrtsbeschreibung mit dem Auto
 
 
 ---
+{: layout="2;tj-form" }
 
-[input type="text"  name="Name" required .mb-3]
-[input type="email" name="E-Mail" required .mb-3]
-[input type="tel" name="Telefon" required .mb-3]
-
+#[nte-input type="text"  name="Name" required]
+#[nte-input type="email" name="E-Mail" required]
+#[nte-input type="tel" name="Telefon" required]
 ---
+{: layout="2;tj-form" }
 
-[textarea name="Ihre Nachricht" required .mb-3 style="height: 120px;"]
-[input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required .mb-3]
-[input type="submit" name="Absenden" value="Absenden" class="btn btn-primary" .my-3]
+#[nte-input type="textarea" name="Ihre Nachricht" required style="height: 120px;"]
+#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[button type="submit" class="btn btn-primary" > Absenden]

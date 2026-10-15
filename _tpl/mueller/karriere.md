@@ -65,16 +65,16 @@ Dann freuen wir uns auf Ihre Bewerbung. Gerne per Email.
 ## Bewirb dich jetzt
 {: layout="ntl-2col.style-cta" data-kicker="Interesse geweckt?" }
 ---
+{: layout="2;tj-form" }
 
-[select name="Anrede" data-options="Frau, Herr, Divers" required .mb-3]
-[input type="text"  name="Name" required .mb-3]
-[input type="email" name="E-Mail" required data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" .mb-3]
-[input type="tel" name="Telefon" required .mb-3]
-
+#[nte-input type="select" name="Anrede" options="Frau, Herr, Divers" required]
+#[nte-input type="text"  name="Name" required]
+#[nte-input type="email" name="E-Mail" required data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein"]
+#[nte-input type="tel" name="Telefon" required]
 ---
+{: layout="2;tj-form" }
 
-[input type="text"  name="Bewerbung als" required .mb-3]
-[textarea name="Ihre Nachricht (optional)" .mb-3 style="height: 120px;"]
-[input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required .mb-3]
-[input type="submit" name="Absenden" value="Absenden" class="btn btn-primary btn-lg" .my-3]
-
+#[nte-input type="text"  name="Bewerbung als" required]
+#[nte-input type="textarea" name="Ihre Nachricht (optional)" style="height: 120px;"]
+#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[button type="submit" class="btn btn-primary" > Absenden]
