@@ -42,6 +42,22 @@ erweiterbar. Neue Regeln erhalten immer Zielmuster bzw. Verwendung,
 ein optionales `shiller.source`-Muster, eine
 knappe Beschreibung, den Reference-Pfad und den Ladezeitpunkt.
 
+## Unveränderlichkeit bei reinen Kontext- und Textupdates
+
+Diese Zuordnung entscheidet **welche** inhaltlichen Regeln gelten; sie
+erteilt keine Erlaubnis, bestehende Templates umzubauen. Bei Datenkopie,
+Kontextwechsel und Austausch von Kundentexten ist die vorhandene Datei
+strukturell unveränderlich: Front Matter samt `---` und Schlüsselstruktur,
+Markdown-Überschriften/Listen/Blockquotes, `{: ... }`-Attribute,
+`#[...]`-Shortcuts, Liquid, Sections, Layout-, Style- und
+Formularelemente bleiben exakt erhalten. Nur sichtbare Texte und explizit
+freigegebene Datenwerte werden ersetzt. Neue oder duplizierte Elemente
+dürfen nur auf konkreten Auftrag als vollständige Strukturblöcke
+hinzukommen; innerhalb solcher Blöcke wird keine Syntax umgeschrieben.
+Die Text-only- und Diff-Prüfungen aus `edit-themejs2-site` gelten auch
+für Dateien ohne Treffer in der Zuordnungstabelle. Bei Widerspruch
+zwischen Textinhalt und unveränderlicher Struktur den Konflikt melden.
+
 Dieser Skill ergänzt [edit-themejs2-site](../edit-themejs2-site/SKILL.md)
 und dessen bestehende Projektdaten-, Front-Matter- und Layoutregeln.
 Bei rechtlichen Seiten sind die spezifischeren References maßgeblich:
