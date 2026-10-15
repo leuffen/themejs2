@@ -55,6 +55,45 @@ Angebote ergänzen. Etwa 150 Zeichen können als interne Vorschauhilfe dienen,
 aber weder kürzere vollständige Texte auffüllen noch einen festen Google-
 Grenzwert behaupten. Google kann andere Textstellen als Snippet verwenden [G5].
 
+## Meta-Description: Inhalt, Länge und dezente Unicode-Zeichen
+
+Das Front-Matter-Feld `description` ist die **Meta-Description der
+jeweiligen Seite**; schreibe dort einen individuellen, nützlichen
+Vorschautext statt eines Platzhalters oder einer Keyword-Liste. Die
+erste Aussage nennt die konkrete Leistung bzw. den Seitenzweck
+und gegebenenfalls den belegten Praxisnamen und Ort; ergänze einen
+echten Nutzen, eine relevante Besonderheit oder eine angemessene,
+nachprüfbare Handlung (z. B. Kontakt oder Termin). Nur tatsächlich
+belegte Leistungen, Qualifikationen und Kontaktwege erwähnen. Bei
+Impressum und Datenschutz den **rechtlichen Seitenzweck** sachlich
+beschreiben, nicht die medizinischen Angebote bewerben.
+
+**Redaktioneller Richtwert:** etwa 120–155 Zeichen für eine
+kompakte, gut lesbare Vorschau, keine harte Grenze. Aussagekraft
+geht vor Zeichenzahl. Google gibt keine Zeichenobergrenze vor,
+kann Snippets je nach Gerät kürzen oder anderen Seiteninhalt
+anzeigen [G5]. Die relevante Information deshalb an den Anfang.
+
+**Unicode-Symbole sind optional, nie Pflicht.** Nur wenn der
+Projektkontext sie nicht untersagt und sie semantisch passen,
+höchstens **ein** zurückhaltendes Zeichen als Eye-Catcher einsetzen:
+`☎` (Telefon/Kontakt), `✚` (medizinischer Bezug),
+`✓` (bestätigte Eigenschaft). Ein Symbol nur verwenden, wenn
+es inhaltlich zur folgenden Aussage passt; keine Dekorationsketten,
+bunten Emoji-Serien oder Unicode-Zeichen anstelle wichtiger Wörter.
+Beim ausdrücklichen Verbot von Icons, Emojis oder Unicode-Symbolen
+**gar keine** einfügen. Symbole der Rotkreuz-Organisation nicht
+als Marken-/Hoheitszeichen nachahmen.
+
+**Keine Google-Sichtbarkeitsgarantie:** Google führt keine
+verbindliche Liste von in Suchergebnis-Snippets dauerhaft
+angezeigten Unicode-Icons. Darstellung, Kürzung, Ersetzung oder
+Weglassen hängen von Suchanfrage, Gerät und Google ab.
+Deshalb diese Auswahl nur als konservative redaktionelle
+Beispiele verstehen; ist zuverlässige Icon-Darstellung gefordert,
+auf Symbole verzichten. Googles maßgebliche Richtlinie [G5]:
+https://developers.google.com/search/docs/appearance/snippet
+
 ## Lokale Startseiten und Keyword-Verteilung
 
 Bei einer lokal ausgerichteten Anbieter-Startseite das bestaetigte primaere
