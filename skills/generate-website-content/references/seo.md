@@ -55,6 +55,42 @@ Angebote ergänzen. Etwa 150 Zeichen können als interne Vorschauhilfe dienen,
 aber weder kürzere vollständige Texte auffüllen noch einen festen Google-
 Grenzwert behaupten. Google kann andere Textstellen als Snippet verwenden [G5].
 
+## Lokale Startseiten und Keyword-Verteilung
+
+Bei einer lokal ausgerichteten Anbieter-Startseite das bestaetigte primaere
+Keyword und den realen Ort sowohl im HTML-Title als auch in der sichtbaren H1
+klar und lesbar kombinieren. Wenn die genaue Wortfolge sprachlich unnatuerlich
+ist, eine sinngleiche Formulierung waehlen; die Projektregel ist keine
+behauptete technische Google-Pflicht. Den Stadtteil nur hinzufuegen, wenn er
+tatsaechlich zum Standort gehoert und fuer Besucher relevant ist. Ein
+eindeutiger Einstieg nennt Angebot, Zielgruppe und Standort und fuehrt zur
+passenden Aktion.
+
+Das Hauptthema an den entscheidenden Stellen erkennbar machen: Title, H1,
+Einleitung sowie bei Bedarf einer thematisch passenden Zwischenueberschrift.
+Synonyme und Nebenkeywords nur dort verwenden, wo sie eine echte Nutzerfrage
+beantworten. Ortsnamen in Kontakt- und Anfahrtsangaben korrekt nennen; nicht
+kuenstlich in jedem Absatz wiederholen. Jede H2 braucht einen eigenen
+inhaltlichen Zweck. Anzahl der Vorkommen und Wortzahl bei Wettbewerbsanalysen
+nur mit expliziter Zaehldefinition (z. B. Hauptinhalt oder inklusive Footer)
+vergleichen, niemals daraus Sollwerte ableiten.
+
+Vor neuen Unterseiten eine Keyword-/Intent-Map anlegen: Startseite fuer
+Anbieter, Kernangebot und Hauptort; Team-/Ueber-uns-Seite fuer reale Personen
+und Expertise; Leistungsseiten fuer spezifische Angebote und Fragen;
+Kontaktseite fuer Erreichbarkeit und Wege. Bestehende Ranking-URLs bei
+verfuegbaren Daten pruefen, bevor Themen verteilt werden. Eine Seite darf
+mehrere verwandte Suchanfragen bedienen; es braucht nicht fuer jede
+Keyword-Variante eine URL. SISTRIX-Positionen einzelner Wettbewerber sind
+Beobachtungen, keine isoliert nachgewiesenen Rankingursachen.
+
+Bei Startseiten pruefen, ob die wichtigsten Nutzerfragen bereits im Haupttext
+beantwortet werden: Anbieter und Eignung, Angebot, realer Ort,
+Vertrauensbelege, Kontakt- bzw. Buchungsweg. Eine kurze FAQ nur fuer
+zusaetzliche, belegbar beantwortbare Fragen einsetzen; bereits deutlich
+beantwortete Inhalte nicht als Keyword-Wiederholung duplizieren. Fachbezogene
+Pflichtfragen stehen in der passenden Branchenreferenz.
+
 ## Abschlussprüfung
 
 Keyword-Briefing gegen tatsächliche Stellen in Title, H1, Einstieg, passenden
