@@ -7,14 +7,20 @@ layout: 20_body
 <nte-navbar class="style-default fixed autoborder autoshadow" scroll-threshold="500" style="--spacer-height: 104px">
 
 
-    <nte-navbar-line class="style-default" style="--brand-height: 64px">
-        <a slot="start" class="brand-logo" href="/" aria-label="{{ site.data.general.standorte.default.name | default: site.data.general.logoalt }}">
-            <img
+    <nte-navbar-line class="style-default" style="--brand-height: 64px;">
+        <a slot="start" class="brand-logo" style="--nt-navbar-brand-logo-aspect-ratio: 3 / 1;" href="/" aria-label="{{ site.data.general.standorte.default.name | default: site.data.general.logoalt }}">
+            <!-- Image: -->
+            <!--img
                 src="/assets/logo64t.png"
                 alt="{{ site.data.general.logoalt | default: site.data.general.standorte.default.name }}"
                 class="loader-image"
                 height="64"
-            />
+            /-->
+            <!-- bei Textlogo -->
+            <div style="font-size: 1.1em;float:right" class="m-2 text-black">
+                <div style="font-size: 1.6em">{{ site.data.general.logoalt }}</div>
+                <div style="font-size: 1.1em">{{ site.data.general.fachrichtung}}</div>
+            </div>
         </a>
 
         <nte-nav

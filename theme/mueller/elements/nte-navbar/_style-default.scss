@@ -9,6 +9,24 @@ nte-navbar.style-default.autoborder {
   border-bottom: var(--nt-border-width) solid var(--nt-border);
 }
 
+// Gibt dem Brand-Bereich die freie Zeilenbreite, während Navigation und Burger ihre Inhaltsbreite behalten.
+nte-navbar-line.style-default::part(start) {
+  flex: 1 1 auto;
+}
+
+// Hebt die allgemeine 200px-Brandbreite auf, damit insbesondere Textlogos den gesamten Start-Part nutzen.
+nte-navbar-line.style-default > .brand-logo[slot="start"] {
+  inline-size: 100%;
+  block-size: var(--brand-height);
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+// Lässt bei Bildlogos die feste Höhe zusammen mit dem Brand-Seitenverhältnis die Breite bestimmen.
+nte-navbar-line.style-default > .brand-logo[slot="start"]:has(> img) {
+  inline-size: auto;
+}
+
 nte-navbar.style-default.autoshadow,
 nte-navbar.style-default.is-scrolled {
   box-shadow: var(--nte-navbar-shadow);
