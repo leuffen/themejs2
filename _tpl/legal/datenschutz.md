@@ -4,7 +4,7 @@ title: Datenschutz
 description: "Ihre Daten sind bei uns sicher! \U0001F512 Datenschutz nach DSGVO –
   vertraulich, transparent & evidenzbasiert. Mehr erfahren auf unserer Datenschutz-Seite."
 order: 0
-body_class: ~
+layout: legal/legal
 image: ""
 ptags:
   - footernav

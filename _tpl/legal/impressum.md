@@ -3,7 +3,7 @@ description: "Impressum von Dr. med. Tim Raven – Facharzt für Orthopädie und
 permalink: /impressum
 published: true
 title: Impressum
-body_class: ~
+layout: legal/impressum
 order: 0
 image: ""
 ptags:

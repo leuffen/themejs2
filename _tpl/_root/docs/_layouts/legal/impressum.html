@@ -4,7 +4,7 @@ layout: default
 
 
 
-<h2 layout="ntl-2col">Pflichtangaben</h2>
+<h2 layout=".prose">Pflichtangaben</h2>
 
 <p>
     <span class="fw-bold">{{ site.data.general.standorte.default.name}}</span><br>
@@ -24,7 +24,7 @@ layout: default
 
 {{ content }}
 
-<h2 layout=".container">Design & Umsetzung</h2>
+<h2 layout=".prose">Design & Umsetzung</h2>
 <div class="row">
     <div class="-md:col-12 md:col-6 pb-2">
         <a href="https://leuffen.de/"><img style="width: 150px" src="/assets/leuffen/leuffen-logo-big.svg" alt="leuffen.de logo"></a>
@@ -38,8 +38,8 @@ layout: default
 
 
 
-<h2 layout="ntl-2col">Bildnachweise</h2>
-<p class="mt-2">
+<h2 layout=".prose">Bildnachweise</h2>
+<p class="mt-2 " style="margin-bottom: 10rem">
     {% if site.data.general.bildnachweise %}
     {{ site.data.general.bildnachweise}}
     {% else %}
