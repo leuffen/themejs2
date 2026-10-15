@@ -1,11 +1,21 @@
 ---
 name: migrate-to-themejs2
-description: Migriert Cheche-artige ThemeJS1-/Webpack-Websites in die ThemeJS2-/Vite-Struktur und weist vollständig nach, dass Seiten, redaktionelle Texte, Links und Bilder unverändert übernommen wurden. Verwenden, wenn ein bestehendes Kunden-Repository auf die bei Osman2 eingesetzte ThemeJS2-Projektform gehoben werden soll; nicht für reine Theme-Entwicklung ohne Inhaltsmigration.
+description: Migriert ThemeJS1-Kundenwebsites und alte Shiller-Vorlagen auf ThemeJS2, ohne redaktionelle Inhalte zu verlieren. Verwenden für vollständige Cheche-/Webpack-Projektmigrationen sowie für Header-, Dateinamen-, Zielpfad- und Content-Reworks unter _tpl/, insbesondere _tpl/mueller/, oder die Überarbeitung dieser Migrationsregeln; nicht für reine SCSS-/Komponentenentwicklung.
 ---
 
 # Migrate to theme.js 2
 
 Migriere die Website-Struktur, niemals den Inhalt. Jeder redaktionelle Text, jede Seite und jedes Bild aus dem Ausgangsstand muss im Ziel nachweisbar vorhanden sein. Eine technisch erfolgreiche Build-Ausgabe genügt nicht als Migrationsnachweis.
+
+## Arbeitsmodus vor der Bearbeitung festlegen
+
+Unterscheide vollständige Kundenprojektmigration, Rework einzelner Shiller-Vorlagen und reine Regelpflege. Ein Auftrag zu `_tpl/mueller/` ist keine Freigabe, das gesamte Theme-Repository umzubauen.
+
+- **Shiller-Vorlagen oder deren Migrationsregeln:** Lies [references/shiller-template-rework.md](references/shiller-template-rework.md) vollständig. Lade zuerst den dort verlinkten aktuellen Shiller-Skill und Dateivertrag; prüfe dann die vorhandenen Müller-Dateien gegen die dort genannten bereits migrierten Scheche-/ThemeJS2-Muster. Bearbeite zuerst Header, Dateinamen und Zielzuordnung und erst danach den beauftragten Content. Unterscheide `shiller.tags`/`target` in Vorlagen von `shiller.source` in installierten Markdown-Dateien. Die Reference enthält die konkreten Bereinigungsregeln, Abschnittszuordnungen und Prüfungen.
+- **Nur den Skill überarbeiten:** Nutze die Dateien ausschließlich als Analysebeispiele und ändere nur diesen Skill samt zugehörigen References und Metadaten. Keine Vorlagenmigration ausführen, keine `.old/` oder `.migration/` anlegen und keine Tests, Abhängigkeiten oder Builds ungefragt ändern.
+- **Vollständiges Kundenprojekt migrieren:** Befolge den nachstehenden bestehenden Projektablauf einschließlich Sicherung, Inventar, Audit und Build. Die schlankere Vorlagenprüfung ersetzt diesen Nachweis nicht.
+
+Die folgenden Abschnitte zur Vorbereitung, zum Zielgerüst, zur Migration und zum Audit gelten für die vollständige Kundenprojektmigration. Beim Vorlagen-Rework gilt stattdessen der abgegrenzte Ablauf der verlinkten Reference; Inhaltsschutz und Freigaben für neue Komponenten bleiben in beiden Modi verbindlich.
 
 ## Verbindliche Vorbereitung
 
