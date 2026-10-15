@@ -177,6 +177,83 @@ gedacht, nicht zur Wiederholung von Keywords. In der lokalen SEO-Pruefung
 das primaere Keyword zusammen mit dem echten Ort im HTML-Title und in
 der H1 sicherstellen; Synonyme im Text natuerlich einsetzen.
 
+## Fachrichtungsprofile und Beschwerde-Keywords
+
+Die allgemeinen zwoelf Patientenfragen gelten fuer jede Praxis. Vor dem
+Schreiben Fachrichtung, Standort, belegtes Leistungsspektrum und tatsaechliche
+Suchintention bestimmen. Je Fachrichtung die folgenden Themen als **Kandidaten**
+pruefen, nicht als Pflichtliste in den Startseitentext kopieren. Nur wirkliche
+Angebote, patientenverstaendliche Begriffe und bestaetigte Aussagen nennen.
+
+| Fachrichtung | Frueh sichtbare Orientierung | Beschwerde-, Leistungs- und Entscheidungsfragen |
+| --- | --- | --- |
+| Allgemeinmedizin / Hausarzt | Grundversorgung, Ort, Patientenkreis, Termin- und Akutweg | Vorsorge, Impfungen, Hausbesuche (nur falls angeboten); typische Anlaesse wie Kopfschmerzen, Bluthochdruck, Diabetes oder Bauchschmerzen nur bei passendem medizinischen Kontext |
+| Zahnmedizin | Zahnarzt und Ort, Behandlungsspektrum, Terminweg | Prophylaxe/Zahnreinigung, Wurzelbehandlung, Implantate; bei Zahnschmerzen akuten Kontaktweg erklaeren; Notdienst ausschliesslich bei bestaetigter Verfuegbarkeit, Kosten und Angstpatienten-Angebote nur belegt |
+| Dermatologie | Hautarzt und Ort, medizinische/gegebenenfalls aesthetische Ausrichtung | Akne, Neurodermitis, Schuppenflechte, Hautkrebsfrueherkennung, Allergologie, Laser; krankheitsbezogene und aesthetische Suchintentionen unterscheiden |
+| Orthopaedie | Orthopaede und Ort, konservative/operative Ausrichtung, Terminweg | Ruecken-, Knie-, Schulterbeschwerden, Bandscheibenvorfall, Arthrose; besondere Expertise und tatsaechliche Behandlungspfade praezisieren |
+| Gynaekologie | Frauenarzt/Frauenaerztin und Ort, Patientinnenkreis und Zugang | Vorsorge, Schwangerschaft, Verhuetung, Wechseljahre, Endometriose; Neuaufnahme und Versicherungsbedingungen frueh nennen, soweit belegt |
+| Kinder- und Jugendmedizin | Kinderarzt und Ort, Altersgruppen, Akut- und Terminweg | Vorsorgen/U-Untersuchungen, Impfungen, Infekte, Fieber, Hand-Mund-Fuss; Hinweise fuer Eltern zu Aufnahme, Akutsprechstunde und benoetigten Unterlagen, wenn bestaetigt |
+
+### Suchvolumen, Suchintention und Platzierung
+
+SISTRIX-Stichprobe vom 2026-10-15, Deutschland, geschaetzte monatliche
+Suchnachfrage nach **exakten Suchformulierungen**; kein vollstaendiges
+Keyword-Set und keine zeitlos gueltigen Sollwerte:
+
+| Fachgebiet | Gepruefte Suchbegriffe ohne Ort (monatlich) |
+| --- | --- |
+| Allgemeinmedizin | Kopfschmerzen 40.700; Diabetes 34.800; Bluthochdruck 30.600; Bauchschmerzen 19.700 |
+| Zahnmedizin | Zahnfleischentzuendung 37.800; Weisheitszaehne 23.900; Wurzelbehandlung 23.500; Zahnreinigung 14.500; Zahnschmerzen 11.000; Zahnimplantate 4.200 |
+| Dermatologie | Neurodermitis 94.300; Schuppenflechte 56.500; Hautkrebs 46.500; Haarausfall 20.400; Akne 13.700 |
+| Orthopaedie | Arthrose 119.000; Bandscheibenvorfall 103.000; Rueckenschmerzen 43.000; Knieschmerzen 37.000 |
+| Gynaekologie | Endometriose 179.000; Wechseljahre 33.300; Schwangerschaft 27.000; Regelschmerzen 3.100 |
+| Kinderheilkunde | Hand-Mund-Fuss 93.300; Dreitagefieber 3.700; U-Untersuchung 1.000; Fieber Kind 650 |
+
+Begriffe ohne Ort haben oft informierende Suchintention: hohes Volumen
+allein rechtfertigt weder eine eigene Seite noch eine prominente
+Startseitenplatzierung. Fuer eine lokale Praxis-Startseite bleiben
+Fachrichtung plus Ort das primaere Thema; Themen mit eigenstaendiger
+Suchintention koennen in fachlich korrekte Leistungs- oder
+Patienteninformationsseiten gehoeren. Vor Seitenerstellung SERP und
+konkrete Ranking-URL pruefen, vorhandene Seiten nicht kannibalisieren,
+und Beschwerden weder als Diagnosen noch Behandlungsgarantien darstellen.
+Beispielhafte lokale Stichprobe: `Rueckenschmerzen Muenchen` 100
+gegenueber `Rueckenschmerzen` 43.000; `Zahnschmerzen Muenchen` 10
+gegenueber `Zahnschmerzen` 11.000 (SISTRIX, 2026-10-15).
+Unterschiedliche Suchintentionen nicht gleichsetzen.
+
+### Beobachtungen an gut platzierten Startseiten
+
+Aus der SISTRIX-SERP-Stichprobe fuer Berlin (Hautarzt, Orthopaede,
+Frauenarzt, Kinderarzt) und Koeln (Zahnarzt) sowie einem
+Startseiten-Textabgleich am 2026-10-15:
+
+- `orthopaedie-in-berlin.com` (Orthopaede Berlin, Position 2)
+  nennt Orthopaedie/Unfallchirurgie und Spezialfusssprechstunde,
+  aber im abgerufenen redaktionellen Startseitentext keine ausfuehrliche
+  Beschwerdeliste wie Rueckenschmerzen oder Bandscheibenvorfall.
+- `hautarztpraxis-bergmann.de` (Hautarzt Berlin, Position 4)
+  nennt unter den Leistungen Akne, Rosazea, entzuendliche
+  Hauterkrankungen und Hautkrebsvorsorge; zusaetzlich echte
+  Detailseiten fuer Fachgebiete und Leistungen.
+- `frauenarztpraxis-berlin.de` (Frauenarzt Berlin, Position 2)
+  zeigt schon in der Navigation Schwangerschaft, Verhuetung,
+  Wechseljahre und andere Versorgungsanliegen. Im Hauptbereich
+  stehen Name, Facharztqualifikation, Sprechzeiten, Akutweg
+  sowie die Einschraenkung bei Neupatientinnen im Vordergrund.
+- `drkaisostmann.de` (Kinderarzt Berlin, Position 3)
+  nennt Impfungen, Vorsorge, akute Erkrankungen, Hausbesuche
+  und Telemedizin statt einer langen Liste einzelner
+  Infektionskrankheiten.
+
+Diese vier Beispiele zeigen **verschiedene funktionierende
+Darstellungsweisen**, nicht die Ursache ihrer Platzierungen.
+Die Positionen gelten nur fuer die dokumentierte Stichprobe.
+Navigation und Footer getrennt vom redaktionellen Haupttext
+beurteilen; vermeintliche 'above the fold'-Befunde ohne
+Viewport-Pruefung nicht behaupten. Aus weiteren, nicht
+abrufbaren Startseiten keine konkreten Keyword-Vorkommen ableiten.
+
 ## Privatpraxis und Patientenkreis
 
 Wenn der Kontext eine reine Privatpraxis für privat Versicherte und
