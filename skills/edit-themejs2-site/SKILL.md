@@ -6,8 +6,7 @@ description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines
 # ThemeJS2-Projektdateien bearbeiten
 
 1. Lies die Projektkonfiguration `.shiller.yml` im Document Root, falls vorhanden, und die projektspezifischen Informationen aus der dort genannten `context_file`. Relative Konfigurationspfade beziehen sich auf den Document Root. Prüfe für jede zu bearbeitende Markdown-Datei das Jekyll Front Matter einschließlich `schiller`. Der `schiller`-Block bleibt in installierten Markdown-Dateien erhalten.
-2. Falls `schiller.instructions` angegeben ist, lies **alle** referenzierten Anleitungen vor dem Editieren. `tpl:/pfad` bezeichnet eine Datei relativ zu `template_dir` aus `.shiller.yml`; die Anleitungen gehören zum installierten npm-Paket und werden nicht als Website-Dateien kopiert. Fehlt eine Referenz, melde den Pfad konkret und erfinde keine Regeln.
-3. Bearbeite die Datei im Projekt unter ihrem installierten Zielpfad. `_tpl/_root/` ist die Vorlage für die Grundinstallation; andere Dateien direkt unter `_tpl/` können per `schiller.tags` ausgewählt werden. `schiller.target` ist immer relativ zum Document Root: `index.md` bezeichnet etwa `docs/index.md`; verschiedene Varianten können denselben Zielpfad anbieten. Der `docs/`-Baum aus `_tpl/_root/` wird in den gewählten Document Root kopiert, andere `_root`-Dateien in dessen Projektwurzel. Beachte, dass erneutes `schiller init` oder `schiller install` vorhandene Ziele überschreibt.
+2. Lade vor einer Inhaltsänderung die passenden `page-specific-rules` und Seitentyp-References. `schiller.instructions` ist kein unterstützter Regelkanal und darf weder ausgewertet noch neu erzeugt werden. Maßgeblich sind Dateipfad, `shiller.source` (falls vorhanden) und tatsächliche Verwendung.
 4. Erhalte Jekyll Front Matter, Permalinks, Layout-Kette, Liquid-Includes, Überschriftenhierarchie und Kramdown-Attribute. Wähle vorhandene `ntl-*`-Layouts und `nte-*`-Elemente sowie Standard-Markdown vor neuen HTML-Strukturen. Für `layout`-Attribute lies [Content Pane Layout](../content-pane-layout/SKILL.md) und [Content Pane Usage](../content-pane-usage/SKILL.md); für responsive Klassen und `style-{breakpoint}` lies [TrunkJS Responsive](../trunkjs-responsive/SKILL.md).
 5. Prüfe betroffene Dateien auf gültiges Front Matter, auflösbare Includes und Anleitungen, interne Links und die tatsächliche Darstellung an schmalen und breiten Viewports. Bei Änderungen an Theme-Styles, gemeinsamen Komponenten oder öffentlich genutzten Include-Pfaden gelten zusätzlich die Regeln des jeweiligen Quell-Repositories; ändere diese Strukturen nicht beiläufig bei einer Seitenbearbeitung.
 
@@ -23,6 +22,42 @@ Bei bloßer Übernahme oder Aktualisierung bestehender Inhalte bleibt die
 vorhandene Struktur unverändert; keine CTA-Section ergänzen oder verschieben.
 
 ## Verbindliche Inhaltsregeln
+
+### Bestehende Seiten: nur Text ändern (Structure Lock)
+
+Bei Kontextwechsel, Datenkopie, Kundenanpassung oder redaktionellem Austausch
+bestehender Markdown-Dateien ist die Ausgangsdatei die verbindliche
+Strukturvorlage. Ersetze ausschließlich sichtbare Textinhalte und ausdrücklich
+beauftragte inhaltliche Werte (etwa belegte Kontaktdaten oder Linkziele).
+Bewahre Front-Matter-Begrenzer `---`, Einrückung, Schlüssel, Datentypen,
+Reihenfolge und Schachtelung; ändere weder `schiller`/`shiller`-Metadaten
+noch Layout-, Style-, Slot-, Formular- oder Komponentenattribute. Markdown-
+Marker und ihre Anzahl/Position bleiben bestehen: insbesondere `#` bis
+`######`, Listenmarker `-`, Blockquotes `>`, Trenner `---`,
+Kramdown-Zeilen `{: ... }`, Liquid-Tags, HTML und eigenständige
+`#[...]`-Shortcuts. Ersetze einen Shortcut niemals durch HTML oder
+normalen Text; ändere darin weder Selector, Tag, Klassen, Attribute,
+Anführungszeichen noch Klammern. Inhalt hinter Überschriften oder in
+vorhandenen Textabsätzen darf geändert werden, nicht aber die Marker oder
+Abschnittsgrenzen. Bestehende Section-Reihenfolge, Hierarchie,
+Layouts und Style-Varianten sind unveränderlich.
+
+Zusätzliche Elemente oder Duplikate sind nur zulässig, wenn der konkrete
+Auftrag sie verlangt; kopiere dafür einen vollständigen passenden
+Originalblock samt Markern/Attributen, ohne die Struktur innerhalb des
+Blocks umzuformen. Ein allgemeiner Wunsch nach neuen Kontexttexten
+autorisiert keine neuen Sections, CTA, Layoutwechsel, Normalisierung
+des YAML-Headers, automatische Markdown-Formatierung oder Migration.
+Falls der neue Text nicht in die vorhandene Struktur passt, stoppe die
+betroffene Stelle und melde den Konflikt statt sie kreativ umzubauen.
+
+Vergleiche vor Abschluss Ausgangsdatei und Ergebnis zeilenweise; jede
+Änderung außerhalb der freigegebenen Text-/Datenwerte ist rückgängig zu
+machen. Prüfe besonders Front-Matter-Grenzen und -Schlüssel, Überschriften-
+marker, Kramdown-Attributblöcke, `#[...]`-Zeilen, Liquid, Sections,
+Style- und Layoutwerte. Keine Prüfung als bestanden melden, wenn
+unbeabsichtigte Strukturänderungen übrig sind.
+
 
 Erhalte die vorhandene technische Struktur der Zieldatei und passe nur
 Inhalte an den Projektkontext an. Formuliere sachlich und knapp, vermeide

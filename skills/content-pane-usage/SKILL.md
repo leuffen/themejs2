@@ -18,6 +18,21 @@ Whenever an existing or proposed `layout` attribute is involved, also use `conte
 
 For development of custom elements that route sections into slots, consult the upstream TrunkJS `content-pane-content-elements` skill; this packaged skill covers website authoring.
 
+## Bestehende Markdown-Dateien unverändert strukturieren
+
+Bei reiner Text-/Kontextanpassung keine Layout-Transformation ausführen.
+Alle Überschriftenmarker, Trenner, Kramdown-Attribute samt Position,
+Content-Pane-Section-Grenzen und `#[...]`-Shortcut-Zeilen exakt
+beibehalten. Bei `#[...]` niemals `#`, `[`, `]`, Tag, Selector,
+Klassen oder Attribute austauschen, als Markdown-Link deuten oder zu
+HTML umschreiben. Sichtbaren Text nur dort ersetzen, wo er bereits
+vorgesehen ist. Neue oder duplizierte Blöcke ausschließlich auf
+ausdrückliche Anweisung und mit intakter Syntax des Originals.
+Vor Abschluss den Diff auf Änderungen an dieser Struktur prüfen;
+unbeauftragte Abweichungen rückgängig machen. Regeln für das
+Neuanlegen oder Migrieren sind keine Freigabe zur Umgestaltung einer
+bestehenden Seite.
+
 ## Basic usage
 
 ```html
