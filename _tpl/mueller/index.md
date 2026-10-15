@@ -71,12 +71,15 @@ Für weitere Informationen oder zur Terminvereinbarung kontaktieren Sie uns bitt
 ![](https://cdn.leuffen.de//leu-stock/v2/69/131-86_gfedcba/AdobeStock_319898261.webp)
 
 ## Werden Sie Teil unseres Teams
-{: layout="ntl-2col" data-kicker="Jobs & Bewerbung" }
+{: layout="ntl-2col" data-kicker="Jobs & Bewerbung" section-style="--cols: 8;" }
+
 ![](https://cdn.leuffen.de//leu-stock/v2/147/c_gfedcba/AdobeStock_131548362.webp)
 
 Wir suchen neue Mitarbeiter für unser Team. Werden Sie Teil unseres Teams und unterstützen Sie uns bei der medizinischen Versorgung unserer Patienten. Wir freuen uns auf Ihre Bewerbung.
 
 [Offene Stellen & Bewerbung](/karriere){: .btn .btn-primary .btn-lg .mb-3}
+
+
 
 
 
