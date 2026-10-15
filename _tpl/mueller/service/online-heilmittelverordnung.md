@@ -7,7 +7,7 @@ published: true
 title: Online Heilmittelverordnung
 shiller:
   tags: [mueller]
-  target: online-heilmittelverordnung.md
+  target: service/online-heilmittelverordnung.md
 ---
 ## Jetzt Heilmittelverordnung für Wiederholungstermin bestellen!
 {: layout="ntl-2col" data-kicker="Online Heilmittelverordnung" }

@@ -9,7 +9,7 @@ published: true
 title: Informationen für Zuweiser / Ärzte
 shiller:
   tags: [mueller]
-  target: online-zuweiser.md
+  target: service/online-zuweiser.md
 ---
 ## Für dringliche Vorstellung / Anfragen bezüglich eines Ihrer Patienten
 {: layout="ntl-2col" data-kicker="Informationen für Zuweiser / Ärzte" }

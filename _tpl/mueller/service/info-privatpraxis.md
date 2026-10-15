@@ -9,7 +9,7 @@ published: true
 title: Ablauf & Kosten
 shiller:
   tags: [mueller]
-  target: info-privatpraxis.md
+  target: service/info-privatpraxis.md
 ---
 ## Ihr Weg zur Behandlung
 {: layout="ntl-2col" data-kicker="PATIENT WERDEN" }

@@ -7,7 +7,7 @@ published: true
 title: Videosprechstunde
 shiller:
   tags: [mueller]
-  target: online-videosprechstunde.md
+  target: service/online-videosprechstunde.md
 ---
 ## Bequem von zu Hause aus mit Ihrem Arzt sprechen!
 {: layout="ntl-2col" data-kicker="Videosprechstunde" }
