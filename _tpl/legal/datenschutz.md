@@ -1,19 +1,17 @@
 ---
-layout: legal/legal
 permalink: /datenschutz
-lang: de
-ptags:
-- footernav
-- mininav
 title: Datenschutz
-pid: legal/datenschutz
 description: "Ihre Daten sind bei uns sicher! \U0001F512 Datenschutz nach DSGVO –
   vertraulich, transparent & evidenzbasiert. Mehr erfahren auf unserer Datenschutz-Seite."
 order: 0
 body_class: ~
 image: ""
-_shiller_tags: base
-_shiller_instructions: false
+ptags:
+  - footernav
+  - mininav
+shiller:
+  tags:
+    - base
 ---
 Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten
 vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
