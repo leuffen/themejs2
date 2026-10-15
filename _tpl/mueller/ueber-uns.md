@@ -1,41 +1,26 @@
 ---
-_shiller_tags: base
 description: 'Ihr Zahnarzt in Hannover-Südstadt:  Dr. M.C. Müller . Kontaktieren Sie
   uns für Ihren Termin!'
-_schiller_instructions: |-
-  Erstelle eine H2 Section für jeden Arzt. Aktualisiere die Texte. Erstelle eine h3 section unter Unsere Mitarbeiter für jeden Mitarbeiter. Aktualisiere die Texte. 
-
-icon: bi bi-phone
-image: ~
-lang: de
 layout: article
 order: 80
-permalink: /ueber-uns
-pid: pages/ueber-uns
 ptags:
 - nav
 published: true
 short_title: Über uns
-body_class: ~
-skipHead: false
 title: Über uns
-type: article
+shiller:
+  tags: [mueller]
+  target: ueber-uns.md
 ---
-## Ein kompetentes Team für Ihre Augengesundheit
-{: layout="use: #sec-card-2col"}
-
-> Ein Team mit Leidenschaft
-
+## Ein Team mit Leidenschaft
+{: layout="ntl-2col" data-kicker="Ein kompetentes Team für Ihre Augengesundheit" }
 ![](https://cdn.leuffen.de//leu-stock/v2/60/418-279_gfedcba/AdobeStock_99592855.webp)
 
 
 In unserer Praxis werden Sie von Augenarzt Bassel Osman behandelt. Er ist ein erfahrener Facharzt für Augenheilkunde. Unterstützt wird er durch ein intensiv geschultes und langjährig erfahrenes Team von medizinischen Fachangestellten, spezialisiert auf Makuladiagnostik und Lasertherapie. 
 
-## Bassel Osman
-{: layout="use: #sec-card-2col"}
-
-> Facharzt für Augenheilkunde
-
+## Facharzt für Augenheilkunde
+{: layout="ntl-2col" data-kicker="Bassel Osman" }
 ![Bild des Arztes](https://cdn.leuffen.de/hyperpage-components/v1.0//img/default-person-male.jpg)
 
 Als Facharzt für Augenheilkunde führe ich eine spezialisierte Praxis in Wiesbaden Mitte. Ihre Augen sind bei uns in sicheren Händen. In meiner Praxis bieten wir neben allgemeines Spektrum auch eine professionelle Makuladiagnostik und Behandlung, Lasertherapie und Intravitreale Injektionen.
@@ -56,7 +41,7 @@ Als Facharzt für Augenheilkunde führe ich eine spezialisierte Praxis in Wiesba
 
 
 ## Unsere Mitarbeiter
-{: layout="use: #sec-multi-card; cols:3; aspect-ratio: 1/1"}
+{: layout="ntl-card-row" section-style="--cols: 4;"}
 
 ### Vorname Name1
 
@@ -79,7 +64,7 @@ Medizinische Fachangestellte
 
 
 ## Kontakt
-{: layout="use: #cta-base"}
+{: layout="ntl-2col.style-cta"}
 
 Informationen zu Behandlungen, Sprechstundenzeiten und Kontaktdaten finden Sie auf den nachfolgenden Seiten. 
 

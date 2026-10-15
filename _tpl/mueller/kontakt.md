@@ -1,15 +1,16 @@
 ---
-lang: de
 body_class: theme-mueller
 published: true
 layout: website
 title: Kontakt & Anfahrt
 description: Kontakt und Anfahrt zur Arztpraxis Dr. med. Elmar Scheche,
   Norddeicher Straße 34, 26506 Norden.
-permalink: /kontakt
 ptags:
 - nav
 order: 99
+shiller:
+  tags: [mueller]
+  target: kontakt.md
 ---
 
 ## Unsere Arztpraxis befindet sich in Norden
