@@ -31,7 +31,6 @@ Praxis in Norden. Ihre Gesundheit ist bei uns in sicheren Händen. In meiner Pra
 bieten wir neben dem allgemeinen Spektrum auch eine professionelle Behandlung von
 Adipositas und Diabetes.
 
-| Zeitraum | Beruflicher Werdegang |
 | --- | --- |
 | seit 15.12.1994  | Niedergelassen in eigene Praxis in der Osterstr. 152 in Norden |
 | seit 2000  | Kooperationspartner des Adipostiaszentrums Nordwest |
