@@ -1,9 +1,9 @@
 ---
-name: edit-themejs2-site
+name: edit-site
 description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines aus @leuffen/themejs2 installierten Projekts. Bei jeder solchen Website-Bearbeitung diesen Skill lesen; für responsive Klassen und Content Pane zusätzlich die passenden Skills im selben Paket.
 ---
 
-# ThemeJS2-Projektdateien bearbeiten
+# Website-Dateien bearbeiten
 
 1. Lies die Projektkonfiguration `.shiller.yml` im Document Root, falls vorhanden, und die projektspezifischen Informationen aus der dort genannten `context_file`. Relative Konfigurationspfade beziehen sich auf den Document Root. Prüfe für jede zu bearbeitende Markdown-Datei das Jekyll Front Matter einschließlich `schiller`. Der `schiller`-Block bleibt in installierten Markdown-Dateien erhalten.
 2. Lade vor einer Inhaltsänderung die passenden `page-specific-rules` und Seitentyp-References. `schiller.instructions` ist kein unterstützter Regelkanal und darf weder ausgewertet noch neu erzeugt werden. Maßgeblich sind Dateipfad, `shiller.source` (falls vorhanden) und tatsächliche Verwendung.
