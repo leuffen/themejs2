@@ -34,6 +34,7 @@ Reference laden. Die Auswahl erfolgt **vor** jeder Inhaltsänderung.
 
 | Dateimuster / Verwendung | `shiller.source`-Muster | Regelbeschreibung | Reference | Wann laden |
 | --- | --- | --- | --- | --- |
+| `**/*.md` unter `docs/`, einschließlich `index.md` und Unterseiten | `**/*.md` | Porträts nur bei eindeutig belegtem Personenbezug; generische Bilder aus Kontext und konsistente Motivzuordnung über Seiten hinweg | [Bildregeln](references/images.md) | Bei jedem Öffnen, Anlegen, Kopieren oder Bearbeiten einer Markdown-Datei |
 | `_data/defaults.yaml` im Document Root | `_root/docs/_data/defaults.yaml` | Vollständig bytegetreu erhalten; keine individuellen Anpassungen | [Defaults](references/defaults.md) | Beim Öffnen, Anlegen, Kopieren oder Ändern |
 | `_data/general.yml` oder `_data/general.yaml` | `_root/docs/_data/general.yml` | Praxisname, optionaler Zusatzname, SEO-Titel und Beschreibung anhand des Projektkontexts | [General](references/general.md) | Vor jeder Inhaltsänderung |
 | `index.md` im Document Root oder tatsächliche Verwendung als Haupt-Startseite | `**/index*.md` bei eindeutigem Startseiten-Template | SEO-Titel aus dem Projektkontext und zusätzliche belegte Nutzerfragen nur im vorhandenen Willkommensblock oder als zusätzliche Accordion-Einträge in einer bereits vorhandenen FAQ-Section | [Startseite](references/index.md) | Vor jeder Inhaltsänderung |
