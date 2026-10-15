@@ -2,13 +2,22 @@ pagebuilder: https://pagebuilder.leuffen.de/e/t-raven-k201/default
 site_base_url: "https://www.undefined-domain.de"
 subscription_id: t-raven-k201
 
+## Page-Title Suffix - Wird an den Title angefügt (außer für die Startseite - da wird nur dieser title genommen)
 title: Dr. med. Tim Raven – Evidenzbasierte Orthopädie, Sporttraumatologie und regenerative Medizin
-name: Dr. med. Tim Raven
-name2: Facharzt für Orthopädie und Unfallchirurgie · aktuell tätig im OCP Darmstadt
+
+## Wird als Meta-Description genommen, wenn keine angegeben ist.
 desc: Evidenzbasierte Medizin des Bewegungsapparates mit Schwerpunkt Sporttraumatologie, funktioneller Diagnostik, gelenkerhaltenden Therapiekonzepten und regenerativer Medizin.
-fachrichtung: Facharzt für Orthopädie und Unfallchirurgie
+
+## Wenn Textlogo: Dann ist das das Logo dass in der Navi angezeigt wird. Wenn es ein Bild-Logo gibt, is dies der Alt-Text
 logoalt: Dr. med. Tim Raven
-logo: /assets/logo.webp
+
+## Nur für Textlogo: Das ist die Unterschrift unter dem Logo
+fachrichtung: Facharzt für Orthopädie und Unfallchirurgie
+
+## Normalerweise /assets/logo128t.svg oder ~ wenn nicht vorhanden.
+logo: /assets/logo128t.svg
+
+
 datenschutzbeauftragter: null
 bildnachweise: |
     <br>Bilder von <a href="https://stock.adobe.com">Adobe Stock</a>
