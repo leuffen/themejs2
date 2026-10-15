@@ -1,26 +1,20 @@
 ---
 description: ""
-icon: bi bi-phone
-image: ~
-lang: de
 layout: article
 order: 71
-permalink: /online-patienteninformation
-pid: service/online-patienteninformation
 ptags: 
     - nav
 published: true
-skipHead: false
-body_class: ~
 title: Online Patienten-Infos
 short_title: Infos
-type: article
-_schiller_instructions: ""
+shiller:
+  tags: [mueller]
+  target: online-patienteninformation.md
 ---
 
 
 ## Arzt-Direkt-App
-{: layout="use: #sec-card-2col; cols: 6"}
+{: layout="ntl-2col"}
 
 ![](https://cdn.leuffen.de//hausarztpraxis-hallepape-k113/v2/1/a_cba/Instagram-Post-arzt-direkt_1.webp){: onclick="window.open('https://www.arzt-direkt.de/')" style="cursor: pointer;"}
 
@@ -48,21 +42,17 @@ Sparen Sie Papier und Zeit! Arzt-direkt ermöglicht den sicheren Austausch von D
 Nie wieder einen Termin verpassen! Arzt-direkt sendet Ihnen rechtzeitig Erinnerungen an bevorstehende Arztbesuche.
 
 
-## Dokumente & Download
-{: layout="use: #sec-card-2col; cols: 12"}
-
-> Hier finden Sie alle wichtigen Dokumente zum Download
-
-
+## Hier finden Sie alle wichtigen Dokumente zum Download
+{: layout="ntl-2col" data-kicker="Dokumente & Download" }
 ---
-{: layout="use: #download-links"}
+{: layout="ntl-card-row"}
 
 [![](https://cdn.leuffen.de//hausarztpraxis-hallepape-k113/v2/3/75-106_cba/Erklarung-DSGVO.webp){: .keep}**Patienteninformation zum Datenschutz**](https://cdn.leuffen.de//hausarztpraxis-hallepape-k113/d/3/Erklarung-DSGVO.pdf)
 [![](https://cdn.leuffen.de//hausarztpraxis-hallepape-k113/v2/2/75-106_cba/Ubernahmeerklarung.webp){: .keep}**Übernahmeerklärung**](https://cdn.leuffen.de//hausarztpraxis-hallepape-k113/d/2/Ubernahmeerklarung.pdf)
 
 
 ## Notfallinformationen
-{: layout="use: #sec-card-2col; cols: 6"}
+{: layout="ntl-2col"}
 
 
 Immer dann, wenn die Situation nicht einzuschätzen ist, Zweifel am Gesundheitszustand des Betroffenen oder gar Lebensgefahr besteht, wählen Sie bitte den Notruf.
@@ -83,15 +73,15 @@ Apothekennotdienst
 ## Öffnungszeiten
 {: .sec-aside .sec-p0 .section-h3 .pt-0 style="padding-top: 0 !important;"}
 
-{% include el/openhours.html %}
+{% include components/site/opening-hours.html class="table opening-hours" %}
 
 
 
 ## Häufig gestellte Fragen
-{: layout="use: #sec-card-2col; cols: 12"}
+{: layout="ntl-2col"}
 
 ---
-{: layout="use: accordion()" class="mt-5"}
+{: layout="nte-accordion" class="mt-5"}
 
 ### Warum biete ich keine vollständige fachärztlich-psychiatrische Versorgung an?
 Um an der Patientenversorgung zu Lasten der Krankenkassen teilzunehmen, ist es möglich, eine Arztpraxis für lediglich einen festgelegten Fachbereich zu führen. Trotz meines ersten Facharzttitels für Psychiatrie und Psychotherapie habe ich mich für die Eröffnung einer allgemeinmedizinischen Praxis entschieden, da ich so die Möglichkeit habe, im gesamten Spektrum der Medizin zu arbeiten. Daher kann ich meinen PatientInnen zwar mit meinem psychiatrischen Wissen dienen, dies allerdings in Umfang und Tiefe nur im Rahmen einer hausärztlichen Versorgung. Für chronische oder schwerwiegende Verläufe verweise ich auf meine Fachkollegen in psychiatrisch/psychotherapeutischer Niederlassung.
@@ -132,7 +122,7 @@ Damit die Lebensqualität chronisch kranker Menschen verbessert wird und um eine
 
 
 ## Erfahren Sie mehr über uns
-{: layout="use: #cta-base"}
+{: layout="ntl-2col.style-cta"}
 
 [Home](/)
 [Kontakt & Anfahrt](/kontakt)

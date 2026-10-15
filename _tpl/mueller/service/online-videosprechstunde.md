@@ -1,28 +1,16 @@
 ---
 description: ""
-icon: bi bi-phone
-image: ~
-lang: de
 layout: article
 order: 71
-permalink: /online-videosprechstunde
-pid: service/online-videosprechstunde
 ptags: ~
 published: true
-skipHead: false
-body_class: ~
 title: Videosprechstunde
-type: article
-_schiller_template: service/online-videosprechstunde
-_schiller_instructions: ""
-_shiller_tags: base
-_shiller_target_pid: service/online-videosprechstunde
+shiller:
+  tags: [mueller]
+  target: online-videosprechstunde.md
 ---
-## Videosprechstunde
-{: layout="use: #sec-card-2col; mobile_reverse: yes "}
-
-> Bequem von zu Hause aus mit Ihrem Arzt sprechen!
-
+## Bequem von zu Hause aus mit Ihrem Arzt sprechen!
+{: layout="ntl-2col" data-kicker="Videosprechstunde" }
 **Die Videosprechstunde ist nur für Patienten verfügbar, die bereits in unserer Praxis bekannt sind.**
 
 So funktioniert's:
@@ -37,22 +25,19 @@ So funktioniert's:
 {: .sec-aside}
 
 ---
-{: layout="use: #e-form" .section-h4  .mt-5}
+{: layout="2;tj-form" .section-h4  .mt-5}
 
-[input type="hidden" name="type" value="Videosprechstunde" .d-none]
-[input type="hidden"  name="Terminart" value="Videosprechstunde" required .mb-3]
-[input type="text"  name="Name" required .mb-3]
-[input type="date" name="Geburtsdatum" required .mb-3]
-[input type="email" name="E-Mail" required .mb-3]
-[input type="tel" name="Telefon" required .mb-3]
-[textarea name="Ihre Nachricht (optional)" .mb-3 style="height: 120px;"]
-[input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required .mb-3]
-[input type="submit" value="Absenden" .btn .btn-primary .btn-lg .mt-3]
-
-
-
+#[input type="hidden" name="type" value="Videosprechstunde"]
+#[input type="hidden"  name="Terminart" value="Videosprechstunde" required]
+#[nte-input type="text"  name="Name" required]
+#[nte-input type="date" name="Geburtsdatum" required]
+#[nte-input type="email" name="E-Mail" required]
+#[nte-input type="tel" name="Telefon" required]
+#[nte-input type="textarea" name="Ihre Nachricht (optional)" style="height: 120px;"]
+#[nte-input type="checkbox" name="Datenschutz" label="Ich akzeptiere die Datenschutzbestimmungen" required]
+#[button type="submit" class="btn btn-primary" > Absenden]
 ## Erfahren Sie mehr über uns
-{: layout="use: #cta-base"}
+{: layout="ntl-2col.style-cta"}
 
 [Home](/)
 [Kontakt & Anfahrt](/kontakt)
