@@ -43,7 +43,8 @@ sich nicht zulasten der Fakten oder der Zielgruppe optimieren.
 
 - Immer: [Fakten, Kontext und Ausgabe](references/context-and-output.md).
 - Beim Schreiben: [Website-Texte](references/website-copy.md).
-- Fuer Suchintention und Metadaten: [SEO](references/seo.md).
+- Für jede Erstellung oder Änderung des Front-Matter-Felds `description` verpflichtend: [SEO](references/seo.md), insbesondere die Regeln für Meta-Descriptions und optionale Unicode-Symbole. Bei einem Verbot von Icons im Projektkontext keine Symbole setzen.
+- Fuer Suchintention und weitere Metadaten: [SEO](references/seo.md).
 - **Nur fuer Arzt- und Zahnarztwebsites** zusaetzlich
   [Patientenansprache](references/medical-patient.md) und
   [DACH-Werberecht](references/medical-legal-dach.md).
