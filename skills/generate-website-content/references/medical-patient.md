@@ -130,6 +130,43 @@ unbestaetigten Praxisangaben erfinden.
 12. Welche nachpruefbaren Vertrauensbelege gibt es, etwa Facharztstatus,
     Lehrpraxis oder fachliche Mitgliedschaften?
 
+### Prioritaet und Platzierung der Antworten
+
+Die zwoelf Fragen sind eine **Pruefliste**, keine Pflicht zu zwoelf
+ausfuehrlichen Antworten oder einem FAQ-Block auf der Startseite.
+Nach Relevanz fuer die konkreten Patienten und bestaetigtem Angebot
+priorisieren:
+
+- **Direkt am Einstieg, moeglichst im ersten sichtbaren Bereich:**
+  Fachrichtung und Versorgung (1), echter Ort (2) sowie ein klarer
+  Termin- oder Kontaktweg (7). Wichtige Ausschluss- oder
+  Zugangsvoraussetzungen, insbesondere Privatpraxis oder Patientenkreis
+  (5/6), dort nennen, wo sie die Entscheidung unmittelbar beeinflussen.
+  "Above the fold" haengt von Bildschirm und Layout ab; keine feste
+  Pixelgrenze oder Garantie fuer einen bestimmten Viewport ableiten.
+- **Im weiteren Startseitentext, schnell auffindbar:** die wichtigsten
+  tatsaechlichen Leistungen (3), behandelnde Personen und belegte
+  Qualifikationen (4/12), Sprechzeiten (8) und gegebenenfalls relevante
+  Akutwege (9). Bei vorhandenen Angeboten auch digitale Services (11)
+  kurz erlaeutern. Informationen nach Nutzerfragen gruppieren statt
+  in jeden Abschnitt dieselben Keywords einzubauen.
+- **Im passenden Abschnitt oder verlinkt auf einer Detailseite:**
+  ausfuehrliche Leistungsbeschreibungen, Lebenslaeufe, Anfahrt und
+  Barrierefreiheit (10), genaue Versicherungsdetails (6) sowie
+  organisatorische Sonderfaelle. Entscheidungsrelevante Bedingungen
+  duerfen nicht ausschliesslich auf Unterseiten verborgen bleiben.
+- **FAQ nur bei Bedarf:** tatsaechlich offene wiederkehrende Fragen
+  mit kurzen, belegten Antworten aufnehmen, sofern sie nicht bereits
+  im Haupttext klar beantwortet sind. Keine FAQ als Rankingpflicht
+  behaupten und keine kuenstlichen Wiederholungen erzeugen.
+
+Nach dem Entwurf fuer jede der zwoelf Fragen dokumentieren: **auf der
+Startseite direkt beantwortet**, **dort kurz beantwortet mit Detail-Link**,
+**auf passende Unterseite verlinkt**, **nicht relevant** oder **Fakt
+offen**. Die wichtigsten Antworten aus Patientensicht muessen ohne
+Suche nach versteckten Unterseiten auffindbar sein. Eine beobachtete
+Top-Platzierung einzelner Praxen beweist keine feste Abschnittsreihenfolge.
+
 Unbekannte Antworten als offen kennzeichnen und gezielt erfragen, nicht
 aus typischen Branchenmustern ableiten. Vertrauen durch konkrete,
 nachweisbare Qualifikationen und transparente Praxisdaten schaffen,
