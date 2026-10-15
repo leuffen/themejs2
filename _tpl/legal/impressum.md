@@ -6,6 +6,9 @@ title: Impressum
 body_class: ~
 order: 0
 image: ""
+ptags:
+  - footernav
+  - mininav
 shiller:
   tags:
     - base
