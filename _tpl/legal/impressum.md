@@ -6,7 +6,6 @@ title: Impressum
 body_class: ~
 order: 0
 image: ""
-_schiller_instructions: |-
 shiller:
   tags:
     - base
