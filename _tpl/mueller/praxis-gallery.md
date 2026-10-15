@@ -6,7 +6,8 @@ ptags:
 published: true
 title: Praxis
 shiller:
-  source: mueller/praxis-gallery.md
+  tags: [mueller]
+  target: praxis-gallery.md
 ---
 ## Unsere Praxis
 {: layout="ntl-2col" .d-none}

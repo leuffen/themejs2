@@ -6,6 +6,9 @@ description: Wir sind spezialisiert auf die Versorgung im Bereich Innere Medizin
 ptags:
     - nav
 order: 10
+shiller:
+  tags: [mueller]
+  target: leistungen.md
 ---
 
 ## Professionelle Diagnostik und Behandlung von Begleiterkrankungen des Diabetes (KHK, Karotisstenose)

@@ -23,16 +23,16 @@ shiller:
 
 [VCard herunterladen](/praxis.vcf){: .btn .btn-primary .btn-lg .w-100 .my-3}
 
-<i class="bi bi-telephone-forward"></i> **Telefon:** <br>[{{site.data.general.phone1_text}}]({{site.data.general.phone1}})
+<i class="bi bi-telephone-forward"></i> **Telefon:** <br>[{{site.data.general.standorte.default.phone1_text}}]({{site.data.general.standorte.default.phone1}})
 
 
 <i class="bi bi-envelope"></i> **E-Mail:**<br>
-[{{site.data.general.email}}](mailto:{{site.data.general.email}})
+[{{site.data.general.standorte.default.email}}](mailto:{{site.data.general.standorte.default.email}})
 
 
 <i class="bi bi-geo-alt"></i> **Anschrift:**<br>
-{{site.data.general.street}}<br>
-{{site.data.general.zip}} {{site.data.general.city}}
+{{site.data.general.standorte.default.street}}<br>
+{{site.data.general.standorte.default.zip}} {{site.data.general.standorte.default.city}}
 
 
 

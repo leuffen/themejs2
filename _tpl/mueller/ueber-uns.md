@@ -6,6 +6,9 @@ description: 'Ein Team mit Leidenschaft: Dr. Elmar Scheche und sein Praxisteam i
 ptags:
 - nav
 order: 90
+shiller:
+  tags: [mueller]
+  target: ueber-uns.md
 ---
 
 ## Über uns
