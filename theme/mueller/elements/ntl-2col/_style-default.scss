@@ -43,15 +43,15 @@
     margin: 0;
   }
 
+  // Lässt Bild und Text auf Desktop dieselbe Flex-Zeilenhöhe bestimmen, damit object-fit die Bildspalte vollständig füllt.
   &:has(> p[slot="aside"].auto)::part(aside) {
-    min-height: clamp(21rem, 34vw, 31rem);
     overflow: hidden;
     background: var(--nt-surface-muted);
   }
 
+  // Sichert auf kleinen Displays unabhängig von der Textlänge ein stabiles Querformat für die gestapelte Bildspalte.
   &[mode="mobile"] {
     &:has(> p[slot="aside"].auto)::part(aside) {
-      min-height: 0;
       aspect-ratio: 4 / 3;
     }
   }
