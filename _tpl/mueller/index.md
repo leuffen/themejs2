@@ -9,8 +9,10 @@ published: true
 short_title: Home
 title: ~
 shiller:
-  tags: [mueller]
+  tags:
+  - mueller
   target: index.md
+  source: mueller/index.md
 ---
 ---
 {: layout="2;ntl-hero.hero-box"}
@@ -27,13 +29,13 @@ shiller:
 ---
 {: .section-h4 layout="3;.button-bar"}
 
-[<i class="bi bi-house-add-fill fs-3"></i>Jetzt als **neuer Patient** anmelden](/online-anmeldung){: .btn .btn-primary}
-[<i class="bi bi-calendar-plus-fill fs-3"></i>Jetzt **Termin** vereinbaren](/termin){: .btn .btn-primary .text-center}
-[<i class="bi bi-people-fill fs-3"></i>**Infos für Zuweiser**](/online-zuweiser){: .btn .btn-primary .text-center}
+[<i class="bi bi-house-add-fill fs-3"></i>Jetzt als **neuer Patient** anmelden](/service/online-anmeldung){: .btn .btn-primary}
+[<i class="bi bi-calendar-plus-fill fs-3"></i>Jetzt **Termin** vereinbaren](/service/online-termin){: .btn .btn-primary .text-center}
+[<i class="bi bi-people-fill fs-3"></i>**Infos für Zuweiser**](/service/online-zuweiser){: .btn .btn-primary .text-center}
 
-[<i class="bi bi-card-heading fs-3"></i>**Rezept** online anfragen](/online-rezept){: .btn .btn-primary .text-center }
-[<i class="bi bi-box-arrow-up-right fs-3"></i>**Überweisung** an Facharzt](/online-ueberweisung){: .btn .btn-primary .text-center}
-[<i class="bi bi-camera-video-fill fs-3"></i>**Videosprechstunde**](/online-videosprechstunde){: .btn .btn-primary .text-center}
+[<i class="bi bi-card-heading fs-3"></i>**Rezept** online anfragen](/service/online-rezept){: .btn .btn-primary .text-center }
+[<i class="bi bi-box-arrow-up-right fs-3"></i>**Überweisung** an Facharzt](/service/online-ueberweisung){: .btn .btn-primary .text-center}
+[<i class="bi bi-camera-video-fill fs-3"></i>**Videosprechstunde**](/service/online-videosprechstunde){: .btn .btn-primary .text-center}
 
 
 
