@@ -7,7 +7,7 @@ published: true
 title: Terminanfrage / Online Termin
 shiller:
   tags: [mueller]
-  target: online-termin.md
+  target: service/online-termin.md
 ---
 ## Jetzt Termin anfragen
 {: layout="ntl-2col" data-kicker="Online Termin vereinbaren" }

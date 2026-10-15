@@ -8,7 +8,7 @@ published: true
 title: VCard
 shiller:
   tags: [mueller]
-  target: vcard.md
+  target: service/vcard.md
 ---
 
 ## Testimonial

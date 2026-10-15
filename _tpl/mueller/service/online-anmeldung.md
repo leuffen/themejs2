@@ -7,7 +7,7 @@ published: true
 title: Online Anmeldung
 shiller:
   tags: [mueller]
-  target: online-anmeldung.md
+  target: service/online-anmeldung.md
 ---
 ## Jetzt als Patient anmelden
 {: layout="ntl-2col" data-kicker="Anmeldung für Patienten" }

@@ -9,7 +9,7 @@ title: Online Patienten-Infos
 short_title: Infos
 shiller:
   tags: [mueller]
-  target: online-patienteninformation.md
+  target: service/online-patienteninformation.md
 ---
 
 

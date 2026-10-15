@@ -7,7 +7,7 @@ published: true
 title: Online-Überweisung
 shiller:
   tags: [mueller]
-  target: online-ueberweisung.md
+  target: service/online-ueberweisung.md
 ---
 ## Jetzt Überweisung für Wiederholungstermin bestellen!
 {: layout="ntl-2col" data-kicker="Online Überweisung" }
