@@ -108,6 +108,38 @@ Dieses Muster ist eine redaktionelle Vorgabe, kein empirischer Rankingbefund.
 Eine systematische SISTRIX-/Wettbewerber-Startseitenanalyse ist ein eigener
 Auftrag. Aus einzelnen gut platzierten Seiten keine Rankingursache ableiten.
 
+## Patientenfragen als Startseiten-Pruefliste
+
+Vor dem Schreiben jeder Arzt- oder Zahnarzt-Startseite die folgenden
+Patientenfragen pruefen. Die wichtigen Antworten in die Hauptabschnitte
+integrieren, nur verbleibende relevante Fragen in einer kurzen FAQ
+beantworten. Nicht alle Fragen als separate FAQ erzwingen und keine
+unbestaetigten Praxisangaben erfinden.
+
+1. Welche Fachrichtung und welche Versorgung bietet die Praxis?
+2. Wo liegt die Praxis, in welcher Stadt und welchem Stadtteil?
+3. Welche Untersuchungen, Behandlungen und Schwerpunkte gibt es?
+4. Welche Aerztinnen und Aerzte behandeln und mit welcher Qualifikation?
+5. Werden neue Patientinnen und Patienten aufgenommen?
+6. Welche Versicherungs- und Abrechnungsarten gelten?
+7. Wie lassen sich Termine buchen oder anfragen?
+8. Welche Sprechzeiten und Kontaktzeiten gelten?
+9. Welche Wege gibt es bei akuten Beschwerden?
+10. Wie funktioniert die Anfahrt und ist die Praxis barrierefrei?
+11. Welche digitalen Services wie Rezepte oder Ueberweisungen gibt es?
+12. Welche nachpruefbaren Vertrauensbelege gibt es, etwa Facharztstatus,
+    Lehrpraxis oder fachliche Mitgliedschaften?
+
+Unbekannte Antworten als offen kennzeichnen und gezielt erfragen, nicht
+aus typischen Branchenmustern ableiten. Vertrauen durch konkrete,
+nachweisbare Qualifikationen und transparente Praxisdaten schaffen,
+nicht durch pauschale Superlative. Zentrale Informationen wie Fachrichtung,
+Standort, Eignung, Kontakt und Terminweg gehoeren unmittelbar auf die
+Startseite. Ein FAQ-Block ist fuer echte zusaetzliche Patientenfragen
+gedacht, nicht zur Wiederholung von Keywords. In der lokalen SEO-Pruefung
+das primaere Keyword zusammen mit dem echten Ort im HTML-Title und in
+der H1 sicherstellen; Synonyme im Text natuerlich einsetzen.
+
 ## Privatpraxis und Patientenkreis
 
 Wenn der Kontext eine reine Privatpraxis für privat Versicherte und
