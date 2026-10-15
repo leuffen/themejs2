@@ -42,6 +42,22 @@ Adipositas und Diabetes.
 |  1981-1987             |  Studium der Humanmedizin, Medizinische Hochschule Hannover |
 {: .table}
 
+
+## Mitarbeiter
+{: layout="ntl-card-row" section-style="--cols: 4;--aspect-ratio: 1/1"}
+
+### Michaela Fattorini
+
+![Platzhalter Ärztin - kein Bild vorhanden](https://cdn.leuffen.de//leu-stock/v2/165/91-87_ba/default-person-female.webp)
+
+MFA
+
+### Nächster Name
+
+![Platzhalter Ärztin - kein Bild vorhanden](https://cdn.leuffen.de//leu-stock/v2/165/91-87_ba/default-person-female.webp)
+
+MFA
+
 ## Kontakt
 {: layout="ntl-2col.style-cta" }
 

@@ -10,8 +10,7 @@ ptags:
   - footernav
   - mininav
 shiller:
-  tags:
-    - base
+  tags: [base, mueller]
 ---
 ### Verantwortliche/r i.S.d. § 18 Abs. 2 MStV
 
