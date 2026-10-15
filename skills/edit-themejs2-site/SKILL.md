@@ -51,3 +51,13 @@ lesen, für Breakpoint-Klassen die
 [Responsive-Content-Beispiele](../trunkjs-responsive/references/themejs2-responsive-content.md).
 Diese Links sind Teil des veröffentlichten npm-Pakets. Ein Skill-Link löst
 allein noch kein automatisches Nachladen durch die bisherige Shiller-Lib aus.
+
+## Verpflichtende dateispezifische Regeln
+
+Bei jedem Öffnen, Lesen, Anlegen, Kopieren oder Ändern einer Datei
+unter `docs/` (auch unter `_tpl/_root/docs/`) unabhängig von der
+Dateiendung zuerst [page-specific-rules](../page-specific-rules/SKILL.md)
+laden und dessen Zuordnungstabelle auf Dateipfad, Wildcards und
+Seitenverwendung anwenden. Alle passenden References vor der
+inhaltlichen Bearbeitung lesen; bei rechtlichen Seiten haben deren
+speziellere Regeln Vorrang, insbesondere vor CTA-Ergänzungen.
