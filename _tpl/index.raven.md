@@ -210,3 +210,10 @@ Die Rückkehr in Training und Wettkampf wird an Funktion und individueller Leist
 ### Werden regenerative Verfahren eingesetzt?
 
 Regenerative Verfahren können je nach Diagnose und Indikation Teil eines Behandlungskonzepts sein. Welche Methode sinnvoll ist, hängt vom konkreten Befund ab.
+
+
+<!-- Die Schluss-Section bietet einen klaren Kontaktweg im Raven-Theme. -->
+## Fragen zu Ihren Beschwerden?
+{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
+
+[Kontakt & Termin](/kontakt){: .btn .btn-accent .btn-lead }

@@ -13,6 +13,15 @@ description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines
 
 Die Kundenvorlage unter `_tpl/_root/docs/_layouts/default.html` verwendet `<tj-content-pane pre-parser="text-block">`. Schreibe einzelne HTML-Elemente in Markdown dort möglichst als eigene `#[...]`-Zeile; für komplex verschachtelte Strukturen bleibt HTML möglich.
 
+## CTA am Ende neu generierter Seiten
+
+Bei einer neu generierten Seite oder einem ausdrücklich verlangten
+vollständigen Neuaufbau soll das letzte Inhaltslayout eine vorhandene,
+zum aktiven Theme passende CTA-Section sein, sofern eine solche existiert.
+Deren Link muss zu einer belegten und erreichbaren Aktion führen.
+Bei bloßer Übernahme oder Aktualisierung bestehender Inhalte bleibt die
+vorhandene Struktur unverändert; keine CTA-Section ergänzen oder verschieben.
+
 ## Verbindliche Inhaltsregeln
 
 Erhalte die vorhandene technische Struktur der Zieldatei und passe nur

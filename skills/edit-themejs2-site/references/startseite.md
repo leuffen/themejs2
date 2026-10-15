@@ -6,6 +6,14 @@ Reihenfolge erhalten und nur belegte Inhalte ersetzen. Die folgende
 Gliederung ist ein Gestaltungsangebot für einen ausdrücklich gewünschten
 Neuaufbau, keine Aufforderung zum automatischen Umbau.
 
+## CTA bei neu generierten Seiten
+
+Wenn die Startseite neu generiert oder ausdrücklich vollständig neu aufgebaut
+wird, endet sie mit einer vorhandenen CTA-Section des gewählten Themes,
+sofern eine passende Variante existiert. Nutze dafür einen belegten Termin-
+oder Kontaktlink. Bei normaler Übernahme einer vorhandenen Startseite dürfen
+die Sections nicht nur für diese Regel umsortiert oder ergänzt werden.
+
 ## Inhaltliche Reihenfolge
 
 1. Hero mit verständlicher Aussage, Schwerpunkt und einer realen

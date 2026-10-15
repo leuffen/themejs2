@@ -261,3 +261,10 @@ Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefr
 #[nte-input.style-default type="textarea" name="nachricht" label="Nachricht" required]
 #[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
+
+
+<!-- Die Schluss-Section bietet einen klaren Kontaktweg im Raven-Theme. -->
+## Fragen zu Ihren Beschwerden?
+{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
+
+[Kontakt & Termin]({{ '/pages/theme-raven/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }
