@@ -8,7 +8,7 @@ published: true
 title: Online bewerten
 shiller:
   tags: [mueller]
-  target: service/bewerten.md
+  target: service/online-bewerten.md
 ---
 ## Ihre Meinung zählt!
 {: layout="ntl-2col" data-kicker="Online bewerten" }
