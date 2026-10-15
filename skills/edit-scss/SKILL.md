@@ -1,9 +1,9 @@
 ---
-name: edit-themejs2-scss
+name: edit-scss
 description: Bearbeitet SCSS- und CSS-Styles in Kundenprojekten mit @leuffen/themejs2. Verwenden bei Änderungen unter docs/_src/, Theme-Imports, Schriftarten, Farbvariablen und CSS Cascade Layer Overrides.
 ---
 
-# ThemeJS2: SCSS und CSS bearbeiten
+# SCSS und CSS bearbeiten
 
 ## Einstieg und Dateien
 

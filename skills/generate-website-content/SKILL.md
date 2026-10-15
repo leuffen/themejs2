@@ -1,7 +1,7 @@
 ---
 name: generate-website-content
 description: >-
-  Erstelle oder ueberarbeite professionelle deutschsprachige Website-Texte
+  Bei jeder Generierung oder redaktionellen Anpassung sichtbarer Website-Texte verpflichtend laden, auch bei Shiller AI Adjust. Erstelle oder ueberarbeite professionelle deutschsprachige Website-Texte
   fuer Unternehmen, Organisationen und Praxen. Verwende den Skill bei
   Startseiten, Leistungsseiten, Landingpages, Kontaktseiten sowie
   SEO-Titeln und Meta-Descriptions. Pruefe Projektkontext, Internetquellen,
@@ -51,7 +51,7 @@ sich nicht zulasten der Fakten oder der Zielgruppe optimieren.
   autoritativen Shiller-Kundenkontext uebernehmen; nicht erneut herleiten.
 
 Bei ThemeJS2-Dateioperationen den bestehenden
-`skills/edit-themejs2-site/SKILL.md` und passende Referenzen
+`skills/edit-site/SKILL.md` und passende Referenzen
 lesen. Bestehende Front Matter, `schiller`, Layouts und Includes
 erhalten. Keine ungefragten Aenderungen an weiteren Dateien.
 
