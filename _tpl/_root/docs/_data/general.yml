@@ -9,26 +9,16 @@ desc: Evidenzbasierte Medizin des Bewegungsapparates mit Schwerpunkt Sporttrauma
 fachrichtung: Facharzt für Orthopädie und Unfallchirurgie
 logoalt: Dr. med. Tim Raven
 logo: /assets/logo.webp
-street: Rheinstraße 97
-zip: "64295"
-city: Darmstadt
-termin_url: "/online-termin"
-map_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.184011003837!2d8.63782931567444!3d49.8704419793981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bda6c1e0e2e5e7%3A0x2b2e7e8e8e8e8e8e!2sRheinstra%C3%9Fe+97%2C+64295+Darmstadt!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
-map_link: "https://www.google.com/maps/place/Rheinstraße+97,+64295+Darmstadt"
 datenschutzbeauftragter: null
 bildnachweise: |
     <br>Bilder von <a href="https://stock.adobe.com">Adobe Stock</a>
-phone1_text: "(06151) 780750"
-phone1: "+496151780750"
-fax1_text: ~
-email: ~
 domain: "undefined-domain.de"
 tools:
   googlemaps: true
   jameda: false
   recaptcha: false
 
-# Spiegelt die bestehenden Kontaktdaten für Komponenten, die den neuen Standort-Vertrag verwenden.
+# Standortbezogene Kontaktdaten, Telefonnummern und Kartenlinks werden hier zentral gepflegt.
 standorte:
   default:
     name: Dr. med. Tim Raven
@@ -37,6 +27,7 @@ standorte:
     zip: "64295"
     city: Darmstadt
     termin_url: "/online-termin"
+    map_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.184011003837!2d8.63782931567444!3d49.8704419793981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bda6c1e0e2e5e7%3A0x2b2e7e8e8e8e8e8e!2sRheinstra%C3%9Fe+97%2C+64295+Darmstadt!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
     map_link: "https://www.google.com/maps/place/Rheinstraße+97,+64295+Darmstadt"
     phone1_text: "(06151) 780750"
     phone1: "+496151780750"

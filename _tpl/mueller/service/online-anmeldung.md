@@ -5,7 +5,8 @@ ptags: ~
 published: true
 title: Online Anmeldung
 shiller:
-  source: mueller/service/online-anmeldung.md
+  tags: [mueller]
+  target: service/online-anmeldung.md
 ---
 
 

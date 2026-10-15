@@ -7,7 +7,8 @@ ptags:
 published: true
 title: Downloads
 shiller:
-  source: mueller/downloads.md
+  tags: [mueller]
+  target: downloads.md
 ---
 
 ## Fragebögen & Informationsmaterial zum Download

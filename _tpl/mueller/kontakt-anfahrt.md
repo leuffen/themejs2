@@ -6,7 +6,8 @@ ptags:
 published: true
 title: Kontakt & Anfahrt
 shiller:
-  source: mueller/kontakt-anfahrt.md
+  tags: [mueller]
+  target: kontakt-anfahrt.md
 ---
 ## Ihre Hausarztpraxis in Neuss Zentrum.
 {: layout="ntl-2col" data-kicker="Hier finden Sie uns" }

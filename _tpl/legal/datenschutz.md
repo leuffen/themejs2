@@ -36,10 +36,10 @@ Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
 {{ site.data.general.name}}<br>
 {%- if site.data.general.name2 != null -%}{{site.data.general.name2}}<br>{% endif %}
-{{site.data.general.street}}<br>
-{{site.data.general.zip}} {{site.data.general.city}}<br><br>
-Telefon: <a href="tel:{{site.data.general.phone1}}">{{site.data.general.phone1_text}}</a><br>
-<a href="mailto:{{site.data.general.email}}" >{{site.data.general.email}}</a><br>
+{{site.data.general.standorte.default.street}}<br>
+{{site.data.general.standorte.default.zip}} {{site.data.general.standorte.default.city}}<br><br>
+Telefon: <a href="tel:{{site.data.general.standorte.default.phone1}}">{{site.data.general.standorte.default.phone1_text}}</a><br>
+<a href="mailto:{{site.data.general.standorte.default.email}}" >{{site.data.general.standorte.default.email}}</a><br>
 
 
 
@@ -109,8 +109,8 @@ Wir haben für unser Unternehmen einen Datenschutzbeauftragten bestellt.
 
 
 {{ site.data.general.datenschutzbeauftragter | newline_to_br}}<br>
-Telefon: <a href="tel:{{site.data.general.legal.phone1}}">{{site.data.general.phone1_text}}</a><br>
-<a href="tel:{{site.data.general.email}}" >{{site.data.general.email}}</a><br>
+Telefon: <a href="tel:{{site.data.general.legal.phone1}}">{{site.data.general.standorte.default.phone1_text}}</a><br>
+<a href="tel:{{site.data.general.standorte.default.email}}" >{{site.data.general.standorte.default.email}}</a><br>
 
 {% else %}
 

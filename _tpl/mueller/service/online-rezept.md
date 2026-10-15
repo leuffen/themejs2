@@ -5,7 +5,8 @@ ptags: ~
 published: true
 title: Online-Rezept
 shiller:
-  source: mueller/service/online-rezept.md
+  tags: [mueller]
+  target: service/online-rezept.md
 ---
 ## Jetzt Wiederholungsrezept online anfragen
 {: layout="ntl-2col" data-kicker="Online Rezept" }
