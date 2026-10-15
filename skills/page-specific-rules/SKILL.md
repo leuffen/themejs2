@@ -38,6 +38,7 @@ Reference laden. Die Auswahl erfolgt **vor** jeder Inhaltsänderung.
 | `_data/defaults.yaml` im Document Root | `_root/docs/_data/defaults.yaml` | Vollständig bytegetreu erhalten; keine individuellen Anpassungen | [Defaults](references/defaults.md) | Beim Öffnen, Anlegen, Kopieren oder Ändern |
 | `_data/general.yml` oder `_data/general.yaml` | `_root/docs/_data/general.yml` | Praxisname, optionaler Zusatzname, SEO-Titel und Beschreibung anhand des Projektkontexts | [General](references/general.md) | Vor jeder Inhaltsänderung |
 | `index.md` im Document Root oder tatsächliche Verwendung als Haupt-Startseite | `**/index*.md` bei eindeutigem Startseiten-Template | SEO-Titel aus dem Projektkontext und zusätzliche belegte Nutzerfragen nur im vorhandenen Willkommensblock oder als zusätzliche Accordion-Einträge in einer bereits vorhandenen FAQ-Section | [Startseite](references/index.md) | Vor jeder Inhaltsänderung |
+| `**/ueber-uns*.md`, `**/über-uns*.md`, `**/about*.md` oder tatsächliche Verwendung als Über-uns-/Team-Seite | `**/ueber-uns*`, `**/über-uns*`, `**/about*` | Für jeden belegten Arzt eine eigene kopierte H2-Section; vorhandene Mitarbeiter-Card-Column je benanntem Mitarbeiter mit H3 befüllen oder bei fehlenden Namen die Mitarbeiter-Section entfernen | [Über uns](references/ueber-uns.md) | Vor jeder Inhaltsänderung |
 | `**/impressum*.md`, `**/impressum*.html`, `**/impressum*.yml`, `**/impressum*.yaml`, `**/impressum*` oder Verwendung als Impressum | `**/impressum*` (z. B. `_root/docs/legal/impressum.de.md`) | Vorlage strikt beibehalten, ausschließlich belegte rechtliche Angaben austauschen und fehlende Angaben markieren | [Impressum](references/impressum.md) | Beim Öffnen, Anlegen, Kopieren oder Ändern |
 | `**/datenschutz*.md`, `**/datenschutz*.html`, `**/datenschutz*.yml`, `**/datenschutz*.yaml`, `**/datenschutz*` oder Verwendung als Datenschutzerklärung | `**/datenschutz*` (z. B. `_root/docs/legal/datenschutz.de.md`) | Datenschutzvorlage vollständig und unverändert kopieren | [Datenschutz](references/datenschutz.md) | Beim Öffnen, Anlegen, Kopieren oder Ändern |
 
@@ -56,8 +57,14 @@ Markdown-Überschriften/Listen/Blockquotes, `{: ... }`-Attribute,
 `#[...]`-Shortcuts, Liquid, Sections, Layout-, Style- und
 Formularelemente bleiben exakt erhalten. Nur sichtbare Texte und explizit
 freigegebene Datenwerte werden ersetzt. Neue oder duplizierte Elemente
-dürfen nur auf konkreten Auftrag als vollständige Strukturblöcke
+dürfen nur auf konkreten Auftrag oder aufgrund einer ausdrücklich
+zutreffenden Seitentyp-Reference als vollständige Strukturblöcke
 hinzukommen; innerhalb solcher Blöcke wird keine Syntax umgeschrieben.
+Bei bestehenden `data-kicker`-Attributen darf ausschließlich der
+sichtbare Textwert passend zum Abschnitt geändert werden, nicht die
+Syntax oder weitere Attribute. Die Über-uns-Reference erlaubt allein
+die dort ausdrücklich definierten Duplikationen und die Entfernung
+der Mitarbeiter-Section bei fehlenden Namen.
 Die Text-only- und Diff-Prüfungen aus `edit-site` gelten auch
 für Dateien ohne Treffer in der Zuordnungstabelle. Bei Widerspruch
 zwischen Textinhalt und unveränderlicher Struktur den Konflikt melden.
@@ -66,5 +73,5 @@ Dieser Skill ergänzt [edit-site](../edit-site/SKILL.md)
 und dessen bestehende Projektdaten-, Front-Matter- und Layoutregeln.
 Bei rechtlichen Seiten sind die spezifischeren References maßgeblich:
 keine zusätzliche CTA, Gestaltung oder automatisch eingefügte Inhalte.
-Die Startseiten-Reference erlaubt ausschließlich die dort konkret genannten Ergänzungen. Sonstige zusätzliche Sections oder Komponenten bleiben verboten. Die Regeln verpflichten den bearbeitenden Agenten zum Laden; sie
+Die Startseiten- und Über-uns-References erlauben ausschließlich die dort konkret genannten Ausnahmen. Sonstige zusätzliche Sections oder Komponenten bleiben verboten. Die Regeln verpflichten den bearbeitenden Agenten zum Laden; sie
 implementieren keinen automatischen Dateisystem-Hook.
