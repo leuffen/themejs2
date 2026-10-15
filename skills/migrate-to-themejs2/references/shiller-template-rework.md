@@ -85,9 +85,11 @@ oder durch eine zusaetzliche automatisch erzeugte Ueberschrift verdoppeln.
 
 Fuer tag-gesteuerte Markdown-Vorlagen ausserhalb von `_root/` genau einen
 `shiller`-Block mit `tags` und bei diesem Mueller-Rework immer einem expliziten
-`target` anlegen. Verwende einen gemeinsamen, kollisionsfrei installierbaren
-Mueller-Auswahltag; die Beispiele benutzen `theme:mueller`. Gleiche vorhandene
-Installationsaufrufe ab, statt einen produktiv benutzten Tag still zu wechseln.
+`target` anlegen. Verwende bei allen installierbaren Mueller-Vorlagen ausschliesslich den
+Auswahltag `mueller`; andere Vorlagen ausserhalb von `_tpl/mueller/` duerfen
+diesen Tag nicht behalten. Setze auch bei Target-Kollisionen ein begruendetes
+explizites Target und melde die betroffenen Pfade und Tags im PR. Kollisionen
+nicht durch fehlende Targets oder stillschweigendes Ueberschreiben kaschieren.
 Tags werden alternativ ausgewaehlt: `[base, "theme:mueller"]` bedeutet nicht,
 dass beide Tags erforderlich waeren. Alte `base`-Tags deshalb nicht blind an
 jede Theme-Variante haengen.
@@ -101,11 +103,13 @@ title: Startseite
 body_class: theme-mueller
 ptags: [nav]
 shiller:
-  tags: ["theme:mueller"]
+  tags: ["mueller"]
   target: index.md
 ---
 ```
 
+`_tpl/mueller/index.referenz.md` bleibt eine reine Referenz ohne Shiller-Tags
+und Target; ihren Content nicht als installierbare Seite behandeln.
 Die uebrigen benoetigten Metadaten der konkreten Seite ebenfalls erhalten;
 das Beispiel ist keine Whitelist zum Loeschen anderer Felder.
 `target: index.md` bedeutet `<Document Root>/index.md`, standardmaessig
@@ -119,7 +123,7 @@ Dateipfad mit `.md`, keine Browser-URL und kein alter `pid`.
 | `_tpl/mueller/ueber-uns.md` | `ueber-uns.md`. |
 | `_tpl/mueller/service/online-rezept.md` mit bisheriger Route `/online-rezept` | `online-rezept.md`, nicht automatisch `service/online-rezept.md`. |
 | `_tpl/mueller/leistungen/leistung1.md` | Bei einer vorgesehenen Leistungs-Unterseite `leistungen/leistung1.md`; fachliche Unterordner nicht pauschal abflachen. |
-| `kontakt-anfahrt.md` und vorhandenes `kontakt.md` | Beide bisherigen Dateien beanspruchen `/kontakt`. Vor gleicher Tag-Auswahl eindeutige Variante/Zielzuordnung klaeren; weder ueberschreiben noch Inhalte zusammenlegen oder loeschen. |
+| `kontakt-anfahrt.md` und vorhandenes `kontakt.md` | Beide bisherigen Dateien beanspruchen `/kontakt`. Beiden Dateien ein explizites Target zuordnen und den Konflikt fuer den Nutzer ausweisen; weder stillschweigend ueberschreiben noch Inhalte zusammenlegen oder loeschen. |
 | `leistungen.md`, `leistungen/index.md` und `_tpl/leistungen.mueller.md` | Uebersichtsrolle und Zielroute vergleichen; gleichwertige Ausgabeziele wie `/leistungen/` nicht mehrfach belegen. Auch Varianten ausserhalb von `mueller/` einbeziehen. |
 | `_tpl/mueller/index.referenz.md` | Nur Layoutreferenz, nicht automatisch als zweite Startseite taggen oder installieren. |
 
@@ -190,7 +194,9 @@ Akkordeon gehoeren in die passende Inhaltssection.
 | `accordion()` | HR mit `layout="nte-accordion"` innerhalb des passenden NTL-Abschnitts; vorhandene H3 samt Body werden Eintraege. Nach dem Akkordeon einen folgenden CTA/Absatz auf die Elternebene zurueckfuehren, statt ihn zum letzten Eintrag zu machen. |
 | `#sec-testimonial-ribbon` | HR mit `layout="2;ntl-2col.style-testimonial"`; Portrait, vollstaendiges Zitat und Attribution erhalten. Nicht als Kicker umdeuten. |
 | `#cta-base` / reiner Kontaktabschluss | `layout="ntl-2col.style-cta"` und bei voller Breite `section-style="--cols: 12;"`; alle vorhandenen Texte/Links erhalten. Eine bestehende Abschluss-CTA bleibt Abschluss, keine neue CTA bei reiner Migration erfinden. |
-| `#cta-form`, `#e-form`, alte `[input ...]`-/`[textarea ...]`-Syntax | Zuerst den vorhandenen Formularvertrag pruefen. Felder, Namen, Pflichtstatus, Auswahlwerte, Versandziel, Consent und Rueckmeldungen erhalten. Nicht durch einen Kontaktbutton ersetzen oder nur das Wrapper-Layout austauschen. Fehlt eine gleichwertige vorhandene Funktion, als blockiert melden statt eine neue API zu erfinden. |
+| `#cta-form`, `#e-form`, alte `[input ...]`-/`[textarea ...]`-Syntax | Zuerst den vorhandenen Formularvertrag pruefen. Ermittle zuerst die aktuelle Formularsyntax aus `docs/` und der Scheche-V2-
+Referenz und migriere jedes Feld einzeln. Felder, Namen, Pflichtstatus,
+Auswahlwerte, Versandziel, Consent und Rueckmeldungen erhalten. Nicht durch einen Kontaktbutton ersetzen oder nur das Wrapper-Layout austauschen. Fehlt eine gleichwertige vorhandene Funktion, als blockiert melden statt eine neue API zu erfinden. |
 | `#infobox`, sonstige Sonderabschnitte | Bedeutung, Warnstufe, Icon und vollstaendigen Text erfassen und eine vorhandene gleichwertige Komposition belegen. Nicht ersatzlos entfernen, weil Scheche diesen Abschnitt nicht besitzt. |
 
 ### Kicker und Section-Grenzen
@@ -254,6 +260,15 @@ Link. Bei alten Icons innerhalb von Button-Links erst eine geeignete vorhandene
 Button-/Markup-Struktur waehlen und Klickziel sowie Linktext erhalten; kein
 mechanisches Ersetzen durch ungueltige Inline-Shortcuts. Raw-HTML bleibt fuer
 wirklich verschachtelte Strukturen wie den Consent-Block erlaubt.
+
+### Impliziten Default-Style erhalten
+
+Entferne bei der Migration explizite `.style-default`-Varianten sowie
+`style-default`-Angaben, wenn damit nur der automatische Framework-Default
+wiederholt wird. Ohne explizite `style-*`-Variante setzt das Framework den
+Default selbst. Eine bewusst abweichende `style-*`-Variante bleibt erhalten;
+keine neue Default-Klasse erzeugen. Pruefe die neuen Layout-Attribute im
+aktuellen ThemeJS2-Vertrag.
 
 ## Pruefung und Abschluss
 
