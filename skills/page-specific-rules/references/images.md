@@ -60,6 +60,21 @@ Porträtaufnahmen; quadratische Testimonial-Crops sind dort nicht die
 Standardwahl. Formate nie über die verifizierte Personenidentität oder
 die Eignung des Bildmotivs stellen.
 
+## Keine doppelten echten Bilder auf derselben Seite
+
+Verwende dasselbe echte Bildmotiv innerhalb einer einzelnen Markdown-Seite
+nur einmal. Pruefe vor dem Schreiben alle Bildpositionen der jeweiligen
+Seite auf doppelte Bild-URLs und inhaltlich identische Motive, auch wenn
+verschiedene Zuschnitte oder Dateinamen vorliegen. Waehle an weiteren
+Bildpositionen nach Moeglichkeit andere passende, freigegebene Bilder
+aus dem Projektkontext. Ist kein weiteres geeignetes Bild vorhanden,
+verwende dort einen dafuer zugelassenen Platzhalter anstelle der
+Wiederholung. Platzhalter duerfen auf derselben Seite mehrfach
+vorkommen. Bildpositionen und Layoutstruktur bleiben dabei erhalten;
+keine unpassenden Bilder erfinden oder echte Motive duplizieren.
+Die Wiederverwendung desselben Bildes auf unterschiedlichen Seiten
+bleibt nach den Regeln zur konsistenten Bildzuordnung zulaessig.
+
 ## Identische Themen, identische Bildreferenz
 
 Bevor Bilder bearbeitet werden, gleiche den vorhandenen Bildbestand
