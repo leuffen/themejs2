@@ -75,6 +75,30 @@ keine unpassenden Bilder erfinden oder echte Motive duplizieren.
 Die Wiederverwendung desselben Bildes auf unterschiedlichen Seiten
 bleibt nach den Regeln zur konsistenten Bildzuordnung zulaessig.
 
+## Keine mehrfachen Arztporträts auf derselben Seite
+
+Zeige dieselbe Ärztin oder denselben Arzt auf einer Seite grundsätzlich
+nur einmal als Porträt, selbst wenn unterschiedliche Fotos, Perspektiven
+oder Zuschnitte vorliegen. Prüfe besonders die Startseite: Steht dort
+bereits ein Arztporträt, ersetze ein weiteres Porträt derselben Person
+in einer allgemeinen Bild-Section vorzugsweise durch ein belegtes,
+passendes Team- oder Praxisfoto aus dem Kundenkontext. Ein Teamfoto darf
+nur als tatsächliches Praxisteam bezeichnet werden, wenn die Zuordnung
+im Kontext belegt ist; andernfalls ein neutrales Praxisbild oder ein
+freigegebenes nicht personenbezogenes Motiv verwenden.
+
+**Ausnahme für ausdrücklich als Porträt vorgesehenen Bildplätze:**
+Arztprofile, personenbezogene Vorstellungsblöcke und vergleichbare
+explizite Porträt-Slots behalten ihr zugeordnetes Porträt; ersetze
+diese nicht durch ein unpassendes Praxis- oder Teamfoto. Wenn die
+Doppelung dadurch nicht ohne Veränderung eines geschützten Porträt-Slots
+vermieden werden kann, melde den Konflikt statt die Struktur zu ändern.
+Andere Bildpositionen dürfen in der vorhandenen Section durch passende
+Motive ersetzt werden, ohne Überschriften, Section-Zweck, Layout,
+Bildanzahl oder Bildposition zu verändern. Fehlt ein passendes Motiv,
+einen zugelassenen Platzhalter wählen. Die allgemeinen Regeln zur
+belegten Personen- und Bildzuordnung gelten weiter.
+
 ## Identische Themen, identische Bildreferenz
 
 Bevor Bilder bearbeitet werden, gleiche den vorhandenen Bildbestand
