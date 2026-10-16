@@ -25,6 +25,41 @@ Teamfotos als generischen Ersatz einsetzen. Neutrale Alt-Texte
 ohne erfundene Namen verwenden. Keine externen Bildadressen
 oder Dateipfade erfinden.
 
+## Praxis- und leistungsbezogene Bildauswahl auf allen Seiten
+
+Prüfe bei jeder Website-Anpassung **sämtliche vorhandenen Bildpositionen
+auf allen Seiten** (insbesondere Hero-/Titelbilder, Leistungsbilder,
+allgemeine Anschauungsbilder, Team-/Profilbilder und Testimonials).
+Erschließe die bisherige Bildfunktion aus Alt-Text, Dateiname,
+Seiteninhalt und Position im Layout. Wähle dann anhand der im
+Projektkontext belegten Praxisart, Fachrichtung und konkreten Leistungen
+ein inhaltlich passendes Ersatzmotiv. Bevorzuge stets geeignete,
+praxisindividuelle Bilder aus dem Projektkontext vor generischen Motiven.
+Sind dort keine passenden individuellen Motive vorhanden, verwende
+freigegebene fachrichtungs- beziehungsweise leistungsspezifische Bilder
+aus dem Kontext oder dem kuratierten Bildkatalog. Ein Motiv darf nicht
+allein wegen ähnlicher Optik eingesetzt werden, wenn es eine andere
+Fachrichtung oder Leistung suggeriert. Tausche unpassende Template- und
+Demo-Motive an bestehenden Bildpositionen soweit möglich aus und erhalte
+dabei Bildfunktion, Seitenstruktur und geeignete Seitenverhältnisse.
+Fehlt eine verifizierbare passende Referenz, erfinde keinen Pfad und
+dokumentiere die offene Bildposition.
+
+## Porträtformate nach Seitenfunktion
+
+Für Personenbilder gelten weiterhin die strikten Zuordnungs- und
+Platzhalterregeln oben. Wo ein Bild eine konkrete Person oder ein
+konkretes Team darstellen soll, aber keine ausdrücklich belegte
+Bildzuordnung existiert, verwende die bereits vorhandenen,
+freigegebenen Personenplatzhalter statt fremder Stockporträts. In
+Testimonial-Sections bevorzuge bei geeigneten und zulässigen
+Porträtbildern quadratische Varianten, insbesondere Dateien mit
+`1x1` im Dateinamen. Auf Über-uns-, Team- und Arztprofilseiten
+bevorzuge dagegen die normalen zugeordneten Profil- beziehungsweise
+Porträtaufnahmen; quadratische Testimonial-Crops sind dort nicht die
+Standardwahl. Formate nie über die verifizierte Personenidentität oder
+die Eignung des Bildmotivs stellen.
+
 ## Identische Themen, identische Bildreferenz
 
 Bevor Bilder bearbeitet werden, gleiche den vorhandenen Bildbestand
