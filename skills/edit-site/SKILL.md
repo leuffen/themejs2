@@ -1,6 +1,6 @@
 ---
 name: edit-site
-description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines aus @leuffen/themejs2 installierten Projekts. Bei jeder solchen Website-Bearbeitung diesen Skill lesen; für responsive Klassen und Content Pane zusätzlich die passenden Skills im selben Paket.
+description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines aus @leuffen/themejs2 installierten Projekts. Verpflichtend bei jeder Website-Bearbeitung und jedem AI-Adjust laden und beachten; für responsive Klassen und Content Pane zusätzlich die passenden Skills im selben Paket.
 ---
 
 # Website-Dateien bearbeiten
