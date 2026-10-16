@@ -50,6 +50,28 @@ Ohne belegtes Angebot einer offenen Sprechstunde keine Ribbon-Karte
 ersetzen, keine Tabelle hinzufügen und keine Notfallinformation
 verschieben.
 
+## Bild-URLs der Startseite verbindlich anpassen
+
+Prüfe bei jedem AI-Adjust der `index.md` jede vorhandene Markdown-
+Bildposition (`![Alt-Text](Bild-URL)`), einschließlich Hero-, Leistungs-,
+Team- und sonstiger Abschnittsbilder, gegen die konkrete Bildliste im
+Kundenkontext. Ist für die Bildfunktion ein passendes und zulässiges
+Motiv mit belegter Bild-URL vorhanden, **ersetze die bisherige
+Markdown-Bild-URL durch genau diese Kontext-URL**. Insbesondere dürfen
+alte Template-, Demo- und Stockbild-URLs nicht allein aufgrund des
+Structure Locks beibehalten werden. Diese Anweisung ist die für
+`index.md` ausdrücklich erlaubte Ausnahme von der allgemeinen
+Bildreferenz-Erhaltung im Shiller-Adjust-Basisskill. Markdown-Syntax,
+Bildpositionen, Sections, Layouts und Liquid unverändert lassen; den
+Alt-Text nur dann ändern, wenn er andernfalls sachlich falsch wäre,
+insbesondere bei personenbezogenen Motiven. Die verbindlichen
+Zuordnungs- und Personenschutzregeln aus `images.md` gelten weiter.
+Gibt es keine eindeutig passende freigegebene Bild-URL, keine URL
+erfinden oder ein fachlich falsches Motiv einsetzen, sondern die
+ungeklärte Bildposition melden. Vor Abschluss alle Markdown-Bild-URLs
+der Ausgangsdatei mit dem Ergebnis und der Kontext-Bildliste abgleichen
+und nicht ersetzte alte URLs jeweils begründen.
+
 Vorhandene Hinweise, besonders „Aktuelle Hinweise zum Coronavirus“,
-Bilder, Statement-Komponenten, Liquid und Includes unangetastet
-lassen. Die Datenschutz- und Impressumsregeln bleiben unberührt.
+Statement-Komponenten, Liquid und Includes unangetastet lassen.
+Die Datenschutz- und Impressumsregeln bleiben unberührt.
