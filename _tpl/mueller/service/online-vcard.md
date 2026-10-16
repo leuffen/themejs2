@@ -1,6 +1,5 @@
 ---
 description: ""
-layout: article
 order: 70
 ptags: 
     - footernav

@@ -1,7 +1,6 @@
 ---
 description: ""
 image: https://cdn.leuffen.de//leu-stock/v2/148/c_gfedcba/AdobeStock_249086908.webp
-layout: article
 order: 85
 ptags:
 - footernav
