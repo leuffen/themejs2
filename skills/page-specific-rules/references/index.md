@@ -24,6 +24,17 @@ neue Überschriften-/Layoutbereiche oder Änderungen an bestehenden
 Accordion-Markern. Ohne vorhandenes Accordion keine neuen
 Accordion-Elemente erfinden; nutze passende bestehende Texte.
 
+## Hero-Buttons verlinken interne Service-Seiten
+
+Bei jedem Adjust der Startseite alle Hero-Buttons pruefen. Jeder
+Button muss zur passenden internen Service-Seite fuehren. Externe
+Deeplinks, direkte Formular- oder Terminanbieter-URLs sind keine
+zulaessigen Hero-Button-Ziele. Die tatsaechlichen internen Routen
+anhand der vorhandenen Service-Seiten verifizieren; keine Pfade
+erfinden. Fehlt eine passende Service-Seite, den offenen Link melden.
+Button-Anzahl, Reihenfolge, Klassen und Layout beibehalten; nur
+die Linkziele bei Bedarf korrigieren.
+
 ## Offene Sprechstunde im oberen Ribbon
 
 Prüfe anhand belegter, aktueller Praxisangaben, ob zusätzlich zu den
