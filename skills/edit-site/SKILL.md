@@ -44,15 +44,17 @@ Bei Kontextwechsel, Datenkopie, Kundenanpassung oder redaktionellem Austausch
 bestehender Markdown-Dateien ist die Ausgangsdatei die verbindliche
 Strukturvorlage. Ersetze ausschließlich sichtbare Textinhalte und ausdrücklich
 beauftragte inhaltliche Werte (etwa belegte Kontaktdaten oder Linkziele).
-Ein in der Vorlage vorhandenes `data-kicker`-Attribut bezeichnet eine
-kleine Vorüberschrift über dem eigentlichen Heading und zählt mit seinem
-Attributwert zu den sichtbaren Textinhalten: Aktualisiere diesen Wert bei
-jedem Website-Adjust passend zum konkreten Abschnitt und belegten
-Projektkontext, sofern ein sinnvoller Kicker-Text möglich ist. Lass die
-Attributsyntax, Position und übrige Struktur unverändert; füge keinen
-neuen Kicker hinzu und erfinde keinen bloßen Fülltext. Wo ein Kicker
-inhaltlich nicht sinnvoll oder nicht belegbar ist, behalte die bestehende
-technische Struktur bei und kennzeichne den offenen Inhaltskonflikt.
+Ein vorhandenes `data-kicker` ist ausschließlich eine kurze, prägnante
+visuelle Vorzeile beziehungsweise ein Eyecatcher. Es ist ein Attribut
+und keine semantische HTML-Überschrift; nutze es nicht für SEO-Keywords,
+SEO-Kernaussagen oder Informationen, die im sichtbaren Fließtext oder
+einer richtigen Überschrift stehen müssen. Formuliere einen Kicker
+inhaltlich ergänzend zur Überschrift, nicht als Paraphrase, Wiederholung
+oder vollständigen Satz. Wenn keine eigenständige, sinnvolle kurze
+Aussage möglich ist, entferne nur das `data-kicker`-Attribut samt Wert.
+Andere Attribute und die Kramdown-Attributzeile bleiben unverändert;
+weder das Heading noch die Section entfernen. Diese eng begrenzte
+Entfernung eines redundanten Kickers ist vom Structure Lock ausgenommen.
 Die ausdrücklich in `page-specific-rules/references/ueber-uns.md`
 erlaubten Arzt-/Mitarbeiter-Blockduplikationen und das Entfernen einer
 unbelegten Mitarbeiter-Section bilden eine eng begrenzte Ausnahme
@@ -93,6 +95,24 @@ Superlative oder Garantien und halte Demonstrationsinhalte klar als
 fiktiv erkennbar. Erfinde weder Kontaktdaten noch Leistungen, URLs oder
 sonstige fachliche Angaben. Ein vorhandenes Layout oder Formular wird
 nur auf ausdrücklichen Auftrag umgebaut.
+
+## Verpflichtender redaktioneller Review nach jeder Webseitenbearbeitung
+
+Nach dem Erstellen oder Anpassen einer Webseite den gesamten sichtbaren
+Seiteninhalt abschnittsweise erneut durchgehen. Prüfe besonders die
+unmittelbare Abfolge aus Kicker, Überschrift, Einleitung und Fließtext:
+Wird dieselbe Aussage oder fast derselbe Satz direkt oder sinngemäß
+wiederholt, formuliere den betroffenen Fließtext ohne Bedeutungsverlust
+um oder streiche die redundante Aussage innerhalb bestehender Texte.
+Kicker müssen besonders kurz, eigenständig und ergänzend sein; bei
+inhaltlicher Wiederholung der Überschrift den Kicker entfernen statt
+denselben Gedanken nochmals auszugeben. SEO-wichtige Informationen
+gehören in echte Überschriften und Text, nicht allein in Attribute.
+Erhalte bei dieser Prüfung alle nicht ausdrücklich freigegebenen
+Strukturelemente, Layouts, Liquid-Tags und Formulartexte. Bei
+seitenspezifischem Wortlaut- oder Rechtstext-Bestandsschutz nichts
+eigenmächtig umschreiben; Konflikte stattdessen melden. Den Review
+vor der abschließenden Struktur- und Diff-Prüfung durchführen.
 
 ## References nach Seitentyp
 
