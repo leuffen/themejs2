@@ -22,3 +22,18 @@ Angabe stattdessen sichtbar `**[Daten fehlen]**` oder
 
 Vor Abschluss mit der Vorlage vergleichen und nur die beschriebenen
 Individualisierungen akzeptieren.
+## Verbindliche Recherche bei Kundenanpassungen
+
+Übernimm Praxisanschrift, Namen und belegte Qualifikationen aus dem
+Kundenkontext. Verwende als Ansprechpartner den ersten dort genannten
+Arzt oder Inhaber, sofern keine abweichende rechtlich verantwortliche
+Person ausdrücklich angegeben ist. Recherchiere für das konkrete
+Bundesland und den zuständigen Kammerbezirk bei jeder Anpassung auf
+offiziellen Websites die Ärztekammer, zuständige Behörden und geltenden
+berufsrechtlichen Vorschriften. Prüfe Kammeranschriften und öffne jede
+verwendete URL zur Berufsordnung und zu weiteren anwendbaren Gesetzen;
+der Link muss erreichbar und inhaltlich passend sein. Angaben aus dem
+Kontext als Ausgangspunkt berücksichtigen und bei Widerspruch zu
+offiziellen Quellen zur Klärung markieren. Fehlende oder nicht belegbare
+Angaben im vorhandenen Feld kennzeichnen, niemals erfinden. Bewahre
+Vorlagenstruktur und vorhandene Felder; ergänze keine neuen Sections.
