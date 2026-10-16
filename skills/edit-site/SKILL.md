@@ -1,6 +1,6 @@
 ---
 name: edit-site
-description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines aus @leuffen/themejs2 installierten Projekts. Bei jeder solchen Website-Bearbeitung diesen Skill lesen; für responsive Klassen und Content Pane zusätzlich die passenden Skills im selben Paket.
+description: Verpflichtend laden und beachten beim Bearbeiten von Markdown-Seiten, Jekyll-Layouts, Includes oder vergleichbaren Website-Dateien.
 ---
 
 # Website-Dateien bearbeiten
@@ -11,6 +11,21 @@ description: Bearbeite Markdown-Seiten, Jekyll-Layouts, Includes und Daten eines
 5. Prüfe betroffene Dateien auf gültiges Front Matter, auflösbare Includes und Anleitungen, interne Links und die tatsächliche Darstellung an schmalen und breiten Viewports. Bei Änderungen an Theme-Styles, gemeinsamen Komponenten oder öffentlich genutzten Include-Pfaden gelten zusätzlich die Regeln des jeweiligen Quell-Repositories; ändere diese Strukturen nicht beiläufig bei einer Seitenbearbeitung.
 
 Die Kundenvorlage unter `_tpl/_root/docs/_layouts/default.html` verwendet `<tj-content-pane pre-parser="text-block">`. Schreibe einzelne HTML-Elemente in Markdown dort möglichst als eigene `#[...]`-Zeile; für komplex verschachtelte Strukturen bleibt HTML möglich.
+
+## Bildauswahl bei Markdown-Anpassungen
+
+Pruefe jede bestehende Bildposition anhand von Bildbeschreibung,
+Dateiname und Einsatzzweck gegen die Bilder des Projektkontexts.
+Nutze zuerst passende kundenindividuelle Bilder. Fehlt ein solches,
+waehle ein geeignetes anderes freigegebenes Bild aus dem Kontext.
+Aktualisiere die Bild-URL an der vorhandenen Position, ohne die
+Markdown- oder Layoutstruktur zu veraendern. Erfinde keine Pfade;
+ordne Personenbilder nur eindeutig belegten Personen zu.
+Lade und befolge bei jeder Markdown-Bearbeitung verpflichtend die
+[Bildregeln](../page-specific-rules/references/images.md) und alle
+zusaetzlichen passenden seitenspezifischen Regeln (etwa index.md).
+Bilder duerfen nur durch explizite anwendbare Spezialregeln neu
+hinzugefuegt oder entfernt werden.
 
 ## CTA am Ende neu generierter Seiten
 
