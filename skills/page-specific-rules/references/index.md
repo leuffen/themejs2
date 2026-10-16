@@ -50,6 +50,21 @@ Ohne belegtes Angebot einer offenen Sprechstunde keine Ribbon-Karte
 ersetzen, keine Tabelle hinzufügen und keine Notfallinformation
 verschieben.
 
+## Titelbild der Hero-Section
+
+Pruefe das vorhandene Titel- beziehungsweise Hintergrundbild der
+Hero-Section auf der Home-Seite ausdruecklich bei jedem AI-Adjust.
+Ersetze seine bestehende Bild-URL durch ein geeignetes, verifiziertes
+Bild aus dem Kundenkontext, bevorzugt durch ein kundenindividuelles
+Praxisbild. Wenn dort kein passendes Bild vorliegt, verwende ein
+fachlich geeignetes freigegebenes Bild aus dem Kontext. Beruecksichtige
+Bildbeschreibung, Dateiname, Motiv und Eignung als Hero-Hintergrund.
+Das gilt auch bei Markdown-Bildern in einem Hero-Background-Slot.
+Bewahre Hero-Layout, Bildposition, Markdown-Syntax und Slot-Attribute.
+Keine URL erfinden; fehlt ein passendes Bild, melde die offene Stelle.
+Beachte zusaetzlich die allgemeinen Bildregeln, insbesondere dass
+echte Bildmotive auf derselben Seite nicht doppelt erscheinen.
+
 ## Bild-URLs der Startseite verbindlich anpassen
 
 Prüfe bei jedem AI-Adjust der `index.md` jede vorhandene Markdown-
