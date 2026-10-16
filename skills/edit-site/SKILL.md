@@ -12,6 +12,21 @@ description: Verpflichtend laden und beachten beim Bearbeiten von Markdown-Seite
 
 Die Kundenvorlage unter `_tpl/_root/docs/_layouts/default.html` verwendet `<tj-content-pane pre-parser="text-block">`. Schreibe einzelne HTML-Elemente in Markdown dort möglichst als eigene `#[...]`-Zeile; für komplex verschachtelte Strukturen bleibt HTML möglich.
 
+## Bildauswahl bei Markdown-Anpassungen
+
+Pruefe jede bestehende Bildposition anhand von Bildbeschreibung,
+Dateiname und Einsatzzweck gegen die Bilder des Projektkontexts.
+Nutze zuerst passende kundenindividuelle Bilder. Fehlt ein solches,
+waehle ein geeignetes anderes freigegebenes Bild aus dem Kontext.
+Aktualisiere die Bild-URL an der vorhandenen Position, ohne die
+Markdown- oder Layoutstruktur zu veraendern. Erfinde keine Pfade;
+ordne Personenbilder nur eindeutig belegten Personen zu.
+Lade und befolge bei jeder Markdown-Bearbeitung verpflichtend die
+[Bildregeln](../page-specific-rules/references/images.md) und alle
+zusaetzlichen passenden seitenspezifischen Regeln (etwa index.md).
+Bilder duerfen nur durch explizite anwendbare Spezialregeln neu
+hinzugefuegt oder entfernt werden.
+
 ## CTA am Ende neu generierter Seiten
 
 Bei einer neu generierten Seite oder einem ausdrücklich verlangten
