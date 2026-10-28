@@ -76,12 +76,30 @@ Keine URL erfinden; fehlt ein passendes Bild, melde die offene Stelle.
 Beachte zusaetzlich die allgemeinen Bildregeln, insbesondere dass
 echte Bildmotive auf derselben Seite nicht doppelt erscheinen.
 
+## Bewerbungsfoto aus der Vorlage beibehalten
+
+Bei jedem AI-Adjust und Kontextwechsel der Startseite das bereits in
+der ursprünglichen Vorlage vorhandene Foto im Bewerbungsabschnitt
+(z. B. „Jetzt bewerben“) unverändert übernehmen. Seine Bild-URL bzw.
+Dateireferenz und sein Motiv dürfen weder durch Kundenbilder noch
+durch generische Bilder oder Platzhalter ersetzt werden. Diese
+Bildposition ist ausdrücklich von der Pflicht zum Austausch von
+Template-, Demo- und Stockbildern ausgenommen; sie bleibt auch dann
+erhalten, wenn für andere Abschnitte neue Kundenbilder vorliegen.
+Die Vorgabe hat für genau diese Bildposition Vorrang vor den
+allgemeinen Bildregeln und dem folgenden Bild-URL-Abgleich.
+Bildposition, Bildsyntax, Section und Layout unverändert lassen.
+Entsteht dadurch eine Bilddoppelung, eine andere betroffene
+Bildposition anpassen oder den Konflikt melden; das Bewerbungsfoto
+nicht austauschen.
+
 ## Bild-URLs der Startseite verbindlich anpassen
 
 Prüfe bei jedem AI-Adjust der `index.md` jede vorhandene Markdown-
 Bildposition (`![Alt-Text](Bild-URL)`), einschließlich Hero-, Leistungs-,
 Team- und sonstiger Abschnittsbilder, gegen die konkrete Bildliste im
-Kundenkontext. Ist für die Bildfunktion ein passendes und zulässiges
+Kundenkontext – ausgenommen das unverändert zu übernehmende Bewerbungsfoto
+im Abschnitt „Jetzt bewerben“. Ist für die Bildfunktion ein passendes und zulässiges
 Motiv mit belegter Bild-URL vorhanden, **ersetze die bisherige
 Markdown-Bild-URL durch genau diese Kontext-URL**. Insbesondere dürfen
 alte Template-, Demo- und Stockbild-URLs nicht allein aufgrund des
@@ -96,7 +114,8 @@ Gibt es keine eindeutig passende freigegebene Bild-URL, keine URL
 erfinden oder ein fachlich falsches Motiv einsetzen, sondern die
 ungeklärte Bildposition melden. Vor Abschluss alle Markdown-Bild-URLs
 der Ausgangsdatei mit dem Ergebnis und der Kontext-Bildliste abgleichen
-und nicht ersetzte alte URLs jeweils begründen.
+und nicht ersetzte alte URLs jeweils begründen; das geschützte
+Bewerbungsfoto gilt dabei ausdrücklich als begründete Ausnahme.
 
 Vorhandene Hinweise, besonders „Aktuelle Hinweise zum Coronavirus“,
 Statement-Komponenten, Liquid und Includes unangetastet lassen.
