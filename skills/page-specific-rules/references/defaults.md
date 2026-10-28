@@ -6,3 +6,6 @@ Weder Werte noch Kommentare, Whitespace, Reihenfolge oder YAML-Struktur
 ändern. Auch keine Projektinformationen oder SEO-Daten darin ergänzen.
 Falls eine Anweisung eine Änderung daran verlangt, diese als Konflikt
 melden und nicht stillschweigend überschreiben.
+
+
+

@@ -23,3 +23,15 @@ freigegebene Werte.
 Alle übrigen Felder nach ihren jeweiligen Schema-Beschreibungen und
 expliziten Kontextdaten behandeln. Keine zusätzlichen Keys oder
 Sections anlegen.
+
+
+## Google Maps Links
+
+Passe die Adresse in den vorhanden Google Maps Links an. (Also die URL in `map_url` und `map_link`.) 
+
+## Redirect Link
+
+Falls nichts anderes angegeben ist der der termin_link auf "/online-termin" zu setzen (d.h. auf die Services Seite).
+
+Grund: Alle Terminlinks im Text sollen auf /termin laufen - dieser leitet dann zentral entweder auf Doctolib oder
+die online-termin Seite weiter. So kann man die Terminlinks zentral steuern und muss nicht in allen Texten die Links ändern.

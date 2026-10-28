@@ -5,6 +5,8 @@ order: 80
 ptags:  []
 published: true
 short_title: Termin vereinbaren
+## Always keep /termin  as permalink
+permalink: /termin
 title: Termin vereinbaren
 shiller:
   tags: [mueller]

@@ -11,6 +11,9 @@ desc: Evidenzbasierte Medizin des Bewegungsapparates mit Schwerpunkt Sporttrauma
 ## Wenn Textlogo: Dann ist das das Logo dass in der Navi angezeigt wird. Wenn es ein Bild-Logo gibt, is dies der Alt-Text
 logoalt: Dr. med. Tim Raven
 
+## Name der Praxis wie in der Datenschutzerklärung angegeben. Wird in der Datenschutzerklärung als Name des Verantwortlichen verwendet.
+name: Dr. med. Tim Raven
+
 ## Nur für Textlogo: Das ist die Unterschrift unter dem Logo
 fachrichtung: Facharzt für Orthopädie und Unfallchirurgie
 
@@ -22,6 +25,8 @@ datenschutzbeauftragter: null
 bildnachweise: |
     <br>Bilder von <a href="https://stock.adobe.com">Adobe Stock</a>
 domain: "undefined-domain.de"
+
+## Always true for googlemaps
 tools:
   googlemaps: true
   jameda: false
