@@ -46,7 +46,8 @@ shiller:
 
 ### Aktuelles
 
-<liweco-news>Keine aktuellen Meldungen</liweco-news>
+<!-- Achtung: Hier werden die aktuellen Hinweise CRM automatisch eingebunden. Bitte Änderungen direkt unter Öffnungzeiten & Urlaub vornehmen. -->
+<leuffen-announcements>Keine aktuellen Hinweise</leuffen-announcements>
 
 ### Sprechstundenzeiten
 

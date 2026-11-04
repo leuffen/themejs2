@@ -36,6 +36,7 @@ Dr. med. Tim Raven verbindet orthopädische und unfallchirurgische Erfahrung mit
 ### Aktuell
 {: style="--cols: 4;" }
 
+<!-- Achtung: Hier werden die aktuellen Hinweise CRM automatisch eingebunden. Bitte Änderungen direkt unter Öffnungzeiten & Urlaub vornehmen. -->
 <leuffen-announcements>Keine aktuellen Termine</leuffen-announcements>
 
 ### Fachärztliche Expertise
