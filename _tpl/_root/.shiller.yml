@@ -1,0 +1,24 @@
+version: 1.0
+adapter: jekyll-polyglot:1.0
+doc_root: docs
+# Editierbare Header werden nur über diese explizite Datei freigegeben.
+editable_headers_file: .shiller.d/_editable-headers.conf.yml
+languages: [de]
+default_lang: de
+template_dir: ./node_modules/@leuffen/themejs2/_tpl
+# Der Onsite-Editor entdeckt lokale Demo-Skills und lädt den Projektkontext.
+skills_dir: .shiller-skills
+context_files:
+  - .shiller.d/static-context.md
+user_rules_file: .shiller.d/user-rules.md
+# Erlaubt dem Onsite-Editor Webrecherche bei entsprechender Benutzeranweisung.
+ai:
+  reasoning_effort: medium
+  web_access: true
+hooks:
+  init:
+    before:
+      - npm install
+    after:
+      - npm update
+      - npm run build

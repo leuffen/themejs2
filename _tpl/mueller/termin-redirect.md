@@ -14,6 +14,7 @@ shiller:
 ---
 
 <script>
-window.location.href = "{{site.data.general.termin_url}}";
+window.location.href = "{{site.data.general.standorte.default.termin_url}}";
 </script>
+
 
