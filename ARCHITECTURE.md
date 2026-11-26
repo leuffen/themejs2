@@ -88,31 +88,25 @@ bleiben unabhängig vom eigenständigen HMR-Dialog des Vite-Plugins.
 ## Theme-Konfiguration
 
 In `_root` wird genau ein Theme unter `_src` konfiguriert. Parallele Varianten
-wie `docs/_includes/_styles` gehören ausschließlich in die Präsentations- und
+wie `docs/_includes/frames` gehören ausschließlich in die Präsentations- und
 Testumgebung.
 
-### Theme-Auswahl in der Demo
+### Layout-Auswahl in der Demo
 
-Startseiten und andere Markdown-Seiten wählen CSS-Theme, Header und Footer
-unabhängig voneinander im YAML-Frontmatter, zum Beispiel:
+Eine Endseite wählt den Rahmen über ihr Jekyll-Layout:
 
 ```yaml
----
-layout: website
-body_class: theme-raven
-use_navbar: osman
-use_footer: raven
----
+layout: website-raven
+theme_profile: raven
 ```
 
-`body_class` aktiviert das CSS-Theme. Nur die GitHub-Pages-Demo unter `docs/`
-wählt Header und Footer über `use_navbar` und `use_footer` aus
-`_includes/_styles/<variante>/navbar.html` bzw. `footer.html`.
-Ohne Angabe gilt `default`; `false` deaktiviert den Bereich und `skip-navbar: true`
-bleibt ausschließlich in der Demo unterstützt.
+Das Layout erbt von `20_body` und bindet Navbar, Inhalt und Footer mit festen
+Include-Pfaden ein. `theme_profile` aktiviert unabhängig davon die visuelle
+Body-Klasse. Reduzierte Rahmen stehen als `website-none`,
+`website-navbar-only` und `website-footer-only` zur Verfügung.
 
-Die Layout-Kette entspricht Osman2: `70_main → 60_footer → 50_navbar → 20_body → 10_blanc`.
-`20_body` übernimmt die bisherige Script-Stufe. Header stehen vor, Footer nach dem Inhalt.
+Das Seitenverzeichnis auf `docs/index.md` verlinkt die Endseiten direkt.
+Der Dateipfad unter `docs/` bestimmt die URL der Demo-Seite.
 
 ### Übergang von `docs/` zum Kundenprojekt
 
@@ -122,7 +116,7 @@ Die Layout-Kette entspricht Osman2: `70_main → 60_footer → 50_navbar → 20_
    Navbar-Markup in `docs/_layouts/50_navbar.html`, Footer-Markup in `docs/_layouts/60_footer.html`.
 4. Für einen anderen Kundenrahmen das gewünschte Demo-Markup in diese Dateien übernehmen
    oder dort direkt bearbeiten. Layout-Frontmatter und die Position von `{{ content }}` erhalten.
-   Keine Demo-Auswahl, `_styles`-Verzeichnisse, Alternativen oder Schaltwerkzeuge kopieren.
+   Den festen Kundenrahmen direkt in seinen Layout-Dateien pflegen.
 5. Gemeinsame fachliche Includes unter `components/`, `helpers/` und `fragments/` synchron halten.
 6. Kategorie-Seiten wie Osman2 als `leistungen/index.md` und direkte Unterseiten organisieren;
    `ptags: [nav]` nimmt sie ins Menü auf. Nur die Demo verwendet `navigation_root: pages`.

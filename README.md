@@ -27,8 +27,8 @@ ist `layout="2;ntl-hero.style-mueller"`. Weitere Hero-Stile sind `style-osman`,
 `style-epraxis` und `style-unify`. Der Raven-Einstieg verwendet
 `ntl-2col.style-raven` mit seinem eigenen Slot-Vertrag.
 
-Die Demo zeigt [vollständige Beispielseiten](docs/pages/beispiele/index.md) und
-[einzelne Bausteine](docs/pages/bausteine/index.md). Die bisherigen Theme-Imports
+Das [Seitenverzeichnis der Demo](docs/index.md) verlinkt vollständige Seiten
+und einzelne Bausteine direkt. Die bisherigen Theme-Imports
 stehen weiterhin für bestehende Websites zur Verfügung.
 
 ## Build on:
