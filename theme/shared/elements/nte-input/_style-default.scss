@@ -1,13 +1,20 @@
-// Übernimmt die Darstellung default für nte-input.
-@use "@nextrap/nte-input" as nteInput;
+@use "sass:map";
+@use "@nextrap/nte-input" as input;
 
-// Applies the package default-style mixin and adds Osman-specific bottom spacing.
-&:is(.style-default, .style-osman) {
-  @include nteInput.default-style(nteInput.$themeCarbon);
+// Setzt dieselbe Eingabekomposition mit variabler Feldoptik um.
+$field-style: map.merge(input.$themeCarbon, (
+  control-background: var(--theme-input-surface, var(--nt-surface-raised)),
+  control-padding-x: var(--theme-input-padding, var(--nt-space-3)),
+  border-color: var(--theme-input-border, var(--nt-border)),
+  border-radius: var(--theme-input-radius, var(--nt-border-radius))
+));
 
-  // Applies floating labels only when the control explicitly opts into that layout.
+&:is(.style-default, .style-osman, .style-mueller, .style-unify) {
+  @include input.default-style($field-style);
+
+  // Schwebende Labels bleiben eine Option am einzelnen Feld.
   &.hoverlabel {
-    @include nteInput.floating-labels();
+    @include input.floating-labels();
   }
 
   padding-block-end: var(--nt-space-4);

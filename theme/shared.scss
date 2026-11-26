@@ -5,8 +5,10 @@
 // Initialisiert die gemeinsame Website-Kaskade.
 @mixin global() {
   @include base.global() {
-    @include shared.theme() {
-      @content;
+    body {
+      @include shared.theme() {
+        @content;
+      }
     }
   }
 }

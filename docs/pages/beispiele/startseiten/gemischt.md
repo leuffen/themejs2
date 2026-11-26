@@ -20,7 +20,7 @@ Beratung, Diagnostik und Behandlung unter einem Dach.
 {: layout="/1;" }
 
 ## So helfen wir Ihnen
-{: layout="ntl-card-row.style-ribbon-top" section-style="--cols: 6" }
+{: layout="ntl-card-row.style-ribbon" section-style="--cols: 6" }
 
 ### Beratung
 

@@ -7,12 +7,14 @@
 @use "@nextrap/nte-navbar" as navbar;
 @use "@nextrap/nte-nav" as nav;
 @use "../../font/_vendor/font-bootstrap-icons";
+@use "../../font/opensans-regular";
 
 // Baut die Basis und bindet die lokalen Varianten im selben Scope ein.
 @mixin theme() {
   @layer themes.tokens {
     @include base.runtime-theme-scoped();
     @include meta.load-css("./runtime-settings");
+    @include meta.load-css("./profiles");
   }
 
   @layer themes.base {

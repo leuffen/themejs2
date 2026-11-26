@@ -24,28 +24,28 @@
   }
 }
 
-:where(.theme-osman) {
+:where(html.theme-osman) {
   @include osman.theme();
 }
 
-:where(.theme-raven) {
+:where(html.theme-raven) {
   @include raven.theme();
 }
 
 // Aktiviert Unify ausschließlich für Seiten mit der entsprechenden Body-Class.
-:where(.theme-unify) {
+:where(html.theme-unify) {
   @include unify.theme();
 }
 
-:where(.theme-mueller) {
+:where(html.theme-mueller) {
   @include mueller.theme();
 }
 
-:where(.theme-epraxis) {
+:where(html.theme-epraxis) {
   @include epraxis.theme();
 }
 
 // Neue Demos verwenden den gemeinsamen Build. Historische Vorschauen behalten ihre Profile.
-:where(html:not(.theme-osman, .theme-raven, .theme-unify, .theme-mueller, .theme-epraxis)) {
+:where(html:not(.theme-osman, .theme-raven, .theme-unify, .theme-mueller, .theme-epraxis)) body {
   @include shared.theme();
 }

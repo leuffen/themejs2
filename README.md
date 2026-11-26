@@ -16,7 +16,13 @@ vorgeben:
 }
 ```
 
-Die Darstellung wird je Instanz gewählt. Ein Beispiel für einen ContentPane-Hero
+Das Body-Profil (`theme-mueller`, `theme-osman`, `theme-raven`,
+`theme-epraxis` oder `theme-unify`) legt Farben, Typografie und visuelle
+Details fest. Die gemeinsame Basis gilt auch ohne Profil. Ein Ribbon verwendet
+unter jedem Profil `ntl-card-row.style-ribbon`. Die optionale Klasse
+`with-overlap` versetzt es auf breiten Ansichten über den vorigen Abschnitt.
+
+Die Komposition wird je Instanz gewählt. Ein Beispiel für einen ContentPane-Hero
 ist `layout="2;ntl-hero.style-mueller"`. Weitere Hero-Stile sind `style-osman`,
 `style-epraxis` und `style-unify`. Der Raven-Einstieg verwendet
 `ntl-2col.style-raven` mit seinem eigenen Slot-Vertrag.

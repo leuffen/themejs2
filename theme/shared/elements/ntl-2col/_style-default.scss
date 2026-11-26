@@ -2,7 +2,7 @@
 @use "@nextrap/ntl-2col" as ntl2col;
 
 // Text nutzt Wrapper-Padding; einzelne Medien füllen den Randbereich über die gemeinsame API.
-&.style-default {
+&:is(.style-default, .style-mueller, .style-epraxis, .style-featured) {
   --cols: 6;
   --gap: clamp(1.75rem, 3vw, 3.5rem);
   --section-divider-color: color-mix(in srgb, var(--nt-surface-muted) 78%, white 22%);
@@ -10,9 +10,9 @@
   @include ntl2col.default-style(
     $innerPadding: var(--nt-spacing-text),
     $gap: clamp(1.75rem, 3vw, 3.5rem),
-    $background: transparent,
-    $border: 0,
-    $border-radius: 0,
+    $background: var(--theme-two-col-surface, transparent),
+    $border: var(--theme-two-col-border, 0),
+    $border-radius: var(--theme-two-col-radius, 0),
     $objectFit: cover
   );
 
@@ -59,11 +59,11 @@
       border-top: 0;
     }
 
-    &:has(> p[slot="aside"].auto)::part(main) {
+    &:not(.with-text-first):has(> p[slot="aside"].auto)::part(main) {
       order: 2;
     }
 
-    &:has(> p[slot="aside"].auto)::part(aside) {
+    &:not(.with-text-first):has(> p[slot="aside"].auto)::part(aside) {
       order: 1;
       aspect-ratio: 7 / 5;
     }

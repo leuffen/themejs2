@@ -2,7 +2,7 @@
 @use "@nextrap/nte-card" as card;
 @use "@nextrap/ntl-card-row" as cardRow;
 
-&.style-default {
+&:is(.style-default, .style-mueller, .style-raven, .style-epraxis, .style-unify, .style-article-grid) {
   // Stellt das Osman-Standardraster als neutrale, wiederverwendbare Card-Reihe
   // bereit; konkrete Spalten können weiterhin pro Instanz über --cols wechseln.
   @include cardRow.default-style(
@@ -43,8 +43,8 @@
   > nte-card {
     @include card.default-style(
       $innerPadding: var(--nt-spacing-text),
-      $border: none,
-      $background-color: var(--nt-surface-raised),
+      $border: var(--theme-card-border, none),
+      $background-color: var(--theme-card-surface, var(--nt-surface-raised)),
       $border-radius: var(--theme-corner),
       $image-aspect-ratio: string.unquote("16 / 9"), $gap: var(--nt-spacing-text));
     // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.

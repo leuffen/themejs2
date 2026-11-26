@@ -10,7 +10,7 @@ Von der Vorsorge über die Diagnostik bis zur Nachsorge begleiten wir Sie mit
 einem auf Ihre Situation abgestimmten Plan.
 
 ## Beratung und Diagnostik
-{: layout="ntl-card-row.style-ribbon-top" section-style="--cols: 6" }
+{: layout="ntl-card-row.style-ribbon" section-style="--cols: 6" }
 
 ### Vorsorge
 

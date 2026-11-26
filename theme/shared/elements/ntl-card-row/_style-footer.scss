@@ -1,9 +1,8 @@
 @use "@nextrap/ntl-card-row" as cardRow;
 @use "@nextrap/nte-card" as card;
 
-&:is(.style-footer, .footer-separators) {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
+&:is(.style-footer, .style-footer-medic, .footer-separators) {
+  width: 100%;
   padding-block: var(--nt-space-7);
   color: var(--nt-white);
   background: var(--nt-secondary);
@@ -30,7 +29,7 @@
   }
 }
 
-&:is(.style-footer, .footer-separators) nte-card {
+&:is(.style-footer, .style-footer-medic, .footer-separators) nte-card {
   @include card.default-style(
     $innerPadding: var(--nt-space-5),
     $border: 0,
