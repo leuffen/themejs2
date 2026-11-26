@@ -3,6 +3,28 @@
 - [Jekyll Includes Doc](README_INCLUDES.md)
 - [Best Practices](BEST_PRACTICE.md)
 
+## Gemeinsame Komponentenvarianten
+
+Neue Projekte können die gemeinsame Basis laden und Farben im Website-Layer
+vorgeben:
+
+```scss
+@use "@leuffen/themejs2/theme/shared";
+
+@include shared.global() {
+  --theme-primary: #315b70;
+}
+```
+
+Die Darstellung wird je Instanz gewählt. Ein Beispiel für einen ContentPane-Hero
+ist `layout="2;ntl-hero.style-mueller"`. Weitere Hero-Stile sind `style-osman`,
+`style-epraxis` und `style-unify`. Der Raven-Einstieg verwendet
+`ntl-2col.style-raven` mit seinem eigenen Slot-Vertrag.
+
+Die Demo zeigt [vollständige Beispielseiten](docs/pages/beispiele/index.md) und
+[einzelne Bausteine](docs/pages/bausteine/index.md). Die bisherigen Theme-Imports
+stehen weiterhin für bestehende Websites zur Verfügung.
+
 ## Build on:
 
 Reference to the Projects that are used to build this project:
