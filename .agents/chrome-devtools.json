@@ -1,0 +1,5 @@
+{
+  "wsEndpoint": "ws://chromium:3000",
+  "sourceMaps": true,
+  "usageStatistics": false
+}
