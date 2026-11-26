@@ -23,6 +23,11 @@
   border-block-end: var(--theme-ribbon-accent, 0);
   color: var(--theme-ribbon-text, var(--nt-text));
 
+  // Der Abschnittstitel steht oberhalb der Kartenfläche und verwendet die Seitenfarbe.
+  &::part(header) {
+    color: var(--nt-header, var(--nt-text));
+  }
+
   &::part(main) {
     align-items: stretch;
   }
@@ -40,6 +45,10 @@
 
     --image-aspect-ratio: 16/9;
     color: inherit;
+
+    a {
+      color: var(--theme-ribbon-link, var(--nt-link));
+    }
 
     &::part(wrapper) {
       display: flex;
