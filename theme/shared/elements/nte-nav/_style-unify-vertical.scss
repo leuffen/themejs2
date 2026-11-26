@@ -1,0 +1,10 @@
+// Stellt dieselben Navigationspunkte im mobilen Offcanvas als vollständige vertikale Variante dar.
+@use "@nextrap/nte-nav" as nav;
+
+&.style-unify-vertical {
+  @include nav.default-style();
+  @include nav.vertical(.25rem);
+
+  color: var(--nt-header);
+  font-weight: 500;
+}

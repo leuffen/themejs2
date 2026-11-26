@@ -23,4 +23,6 @@ ntl-card-row {
   @include meta.load-css("./style-testimonial-slider");
   @include meta.load-css("./style-timeline");
   @include meta.load-css("./style-tool-gallery");
+  @include meta.load-css("./style-ribbon-medic");
+  @include meta.load-css("./style-footer-medic");
 }
