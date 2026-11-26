@@ -46,6 +46,6 @@
 }
 
 // Neue Demos verwenden den gemeinsamen Build. Historische Vorschauen behalten ihre Profile.
-:where(body:not(.theme-osman, .theme-raven, .theme-unify, .theme-mueller, .theme-epraxis)) {
+:where(html:not(.theme-osman, .theme-raven, .theme-unify, .theme-mueller, .theme-epraxis)) {
   @include shared.theme();
 }
