@@ -18,13 +18,19 @@ Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 
+---
 {: layout="1;ntl-hero.style-osman" }
 
-{: layout="2;.box" }
+![Illustration zur Praxis]({{ '/assets/header-bg.svg' | relative_url }})
+{: slot="bg" }
 
 ## Osman
+{: layout="2;.box" }
 
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
+
+---
+{: layout="/1;" }
 
 ## Raven
 {: layout="ntl-2col.style-raven" }

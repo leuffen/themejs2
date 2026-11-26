@@ -3,19 +3,24 @@ layout: website
 title: Praxisstart mit gemischten Varianten
 ---
 
+---
 {: layout="1;ntl-hero.style-mueller" }
 
-{: layout="2;.box" }
+![Illustration zur Praxis]({{ '/assets/header-bg.svg' | relative_url }})
+{: slot="bg" }
 
 # Praxis am Stadtpark
+{: layout="2;.box" }
 
 Beratung, Diagnostik und Behandlung unter einem Dach.
 
 [Kontaktbeispiele]({{ '/pages/beispiele/kontakt/' | relative_url }}){: .btn .btn-primary }
 
-{: layout="1;ntl-card-row.style-ribbon-top" section-style="--cols: 6" }
+---
+{: layout="/1;" }
 
 ## So helfen wir Ihnen
+{: layout="ntl-card-row.style-ribbon-top" section-style="--cols: 6" }
 
 ### Beratung
 
