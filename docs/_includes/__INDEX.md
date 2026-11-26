@@ -2,7 +2,7 @@
 
 `docs/_includes/` und `_root/docs/_includes/` verwenden die aktuelle Struktur von Osman2.
 Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
-`docs/_includes/_styles/` bleibt ausschließlich für die GitHub-Pages-Demo erhalten.
+Feste Demo-Layouts verwenden Markup aus `docs/_includes/frames/`.
 
 | Pfad relativ zu `_includes/` | Aufgabe |
 | --- | --- |
@@ -22,4 +22,4 @@ Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
 | `helpers/urls/page.html` | Sprachabhängige Seiten-URL |
 | `helpers/text/remove-line-breaks.html` | Textaufbereitung |
 | `fragments/loader.html` | Seitenweiter Loader |
-| `_styles/<variante>/navbar.html`, `_styles/<variante>/footer.html` | Austauschbare Rahmen nur in `docs/` |
+| `frames/<variante>/navbar.html`, `frames/<variante>/footer.html` | Austauschbare Rahmen nur in `docs/` |

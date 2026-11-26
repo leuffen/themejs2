@@ -18,7 +18,7 @@ Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 
 Beratung und nächste Schritte
 
-[Kontaktbeispiele]({{ '/pages/beispiele/kontakt/' | relative_url }}){: .btn .btn-primary }
+[Kontaktbeispiele]({{ '/' | relative_url }}#kontaktseiten){: .btn .btn-primary }
 
 ## Zitat
 {: layout="ntl-2col.style-testimonial" }

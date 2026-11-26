@@ -1,12 +1,9 @@
 ---
-layout: 70_main
+layout: 20_body
 ---
 
-<!-- Prose class from nextrap/style-typography -->
+{% include frames/default/navbar.html %}
 
-<tj-content-pane pre-parser="text-block" class="">
-    {{ content }}
-</tj-content-pane>
+{% include fragments/website-content.html content=content %}
 
-
-
+{% include frames/default/footer.html %}

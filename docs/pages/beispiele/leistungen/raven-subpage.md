@@ -1,10 +1,7 @@
 ---
-permalink: /pages/theme-raven/raven-subpage/
-layout: website
+layout: website-raven
 body_class: theme-raven
 title: Raven – Leistungen
-use_navbar: osman
-use_footer: raven
 description: "Raven-Leistungsseite mit medizinischen Schwerpunkten und Kontaktaktion."
 ptags:
   - arzt
@@ -136,5 +133,5 @@ Organisatorische Hinweise für einen Termin lassen sich ohne Sonderkomponente al
 Vertiefende Inhalte können von jeder Unterseite gezielt zum medizinischen Ansatz, zum Profil oder zur Kontaktaufnahme führen.
 {: .lead-serif }
 
-[Medizinischer Ansatz](/pages/theme-raven/raven-start/){: .btn .btn-light .btn-lead }
-[Kontakt & Anfahrt]({{ '/pages/theme-raven/raven-kontakt/' | relative_url }}){: .btn .btn-accent .btn-lead }
+[Medizinischer Ansatz](/pages/beispiele/startseiten/raven-start.html){: .btn .btn-light .btn-lead }
+[Kontakt & Anfahrt]({{ '/pages/beispiele/kontakt/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }

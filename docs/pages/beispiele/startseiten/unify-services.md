@@ -1,10 +1,7 @@
 ---
-permalink: /pages/theme-unify/unify-services/
-layout: website
+layout: website-unify
 body_class: theme-unify
 title: Theme Unify Services
-use_navbar: unify
-use_footer: unify
 description: "Unify-Services-Demo mit editierbaren Nextstrap-Layouts nach der Unify-Services-Landingpage."
 ptags:
   - business
@@ -34,9 +31,9 @@ We enrich human lives through the thoughtful application of design and technolog
 
 ### Fully customizable rules to match your unique needs
 
-- [**Advanced tools** — Use thoroughly considered libraries to manage your business.](/leistungen)
-- [**Smart dashboards** — Combine proven components and get started quickly.](/leistungen)
-- [**Powerful features** — Reduce the effort required to create a modern service experience.](/leistungen)
+- [**Advanced tools** — Use thoroughly considered libraries to manage your business.](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [**Smart dashboards** — Combine proven components and get started quickly.](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [**Powerful features** — Reduce the effort required to create a modern service experience.](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
 {: .list-checked }
 
 ![Smart service dashboard](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img7.png)
@@ -134,7 +131,7 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 - ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg)
 {: .logo-cloud .with-labels .bottom }
 
-[See all integrations](/leistungen){: .btn .btn-primary }
+[See all integrations](/pages/beispiele/leistungen/praxis-am-stadtpark.html){: .btn .btn-primary }
 {: .footer }
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
@@ -239,4 +236,4 @@ Millions of people expect a great customer experience. A shared design language 
 #[nte-input.style-default.hoverlabel type="email" name="email" label="Enter email" required]
 #[button type="submit" class="btn btn-primary" > Subscribe]
 
-[Create a free account](/kontakt){: .subscribe-account }
+[Create a free account](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .subscribe-account }

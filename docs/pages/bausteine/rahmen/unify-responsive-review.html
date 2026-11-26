@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /pages/theme-unify/responsive-review/
+title: Unify – responsiver Vorlagenvergleich
 ---
 <!doctype html>
 <html lang="de">
@@ -45,7 +45,7 @@ const theme = document.querySelector('#theme');
 const reference = document.querySelector('#reference');
 for (const frame of [theme, reference]) frame.width = width;
 reference.src = `https://static.leanea.de/uni-v3.0-docs/landing-${pages[page]}.html`;
-theme.src = `../unify-${page}/?review={{ site.time | date: '%s' }}`;
+theme.src = `{{ '/pages/beispiele/startseiten/' | relative_url }}unify-${page}.html?review={{ site.time | date: '%s' }}`;
 // Die optionale Belastungsprobe verlängert nur sichtbaren Text im lokalen Vorschau-Frame.
 theme.addEventListener('load', async () => {
   if (!stress) return;

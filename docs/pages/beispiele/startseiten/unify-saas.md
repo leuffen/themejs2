@@ -1,10 +1,7 @@
 ---
-permalink: /pages/theme-unify/unify-saas/
-layout: website
+layout: website-unify
 body_class: theme-unify
 title: Theme Unify SaaS
-use_navbar: unify
-use_footer: unify
 description: "Unify-SaaS-Demo mit editierbaren Nextstrap-Layouts nach der Unify-Landingpage."
 ptags:
   - business
@@ -18,7 +15,7 @@ pid: site
 
 Hand-picked professionals and expertly crafted components, designed for any kind of entrepreneur.
 
-[Request a demo](/kontakt){: .btn .btn-primary }
+[Request a demo](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-primary }
 
 - <span class="review-stars">★★★★★</span> **4.6 / 5** — from 12k reviews<br>![Google](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/google-dark.svg)
 - <span class="review-stars">★★★★½</span> **4.8 / 5** — from 5k reviews<br>![Forbes](https://static.leanea.de/uni-v3.0-docs/assets/svg/brands/forbes-dark.svg)
@@ -32,10 +29,10 @@ Hand-picked professionals and expertly crafted components, designed for any kind
 - <input type="radio" name="saas-plan" id="plan-enterprise" value="enterprise"><label for="plan-enterprise">Enterprise<strong>$59.99</strong><small>Advanced features for scaling your business</small></label>
 {: .plan-options .aside }
 
-[Try free for 14 days](/kontakt){: .btn .btn-primary }
+[Try free for 14 days](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-primary }
 {: .aside }
 
-Need a custom plan? [Contact sales](/kontakt)
+Need a custom plan? [Contact sales](/pages/beispiele/kontakt/praxis-am-stadtpark.html)
 {: .aside .plan-contact }
 
 <!-- Leitet den wiederverwendbaren Drei-Schritt-Guide mit einer zentrierten Inhaltsüberschrift ein. -->
@@ -61,7 +58,7 @@ Some product ideas come easily, while others take some work to find.
 - How to **source a product**
 {: .list-checked }
 
-[Explore this step](/leistungen)
+[Explore this step](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
 
 ![Product planning interface](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img1.png)
 
@@ -81,7 +78,7 @@ Learn how to start marketing your products so that it works for you.
 - Unify site **marketing setup**
 {: .list-checked }
 
-[Explore this step](/leistungen)
+[Explore this step](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
 
 ![Market testing interface](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img2.png)
 
@@ -101,7 +98,7 @@ Make a strong first impression on your customers.
 - A walkthrough of Unify **site building**
 {: .list-checked }
 
-[Explore this step](/leistungen)
+[Explore this step](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
 
 ![Site building interface](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img3.png)
 

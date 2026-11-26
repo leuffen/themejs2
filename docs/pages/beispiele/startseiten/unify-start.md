@@ -1,10 +1,7 @@
 ---
-permalink: /pages/theme-unify/unify-start/
-layout: website
+layout: website-unify
 body_class: theme-unify
 title: Theme Unify
-use_navbar: unify
-use_footer: unify
 description: "Unify-Demo für moderne Business-, Agentur- und Beratungsseiten mit Nextstrap-Layouts."
 ptags:
   - business
@@ -50,7 +47,7 @@ Analytic dashboards, platforms, and social networks – we have strong cases in 
 - 165 Countries served **globally**
 {: .list-checked }
 
-[Learn more](/leistungen){: .btn .btn-primary }
+[Learn more](/pages/beispiele/leistungen/praxis-am-stadtpark.html){: .btn .btn-primary }
 
 ![Arbeitsplatz mit digitalem Produkt](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img1.jpg)
 ![Oberfläche eines Analyse-Dashboards](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img4.png)
@@ -67,7 +64,7 @@ Connect with your customers better by giving them an excellent post-purchase exp
 - FREE Email & SMS notifications
 {: .list-checked }
 
-[Learn more](/leistungen){: .btn .btn-primary }
+[Learn more](/pages/beispiele/leistungen/praxis-am-stadtpark.html){: .btn .btn-primary }
 
 ![Kundin bei einer digitalen Beratung](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img2.jpg)
 ![Auswahlansicht eines digitalen Shops](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img5.png)
@@ -79,12 +76,12 @@ Connect with your customers better by giving them an excellent post-purchase exp
 
 We help agencies and designers **transform concepts into digital products** that stand the test of time.
 
-- [Unify Wallet app](/leistungen)
-- [Unify debit card](/leistungen)
-- [Automatic savings](/leistungen)
-- [Unify Cashout](/leistungen)
-- [529 college savings](/leistungen)
-- [Retirement savings](/leistungen)
+- [Unify Wallet app](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [Unify debit card](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [Automatic savings](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [Unify Cashout](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [529 college savings](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [Retirement savings](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
 {: .feature-links }
 
 ![Designer bei der Arbeit](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img3.jpg)
@@ -203,7 +200,7 @@ Alles, was kleine Teams für den Einstieg brauchen.
 - <span class="is-unavailable">Produkt-Support</span>
 - <span class="is-unavailable">Aktivitätsberichte</span>
 
-<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/kontakt){: .btn .btn-light }
+<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-light }
 {: .footer }
 
 ### Teams
@@ -223,7 +220,7 @@ Für wachsende Agenturen und Produktteams.
 - Produkt-Support
 - Aktivitätsberichte
 
-<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/kontakt){: .btn .btn-primary }
+<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-primary }
 {: .footer }
 
 <!-- Kombiniert ein bestehendes NTL mit dem vorhandenen NTE-Accordion für eine responsive FAQ-Sektion. -->

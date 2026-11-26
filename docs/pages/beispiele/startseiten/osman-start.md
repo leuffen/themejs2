@@ -1,10 +1,7 @@
 ---
-permalink: /pages/theme-osman/osman-start/
-layout: website
+layout: website-osman
 body_class: theme-osman
 title: Osman Startseite
-use_navbar: osman
-use_footer: osman
 ptags:
   - arzt
   - nav
@@ -271,6 +268,6 @@ Wenn Sie uns schreiben, melden wir uns schnellstmöglich bei Ihnen zurück.
 ## Weitere OSMan-Elemente prüfen
 {: #osman-elementkontrolle layout="ntl-2col" }
 
-[Elementübersicht mit Unterseiten-Beispielen]({{ '/pages/theme-osman/osman-elements.html' | relative_url }}){: .btn .btn-primary }
+[Elementübersicht mit Unterseiten-Beispielen]({{ '/' | relative_url }}#bausteine){: .btn .btn-primary }
 
-[Typografie und Default-Elemente]({{ '/pages/theme-osman/osman-default.html' | relative_url }})
+[Typografie und Default-Elemente]({{ '/pages/bausteine/karten/vergleich.html' | relative_url }})

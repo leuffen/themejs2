@@ -27,4 +27,4 @@ Die Felder zeigen die Darstellung eines Kontaktformulars in der Demo.
 
 #[nte-input.style-unify type="textarea" name="nachricht" label="Nachricht"]
 
-[Zur Praxisstartseite]({{ '/pages/beispiele/startseiten/gemischt/' | relative_url }})
+[Zur Praxisstartseite]({{ '/pages/beispiele/startseiten/gemischt.html' | relative_url }})

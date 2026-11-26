@@ -1,31 +1,53 @@
 ---
 layout: website
 title: ThemeJS2
-permalink: /
-order: 0
 ---
 
 # ThemeJS2
 
-## Vollständige Seiten
+## Seitenverzeichnis
+{: #seitenverzeichnis }
 
-- [Startseiten]({{ '/pages/beispiele/startseiten/' | relative_url }})
-- [Leistungsseiten]({{ '/pages/beispiele/leistungen/' | relative_url }})
-- [Kontaktseiten]({{ '/pages/beispiele/kontakt/' | relative_url }})
+{% assign demo_pages = site.pages | sort: 'path' %}
+{% assign sections = 'Startseiten|pages/beispiele/startseiten/,Leistungsseiten|pages/beispiele/leistungen/,Kontaktseiten|pages/beispiele/kontakt/,Bausteine|pages/bausteine/,Weitere Seiten|pages/' | split: ',' %}
+{% for section in sections %}
+{% assign fields = section | split: '|' %}
+{% assign folder = fields[1] %}
+### {{ fields[0] }}
 
-## Bausteine
+{% for entry in demo_pages %}
+{% assign prefix = entry.path | slice: 0, folder.size %}
+{% if prefix != folder or entry.published == false %}{% continue %}{% endif %}
+{% if folder == 'pages/' %}
+{% if entry.path contains 'pages/beispiele/' or entry.path contains 'pages/bausteine/' %}{% continue %}{% endif %}
+{% endif %}
+- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+{% endfor %}
+{% endfor %}
 
-- [Hero]({{ '/pages/bausteine/hero/' | relative_url }})
-- [Karten]({{ '/pages/bausteine/karten/' | relative_url }})
-- [Zweispalter]({{ '/pages/bausteine/zweispalter/' | relative_url }})
-- [Kontakt]({{ '/pages/bausteine/kontakt/' | relative_url }})
-- [Navbar und Footer]({{ '/pages/bausteine/rahmen/' | relative_url }})
+### Dateien und Statusseiten
 
-## Design-Templates
-{: layout="ntl-2col.style-cta" data-kicker="Direkte Vorlagen" }
+{% for entry in demo_pages %}
+{% if entry.path contains '/' or entry.path == 'index.md' or entry.published == false %}{% continue %}{% endif %}
+- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+{% endfor %}
 
-<!-- Die Dateiliste verlinkt alle statischen Design-Templates direkt und wächst mit dem Verzeichnisinhalt. -->
-{% assign design_templates = site.static_files | where_exp: "template", "template.path contains '/design-templates/'" | sort: "path" %}
+{% for collection in site.collections %}
+{% if collection.docs.size == 0 %}{% continue %}{% endif %}
+{% unless collection.output or collection.label == 'posts' %}{% continue %}{% endunless %}
+### {{ collection.label | replace: '_', ' ' | capitalize }}
+
+{% assign documents = collection.docs | sort: 'path' %}
+{% for entry in documents %}
+{% if entry.published == false %}{% continue %}{% endif %}
+- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+{% endfor %}
+{% endfor %}
+
+### Designvorlagen
+
+{% assign design_templates = site.static_files | where_exp: 'template', "template.path contains '/design-templates/'" | sort: 'path' %}
 {% for template in design_templates %}
-- [{{ template.name }}]({{ template.path | relative_url }})
+{% unless template.extname == '.html' %}{% continue %}{% endunless %}
+- [{{ template.name }}]({{ template.path | relative_url }}) · `{{ template.path | remove_first: '/' }}`
 {% endfor %}

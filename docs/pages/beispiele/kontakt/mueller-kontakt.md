@@ -1,8 +1,6 @@
 ---
-permalink: /pages/theme-mueller/mueller-kontakt/
-layout: website
+layout: website-mueller
 body_class: theme-mueller
-use_footer: mueller
 title: Müller – Kontakt & Anfahrt
 ptags: [arzt, nav]
 ---

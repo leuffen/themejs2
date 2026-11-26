@@ -1,10 +1,7 @@
 ---
-permalink: /pages/theme-raven/raven-start/
-layout: website
+layout: website-raven
 body_class: theme-raven
 title: Theme Raven
-use_navbar: osman
-use_footer: raven
 description: "Dr. med. Tim Raven – Facharzt für Orthopädie und Unfallchirurgie mit Schwerpunkt Sporttraumatologie, funktionelle Orthopädie und regenerative Medizin."
 ptags:
   - arzt
@@ -25,8 +22,8 @@ Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktio
 
 Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Einordnung und einem klaren Blick auf langfristige Belastbarkeit.
 
-[Termin buchen](/kontakt){: .btn .btn-primary .btn-lead .btn-glow .btn-glow-on-view .me-2 .mb-2 }
-[Medizinischen Ansatz ansehen](/leistungen){: .btn .btn-outline-primary .mb-2 }
+[Termin buchen](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-primary .btn-lead .btn-glow .btn-glow-on-view .me-2 .mb-2 }
+[Medizinischen Ansatz ansehen](/pages/beispiele/leistungen/praxis-am-stadtpark.html){: .btn .btn-outline-primary .mb-2 }
 
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
@@ -164,7 +161,7 @@ Dres. Behr, Erben, Primbs, Rau
 Rheinstraße 97  
 64295 Darmstadt
 
-[Zur Terminvereinbarung](/kontakt){: .btn .btn-outline-primary .btn-lead .btn-glow .mt-3 }
+[Zur Terminvereinbarung](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-outline-primary .btn-lead .btn-glow .mt-3 }
 
 ### Zugangs&shy;informationen
 
@@ -190,7 +187,7 @@ Rheinstraße 97
 Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das OCP Darmstadt. Dort erhalten Sie alle Informationen zu Sprechzeiten, Anfahrt und Zugang.
 {: .lead-serif }
 
-[Termin buchen](/kontakt){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }
+[Termin buchen](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }
 
 ## Häufig gestellte Fragen
 {: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="FAQ" section-style="--cols: 6;" }
@@ -268,4 +265,4 @@ Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefr
 ## Fragen zu Ihren Beschwerden?
 {: layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
 
-[Kontakt & Termin]({{ '/pages/theme-raven/raven-kontakt/' | relative_url }}){: .btn .btn-accent .btn-lead }
+[Kontakt & Termin]({{ '/pages/beispiele/kontakt/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }

@@ -1,8 +1,6 @@
 ---
-permalink: /pages/theme-mueller/mueller-leistungen/
-layout: website
+layout: website-mueller
 body_class: theme-mueller
-use_footer: mueller
 title: Müller – Leistungen
 ptags: [arzt, nav]
 ---
@@ -32,4 +30,4 @@ Begleitung bei konservativer und chirurgischer Therapie sowie Vor- und Nachsorge
 ## Sie haben Fragen? Wir helfen gerne weiter
 {: layout="ntl-2col.style-cta" section-style="--cols: 12;" }
 
-[Kontakt]({{ '/pages/theme-mueller/mueller-kontakt/' | relative_url }}){: .btn .btn-primary .btn-lg }
+[Kontakt]({{ '/pages/beispiele/kontakt/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg }

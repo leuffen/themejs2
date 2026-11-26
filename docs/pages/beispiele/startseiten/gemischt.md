@@ -14,7 +14,7 @@ title: Praxisstart mit gemischten Varianten
 
 Beratung, Diagnostik und Behandlung unter einem Dach.
 
-[Kontaktbeispiele]({{ '/pages/beispiele/kontakt/' | relative_url }}){: .btn .btn-primary }
+[Kontaktbeispiele]({{ '/' | relative_url }}#kontaktseiten){: .btn .btn-primary }
 
 ---
 {: layout="/1;" }

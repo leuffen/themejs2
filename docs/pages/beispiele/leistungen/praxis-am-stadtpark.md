@@ -36,4 +36,4 @@ Bringen Sie vorhandene Befunde und eine aktuelle Medikamentenliste mit.
 ## Kontakt
 {: layout="ntl-2col.style-cta" }
 
-[Kontakt und Anfahrt]({{ '/pages/beispiele/kontakt/praxis-am-stadtpark/' | relative_url }}){: .btn .btn-primary }
+[Kontakt und Anfahrt]({{ '/pages/beispiele/kontakt/praxis-am-stadtpark.html' | relative_url }}){: .btn .btn-primary }
