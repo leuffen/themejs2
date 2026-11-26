@@ -1,4 +1,5 @@
 ---
+permalink: /pages/theme-mueller/mueller-leistungen/
 layout: website
 body_class: theme-mueller
 use_footer: mueller
@@ -31,4 +32,4 @@ Begleitung bei konservativer und chirurgischer Therapie sowie Vor- und Nachsorge
 ## Sie haben Fragen? Wir helfen gerne weiter
 {: layout="ntl-2col.style-cta" section-style="--cols: 12;" }
 
-[Kontakt]({{ '/pages/theme-mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg }
+[Kontakt]({{ '/pages/theme-mueller/mueller-kontakt/' | relative_url }}){: .btn .btn-primary .btn-lg }

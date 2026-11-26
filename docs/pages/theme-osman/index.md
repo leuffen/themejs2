@@ -1,9 +1,8 @@
 ---
-layout: index
+layout: website
 title: Theme Osman
-body_class: theme-osman
-ptags: [nav]
-order: 1
 ---
 
-Beispiele für das Theme Osman.
+# Theme Osman
+
+- [Osman Startseite]({{ '/pages/theme-osman/osman-start/' | relative_url }})

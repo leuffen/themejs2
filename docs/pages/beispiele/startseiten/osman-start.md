@@ -1,4 +1,5 @@
 ---
+permalink: /pages/theme-osman/osman-start/
 layout: website
 body_class: theme-osman
 title: Osman Startseite

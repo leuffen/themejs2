@@ -1,4 +1,5 @@
 ---
+permalink: /pages/theme-raven/raven-start/
 layout: website
 body_class: theme-raven
 title: Theme Raven
@@ -267,4 +268,4 @@ Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefr
 ## Fragen zu Ihren Beschwerden?
 {: layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
 
-[Kontakt & Termin]({{ '/pages/theme-raven/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }
+[Kontakt & Termin]({{ '/pages/theme-raven/raven-kontakt/' | relative_url }}){: .btn .btn-accent .btn-lead }

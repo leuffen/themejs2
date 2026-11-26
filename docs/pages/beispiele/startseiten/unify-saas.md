@@ -1,4 +1,5 @@
 ---
+permalink: /pages/theme-unify/unify-saas/
 layout: website
 body_class: theme-unify
 title: Theme Unify SaaS

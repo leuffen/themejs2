@@ -1,0 +1,70 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+@use "sass:string";
+@use "@nextrap/nte-card" as card;
+
+// Erstellt ein neutrales Kartenraster für Leistungen, Vorteile und weitere wiederholte Inhalte.
+
+// Stellt eine eigenständige Baseline bereit und überlässt die Spaltenzahl weiterhin der Instanz.
+&.style-unify {
+  @include cardRow.default-style(
+    $container-width: var(--nt-container-width),
+    $cols: 3,
+    $gap: var(--nt-space-5),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: 0,
+    $container-border-radius: 0
+  );
+
+  // Hält Abschnittsüberschriften in einer gut lesbaren Breite über dem Raster.
+  &::part(header) {
+    max-width: 44rem;
+    margin: 0 auto var(--nt-space-8);
+    text-align: center;
+  }
+
+  // Sorgt dafür, dass Karten mit unterschiedlicher Textlänge dieselbe visuelle Höhe teilen.
+  &::part(main) {
+    align-items: stretch;
+  }
+
+  // Lässt das Komponenten-Raster im mobilen Modus mit komfortablen vertikalen Abständen arbeiten.
+  &[mode="mobile"] {
+    --cols: 12;
+    --gutter-y: 20px;
+  }
+}
+
+// Verleiht Karten in neutralen Rastern eine ruhige, angehobene Oberfläche mit flexibler Inhaltslänge.
+
+
+// Bindet das Card-Styling ausschließlich an die Standardkomposition des Elternlayouts.
+&.style-unify {
+  // Nutzt die öffentliche Card-Baseline für alle direkten Kartenkinder.
+  > nte-card {
+    @include card.default-style(
+      $innerPadding: var(--nt-space-6),
+      $border: var(--nt-border-width) solid var(--nt-border),
+      $background-color: var(--nt-surface-raised),
+      $border-radius: var(--nt-radius),
+      $image-aspect-ratio: string.unquote("16 / 9"), $gap: var(--nt-text-gap));
+    // Titelbilder reichen über den gemeinsamen Bleed-Vertrag bis an den Rahmen.
+    @include card.with-region-bleed(image);
+
+    height: 100%;
+    color: var(--nt-text);
+
+    &::part(wrapper) {
+      height: 100%;
+      box-shadow: 0 var(--nt-space-3) var(--nt-space-8) rgba(45, 55, 75, .08);
+    }
+
+    &::part(content) {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      gap: var(--nt-text-gap);
+    }
+
+  }
+}

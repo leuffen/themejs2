@@ -1,0 +1,86 @@
+@use "sass:meta";
+@use "@nextrap/ntl-2col" as ntl2col;
+
+// Text nutzt Wrapper-Padding; einzelne Medien füllen den Randbereich über die gemeinsame API.
+&.style-default {
+  --cols: 6;
+  --gap: clamp(1.75rem, 3vw, 3.5rem);
+  --section-divider-color: color-mix(in srgb, var(--nt-surface-muted) 78%, white 22%);
+
+  @include ntl2col.default-style(
+    $innerPadding: var(--nt-spacing-text),
+    $gap: clamp(1.75rem, 3vw, 3.5rem),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Richtet Osman-Zweispalter standardmäßig oben aus; explizite Justify-Modifier bleiben als bewusste Ausnahmen wirksam.
+  &[mode="desktop"]::part(main),
+  &[mode="desktop"]::part(aside) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  // Aktiviert randfüllende Medien, sobald die zugehörige Nextrap-Version installiert ist.
+  // Ältere veröffentlichte Versionen bleiben bis zum gemeinsamen Library-Release baubar.
+  @if meta.mixin-exists("with-media-frame", ntl2col) {
+    @include ntl2col.with-media-frame($enabled: false);
+  }
+
+  > p[slot="aside"].auto {
+    margin: 0;
+
+    > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // Der äußere Footer erhält denselben horizontalen Innenabstand wie der
+  // Content-Bereich, damit auch angehängte Aktionen sauber ausgerichtet sind.
+  &::part(footer) {
+    padding: var(--nt-spacing-text);
+  }
+
+  &:has(> p[slot="aside"].auto)::part(aside) {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  &[mode="mobile"] {
+    --gap: 1.25rem;
+
+    &::part(container) {
+      border-top: 0;
+    }
+
+    &:has(> p[slot="aside"].auto)::part(main) {
+      order: 2;
+    }
+
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      order: 1;
+      aspect-ratio: 7 / 5;
+    }
+  }
+
+  &[mode="desktop"] {
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      min-height: clamp(18rem, 25vw, 22rem);
+    }
+
+    // Der Texttrenner liegt innerhalb des Gaps und folgt allen Nextrap-Umkehrungen.
+    &:not(:has(> p[slot="aside"].auto, > :is(img, nte-image, nte-consent-blocker)[slot="aside"])):not(.with-bg-primary) {
+      @include ntl2col.with-background-and-divider(
+        $gap: clamp(1.75rem, 3vw, 3.5rem),
+        $background: null,
+        $divider-color: var(--section-divider-color)
+      );
+    }
+  }
+}

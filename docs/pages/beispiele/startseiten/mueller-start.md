@@ -1,4 +1,5 @@
 ---
+permalink: /pages/theme-mueller/mueller-start/
 layout: website
 body_class: theme-mueller
 use_footer: mueller
@@ -26,7 +27,7 @@ pid: site
 # Ihre Praxis für Innere Medizin und Diabetologie in Norden
 {: layout="3"}
 
-[Jetzt Termin online vereinbaren]({{ '/pages/theme-mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg}
+[Jetzt Termin online vereinbaren]({{ '/pages/theme-mueller/mueller-kontakt/' | relative_url }}){: .btn .btn-primary .btn-lg}
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}
@@ -51,7 +52,7 @@ Innere Medizin und Diabetologie. Professionelle Betreuung,
 Früherkennungsuntersuchungen, Individualprophylaxe, hochwertige Behandlungen und
 mehr.
 
-[Kontaktieren Sie uns für einen Termin!]({{ '/pages/theme-mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary}
+[Kontaktieren Sie uns für einen Termin!]({{ '/pages/theme-mueller/mueller-kontakt/' | relative_url }}){: .btn .btn-primary}
 
 ![](https://cdn.leuffen.de//leu-stock/v2/32/304-205_gfedcba/AdobeStock_138200241.webp)
 
@@ -70,7 +71,7 @@ Wir sind spezialisiert auf die Versorgung im Bereich Innere Medizin.
 - Sonographische Untersuchungen
 - Beratung und Therapie bei gastroenterologischen Beschwerden
 
-[]({{ '/pages/theme-mueller/mueller-leistungen.html' | relative_url }}){: slot="link" }
+[]({{ '/pages/theme-mueller/mueller-leistungen/' | relative_url }}){: slot="link" }
 
 ### Diabetologie
 
@@ -84,7 +85,7 @@ Wir sind spezialisiert in der Versorgung und Betreuung von Diabetespatienten.
 - Schulung und Aufklärung
 - Interdisziplinäre Zusammenarbeit
 
-[]({{ '/pages/theme-mueller/mueller-leistungen.html' | relative_url }}){: slot="link" }
+[]({{ '/pages/theme-mueller/mueller-leistungen/' | relative_url }}){: slot="link" }
 
 ### Adipositasbehandlung
 
@@ -98,7 +99,7 @@ Betreuung und Unterstützung auf Ihrem Weg zur Gewichtsreduktion.
 - Vorsorge
 - Nachsorge
 
-[]({{ '/pages/theme-mueller/mueller-leistungen.html' | relative_url }}){: slot="link" }
+[]({{ '/pages/theme-mueller/mueller-leistungen/' | relative_url }}){: slot="link" }
 
 ---
 {: layout="2;ntl-2col.style-testimonial"}
@@ -127,9 +128,9 @@ Sie werden in unserer Praxis von einem kompetenten Team behandelt.
 Unterstützt werden die Behandler durch ein intensiv geschultes und langjährig
 erfahrenes Team von medizinischen Assistenten.
 
-[Mehr zu uns...]({{ '/pages/theme-mueller/mueller-start.html' | relative_url }}){: .btn .btn-primary }
+[Mehr zu uns...]({{ '/pages/theme-mueller/mueller-start/' | relative_url }}){: .btn .btn-primary }
 
 ## Sie haben Fragen? Wir helfen gerne weiter
 {: layout="ntl-2col.style-cta" section-style="--cols: 12;"}
 
-[Kontakt]({{ '/pages/theme-mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg}
+[Kontakt]({{ '/pages/theme-mueller/mueller-kontakt/' | relative_url }}){: .btn .btn-primary .btn-lg}

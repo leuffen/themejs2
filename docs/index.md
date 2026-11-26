@@ -1,35 +1,25 @@
 ---
-body_class: theme-mueller
-description: "Dynamische Entwicklerübersicht der ThemeJS2-Previews und Design-Templates."
 layout: website
-use_footer: mueller
-order: 0
+title: ThemeJS2
 permalink: /
-ptags:
-  - nav
-published: true
-short_title: Theme-Previews
-title: ThemeJS2 Preview-Übersicht
-type: website
+order: 0
 ---
 
-## Theme-Previews
-{: layout="ntl-2col" data-kicker="Entwicklungsübersicht" }
+# ThemeJS2
 
-<!-- Die Preview-Übersicht gruppiert alle Vorlagen automatisch anhand ihrer Theme-Verzeichnisse. -->
-{% assign theme_previews = site.pages | where_exp: "preview", "preview.path contains 'pages/theme-'" | sort: "title" %}
-{% assign preview_themes = "mueller|Müller,osman|Osman,raven|Raven,epraxis|ePraxis,unify|Unify" | split: "," %}
-{% for preview_theme in preview_themes %}
-  {% assign theme_data = preview_theme | split: "|" %}
-  {% assign theme_path = "pages/theme-" | append: theme_data[0] | append: "/" %}
-### Theme {{ theme_data[1] }}
+## Vollständige Seiten
 
-  {% for preview in theme_previews %}
-    {% if preview.path contains theme_path %}
-- [{{ preview.title }}]({{ preview.url | relative_url }})
-    {% endif %}
-  {% endfor %}
-{% endfor %}
+- [Startseiten]({{ '/pages/beispiele/startseiten/' | relative_url }})
+- [Leistungsseiten]({{ '/pages/beispiele/leistungen/' | relative_url }})
+- [Kontaktseiten]({{ '/pages/beispiele/kontakt/' | relative_url }})
+
+## Bausteine
+
+- [Hero]({{ '/pages/bausteine/hero/' | relative_url }})
+- [Karten]({{ '/pages/bausteine/karten/' | relative_url }})
+- [Zweispalter]({{ '/pages/bausteine/zweispalter/' | relative_url }})
+- [Kontakt]({{ '/pages/bausteine/kontakt/' | relative_url }})
+- [Navbar und Footer]({{ '/pages/bausteine/rahmen/' | relative_url }})
 
 ## Design-Templates
 {: layout="ntl-2col.style-cta" data-kicker="Direkte Vorlagen" }

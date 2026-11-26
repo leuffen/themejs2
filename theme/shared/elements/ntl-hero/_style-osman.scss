@@ -1,0 +1,162 @@
+@use "@nextrap/ntl-hero" as hero;
+
+// Bindet die funktionale Hero-Baseline ein und bewahrt die bildgestützte Osman-Komposition.
+&.style-osman {
+  @include hero.default-style();
+
+  --height-offset: 12.75rem;
+
+  position: relative;
+  display: block;
+  min-height: clamp(40rem, 56vw, 45rem);
+  color: var(--nt-header);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 52%, rgba(255, 255, 255, 0.16) 100%);
+    pointer-events: none;
+  }
+
+  &::part(root) {
+    min-height: inherit;
+    background: var(--nt-surface-muted);
+  }
+
+  &::part(wrapper) {
+    position: relative;
+    min-height: inherit;
+  }
+
+  &::part(content) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    display: block;
+    padding: 0;
+  }
+
+  &[mode="mobile"] {
+    --height-offset: 10.5rem;
+    min-height: 0;
+    background: var(--nt-surface-raised);
+
+    &::after {
+      display: none;
+    }
+
+    &::part(root) {
+      min-height: 0;
+      height: auto;
+      max-height: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &::part(background) {
+      position: static;
+      order: 1;
+      inset: auto;
+      height: auto;
+    }
+
+    &::part(wrapper) {
+      position: static;
+      order: 2;
+      min-height: 0;
+      display: block;
+    }
+
+    &::part(content) {
+      min-height: 0;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+&.style-osman {
+  [slot="bg"] {
+    display: block;
+    height: 100%;
+    margin: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.76) brightness(1.04);
+    }
+  }
+
+  &[mode="mobile"] {
+    [slot="bg"] {
+      display: block;
+      position: relative;
+      z-index: 0;
+
+      img {
+        aspect-ratio: 1.36;
+      }
+    }
+  }
+}
+
+&.style-osman {
+  // Hält den Osman-Hero ohne zusätzlichen Außenabstand direkt am nachfolgenden Ribbon.
+  margin-bottom: 0;
+
+  .box {
+    position: absolute;
+    left: clamp(4rem, 6.25vw, 7.25rem);
+    bottom: clamp(5rem, 7vw, 7rem);
+    z-index: 1;
+    width: min(45rem, calc(100vw - 11rem));
+    margin: 0;
+    padding: var(--nt-spacing-text) var(--nt-spacing-text) var(--nt-spacing-text) 0;
+    background: transparent;
+    color: var(--nt-primary);
+
+    // Stellt sicher, dass die Überschrift die Primärfarbe der gesamten Hero-Box übernimmt.
+    h1 {
+      color: inherit;
+    }
+
+    // Uses the Osman primary color consistently for copy, headings and links inside the hero text box.
+    color: var(--nt-primary);
+    --nt-text: var(--nt-primary);
+    --nt-header: var(--nt-primary);
+    --nt-link: var(--nt-primary);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      left: -100vw;
+      background: color-mix(in srgb, var(--nt-surface-raised) 76%, transparent);
+      z-index: -1;
+    }
+  }
+
+  &[mode="mobile"] {
+    .box {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      width: auto;
+      margin: 0 1rem;
+      padding: var(--nt-spacing-text);
+      transform: none;
+      background: transparent;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

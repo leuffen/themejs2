@@ -1,0 +1,118 @@
+@use "@nextrap/nte-card" as card;
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&.style-ribbon {
+  --gutter-y: 0;
+
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  margin-top: -4.1rem;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  @include cardRow.default-style(
+    $cols: 4,
+    $container-width: var(--nt-container-width),
+    $gap: clamp(1rem, 2vw, 1.5rem),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: none,
+    $container-border-radius: 0
+  );
+
+  &::part(container) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    background: #fff;
+  }
+
+  &::part(header),
+  &::part(footer) {
+    display: none;
+  }
+
+  &::part(main) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+    gap: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  // Die Card Row erzeugt direkte Children mit style-parent; das Pairing bindet deshalb an die Struktur statt an eine Child-Variante.
+  > nte-card {
+    // Vollständige Card-Baseline statt zusätzlicher Theme-Padding-Schichten.
+    @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-spacing-text), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: 0);
+    @include card.with-region-bleed(image);
+    --image-aspect-ratio: 16/9;
+    --border: 0;
+    --border-width: 0;
+    --border-color: transparent;
+
+    background: #fff;
+    color: #585b63;
+
+    &::part(wrapper) {
+      display: flex;
+      flex-direction: column;
+      min-height: 15.25rem;
+    }
+
+    &::part(content) {
+      flex: 1 1 auto;
+    }
+
+    // Kartenüberschriften im Ribbon-Stil entsprechen der normalen Textgröße und werden nur hervorgehoben.
+    h3 {
+      font-size: var(--nt-font-size-base);
+      font-weight: var(--nt-font-weight-bold);
+      line-height: var(--nt-line-height-base);
+    }
+
+    [slot="footer"] {
+    }
+  }
+
+  &[mode="mobile"] {
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 1.85rem 0 0;
+
+    &::part(container),
+    &::part(main) {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    &::part(main) {
+      background: transparent;
+    }
+
+    nte-card {
+      --image-aspect-ratio: 1;
+      border-bottom: 1px solid #e7e4e1;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::part(wrapper) {
+        min-height: 0;
+      }
+    }
+  }
+
+  &[mode="desktop"] nte-card {
+    padding: 0;
+    border-right: 1px solid var(--nt-gray-300);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

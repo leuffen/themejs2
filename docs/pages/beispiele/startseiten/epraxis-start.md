@@ -1,4 +1,5 @@
 ---
+permalink: /pages/theme-epraxis/epraxis-start/
 layout: website
 body_class: theme-epraxis
 title: ePraxis Start

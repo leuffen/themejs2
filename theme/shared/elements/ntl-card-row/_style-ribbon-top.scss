@@ -1,0 +1,123 @@
+@use "@nextrap/nte-card" as card;
+@use "@nextrap/ntl-card-row" as cardRow;
+
+&.style-ribbon-top {
+  --gutter-y: 0;
+
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  margin-top: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  @include cardRow.default-style(
+    $cols: 4,
+    $container-width: var(--nt-container-width),
+    $gap: clamp(1rem, 2vw, 1.5rem),
+    $inner-padding: 0,
+    $container-background: transparent,
+    $container-border: none,
+    $container-border-radius: 0
+  );
+
+  &::part(container) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    background: var(--nt-surface-raised);
+  }
+
+  &::part(header),
+  &::part(footer) {
+    display: none;
+  }
+
+  &::part(main) {
+    width: var(--nt-container-width);
+    max-width: var(--nt-container-width);
+    margin: 0 auto;
+    gap: 0;
+    align-items: stretch;
+    background: var(--nt-surface-raised);
+    box-shadow: none;
+  }
+
+  // Die Card Row erzeugt direkte Children mit style-parent; das Pairing bindet deshalb an die Struktur statt an eine Child-Variante.
+  > nte-card {
+    // Behält die ursprüngliche Card-Baseline bei; nur der Content wird horizontal etwas stärker eingerückt als der Footer-Button.
+    @include card.default-style($innerPadding: var(--nt-spacing-text), $gap: var(--nt-spacing-text), $border: 0, $background-color: var(--nt-surface-raised), $border-radius: 0);
+    @include card.with-region-bleed(image);
+    --image-aspect-ratio: 16/9;
+    --border: 0;
+    --border-width: 0;
+    --border-color: transparent;
+
+    align-self: stretch;
+    background: var(--nt-surface-raised);
+    color: var(--nt-text);
+
+    &::part(wrapper) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    &::part(content) {
+      flex: 1 1 auto;
+      padding-inline: var(--nt-space-2);
+    }
+
+    // Die Ribbon-Top-Kartenüberschrift bleibt so groß wie der normale Text und wird nur hervorgehoben.
+    h3 {
+      font-size: var(--nt-font-size-base);
+      font-weight: var(--nt-font-weight-bold);
+      line-height: var(--nt-line-height-base);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    [slot="footer"] {
+    }
+  }
+
+  &[mode="mobile"] {
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 0;
+
+    &::part(container),
+    &::part(main) {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    &::part(main) {
+      background: transparent;
+    }
+
+    nte-card {
+      --image-aspect-ratio: 1;
+      border-bottom: 1px solid var(--nt-border);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::part(wrapper) {
+        height: 100%;
+      }
+    }
+  }
+
+  &[mode="desktop"] nte-card {
+    padding: 0;
+    border-right: 1px solid var(--nt-border);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

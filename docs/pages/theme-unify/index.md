@@ -1,9 +1,10 @@
 ---
-layout: index
+layout: website
 title: Theme Unify
-body_class: theme-unify
-ptags: [nav]
-order: 4
 ---
 
-Beispiele für das Theme Unify.
+# Theme Unify
+
+- [Theme Unify SaaS]({{ '/pages/theme-unify/unify-saas/' | relative_url }})
+- [Theme Unify Services]({{ '/pages/theme-unify/unify-services/' | relative_url }})
+- [Theme Unify]({{ '/pages/theme-unify/unify-start/' | relative_url }})

@@ -1,4 +1,5 @@
 ---
+permalink: /pages/theme-mueller/mueller-kontakt/
 layout: website
 body_class: theme-mueller
 use_footer: mueller

@@ -1,9 +1,8 @@
 ---
-layout: index
+layout: website
 title: Theme Epraxis
-body_class: theme-epraxis
-ptags: [nav]
-order: 5
 ---
 
-Beispiele für das Theme Epraxis.
+# Theme Epraxis
+
+- [ePraxis Start]({{ '/pages/theme-epraxis/epraxis-start/' | relative_url }})
