@@ -18,6 +18,13 @@ Vorgaben zu Komponentenverträgen, Shadow DOM, Parts, Mixins, Responsivität,
 Lifecycle, Wiederverwendung und Prüfungen gelten zusätzlich zu den Regeln des
 jeweils verwendeten Skills.
 
+Bei visuellen Änderungen, Theme-Entwicklung mit Auswirkungen auf die Darstellung,
+Layout-Problemen und Frontend-Debugging ist zusätzlich der lokale Skill
+`.agents/skills/browserless-screenshots-debugging/SKILL.md` verbindlich.
+Verwende dafür Chrome DevTools über Browserless anstelle des allgemeinen
+`browser-screenshot-with-puppeteer`-Skills; prüfe die betroffenen Vorlagen in
+beiden vorgeschriebenen Viewports vor und nach der Änderung.
+
 ## Lokale und veröffentlichte Skills
 
 Das Verzeichnis `.agents/skills/` enthält ausschließlich Skills für die lokale
