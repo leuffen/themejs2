@@ -7,8 +7,6 @@ secrets: open_ai
 
 command:
   build:
-    # Installiert die DevTools-CLI für lokale Browserless-Diagnosen.
-    - "npm install -g chrome-devtools-mcp@1.14.0"
 
   run:
 
