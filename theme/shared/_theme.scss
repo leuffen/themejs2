@@ -8,6 +8,8 @@
 @use "@nextrap/nte-nav" as nav;
 @use "../../font/_vendor/font-bootstrap-icons";
 @use "../../font/opensans-regular";
+@use "../../font/_vendor/font-work-sans";
+@use "../../font/_vendor/font-ubuntu";
 
 // Baut die Basis und bindet die lokalen Varianten im selben Scope ein.
 @mixin theme() {
