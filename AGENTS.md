@@ -104,9 +104,42 @@ dürfen für die Nutzprojekt-Vorlage nicht erforderlich sein.
 | Alternative Rahmen-Dateien | Keine `navbar.alt-*`-/`footer.alt-*`-Dateien und kein `_layouts/alternatives/`; Varianten gehören unter `_includes/_styles/` | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
 | Gemeinsame Bausteine | Fachliche Includes mit denselben Namen und Parametern wie in `_root` | Verbindliche gemeinsame Include-Struktur für Kundenprojekte |
 
+## Gemeinsame Basis, Theme-Profile und Komponenten-Styles
+
+Die gemeinsame ThemeJS2-Basis stellt die Grunddarstellung aller Komponenten
+und ihre funktionalen Standard-Styles bereit. Eine Website aktiviert ihr
+visuelles Profil am Body über eine Klasse wie `theme-mueller`, `theme-osman`
+oder `theme-raven`. Die gemeinsame Basis bildet zugleich den Default, wenn
+kein Profil gesetzt ist.
+
+Jedes Profil hat einen SCSS-Einstieg für alle Komponenten. Es setzt bevorzugt
+gemeinsame CSS-Variablen und ergänzt bei Bedarf lokal begrenzte visuelle
+Regeln. Dazu gehören Farben, Typografie, Rahmen und Trennlinien, Rundungen,
+Schatten sowie visuelle Innen- und Außenabstände und Gaps. Ein Profil muss
+mit jeder unterstützten `style-*`-Variante kombinierbar sein. Es darf weder
+Slots oder Inhaltsbereiche ein- und ausblenden noch Reihenfolge, Interaktion,
+Spaltenlogik oder responsive Umbruchregeln umschalten.
+
+Eine Klasse wie `style-default`, `style-ribbon` oder `style-feature-list`
+wählt auf der Komponenteninstanz eine eigenständige Komposition. Der
+Komponenten-Style bestimmt Struktur, Slots und Parts, Anordnung, Reihenfolge,
+responsives Verhalten und die dafür nötigen Layout-Regeln. Ein Abstand mit
+struktureller Wirkung gehört ebenfalls hierher, etwa ein Versatz, der ein
+Ribbon gezielt über das vorherige Element legt. Optische Abstände bleiben
+Theme-Eingaben.
+
+Vor dem Anlegen einer Variante prüfen, ob die vorhandene Komposition mit
+Theme-Variablen oder einem vorhandenen funktionalen Modifier ausreicht.
+Ribbon-Varianten mit derselben Komposition sollen einen gemeinsamen
+`style-ribbon` nutzen. Prüfe beim Zusammenlegen insbesondere sichtbare
+Slots, die Spaltenlogik und das mobile Stapeln. Eine optionale Überlappung
+gehört zur Komponente und wird gezielt an der Instanz ausgewählt. Namen mit
+Theme-Herkunft bleiben nur dann als Komponenten-Style sinnvoll, wenn sie
+eine eigenständige Komposition bezeichnen.
+
 ## Demo-Varianten unter `docs`
 
-Die bestehenden Verzeichnisse `docs/_includes/_styles/default/`, `osman/` und die weiteren tatsächlich vorhandenen Varianten bleiben erhalten. Die Demo-Layouts `50_navbar.html` und `60_footer.html` wählen Navbar und Footer unabhängig über `use_navbar` bzw. `use_footer`; ohne Angabe gilt `default`. `false` blendet den jeweiligen Bereich aus, `skip-navbar: true` bleibt für die Demo unterstützt. Nicht jede Variante muss beide Dateien anbieten; eine fehlende Navbar oder ein fehlender Footer wird nicht künstlich ergänzt. Variantenwechsel und Demo-Schaltwerkzeuge dürfen ausschließlich in `docs/` vorkommen.
+Die bestehenden Verzeichnisse `docs/_includes/_styles/default/`, `osman/` und die weiteren tatsächlich vorhandenen Varianten bleiben erhalten. Die Demo-Layouts `50_navbar.html` und `60_footer.html` wählen Navbar und Footer unabhängig über `use_navbar` bzw. `use_footer`; ohne Angabe gilt `default`. `false` blendet den jeweiligen Bereich aus, `skip-navbar: true` bleibt für die Demo unterstützt. Nicht jede Variante muss beide Dateien anbieten; eine fehlende Navbar oder ein fehlender Footer wird nicht künstlich ergänzt. Die dynamische Auswahl des Navbar- und Footer-Markups sowie Demo-Schaltwerkzeuge gehören ausschließlich in `docs/`. Statische Theme-Profile und Komponenten-Styles gelten auch für Nutzprojekte.
 
 ## Fester Rahmen in `_root`
 
