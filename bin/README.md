@@ -64,14 +64,33 @@ Initial werden zusätzlich ausgewählte Computed Styles, Box-Modelle,
 CSS-Regeln und Stylesheet-/Source-Map-URLs gesammelt. Die gezielte
 Inspection liefert CSS-Kaskaden für ausgewählte Light-DOM-Selektoren.
 
-## Iterationen
+## Projektanalyse und Iterationen
 
-Der Agent lädt den Referenzkontext einmal und setzt danach den Checkpoint
-reference. Jede Runde rollt den Gesprächscursor zu diesem Checkpoint zurück,
-nicht den Dateizustand. Sie analysiert den aktuellen Build, ändert Quellen
-über AiFileSystem und erhält nach dem Build neue Screenshots zur Prüfung.
-Nur der letzte kumulative Bericht wird an die nächste Runde weitergereicht.
-Die Provider-Cache-Treffer werden gemessen; Checkpointing garantiert sie nicht.
+Vor der Referenzanalyse erhält der Agent das AiFileSystem themejs2-readonly.
+Schreiboperationen sind durch die FilesystemPolicy gesperrt. Er erstellt eine
+kompakte Datei-Landkarte mit verifizierten Pfaden, Zuständigkeiten, Tokens,
+Imports, Komponenten und relevanten Demos. Anschließend analysiert er die
+Referenzen und setzt den Checkpoint reference. Erst danach wird das
+schreibfähige AiFileSystem themejs2 mit den bestehenden Schutzregeln registriert.
+
+Jede Runde rollt den Gesprächscursor zu diesem Checkpoint zurück, nicht den
+Dateizustand. Sie nutzt die bereits bekannte Projektstruktur, liest gezielt
+die aktuellen betroffenen Dateien, ändert Quellen und erhält nach dem Build
+neue Screenshots zur Prüfung. Der kumulative Bericht enthält unter
+Project Findings neue oder korrigierte Erkenntnisse seit der initialen Karte.
+Nur der letzte Bericht wird weitergereicht; die initiale Karte ist bereits
+im Checkpoint. Die Provider-Cache-Treffer werden gemessen; Checkpointing
+garantiert sie nicht.
+
+Die vollständige Datei-Landkarte steht im Laufverzeichnis in
+project-findings.md. Sie wird nach jeder Bearbeitungs- und Reviewphase
+aktualisiert; spätere Korrekturen haben Vorrang vor der initialen Karte.
+Sichere diese Datei außerhalb von /tmp, wenn sie einen Neustart oder eine
+Bereinigung des temporären Verzeichnisses überdauern soll. Ein späterer
+Auftrag kann sie optional als Frontmatter-Feld project_findings angeben,
+zum Beispiel project_findings: findings/project-findings.md. Relative
+Pfade beziehen sich auf die Auftragsdatei. Der Agent validiert die alte
+Karte gegen den aktuellen Checkout, statt sie ungeprüft zu übernehmen.
 
 Der Auftrag kann optional max_tokens setzen; das Budget wird zwischen
 Iterationen geprüft und ist deshalb kein hartes Limit für Einzelrequests.

@@ -23,6 +23,7 @@ final readonly class Job
         public int $iterations,
         public ?int $maxTokens,
         public array $protectedPaths,
+        public ?string $projectFindings,
     ) {
     }
 
@@ -77,6 +78,21 @@ final readonly class Job
         $pages = [];
         $names = [];
         $protected = [$path];
+
+        // Eine frühere Datei-Landkarte ist optional und bleibt eine unveränderliche Quelle.
+        $projectFindings = $config['project_findings'] ?? null;
+        if ($projectFindings !== null) {
+            if (!is_string($projectFindings) || trim($projectFindings) === '') {
+                throw new InvalidArgumentException('project_findings must be a file path.');
+            }
+            $findingsPath = realpath(str_starts_with($projectFindings, '/') ? $projectFindings : dirname($path) . '/' . $projectFindings);
+            if ($findingsPath === false || !is_file($findingsPath) || !is_readable($findingsPath)) {
+                throw new RuntimeException('Cannot read project findings: ' . $projectFindings);
+            }
+            $projectFindings = $findingsPath;
+            $protected[] = $findingsPath;
+        }
+
         foreach ($config['pages'] as $page) {
             $name = $page['name'] ?? '';
             $target = $page['target'] ?? '';
@@ -124,7 +140,7 @@ final readonly class Job
             }
         }
 
-        return new self(trim($parts[2]), $config['theme'], $pages, $preview, $browser, $model, $iterations, $maxTokens, $protectedPaths);
+        return new self(trim($parts[2]), $config['theme'], $pages, $preview, $browser, $model, $iterations, $maxTokens, $protectedPaths, $projectFindings);
     }
 
     /** Akzeptiert nur ausdrücklich konfigurierte HTTP(S)-Seiten ohne Zugangsdaten. */
