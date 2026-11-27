@@ -45,17 +45,17 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 5.13 | Layoutstruktur und Content Pane | [`AGENTS.md`](AGENTS.md) | • Vor Layout-Umbauten TrunkJS-Regeln prüfen und vorhandene Inhaltsdefinitionen für alle betroffenen Seiten erhalten. |
 | § 5.14 | ContentPane-Shortcuts in Markdown | [`AGENTS.md`](AGENTS.md) | • Einzelne Elemente als eigenständige `#[...]`-Zeile schreiben. Komplexe Strukturen dürfen Raw-HTML verwenden. |
 | § 5.15 | Responsive Zuständigkeit | [`AGENTS.md`](AGENTS.md) | • Responsive-Registrierung dem Theme überlassen und mögliche Seiteneffekte vor der Umsetzung klären. |
-| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Für die Style-Ablage und die Variants gilt § 1 Repository Structure. |
+| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Für die Style-Ablage und die Variants gilt § 2 Theme-Verzeichnis. |
 
-### Repository Structure
+### Regelwerke unter `AGENTS/`
 
 | Paragraf | Regel | Datei | Zweck |
 | --- | --- | --- | --- |
-| § 1 | Repository Structure | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Zielstruktur des Repositories. |
-| § 1.1 | Verzeichnisse | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Zuständigkeit der Verzeichnisse. |
-| § 1.1.1 | `theme/` | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Gemeinsame Wurzel für Theme-Dateien. |
-| § 1.1.1.1 | `theme/elements/` | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Element-Styles und Markdown-Sidecars. |
-| § 1.1.1.2 | `theme/variants/` | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Sass-Dateien für seitenweite CSS-Variablen. |
+| § 1 | Zielsetzung | [`1.Zielsetzung.md`](AGENTS/1.Zielsetzung.md) | Grundsätze zu statischer Ausgabe, Wiederverwendung und Kundenprojekten. |
+| § 2 | Theme-Verzeichnis | [`2.Theme.md`](AGENTS/2.Theme.md) | Gemeinsame Wurzel für Theme-Dateien. |
+| § 2.1 | `theme/elements/` | [`2.Theme.md`](AGENTS/2.Theme.md) | Element-Styles und Markdown-Sidecars. |
+| § 2.2 | `theme/variants/` | [`2.Theme.md`](AGENTS/2.Theme.md) | Sass-Dateien für seitenweite CSS-Variablen. |
+| § 3 | Docs-Verzeichnis | [`3.Docs.md`](AGENTS/3.Docs.md) | Kundennah aufgebaute Demos und auffindbare Beispiele. |
 
 ## Widerspruchsprüfung
 

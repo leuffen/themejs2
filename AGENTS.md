@@ -12,12 +12,13 @@ Agent-Skills wie `modify-theme` dienen dem projektübergreifenden Einsatz.
 Übernimm die ThemeJS2-Regeln daher niemals in Agent-Skills. Bei fachlichem
 Konflikt hat das Repository-Regelwerk Vorrang.
 
-- [§ 1 Repository Structure](AGENTS/1_repository-structure.md) regelt die Verzeichnisstruktur.
+- [§ 1 Zielsetzung](AGENTS/1.Zielsetzung.md) beschreibt die Grundsätze von ThemeJS2.
+- [§ 2 Theme-Verzeichnis](AGENTS/2.Theme.md) regelt Element-Styles und Variants.
+- [§ 3 Docs-Verzeichnis](AGENTS/3.Docs.md) beschreibt die Demo unter `docs/`.
 
 Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
-Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
-demselben Paragrafen, etwa `1_repository-structure.md` mit
-`§ 1 Repository Structure`. Die Regeldateien führen oben eine Tabelle zu
+Nummer des Hauptparagrafen und einem Punkt. Der Titel beginnt mit
+demselben Paragrafen, etwa `1.Zielsetzung.md` mit `§ 1 Zielsetzung`. Die Regeldateien führen oben eine Tabelle zu
 wesentlichen Änderungen mit Datum und Commit. Ausführliche Changelogs
 werden ausschließlich in Proposals geführt.
 
@@ -191,6 +192,8 @@ eine eigenständige Komposition bezeichnen.
 
 #### § 5.8 Demo-Layouts und Seitenverzeichnis
 
+Für Zweck und Grundsätze der Demo gilt [§ 3 Docs-Verzeichnis](AGENTS/3.Docs.md).
+
 Eine Endseite in `docs/` wählt den vollständigen Rahmen über `layout:`.
 Die `website-*`-Layouts erben von `20_body` und binden Navbar,
 Inhaltsbereich und Footer in fester Reihenfolge ein. Die Navbar- und
@@ -289,6 +292,6 @@ Halte die verfügbaren Funktionsklassen je Bereich im editierbaren Markup.
 Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Setzt ein Scope
 für denselben Schalter einen anderen Zustand, ersetzt er die vorhandene Form.
 Die Sichtbarkeit ganzer Bereiche steuern weiterhin die `show_*`-Felder.
-Die Ablage der Styles und Variants regelt [§ 1 Repository Structure](AGENTS/1_repository-structure.md).
+Die Ablage der Styles und Variants regelt [§ 2 Theme-Verzeichnis](AGENTS/2.Theme.md).
 Dokumentiere Scope-Felder und Fallbacks bei der Umsetzung.
 Der [Strukturvorschlag](AGENTS/proposals/2026-11-27-layout-rahmen-und-color-sets.md) beschreibt die schrittweise Einführung.

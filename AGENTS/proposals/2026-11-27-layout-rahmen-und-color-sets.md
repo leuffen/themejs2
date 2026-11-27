@@ -11,6 +11,7 @@
 | 2026-11-27 | dermatthes | § 3.2: Dateikonvention, Mixin und zulässige Variant-Tokens festgelegt |
 | 2026-11-27 | dermatthes | § 3.1: Ablage nach Elementfunktion und Ausnahmen für Selektoren präzisiert |
 | 2026-11-27 | dermatthes | §§ 2, 3 und 3.1: Unter AGENTS abgelegt und verbindliches Regelwerk verlinkt |
+| 2026-11-27 | dermatthes | § 3: Verweis auf neu gegliedertes Theme-Regelwerk aktualisiert |
 
 ## § 1 Ziel
 
@@ -39,7 +40,7 @@ für den Rahmen verwenden deshalb Selektoren wie `#footer.style-default`.
 Die Zielstruktur hat eine Theme-Wurzel `theme/`. Die bisherige Ebene
 `theme/shared/` entfällt im Zielaufbau. Element-Styles liegen direkt unter
 `theme/elements/`, seitenweite Designwerte unter `theme/variants/`. Die verbindlichen Regeln
-stehen in [§ 1 Repository Structure](../1_repository-structure.md). [geändert]
+stehen in [§ 2 Theme-Verzeichnis](../2.Theme.md) [geändert].
 
 | Pfad | Verantwortung |
 |---|---|
