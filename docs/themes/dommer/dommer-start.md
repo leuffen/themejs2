@@ -6,6 +6,7 @@ navigation_root: themes/dommer
 brand_url: /themes/dommer/dommer-start.html
 location_id: dommer
 show_title: false
+navigation_root: themes/dommer   ## Setzen damit nur diese demo angezeigt wird (nur für themejs2 demo)
 ptags:
 - nav
 - footer-nav
