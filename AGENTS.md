@@ -273,10 +273,10 @@ Variants unter `theme/variants/`. Die gemeinsame Theme-Wurzel ist `theme/`
 mit `elements/` und `variants/` direkt darunter. Layouts und Varianten verwenden
 diese Werte über Tokens und behalten ihre jeweilige Struktur und Funktion.
 
-Lege für jeden Style unter `theme/elements/` einschließlich des Defaults
-verpflichtend eine TypeScript-Beschreibung `style-<name>.ts` direkt neben der
-zugehörigen SCSS-Datei ab. Das gilt für NTL-/NTE-Komponenten, IDs und Klassen.
-Die Datei beschreibt Zielselektor, Variante, Zweck und verfügbare
-Funktionsklassen. Der Variantenkatalog verwendet diese Beschreibungen. Dokumentiere die Scope-Felder und ihre
+Lege neben jeder `_style-*.scss` unter `theme/elements/` ein gleichnamiges
+Markdown-Sidecar mit `description` im Front Matter und mindestens einem
+Verwendungsbeispiel ab. Die [Referenz für Element-Styles und Markdown-Sidecars](.agents/skills/modify-theme/references/element-style-sidecars.md)
+ist verbindlich. Ein separates System liest die Sidecars aus. Dokumentiere
+die Scope-Felder und ihre
 Fallbacks bei der Umsetzung. Der [Strukturvorschlag](proposals/2026-11-27-layout-rahmen-und-color-sets.md)
 beschreibt die Ablage und die schrittweise Einführung.
