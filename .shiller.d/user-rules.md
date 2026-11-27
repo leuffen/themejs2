@@ -1,19 +1,24 @@
 # User Rules
 
-Diese editierbare Datei ist die zentrale, dauerhaft gepflegte Wissensquelle
-für bestätigte individuelle Website- und Praxisdaten sowie besondere
-Benutzerregeln. Halte sie mit den tatsächlich verwendeten Website-Daten
-aktuell. Die technischen Datenquellen der Website (z. B. Jekyll-Daten)
-bleiben für die Darstellung maßgeblich; vermeide widersprüchliche Angaben.
+Diese Datei enthält bestätigte Projektinformationen und dauerhaft geltende
+Benutzerregeln für die Arbeit an diesem Repository.
 
-Wenn der Nutzer neue oder geänderte Stammdaten, etwa Adresse, Öffnungszeiten
-oder Praxisinformationen, mitteilt, frage ihn, ob diese auch dauerhaft in
-dieser Datei gespeichert werden sollen. Speichere oder aktualisiere sie erst
-nach ausdrücklicher Zustimmung bzw. einem ausdrücklichen Speicherauftrag.
-Ersetze veraltete Angaben, statt widersprüchliche Einträge anzuhäufen.
-Besondere dauerhafte Wünsche und Regeln können ebenso gespeichert werden.
-Einmalige Aufträge werden nicht automatisch übernommen. Ändere niemals den
-statischen Kontext.
+Neue oder geänderte dauerhafte Regeln und Projektinformationen werden nur
+nach ausdrücklichem Speicherauftrag oder ausdrücklicher Zustimmung gespeichert.
+Einmalige Aufträge werden nicht automatisch übernommen. Veraltete Angaben
+werden ersetzt, statt widersprüchliche Einträge anzuhäufen.
 
 ## Global
 
+- Dieses Repository ist ein Team-/Entwicklungsprojekt, keine Endkunden-Website.
+  Die Bearbeitung von Endkundenfragen und redaktionellen Website-Inhalten ist
+  nicht der reguläre Arbeitszweck.
+- Arbeiten können grundsätzlich alle für den jeweiligen Auftrag relevanten
+  Repository-Dateien betreffen, nicht nur Website-Inhalte. Maßgeblich bleiben
+  die verfügbaren Berechtigungen und höherrangigen Vorgaben.
+- Vor jeder Arbeit am Repository ist die `AGENTS.md` im Hauptverzeichnis zu
+  lesen und zu berücksichtigen. Darin referenzierte Regeln und Skills sind
+  entsprechend ihrer Anwendbarkeit zu beachten.
+- Ist eine Vorgabe der `AGENTS.md` nicht umsetzbar oder widerspricht sie einer
+  höherrangigen Vorgabe, wird die Einschränkung ausdrücklich benannt. Eine
+  notwendige Abweichung wird offengelegt und nicht stillschweigend vorgenommen.
