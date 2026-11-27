@@ -8,5 +8,11 @@ Wir bitten um eine Terminvereinbarung.
 
 ### Termine
 
-Bitte rufen Sie für eine Terminvereinbarung unter **[{{site.data.general.standorte.default.phone1_text}}](tel:{{site.data.general.standorte.default.phone1}})** an oder klicken Sie
-[hier für einen Doctlib-Termin](/termin)
+{% assign location_id = page.location_id | default: 'default' %}
+{% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
+{% if location.phone1 and location.phone1_text %}
+Rufen Sie uns unter [{{ location.phone1_text }}](tel:{{ location.phone1 }}) an.
+{% endif %}
+{% if location.termin_url %}
+[Online-Termin vereinbaren]({{ location.termin_url }})
+{% endif %}

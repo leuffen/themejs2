@@ -52,11 +52,6 @@ defaults:
       show_title: true
       show_footer: true
   - scope:
-      path: themes/dommer
-    values:
-      navigation_root: themes/dommer
-      brand_url: /themes/dommer/dommer-start.html
-  - scope:
       path: ""
       type: posts
     values:

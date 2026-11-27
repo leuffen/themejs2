@@ -114,6 +114,17 @@ Layouts wiederverwendbar bleiben.
 | Alternative Rahmen-Dateien | Seitenlayouts `website-none`, `website-footer-only` und `website-navbar-only` | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
 | Gemeinsame Bausteine | Fachliche Includes mit denselben Namen und Parametern wie in `_root` | Verbindliche gemeinsame Include-Struktur für Kundenprojekte |
 
+Bei Theme-Anpassungen haben Theme-SCSS und die Markdown-Seiten Vorrang. Layouts
+und Includes werden angepasst, wenn die Änderung auf diesen Ebenen erforderlich
+ist. Rahmenbausteine verwenden neutrale Namen. Die Theme-Klasse begrenzt das
+Styling auf das jeweilige Theme. Eine abweichende `navigation_root` gehört in das
+Front Matter der Demo-Seiten. Header, Footer und Adressbausteine lesen Namen,
+Anschriften und Kontaktdaten standardmäßig aus
+`site.data.general.standorte.default`. Beispiele können einen anderen Standort
+aus derselben Datenquelle auswählen. Demo und Kundensystem verwenden dieselben
+Datenverträge für `general`, `defaults` und Öffnungszeiten, sodass Layouts direkt
+übernommen werden können.
+
 #### § 5.7 Gemeinsame Basis, Theme-Profile und Komponenten-Styles
 
 Die gemeinsame ThemeJS2-Basis stellt die Grunddarstellung aller Komponenten
