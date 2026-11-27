@@ -5,10 +5,10 @@ theme/
 |-- elements/
 |   |-- <tag-name>/                         (z. B. ntl-hero, nte-navbar, table)
 |   |   |-- _style-<style-name>.scss         (Klasse: style-<style-name>)
-|   |   `-- _style-<style-name>.md           (Markdown-Sidecar)
+|   |   `-- _style-<style-name>.sidecar.md           (Markdown-Sidecar)
 |   `-- id_<id>/                            (z. B. id_footer)
 |       |-- _style-<style-name>.scss
-|       `-- _style-<style-name>.md
+|       `-- _style-<style-name>.sidecar.md
 `-- variants/
     `-- _variant-<name>.scss
 ```
@@ -65,13 +65,14 @@ NTE-Styles die passenden Nextrap-Mixins ein, wo sie vorhanden sind.
 Direkte visuelle Werte sind eine Ausnahme, wenn passende Variablen und
 Mixins fehlen. Konkrete Palettenwerte liefert die seitenweite Variant.
 
-Zu jeder SCSS-Datei gehört im selben Verzeichnis ein gleichnamiges
-Markdown-Sidecar, etwa `_style-default.md` zu `_style-default.scss`.
+Zu jeder SCSS-Datei gehört im selben Verzeichnis ein Markdown-Sidecar
+mit demselben Basisnamen und der Endung `.sidecar.md`, etwa `_style-default.sidecar.md` zu `_style-default.scss`.
 Das Front Matter enthält ausschließlich `description`. Darunter stehen
-die Verwendung und mindestens ein Beispiel für die eigenständige Funktion.
+die Verwendung, relevante Voraussetzungen, unterstützte Modifier und
+mindestens ein Beispiel für die eigenständige Funktion.
 Ein separates System liest die Sidecars aus. Sie bleiben außerhalb der
-Demo-Ausgabe. Die [Sidecar-Referenz](references/element-style-sidecars.md)
-ist verbindlich.
+Demo-Ausgabe. Das [Sidecar-Beispiel](references/_style-demonstration.sidecar.md) zeigt
+das Format am dazugehörigen SCSS-Beispiel.
 
 ### § 2.1.3 Benennung eines Elements
 

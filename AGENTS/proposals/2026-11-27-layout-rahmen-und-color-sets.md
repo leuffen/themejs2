@@ -57,14 +57,13 @@ Reihenfolge. Für die aktive Style-Auswahl gilt der Komponentenvertrag
 aus § 4.1.
 
 Zu jeder Style-Datei gehört direkt daneben ein Markdown-Sidecar mit
-identischem Basisnamen, etwa `_style-default.md` zu `_style-default.scss`.
+identischem Basisnamen und der Endung `.sidecar.md`, etwa `_style-default.sidecar.md` zu `_style-default.scss`.
 Das Front Matter enthält ausschließlich `description` für die automatische
 Übersicht. Darunter stehen die Hinweise zur Verwendung und mindestens ein
 Beispiel. Ein separates System liest die Sidecars aus. Sie gehören außerhalb
 der Demo-Ausgabe.
 
-Die [Referenz für Element-Styles und Markdown-Sidecars](../references/element-style-sidecars.md)
-ist verbindlich. Ein zusätzlicher Style setzt eine Funktion oder Komposition
+Das [Sidecar-Beispiel](../references/_style-demonstration.sidecar.md) zeigt das Format. Ein zusätzlicher Style setzt eine Funktion oder Komposition
 voraus, die kein vorhandener Style abdeckt. Farbwerte gehören in die
 seitenweite Variant unter `theme/variants/`.
 
