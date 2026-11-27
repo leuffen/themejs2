@@ -62,7 +62,11 @@ Die sechs festen Viewports sind 1440×900, 1280×800, 1024×768, 768×1024,
 Full-Page-Screenshots enthalten individuelle ImagePrompt-Instructions.
 Initial werden zusätzlich ausgewählte Computed Styles, Box-Modelle,
 CSS-Regeln und Stylesheet-/Source-Map-URLs gesammelt. Die gezielte
-Inspection liefert CSS-Kaskaden für ausgewählte Light-DOM-Selektoren.
+Inspection liefert CSS-Kaskaden für ausgewählte Light-DOM-Selektoren auf
+Live-Referenzseiten (kind: reference) und Zielseiten (kind: target).
+Der Agent untersucht aktiv die relevanten Elemente, mindestens in den
+Desktop- und Mobilansichten, einschließlich Console-/Network-Diagnostik.
+Statische Design-Dateien besitzen keinen inspizierbaren DOM.
 
 ## Projektanalyse und Iterationen
 
@@ -78,8 +82,11 @@ Dateizustand. Sie nutzt die bereits bekannte Projektstruktur, liest gezielt
 die aktuellen betroffenen Dateien, ändert Quellen und erhält nach dem Build
 neue Screenshots zur Prüfung. Der kumulative Bericht enthält unter
 Project Findings neue oder korrigierte Erkenntnisse seit der initialen Karte.
-Nur der letzte Bericht wird weitergereicht; die initiale Karte ist bereits
-im Checkpoint. Die Provider-Cache-Treffer werden gemessen; Checkpointing
+Dazu gehören die DevTools-Messwerte mit Seitenname, Viewport, Selektor,
+Computed Styles, Box Model, CSS-Regeln, nachweisbaren Quelldateien und
+relevanten Console-/Network-Fehlern. Auch die initialen Referenz-Findings
+werden separat in der Karte erhalten. Nur der letzte Bericht wird
+weitergereicht; die initiale Karte ist bereits im Checkpoint. Die Provider-Cache-Treffer werden gemessen; Checkpointing
 garantiert sie nicht.
 
 Die vollständige Datei-Landkarte steht im Laufverzeichnis in
@@ -98,6 +105,14 @@ Nach spätestens iterations Runden oder zwei Runden ohne Dateiänderung endet
 der Prozess. Exit-Code 0 bedeutet bestätigtes Ziel, 2 ein offenes Ziel oder
 Limit, 1 einen Fehler. Die Screenshots und Berichte liegen unter /tmp und
 werden nicht committed. Das Binary pusht oder merged keine Änderungen.
+
+Das Theming verwendet die bestehenden Nextrap NTL-Layouts und NTE-Elemente,
+deren dokumentierte APIs, Varianten und Theme-Tokens. Markdown-Texte,
+Bilder, Links und Section-Struktur bleiben unverändert, sofern der Auftrag
+nicht ausdrücklich eine Inhalts- oder Strukturänderung verlangt. Notwendige
+Klassen- und Attributanpassungen erfolgen in der vorhandenen Kramdown-/Content-
+Pane-Syntax; neues Raw-HTML in Markdown ist nicht zulässig. Wiederverwendbares
+Markup gehört in geeignete Komponenten, Layouts oder freigegebene Includes.
 
 Die Schreibberechtigung ist auf das Projekt begrenzt. Workspaces, Skills,
 Build-Infrastruktur und Referenzdateien bleiben geschützt; node_modules,

@@ -11,7 +11,12 @@ their responsibilities: existing themes and best starting point, SCSS
 entrypoints and imports, tokens, component variants, layouts, includes,
 relevant demos and their target paths, component contracts, and important
 dependencies or constraints. Distinguish verified facts from unresolved
-questions. Include concrete source symbols or anchors when helpful.
+questions. Include concrete source symbols or anchors when helpful. Identify existing
+Nextrap (Nextstrap) NTL layouts and NTE elements and their usage/theming
+contracts, Markdown section composition and reusable layout variants.
+Distinguish existing content from the theme's styling responsibilities.
+Prior reference/target inspection findings are historical evidence; only
+carry them forward as current if the relevant pages and measurements match.
 
 Explore selectively using the task and existing skills. Do not read every
 file or recursively scan generated assets or dependencies. The map becomes
