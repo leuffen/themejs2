@@ -1,9 +1,5 @@
 # Repository-Regeln
 
-| Datum | Wesentliche Änderung | Commit |
-| --- | --- | --- |
-| 2026-11-27 | Verbindlichen Einstieg und nummerierte Regeldateien unter `AGENTS/` eingeführt. | [`5a9bb7b0`](https://github.com/leuffen/themejs2/commit/5a9bb7b02b46103c7b8f7e1a926ff0965cd5d632) (Ausgangsstand) |
-
 `AGENTS.md` ist die maßgebliche Quelle für alle Änderungen an ThemeJS2.
 Bei jeder Entwicklung im Projekt gelten sämtliche Regeln dieser Datei und
 die verbindlichen Regelwerke und Referenzen, auf die sie verweist.
@@ -12,15 +8,13 @@ Agent-Skills wie `modify-theme` dienen dem projektübergreifenden Einsatz.
 Übernimm die ThemeJS2-Regeln daher niemals in Agent-Skills. Bei fachlichem
 Konflikt hat das Repository-Regelwerk Vorrang.
 
-- [§ 1 Zielsetzung](AGENTS/1.Zielsetzung.md) beschreibt die Grundsätze von ThemeJS2.
-- [§ 2 Theme-Verzeichnis](AGENTS/2.Theme.md) regelt Element-Styles und Variants.
-- [§ 3 Docs-Verzeichnis](AGENTS/3.Docs.md) beschreibt die Demo unter `docs/`.
+- [§ 1 Zielsetzung](AGENTS/1_Zielsetzung.md) beschreibt die Grundsätze von ThemeJS2.
+- [§ 2 Theme-Verzeichnis](AGENTS/2_Theme.md) regelt Element-Styles und Variants.
+- [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md) beschreibt die Demo unter `docs/`.
 
 Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
-Nummer des Hauptparagrafen und einem Punkt. Der Titel beginnt mit
-demselben Paragrafen, etwa `1.Zielsetzung.md` mit `§ 1 Zielsetzung`. Die Regeldateien führen oben eine Tabelle zu
-wesentlichen Änderungen mit Datum und Commit. Ausführliche Changelogs
-werden ausschließlich in Proposals geführt.
+Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
+demselben Paragrafen, etwa `1_Zielsetzung.md` mit `§ 1 Zielsetzung`.
 
 ## Regeln
 
@@ -192,7 +186,7 @@ eine eigenständige Komposition bezeichnen.
 
 #### § 5.8 Demo-Layouts und Seitenverzeichnis
 
-Für Zweck und Grundsätze der Demo gilt [§ 3 Docs-Verzeichnis](AGENTS/3.Docs.md).
+Für Zweck und Grundsätze der Demo gilt [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md).
 
 Eine Endseite in `docs/` wählt den vollständigen Rahmen über `layout:`.
 Die `website-*`-Layouts erben von `20_body` und binden Navbar,
@@ -292,6 +286,6 @@ Halte die verfügbaren Funktionsklassen je Bereich im editierbaren Markup.
 Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Setzt ein Scope
 für denselben Schalter einen anderen Zustand, ersetzt er die vorhandene Form.
 Die Sichtbarkeit ganzer Bereiche steuern weiterhin die `show_*`-Felder.
-Die Ablage der Styles und Variants regelt [§ 2 Theme-Verzeichnis](AGENTS/2.Theme.md).
+Die Ablage der Styles und Variants regelt [§ 2 Theme-Verzeichnis](AGENTS/2_Theme.md).
 Dokumentiere Scope-Felder und Fallbacks bei der Umsetzung.
 Der [Strukturvorschlag](AGENTS/proposals/2026-11-27-layout-rahmen-und-color-sets.md) beschreibt die schrittweise Einführung.

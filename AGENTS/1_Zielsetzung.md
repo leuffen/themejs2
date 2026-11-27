@@ -1,9 +1,5 @@
 # § 1 Zielsetzung
 
-| Datum | Wesentliche Änderung | Commit |
-| --- | --- | --- |
-| 2026-11-27 | Grundsätze aus Repository-Regeln und Proposal zusammengeführt. | [`144521ad`](https://github.com/leuffen/themejs2/commit/144521ad1bc971df0dc46269fa70b2883501564e) (Ausgangsstand) |
-
 ThemeJS2 stellt eine gemeinsame Basis für statisch auslieferbare Websites
 bereit. Demos verwenden nach Möglichkeit dieselben Komponenten, Layouts und
 Datenverträge wie Kundensysteme. Der Seitenrahmen bleibt im Kundenprojekt

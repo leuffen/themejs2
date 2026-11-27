@@ -1,9 +1,5 @@
 # § 3 Docs-Verzeichnis
 
-| Datum | Wesentliche Änderung | Commit |
-| --- | --- | --- |
-| 2026-11-27 | Zweck und Grundsätze der Demo unter `docs/` festgehalten. | [`144521ad`](https://github.com/leuffen/themejs2/commit/144521ad1bc971df0dc46269fa70b2883501564e) (Ausgangsstand) |
-
 `docs/` ist die GitHub-Pages-Demo und die Testumgebung für ThemeJS2. Halte
 Beispiele nah an Kundenimplementierungen. Verwende für dieselben Aufgaben
 dieselben Layouts, Komponenten, Datenquellen und Front-Matter-Felder.

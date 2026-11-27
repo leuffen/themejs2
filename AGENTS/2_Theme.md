@@ -1,9 +1,5 @@
 # § 2 Theme-Verzeichnis
 
-| Datum | Wesentliche Änderung | Commit |
-| --- | --- | --- |
-| 2026-11-27 | Verzeichnisregeln für Theme, Elements und Variants aus dem Proposal übernommen. | [`5a9bb7b0`](https://github.com/leuffen/themejs2/commit/5a9bb7b02b46103c7b8f7e1a926ff0965cd5d632) (Ausgangsstand) |
-
 `theme/` enthält die Theme-spezifischen Styles und seitenweiten Variants.
 Die Zielstruktur führt `elements/` und `variants/` direkt unter `theme/`.
 

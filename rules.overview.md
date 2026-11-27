@@ -51,11 +51,11 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 
 | Paragraf | Regel | Datei | Zweck |
 | --- | --- | --- | --- |
-| § 1 | Zielsetzung | [`1.Zielsetzung.md`](AGENTS/1.Zielsetzung.md) | Grundsätze zu statischer Ausgabe, Wiederverwendung und Kundenprojekten. |
-| § 2 | Theme-Verzeichnis | [`2.Theme.md`](AGENTS/2.Theme.md) | Gemeinsame Wurzel für Theme-Dateien. |
-| § 2.1 | `theme/elements/` | [`2.Theme.md`](AGENTS/2.Theme.md) | Element-Styles und Markdown-Sidecars. |
-| § 2.2 | `theme/variants/` | [`2.Theme.md`](AGENTS/2.Theme.md) | Sass-Dateien für seitenweite CSS-Variablen. |
-| § 3 | Docs-Verzeichnis | [`3.Docs.md`](AGENTS/3.Docs.md) | Kundennah aufgebaute Demos und auffindbare Beispiele. |
+| § 1 | Zielsetzung | [`1_Zielsetzung.md`](AGENTS/1_Zielsetzung.md) | Grundsätze zu statischer Ausgabe, Wiederverwendung und Kundenprojekten. |
+| § 2 | Theme-Verzeichnis | [`2_Theme.md`](AGENTS/2_Theme.md) | Gemeinsame Wurzel für Theme-Dateien. |
+| § 2.1 | `theme/elements/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Element-Styles und Markdown-Sidecars. |
+| § 2.2 | `theme/variants/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Sass-Dateien für seitenweite CSS-Variablen. |
+| § 3 | Docs-Verzeichnis | [`3_Docs.md`](AGENTS/3_Docs.md) | Kundennah aufgebaute Demos und auffindbare Beispiele. |
 
 ## Widerspruchsprüfung
 
