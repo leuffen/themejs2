@@ -8,6 +8,8 @@ Agent-Skills wie `modify-theme` dienen dem projektübergreifenden Einsatz.
 Übernimm die ThemeJS2-Regeln daher niemals in Agent-Skills. Bei fachlichem
 Konflikt hat das Repository-Regelwerk Vorrang.
 
+- [§ 0 Formulierung und Interaktion mit dem User](AGENTS/0_Formulierung_und_Interaktion.md)
+  regelt die Auslegung von Anweisungen und die Kommunikation.
 - [§ 1 Zielsetzung](AGENTS/1_Zielsetzung.md) beschreibt die Grundsätze von ThemeJS2.
 - [§ 2 Theme-Verzeichnis](AGENTS/2_Theme.md) regelt Element-Styles und Variants.
 - [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md) beschreibt die Demo unter `docs/`.
