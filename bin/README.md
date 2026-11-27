@@ -118,13 +118,14 @@ Ordner `bin/.tmp/`. Ein neuer Lauf leert den Ordner vor der ersten Aufnahme;
 parallele Läufe im selben Checkout werden abgewiesen. Das Binary
 pusht oder merged keine Änderungen.
 
-Das Theming verwendet die bestehenden Nextrap NTL-Layouts und NTE-Elemente,
-deren dokumentierte APIs, Varianten und Theme-Tokens. Markdown-Vorlagen dürfen über Frontmatter,
-Kramdown und Content Pane an die Referenz angepasst werden. Die redaktionellen
-Inhalte bleiben erhalten. Eigene Landing- und Unterseiten-Layouts erben von
-`20_body`, verwenden dessen TrunkJS Responsive und enthalten Header, Inhalt
-und Footer im benötigten Aufbau. Theme-spezifisches CSS bleibt im Theme.
-Ein gemeinsamer Element-Style wird nur auf ausdrücklichen Auftrag geändert.
+Die [Agent-Regeln](prompts/project.md) beschreiben, wie `theme-develop` mit
+Layouts und Markdown-Vorlagen arbeitet. Die Auswahl von Farbvariablen und
+anderen Theme-Tokens ist im [SCSS-Skill](../skills/edit-scss/SKILL.md) beschrieben.
+
+Dommer nutzt für Start- und Leistungsseite `theme-dommer`. Dieses Layout erbt
+über `blank` von `20_body`. Die Startseite setzt `show_title: false`, damit ihr
+Hero den Seitentitelbereich übernimmt. Die übrigen Themes sind noch nicht auf
+`blank` umgestellt.
 
 Die Schreibberechtigung ist auf das Projekt begrenzt. Workspaces, Skills,
 Build-Infrastruktur und Referenzdateien bleiben geschützt; node_modules,
