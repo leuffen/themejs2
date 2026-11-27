@@ -6,6 +6,9 @@ libs/
 /node_modules
 /dist
 /.tmp/
+# Lokale Browseraufnahmen pro Theme-Development-Lauf.
+/src/.tmp/
+/bin/.tmp/
 /docs/assets/dist/
 
 /workspaces

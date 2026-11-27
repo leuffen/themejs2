@@ -18,9 +18,7 @@ final class BrowserSession
     public const VIEWPORTS = [
         '1440x900' => [1440, 900, false],
         '1280x800' => [1280, 800, false],
-        '1024x768' => [1024, 768, true],
         '768x1024' => [768, 1024, true],
-        '667x375' => [667, 375, true],
         '393x852' => [393, 852, true],
     ];
 
@@ -123,15 +121,17 @@ final class BrowserSession
 JS);
     }
 
-    /** Nimmt die ganze Seite ohne Vergrößerung oder Viewport-Änderung auf. */
+    /** Erfasst die volle Dokumenthöhe, ohne den Layout-Viewport zu ändern. */
     public function screenshot(): string
     {
-        $size = $this->command('Page.getLayoutMetrics')['cssContentSize'];
-        $width = (int) ceil($size['width']);
-        $height = (int) ceil($size['height']);
-        if ($width < 1 || $height < 1 || $width > 10000 || $height > 50000 || $width * $height > 80000000) {
-            throw new RuntimeException('Full-page screenshot exceeds safe browser dimensions: ' . $width . 'x' . $height);
+        $metrics = $this->command('Page.getLayoutMetrics');
+        $width = (int) ceil($metrics['cssLayoutViewport']['clientWidth']);
+        $height = (int) ceil($metrics['cssContentSize']['height']);
+        if ($width < 1 || $width > 10000 || $height < 1) {
+            throw new RuntimeException('Invalid screenshot dimensions: ' . $width . 'x' . $height);
         }
+        // Das Log zeigt die tatsächliche Höhe der Ganzseitenaufnahme.
+        phore_log()->warning('Screenshot-Bereich: von Pixel 0 bis Pixel {end} (CSS-Pixel, obere Grenze exklusiv)', ['end' => $height]);
         $result = $this->command('Page.captureScreenshot', [
             'format' => 'png',
             'fromSurface' => true,
@@ -203,15 +203,37 @@ JS;
         return ['computedBlocks' => $computed, 'representativeRules' => $rules];
     }
 
-    /** Ermittelt Computed Styles, CSS-Selektoren, Quelldateien und Box Model. */
-    public function inspect(string $selector, int $limit = 3, bool $compact = false): array
+    /** Kopiert nur den Body und entfernt Skripte und Style-Inhalte ohne Eingriff in die Live-Seite. */
+    public function documentHtml(): string
+    {
+        return (string) $this->evaluate(<<<'JS'
+(() => {
+    if (!document.body) return '';
+    const root = document.body.cloneNode(true);
+    const clean = tree => {
+        tree.querySelectorAll('script').forEach(script => script.remove());
+        tree.querySelectorAll('style').forEach(style => { style.textContent = ''; });
+        tree.querySelectorAll('template').forEach(template => clean(template.content));
+    };
+    clean(root);
+    return root.outerHTML;
+})()
+JS);
+    }
+
+    /** Ermittelt berechnete Stile und Boxmodell; die CSS-Regeln werden nur bei Bedarf abgefragt. */
+    public function inspect(string $selector, int $limit = 3, bool $compact = false, bool $includeRules = true, bool $singleNode = false): array
     {
         $root = $this->command('DOM.getDocument', ['depth' => 0])['root']['nodeId'];
         $ids = $this->command('DOM.querySelectorAll', ['nodeId' => $root, 'selector' => $selector])['nodeIds'];
+        // Gezielte Tool-Aufrufe dürfen weder keinen noch mehrere Knoten treffen.
+        if ($singleNode && count($ids) !== 1) {
+            throw new RuntimeException(sprintf('Selector must match exactly one node; found %d.', count($ids)));
+        }
         $result = [];
         foreach (array_slice($ids, 0, $limit) as $nodeId) {
             $computed = $this->command('CSS.getComputedStyleForNode', ['nodeId' => $nodeId])['computedStyle'];
-            $matched = $this->command('CSS.getMatchedStylesForNode', ['nodeId' => $nodeId]);
+            $matched = $includeRules ? $this->command('CSS.getMatchedStylesForNode', ['nodeId' => $nodeId]) : [];
             $rules = [];
             foreach ($matched['matchedCSSRules'] ?? [] as $match) {
                 $rule = $match['rule'];
@@ -244,8 +266,10 @@ JS;
             $result[] = [
                 'nodeId' => $nodeId,
                 'computed' => $compact ? [] : array_column($computed, 'value', 'name'),
-                'matchedRules' => array_slice($rules, -($compact ? 6 : 30)),
-                'inlineStyle' => $compact ? null : ($matched['inlineStyle']['cssProperties'] ?? []),
+                ...($includeRules ? [
+                    'matchedRules' => array_slice($rules, -($compact ? 6 : 30)),
+                    'inlineStyle' => $compact ? null : ($matched['inlineStyle']['cssProperties'] ?? []),
+                ] : []),
                 'boxModel' => $box,
             ];
         }
@@ -266,23 +290,39 @@ JS;
             if ($this->contextId !== null && $this->connection?->isConnected()) {
                 $this->command('Target.disposeBrowserContext', ['browserContextId' => $this->contextId], true);
             }
+        } catch (\Throwable $error) {
+            phore_log()->warning('Browserless: could not dispose the browser context: {exception}', ['exception' => (string) $error]);
         } finally {
-            $this->connection?->disconnect();
-            $this->connection = null;
-            $this->page = null;
-            $this->contextId = null;
+            try {
+                $this->connection?->disconnect();
+            } catch (\Throwable $error) {
+                phore_log()->warning('Browserless: could not close the WebSocket: {exception}', ['exception' => (string) $error]);
+            } finally {
+                $this->connection = null;
+                $this->page = null;
+                $this->contextId = null;
+            }
         }
     }
 
-    /** Baut die CDP-Verbindung lazy auf und aktiviert die Inspektions-Domains. */
-    private function connect(): void
+    /** Prüft Browserless und öffnet einmalig die CDP-Sitzung für die späteren Aufnahmen. */
+    public function connect(): void
     {
         if ($this->page !== null && $this->connection?->isConnected()) {
             return;
         }
-        $this->connection = new Connection($this->endpoint, sendSyncDefaultTimeout: 60000);
-        if (!$this->connection->connect() || !$this->connection->isConnected()) {
-            throw new RuntimeException('Browserless connection failed.');
+        // Ein expliziter Pfad verhindert die wenig aussagekräftige Meldung des WebSocket-Clients.
+        if (!parse_url($this->endpoint, PHP_URL_PATH)) {
+            throw new RuntimeException('Browserless: CONF_BROWSER needs a WebSocket URL with a path, e.g. ws://chromium:3000/.');
+        }
+        try {
+            $this->connection = new Connection($this->endpoint, sendSyncDefaultTimeout: 60000);
+            if (!$this->connection->connect() || !$this->connection->isConnected()) {
+                throw new RuntimeException('WebSocket connection was not established.');
+            }
+        } catch (\Throwable $error) {
+            throw new RuntimeException('Browserless: could not connect. Check CONF_BROWSER and whether Chromium is running. Cause: '
+                . $error->getMessage(), previous: $error);
         }
         $this->contextId = $this->command('Target.createBrowserContext', ['disposeOnDetach' => true], true)['browserContextId'];
         $target = $this->command('Target.createTarget', [

@@ -1,3 +1,8 @@
+---
+name: themejs-sync-root-dir
+description: Prüft und synchronisiert Änderungen zwischen der ThemeJS2-Demo unter docs/ und der Kundenvorlage unter _root/.
+---
+
 # ThemeJS Sync Root Dir
 
 ## Zweck

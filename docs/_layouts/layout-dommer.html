@@ -1,0 +1,52 @@
+---
+layout: 20_body
+---
+
+<!-- Die festen Dommer-Ziele gelten für Marke, Hauptnavigation und Footer. -->
+{% assign dommer_home = '/themes/dommer/dommer-start.html' | relative_url %}
+{% assign dommer_services = '/themes/dommer/dommer-leistungen.html' | relative_url %}
+
+<!-- Wie bei Osman verschwindet die Adresszeile beim Scrollen, während die Hauptzeile erreichbar bleibt. -->
+<nte-navbar class="style-default fixed autoborder" scroll-threshold="500" style="--spacer-height: 104px">
+  <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
+    <div slot="start" class="site-topbar__info">Lieneschweg 57 · Osnabrück-Westerberg</div>
+  </nte-navbar-line>
+  <nte-navbar-line class="style-default" style="--brand-height: 64px">
+    <a slot="start" class="brand-logo fw-bold" href="{{ dommer_home }}">Dr. Karsten Dommer</a>
+    <nte-nav id="dommer-nav-horizontal" class="style-default nav-horizontal" slot="end" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
+      <a href="{{ dommer_home }}">Startseite</a>
+      <a href="{{ dommer_services }}">Leistungen</a>
+    </nte-nav>
+    <nte-burger slot="end" aria-label="Navigation öffnen" aria-controls="dommer-sidebar" static-state
+      onclick="document.getElementById('dommer-sidebar')?.toggle()" style="display: block" style-xl="display: none"></nte-burger>
+  </nte-navbar-line>
+</nte-navbar>
+
+<!-- Unterhalb von XL verschiebt der Relocator dieselben Links in das mobile Menü. -->
+<nte-offcanvas id="dommer-sidebar" aria-label="Mobile Hauptnavigation">
+  <nte-nav id="dommer-nav-vertical" class="style-default nav-vertical" aria-label="Mobile Hauptnavigation" style="--nte-nav-flow: column; --nte-nav-align: stretch"></nte-nav>
+  <tj-element-relocator source="#dommer-nav-horizontal" target="#dommer-nav-vertical" class="-xl:relocate"></tj-element-relocator>
+</nte-offcanvas>
+
+<!-- Der ContentPane erhält die Markdown-Abschnitte und ihre Layout-Anweisungen. -->
+<main id="main" class="mx-auto">
+  <tj-content-pane pre-parser="text-block">
+    {{ content }}
+  </tj-content-pane>
+</main>
+
+<!-- Wie bei Osman trennt der Footer die Navigation vom Abschlussbereich; die Inhalte bleiben Dommer-spezifisch. -->
+<footer id="footer" class="mt-5 border-top" style="background: var(--footer-background, #f3f3f3); color: var(--footer-text-color, inherit)">
+  <div class="site-footer__main container py-3 text-center xl:text-start">
+    <nav class="site-footer__primary-nav site-footer__nav small pb-3 border-bottom" aria-label="Footer-Navigation">
+      <ul class="site-footer__nav-list list-unstyled d-flex flex-column xl:flex-row gap-3 mb-0">
+        <li><a href="{{ dommer_home }}">Startseite</a></li>
+        <li><a href="{{ dommer_services }}">Leistungen</a></li>
+      </ul>
+    </nav>
+    <address class="small pt-3 mb-0">Zahnarztpraxis Dr. Karsten Dommer · Lieneschweg 57 · Osnabrück-Westerberg</address>
+  </div>
+  <div class="leuffen-footer__bottom border-top">
+    <div class="container py-3 text-center small">© Dr. Karsten Dommer {{ site.time | date: '%Y' }}</div>
+  </div>
+</footer>

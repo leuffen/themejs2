@@ -14,58 +14,35 @@ muss in dev-main verfügbar sein. Führe im Projektverzeichnis aus:
 ```bash
 composer install
 kick dev
-bin/theme-develop auftrag.md --iterations=10
+bin/theme-develop auftrag.md
 ```
 
-Der Preview-Server läuft auf Port 4000. Der Browserless-Container erreicht
-ihn über http://main:4000. Für einen lokalen Browser kann der Auftrag
-stattdessen preview: http://localhost:4000 und dessen WebSocket-Endpunkt
-angeben. Browserless wird nicht neu gestartet. Vite und Jekyll werden nach
+Die `CONF_*`-Konstanten in `bin/theme-develop` legen das Modell `gpt-6.2-sol`,
+die Preview `http://main:4000`, den Browser `ws://chromium:3000/` und das Limit
+von zehn Iterationen fest. Browserless wird nicht neu gestartet. Vite und Jekyll werden nach
 Quelländerungen synchron gebaut; der vorhandene Server bleibt aktiv.
 
 ## Auftrag
 
-Die Markdown-Datei enthält die Zielseite je Referenz und den Arbeitsauftrag.
-URL-Referenzen werden direkt im Browser geöffnet; lokale HTML-Referenzen
-müssen über HTTP erreichbar sein. Statische Design-Dateien werden geladen,
-nicht gerendert. Dateipfade sind relativ zum Auftrag, Zielpfade relativ zur
-Preview. Die Angaben width/height bei Designs beschreiben die Designbreite,
-nicht die Größe eines Full-Page-Bildes.
+Der Auftrag ist freier Markdown-Text ohne Pflicht-Frontmatter. Der Agent
+ermittelt Theme und Zielseiten bei der Projektanalyse. Referenzen werden im
+Text genannt: Live-Seiten als HTTP(S)-URL, Bilder und PDFs als Dateipfade
+relativ zum Auftrag oder als absolute Pfade.
 
 ```markdown
----
-theme: osman
-preview: http://main:4000
-browser: ws://chromium:3000
-model: gpt-5.4
-iterations: 10
-pages:
-  - name: home
-    reference: https://example.com/
-    target: /demo-home.html
-  - name: contact
-    target: /demo-contact.html
-    designs:
-      - file: designs/contact-desktop.png
-        width: 1440
-        height: 900
-      - file: designs/contact-mobile.png
-        width: 393
-        height: 852
----
-Passe das Theme an die Referenzen an. Übertrage die Typografie, Abstände und
-Section-Varianten; erhalte die editierbare Content-Struktur.
+Passe die Osman-Startseite an https://example.com/ an. Übertrage die
+Typografie und Abstände; erhalte die editierbare Content-Struktur.
 ```
 
-Die sechs festen Viewports sind 1440×900, 1280×800, 1024×768, 768×1024,
-667×375 und 393×852 CSS-Pixel bei DPR 1. Live-Seiten werden durchgescrollt;
-Full-Page-Screenshots enthalten individuelle ImagePrompt-Instructions.
-Initial werden zusätzlich ausgewählte Computed Styles, Box-Modelle,
-CSS-Regeln und Stylesheet-/Source-Map-URLs gesammelt. Die gezielte
-Inspection liefert CSS-Kaskaden für ausgewählte Light-DOM-Selektoren auf
-Live-Referenzseiten (kind: reference) und Zielseiten (kind: target).
-Der Agent untersucht aktiv die relevanten Elemente, mindestens in den
-Desktop- und Mobilansichten, einschließlich Console-/Network-Diagnostik.
+`CONF_VIEWPORTS` in `bin/theme-develop` legt Auswahl und Reihenfolge der
+Auflösungen fest. Standard: 1440×900, 1280×800, 768×1024 und 393×852 (DPR 1). Weitere
+Profile werden in `BrowserSession::VIEWPORTS` definiert. Das Modell ruft
+`browser_capture` für jede konfigurierte URL und Auflösung einzeln auf. Das
+Tool liefert einen Screenshot über die volle Dokumenthöhe und den
+Gerüst-HTML-Code des sichtbaren Dokuments: nur `<body>`, ohne `<script>`-Tags
+und ohne Inhalt von `<style>`-Tags. `browser_inspect` kann bei Bedarf einen
+Light-DOM-Knoten in einer konfigurierten Auflösung untersuchen. Das letzte
+Ergebnis je Auflösung bleibt bis zum nächsten Build fürs Blättern im Cache.
 Statische Design-Dateien besitzen keinen inspizierbaren DOM.
 
 ## Internetrecherche
@@ -103,22 +80,31 @@ werden separat in der Karte erhalten. Nur der letzte Bericht wird
 weitergereicht; die initiale Karte ist bereits im Checkpoint. Die Provider-Cache-Treffer werden gemessen; Checkpointing
 garantiert sie nicht.
 
-Die vollständige Datei-Landkarte steht im Laufverzeichnis in
-project-findings.md. Sie wird nach jeder Bearbeitungs- und Reviewphase
-aktualisiert; spätere Korrekturen haben Vorrang vor der initialen Karte.
-Sichere diese Datei außerhalb von /tmp, wenn sie einen Neustart oder eine
-Bereinigung des temporären Verzeichnisses überdauern soll. Ein späterer
-Auftrag kann sie optional als Frontmatter-Feld project_findings angeben,
-zum Beispiel project_findings: findings/project-findings.md. Relative
-Pfade beziehen sich auf die Auftragsdatei. Der Agent validiert die alte
-Karte gegen den aktuellen Checkout, statt sie ungeprüft zu übernehmen.
+Neben der Auftragsdatei liegt `dev.findings.md` mit der Datei-Landkarte und
+späteren Ergänzungen. `dev.state.yml` wird ab dem Referenz-Checkpoint
+atomar aktualisiert. Die Datei enthält dessen Provider-Response-ID sowie
+Seitenzuordnung, Fortschritt und letzten Prüfbericht. Beide Dateien bleiben
+außerhalb des Jekyll-Outputs und sollen nicht eingecheckt werden.
 
-Der Auftrag kann optional max_tokens setzen; das Budget wird zwischen
-Iterationen geprüft und ist deshalb kein hartes Limit für Einzelrequests.
-Nach spätestens iterations Runden oder zwei Runden ohne Dateiänderung endet
-der Prozess. Exit-Code 0 bedeutet bestätigtes Ziel, 2 ein offenes Ziel oder
-Limit, 1 einen Fehler. Die Screenshots und Berichte liegen unter /tmp und
-werden nicht committed. Das Binary pusht oder merged keine Änderungen.
+Um nach einem Abbruch fortzusetzen, denselben Befehl mit dem unveränderten
+Auftrag und demselben Provider-Zugang erneut ausführen. Eine unvollständige
+Iteration beginnt erneut; vorherige Dateiänderungen bleiben bestehen.
+Vor dem ersten Checkpoint startet die Analyse erneut. Bei einem geänderten
+Auftrag oder einem nicht mehr verfügbaren Provider-Checkpoint den alten
+Zustand bei Bedarf archivieren und mit `bin/theme-develop -n auftrag.md`
+neu starten. `-n` löscht `dev.state.yml` und leert `dev.findings.md`, bevor
+die Referenz neu aufgenommen wird. Bereits bearbeitete Projektdateien werden
+nicht zurückgesetzt. Ohne `-n` warnt das CLI, wenn
+es einen gespeicherten Checkpoint wiederverwendet. Pro Auftragsverzeichnis
+nur einen Lauf gleichzeitig starten.
+
+Jeder Start prüft den aktuellen Stand erneut und erlaubt bis zu
+`CONF_ITERATIONS` weitere Runden. Beim Fortsetzen zählt die Nummerierung weiter.
+Nach zwei Runden ohne Dateiänderung endet der Prozess vorzeitig. Exit-Code 0 bedeutet bestätigtes Ziel, 2 ein offenes Ziel oder
+Limit, 1 einen Fehler. Screenshots und Zwischenberichte liegen direkt im von Git ignorierten
+Ordner `bin/.tmp/`. Ein neuer Lauf leert den Ordner vor der ersten Aufnahme;
+parallele Läufe im selben Checkout werden abgewiesen. Das Binary
+pusht oder merged keine Änderungen.
 
 Das Theming verwendet die bestehenden Nextrap NTL-Layouts und NTE-Elemente,
 deren dokumentierte APIs, Varianten und Theme-Tokens. Markdown-Texte,

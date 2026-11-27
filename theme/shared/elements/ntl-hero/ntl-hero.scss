@@ -3,6 +3,7 @@
 // Lädt Instanzvarianten für ntl-hero.
 ntl-hero {
   @include meta.load-css("./style-default");
+  @include meta.load-css("./style-dommer");
   @include meta.load-css("./style-mueller");
   @include meta.load-css("./style-osman");
   @include meta.load-css("./style-epraxis");

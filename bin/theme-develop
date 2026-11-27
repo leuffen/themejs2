@@ -5,30 +5,47 @@ declare(strict_types=1);
 
 use Leuffen\ThemeJS2\Development\Job;
 use Leuffen\ThemeJS2\Development\ThemeDevelopment;
+use Phore\Log\PhoreLogger;
+use Phore\Log\PhoreLoggerFactory;
 
-// Das Binary verwendet immer den Projekt-Root und nicht das Aufrufverzeichnis.
+// Die Infrastruktur und das Laufzeitlimit sind unabhängig vom Auftrag festgelegt.
+const CONF_MODEL = 'gpt-6.2-sol';
+const CONF_PREVIEW = 'http://main:4000';
+const CONF_BROWSER = 'ws://chromium:3000/';
+const CONF_ITERATIONS = 10;
+// Die Reihenfolge legt fest, in welcher Auflösung die Seite aufgenommen wird.
+const CONF_VIEWPORTS = ['1440x900', '1280x800', '768x1024', '393x852'];
+
+// Ein Auftrag ist erforderlich; -n startet bewusst ohne gespeicherten Checkpoint.
 $root = dirname(__DIR__);
-if (in_array('--help', $argv, true) || $argc === 1) {
-    echo "Usage: bin/theme-develop <auftrag.md> [--iterations=N]\n";
-    echo "See bin/README.md for the job format and preview setup.\n";
-    exit($argc === 1 ? 1 : 0);
+$args = array_slice($argv, 1);
+$fresh = ($args[0] ?? null) === '-n';
+if ($fresh) {
+    array_shift($args);
+}
+if (count($args) !== 1 || str_starts_with($args[0], '-')) {
+    echo "Usage: bin/theme-develop [-n] <auftrag.md>\n  -n  Start a new run without resuming the saved checkpoint.\n";
+    exit(!$fresh && $args === ['--help'] ? 0 : 1);
 }
 
 try {
     require $root . '/vendor/autoload.php';
 
-    // Der Auftrag ist der einzige benutzerdefinierte Einstiegspunkt.
-    $iterations = null;
-    foreach (array_slice($argv, 2) as $argument) {
-        if (!preg_match('/^--iterations=([1-9][0-9]*)$/D', $argument, $match)) {
-            throw new InvalidArgumentException('Unknown argument: ' . $argument);
-        }
-        $iterations = (int) $match[1];
-    }
+    // Fehler und Warnungen bleiben vom gestreamten Modelltext auf stdout getrennt.
+    PhoreLogger::Register(PhoreLoggerFactory::BuildFromUri('def://stderr?severity=info'));
 
-    $job = Job::fromFile($argv[1], $root, $iterations);
-    exit((new ThemeDevelopment($root, $job))->run());
+    // Der Auftrag liefert nur Anweisungen, keine Laufzeitkonfiguration.
+    $job = Job::fromFile($args[0], CONF_PREVIEW, CONF_BROWSER, CONF_MODEL, CONF_ITERATIONS);
+    exit((new ThemeDevelopment($root, $job, fresh: $fresh, viewports: CONF_VIEWPORTS))->run());
 } catch (Throwable $error) {
-    fwrite(STDERR, 'Theme development failed: ' . $error->getMessage() . PHP_EOL);
+    // Die Fehlermeldung beginnt auch nach gestreamter Modellausgabe auf einer eigenen Zeile.
+    fflush(STDOUT);
+    fwrite(STDERR, PHP_EOL);
+    if (function_exists('phore_log')) {
+        // Der Stacktrace bleibt als Meldung vollständig, statt als Platzhalter gekürzt zu werden.
+        phore_log()->error('Theme development failed: ' . $error);
+    } else {
+        fwrite(STDERR, 'Theme development failed: ' . $error . PHP_EOL);
+    }
     exit(1);
 }

@@ -1,0 +1,198 @@
+// Gibt dem Dommer-Rahmen eigene Tokens und hebt den Hero-Text vom Foto ab.
+@mixin theme() {
+  @layer themes.tokens {
+    --nt-primary: #043b5f;
+    --nt-text: #043b5f;
+    --nt-font-family-header: Georgia, serif;
+  }
+
+  @layer website {
+    // Hält die Meldungszeile im Leerzustand geschlossen und gibt auch mehrzeiligen Meldungen einen gleichmäßigen Rhythmus.
+    .dommer-announcements {
+      display: block;
+      padding: 0.625rem 1rem;
+      background: #9b562d;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+
+      &.no-announcements {
+        display: none;
+      }
+
+      [data-owner='leuffen-announcement'] {
+        margin: 0;
+      }
+    }
+
+    // Dunkelt die Hauptzeile zur Linkseite hin ab, ohne das Foto unter die feste Navbar zu verschieben.
+    .dommer-navigation {
+      --background: var(--nt-primary) linear-gradient(90deg, transparent, rgb(0 0 0 / 35%));
+      --text-color: #fff;
+
+      a {
+        font-family: var(--nt-font-family-header);
+        color: #fff;
+        text-decoration: none;
+      }
+
+      // Hält den Menüschalter auf der dunkelblauen Navigation sichtbar.
+      nte-burger {
+        --color: var(--text-color);
+      }
+
+      // Hebt den Praxisnamen als sichtbaren Einstieg von den Navigationslinks ab.
+      .brand-logo {
+        font-size: 1.25rem;
+      }
+
+      // Gibt der horizontalen Hauptnavigation mehr Raum, ohne das mobile Menü zu verändern.
+      nte-nav.nav-horizontal {
+        a {
+          font-size: 1.125rem;
+        }
+
+        a + a {
+          margin-inline-start: 2.5rem;
+        }
+      }
+    }
+
+    // Begrenzt die Desktop-Bühne über die vorhandenen Hero-Variablen; schmale Ansichten behalten ihre Baseline.
+    ntl-hero.style-dommer.hero-box[mode='desktop'] {
+      --min-height: 20rem;
+      --max-height: 21rem;
+    }
+
+    // Legt die vorhandene Hero-Textgruppe auf eine kontrastreiche Fläche.
+    .hero-box .box {
+      box-sizing: border-box;
+      max-inline-size: min(100%, 44rem);
+      padding: clamp(1rem, 3vw, 2.5rem);
+      background: rgb(4 59 95 / 94%);
+      color: #fff;
+    }
+
+    // Überlappt die untere Bildkante, ohne den Titel aus dem Inhaltsfluss zu nehmen.
+    ntl-hero.style-dommer.hero-box:is([mode='mobile'], [mode='tablet']) {
+      --min-height: 22rem;
+      --max-height: none;
+      --top-offset: 16rem;
+      --container-width: 100%;
+
+      &::part(root) {
+        height: auto;
+      }
+
+      &::part(background) {
+        height: var(--min-height);
+      }
+
+      &::part(content) {
+        align-items: flex-start;
+        justify-content: flex-start;
+        inline-size: 100%;
+      }
+
+      > .box {
+        inline-size: 100%;
+        // Begrenzt auch bei aktivem w-100 die Tablet-Textfläche; schmalere Ansichten bleiben vollbreit.
+        max-inline-size: min(100%, 35rem);
+        // Spart auf schmalen Displays vertikalen Innenraum, ohne Schrift oder Panelhöhe festzulegen.
+        padding-block: clamp(1rem, calc(5vw - 0.25rem), 2rem);
+        padding-inline: clamp(1rem, 7.65vw, 1.875rem);
+        // Gibt kurzen Titeln auf Tablet dieselbe Bühne, lässt längere Titel mobil aber weiter wachsen.
+        min-block-size: 11.75rem;
+        background: linear-gradient(to bottom, rgb(4 59 95 / 94%) 6rem, var(--nt-primary) 6rem);
+      }
+
+      // Verringert die Zeilenhöhe im schmalen Hero, ohne längere Titel abzuschneiden.
+      .sec-box {
+        line-height: 1.25;
+      }
+    }
+
+    // Positioniert die Desktop-Textfläche und dunkelt sie zur rechten Bildseite ab, ohne den Text abzublenden.
+    ntl-hero.style-dommer.hero-box[mode='desktop'] .box {
+      position: relative;
+      inset-inline-start: max(-5.3125vw, -4.25rem);
+      inset-block-start: 1rem;
+      inline-size: min(55vw, 44rem);
+      max-inline-size: calc(100vw - 2rem);
+      padding-block: 4rem;
+      background: linear-gradient(90deg, rgb(4 59 95 / 94%), rgb(0 16 26 / 94%));
+    }
+
+    // Hält die Hero-Überschrift auch dann weiß, wenn ihr direkter Section-Wrapper eine eigene Textfarbe setzt.
+    .hero-box .sec-box {
+      color: #fff;
+      font-family: var(--nt-font-family-header);
+    }
+
+    // Gibt der Einleitung Seitenränder und lässt Hauptinhalt und Kontakt unabhängig wachsen.
+    ntl-columns.style-default.dommer-intro {
+      box-sizing: border-box;
+      inline-size: 100%;
+      max-inline-size: var(--nt-container-width, 100%);
+      margin-inline: auto;
+      padding-block-end: var(--nt-spacing-section, 3rem);
+      // Nach dem Hero zählt nur der Innenabstand; der Folgeabschnitt behält seinen Außenabstand.
+      margin-block-start: 0;
+      padding-block-start: calc(2 * var(--nt-text-gap, 1rem));
+      padding-inline: var(--nt-text-gap, 1rem);
+
+      // Begrenzt das Einleitungsbild auf die Proportion der Referenzbühne, ohne schmale Spalten zu vergrößern.
+      > section:not([slot]) > p > img {
+        max-inline-size: min(100%, 33.25rem);
+        block-size: auto;
+      }
+
+      &::part(wrapper) {
+        align-items: start;
+      }
+    }
+
+    // Fasst Sprechzeiten und Termine auf einer gemeinsamen Fläche zusammen und lässt lange Links umbrechen.
+    .dommer-contact-panel {
+      padding: var(--nt-text-gap, 1rem);
+      background: #99b599;
+      color: var(--nt-text);
+      overflow-wrap: anywhere;
+
+      // Hält Überschriften und Links auf der grünen Fläche in derselben dunklen Textrolle.
+      h3,
+      a {
+        color: inherit;
+      }
+
+      // Bevorzugt sprachgerechte Trennstellen für lange Überschriften in engen Spalten.
+      h3:lang(de) {
+        hyphens: auto;
+      }
+
+      // Hält Telefonnummern zusammen, solange sie vollständig in die Spalte passen.
+      a[href^='tel:'] {
+        display: inline-block;
+        max-inline-size: 100%;
+      }
+    }
+
+    // Setzt Salbei und dunklen Text über die Primary-Eingaben des Button-Mixins nur auf pillenförmigen Inhaltslinks.
+    tj-content-pane a.btn.btn-primary.rounded-pill {
+      --nt-primary: #99b599;
+      --nt-primary-hover: #a9c2a9;
+      --nt-primary-active: #91ad91;
+      --nt-text-on-primary: var(--nt-text);
+    }
+
+    // Schließt die Seite mit derselben dunklen Fläche wie die Navigation ab.
+    .dommer-footer {
+      background: var(--nt-primary);
+      color: #fff;
+
+      a { color: inherit; }
+    }
+  }
+}

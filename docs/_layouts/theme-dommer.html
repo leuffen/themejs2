@@ -1,0 +1,51 @@
+---
+layout: 20_body
+---
+<!-- Kapselt den neuen Rahmen, ohne die Leistungsseite auf das Profil umzustellen. -->
+{% assign dommer_home = '/themes/dommer/dommer-start.html' | relative_url %}
+{% assign dommer_services = '/themes/dommer/dommer-leistungen.html' | relative_url %}
+<div class="theme-dommer">
+  <!-- Verwendet dieselben Navigationsziele für Desktop und mobiles Menü. -->
+  <nte-navbar class="style-default fixed" scroll-threshold="500" style="--spacer-height: 104px">
+    <!-- Zeigt aktuelle Meldungen oberhalb der Adress- und Navigationszeile. -->
+    <leuffen-announcements class="dommer-announcements no-announcements">Momentan keine Meldungen.</leuffen-announcements>
+    <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
+      <div slot="start" class="site-topbar__info">Lieneschweg 57 · Osnabrück-Westerberg</div>
+    </nte-navbar-line>
+    <nte-navbar-line class="style-default dommer-navigation" style="--brand-height: 64px">
+      <a slot="start" class="brand-logo fw-bold" href="{{ dommer_home }}">Dr. Karsten Dommer</a>
+      <nte-nav id="dommer-nav-horizontal" slot="end" class="style-default nav-horizontal" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
+        <a href="{{ dommer_home }}">Startseite</a>
+        <a href="{{ dommer_services }}">Leistungen</a>
+      </nte-nav>
+      <nte-burger slot="end" aria-label="Navigation öffnen" aria-controls="dommer-sidebar" static-state onclick="document.getElementById('dommer-sidebar')?.toggle()" style="display: block" style-xl="display: none"></nte-burger>
+    </nte-navbar-line>
+  </nte-navbar>
+
+  <!-- Verschiebt die vorhandenen Links unterhalb von XL in das mobile Menü. -->
+  <nte-offcanvas id="dommer-sidebar" aria-label="Mobile Hauptnavigation">
+    <nte-nav id="dommer-nav-vertical" class="style-default nav-vertical" aria-label="Mobile Hauptnavigation" style="--nte-nav-flow: column; --nte-nav-align: stretch"></nte-nav>
+    <tj-element-relocator source="#dommer-nav-horizontal" target="#dommer-nav-vertical" class="-xl:relocate"></tj-element-relocator>
+  </nte-offcanvas>
+
+  <!-- Lässt Content Pane die bestehenden Markdown-Sections unverändert aufbauen. -->
+  <main id="main" class="mx-auto">
+    <tj-content-pane pre-parser="text-block">
+      {{ content }}
+    </tj-content-pane>
+  </main>
+
+  <!-- Setzt den Kontakt in der Lesereihenfolge vor die Links; ab XL steht er rechts neben der Navigation. -->
+  <footer id="footer" class="dommer-footer mt-5">
+    <div class="container py-3 d-flex flex-column xl:flex-row-reverse justify-content-between align-items-center gap-3 text-center">
+      <address class="small mb-0">Zahnarztpraxis Dr. Karsten Dommer · Lieneschweg 57 · Osnabrück-Westerberg</address>
+      <nav aria-label="Footer-Navigation">
+        <ul class="list-unstyled d-flex gap-3 mb-0">
+          <li><a href="{{ dommer_home }}">Startseite</a></li>
+          <li><a href="{{ dommer_services }}">Leistungen</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container pb-3 text-center small">© Dr. Karsten Dommer {{ site.time | date: '%Y' }}</div>
+  </footer>
+</div>

@@ -1,11 +1,17 @@
 Explore the current ThemeJS2 repository once before reference analysis.
 Use the themejs2-readonly filesystem to list and read relevant files.
 Load the applicable skills and follow AGENTS.md. Do not edit anything or use
-browser tools in this phase. If prior-project-findings is supplied, use it
-as a starting index: verify relevant paths, assumptions and dependencies
-against the current checkout, and correct stale entries.
+browser tools in this phase.
 
-Return a compact Markdown project map (at most 2500 tokens), not source
+First return a fenced `json` block containing an array of page objects with
+`name` (unique ASCII slug), `target` (path starting with `/` on the preview),
+and optionally `reference` (an HTTP(S) URL explicitly named in the order) or
+`designs` (objects with `file` exactly as named in the order, plus optional
+`width` and `height`). Infer target pages and the theme from the order and
+repository; do not invent external references or design paths. Omit reference
+and designs if no comparison source was provided.
+
+After the JSON block return a compact Markdown project map (at most 2500 tokens), not source
 code or a file-by-file dump. Include actual verified relative paths and
 their responsibilities: existing themes and best starting point, SCSS
 entrypoints and imports, tokens, component variants, layouts, includes,

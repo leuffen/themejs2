@@ -16,7 +16,7 @@
 
 ### Aktuelles
 
-<liweco-news>Keine aktuellen Meldungen</liweco-news>
+<leuffen-announcements>Momentan keine Meldungen.</leuffen-announcements>
 
 [Termin online buchen](/karriere){: .btn .btn-primary }
 {: .footer }

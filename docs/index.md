@@ -3,7 +3,14 @@ layout: website
 title: ThemeJS2
 ---
 
+<!-- Der Container begrenzt die Breite des gesamten Verzeichnisses. -->
+<div class="container" markdown="1">
+
 # ThemeJS2
+
+## Themes
+
+Dommer: [index]({{ '/themes/dommer/dommer-start.html' | relative_url }}) · [Leistungen]({{ '/themes/dommer/dommer-leistungen.html' | relative_url }})
 
 ## Seitenverzeichnis
 {: #seitenverzeichnis }
@@ -51,3 +58,5 @@ title: ThemeJS2
 {% unless template.extname == '.html' %}{% continue %}{% endunless %}
 - [{{ template.name }}]({{ template.path | relative_url }}) · `{{ template.path | remove_first: '/' }}`
 {% endfor %}
+
+</div>

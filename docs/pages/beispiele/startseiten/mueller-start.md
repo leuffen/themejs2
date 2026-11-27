@@ -32,7 +32,7 @@ pid: site
 
 ### Aktuelles
 
-<liweco-news>Keine aktuellen Meldungen</liweco-news>
+<leuffen-announcements>Momentan keine Meldungen.</leuffen-announcements>
 
 ### Notfall?
 

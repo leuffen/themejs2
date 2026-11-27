@@ -7,11 +7,23 @@
 @use "@leuffen/themejs2/theme/raven";
 // Lädt das Unify-Theme als gleichwertige, separat gekapselte Präsentationsvariante.
 @use "@leuffen/themejs2/theme/unify";
+// Ergänzt den separat gekapselten Dommer-Rahmen auf der Startseite.
+@use "../../theme/dommer/index" as dommer;
+
+// Lädt das optionale Spalten-Mixin über den verlinkten Paket-Entrypoint.
+@use "@nextrap/ntl-columns" as columns;
 
 @layer reset, schemes, themes, website;
 
 @layer themes {
   @layer tokens, base, typography, elements, components, patterns, utilities;
+}
+
+// Bindet den Theme-Abstand nur an die Default-Variante des neuen Layouts.
+@layer themes.components {
+  ntl-columns.style-default {
+    @include columns.default-style();
+  }
 }
 
 @layer reset {
@@ -48,4 +60,9 @@
 // Neue Demos verwenden den gemeinsamen Build. Historische Vorschauen behalten ihre Profile.
 :where(html:not(.theme-osman, .theme-raven, .theme-unify, .theme-mueller, .theme-epraxis)) body {
   @include shared.theme();
+}
+
+// Der neue Rahmen ergänzt die gemeinsame Basis nur innerhalb seines eigenen Markups.
+:where(.theme-dommer) {
+  @include dommer.theme();
 }

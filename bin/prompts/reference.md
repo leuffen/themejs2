@@ -1,16 +1,23 @@
 Analyze the supplied reference pages and fixed design files before any edits.
 Load and follow the applicable ThemeJS2 skills, especially
 erstelle-theme-nach-vorlage, modify-theme and browserless-screenshots-debugging.
+If no external or file reference was provided, derive the criteria from the
+work order and use the first pre-change target captures as the baseline.
 Use the previously established project map to connect the reference to
 reusable theme components. Do not repeat project discovery.
 Use the supplied screenshot instructions and viewport labels. Analyze every
 page separately, then identify shared theme tokens, reusable sections,
 typography, geometry, and responsive differences. For live pages, correlate
-the images with their measured computed styles and representative CSS rules.
-Actively call browser_inspect with kind=reference on every configured live
-reference page, including desktop 1280x800 and mobile 393x852. Inspect the
-elements responsible for the visual characteristics (layout container,
-section, typography, image or CTA), and parent/child rules as needed.
+screenshots and the rendered body structure. Use `browser_capture` with the
+live reference URL and one viewport from `capture-plan` per call. Request each
+configured size separately. Use the body to identify elements and read local
+project sources where applicable.
+Call browser_inspect with kind=reference only when an unresolved question
+requires computed styles, geometry or a winning rule. Inspect one element
+and viewport per call with a selector that matches exactly one node. Query parents, children and any necessary rules sequentially, not
+with grouped selectors. Use local sources from the current checkout when
+available; for external references, use browser rules only as needed to
+explain the measured appearance.
 Use the console and network diagnostics returned by inspection and call
 browser_get_console when investigating errors. Record actual computed
 values, box geometry, matching selectors, source/line or source map when
