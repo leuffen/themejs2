@@ -91,3 +91,41 @@ After the JSON, return a compact project map with verified paths for the
 pages, theme, SCSS entrypoints, layouts, Content Pane and component contracts.
 Identify the nearest existing implementation and any unresolved mapping.
 Use concrete source symbols where useful. This phase is read-only.
+
+#### § 2.7 Systematische visuelle Detailprüfung
+
+Apply the detail-review procedure in AGENTS/3_Docs.md § 3.9 throughout
+reference analysis, iteration and review. Walk every mapped page section by
+section and inspect its individual elements, not just the overall impression
+or first hero. Include the navbar, page header, content components, buttons,
+forms and footer where present and in scope. Compare equivalent elements
+across mapped pages and variants at every configured viewport.
+
+Use this checklist for each applicable element:
+- Transparency and contrast: backgrounds, alpha values, opacity and overlays
+  against the actual underlying colors or images; legibility and unintended
+  show-through. Distinguish a transparent background from whole-element opacity.
+- Button size and usability: rendered width and height, padding, clickable area,
+  gaps to adjacent controls, label wrapping, icon alignment and mobile fit.
+  Check consistency between equivalent actions, including long labels.
+- Spacing and alignment: margins, padding, gaps, container edges and section
+  transitions, including unintended shifts between neighboring elements.
+- Typography and surfaces: font size, line height, wrapping, icon size, borders,
+  radii and shadows relative to the reference and selected theme.
+- Interaction states: hover, focus, active, disabled, open menus and form
+  feedback where applicable; preserve visible keyboard focus and usability.
+- Responsive behavior: wrapping, stacking, clipping, overlap and horizontal
+  overflow, especially for navigation, buttons and forms in narrow viewports.
+
+Use rendered evidence and targeted computed-style measurements for concrete
+questions. Do not infer successful visual verification from source alone or
+invent precise values from screenshots. The current browser tools capture and
+inspect pages but do not expose interaction controls. Review state rules in
+source where useful, but mark states that cannot be exercised as untested;
+do not claim a capture verifies hover, keyboard operation or an opened menu.
+
+Keep a compact coverage matrix by page, viewport and section or element group.
+Record checked criteria, concrete findings and untested or inapplicable cases.
+Distinguish required reference/order discrepancies from optional improvements.
+Do not redesign intentional reference details or expand the edit scope.
+Apply repository side-effect and approval rules before implementing changes.

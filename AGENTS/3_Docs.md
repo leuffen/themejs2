@@ -174,3 +174,57 @@ Seiten können sie im Front Matter überschreiben. Bundle-Defaults dürfen
 andere Demos nicht unbeabsichtigt beeinflussen.
 
 `navigation_root` bleibt im Front Matter der Demo-Seiten (§ 3.7.2).
+
+## § 3.9 Systematische Detailprüfung der Demo
+
+Prüfe bei visuellen Überarbeitungen nicht nur den Gesamteindruck. Gehe die
+betroffenen Seiten Abschnitt für Abschnitt und die darin verwendeten Elemente
+einzeln durch. Beziehe Navbar, Page-Header oder Hero, Inhaltskomponenten,
+Buttons, Formulare und Footer ein, soweit sie zum Auftrag gehören. Suche dabei
+gezielt nach Optimierungsmöglichkeiten, statt nur auffällige Fehler zu beheben.
+
+### § 3.9.1 Vorgehen
+
+1. Ermittle die betroffenen Seiten, Komponenten und Varianten sowie die dafür
+   zuständigen Layouts, Styles und Datenquellen. Lies vor der visuellen Prüfung
+   die nach § 5.1 der Repository-Regeln verbindlichen Skills.
+2. Erfasse den Ausgangszustand in beiden vom lokalen Debugging-Skill
+   vorgeschriebenen Viewports. Prüfe die gerenderte Darstellung und bei Bedarf
+   die berechneten Styles; leite visuelle Befunde nicht allein aus dem Code ab.
+3. Prüfe jedes betroffene Element anhand der Detailkriterien in § 3.9.2.
+   Vergleiche gleichartige Elemente auch zwischen den betroffenen Seiten und
+   Varianten, damit unbeabsichtigte Unterschiede sichtbar werden.
+4. Halte konkrete Befunde mit Seite, Element, Zustand und Verbesserungsvorschlag
+   fest. Unterscheide Fehler von gestalterischen Empfehlungen. Prüfe mögliche
+   Seiteneffekte gemäß § 5.15 der Repository-Regeln und frage bei unklaren
+   Auswirkungen vor der Umsetzung nach.
+5. Setze freigegebene Verbesserungen auf der zuständigen Ebene um. Verwende
+   vorhandene Komponenten, Varianten und CSS-Variablen; umgehe das Theme nicht
+   durch lokale Sonderlösungen oder Änderungen an generierten Build-Dateien.
+6. Prüfe nach der Änderung dieselben Elemente, Zustände und Viewports erneut.
+   Lade die Vorschau nach einem Build neu. Berichte getrennt, was geprüft,
+   geändert oder als offener Optimierungsvorschlag zurückgestellt wurde.
+
+### § 3.9.2 Detailkriterien
+
+- **Transparenz und Kontrast:** Prüfe transparente und halbtransparente Flächen
+  auf den tatsächlich dahinterliegenden Farben und Bildern. Texte, Icons und
+  Bedienelemente müssen erkennbar bleiben; unbeabsichtigtes Durchscheinen darf
+  weder Lesbarkeit noch die Trennung überlagerter Bereiche beeinträchtigen.
+- **Buttongröße und Bedienbarkeit:** Prüfe Höhe, Breite, Innenabstände,
+  Klickfläche und Abstand zu benachbarten Bedienelementen. Beschriftungen und
+  Icons dürfen nicht abgeschnitten werden. Lange Texte und mobile Darstellung
+  müssen funktionieren; gleichwertige Aktionen sollen konsistent wirken.
+- **Abstände und Ausrichtung:** Prüfe Innen- und Außenabstände, Gaps,
+  Containerkanten und die Ausrichtung von Texten, Icons und Buttons. Achte auf
+  unbeabsichtigte Sprünge zwischen benachbarten Abschnitten.
+- **Typografie und Oberflächen:** Prüfe Schriftgrößen, Zeilenhöhen,
+  Textumbrüche, Icongrößen, Rahmen, Rundungen und Schatten auf Lesbarkeit und
+  Konsistenz mit dem gewählten Theme und der jeweiligen Variante.
+- **Interaktionszustände:** Prüfe bei interaktiven Elementen die zutreffenden
+  Hover-, Fokus-, Aktiv- und Deaktiviert-Zustände sowie geöffnete Menüs und
+  Formularrückmeldungen. Die Tastaturbedienung und der sichtbare Fokus dürfen
+  durch eine optische Optimierung nicht beeinträchtigt werden.
+- **Responsive Verhalten:** Prüfe Umbrüche, Stapelung, Überlagerungen und
+  Überläufe in beiden vorgeschriebenen Viewports. Kontrolliere insbesondere,
+  dass Buttons, Navigation und Formulare auch bei wenig Platz bedienbar bleiben.
