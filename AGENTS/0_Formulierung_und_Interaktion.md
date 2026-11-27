@@ -29,6 +29,10 @@ insbesondere Einschränkungen, offene Punkte und Abweichungen vom Auftrag klar.
 Unterscheide tatsächlich ausgeführte Änderungen von Vorschlägen und noch
 anstehenden Arbeiten.
 
+Bevorzuge ein kurzes, konkretes Beispiel gegenüber einer langen Erklärung,
+wenn es den Sachverhalt einfacher und verständlicher vermittelt. Ergänze nur
+die Erläuterungen, die zum Verständnis notwendig sind.
+
 ## § 0.4 Englische Fachbegriffe beibehalten
 
 Bevorzuge bei technischen Fachbegriffen die etablierte englische Terminologie.
