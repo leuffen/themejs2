@@ -10,14 +10,23 @@ and theme tokens. Scope new visual CSS/SCSS to the requested theme. Move an
 element style into the shared theme only when explicitly requested and check
 its other consumers.
 
-For a new theme with distinct home and inner-page frames, provide a landing
-and website layout under the theme's own directory in `docs/_layouts/`.
-Use the Osman demo as a reference for existing markup and inherit `20_body`.
-Inline the applicable navbar, header or hero, and footer markup in the new
-layouts. Put one `{{ content }}` inside the existing `main` and
-`tj-content-pane pre-parser="text-block"` structure between header and footer.
-Use front matter for page-specific values such as the website title or hero
-image. Keep the existing body-level TrunkJS `tj-responsive` registration.
+For a new theme with distinct landing and inner-page layouts, put them in the
+same directory under `docs/_layouts/` and inherit a common `blank` layout.
+`blank` inherits the last numbered shell layout (`20_body` in the current demo)
+and yields its content without adding a navbar, page title header or footer.
+Use existing layouts such as the Osman demo as references for component markup.
+Let each concrete layout choose its navbar and footer variants. Let pages turn
+those areas off independently. Default to a page title header on inner pages
+and omit it by default on landing pages. Use front matter for page-specific
+values such as the title or hero image.
+
+Place a single `main` with `tj-content-pane pre-parser="text-block"` directly
+in the middle of each concrete layout, between the optional headers and footer.
+Render it only when `content | strip` is nonempty. Render the original
+`{{ content }}` once inside the pane so Markdown whitespace is preserved.
+Keep layout-specific wrappers there and use existing includes for shared
+components. The central content area needs no include. Keep the existing
+body-level TrunkJS `tj-responsive` around the whole layout.
 Reuse its declarative slots, breakpoints and existing layout controls such as
 slot-empty and sub-layout apply when the component contract provides them.
 Prefer existing NTL/NTE composition over custom scripts or media queries.
