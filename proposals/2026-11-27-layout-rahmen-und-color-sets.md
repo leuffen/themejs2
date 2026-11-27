@@ -5,6 +5,7 @@
 | 2026-11-27 | dermatthes | §§ 1–6: Proposal angelegt |
 | 2026-11-27 | dermatthes | §§ 2, 4.1, 4.2 und 6: Selektoren, Scope-Vorrang und Prüfung präzisiert |
 | 2026-11-27 | dermatthes | §§ 4.1 und 6: Komponenten-Default und Ausschließlichkeit der Varianten präzisiert |
+| 2026-11-27 | dermatthes | § 3: Ablage für ID- und Klassen-Styles unter elements korrigiert |
 
 ## § 1 Ziel
 
@@ -33,10 +34,17 @@ für den Rahmen verwenden deshalb Selektoren wie `#footer.style-default`.
 | Pfad | Verantwortung |
 |---|---|
 | `docs/_layouts/website-standard.html` | Gemeinsamer Rahmen auf Basis von `blank` mit stabilen IDs `header`, `navbar` und `footer` sowie genau einem `main` mit Content Pane. |
-| `theme/shared/frame/{header,navbar,footer}/` | Je Rahmenbereich ein Sass-Einstieg, eine Default-Darstellung und bei Bedarf eigene Variantenpartiale wie `_style-raven.scss`. |
+| `theme/shared/elements/id_<id>/` | Styles für einen ID-Selektor. `id_header/`, `id_navbar/` und `id_footer/` liegen direkt unter `elements/` und enthalten den Sass-Einstieg sowie Default und Varianten des jeweiligen Rahmenbereichs. [geändert] |
+| `theme/shared/elements/class_<klasse>/` | Styles für eine gemeinsam genutzte CSS-Klasse. `class_hero__specialties/` enthält beispielsweise die Styles für `.hero__specialties`. [neu] |
 | `theme/shared/color-sets/` | Neutrale Ausgangswerte und separat wählbare Token-Sätze wie Dommer. Die Sets laufen über den gemeinsamen Sass-Einstieg und das vorhandene Mapping. |
 | `theme/shared/elements/<komponente>/` | Bestehende Ablage für NTL-/NTE-Varianten, Parts, Slots und Komponentenverträge. |
 | `docs/_src/frame-catalog.ts` und `docs/pages/bausteine/rahmen/` | Spätere TypeScript-Beschreibung und interaktive Vorschau. Der Katalog erfasst Rahmen-IDs sowie die verfügbaren Styles und Funktionsklassen von NTL und NTE. |
+
+ID- und Klassen-Verzeichnisse liegen auf derselben Ebene wie `ntl-hero/`
+und andere NTL-/NTE-Komponenten. Der Präfix bezeichnet die Art des
+Selektors im Dateisystem. Im Markup bleiben die Namen unverändert. So liegt
+zum Beispiel der Style für `#footer.style-raven` in
+`theme/shared/elements/id_footer/_style-raven.scss`. [neu]
 
 ## § 4 Auswahl und Zuständigkeiten
 
@@ -60,7 +68,7 @@ deaktivierte Klasse, etwa `-sticky-top` als inaktives Gegenstück zu
 `sticky-top`. Das Beispiel zeigt die Namenskonvention. Die Implementierung
 übernimmt die tatsächlich unterstützten Schalter der Komponente. Eine Rahmen-ID erhält
 genau eine `style-*`-Klasse. Der feste Kundenrahmen kann die Variante direkt
-im editierbaren Markup wählen. [geändert]
+im editierbaren Markup wählen.
 
 ### § 4.2 Scope-Konfiguration und Color Sets
 
@@ -108,7 +116,7 @@ auch für migrierte Layouts.
 - Je Bereich greifen Default und ausgewählte Variante mit derselben Layout-Datei.
   Zwei Themes können dieselbe Variante verwenden. Prüfe bei NTL und NTE den
   automatischen Default ohne Style-Klasse und eine explizite Variante mit
-  genau einer `style-*`-Klasse. [geändert]
+  genau einer `style-*`-Klasse.
 - Der Wechsel des Color Sets ändert die visuellen Werte. Markup,
   Navigationsauswahl und aktivierte Funktionen bleiben dabei gleich.
 - Sticky und Scroll-Verhalten lassen sich unabhängig von der Palette prüfen.
