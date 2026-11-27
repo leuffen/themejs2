@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "@nextrap/nte-input" as input;
+
+// Setzt dieselbe Eingabekomposition mit variabler Feldoptik um.
+$field-style: map.merge(input.$themeCarbon, (
+  control-background: var(--theme-input-surface, var(--nt-surface-raised)),
+  control-padding-x: var(--theme-input-padding, var(--nt-space-3)),
+  border-color: var(--theme-input-border, var(--nt-border)),
+  border-radius: var(--theme-input-radius, var(--nt-border-radius))
+));
+
+&:is(.style-default, .style-osman, .style-mueller, .style-unify) {
+  @include input.default-style($field-style);
+
+  // Schwebende Labels bleiben eine Option am einzelnen Feld.
+  &.hoverlabel {
+    @include input.floating-labels();
+  }
+
+  padding-block-end: var(--nt-space-4);
+}

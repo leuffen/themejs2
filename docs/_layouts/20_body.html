@@ -3,7 +3,7 @@ layout: 10_blanc
 ---
 
 
-<body>
+<body{% if page.theme_profile %} class="theme-{{ page.theme_profile | escape }}"{% endif %}>
 {% include fragments/loader.html %}
 <tj-loader>
 <micx-cdn-image-loader default-size-adjust=":1;1200:1">

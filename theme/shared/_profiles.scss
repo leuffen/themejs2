@@ -1,0 +1,54 @@
+// Gibt jeder Website-Palette ihre visuellen Werte im gemeinsamen Komponentenvertrag.
+&.theme-mueller {
+  --theme-primary: #e30613;
+  --theme-accent: #167a68;
+  --theme-secondary: #505050;
+  --theme-font-family: "Open Sans", sans-serif;
+  --theme-radius: .25rem;
+  --theme-ribbon-padding: var(--nt-space-6);
+  --theme-card-border: var(--theme-border);
+  --theme-two-col-border: var(--theme-border);
+  --theme-ribbon-accent: .25rem solid var(--nt-primary);
+  --theme-ribbon-heading-transform: uppercase;
+}
+
+&.theme-osman {
+  --theme-primary: #2b94d6;
+  --theme-accent: #2b94d6;
+  --theme-secondary: #4c4c4c;
+  --theme-font-family: "Open Sans", sans-serif;
+  --theme-radius: .5rem;
+  --theme-ribbon-heading-transform: uppercase;
+}
+
+&.theme-raven {
+  --theme-primary: #3f4632;
+  --theme-accent: #b8734a;
+  --theme-secondary: #272c20;
+  --theme-font-family: "Work Sans", system-ui, sans-serif;
+  --theme-radius: .125rem;
+  --theme-ribbon-surface: var(--nt-secondary);
+  --theme-ribbon-text: #fff;
+  --theme-ribbon-link: #fff;
+  --theme-ribbon-divider: rgb(255 255 255 / .24);
+  --theme-ribbon-padding: var(--nt-spacing-component);
+  --theme-card-border: var(--theme-border);
+}
+
+&.theme-epraxis {
+  --theme-primary: #fe6606;
+  --theme-accent: #fe6606;
+  --theme-font-family: "Work Sans", system-ui, sans-serif;
+}
+
+&.theme-unify {
+  --theme-primary: #0abf53;
+  --theme-accent: #0abf53;
+  --theme-secondary: #1e2022;
+  --theme-font-family: "Inter", system-ui, sans-serif;
+  --theme-radius: .75rem;
+  --theme-input-border: transparent;
+  --theme-input-padding: 1rem;
+  --theme-input-radius: 0px;
+  --theme-accordion-gap: 0px;
+}

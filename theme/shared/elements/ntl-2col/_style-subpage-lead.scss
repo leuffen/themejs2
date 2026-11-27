@@ -1,0 +1,59 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Stellt einen ruhigen Unterseitenkopf mit Titel links sowie Einleitung und Bild rechts bereit.
+&.style-subpage-lead {
+  @include twoCol.default-style(
+    $innerPadding: 0px,
+    $gap: clamp(var(--nt-space-7), 6vw, var(--nt-space-9)),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover
+  );
+
+  // Beginnt beide Spalten oben und hält die rechte Inhaltsfolge als zusammengehörigen Lead-Block lesbar.
+  &::part(wrapper) {
+    align-items: flex-start;
+  }
+
+  &::part(aside) {
+    display: grid;
+    align-content: start;
+    gap: var(--nt-spacing-text);
+  }
+
+  // Betont den einleitenden Unterseitentext, ohne ihn wie ein Zitat oder einen Startseiten-Hero zu behandeln.
+  > .lead-serif.aside {
+    margin: 0;
+    font-size: clamp(var(--nt-fs-h4), 2.4vw, var(--nt-fs-h2));
+    line-height: 1.3;
+  }
+
+  // Hält das automatisch zugeordnete Unterseitenbild direkt unter dem rechten Einleitungstext.
+  > p[slot="aside"].auto {
+    margin: var(--nt-space-4) 0 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--nt-surface-muted);
+  }
+
+  > p[slot="aside"].auto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Nutzt mobil die normalen Raven-Außenkanten und eine kompaktere Bildproportion.
+  &[mode="mobile"] {
+    --gap: var(--nt-space-6);
+
+    &::part(container) {
+      width: var(--nt-container-width);
+      margin-inline: auto;
+    }
+
+    > p[slot="aside"].auto {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}

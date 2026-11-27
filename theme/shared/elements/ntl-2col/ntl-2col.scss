@@ -1,0 +1,21 @@
+@use "sass:meta";
+
+// Lädt Instanzvarianten für ntl-2col.
+ntl-2col {
+  @include meta.load-css("./style-default");
+  @include meta.load-css("./style-cta");
+  @include meta.load-css("./style-faq");
+  @include meta.load-css("./style-testimonial");
+  @include meta.load-css("./style-card");
+  @include meta.load-css("./style-raven");
+  @include meta.load-css("./style-form");
+  @include meta.load-css("./style-subpage-lead");
+  @include meta.load-css("./style-unify");
+  @include meta.load-css("./style-feature-grid");
+  @include meta.load-css("./style-logo-cloud");
+  @include meta.load-css("./style-saas-hero");
+  @include meta.load-css("./style-step");
+  @include meta.load-css("./style-subscribe");
+  @include meta.load-css("./style-testimonial-unify");
+  @include meta.load-css("./style-video");
+}

@@ -2,7 +2,7 @@
 
 `docs/_includes/` und `_root/docs/_includes/` verwenden die aktuelle Struktur von Osman2.
 Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
-`docs/_includes/_styles/` bleibt ausschließlich für die GitHub-Pages-Demo erhalten.
+Die GitHub-Pages-Demo verwendet feste Website-Layouts.
 
 | Pfad relativ zu `_includes/` | Aufgabe |
 | --- | --- |
@@ -22,7 +22,7 @@ Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
 | `helpers/urls/page.html` | Sprachabhängige Seiten-URL |
 | `helpers/text/remove-line-breaks.html` | Textaufbereitung |
 | `fragments/loader.html` | Seitenweiter Loader |
-| `_styles/<variante>/navbar.html`, `_styles/<variante>/footer.html` | Austauschbare Rahmen nur in `docs/` |
+| `frames/<variante>/navbar.html`, `frames/<variante>/footer.html` | Markup für feste Demo-Layouts |
 
 ## 1. Standardseite
 
@@ -40,20 +40,14 @@ Leuffen-Logos liegen unter `assets/leuffen/` und werden aus beiden Umgebungen id
 
 ## 2. Demo-Varianten und feste Kundenlayouts
 
-Nur die GitHub-Pages-Demo unter `docs/` wählt Navbar und Footer über Frontmatter:
+Wähle das passende Demo-Layout im Frontmatter der Endseite:
 
 ```yaml
-layout: website
-use_navbar: osman
-use_footer: mueller
+layout: website-raven
 ```
 
-Die Dateien liegen unter `docs/_includes/_styles/osman/navbar.html` und
-`docs/_includes/_styles/mueller/footer.html`. Ohne Auswahl gilt jeweils `default`.
-`use_navbar: false`, `use_footer: false` und `skip-navbar: true` werden ausschließlich
-in den Demo-Layouts ausgewertet; `layout: blanco` ist dort rahmenlos.
-Verfügbar sind die Navbar-Varianten `default`, `osman`, `unify` sowie die
-Footer-Varianten `default`, `osman`, `mueller`, `raven`, `unify`.
+Die vorhandenen Kombinationen stehen in [Layouts](docs/_layouts/__INDEX.md).
+Das Theme-Profil kann unabhängig gewählt werden.
 
 `_root/` ist die Vorlage für Kunden-Repositories. Dort steht genau eine Navbar direkt
 in `docs/_layouts/50_navbar.html` und genau ein Footer direkt in
@@ -70,15 +64,15 @@ Die Hauptnavigation verwendet wie Osman2 `ptags: [nav]` und die Verzeichnishiera
 Beide tragen `ptags: [nav]`; `order` bestimmt die Reihenfolge, `nav_title` einen abweichenden Menütitel.
 Kategorie-Seiten verwenden `layout: index`, das die Unterseiten als Karten ausgibt.
 Eltern mit Unterpunkten öffnen das Untermenü; die Kategorie selbst wird dabei nicht als Link ausgegeben.
-Nur die Theme-Demo setzt `navigation_root: pages`, weil ihre Kategorien unter `docs/pages/` liegen.
+Die Demo-Startseite listet die Endseiten direkt nach Quellverzeichnis.
 
 ## 4. Layout-Kette und Vorlage
 
-Die gemeinsame Kette lautet `10_blanc` → `20_body` → `50_navbar` → `60_footer` → `70_main`.
+Die Demo verwendet `10_blanc` → `20_body` → das gewählte Website-Layout. Die Kundenvorlage verwendet ihre feste Navbar- und Footer-Kette.
 Die bisherige Stufe `30_script` ist in `20_body` integriert.
 `index`, `legal/legal`, `default` und `website` ergänzen die übernommenen Osman2-Layouts;
 vorhandene Artikel- und Collection-Layouts bleiben nutzbar.
-Die Rahmenvarianten liegen ausschließlich unter `docs/_includes/_styles/`;
+Die Rahmenfragmente der Demo liegen unter `docs/_includes/frames/`;
 `_layouts/alternatives/` und zusätzliche Rahmenfragmente entfallen in beiden Umgebungen.
 `_root` enthält dieselben fachlichen Includes, Logos und Beispieldaten.
 Der gewählte Website-Rahmen ist dort fest in die beiden Layout-Dateien integriert.

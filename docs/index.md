@@ -1,41 +1,53 @@
 ---
-body_class: theme-mueller
-description: "Dynamische Entwicklerübersicht der ThemeJS2-Previews und Design-Templates."
 layout: website
-use_footer: mueller
-order: 0
-permalink: /
-ptags:
-  - nav
-published: true
-short_title: Theme-Previews
-title: ThemeJS2 Preview-Übersicht
-type: website
+title: ThemeJS2
 ---
 
-## Theme-Previews
-{: layout="ntl-2col" data-kicker="Entwicklungsübersicht" }
+# ThemeJS2
 
-<!-- Die Preview-Übersicht gruppiert alle Vorlagen automatisch anhand ihrer Theme-Verzeichnisse. -->
-{% assign theme_previews = site.pages | where_exp: "preview", "preview.path contains 'pages/theme-'" | sort: "title" %}
-{% assign preview_themes = "mueller|Müller,osman|Osman,raven|Raven,epraxis|ePraxis,unify|Unify" | split: "," %}
-{% for preview_theme in preview_themes %}
-  {% assign theme_data = preview_theme | split: "|" %}
-  {% assign theme_path = "pages/theme-" | append: theme_data[0] | append: "/" %}
-### Theme {{ theme_data[1] }}
+## Seitenverzeichnis
+{: #seitenverzeichnis }
 
-  {% for preview in theme_previews %}
-    {% if preview.path contains theme_path %}
-- [{{ preview.title }}]({{ preview.url | relative_url }})
-    {% endif %}
-  {% endfor %}
+{% assign demo_pages = site.pages | sort: 'path' %}
+{% assign sections = 'Startseiten|pages/beispiele/startseiten/,Leistungsseiten|pages/beispiele/leistungen/,Kontaktseiten|pages/beispiele/kontakt/,Bausteine|pages/bausteine/,Weitere Seiten|pages/' | split: ',' %}
+{% for section in sections %}
+{% assign fields = section | split: '|' %}
+{% assign folder = fields[1] %}
+### {{ fields[0] }}
+
+{% for entry in demo_pages %}
+{% assign prefix = entry.path | slice: 0, folder.size %}
+{% if prefix != folder or entry.published == false %}{% continue %}{% endif %}
+{% if folder == 'pages/' %}
+{% if entry.path contains 'pages/beispiele/' or entry.path contains 'pages/bausteine/' %}{% continue %}{% endif %}
+{% endif %}
+- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+{% endfor %}
 {% endfor %}
 
-## Design-Templates
-{: layout="ntl-2col.style-cta" data-kicker="Direkte Vorlagen" }
+### Dateien und Statusseiten
 
-<!-- Die Dateiliste verlinkt alle statischen Design-Templates direkt und wächst mit dem Verzeichnisinhalt. -->
-{% assign design_templates = site.static_files | where_exp: "template", "template.path contains '/design-templates/'" | sort: "path" %}
+{% for entry in demo_pages %}
+{% if entry.path contains '/' or entry.path == 'index.md' or entry.published == false %}{% continue %}{% endif %}
+- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+{% endfor %}
+
+{% for collection in site.collections %}
+{% if collection.docs.size == 0 %}{% continue %}{% endif %}
+{% unless collection.output or collection.label == 'posts' %}{% continue %}{% endunless %}
+### {{ collection.label | replace: '_', ' ' | capitalize }}
+
+{% assign documents = collection.docs | sort: 'path' %}
+{% for entry in documents %}
+{% if entry.published == false %}{% continue %}{% endif %}
+- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+{% endfor %}
+{% endfor %}
+
+### Designvorlagen
+
+{% assign design_templates = site.static_files | where_exp: 'template', "template.path contains '/design-templates/'" | sort: 'path' %}
 {% for template in design_templates %}
-- [{{ template.name }}]({{ template.path | relative_url }})
+{% unless template.extname == '.html' %}{% continue %}{% endunless %}
+- [{{ template.name }}]({{ template.path | relative_url }}) · `{{ template.path | remove_first: '/' }}`
 {% endfor %}

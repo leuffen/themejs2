@@ -4,7 +4,6 @@
 lang: de-DE
 timezone: Europe/Berlin
 markdown: kramdown
-permalink: /news/:year/:month/:day/:title/
 
 google_analytics:
 show_downloads: true
@@ -44,14 +43,13 @@ defaults:
       path: ""
     values:
       layout: default
-      use_navbar: default
-      use_footer: default
   - scope:
       path: ""
       type: posts
     values:
       layout: article
       content_type: news
+      permalink: /news/:year/:month/:day/:title/
   - scope:
       path: ""
       type: wissen
