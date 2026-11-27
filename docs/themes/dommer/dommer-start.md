@@ -6,7 +6,8 @@ show_title: false
 ptags:
 - nav
 published: true
-short_title: Home
+short_title: Startseite
+order: 0
 title: Zahnarzt Osnabrück-Westerberg | Dr. Karsten Dommer
 shiller:
   tags:

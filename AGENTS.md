@@ -94,6 +94,12 @@ dürfen für die Nutzprojekt-Vorlage nicht erforderlich sein.
 
 ## Aufbau und Ziel von Demo und Kundenvorlage
 
+Setze Demos unter `docs/` so nah wie möglich an realen Kundenimplementierungen
+um. Verwende für gleichartige Funktionen dieselben Komponenten, Datenquellen,
+Front-Matter-Felder und Navigationsmechanismen wie in Kundenprojekten. Lege
+Demo-spezifische Inhalte und Pfade in Seiten oder Konfiguration ab, damit die
+Layouts wiederverwendbar bleiben.
+
 `docs/` ist die normale GitHub-Pages-Demo und zugleich Test- und Präsentationsumgebung für mehrere Themes. `_root/` ist die kopierbare Projektwurzel für Kunden-Repositories; die Website liegt darin unter `_root/docs/`. Die fachliche Include-Struktur orientiert sich an `dermatthes/leu-web-osman2/docs/_includes/`: `components/` enthält darstellende Bausteine, `helpers/` Hilfsfunktionen und `fragments/` gemeinsame Seitenfragmente wie den Loader. Leuffen-Logos liegen in beiden Versionen unter `docs/assets/leuffen/`. Die alte Struktur mit `el/`, `do/` und `part/` wird nicht wieder eingeführt.
 
 | Bereich | GitHub-Pages-Demo `docs/` | Kundenvorlage `_root/docs/` |
