@@ -254,9 +254,14 @@ mit stabilen IDs `header`, `navbar` und `footer`. Jeder Bereich verwendet
 aus den Jekyll-Defaults seines Scopes übernehmen. Dieselbe Darstellung nutzt
 themeübergreifend dieselbe Klasse. Eigene Varianten oder Layouts sind bei
 wesentlichen Darstellungs- beziehungsweise Strukturunterschieden vorgesehen.
+Im Rahmen sind `style-*`-Klassen an die drei IDs gebunden und auf genau eine
+Variante pro Bereich begrenzt. Für NTL und NTE gelten ihre Komponentenverträge.
+Ein fester Kundenrahmen gemäß § 5.9 kann dieselben Styles direkt im Markup wählen.
 
 Halte die verfügbaren Funktionsklassen je Bereich im editierbaren Markup.
-Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Halte
+Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Setzt ein Scope
+für denselben Schalter einen anderen Zustand, ersetzt er die vorhandene Form.
+Die Sichtbarkeit ganzer Bereiche steuern weiterhin die `show_*`-Felder. Halte
 seitenweit austauschbare Farb-, Schrift-, Rundungs- und Rahmenwerte als
 Color Sets in der gemeinsamen Sass-Basis. Layouts und Varianten verwenden
 diese Werte über Tokens und behalten ihre jeweilige Struktur und Funktion.

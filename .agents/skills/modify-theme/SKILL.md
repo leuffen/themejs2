@@ -38,7 +38,9 @@ Funktion direkt im Package korrigiert werden soll oder ob der User diese
 Klärung umgesetzt werden.
 
 - Setze niemals visuelle Deklarationen auf einen bloßen `ntl-*`-Selector. Seine Entry-Datei darf diesen Selector nur zum Laden von Variant-Dateien verwenden.
-- Verwende `style-*` ausschließlich für `ntl-*`- oder `nte-*`-Elemente und deren dokumentierte Varianten.
+- Verwende `style-*` für dokumentierte NTL- und NTE-Varianten. Für neue oder
+  migrierte Seitenrahmen gilt § 5.17 der [Repository-Regeln](../../../AGENTS.md)
+  für die Varianten an `#header`, `#navbar` und `#footer`.
 - Lege jede NTL-Darstellung in einer benannten Variant wie `&.style-default`, `&.style-header` oder `&.style-testimonial` ab.
 - NTL-Komponenten wählen automatisch `style-default`, wenn kein Style angegeben ist. Style den Default über `.style-default`; ergänze die Class im Demo-Markup nicht nur zur Aktivierung.
 - Ergänze eine weitere `style-*`-Variant nur für eine allgemeine Darstellung, niemals für einen Kunden, eine Person, eine Seite oder Beispiel-Content.

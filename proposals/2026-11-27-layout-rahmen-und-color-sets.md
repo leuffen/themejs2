@@ -3,6 +3,7 @@
 | Datum | Benutzername | Kurzbeschreibung |
 |---|---|---|
 | 2026-11-27 | dermatthes | §§ 1–6: Proposal angelegt |
+| 2026-11-27 | dermatthes | §§ 2, 4.1, 4.2 und 6: Selektoren, Scope-Vorrang und Prüfung präzisiert |
 
 ## § 1 Ziel
 
@@ -21,6 +22,11 @@ Fälle, in denen zusätzliche Informationen oder eine andere Struktur nötig sin
 | `docs/_layouts/theme-dommer.html` erbt von `blank` und enthält Navbar, optionalen Seitentitel, Content Pane und Footer. | Dommer als erstes Beispiel für den gemeinsamen Rahmen übernehmen. Den Content Pane und die vorhandenen Sichtbarkeitsschalter erhalten. |
 | §§ 5.6, 5.9 und 5.10 der `AGENTS.md` beschreiben für Kundenvorlagen einen festen editierbaren Rahmen. | Ein Kundenprojekt behält einen aktiven Rahmen. Klassen am festen Markup und ein Color Set benötigen weder zusätzliche Layouts noch einen Dispatcher. |
 | Das [Baukasten-Proposal](2026-11-26-gemeinsame-komponentenstile.md) sieht gemeinsame Varianten vor und nennt `use_navbar` und `use_footer` als Übergang. | Den Baukasten weiterverwenden. Für migrierte Rahmen gilt die Auswahl von Klassen am gemeinsamen Markup. Ein abweichendes Layout bleibt für echte Strukturunterschiede vorgesehen. |
+
+Der bisherige Theme-Leitfaden reserviert `style-*` für NTL und NTE. Die neue
+Regel erweitert diese Konvention gezielt auf die drei Rahmen-IDs. Styles
+für den Rahmen verwenden deshalb Selektoren wie `#footer.style-default`.
+[neu]
 
 ## § 3 Vorgeschlagene Ablage
 
@@ -49,7 +55,9 @@ sind unabhängige Funktionsklassen. Die jeweils verfügbaren Schalter bleiben
 im editierbaren Markup sichtbar. Ein führendes `-` kennzeichnet eine
 deaktivierte Klasse, etwa `-sticky-top` als inaktives Gegenstück zu
 `sticky-top`. Das Beispiel zeigt die Namenskonvention. Die Implementierung
-übernimmt die tatsächlich unterstützten Schalter der Komponente.
+übernimmt die tatsächlich unterstützten Schalter der Komponente. Eine Rahmen-ID erhält
+genau eine `style-*`-Klasse. Der feste Kundenrahmen kann die Variante direkt
+im editierbaren Markup wählen. [geändert]
 
 ### § 4.2 Scope-Konfiguration und Color Sets
 
@@ -57,9 +65,9 @@ Für die Jekyll-Defaults pro Scope sind `header_class`, `navbar_class`,
 `footer_class` und `color_set` als Feldnamen vorgeschlagen. Das Layout übernimmt
 die Klassen an den jeweiligen Bereich. Wenn eine Konfiguration eine
 Funktionsklasse ändert, muss sie die vorhandene aktive oder deaktivierte Form
-ersetzen. Die Namen, Zuordnung und Fallbacks werden bei der Umsetzung
+ersetzen. Eine konfigurierte `style-*`-Variante ersetzt `style-default`. Die Namen, Zuordnung und Fallbacks werden bei der Umsetzung
 dokumentiert. Die Sichtbarkeit bleibt über `show_navbar`, `show_title` und
-`show_footer` steuerbar.
+`show_footer` steuerbar. [geändert]
 
 Ein Color Set liefert Farben, Schriftfamilien, Rundungen und Rahmen über Tokens.
 Abstände, die zur Komposition einer Rahmenvariante gehören, bleiben in deren
@@ -99,7 +107,8 @@ auch für migrierte Layouts.
 - Der Wechsel des Color Sets ändert die visuellen Werte. Markup,
   Navigationsauswahl und aktivierte Funktionen bleiben dabei gleich.
 - Sticky und Scroll-Verhalten lassen sich unabhängig von der Palette prüfen.
-  Deaktivierte Schalter bleiben im Quellmarkup sichtbar.
+  Deaktivierte Schalter bleiben im Quellmarkup sichtbar. Mit einem Scope-Wechsel
+  auf den Gegenzustand bleibt genau eine Form des Schalters wirksam. [geändert]
 - Start- und Leistungsseite behalten ihre Navigation und den Content Pane.
   Vite und Jekyll bauen die Seiten. Der visuelle Vergleich verwendet
   393 × 852 und 1280 × 800 Pixel.
