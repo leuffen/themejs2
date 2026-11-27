@@ -245,3 +245,24 @@ ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 #### § 5.16 Announcements
 
 Für Meldungen ist `@leuffen/announcements` aus [leuffen/leuffen-monorepo, packages/announcements](https://github.com/leuffen/leuffen-monorepo/tree/main/packages/announcements) zu verwenden. Die Daten werden im vorhandenen Script-Tag von `10_blanc.html` über `window.openhours = {{ site.data.openhours | jsonify }};` bereitgestellt. Nutze die Klasse `no-announcements` am Element `<leuffen-announcements>` (bezogen auf dessen Typfilter), um Bereiche per CSS, gegebenenfalls mit `:has()`, dynamisch ein- oder auszublenden.
+
+#### § 5.17 Navigation, Rahmenvarianten und Color Sets
+
+Neue oder migrierte Layouts verwenden möglichst den gemeinsamen Seitenrahmen
+mit stabilen IDs `header`, `navbar` und `footer`. Jeder Bereich verwendet
+`style-default` als Fallback für seine `style-*`-Variante und kann Klassen
+aus den Jekyll-Defaults seines Scopes übernehmen. Dieselbe Darstellung nutzt
+themeübergreifend dieselbe Klasse. Eigene Varianten oder Layouts sind bei
+wesentlichen Darstellungs- beziehungsweise Strukturunterschieden vorgesehen.
+
+Halte die verfügbaren Funktionsklassen je Bereich im editierbaren Markup.
+Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Halte
+seitenweit austauschbare Farb-, Schrift-, Rundungs- und Rahmenwerte als
+Color Sets in der gemeinsamen Sass-Basis. Layouts und Varianten verwenden
+diese Werte über Tokens und behalten ihre jeweilige Struktur und Funktion.
+
+Verwende für auswählbare Varianten und Funktionsklassen eine
+TypeScript-Beschreibung je Rahmen-ID und NTL-/NTE-Element, sobald der
+Variantenkatalog eingeführt wird. Dokumentiere die Scope-Felder und ihre
+Fallbacks bei der Umsetzung. Der [Strukturvorschlag](proposals/2026-11-27-layout-rahmen-und-color-sets.md)
+beschreibt die Ablage und die schrittweise Einführung.
