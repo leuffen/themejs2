@@ -35,7 +35,7 @@ Jeder neue Eintrag und jeder eigenständige Style braucht ein konkretes
 Beispiel für eine Funktion oder Komposition, die mit vorhandenen Elementen,
 Styles und Modifiern nicht abgedeckt ist. Farbvariationen gehören nach
 `theme/variants/`. Eine Tabelle mit einer eigenen funktionalen Darstellung
-für Öffnungszeiten könnte den Style `table/_style-open-hours-table.scss`
+für Öffnungszeiten könnte den Style `table/_style-open-hours.scss`
 erhalten, sofern vorhandene Tabellen-Styles die benötigte Darstellung
 nicht abdecken.
 
@@ -49,7 +49,7 @@ dieses Element.
 
 | SCSS-Datei | Verwendung im Markup |
 | --- | --- |
-| `theme/elements/table/_style-open-hours-table.scss` | `<table class="style-open-hours-table">` |
+| `theme/elements/table/_style-open-hours.scss` | `<table class="style-open-hours">` |
 
 Pro Element ist höchstens eine `style-*`-Klasse zulässig. Eigene
 Default-Regeln für ein Element stehen in
@@ -73,6 +73,31 @@ Ein separates System liest die Sidecars aus. Sie bleiben außerhalb der
 Demo-Ausgabe. Die [Sidecar-Referenz](references/element-style-sidecars.md)
 ist verbindlich.
 
+### § 2.1.3 Benennung eines Elements
+
+Benenne Styles kurz nach ihrer Funktion. Trenne mehrere Wörter durch
+Bindestriche und lass den Elementnamen aus dem Style-Namen weg. Der
+Elementname steht bereits im Verzeichnis und im CSS-Selektor.
+
+Für die Öffnungszeiten-Tabelle heißt die Klasse `style-open-hours`. Die
+Datei liegt unter `theme/elements/table/_style-open-hours.scss`.
+
+### § 2.1.4 Modifier
+
+Ein Style-Mixin registriert den Style am zugehörigen Element, zum Beispiel
+`table.style-open-hours`. Binde das Mixin über den SCSS-Einstieg des
+Elements ein. Definiere Modifier im selben Mixin als zusätzliche Klassen
+am selben Element. Das Namensmuster ist `<style-name>-<modifier>`, etwa
+`open-hours-vertical`, `open-hours-horizontal` oder `open-hours-dark`.
+Ein allgemeiner Klassenname wie `dark` ist nur als ausdrücklich
+dokumentierte Ausnahme zulässig.
+
+Zum Beispiel ergibt `class="style-open-hours open-hours-dark"` den
+Selektor `table.style-open-hours.open-hours-dark`. Pro Element bleibt
+eine `style-*`-Klasse zulässig. Die
+[SCSS-Demonstration](references/_style-demonstration.scss) zeigt das Mixin
+mit einem Modifier und die Einbindung im Sass-Einstieg.
+
 ## § 2.2 `theme/variants/`
 
 Lege pro seitenweiter Variant genau eine Datei
@@ -89,3 +114,6 @@ ausdrückliche Zustimmung des Entwicklers.
 
 Für Dommer exportiert `_variant-dommer.scss` das Mixin `variant-dommer`,
 das `.variant-dommer` mit den zugehörigen Token-Werten ausgibt.
+
+Das [Variant-Beispiel](references/_variant-demonstration.scss) zeigt eine
+Klasse mit einem konkreten Primärwert und weiteren Nextrap-Tokens.

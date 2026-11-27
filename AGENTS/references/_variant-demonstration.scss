@@ -1,0 +1,8 @@
+// Definiert die Palette für Seiten mit der Klasse variant-demonstration.
+@mixin variant-demonstration() {
+  .variant-demonstration {
+    --nt-primary: #174d73;
+    --nt-text: var(--nt-primary);
+    --nt-border: color-mix(in srgb, var(--nt-primary) 35%, transparent);
+  }
+}

@@ -9,7 +9,7 @@ Diese Referenz gilt für jeden Style unter `theme/elements/`.
 
 Ordne Spezialformatierungen dem Tag oder der Web Component zu. Eine
 funktionale Darstellung für Öffnungszeiten könnte als
-`table/_style-open-hours-table.scss` beim Element `table` liegen. Die verbindlichen Aufnahmekriterien stehen in
+`table/_style-open-hours.scss` beim Element `table` liegen. Die verbindlichen Aufnahmekriterien stehen in
 [§ 2.1.1](../2_Theme.md#-211-aufnahmekriterien).
 
 Lege die Styles als `_style-<name>.scss` ab. Verwende
