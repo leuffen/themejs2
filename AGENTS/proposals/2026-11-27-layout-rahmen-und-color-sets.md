@@ -71,7 +71,7 @@ seitenweite Variant unter `theme/variants/`.
 ### § 3.2 `theme/variants/`
 
 Lege pro seitenweiter Variant genau eine Datei
-`theme/variants/_variant_<name>.scss` an. Die Datei exportiert genau ein
+`theme/variants/_variant-<name>.scss` an. Die Datei exportiert genau ein
 Sass-Mixin `variant-<name>`. Das Mixin gibt genau eine CSS-Klasse
 `.variant-<name>` aus. Der Klassenblock enthält ausschließlich
 CSS-Custom-Property-Deklarationen.
@@ -82,7 +82,7 @@ Verwende semantische Defaults und leite weitere Werte nach Möglichkeit
 von der Primärfarbe ab. Neue `--theme-*`-Variablen erfordern die
 ausdrückliche Zustimmung des Entwicklers.
 
-Für Dommer exportiert `_variant_dommer.scss` das Mixin `variant-dommer`,
+Für Dommer exportiert `_variant-dommer.scss` das Mixin `variant-dommer`,
 das `.variant-dommer` mit den zugehörigen Token-Werten ausgibt.
 
 ## § 4 Auswahl und Zuständigkeiten
