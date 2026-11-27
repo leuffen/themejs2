@@ -5,8 +5,10 @@ Actively use browser_inspect with kind=target for the affected blocks on
 each configured target page at desktop and mobile to verify the post-build
 computed styles and rule sources. Use browser_get_console when investigating
 errors. Compare measurements with the reference and pre-edit findings.
-Only read-only browser inspection is permitted during this review; do not
-modify files or initiate a new build. Verify the existing Nextrap NTL/NTE
+Only read-only browser inspection and public technical web research are
+permitted during this review; do not modify files or initiate a new build.
+Research unresolved errors or compatibility questions when necessary and
+retain applicable source URLs and conclusions in Project Findings. Verify the existing Nextrap NTL/NTE
 composition and that Markdown content/structure remains intact unless the
 work order explicitly allowed a change; no new raw HTML in Markdown.
 Do not claim success on unverified viewports or missing design references.

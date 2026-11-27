@@ -68,6 +68,20 @@ Der Agent untersucht aktiv die relevanten Elemente, mindestens in den
 Desktop- und Mobilansichten, einschließlich Console-/Network-Diagnostik.
 Statische Design-Dateien besitzen keinen inspizierbaren DOM.
 
+## Internetrecherche
+
+Das native WebAccessTool des AI Harness steht im gesamten AiContext zur
+Verfügung. Der Agent recherchiert bei fachlichem Bedarf HTML-, CSS- und
+SCSS-Dokumentation, aktuelle Best Practices, Sass-Deprecations, Browser-
+Kompatibilität und Fehlermeldungen. Er bevorzugt offizielle Dokumentation
+und prüft die Empfehlungen gegen die installierten Versionen und Nextrap-
+Verträge. Quellen-URLs, relevante Versionen und verwertbare Erkenntnisse
+werden in den Findings festgehalten und bei späteren Iterationen genutzt.
+Suchanfragen dürfen keine privaten Quelltexte, internen URLs, Secrets oder
+Kundendaten enthalten. Die Websuche benötigt ein unterstütztes Modell und
+API-Zugriff; es ist keine zusätzliche Such-API erforderlich. Ein fehlerhafter
+Build beendet wie bisher den Lauf.
+
 ## Projektanalyse und Iterationen
 
 Vor der Referenzanalyse erhält der Agent das AiFileSystem themejs2-readonly.

@@ -18,6 +18,13 @@ Distinguish existing content from the theme's styling responsibilities.
 Prior reference/target inspection findings are historical evidence; only
 carry them forward as current if the relevant pages and measurements match.
 
+Use web search to verify task-relevant current HTML, CSS and SCSS best practices,
+Sass module/deprecation guidance, accessibility and browser compatibility.
+Prefer primary sources (MDN, sass-lang.com, W3C and official library docs).
+Check applicability against installed versions and existing component contracts;
+record useful conclusions, source URLs and relevant version constraints in
+the project map. Do not duplicate research already verified for this checkout.
+
 Explore selectively using the task and existing skills. Do not read every
 file or recursively scan generated assets or dependencies. The map becomes
 part of the reference checkpoint and must let subsequent iterations locate
