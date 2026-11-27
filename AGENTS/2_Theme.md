@@ -5,10 +5,10 @@ theme/
 |-- elements/
 |   |-- <tag-name>/                         (z. B. ntl-hero, nte-navbar, table)
 |   |   |-- _style-<style-name>.scss         (Klasse: style-<style-name>)
-|   |   `-- _style-<style-name>.sidecar.md           (Markdown-Sidecar)
+|   |   `-- _style-<style-name>.usage.md           (Usage-Datei)
 |   `-- id_<id>/                            (z. B. id_footer)
 |       |-- _style-<style-name>.scss
-|       `-- _style-<style-name>.sidecar.md
+|       `-- _style-<style-name>.usage.md
 `-- variants/
     `-- _variant-<name>.scss
 ```
@@ -65,13 +65,13 @@ NTE-Styles die passenden Nextrap-Mixins ein, wo sie vorhanden sind.
 Direkte visuelle Werte sind eine Ausnahme, wenn passende Variablen und
 Mixins fehlen. Konkrete Palettenwerte liefert die seitenweite Variant.
 
-Zu jeder SCSS-Datei gehört im selben Verzeichnis ein Markdown-Sidecar
-mit demselben Basisnamen und der Endung `.sidecar.md`, etwa `_style-default.sidecar.md` zu `_style-default.scss`.
+Zu jeder SCSS-Datei gehört im selben Verzeichnis eine Usage-Datei
+mit demselben Basisnamen und der Endung `.usage.md`, etwa `_style-default.usage.md` zu `_style-default.scss`.
 Das Front Matter enthält ausschließlich `description`. Darunter stehen
 die Verwendung, relevante Voraussetzungen, unterstützte Modifier und
 mindestens ein Beispiel für die eigenständige Funktion.
-Ein separates System liest die Sidecars aus. Sie bleiben außerhalb der
-Demo-Ausgabe. Das [Sidecar-Beispiel](references/_style-demonstration.sidecar.md) zeigt
+Ein separates System liest die Usage-Dateien aus. Sie bleiben außerhalb der
+Demo-Ausgabe. Das [Usage-Beispiel](references/_style-demonstration.usage.md) zeigt
 das Format am dazugehörigen SCSS-Beispiel.
 
 ### § 2.1.3 Benennung eines Elements

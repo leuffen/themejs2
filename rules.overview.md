@@ -53,9 +53,9 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | --- | --- | --- | --- |
 | § 1 | Zielsetzung | [`1_Zielsetzung.md`](AGENTS/1_Zielsetzung.md) | Grundsätze zu statischer Ausgabe, Wiederverwendung und Kundenprojekten. |
 | § 2 | Theme-Verzeichnis | [`2_Theme.md`](AGENTS/2_Theme.md) | Gemeinsame Wurzel für Theme-Dateien. |
-| § 2.1 | `theme/elements/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Element-Styles und Markdown-Sidecars. |
+| § 2.1 | `theme/elements/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Element-Styles und Usage-Dateien. |
 | § 2.1.1 | Aufnahmekriterien | [`2_Theme.md`](AGENTS/2_Theme.md) | Funktionale Lücke für neue Elemente oder Styles anhand eines Beispiels nachweisen. |
-| § 2.1.2 | Struktur eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Eine Style-Klasse pro Element sowie Modifier, Nextrap-Tokens und Sidecars festlegen. |
+| § 2.1.2 | Struktur eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Eine Style-Klasse pro Element sowie Modifier, Nextrap-Tokens und Usage-Dateien festlegen. |
 | § 2.1.3 | Benennung eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Kurze, bindestrichgetrennte Style-Namen ohne Wiederholung des Elementnamens. |
 | § 2.1.4 | Modifier | [`2_Theme.md`](AGENTS/2_Theme.md) | Styles am Element registrieren und Modifier als zusätzliche Klassen binden. |
 | § 2.2 | `theme/variants/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Sass-Dateien für seitenweite CSS-Variablen. |

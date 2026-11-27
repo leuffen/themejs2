@@ -56,14 +56,14 @@ Styles enthalten ihre zugehörigen Modifier, etwa einen Schalter für die
 Reihenfolge. Für die aktive Style-Auswahl gilt der Komponentenvertrag
 aus § 4.1.
 
-Zu jeder Style-Datei gehört direkt daneben ein Markdown-Sidecar mit
-identischem Basisnamen und der Endung `.sidecar.md`, etwa `_style-default.sidecar.md` zu `_style-default.scss`.
+Zu jeder Style-Datei gehört direkt daneben eine Usage-Datei mit
+identischem Basisnamen und der Endung `.usage.md`, etwa `_style-default.usage.md` zu `_style-default.scss`.
 Das Front Matter enthält ausschließlich `description` für die automatische
 Übersicht. Darunter stehen die Hinweise zur Verwendung und mindestens ein
-Beispiel. Ein separates System liest die Sidecars aus. Sie gehören außerhalb
+Beispiel. Ein separates System liest die Usage-Dateien aus. Sie gehören außerhalb
 der Demo-Ausgabe.
 
-Das [Sidecar-Beispiel](../references/_style-demonstration.sidecar.md) zeigt das Format. Ein zusätzlicher Style setzt eine Funktion oder Komposition
+Das [Usage-Beispiel](../references/_style-demonstration.usage.md) zeigt das Format. Ein zusätzlicher Style setzt eine Funktion oder Komposition
 voraus, die kein vorhandener Style abdeckt. Farbwerte gehören in die
 seitenweite Variant unter `theme/variants/`.
 
@@ -153,9 +153,9 @@ auch für migrierte Layouts.
 
 ## § 6 Abnahme
 
-- Zu jeder `_style-*.scss` gibt es ein gleichnamiges Markdown-Sidecar mit
+- Zu jeder `_style-*.scss` gibt es eine gleichnamige Usage-Datei mit
   `description` und mindestens einem Beispiel. Ein separates System liest
-  die Beschreibung aus. Die Sidecars bleiben außerhalb der Demo-Ausgabe.
+  die Beschreibung aus. Die Usage-Dateien bleiben außerhalb der Demo-Ausgabe.
 
 - Je Bereich greifen Default und ausgewählte Variante mit derselben Layout-Datei.
   Zwei Themes können dieselbe Variante verwenden. Prüfe bei NTL und NTE den
