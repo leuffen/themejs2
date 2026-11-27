@@ -45,7 +45,7 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 5.13 | Layoutstruktur und Content Pane | [`AGENTS.md`](AGENTS.md) | • Vor Layout-Umbauten TrunkJS-Regeln prüfen und vorhandene Inhaltsdefinitionen für alle betroffenen Seiten erhalten. |
 | § 5.14 | ContentPane-Shortcuts in Markdown | [`AGENTS.md`](AGENTS.md) | • Einzelne Elemente als eigenständige `#[...]`-Zeile schreiben. Komplexe Strukturen dürfen Raw-HTML verwenden. |
 | § 5.15 | Responsive Zuständigkeit | [`AGENTS.md`](AGENTS.md) | • Responsive-Registrierung dem Theme überlassen und mögliche Seiteneffekte vor der Umsetzung klären. |
-| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Jeden Style mit einem gleichnamigen Markdown-Sidecar beschreiben und visuelle Tokens als Variants bündeln. |
+| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Jeden Style mit einem gleichnamigen Markdown-Sidecar beschreiben und seitenweite Variants auf die erlaubten CSS-Variablen begrenzen. |
 
 ## Widerspruchsprüfung
 

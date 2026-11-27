@@ -273,6 +273,18 @@ Variants unter `theme/variants/`. Die gemeinsame Theme-Wurzel ist `theme/`
 mit `elements/` und `variants/` direkt darunter. Layouts und Varianten verwenden
 diese Werte über Tokens und behalten ihre jeweilige Struktur und Funktion.
 
+Lege pro seitenweiter Variant genau eine Datei
+`theme/variants/_variant_<name>.scss` an. Die Datei exportiert genau ein
+Sass-Mixin `variant-<name>`. Das Mixin gibt genau eine CSS-Klasse
+`.variant-<name>` aus. Der Klassenblock enthält ausschließlich
+CSS-Custom-Property-Deklarationen.
+
+Setze regulär nur vorhandene `--nt-*`-Variablen aus Nextrap Style Base.
+Dazu gehören Werte für Schriften, Farben, Rahmen und Hintergründe.
+Verwende semantische Defaults und leite weitere Werte nach Möglichkeit
+von der Primärfarbe ab. Neue `--theme-*`-Variablen erfordern die
+ausdrückliche Zustimmung des Entwicklers.
+
 Lege neben jeder `_style-*.scss` unter `theme/elements/` ein gleichnamiges
 Markdown-Sidecar mit `description` im Front Matter und mindestens einem
 Verwendungsbeispiel ab. Die [Referenz für Element-Styles und Markdown-Sidecars](.agents/skills/modify-theme/references/element-style-sidecars.md)

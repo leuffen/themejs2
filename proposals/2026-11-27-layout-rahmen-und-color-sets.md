@@ -8,6 +8,7 @@
 | 2026-11-27 | dermatthes | § 3: Ablage für ID- und Klassen-Styles unter elements korrigiert |
 | 2026-11-27 | dermatthes | §§ 1–6: Zielstruktur, Variants und verpflichtende Style-Beschreibungen präzisiert |
 | 2026-11-27 | dermatthes | §§ 3.1, 5 und 6: Element-Ablage und Markdown-Sidecars verbindlich beschrieben |
+| 2026-11-27 | dermatthes | § 3.2: Dateikonvention, Mixin und zulässige Variant-Tokens festgelegt |
 
 ## § 1 Ziel
 
@@ -49,25 +50,42 @@ Unter `theme/elements/` liegen die Unterverzeichnisse direkt nebeneinander.
 Web Components und HTML-Tags verwenden ihren Tag-Namen, etwa `ntl-hero/`,
 `nte-navbar/` oder `header/`. ID-Selektoren verwenden `id_<id>/`, etwa
 `id_footer/` für `#footer`. Klassenselektoren verwenden `class_<klasse>/`,
-etwa `class_hero__specialties/` für `.hero__specialties`. [neu]
+etwa `class_hero__specialties/` für `.hero__specialties`.
 
 Style-Dateien heißen `_style-<name>.scss`. Der Default-Style liegt in
 `_style-default.scss`, sofern das Element dafür eigenes Styling benötigt.
 Styles enthalten ihre zugehörigen Modifier, etwa einen Schalter für die
 Reihenfolge. Für die aktive Style-Auswahl gilt der Komponentenvertrag
-aus § 4.1. [neu]
+aus § 4.1.
 
 Zu jeder Style-Datei gehört direkt daneben ein Markdown-Sidecar mit
 identischem Basisnamen, etwa `_style-default.md` zu `_style-default.scss`.
 Das Front Matter enthält ausschließlich `description` für die automatische
 Übersicht. Darunter stehen die Hinweise zur Verwendung und mindestens ein
 Beispiel. Ein separates System liest die Sidecars aus. Sie gehören außerhalb
-der Demo-Ausgabe. [neu]
+der Demo-Ausgabe.
 
 Die [Referenz für Element-Styles und Markdown-Sidecars](../.agents/skills/modify-theme/references/element-style-sidecars.md)
 ist verbindlich. Ein zusätzlicher Style setzt eine Funktion oder Komposition
 voraus, die kein vorhandener Style abdeckt. Farbwerte gehören in die
-seitenweite Variant unter `theme/variants/`. [neu]
+seitenweite Variant unter `theme/variants/`.
+
+### § 3.2 `theme/variants/`
+
+Lege pro seitenweiter Variant genau eine Datei
+`theme/variants/_variant_<name>.scss` an. Die Datei exportiert genau ein
+Sass-Mixin `variant-<name>`. Das Mixin gibt genau eine CSS-Klasse
+`.variant-<name>` aus. Der Klassenblock enthält ausschließlich
+CSS-Custom-Property-Deklarationen. [neu]
+
+Setze regulär nur vorhandene `--nt-*`-Variablen aus Nextrap Style Base.
+Dazu gehören Werte für Schriften, Farben, Rahmen und Hintergründe.
+Verwende semantische Defaults und leite weitere Werte nach Möglichkeit
+von der Primärfarbe ab. Neue `--theme-*`-Variablen erfordern die
+ausdrückliche Zustimmung des Entwicklers. [neu]
+
+Für Dommer exportiert `_variant_dommer.scss` das Mixin `variant-dommer`,
+das `.variant-dommer` mit den zugehörigen Token-Werten ausgibt. [neu]
 
 ## § 4 Auswahl und Zuständigkeiten
 
@@ -134,13 +152,13 @@ auch für migrierte Layouts.
    gerenderten Element um und gibt die gewählte Scope-Konfiguration zur
    Übernahme aus. Strukturvarianten zeigen ihre benötigten Slots oder ihr
    abweichendes Markup als eigenes Beispiel. Die Style-Daten erhält die
-   Vorschau aus der separat erzeugten Übersicht. [geändert]
+   Vorschau aus der separat erzeugten Übersicht.
 
 ## § 6 Abnahme
 
 - Zu jeder `_style-*.scss` gibt es ein gleichnamiges Markdown-Sidecar mit
   `description` und mindestens einem Beispiel. Ein separates System liest
-  die Beschreibung aus. Die Sidecars bleiben außerhalb der Demo-Ausgabe. [geändert]
+  die Beschreibung aus. Die Sidecars bleiben außerhalb der Demo-Ausgabe.
 
 - Je Bereich greifen Default und ausgewählte Variante mit derselben Layout-Datei.
   Zwei Themes können dieselbe Variante verwenden. Prüfe bei NTL und NTE den
