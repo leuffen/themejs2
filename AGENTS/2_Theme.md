@@ -41,12 +41,21 @@ nicht abdecken.
 
 ### § 2.1.2 Struktur eines Elements
 
-Lege jeden Style in `_style-<style-name>.scss` ab. Er gehört zur
-`style-<style-name>`-Klasse des Elements, etwa
-`<table class="style-open-hours-table">`. Pro Element ist höchstens eine
-`style-*`-Klasse zulässig. Eigene Regeln für den Default stehen in
-`_style-default.scss`. NTL und NTE wählen den Default gemäß ihrem
-Komponentenvertrag automatisch, wenn keine Style-Variante angegeben ist.
+Der vollständige Pfad eines Element-Styles lautet
+`theme/elements/<element-name>/_style-<style-name>.scss`.
+Bei einem HTML-Tag oder einer Web Component entspricht `<element-name>`
+dem Tag-Namen. Die Datei definiert die Klasse `style-<style-name>` für
+dieses Element.
+
+| SCSS-Datei | Verwendung im Markup |
+| --- | --- |
+| `theme/elements/table/_style-open-hours-table.scss` | `<table class="style-open-hours-table">` |
+
+Pro Element ist höchstens eine `style-*`-Klasse zulässig. Eigene
+Default-Regeln für ein Element stehen in
+`theme/elements/<element-name>/_style-default.scss`. NTL und NTE wählen
+den Default gemäß ihrem Komponentenvertrag automatisch, wenn keine
+Style-Variante angegeben ist.
 
 Definiere zugehörige Modifier in derselben Datei. Ein Modifier kann etwa
 die Reihenfolge ändern oder für eine dunkle Darstellung bestehende
