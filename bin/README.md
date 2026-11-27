@@ -2,7 +2,7 @@
 
 Das lokale PHP-Binary entwickelt ein Theme iterativ anhand einer oder mehrerer
 Referenzseiten bzw. Design-Dateien. Der Agent verwendet Phore AI Harness,
-die lokalen Skills und einen isolierten Browserless-Chromium-Context.
+die Daemon-Regeln unter `bin/prompts/` und einen isolierten Browserless-Chromium-Context.
 
 ## Start
 
@@ -15,6 +15,7 @@ muss in dev-main verfügbar sein. Führe im Projektverzeichnis aus:
 composer install
 kick dev
 bin/theme-develop auftrag.md
+bin/theme-develop --debug auftrag.md
 ```
 
 Die `CONF_*`-Konstanten in `bin/theme-develop` legen das Modell `gpt-6.2-sol`,
@@ -35,7 +36,7 @@ Typografie und Abstände; erhalte die editierbare Content-Struktur.
 ```
 
 `CONF_VIEWPORTS` in `bin/theme-develop` legt Auswahl und Reihenfolge der
-Auflösungen fest. Standard: 1440×900, 1280×800, 768×1024 und 393×852 (DPR 1). Weitere
+Auflösungen fest. Standard: 1280×800 und 393×852 (DPR 1). Weitere
 Profile werden in `BrowserSession::VIEWPORTS` definiert. Das Modell ruft
 `browser_capture` für jede konfigurierte URL und Auflösung einzeln auf. Das
 Tool liefert einen Screenshot über die volle Dokumenthöhe und den
@@ -65,13 +66,17 @@ Vor der Referenzanalyse erhält der Agent das AiFileSystem themejs2-readonly.
 Schreiboperationen sind durch die FilesystemPolicy gesperrt. Er erstellt eine
 kompakte Datei-Landkarte mit verifizierten Pfaden, Zuständigkeiten, Tokens,
 Imports, Komponenten und relevanten Demos. Anschließend analysiert er die
-Referenzen und setzt den Checkpoint reference. Erst danach wird das
+Referenzen und die aktuelle Vorschau pro Seite und Auflösung. Er leitet
+priorisierte, überprüfbare Abweichungen als Backlog ab und setzt den Checkpoint
+reference. Seiten, die im Auftrag nur zur Kontrolle vorgesehen sind, bleiben
+von Änderungen ausgenommen. Erst danach wird das
 schreibfähige AiFileSystem themejs2 mit den bestehenden Schutzregeln registriert.
 
 Jede Runde rollt den Gesprächscursor zu diesem Checkpoint zurück, nicht den
 Dateizustand. Sie nutzt die bereits bekannte Projektstruktur, liest gezielt
 die aktuellen betroffenen Dateien, ändert Quellen und erhält nach dem Build
-neue Screenshots zur Prüfung. Der kumulative Bericht enthält unter
+neue Screenshots zur Prüfung. Erfolgreiche Builds schreiben ihre Details nur
+im Debug-Modus. Der kumulative Bericht enthält unter
 Project Findings neue oder korrigierte Erkenntnisse seit der initialen Karte.
 Dazu gehören die DevTools-Messwerte mit Seitenname, Viewport, Selektor,
 Computed Styles, Box Model, CSS-Regeln, nachweisbaren Quelldateien und
@@ -100,19 +105,26 @@ nur einen Lauf gleichzeitig starten.
 
 Jeder Start prüft den aktuellen Stand erneut und erlaubt bis zu
 `CONF_ITERATIONS` weitere Runden. Beim Fortsetzen zählt die Nummerierung weiter.
-Nach zwei Runden ohne Dateiänderung endet der Prozess vorzeitig. Exit-Code 0 bedeutet bestätigtes Ziel, 2 ein offenes Ziel oder
-Limit, 1 einen Fehler. Screenshots und Zwischenberichte liegen direkt im von Git ignorierten
+Eine Runde ohne Netto-Dateiänderung endet als Blocker mit Exit-Code 2.
+Exit-Code 0 bedeutet bestätigtes Ziel, 2 einen Blocker oder das Limit und 1
+einen technischen Fehler. Die CLI meldet pro Screenshot eine Zeile, protokolliert
+Dateipfade beim Schreiben und zeigt pro Runde einen Kurzbericht mit Änderungen
+und nächstem Schritt. `--debug` zeigt zusätzlich Tool- und Diagnoseausgaben.
+Der ausführliche Bericht und das Backlog werden als Arbeitskontext weitergegeben.
+Wenn eine Entscheidung alle weiteren Arbeiten blockiert, gibt die CLI die
+konkrete Frage aus. Die Antwort kann im Auftrag ergänzt werden. Danach mit
+`-n` neu starten. Auch Checkpoints älterer Agent-Regeln benötigen `-n`. Screenshots und Zwischenberichte liegen direkt im von Git ignorierten
 Ordner `bin/.tmp/`. Ein neuer Lauf leert den Ordner vor der ersten Aufnahme;
 parallele Läufe im selben Checkout werden abgewiesen. Das Binary
 pusht oder merged keine Änderungen.
 
 Das Theming verwendet die bestehenden Nextrap NTL-Layouts und NTE-Elemente,
-deren dokumentierte APIs, Varianten und Theme-Tokens. Markdown-Texte,
-Bilder, Links und Section-Struktur bleiben unverändert, sofern der Auftrag
-nicht ausdrücklich eine Inhalts- oder Strukturänderung verlangt. Notwendige
-Klassen- und Attributanpassungen erfolgen in der vorhandenen Kramdown-/Content-
-Pane-Syntax; neues Raw-HTML in Markdown ist nicht zulässig. Wiederverwendbares
-Markup gehört in geeignete Komponenten, Layouts oder freigegebene Includes.
+deren dokumentierte APIs, Varianten und Theme-Tokens. Markdown-Vorlagen dürfen über Frontmatter,
+Kramdown und Content Pane an die Referenz angepasst werden. Die redaktionellen
+Inhalte bleiben erhalten. Eigene Landing- und Unterseiten-Layouts erben von
+`20_body`, verwenden dessen TrunkJS Responsive und enthalten Header, Inhalt
+und Footer im benötigten Aufbau. Theme-spezifisches CSS bleibt im Theme.
+Ein gemeinsamer Element-Style wird nur auf ausdrücklichen Auftrag geändert.
 
 Die Schreibberechtigung ist auf das Projekt begrenzt. Workspaces, Skills,
 Build-Infrastruktur und Referenzdateien bleiben geschützt; node_modules,

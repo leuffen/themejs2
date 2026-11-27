@@ -14,17 +14,20 @@ const CONF_PREVIEW = 'http://main:4000';
 const CONF_BROWSER = 'ws://chromium:3000/';
 const CONF_ITERATIONS = 10;
 // Die Reihenfolge legt fest, in welcher Auflösung die Seite aufgenommen wird.
-const CONF_VIEWPORTS = ['1440x900', '1280x800', '768x1024', '393x852'];
+const CONF_VIEWPORTS = ['1280x800', '393x852'];
 
 // Ein Auftrag ist erforderlich; -n startet bewusst ohne gespeicherten Checkpoint.
 $root = dirname(__DIR__);
 $args = array_slice($argv, 1);
-$fresh = ($args[0] ?? null) === '-n';
-if ($fresh) {
-    array_shift($args);
+$fresh = false;
+$debug = false;
+while (in_array($args[0] ?? null, ['-n', '--debug'], true)) {
+    $flag = array_shift($args);
+    $fresh = $fresh || $flag === '-n';
+    $debug = $debug || $flag === '--debug';
 }
 if (count($args) !== 1 || str_starts_with($args[0], '-')) {
-    echo "Usage: bin/theme-develop [-n] <auftrag.md>\n  -n  Start a new run without resuming the saved checkpoint.\n";
+    echo "Usage: bin/theme-develop [-n] [--debug] <auftrag.md>\n  -n       Start without resuming the saved checkpoint.\n  --debug  Show tool calls and diagnostic logs.\n";
     exit(!$fresh && $args === ['--help'] ? 0 : 1);
 }
 
@@ -32,11 +35,11 @@ try {
     require $root . '/vendor/autoload.php';
 
     // Fehler und Warnungen bleiben vom gestreamten Modelltext auf stdout getrennt.
-    PhoreLogger::Register(PhoreLoggerFactory::BuildFromUri('def://stderr?severity=info'));
+    PhoreLogger::Register(PhoreLoggerFactory::BuildFromUri('def://stderr?severity=' . ($debug ? 'debug' : 'info')));
 
     // Der Auftrag liefert nur Anweisungen, keine Laufzeitkonfiguration.
     $job = Job::fromFile($args[0], CONF_PREVIEW, CONF_BROWSER, CONF_MODEL, CONF_ITERATIONS);
-    exit((new ThemeDevelopment($root, $job, fresh: $fresh, viewports: CONF_VIEWPORTS))->run());
+    exit((new ThemeDevelopment($root, $job, fresh: $fresh, debug: $debug, viewports: CONF_VIEWPORTS))->run());
 } catch (Throwable $error) {
     // Die Fehlermeldung beginnt auch nach gestreamter Modellausgabe auf einer eigenen Zeile.
     fflush(STDOUT);

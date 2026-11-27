@@ -131,7 +131,6 @@ JS);
             throw new RuntimeException('Invalid screenshot dimensions: ' . $width . 'x' . $height);
         }
         // Das Log zeigt die tatsächliche Höhe der Ganzseitenaufnahme.
-        phore_log()->warning('Screenshot-Bereich: von Pixel 0 bis Pixel {end} (CSS-Pixel, obere Grenze exklusiv)', ['end' => $height]);
         $result = $this->command('Page.captureScreenshot', [
             'format' => 'png',
             'fromSurface' => true,
