@@ -125,6 +125,10 @@ aus derselben Datenquelle auswählen. Demo und Kundensystem verwenden dieselben
 Datenverträge für `general`, `defaults` und Öffnungszeiten, sodass Layouts direkt
 übernommen werden können.
 
+Für neue Layouts steuert das Front-Matter-Feld `ptags` die Navigation.
+`nav` nimmt eine Seite in die Hauptnavigation auf, `footer-nav` in die
+Footer-Navigation. Ein Layout kann bei Bedarf weitere P-Tags auswerten.
+
 #### § 5.7 Gemeinsame Basis, Theme-Profile und Komponenten-Styles
 
 Die gemeinsame ThemeJS2-Basis stellt die Grunddarstellung aller Komponenten

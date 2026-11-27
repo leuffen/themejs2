@@ -10,6 +10,7 @@ description: Zahnersatz und Implantatprothetik bei Dr. Karsten Dommer in Osnabr√
   Informationen zu Kronen, Br√ºcken und herausnehmbaren Prothesen.
 ptags:
 - nav
+- footer-nav
 order: 10
 shiller:
   tags:

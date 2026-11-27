@@ -55,7 +55,7 @@ layout: blank
       <address class="small mb-0">{{ location.name | escape }}{% if location.street %} · {{ location.street | escape }}{% endif %}{% if location.city %} · {{ location.zip | escape }} {{ location.city | escape }}{% endif %}</address>
       <nav aria-label="Footer-Navigation">
         <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
-          {% assign footer_pages = site.pages | where_exp: "item", "item.ptags contains 'nav'" | where_exp: "item", "item.published != false" %}
+          {% assign footer_pages = site.pages | where_exp: "item", "item.ptags contains 'footer-nav'" | where_exp: "item", "item.published != false" %}
           {% if navigation_root == empty %}
             {% assign footer_pages = footer_pages | where_exp: "item", "item.dir == '/'" %}
           {% else %}

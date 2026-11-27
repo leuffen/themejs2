@@ -8,6 +8,7 @@ location_id: dommer
 show_title: false
 ptags:
 - nav
+- footer-nav
 published: true
 short_title: Startseite
 order: 0
