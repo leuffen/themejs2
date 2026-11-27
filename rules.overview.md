@@ -1,6 +1,6 @@
 # Regelübersicht für ThemeJS2
 
-Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-Regeln aus `AGENTS.md`.
+Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-Regeln aus `AGENTS.md` und `AGENTS/`. Abschnittsnummern gelten innerhalb ihres jeweiligen Regelwerks.
 
 ## Regeln
 
@@ -36,7 +36,7 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 5.4 | Versionen bauen und veröffentlichen | [`AGENTS.md`](AGENTS.md) | • npm-Releases über `release/X.Y.Z` nach erfolgreichem Build veröffentlichen. |
 | § 5.5 | `_root` als Vorlage für Nutzprojekte | [`AGENTS.md`](AGENTS.md) | • `_root` als kopierbare Vorlage mit veröffentlichten Abhängigkeiten und direkt nutzbaren Dev-Skripten pflegen. |
 | § 5.6 | Aufbau und Ziel von Demo und Kundenvorlage | [`AGENTS.md`](AGENTS.md) | • Demo an Kundenumsetzungen ausrichten und die Layouts sowie gemeinsamen Bausteine beider Varianten einordnen. |
-| § 5.7 | Gemeinsame Basis, Theme-Profile und Komponenten-Styles | [`AGENTS.md`](AGENTS.md) | • Theme-Profile für Optik und Komponentenvarianten für Struktur, Slots und Responsivität einsetzen. |
+| § 5.7 | Gemeinsame Basis, Theme-Profile und Komponenten-Styles | [`AGENTS.md`](AGENTS.md) | • Pro NTL-/NTE-Instanz höchstens eine Kompositionsvariante wählen. Ohne Angabe setzt die Komponente ihren Default. |
 | § 5.8 | Demo-Layouts und Seitenverzeichnis | [`AGENTS.md`](AGENTS.md) | • Demo-Rahmen über das Seitenlayout wählen und Beispiele mit ihren Dateipfaden verlinken. |
 | § 5.9 | Fester Rahmen in `_root` | [`AGENTS.md`](AGENTS.md) | • Einen festen Kundenrahmen mit Navbar und Footer sowie dem rahmenlosen `blanco` bereitstellen. |
 | § 5.10 | Zusammenspiel und Synchronisation der beiden Versionen | [`AGENTS.md`](AGENTS.md) | • Gemeinsame Includes und ausgewähltes Rahmen-Markup gezielt abgleichen und beide Varianten prüfen. |
@@ -45,6 +45,22 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 5.13 | Layoutstruktur und Content Pane | [`AGENTS.md`](AGENTS.md) | • Vor Layout-Umbauten TrunkJS-Regeln prüfen und vorhandene Inhaltsdefinitionen für alle betroffenen Seiten erhalten. |
 | § 5.14 | ContentPane-Shortcuts in Markdown | [`AGENTS.md`](AGENTS.md) | • Einzelne Elemente als eigenständige `#[...]`-Zeile schreiben. Komplexe Strukturen dürfen Raw-HTML verwenden. |
 | § 5.15 | Responsive Zuständigkeit | [`AGENTS.md`](AGENTS.md) | • Responsive-Registrierung dem Theme überlassen und mögliche Seiteneffekte vor der Umsetzung klären. |
+| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Für die Style-Ablage und die Variants gilt § 2 Theme-Verzeichnis. |
+
+### Regelwerke unter `AGENTS/`
+
+| Paragraf | Regel | Datei | Zweck |
+| --- | --- | --- | --- |
+| § 1 | Zielsetzung | [`1_Zielsetzung.md`](AGENTS/1_Zielsetzung.md) | Grundsätze zu statischer Ausgabe, Wiederverwendung und Kundenprojekten. |
+| § 2 | Theme-Verzeichnis | [`2_Theme.md`](AGENTS/2_Theme.md) | Gemeinsame Wurzel für Theme-Dateien. |
+| § 2.1 | `theme/elements/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Element-Styles und Usage-Dateien. |
+| § 2.1.1 | Aufnahmekriterien | [`2_Theme.md`](AGENTS/2_Theme.md) | Funktionale Lücke für neue Elemente oder Styles anhand eines Beispiels nachweisen. |
+| § 2.1.2 | Struktur eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Eine Style-Klasse pro Element sowie Modifier, Nextrap-Tokens und Usage-Dateien festlegen. |
+| § 2.1.3 | Benennung eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Kurze, bindestrichgetrennte Style-Namen ohne Wiederholung des Elementnamens. |
+| § 2.1.4 | Modifier | [`2_Theme.md`](AGENTS/2_Theme.md) | Styles am Element registrieren und Modifier als zusätzliche Klassen binden. |
+| § 2.1.5 | Format der Usage-Beispiele | [`2_Theme.md`](AGENTS/2_Theme.md) | Content-Beispiele in Kramdown und NTL-Kompositionen über das Content-Pane-`layout`-Attribut zeigen. |
+| § 2.2 | `theme/variants/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Sass-Dateien für seitenweite CSS-Variablen. |
+| § 3 | Docs-Verzeichnis | [`3_Docs.md`](AGENTS/3_Docs.md) | Kundennah aufgebaute Demos und auffindbare Beispiele. |
 
 ## Widerspruchsprüfung
 

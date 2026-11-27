@@ -1,0 +1,22 @@
+// Beispiel für theme/elements/table/_style-open-hours.scss.
+// Einbindung im Sass-Einstieg des Elements:
+// @use 'style-open-hours' as open-hours;
+// @include open-hours.open-hours();
+
+@mixin open-hours() {
+  // Hält Wochentage beim Lesen der Öffnungszeiten am Zeilenanfang.
+  table.style-open-hours {
+    th[scope='row'] {
+      text-align: start;
+    }
+
+    td {
+      border-block-end: var(--nt-border-width) solid var(--nt-border);
+    }
+
+    // Aktiviert das dunkle Farbschema für die Tabelle.
+    &.open-hours-dark {
+      color-scheme: dark;
+    }
+  }
+}

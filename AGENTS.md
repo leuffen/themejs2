@@ -1,5 +1,26 @@
 # Repository-Regeln
 
+`AGENTS.md` ist die maßgebliche Quelle für alle Änderungen an ThemeJS2.
+Bei jeder Entwicklung im Projekt gelten sämtliche Regeln dieser Datei und
+die verbindlichen Regelwerke und Referenzen, auf die sie verweist.
+Projektspezifische Regeln werden in `AGENTS.md` oder `AGENTS/` gepflegt.
+Agent-Skills wie `modify-theme` dienen dem projektübergreifenden Einsatz.
+Übernimm die ThemeJS2-Regeln daher niemals in Agent-Skills. Bei fachlichem
+Konflikt hat das Repository-Regelwerk Vorrang.
+
+- [§ 1 Zielsetzung](AGENTS/1_Zielsetzung.md) beschreibt die Grundsätze von ThemeJS2.
+- [§ 2 Theme-Verzeichnis](AGENTS/2_Theme.md) regelt Element-Styles und Variants.
+- [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md) beschreibt die Demo unter `docs/`.
+
+Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
+Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
+demselben Paragrafen, etwa `1_Zielsetzung.md` mit `§ 1 Zielsetzung`.
+Referenzen liegen unter `AGENTS/references/` in einem Unterverzeichnis,
+das genauso heißt wie die zugehörige Regeldatei ohne `.md`.
+Zu `2_Theme.md` gehört beispielsweise `AGENTS/references/2_Theme/`.
+
+Pro HTML-Element oder Web-Component-Instanz ist höchstens eine `style-*`-Klasse zulässig. Ein Style kann dokumentierte Modifier mit einem anderen Klassenpräfix anbieten.
+
 ## Regeln
 
 ### § 5 Repository-Regeln
@@ -145,8 +166,14 @@ mit jeder unterstützten `style-*`-Variante kombinierbar sein. Es darf weder
 Slots oder Inhaltsbereiche ein- und ausblenden noch Reihenfolge, Interaktion,
 Spaltenlogik oder responsive Umbruchregeln umschalten.
 
-Eine Klasse wie `style-default`, `style-ribbon` oder `style-feature-list`
-wählt auf der Komponenteninstanz eine eigenständige Komposition. Der
+Pro NTL- oder NTE-Instanz darf höchstens eine `style-*`-Klasse gesetzt sein.
+Wenn keine Style-Variante angegeben ist, setzt die Komponente automatisch
+`style-default`. ThemeJS2 lässt die Klasse in diesem Fall im Markup und in
+Markdown weg. Eine explizite Klasse wie `style-ribbon` oder
+`style-feature-list` wählt eine vollständige, funktional gebundene Komposition.
+Varianten wie `style-cta` und `style-form` können auf getrennten Instanzen
+verwendet werden. Für eine Instanz wird genau eine davon gewählt.
+Dokumentierte Funktionsmodifikatoren bleiben separat einsetzbar. Der
 Komponenten-Style bestimmt Struktur, Slots und Parts, Anordnung, Reihenfolge,
 responsives Verhalten und die dafür nötigen Layout-Regeln. Ein Abstand mit
 struktureller Wirkung gehört ebenfalls hierher, etwa ein Versatz, der ein
@@ -163,6 +190,8 @@ Theme-Herkunft bleiben nur dann als Komponenten-Style sinnvoll, wenn sie
 eine eigenständige Komposition bezeichnen.
 
 #### § 5.8 Demo-Layouts und Seitenverzeichnis
+
+Für Zweck und Grundsätze der Demo gilt [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md).
 
 Eine Endseite in `docs/` wählt den vollständigen Rahmen über `layout:`.
 Die `website-*`-Layouts erben von `20_body` und binden Navbar,
@@ -245,3 +274,23 @@ ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 #### § 5.16 Announcements
 
 Für Meldungen ist `@leuffen/announcements` aus [leuffen/leuffen-monorepo, packages/announcements](https://github.com/leuffen/leuffen-monorepo/tree/main/packages/announcements) zu verwenden. Die Daten werden im vorhandenen Script-Tag von `10_blanc.html` über `window.openhours = {{ site.data.openhours | jsonify }};` bereitgestellt. Nutze die Klasse `no-announcements` am Element `<leuffen-announcements>` (bezogen auf dessen Typfilter), um Bereiche per CSS, gegebenenfalls mit `:has()`, dynamisch ein- oder auszublenden.
+
+#### § 5.17 Navigation, Rahmenvarianten und Variants
+
+Neue oder migrierte Layouts verwenden möglichst den gemeinsamen Seitenrahmen
+mit stabilen IDs `header`, `navbar` und `footer`. Jeder Bereich verwendet
+`style-default` als Fallback für seine `style-*`-Variante und kann Klassen
+aus den Jekyll-Defaults seines Scopes übernehmen. Dieselbe Darstellung nutzt
+themeübergreifend dieselbe Klasse. Eigene Varianten oder Layouts sind bei
+wesentlichen Darstellungs- beziehungsweise Strukturunterschieden vorgesehen.
+Im Rahmen sind `style-*`-Klassen an die drei IDs gebunden und auf genau eine
+Variante pro Bereich begrenzt. Für NTL und NTE gelten ihre Komponentenverträge.
+Ein fester Kundenrahmen gemäß § 5.9 kann dieselben Styles direkt im Markup wählen.
+
+Halte die verfügbaren Funktionsklassen je Bereich im editierbaren Markup.
+Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Setzt ein Scope
+für denselben Schalter einen anderen Zustand, ersetzt er die vorhandene Form.
+Die Sichtbarkeit ganzer Bereiche steuern weiterhin die `show_*`-Felder.
+Die Ablage der Styles und Variants regelt [§ 2 Theme-Verzeichnis](AGENTS/2_Theme.md).
+Dokumentiere Scope-Felder und Fallbacks bei der Umsetzung.
+Der [Strukturvorschlag](AGENTS/proposals/2026-11-27-layout-rahmen-und-color-sets.md) beschreibt die schrittweise Einführung.
