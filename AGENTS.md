@@ -16,6 +16,8 @@ Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
 Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
 demselben Paragrafen, etwa `1_Zielsetzung.md` mit `§ 1 Zielsetzung`.
 
+Pro HTML-Element oder Web-Component-Instanz ist höchstens eine `style-*`-Klasse zulässig. Ein Style kann dokumentierte Modifier mit einem anderen Klassenpräfix anbieten.
+
 ## Regeln
 
 ### § 5 Repository-Regeln

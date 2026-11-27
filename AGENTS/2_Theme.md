@@ -1,40 +1,68 @@
 # § 2 Theme-Verzeichnis
 
-`theme/` enthält die Theme-spezifischen Styles und seitenweiten Variants.
-Die Zielstruktur führt `elements/` und `variants/` direkt unter `theme/`.
+```text
+theme/
+|-- elements/
+|   |-- <tag-name>/                         (z. B. ntl-hero, nte-navbar, table)
+|   |   |-- _style-<style-name>.scss         (Klasse: style-<style-name>)
+|   |   `-- _style-<style-name>.md           (Markdown-Sidecar)
+|   `-- id_<id>/                            (z. B. id_footer)
+|       |-- _style-<style-name>.scss
+|       `-- _style-<style-name>.md
+`-- variants/
+    `-- _variant_<name>.scss
+```
+
+`theme/` bündelt Element-Styles und seitenweite Variants. Element-Styles
+definieren eine funktionale Darstellung. Die Variants liefern visuelle
+Werte über CSS-Variablen.
 
 ## § 2.1 `theme/elements/`
 
-Unter `theme/elements/` sind Web Components und HTML-Tags der Regelfall.
-Das Unterverzeichnis trägt direkt den Tag-Namen, etwa `ntl-hero/`,
-`nte-navbar/` oder `header/`. Eine funktionale Spezialformatierung bleibt
-beim zugehörigen Element. Für eine Öffnungszeiten-Tabelle käme etwa
-`table/_style-open-hours-table.scss` infrage.
+Jedes Unterverzeichnis enthält die Styles eines HTML-Tags, einer Web
+Component oder eines festen Layout-Bereichs. Der HTML- oder
+Web-Component-Tag ist direkt der Verzeichnisname. ID-Styles liegen in
+`id_<id>/`, zum Beispiel `id_footer/` für `#footer`.
 
-Eigenständige ID-Styles sind begründete Ausnahmen für feste Layout-Bereiche
-wie `id_footer/` für `#footer`. Ist für einen Style ein eigener
-Klassenselektor nötig, prüfe zuerst, ob der Style überhaupt in
-`theme/elements/` gehört. `class_<klasse>/` ist eine seltene, zu
-begründende Ausnahme. Verwende für mehrteilige Klassennamen Bindestriche.
-BEM-Notation ist unter `theme/elements/` ausgeschlossen.
+### § 2.1.1 Aufnahmekriterien
 
-Style-Dateien heißen `_style-<name>.scss`. Der Default-Style liegt in
-`_style-default.scss`, sofern das Element dafür eigenes Styling benötigt.
-Styles enthalten ihre zugehörigen Modifier, etwa einen Schalter für die
-Reihenfolge. Für die aktive Style-Auswahl gilt der Komponentenvertrag
-aus [§ 5.7 der Repository-Regeln](../AGENTS.md).
+Verwende regulär HTML-Tags und Web Components wie NTL oder NTE. Eine
+eigenständige ID ist eine begründete Ausnahme für feste Layout-Bereiche.
+Verwende im Element-Verzeichnis Tag-Namen und die vorgesehenen ID-Namen.
+BEM-Notation ist ausgeschlossen.
 
-Zu jeder Style-Datei gehört direkt daneben ein Markdown-Sidecar mit
-identischem Basisnamen, etwa `_style-default.md` zu `_style-default.scss`.
-Das Front Matter enthält ausschließlich `description` für die automatische
-Übersicht. Darunter stehen die Hinweise zur Verwendung und mindestens ein
-Beispiel. Ein separates System liest die Sidecars aus. Sie gehören außerhalb
-der Demo-Ausgabe.
+Jeder neue Eintrag und jeder eigenständige Style braucht ein konkretes
+Beispiel für eine Funktion oder Komposition, die mit vorhandenen Elementen,
+Styles und Modifiern nicht abgedeckt ist. Farbvariationen gehören nach
+`theme/variants/`. Eine Tabelle mit einer eigenen funktionalen Darstellung
+für Öffnungszeiten könnte den Style `table/_style-open-hours-table.scss`
+erhalten, sofern vorhandene Tabellen-Styles die benötigte Darstellung
+nicht abdecken.
 
-Die [Referenz für Element-Styles und Markdown-Sidecars](references/element-style-sidecars.md)
-ist verbindlich. Ein zusätzlicher Style setzt eine Funktion oder Komposition
-voraus, die kein vorhandener Style abdeckt. Farbwerte gehören in die
-seitenweite Variant unter `theme/variants/`.
+### § 2.1.2 Struktur eines Elements
+
+Lege jeden Style in `_style-<style-name>.scss` ab. Er gehört zur
+`style-<style-name>`-Klasse des Elements, etwa
+`<table class="style-open-hours-table">`. Pro Element ist höchstens eine
+`style-*`-Klasse zulässig. Eigene Regeln für den Default stehen in
+`_style-default.scss`. NTL und NTE wählen den Default gemäß ihrem
+Komponentenvertrag automatisch, wenn keine Style-Variante angegeben ist.
+
+Definiere zugehörige Modifier in derselben Datei. Ein Modifier kann etwa
+die Reihenfolge ändern oder für eine dunkle Darstellung bestehende
+Hintergrund- und Textrollen umschalten. Nutze für visuelle Werte bevorzugt
+vorhandene `--nt-*`-Variablen aus Nextrap Style Base. Binde für NTL- und
+NTE-Styles die passenden Nextrap-Mixins ein, wo sie vorhanden sind.
+Direkte visuelle Werte sind eine Ausnahme, wenn passende Variablen und
+Mixins fehlen. Konkrete Palettenwerte liefert die seitenweite Variant.
+
+Zu jeder SCSS-Datei gehört im selben Verzeichnis ein gleichnamiges
+Markdown-Sidecar, etwa `_style-default.md` zu `_style-default.scss`.
+Das Front Matter enthält ausschließlich `description`. Darunter stehen
+die Verwendung und mindestens ein Beispiel für die eigenständige Funktion.
+Ein separates System liest die Sidecars aus. Sie bleiben außerhalb der
+Demo-Ausgabe. Die [Sidecar-Referenz](references/element-style-sidecars.md)
+ist verbindlich.
 
 ## § 2.2 `theme/variants/`
 

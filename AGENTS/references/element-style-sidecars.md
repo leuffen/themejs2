@@ -6,14 +6,11 @@ Diese Referenz gilt für jeden Style unter `theme/elements/`.
 | --- | --- |
 | HTML-Tag oder Web Component | Tag-Name, etwa `header/`, `ntl-hero/` oder `nte-navbar/` |
 | ID eines festen Layout-Bereichs | Begründete Ausnahme mit `id_<id>/`, etwa `id_footer/` |
-| CSS-Klasse | Seltene, zu begründende Ausnahme mit `class_<klasse>/` |
 
 Ordne Spezialformatierungen dem Tag oder der Web Component zu. Eine
 funktionale Darstellung für Öffnungszeiten könnte als
-`table/_style-open-hours-table.scss` beim Element `table` liegen. Prüfe
-bei einem eigenen Klassenselektor zuerst, ob der Style in
-`theme/elements/` gehört. Mehrteilige Klassennamen verwenden Bindestriche.
-BEM-Notation ist unter `theme/elements/` ausgeschlossen.
+`table/_style-open-hours-table.scss` beim Element `table` liegen. Die verbindlichen Aufnahmekriterien stehen in
+[§ 2.1.1](../2_Theme.md#-211-aufnahmekriterien).
 
 Lege die Styles als `_style-<name>.scss` ab. Verwende
 `_style-default.scss`, wenn der Default eigene Regeln benötigt. Die

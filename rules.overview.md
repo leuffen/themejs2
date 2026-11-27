@@ -54,6 +54,8 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 1 | Zielsetzung | [`1_Zielsetzung.md`](AGENTS/1_Zielsetzung.md) | Grundsätze zu statischer Ausgabe, Wiederverwendung und Kundenprojekten. |
 | § 2 | Theme-Verzeichnis | [`2_Theme.md`](AGENTS/2_Theme.md) | Gemeinsame Wurzel für Theme-Dateien. |
 | § 2.1 | `theme/elements/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Element-Styles und Markdown-Sidecars. |
+| § 2.1.1 | Aufnahmekriterien | [`2_Theme.md`](AGENTS/2_Theme.md) | Funktionale Lücke für neue Elemente oder Styles anhand eines Beispiels nachweisen. |
+| § 2.1.2 | Struktur eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Eine Style-Klasse pro Element sowie Modifier, Nextrap-Tokens und Sidecars festlegen. |
 | § 2.2 | `theme/variants/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Sass-Dateien für seitenweite CSS-Variablen. |
 | § 3 | Docs-Verzeichnis | [`3_Docs.md`](AGENTS/3_Docs.md) | Kundennah aufgebaute Demos und auffindbare Beispiele. |
 
