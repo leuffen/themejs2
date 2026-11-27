@@ -10,7 +10,7 @@
 
   @layer website {
     // Hält die Meldungszeile im Leerzustand geschlossen und gibt auch mehrzeiligen Meldungen einen gleichmäßigen Rhythmus.
-    .dommer-announcements {
+    > .announcements {
       display: block;
       padding: 0.625rem 1rem;
       background: #9d542b;
@@ -30,10 +30,10 @@
     }
 
     > nte-navbar {
-      --dommer-nav-height: 75px;
+      --theme-nav-height: 75px;
 
       @media (min-width: 1200px) {
-        --dommer-nav-height: 100px;
+        --theme-nav-height: 100px;
       }
     }
 
@@ -41,15 +41,15 @@
     &:has(> main > tj-content-pane > ntl-hero.style-dommer:first-child) > nte-navbar {
       position: relative;
       z-index: 2;
-      margin-block-end: calc(-1 * var(--dommer-nav-height));
+      margin-block-end: calc(-1 * var(--theme-nav-height));
       // Die Navbar-Hülle darf den Hero nicht mit ihrer Canvas-Fläche verdecken.
       --nte-navbar-background: transparent;
-      --dommer-nav-surface: linear-gradient(90deg, rgb(4 46 73 / 90%), rgb(0 16 26 / 86%));
+      --theme-nav-surface: linear-gradient(90deg, rgb(4 46 73 / 90%), rgb(0 16 26 / 86%));
     }
 
-    .dommer-navigation {
-      --height: var(--dommer-nav-height);
-      --background: var(--dommer-nav-surface, var(--nt-primary));
+    > nte-navbar > .navbar-line {
+      --height: var(--theme-nav-height);
+      --background: var(--theme-nav-surface, var(--nt-primary));
       --text-color: #fff;
 
       a {
@@ -94,18 +94,18 @@
       background: #314858;
     }
 
-    #dommer-nav-vertical nte-nav-item::part(link):focus-visible {
+    .nav-vertical nte-nav-item::part(link):focus-visible {
       outline: 2px solid currentColor;
       outline-offset: -3px;
     }
 
     // Markiert den aktiven Link auch nach dem Verschieben ins mobile Menü.
-    #dommer-nav-vertical nte-nav-item[current='page']::part(link) {
+    .nav-vertical nte-nav-item[current='page']::part(link) {
       background: var(--nt-primary);
       color: #fff;
     }
 
-    #dommer-nav-vertical nte-nav-item[current='page']::part(text) {
+    .nav-vertical nte-nav-item[current='page']::part(text) {
       color: #fff;
     }
 
@@ -267,7 +267,7 @@
     }
 
     // Schließt die Seite mit derselben dunklen Fläche wie die Navigation ab.
-    .dommer-footer {
+    > .site-footer {
       background: var(--nt-primary);
       color: #fff;
 

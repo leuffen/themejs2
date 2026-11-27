@@ -5,6 +5,7 @@ Required:
 - items: prepared page/post collection, or tag during the transition
 
 Optional:
+- root: normalized directory without leading or trailing slash; empty selects the site root
 - lang: item language; defaults to page.lang
 - show_icons: renders configured icons; defaults to true
 {%- endcomment -%}
@@ -13,12 +14,24 @@ Optional:
 {%- if include.show_icons == false -%}{%- assign show_icons = false -%}{%- endif -%}
 {%- if include.items -%}
     {%- assign all_footer_items = include.items -%}
+{%- elsif include.root != nil -%}
+    {%- comment -%}Begrenzt die automatische Auswahl auf veröffentlichte Seiten der Navigationswurzel.{%- endcomment -%}
+    {%- assign footer_directory = '/' -%}
+    {%- if include.root != empty -%}
+        {%- assign footer_directory = include.root | prepend: '/' | append: '/' -%}
+    {%- endif -%}
+    {%- assign all_footer_items = site.pages | where_exp: "item", "item.dir == footer_directory" | where_exp: "item", "item.published != false" -%}
+    {%- if include.tag -%}
+        {%- assign all_footer_items = all_footer_items | where_exp: "item", "item.ptags contains include.tag" -%}
+    {%- endif -%}
 {%- else -%}
     {%- assign all_footer_items = site.posts | concat: site.pages -%}
 {%- endif -%}
 {%- assign footer_items = all_footer_items -%}
 {%- if include.tag -%}
-    {%- assign footer_items = footer_items | where: "ptags", include.tag -%}
+    {%- if include.items or include.root == nil -%}
+        {%- assign footer_items = footer_items | where: "ptags", include.tag -%}
+    {%- endif -%}
 {%- endif -%}
 {%- assign footer_items = footer_items | sort: "order" -%}
 {%- for item in footer_items -%}

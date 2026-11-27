@@ -114,6 +114,21 @@ Layouts wiederverwendbar bleiben.
 | Alternative Rahmen-Dateien | Seitenlayouts `website-none`, `website-footer-only` und `website-navbar-only` | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
 | Gemeinsame Bausteine | Fachliche Includes mit denselben Namen und Parametern wie in `_root` | Verbindliche gemeinsame Include-Struktur für Kundenprojekte |
 
+Bei Theme-Anpassungen haben Theme-SCSS und die Markdown-Seiten Vorrang. Layouts
+und Includes werden angepasst, wenn die Änderung auf diesen Ebenen erforderlich
+ist. Rahmenbausteine verwenden neutrale Namen. Die Theme-Klasse begrenzt das
+Styling auf das jeweilige Theme. Eine abweichende `navigation_root` gehört in das
+Front Matter der Demo-Seiten. Header, Footer und Adressbausteine lesen Namen,
+Anschriften und Kontaktdaten standardmäßig aus
+`site.data.general.standorte.default`. Beispiele können einen anderen Standort
+aus derselben Datenquelle auswählen. Demo und Kundensystem verwenden dieselben
+Datenverträge für `general`, `defaults` und Öffnungszeiten, sodass Layouts direkt
+übernommen werden können.
+
+Für neue Layouts steuert das Front-Matter-Feld `ptags` die Navigation.
+`nav` nimmt eine Seite in die Hauptnavigation auf, `footer-nav` in die
+Footer-Navigation. Ein Layout kann bei Bedarf weitere P-Tags auswerten.
+
 #### § 5.7 Gemeinsame Basis, Theme-Profile und Komponenten-Styles
 
 Die gemeinsame ThemeJS2-Basis stellt die Grunddarstellung aller Komponenten
@@ -226,3 +241,7 @@ Komponenten, Module, Varianten, Breakpoints, Slots, Zustände oder öffentliche
 APIs vor der Umsetzung geprüft werden. Wenn Seiteneffekte nicht eindeutig
 ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 Änderung darf bis zur Klärung nicht umgesetzt werden.
+
+#### § 5.16 Announcements
+
+Für Meldungen ist `@leuffen/announcements` aus [leuffen/leuffen-monorepo, packages/announcements](https://github.com/leuffen/leuffen-monorepo/tree/main/packages/announcements) zu verwenden. Die Daten werden im vorhandenen Script-Tag von `10_blanc.html` über `window.openhours = {{ site.data.openhours | jsonify }};` bereitgestellt. Nutze die Klasse `no-announcements` am Element `<leuffen-announcements>` (bezogen auf dessen Typfilter), um Bereiche per CSS, gegebenenfalls mit `:has()`, dynamisch ein- oder auszublenden.

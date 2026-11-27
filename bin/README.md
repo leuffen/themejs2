@@ -127,6 +127,11 @@ Dommer nutzt für Start- und Leistungsseite `theme-dommer`. Dieses Layout erbt
 Hero den Seitentitelbereich übernimmt. Die übrigen Themes sind noch nicht auf
 `blank` umgestellt.
 
+Die Dommer-Beispiele setzen Navigationswurzel und Standort im Front Matter.
+Der manuelle Link „Zurück“ auf `/` in der horizontalen Navigation zeigt, wie
+sich neben den automatisch erzeugten Einträgen weitere Links ergänzen lassen.
+Der Relocator übernimmt auch diesen Link ins mobile Menü.
+
 Die Schreibberechtigung ist auf das Projekt begrenzt. Workspaces, Skills,
 Build-Infrastruktur und Referenzdateien bleiben geschützt; node_modules,
 vendor und Git-Metadaten werden nicht als AI-Dateisystem freigegeben.
