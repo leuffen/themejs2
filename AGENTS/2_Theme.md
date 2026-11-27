@@ -99,6 +99,34 @@ eine `style-*`-Klasse zulässig. Die
 [SCSS-Demonstration](references/_style-demonstration.scss) zeigt das Mixin
 mit einem Modifier und die Einbindung im Sass-Einstieg.
 
+### § 2.1.5 Format der Usage-Beispiele
+
+Beginne bei NTL und allen im Content-Bereich verwendbaren Elementen mit
+einem Markdown-Beispiel. Verwende Kramdown-Attributlisten. Weise einem
+Abschnitt seine NTL-Komposition mit dem `layout`-Attribut des
+[TrunkJS Content Pane](https://github.com/trunkjs/trunkjs-monorepo/blob/main/packages/content-pane/skills/content-pane-usage/SKILL.md) zu. Zeige die
+Unterelemente oder Inhaltsabschnitte im selben Beispiel.
+
+```markdown
+## Unsere Leistungen
+{: layout="ntl-card-row" }
+
+### Beratung
+
+Wir klären gemeinsam, welche Optionen infrage kommen.
+
+### Termin
+
+Vereinbaren Sie einen Termin für das Erstgespräch.
+```
+
+Zeige die Style-Varianten und Modifier vorrangig in Markdown, jeweils
+in dem Format, das ihre Verwendung erklärt. Ein kurzes HTML-Beispiel
+kann am Ende stehen, wenn es eine zusätzliche Verwendung zeigt, etwa
+einen Header im Seitenlayout oder Tabellenzeilen mit expliziten
+Zeilenüberschriften. Für Elemente, die nur in HTML-Layouts eingesetzt
+werden, genügt ein HTML-Beispiel.
+
 ## § 2.2 `theme/variants/`
 
 Lege pro seitenweiter Variant genau eine Datei

@@ -58,6 +58,7 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 2.1.2 | Struktur eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Eine Style-Klasse pro Element sowie Modifier, Nextrap-Tokens und Usage-Dateien festlegen. |
 | § 2.1.3 | Benennung eines Elements | [`2_Theme.md`](AGENTS/2_Theme.md) | Kurze, bindestrichgetrennte Style-Namen ohne Wiederholung des Elementnamens. |
 | § 2.1.4 | Modifier | [`2_Theme.md`](AGENTS/2_Theme.md) | Styles am Element registrieren und Modifier als zusätzliche Klassen binden. |
+| § 2.1.5 | Format der Usage-Beispiele | [`2_Theme.md`](AGENTS/2_Theme.md) | Content-Beispiele in Kramdown und NTL-Kompositionen über das Content-Pane-`layout`-Attribut zeigen. |
 | § 2.2 | `theme/variants/` | [`2_Theme.md`](AGENTS/2_Theme.md) | Sass-Dateien für seitenweite CSS-Variablen. |
 | § 3 | Docs-Verzeichnis | [`3_Docs.md`](AGENTS/3_Docs.md) | Kundennah aufgebaute Demos und auffindbare Beispiele. |
 
