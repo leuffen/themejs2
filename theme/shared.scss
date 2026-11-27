@@ -1,0 +1,14 @@
+@forward "./shared/theme";
+@use "./_global" as base;
+@use "./shared/theme" as shared;
+
+// Initialisiert die gemeinsame Website-Kaskade.
+@mixin global() {
+  @include base.global() {
+    body {
+      @include shared.theme() {
+        @content;
+      }
+    }
+  }
+}

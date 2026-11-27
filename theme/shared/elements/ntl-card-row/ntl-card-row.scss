@@ -1,0 +1,18 @@
+@use "sass:meta";
+
+// Lädt Instanzvarianten für ntl-card-row.
+ntl-card-row {
+  @include meta.load-css("./style-default");
+  @include meta.load-css("./style-noborder");
+  @include meta.load-css("./style-ribbon");
+  @include meta.load-css("./style-footer");
+  @include meta.load-css("./style-featured");
+  @include meta.load-css("./style-feature-list");
+  @include meta.load-css("./style-metrics");
+  @include meta.load-css("./style-pricing");
+  @include meta.load-css("./style-stories");
+  @include meta.load-css("./style-testimonial-list");
+  @include meta.load-css("./style-testimonial-slider");
+  @include meta.load-css("./style-timeline");
+  @include meta.load-css("./style-tool-gallery");
+}

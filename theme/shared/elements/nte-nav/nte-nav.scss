@@ -1,0 +1,7 @@
+@use "sass:meta";
+
+// Lädt Varianten innerhalb des zuständigen Hosts.
+nte-nav {
+  @include meta.load-css("./style-unify");
+  @include meta.load-css("./style-unify-vertical");
+}

@@ -1,0 +1,81 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Gibt der dunklen Kontaktkarte semantische Textrollen für alle enthaltenen Content-Muster.
+&.style-card {
+  --nt-text: var(--nt-white);
+  --nt-header: var(--nt-white);
+  --nt-text-muted: color-mix(in srgb, var(--nt-white) 78%, transparent);
+
+  @include twoCol.default-style(
+    $innerPadding: clamp(var(--nt-space-7), 6vw, calc(var(--nt-space-10) + var(--nt-space-2))),
+    $gap: clamp(var(--nt-space-6), 6vw, calc(var(--nt-space-10) + var(--nt-space-1))),
+    $background: transparent,
+    $border: 0,
+    $border-radius: 0,
+    $objectFit: cover,
+    $wrapper-bg-color: linear-gradient(135deg, var(--nt-primary), var(--nt-secondary))
+  );
+
+  > :is(h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+    color: white;
+  }
+
+  > :is(h1, h2, h3, h4, h5, h6)[data-kicker]::before {
+    color: color-mix(in srgb, var(--nt-accent) 72%, white);
+  }
+
+  > .lead-serif {
+    margin: 0;
+    color: rgba(255, 255, 255, .72);
+  }
+
+  > p:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nt-space-3);
+    margin: var(--nt-space-2) 0 0;
+  }
+
+  .btn {
+    min-width: 12rem;
+  }
+
+  .btn-glow {
+    --btn-glow-color: rgb(255 255 255 / .35);
+  }
+
+  .btn-lead {
+    --btn-lead-gap: .75em;
+    --btn-lead-offset: .25em;
+  }
+
+  &::part(wrapper) {
+    align-items: stretch;
+    box-shadow: 0 var(--nt-space-8) clamp(3rem, 7vw, 5.625rem) rgba(30, 30, 30, .16);
+    background:
+      radial-gradient(circle at 92% 5%, color-mix(in srgb, var(--nt-accent) 20%, transparent), transparent 28%),
+      linear-gradient(135deg, var(--nt-primary), var(--nt-secondary));
+  }
+
+  &::part(main) {
+    display: grid;
+    align-content: end;
+    gap: var(--nt-space-4);
+  }
+
+  &::part(aside) {
+    align-content: start;
+  }
+
+  &[mode="mobile"] {
+    --gap: var(--nt-space-5);
+
+    &::part(container) {
+      width: calc(100% - (2 * var(--nt-space-4)));
+      margin-inline: auto;
+    }
+
+    --inner-padding: var(--nt-space-7) var(--nt-space-5);
+  }
+}

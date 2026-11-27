@@ -3,6 +3,34 @@
 - [Jekyll Includes Doc](README_INCLUDES.md)
 - [Best Practices](BEST_PRACTICE.md)
 
+## Gemeinsame Komponentenvarianten
+
+Neue Projekte können die gemeinsame Basis laden und Farben im Website-Layer
+vorgeben:
+
+```scss
+@use "@leuffen/themejs2/theme/shared";
+
+@include shared.global() {
+  --theme-primary: #315b70;
+}
+```
+
+Das Body-Profil (`theme-mueller`, `theme-osman`, `theme-raven`,
+`theme-epraxis` oder `theme-unify`) legt Farben, Typografie und visuelle
+Details fest. Die gemeinsame Basis gilt auch ohne Profil. Ein Ribbon verwendet
+unter jedem Profil `ntl-card-row.style-ribbon`. Die optionale Klasse
+`with-overlap` versetzt es auf breiten Ansichten über den vorigen Abschnitt.
+
+Die Komposition wird je Instanz gewählt. Ein Beispiel für einen ContentPane-Hero
+ist `layout="2;ntl-hero.style-mueller"`. Weitere Hero-Stile sind `style-osman`,
+`style-epraxis` und `style-unify`. Der Raven-Einstieg verwendet
+`ntl-2col.style-raven` mit seinem eigenen Slot-Vertrag.
+
+Das [Seitenverzeichnis der Demo](docs/index.md) verlinkt vollständige Seiten
+und einzelne Bausteine direkt. Die bisherigen Theme-Imports
+stehen weiterhin für bestehende Websites zur Verfügung.
+
 ## Build on:
 
 Reference to the Projects that are used to build this project:

@@ -99,14 +99,57 @@ dürfen für die Nutzprojekt-Vorlage nicht erforderlich sein.
 | Bereich | GitHub-Pages-Demo `docs/` | Kundenvorlage `_root/docs/` |
 | --- | --- | --- |
 | Themes | Mehrere Themes für Vergleich und Tests | Genau ein Theme in `_src/style.scss` |
-| Navbar und Footer | Varianten unter `_includes/_styles/<name>/navbar.html` bzw. `footer.html` | Genau eine Navbar direkt in `_layouts/50_navbar.html` und ein Footer direkt in `_layouts/60_footer.html` |
-| Auswahl und Ausblenden | Nur hier: `use_navbar`, `use_footer`, `skip-navbar` sowie Demo-Schaltwerkzeuge | Keine Variantenabfrage, Ausblendschalter oder Theme-Switcher-Abhängigkeit |
-| Alternative Rahmen-Dateien | Keine `navbar.alt-*`-/`footer.alt-*`-Dateien und kein `_layouts/alternatives/`; Varianten gehören unter `_includes/_styles/` | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
+| Navbar und Footer | Feste Kombinationen unter `_layouts/website*.html` mit Markup unter `_includes/frames/` | Genau eine Navbar direkt in `_layouts/50_navbar.html` und ein Footer direkt in `_layouts/60_footer.html` |
+| Auswahl und Ausblenden | Auswahl durch `layout: website-…` im Frontmatter | Keine Variantenabfrage, Ausblendschalter oder Theme-Switcher-Abhängigkeit |
+| Alternative Rahmen-Dateien | Seitenlayouts `website-none`, `website-footer-only` und `website-navbar-only` | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
 | Gemeinsame Bausteine | Fachliche Includes mit denselben Namen und Parametern wie in `_root` | Verbindliche gemeinsame Include-Struktur für Kundenprojekte |
 
-## Demo-Varianten unter `docs`
+## Gemeinsame Basis, Theme-Profile und Komponenten-Styles
 
-Die bestehenden Verzeichnisse `docs/_includes/_styles/default/`, `osman/` und die weiteren tatsächlich vorhandenen Varianten bleiben erhalten. Die Demo-Layouts `50_navbar.html` und `60_footer.html` wählen Navbar und Footer unabhängig über `use_navbar` bzw. `use_footer`; ohne Angabe gilt `default`. `false` blendet den jeweiligen Bereich aus, `skip-navbar: true` bleibt für die Demo unterstützt. Nicht jede Variante muss beide Dateien anbieten; eine fehlende Navbar oder ein fehlender Footer wird nicht künstlich ergänzt. Variantenwechsel und Demo-Schaltwerkzeuge dürfen ausschließlich in `docs/` vorkommen.
+Die gemeinsame ThemeJS2-Basis stellt die Grunddarstellung aller Komponenten
+und ihre funktionalen Standard-Styles bereit. Eine Website aktiviert ihr
+visuelles Profil am Body über eine Klasse wie `theme-mueller`, `theme-osman`
+oder `theme-raven`. Die gemeinsame Basis bildet zugleich den Default, wenn
+kein Profil gesetzt ist.
+
+Jedes Profil hat einen SCSS-Einstieg für alle Komponenten. Es setzt bevorzugt
+gemeinsame CSS-Variablen und ergänzt bei Bedarf lokal begrenzte visuelle
+Regeln. Dazu gehören Farben, Typografie, Rahmen und Trennlinien, Rundungen,
+Schatten sowie visuelle Innen- und Außenabstände und Gaps. Ein Profil muss
+mit jeder unterstützten `style-*`-Variante kombinierbar sein. Es darf weder
+Slots oder Inhaltsbereiche ein- und ausblenden noch Reihenfolge, Interaktion,
+Spaltenlogik oder responsive Umbruchregeln umschalten.
+
+Eine Klasse wie `style-default`, `style-ribbon` oder `style-feature-list`
+wählt auf der Komponenteninstanz eine eigenständige Komposition. Der
+Komponenten-Style bestimmt Struktur, Slots und Parts, Anordnung, Reihenfolge,
+responsives Verhalten und die dafür nötigen Layout-Regeln. Ein Abstand mit
+struktureller Wirkung gehört ebenfalls hierher, etwa ein Versatz, der ein
+Ribbon gezielt über das vorherige Element legt. Optische Abstände bleiben
+Theme-Eingaben.
+
+Vor dem Anlegen einer Variante prüfen, ob die vorhandene Komposition mit
+Theme-Variablen oder einem vorhandenen funktionalen Modifier ausreicht.
+Ribbon-Varianten mit derselben Komposition sollen einen gemeinsamen
+`style-ribbon` nutzen. Prüfe beim Zusammenlegen insbesondere sichtbare
+Slots, die Spaltenlogik und das mobile Stapeln. Eine optionale Überlappung
+gehört zur Komponente und wird gezielt an der Instanz ausgewählt. Namen mit
+Theme-Herkunft bleiben nur dann als Komponenten-Style sinnvoll, wenn sie
+eine eigenständige Komposition bezeichnen.
+
+## Demo-Layouts und Seitenverzeichnis
+
+Eine Endseite in `docs/` wählt den vollständigen Rahmen über `layout:`.
+Die `website-*`-Layouts erben von `20_body` und binden Navbar,
+Inhaltsbereich und Footer in fester Reihenfolge ein. Die Navbar- und
+Footer-Fragmente unter `docs/_includes/frames/` haben feste Include-Pfade.
+`website-none`, `website-footer-only` und `website-navbar-only` bieten
+die reduzierten Rahmen. Theme-Profile bleiben unabhängig vom Layout.
+
+Die Demo-Startseite verlinkt alle veröffentlichten Beispiele direkt mit
+ihrem Dateipfad als Beschriftung. Demo-Endseiten erhalten ihre URL aus dem
+Dateinamen und Verzeichnis. Kategorien stehen als Überschriften auf der
+Startseite.
 
 ## Fester Rahmen in `_root`
 
@@ -114,7 +157,7 @@ Die Kundenvorlage enthält genau einen aktiven Website-Rahmen: Das Markup der ge
 
 ## Zusammenspiel und Synchronisation der beiden Versionen
 
-Die gemeinsame Layout-Kette lautet `10_blanc → 20_body → 50_navbar → 60_footer → 70_main`; `20_body` enthält die gemeinsamen seitenweiten Laufzeit-Bausteine. Fachliche Includes, Slots, Attribute und das gerenderte Markup der gewählten Rahmenvariante müssen in Demo und Kundenvorlage zusammenpassen. Funktionale Gleichheit bezieht sich auf diese gewählte Variante, nicht auf identische Layout-Quelldateien: In der Demo wird sie eingebunden, im Kundenlayout steht ihr Markup direkt. Die Demo-Auswahl selbst gehört ausdrücklich nicht zum Kundenverhalten.
+Die Demo-Kette lautet `10_blanc → 20_body → website-*`. Die Kundenvorlage verwendet weiterhin `10_blanc → 20_body → 50_navbar → 60_footer → 70_main`. `20_body` enthält die gemeinsamen seitenweiten Laufzeit-Bausteine. Fachliche Includes, Slots, Attribute und das gerenderte Markup der gewählten Rahmenvariante müssen in Demo und Kundenvorlage zusammenpassen. Funktionale Gleichheit bezieht sich auf diese gewählte Variante, nicht auf identische Layout-Quelldateien: In der Demo wird sie eingebunden, im Kundenlayout steht ihr Markup direkt. Die Demo-Auswahl selbst gehört ausdrücklich nicht zum Kundenverhalten.
 
 Bei einer Änderung zuerst prüfen, ob sie einen gemeinsamen Include, eine reine Demo-Variante oder den für `_root` gewählten Rahmen betrifft. Gemeinsame Includes unter `components/`, `helpers/` und `fragments/` in beiden Versionen unter identischen Pfaden aktualisieren. Betrifft die Änderung den ausgewählten Kundenrahmen, das entsprechende Demo-Markup gezielt in `50_navbar.html` bzw. `60_footer.html` übernehmen; dabei Layout-Frontmatter und genau ein `{{ content }}` nach der Navbar bzw. vor dem Footer erhalten. Nicht die Demo-Verzeichnisse oder Dispatcher kopieren. Änderungen an anderen Demo-Varianten erzeugen keine weiteren Kundenlayouts. Kundendaten und individuelle Anpassungen dürfen bei späteren Übernahmen nicht durch Demo-Daten überschrieben werden.
 
@@ -122,7 +165,7 @@ Ein neues Kundenprojekt erhält den Inhalt von `_root/` als Projektwurzel und ve
 
 ## Include-Namen und `_root` als Quelle der Wahrheit
 
-`_root` ist die Quelle der Wahrheit für die gemeinsame fachliche Include-Struktur und deren öffentliche Namen und Parameter. Diese Pfade bleiben in `docs` und `_root` gleich. Die ausdrücklich demoexklusiven Rahmenvarianten unter `docs/_includes/_styles/` sind davon ausgenommen und werden nicht in `_root` nachgebildet. Änderungen an gemeinsamen Include-Namen und -Pfaden, insbesondere Umbenennen, Verschieben, Hinzufügen oder Entfernen, benötigen die ausdrückliche Zustimmung des Users; ohne diese Zustimmung sind nur inhaltliche oder technische Anpassungen bei unveränderter gemeinsamer Struktur zulässig.
+`_root` ist die Quelle der Wahrheit für die gemeinsame fachliche Include-Struktur und deren öffentliche Namen und Parameter. Diese Pfade bleiben in `docs` und `_root` gleich. Die ausdrücklich demoexklusiven Rahmenvarianten unter `docs/_includes/frames/` sind davon ausgenommen und werden nicht in `_root` nachgebildet. Änderungen an gemeinsamen Include-Namen und -Pfaden, insbesondere Umbenennen, Verschieben, Hinzufügen oder Entfernen, benötigen die ausdrückliche Zustimmung des Users; ohne diese Zustimmung sind nur inhaltliche oder technische Anpassungen bei unveränderter gemeinsamer Struktur zulässig.
 
 ## Dokumentation von Code-Blöcken
 

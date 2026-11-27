@@ -1,0 +1,8 @@
+@use "sass:meta";
+
+// Lädt Varianten innerhalb des zuständigen Hosts.
+nte-accordion {
+  @include meta.load-css("./style-default");
+  @include meta.load-css("./style-raven");
+  @include meta.load-css("./style-faq");
+}

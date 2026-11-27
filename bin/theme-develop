@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Leuffen\ThemeJS2\Development\Job;
+use Leuffen\ThemeJS2\Development\ThemeDevelopment;
+
+// Das Binary verwendet immer den Projekt-Root und nicht das Aufrufverzeichnis.
+$root = dirname(__DIR__);
+if (in_array('--help', $argv, true) || $argc === 1) {
+    echo "Usage: bin/theme-develop <auftrag.md> [--iterations=N]\n";
+    echo "See bin/README.md for the job format and preview setup.\n";
+    exit($argc === 1 ? 1 : 0);
+}
+
+try {
+    require $root . '/vendor/autoload.php';
+
+    // Der Auftrag ist der einzige benutzerdefinierte Einstiegspunkt.
+    $iterations = null;
+    foreach (array_slice($argv, 2) as $argument) {
+        if (!preg_match('/^--iterations=([1-9][0-9]*)$/D', $argument, $match)) {
+            throw new InvalidArgumentException('Unknown argument: ' . $argument);
+        }
+        $iterations = (int) $match[1];
+    }
+
+    $job = Job::fromFile($argv[1], $root, $iterations);
+    exit((new ThemeDevelopment($root, $job))->run());
+} catch (Throwable $error) {
+    fwrite(STDERR, 'Theme development failed: ' . $error->getMessage() . PHP_EOL);
+    exit(1);
+}
