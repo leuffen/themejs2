@@ -6,13 +6,11 @@ Browser vergleichen. Dieselben Dateien sind die Basis der lokalen Demo.
 Der Einstieg `docs/index.md` ist unter [localhost:4000](http://localhost:4000/)
 erreichbar, sobald die lokale Entwicklung läuft.
 
-Halte `docs/` in Struktur und Verwendung möglichst nah an den späteren
-Zielrepositories der Kundenprojekte. Verwende für dieselben Aufgaben dieselben
-Layouts, Komponenten, Datenquellen und Front-Matter-Felder.
-Demo-spezifische Inhalte und Pfade gehören in die Beispielseiten oder ihre
-Konfiguration. Verlinke veröffentlichte Beispiele auf der Startseite direkt
-mit ihrem Dateipfad als Beschriftung. Ihre URLs folgen dem Dateinamen und
-Verzeichnis.
+Halte Struktur und Verwendung von `docs/` möglichst nah an den Zielrepositories:
+gleiche Layouts, Komponenten, Datenquellen und Front-Matter-Felder für gleiche
+Aufgaben. Demo-Inhalte und -Pfade gehören in Seiten oder Konfiguration.
+Verlinke veröffentlichte Beispiele auf der Startseite mit ihrem Dateipfad als
+Beschriftung. Ihre URLs folgen Dateiname und Verzeichnis.
 
 ```text
 docs/
@@ -99,110 +97,80 @@ beschrieben.
 
 ### § 3.3.2 Website-Default und Varianten
 
-Der Standard-Webseitenrahmen soll unter
-`docs/_layouts/website-default.html` liegen. Seiten wählen ihn im
-Front Matter mit `layout: website-default`, also ohne die Endung `.html`.
-Dasselbe Layout-Feld kann in den Defaults der `_config.yml` gesetzt werden.
-Includes sind die innerhalb eines Layouts eingebundenen Bausteine, nicht
-der Auswahlmechanismus für die Layout-Datei.
+Der Standard-Frame ist als `docs/_layouts/website-default.html` vorgesehen.
+Seiten wählen ihn mit `layout: website-default` im Front Matter oder über
+Config-Defaults, ohne `.html`. Includes sind Bausteine innerhalb des Layouts,
+nicht der Mechanismus zur Layout-Auswahl.
 
-Aktuell ist `website-default.html` noch nicht angelegt: `default.html`
-verweist über `layout: website` auf `website.html`, das Navbar, Inhalt und
-Footer über Includes einbindet. Die Dommer-Demo verwendet dagegen
-`layout: theme-dommer`. Die
-[vorhandene Rahmenreferenz](references/3_Docs/_layouts/Website.Default.html)
-übernimmt dieses Dommer-Layout und trägt noch den alten Dateinamen.
-Die vorgesehene Benennung lautet kleingeschrieben `website-default.html`.
+Aktuell fehlt `website-default.html`: `default.html` nutzt `layout: website`;
+`website.html` bindet Navbar, Content und Footer per Includes ein. Dommer nutzt
+`layout: theme-dommer`. Die [Frame-Referenz](references/3_Docs/_layouts/Website.Default.html)
+entspricht dem Dommer-Layout und trägt noch den alten Dateinamen.
 
-Der Rahmen gibt
-zuerst die Navbar und bei Bedarf den Page-Header aus. Unterseiten
-verwenden denselben Page-Header-Aufbau mit den Werten ihres Front Matter.
-Danach setzt das Layout `{{ content }}` in den Hauptbereich ein.
-Der Footer schließt die Seite ab.
+Der Frame zeigt Navbar, optionalen Page-Header, `{{ content }}` im Main-Bereich
+und Footer. Unterseiten nutzen denselben Page-Header mit ihren
+Front-Matter-Werten.
 
-Die Front-Matter-Schalter `show_navbar`, `show_title` und `show_footer`
-steuern Navbar, Page-Header und Footer. Sie sind standardmäßig aktiv.
-Setze den jeweiligen Schalter auf `false`, um den Bereich auszublenden.
+`show_navbar`, `show_title` und `show_footer` steuern die drei Frame-Bereiche.
+Alle sind standardmäßig aktiv; `false` blendet den jeweiligen Bereich aus.
 
-Verwende den Standardrahmen unverändert und konfiguriere seine Bereiche
-über die vorgesehenen Parameter. Erfordert ein deutlich anderer Page-Header,
-Footer oder eine andere Navbar eigenes HTML, lege ein Website-Layout nach
-dem Muster `website-<variantenname>.html` an. Die betreffenden Kunden-
-oder Demo-Seiten wählen diese Variante über ihr `layout`-Feld.
+Konfiguriere den Standard-Frame über seine Parameter, statt ihn umzubauen.
+Erfordern Page-Header, Navbar oder Footer deutlich anderes HTML, nutze ein
+Layout nach `website-<variantenname>.html`. Kunden- und Demo-Seiten wählen es
+über `layout`.
 
 ## § 3.4 Reservierter SCSS-Bereich
 
-Ein zusätzlicher SCSS-Bereich ist für benutzerdefinierte Styles in den
-Zielrepositories reserviert. In der Demo wird er derzeit nicht genutzt.
-Wird er unter `docs/` angelegt, dient er ausschließlich dazu, solche
-benutzerdefinierten Ergänzungen beispielhaft zu zeigen.
+Der zusätzliche SCSS-Bereich ist für User Styles in Zielrepositories
+reserviert und in der Demo ungenutzt. Wird er unter `docs/` angelegt, dient er
+nur als Beispiel für solche Ergänzungen.
 
 ## § 3.5 `_src/`
 
-`docs/_src/` ist der feste Einbindepunkt für JavaScript und Styles.
-`index.ts` bindet das Theme-Paket und `style.scss` ein. Dieser Bereich
-beschreibt den aktuellen Stand; seine Struktur wird sich demnächst ändern.
-Die geplante Umstrukturierung wird hier noch nicht vorweggenommen.
+`docs/_src/` ist der feste Entry Point für JavaScript und Styles:
+`index.ts` bindet das Theme-Paket und `style.scss` ein. Die Struktur wird
+überarbeitet; dokumentiert ist hier nur der aktuelle Stand.
 
 ## § 3.6 `assets/`
 
-`docs/assets/` enthält die statischen Assets der Website. Der Build legt
-kompiliertes JavaScript und CSS unter `docs/assets/dist/` ab.
-
-Daneben liegen hier Logos und herstellerspezifische Assets, die auch in
-Kundenprojekten verwendet werden, etwa die Leuffen-Logos unter `leuffen/`.
-Weitere Dateien können als Demo- und Testmaterial dienen, beispielsweise
-Testlogos und Testdaten. Diese Demo-Inhalte sind von den für Kundenprojekte
-benötigten Assets zu unterscheiden.
+`docs/assets/dist/` enthält die JavaScript- und CSS-Builds. Weitere Assets
+unter `docs/assets/` sind Logos und Vendor-Dateien für Kundenprojekte, etwa
+Leuffen-Logos unter `leuffen/`, sowie Testdaten und Testlogos. Unterscheide
+Demo-Material von den im Kundenprojekt benötigten Assets.
 
 ## § 3.7 `themes/`
 
 ### § 3.7.1 Vollständige Demo-Websites
 
-`docs/themes/` enthält pro Kunde oder Theme ein eigenes Verzeichnis mit
-einem vollständigen Demo-Website-Bundle. Bisher dient `dommer/` als Beispiel.
-Ein Bundle umfasst mehrere Markdown-Seiten: normalerweise eine Startseite
-mit dem Namen „Start“, eine Leistungsseite und gegebenenfalls eine
-Kontaktseite sowie weitere Unterseiten.
-
-Die Inhalte werden bereitgestellt oder auf ausdrückliche Nachfrage von
-einer anderen Website übernommen und als Markdown-Seiten erstellt.
+`docs/themes/[stylename]/` enthält vollständige Website-Bundles aus
+Markdown-Seiten. Beispiel: `dommer/`. Ein Bundle umfasst „Start“, Leistungen,
+optional Kontakt und weitere Unterseiten, mit Dateinamen wie im Listing oben.
+Inhalte werden bereitgestellt oder auf ausdrückliche Nachfrage von einer
+anderen Website übernommen und als Markdown erstellt.
 
 ### § 3.7.2 Auf das Bundle begrenzte Navigation
 
-Die Seiten setzen im YAML-Front-Matter `navigation_root` auf das eigene
-Theme-Verzeichnis, beispielsweise `themes/dommer`. Das Feld dient hier
-nur der Entwicklungs- und Demo-Umgebung: Es begrenzt die Navigation auf
-das jeweilige Bundle, statt alle Demo-Seiten anzuzeigen.
+Setze im Front Matter jeder Demo-Seite `navigation_root: themes/dommer`
+mit dem jeweiligen Bundle-Pfad. So bleiben mehrere Websites mit eigenen
+Unterseiten und Navigationen parallel nutzbar, ohne die globale Navigation
+umzustellen. Diese Eingrenzung dient nur Development und Demo, nicht den
+Zielrepositories.
 
-So lassen sich mehrere vollständige Websites mit eigenen Unterseiten und
-Navigationen parallel demonstrieren, ohne die gemeinsame Navigation für
-jedes Bundle erneut umstellen zu müssen. Diese zusätzliche Eingrenzung
-ist nicht für die späteren Zielrepositories vorgesehen.
+### § 3.7.3 Layout und sichtbare Frame-Bereiche
 
-### § 3.7.3 Layout und sichtbare Rahmenbereiche
+Vorgesehen ist `layout: website-default` gemäß § 3.3.2; andere Website-Layouts
+sind bei Bedarf möglich. Gemeinsame Layout-Defaults stehen in `_config.yml`
+(§ 3.8), Overrides im Front Matter der Seite.
 
-Die Seiten wählen ihren Website-Rahmen über das Feld `layout`.
-Regulär ist `layout: website-default` für den Standardrahmen
-`docs/_layouts/website-default.html` gemäß § 3.3.2 vorgesehen; abweichende
-Website-Layouts werden bei Bedarf gewählt. Gemeinsame
-Layout-Vorgaben pro Theme-Verzeichnis können über die Defaults in
-`_config.yml` gesetzt werden, einzelne Seiten können sie überschreiben.
-
-`show_navbar`, `show_title` und `show_footer` steuern die sichtbaren
-Rahmenbereiche wie in § 3.3.2 beschrieben. Eine Startseite mit eigenem
-Hero setzt im Front Matter ausdrücklich `show_title: false`, damit der
-Rahmen keinen zusätzlichen Page-Header ausgibt. Navbar und Footer bleiben
-ohne abweichende Einstellung sichtbar.
+Die `show_*`-Schalter gelten gemäß § 3.3.2. Startseiten mit eigenem Hero setzen
+`show_title: false`, um einen zusätzlichen Page-Header zu vermeiden. Navbar
+und Footer bleiben ohne Override sichtbar.
 
 ## § 3.8 `_config.yml`
 
-`docs/_config.yml` enthält die Jekyll-Konfiguration der Demo. Unter
-`defaults` können für jedes Theme-Verzeichnis eigene Vorgaben über einen
-Pfad-Scope gesetzt werden, insbesondere das gemeinsame `layout` des
-Website-Bundles. Die Seiten übernehmen diese Vorgaben und können sie im
-eigenen Front Matter gezielt überschreiben.
+`docs/_config.yml` enthält die Jekyll-Konfiguration. Setze gemeinsame Werte
+wie `layout` je Theme-Verzeichnis unter `defaults` mit passendem Path-Scope.
+Seiten können sie im Front Matter überschreiben. Bundle-Defaults dürfen
+andere Demos nicht unbeabsichtigt beeinflussen.
 
-Die bundlebezogene Eingrenzung mit `navigation_root` bleibt im Front Matter
-der Demo-Seiten gemäß § 3.7.2. Konfigurationsvorgaben für ein Bundle dürfen
-andere Demo-Websites nicht unbeabsichtigt verändern.
+`navigation_root` bleibt im Front Matter der Demo-Seiten (§ 3.7.2).

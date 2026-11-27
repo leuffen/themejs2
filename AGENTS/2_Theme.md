@@ -2,6 +2,7 @@
 
 ```text
 theme/
+|-- index.scss                            (theme()-Mixin und Layer)
 |-- elements/
 |   |-- <tag-name>/                         (z. B. ntl-hero, nte-navbar, table)
 |   |   |-- _style-<style-name>.scss         (Klasse: style-<style-name>)
@@ -9,13 +10,18 @@ theme/
 |   `-- id_<id>/                            (z. B. id_footer)
 |       |-- _style-<style-name>.scss
 |       `-- _style-<style-name>.usage.md
-`-- variants/
-    `-- _variant-<name>.scss
+|-- variants/
+|   `-- _variant-<name>.scss
+`-- misc/
+    `-- <style-name>/                      (z. B. dommer)
+        `-- _<name>.scss
 ```
 
-`theme/` bündelt Element-Styles und seitenweite Variants. Element-Styles
-definieren eine funktionale Darstellung. Die Variants liefern visuelle
-Werte über CSS-Variablen.
+`theme/` bündelt Element-Styles, seitenweite Variants und noch nicht zugeordnete
+Styles unter `misc/`. Element-Styles definieren die funktionale Darstellung,
+Variants die visuellen Werte über CSS-Variablen. Dieses Dokument definiert
+den verbindlichen Zielzustand: eine gemeinsame Theme-Basis und genau eine
+öffentliche SCSS-API für alle Styles, keine separaten Kunden-Themes.
 
 ## § 2.1 `theme/elements/`
 
@@ -62,8 +68,10 @@ die Reihenfolge ändern oder für eine dunkle Darstellung bestehende
 Hintergrund- und Textrollen umschalten. Nutze für visuelle Werte bevorzugt
 vorhandene `--nt-*`-Variablen aus Nextrap Style Base. Binde für NTL- und
 NTE-Styles die passenden Nextrap-Mixins ein, wo sie vorhanden sind.
-Direkte visuelle Werte sind eine Ausnahme, wenn passende Variablen und
-Mixins fehlen. Konkrete Palettenwerte liefert die seitenweite Variant.
+Für Content- und Responsive-Anpassungen gilt die Reihenfolge aus
+[§ 4.2.2 Responsive](4_Libraries.md#-422-responsive). Direkte Werte sind nur
+eine Ausnahme, wenn passende Variablen und Mixins fehlen. Palettenwerte
+liefert die Variant.
 
 Zu jeder SCSS-Datei gehört im selben Verzeichnis eine Usage-Datei
 mit demselben Basisnamen und der Endung `.usage.md`, etwa `_style-default.usage.md` zu `_style-default.scss`.
@@ -104,7 +112,7 @@ mit einem Modifier und die Einbindung im Sass-Einstieg.
 Beginne bei NTL und allen im Content-Bereich verwendbaren Elementen mit
 einem Markdown-Beispiel. Verwende Kramdown-Attributlisten. Weise einem
 Abschnitt seine NTL-Komposition mit dem `layout`-Attribut des
-[TrunkJS Content Pane](https://github.com/trunkjs/trunkjs-monorepo/blob/main/packages/content-pane/skills/content-pane-usage/SKILL.md) zu. Zeige die
+[TrunkJS Content Pane](4_Libraries.md#-421-content-pane) zu. Zeige die
 Unterelemente oder Inhaltsabschnitte im selben Beispiel.
 
 ```markdown
@@ -146,3 +154,92 @@ das `.variant-dommer` mit den zugehörigen Token-Werten ausgibt.
 
 Das [Variant-Beispiel](references/2_Theme/_variant-demonstration.scss) zeigt eine
 Klasse mit einem konkreten Primärwert und weiteren Nextrap-Tokens.
+
+## § 2.3 `theme/index.scss`
+
+### § 2.3.1 Theme-Mixin und Layer
+
+`theme/index.scss` stellt genau ein gemeinsames `theme()`-Mixin für alle
+Styles bereit: Nextrap Reset, Runtime-Tokens und Schemes, Typography,
+HTML-Defaults, NTE-/NTL-Styles, Variants, Misc und Utilities. Separate
+Theme-Entries oder Theme-Mixins für Osman, Dommer usw. entfallen.
+SCSS registriert Styles; Web Components registriert der TypeScript-Entry.
+
+Der Entry deklariert die Layer-Reihenfolge vor der ersten CSS-Ausgabe:
+
+```scss
+// Hält Website-Overrides nach der Theme-Basis und Utilities nach Komponenten.
+@layer reset, schemes, themes, website;
+@layer themes {
+  @layer tokens, base, typography, elements, components, patterns, utilities;
+}
+```
+
+| Layer | Inhalt |
+| --- | --- |
+| `reset` | Nextrap Reset |
+| `schemes` | globale Runtime-Scheme-Selektoren |
+| `themes.tokens` | Token-Defaults, Runtime-Ableitungen und Variants |
+| `themes.base` / `themes.typography` | Basisdarstellung und Typography |
+| `themes.elements` / `themes.components` | HTML-Defaults und NTE-/NTL-Styles |
+| `themes.patterns` | zusätzliche Klassen, Patterns und Misc |
+| `themes.utilities` | Nextrap Utilities |
+| `website` | User Base Styles und Website-Overrides |
+
+Für normale Deklarationen steigt die Priorität von links nach rechts.
+`!important` kehrt die Layer-Priorität um und ist kein Override-Konzept.
+Der aufrufende Scope soll mit `:where(...)` Spezifität 0 behalten, etwa
+`:where(:root)` für die Website. Unterschiedliche Darstellungen wählen
+Variant-Klassen und CSS-Variablen, keine separaten Theme-Imports.
+`:host` gehört dagegen in einen Shadow-DOM-Kontext, nicht in globales CSS.
+Layer-Priorität und Selector-Spezifität sind getrennte Mechanismen.
+
+### § 2.3.2 Partials mit `meta.load-css` laden
+
+Lade CSS-ausgebende Partials direkt im passenden Layer mit `meta.load-css`.
+So braucht der Theme-Entry nicht für jedes Partial ein `@use` plus einen
+zweiten Mixin-Aufruf. Gekürztes Zielbeispiel:
+
+```scss
+@use "sass:meta";
+
+// Bindet zusätzliche Dommer-Styles erst beim Aufruf der Theme-Basis ein.
+@mixin theme() {
+  @layer themes.patterns {
+    @include meta.load-css("./misc/dommer/custom");
+  }
+}
+```
+
+Das Beispiel setzt `theme/misc/dommer/_custom.scss` mit CSS-Ausgabe voraus.
+`meta.load-css` lädt CSS, exportiert aber keine Sass-Members und ruft keine
+Mixins auf. Reine Mixin-Dateien wie die Style- und Variant-Beispiele oben
+brauchen weiterhin `@use` plus `@include`, gegebenenfalls in einem gemeinsamen
+CSS-Entry. Öffentliche Mixins werden mit `@forward` weitergereicht.
+
+### § 2.3.3 Ein gemeinsamer Export
+
+Der Root-`index.scss` reicht ausschließlich die gemeinsame `theme()`-API aus
+`theme/index.scss` weiter. Consumer importieren keine individuellen Dateien
+wie `theme/osman.scss` oder `theme/shared.scss`. Bisher getrennte Styles werden
+nach `elements/`, `variants/` oder `misc/` überführt und zentral eingebunden;
+alte Theme-Entries und ihre Consumer-Imports sind beim Umbau zu entfernen.
+
+Unterverzeichnisse wie `misc/dommer/` gruppieren interne Styles, erzeugen aber
+keine eigenen Theme-Exports. Library-Regeln stehen in
+[§ 4 Libraries](4_Libraries.md); Public Exports und Consumer-Usage gehören in
+eine separate Usage-Dokumentation.
+
+## § 2.4 `theme/misc/`
+
+Sammle Styles, die weder die Kriterien für `elements/` noch für `variants/`
+erfüllen, unter `theme/misc/<style-name>/`, etwa `theme/misc/dommer/`.
+Das gilt auch für neue Klassen und vorläufige Sonderlösungen, um zunächst
+die Funktion herzustellen. Vorhandene Nextrap-Lösungen bleiben vorrangig.
+
+Binde die CSS-Entries über `theme/index.scss` im Layer `themes.patterns` ein.
+Nicht direkt in Demo-Entries laden oder unzugeordnete Regeln im zentralen
+Mixin sammeln. Dokumentiere Zweck und Ausnahme kurz am jeweiligen Block.
+Sobald ein Style die Kriterien für Elements oder Variants erfüllt, ordne ihn
+dorthin ein. `misc/` ersetzt keine vorhandene Komponente und hebt Token-,
+Scope- oder Komponentenverträge nicht auf.

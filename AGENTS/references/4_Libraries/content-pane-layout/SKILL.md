@@ -5,11 +5,10 @@ description: "Bei jedem Content-Pane-layout-Attribut in ThemeJS2-Markdown, Kramd
 
 # Content Pane layout
 
-`layout` first places content in Content Pane's section tree, then replaces that
-generated section with the element described by the selector after `;`. The new
-element receives the section's children and layout-derived id, classes, and
-attributes. `section-*` attributes move to the generated section without the
-prefix.
+`layout` places content in the section tree, then replaces the generated
+section with the selector after `;`. The replacement receives its children
+and layout-derived ID, classes, and attributes. `section-*` attributes move
+to the generated section without the prefix.
 
 The `i` index controls nesting:
 
@@ -29,9 +28,9 @@ layout="/;"   close the current HR wrapper; HR only
 - Selector syntax: `layout="card-box#id.cls[attr=value]"`.
 - Legacy `+i` means `=i`; legacy `-i` means `!i`.
 
-For authoring Markdown, Kramdown, demos, or Jekyll, also use
-`content-pane-usage`. For custom elements, slot routing, and nested component layouts, consult the upstream TrunkJS `content-pane-content-elements` skill.
+For Markdown, Kramdown, demos, and Jekyll, also use `content-pane-usage`.
+For custom elements, slot routing, and nested component layouts, consult the
+upstream TrunkJS `content-pane-content-elements` skill.
 
-For complete ThemeJS2 Markdown authoring examples, including explicit and
-inferred layout levels and HR controls, read
+For inferred/explicit levels and HR controls, read
 [ThemeJS2 Markdown layout examples](../content-pane-usage/references/themejs2-markdown-layouts.md).

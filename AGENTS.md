@@ -9,10 +9,11 @@ Agent-Skills wie `modify-theme` dienen dem projektübergreifenden Einsatz.
 Konflikt hat das Repository-Regelwerk Vorrang.
 
 - [§ 0 Formulierung und Interaktion mit dem User](AGENTS/0_Formulierung_und_Interaktion.md)
-  regelt die Auslegung von Anweisungen und die Kommunikation.
+  regelt Interpretation und Kommunikation.
 - [§ 1 Zielsetzung](AGENTS/1_Zielsetzung.md) beschreibt die Grundsätze von ThemeJS2.
 - [§ 2 Theme-Verzeichnis](AGENTS/2_Theme.md) regelt Element-Styles und Variants.
 - [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md) beschreibt die Demo unter `docs/`.
+- [§ 4 Libraries](AGENTS/4_Libraries.md) regelt Nextrap und TrunkJS.
 
 Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
 Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
