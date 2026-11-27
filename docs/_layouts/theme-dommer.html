@@ -1,10 +1,11 @@
 ---
-layout: 20_body
+layout: blank
 ---
-<!-- Kapselt den neuen Rahmen, ohne die Leistungsseite auf das Profil umzustellen. -->
+<!-- Bündelt den gemeinsamen Rahmen und die Profil-Styles der Dommer-Seiten. -->
 {% assign dommer_home = '/themes/dommer/dommer-start.html' | relative_url %}
 {% assign dommer_services = '/themes/dommer/dommer-leistungen.html' | relative_url %}
 <div class="theme-dommer">
+  {% unless page.show_navbar == false %}
   <!-- Verwendet dieselben Navigationsziele für Desktop und mobiles Menü. -->
   <nte-navbar class="style-default fixed" scroll-threshold="500" style="--spacer-height: 104px">
     <!-- Zeigt aktuelle Meldungen oberhalb der Adress- und Navigationszeile. -->
@@ -27,15 +28,33 @@ layout: 20_body
     <nte-nav id="dommer-nav-vertical" class="style-default nav-vertical" aria-label="Mobile Hauptnavigation" style="--nte-nav-flow: column; --nte-nav-align: stretch"></nte-nav>
     <tj-element-relocator source="#dommer-nav-horizontal" target="#dommer-nav-vertical" class="-xl:relocate"></tj-element-relocator>
   </nte-offcanvas>
+  {% endunless %}
+
+  <!-- Zeigt den Seitentitel und optional das konfigurierte Headerbild und die Beschreibung. -->
+  {% unless page.show_title == false %}
+  <header class="container py-4">
+    {% if page.hero_image and page.hero_image != empty %}
+    <img class="img-fluid" src="{{ page.hero_image | relative_url | escape }}" alt="{{ page.hero_image_alt | escape }}">
+    {% endif %}
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.description and page.description != empty %}
+    <p>{{ page.description | escape }}</p>
+    {% endif %}
+  </header>
+  {% endunless %}
 
   <!-- Lässt Content Pane die bestehenden Markdown-Sections unverändert aufbauen. -->
+  {% assign page_content = content | strip %}
+  {% unless page_content == empty %}
   <main id="main" class="mx-auto">
     <tj-content-pane pre-parser="text-block">
       {{ content }}
     </tj-content-pane>
   </main>
+  {% endunless %}
 
   <!-- Setzt den Kontakt in der Lesereihenfolge vor die Links; ab XL steht er rechts neben der Navigation. -->
+  {% unless page.show_footer == false %}
   <footer id="footer" class="dommer-footer mt-5">
     <div class="container py-3 d-flex flex-column xl:flex-row-reverse justify-content-between align-items-center gap-3 text-center">
       <address class="small mb-0">Zahnarztpraxis Dr. Karsten Dommer · Lieneschweg 57 · Osnabrück-Westerberg</address>
@@ -48,4 +67,5 @@ layout: 20_body
     </div>
     <div class="container pb-3 text-center small">© Dr. Karsten Dommer {{ site.time | date: '%Y' }}</div>
   </footer>
+  {% endunless %}
 </div>

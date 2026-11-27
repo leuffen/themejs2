@@ -1,6 +1,6 @@
 ---
 published: true
-layout: layout-dommer
+layout: theme-dommer
 title: Leistungen
 description: Zahnersatz und Implantatprothetik bei Dr. Karsten Dommer in Osnabrück-Westerberg.
   Informationen zu Kronen, Brücken und herausnehmbaren Prothesen.

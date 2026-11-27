@@ -2,6 +2,7 @@
 description: Zahnarzt Dr. Karsten Dommer in Osnabrück-Westerberg. Informationen zu
   Zahnersatz, Prothetik und Implantatprothetik sowie zu unserer Praxis am Lieneschweg.
 layout: theme-dommer
+show_title: false
 ptags:
 - nav
 published: true
