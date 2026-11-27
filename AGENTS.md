@@ -252,7 +252,7 @@ ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 
 Für Meldungen ist `@leuffen/announcements` aus [leuffen/leuffen-monorepo, packages/announcements](https://github.com/leuffen/leuffen-monorepo/tree/main/packages/announcements) zu verwenden. Die Daten werden im vorhandenen Script-Tag von `10_blanc.html` über `window.openhours = {{ site.data.openhours | jsonify }};` bereitgestellt. Nutze die Klasse `no-announcements` am Element `<leuffen-announcements>` (bezogen auf dessen Typfilter), um Bereiche per CSS, gegebenenfalls mit `:has()`, dynamisch ein- oder auszublenden.
 
-#### § 5.17 Navigation, Rahmenvarianten und Color Sets
+#### § 5.17 Navigation, Rahmenvarianten und Variants
 
 Neue oder migrierte Layouts verwenden möglichst den gemeinsamen Seitenrahmen
 mit stabilen IDs `header`, `navbar` und `footer`. Jeder Bereich verwendet
@@ -269,11 +269,14 @@ Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Setzt ein Scope
 für denselben Schalter einen anderen Zustand, ersetzt er die vorhandene Form.
 Die Sichtbarkeit ganzer Bereiche steuern weiterhin die `show_*`-Felder. Halte
 seitenweit austauschbare Farb-, Schrift-, Rundungs- und Rahmenwerte als
-Color Sets in der gemeinsamen Sass-Basis. Layouts und Varianten verwenden
+Variants unter `theme/variants/`. Die gemeinsame Theme-Wurzel ist `theme/`
+mit `elements/` und `variants/` direkt darunter. Layouts und Varianten verwenden
 diese Werte über Tokens und behalten ihre jeweilige Struktur und Funktion.
 
-Verwende für auswählbare Varianten und Funktionsklassen eine
-TypeScript-Beschreibung je Rahmen-ID und NTL-/NTE-Element, sobald der
-Variantenkatalog eingeführt wird. Dokumentiere die Scope-Felder und ihre
+Lege für jeden Style unter `theme/elements/` einschließlich des Defaults
+verpflichtend eine TypeScript-Beschreibung `style-<name>.ts` direkt neben der
+zugehörigen SCSS-Datei ab. Das gilt für NTL-/NTE-Komponenten, IDs und Klassen.
+Die Datei beschreibt Zielselektor, Variante, Zweck und verfügbare
+Funktionsklassen. Der Variantenkatalog verwendet diese Beschreibungen. Dokumentiere die Scope-Felder und ihre
 Fallbacks bei der Umsetzung. Der [Strukturvorschlag](proposals/2026-11-27-layout-rahmen-und-color-sets.md)
 beschreibt die Ablage und die schrittweise Einführung.
