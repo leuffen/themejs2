@@ -72,14 +72,12 @@ final class BrowserToolSet implements AiToolSet
             }
             $alias = $kind . '-' . $page['name'] . '-' . $viewport;
             $file = $this->outputDirectory . '/' . (++$this->captureNumber) . '-' . $alias . '.png';
-            phore_log()->warning('Screenshot gestartet: {url} ({viewport})', ['url' => $url, 'viewport' => $viewport]);
             $status = 'abgebrochen';
             try {
                 $view = $this->browser->open($url, $viewport);
                 if (file_put_contents($file, $this->browser->screenshot()) === false) {
                     throw new RuntimeException('Cannot save screenshot: ' . $file);
                 }
-                phore_log()->warning('Screenshot gespeichert: {}', [$file]);
                 $result = new MultiPrompt([
                     ImagePrompt::fromFile($file, alias: $alias, instructions: sprintf(
                         '%s page %s at %s. Full document height. Actual viewport %sx%s.',
@@ -90,10 +88,11 @@ final class BrowserToolSet implements AiToolSet
                 $status = 'erfolgreich';
                 return $result;
             } catch (RuntimeException $error) {
+                $status = $error->getMessage();
                 throw new RecoverableToolException($error->getMessage(), previous: $error);
             } finally {
                 $this->browser->close();
-                phore_log()->warning('Screenshot beendet: {url} ({viewport}), {status}', ['url' => $url, 'viewport' => $viewport, 'status' => $status]);
+                phore_log()->info('Screenshot {url} ({viewport}): {status}', ['url' => $url, 'viewport' => $viewport, 'status' => $status === 'erfolgreich' ? $file : $status]);
             }
         }
         throw new RecoverableToolException('Screenshot URL must exactly match a configured target or live reference URL.');
@@ -165,7 +164,7 @@ final class BrowserToolSet implements AiToolSet
                 $url = $kind === 'reference' ? $entry['reference'] : $this->job->preview . $entry['target'];
                 try {
                     // Das Ziel vor der Navigation loggen, damit auch Fehlschläge zugeordnet werden können.
-                    phore_log()->info('Browser-Inspektion ({kind}): {url} ({viewport}), Selektor: {selector}', ['kind' => $kind, 'url' => $url, 'viewport' => $viewport, 'selector' => $selector]);
+                    phore_log()->debug('Browser-Inspektion ({kind}): {url} ({viewport}), Selektor: {selector}', ['kind' => $kind, 'url' => $url, 'viewport' => $viewport, 'selector' => $selector]);
                     $view = $this->browser->open($url, $viewport);
                     $elements = $this->browser->inspect($selector, includeRules: $includeRules, singleNode: true);
                     $console = $this->browser->console();
@@ -175,7 +174,7 @@ final class BrowserToolSet implements AiToolSet
                         unset($element['matchedRules']);
                         return $element;
                     }, $elements);
-                    phore_log()->info('Browser-Inspektion: {count} Elemente; JSON-Größen: Elementdaten ohne CSS-Regeln {elements} B, CSS-Regeln {rules} B, Browserdiagnosen {diagnostics} B', [
+                    phore_log()->debug('Browser-Inspektion: {count} Elemente; JSON-Größen: Elementdaten ohne CSS-Regeln {elements} B, CSS-Regeln {rules} B, Browserdiagnosen {diagnostics} B', [
                         'count' => count($elements),
                         'elements' => strlen(Toolkit::jsonEncode($elementDetails)),
                         'rules' => strlen(Toolkit::jsonEncode($rules)),
@@ -224,9 +223,9 @@ final class BrowserToolSet implements AiToolSet
         $total = count($lines);
         // Den tatsächlich gelieferten Bereich auch für Seiten aus dem Cache ausgeben.
         if ($page === []) {
-            phore_log()->info('Browser-Inspektion: keine Zeilen ab {start} (insgesamt {total})', ['start' => $startLine, 'total' => $total]);
+            phore_log()->debug('Browser-Inspektion: keine Zeilen ab {start} (insgesamt {total})', ['start' => $startLine, 'total' => $total]);
         } else {
-            phore_log()->info('Browser-Inspektion: Zeilen {start} bis {end} von {total}', ['start' => $startLine, 'end' => $next - 1, 'total' => $total]);
+            phore_log()->debug('Browser-Inspektion: Zeilen {start} bis {end} von {total}', ['start' => $startLine, 'end' => $next - 1, 'total' => $total]);
         }
         return [
             'startLine' => $startLine,

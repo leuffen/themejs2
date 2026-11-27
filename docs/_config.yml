@@ -48,6 +48,15 @@ defaults:
       path: ""
     values:
       layout: default
+  # Seitenschalter für den umgestellten Dommer-Rahmen.
+  - scope:
+      path: themes/dommer
+    values:
+      show_navbar: true
+      show_title: true
+      show_footer: true
+      navigation_root: themes/dommer
+      brand_url: /themes/dommer/dommer-start.html
   - scope:
       path: ""
       type: posts

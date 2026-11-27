@@ -1,36 +1,33 @@
-Analyze the supplied reference pages and fixed design files before any edits.
-Load and follow the applicable ThemeJS2 skills, especially
-erstelle-theme-nach-vorlage, modify-theme and browserless-screenshots-debugging.
-If no external or file reference was provided, derive the criteria from the
-work order and use the first pre-change target captures as the baseline.
-Use the previously established project map to connect the reference to
-reusable theme components. Do not repeat project discovery.
-Use the supplied screenshot instructions and viewport labels. Analyze every
-page separately, then identify shared theme tokens, reusable sections,
-typography, geometry, and responsive differences. For live pages, correlate
-screenshots and the rendered body structure. Use `browser_capture` with the
-live reference URL and one viewport from `capture-plan` per call. Request each
-configured size separately. Use the body to identify elements and read local
-project sources where applicable.
-Call browser_inspect with kind=reference only when an unresolved question
-requires computed styles, geometry or a winning rule. Inspect one element
-and viewport per call with a selector that matches exactly one node. Query parents, children and any necessary rules sequentially, not
-with grouped selectors. Use local sources from the current checkout when
-available; for external references, use browser rules only as needed to
-explain the measured appearance.
-Use the console and network diagnostics returned by inspection and call
-browser_get_console when investigating errors. Record actual computed
-values, box geometry, matching selectors, source/line or source map when
-available, responsive changes and relevant errors. Do not invent missing
-source locations. For design-file-only references, explicitly note that
-live DOM/CSS inspection is unavailable.
+# Referenzanalyse
 
-Map the reference to existing Nextrap NTL layouts and NTE elements, their
-slots, parts, modifiers and theme tokens. Do not copy the original website's
-content, HTML or framework. Distinguish measured facts from estimates and
-report missing design sizes. Return a compact reference analysis including
-the section matrix and target mapping. End with the exact heading
-"## Project Findings" and a compact list of verified reference inspection
-findings with page, viewport, selector and relevant values/rules/errors.
-These findings are persisted and become part of the initial checkpoint.
-Do not edit files or capture additional unconfigured pages.
+## Regeln
+
+### § 3 Referenzanalyse
+
+#### § 3.1 Referenzen und Baselines
+
+Analyze each configured reference separately before editing. Use
+`browser_capture` once per live URL and configured viewport from capture-plan.
+Use supplied images or PDFs directly. Capture each local target at each
+configured viewport as the baseline. Derive criteria from the work order
+when a page has no supplied reference.
+
+#### § 3.2 Komponentenabgleich und Messungen
+
+Map the sections, layout, typography and spacing to existing NTL/NTE
+composition and theme tokens. Use `browser_inspect` with kind=reference when
+a specific computed value, geometry or rule is unclear. Use a selector
+matching a single element per call. Record measured values, viewport, source
+location when available and relevant console/network diagnostics. Distinguish
+estimates from measurements and note missing design sizes.
+
+#### § 3.3 Priorisiertes Backlog und Befunde
+
+Compare each target with its reference and return a brief section matrix.
+Add `## To-do` with a prioritized backlog of concrete differences. For each
+item give the page, viewport, observed vs expected result and acceptance
+check. Group differences that have the same cause. Prioritize structure and
+responsive defects before spacing and details. Mark read-only verification
+pages in the report and keep out-of-scope work out of the edit backlog.
+End with the exact heading
+`## Project Findings` and verified inspection findings for the checkpoint.

@@ -154,7 +154,7 @@ ausschließlich ein Kundenprojekt angepasst werden soll. Keine zusätzlichen
 
 Verwende für Abstände (`margin`, `padding`, `gap` und Abstands-Offsets) zuerst die vorhandenen semantischen `--nt-*`-Variablen aus Nextrap Style Base. Prüfe die verfügbaren Tokens im eingebundenen Style Base und nutze die passende Rolle oder Stufe der Abstands-Skala. Verwende einen festen Abstandswert nur, wenn sich der benötigte Abstand mit keinem vorhandenen Token sinnvoll ausdrücken lässt. Begründe diese Ausnahme kurz am Code. Erfinde keine `--nt-*`-Variablen und lege keine parallele Abstands-Skala an.
 
-Verwende für Farben vorhandene semantische `--nt-*`-Farbvariablen aus Nextrap Style Base, statt Farbwerte in einzelnen Komponenten fest einzutragen. Wenn die Dommer-Farbpalette abweicht, überschreibe bei Bedarf `--nt-primary` und weitere vorhandene Farbvariablen zentral in einem `<style>`-Block in `docs/_layouts/layout-dommer.html`. Begrenze die Überschreibung auf den vorgesehenen Bereich, wenn das Layout von weiteren Seiten genutzt wird. Feste Farbwerte gehören in die Token-Definition, nicht in die Komponentenregeln.
+Verwende für Farben vorhandene semantische `--nt-*`-Farbvariablen aus Nextrap Style Base, statt Farbwerte in einzelnen Komponenten fest einzutragen. Wenn die Dommer-Farbpalette abweicht, überschreibe bei Bedarf `--nt-primary` und weitere vorhandene Farbvariablen zentral im dafür vorgesehenen Theme-Scope. Begrenze die Überschreibung auf den vorgesehenen Bereich, wenn das Layout von weiteren Seiten genutzt wird. Feste Farbwerte gehören in die Token-Definition, nicht in die Komponentenregeln.
 
 ## Prüfung
 
