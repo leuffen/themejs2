@@ -1,5 +1,26 @@
 # Repository-Regeln
 
+| Datum | Wesentliche Änderung | Commit |
+| --- | --- | --- |
+| 2026-11-27 | Verbindlichen Einstieg und nummerierte Regeldateien unter `AGENTS/` eingeführt. | [`5a9bb7b0`](https://github.com/leuffen/themejs2/commit/5a9bb7b02b46103c7b8f7e1a926ff0965cd5d632) (Ausgangsstand) |
+
+`AGENTS.md` ist die maßgebliche Quelle für alle Änderungen an ThemeJS2.
+Bei jeder Entwicklung im Projekt gelten sämtliche Regeln dieser Datei und
+die verbindlichen Regelwerke und Referenzen, auf die sie verweist.
+Projektspezifische Regeln werden in `AGENTS.md` oder `AGENTS/` gepflegt.
+Agent-Skills wie `modify-theme` dienen dem projektübergreifenden Einsatz.
+Übernimm die ThemeJS2-Regeln daher niemals in Agent-Skills. Bei fachlichem
+Konflikt hat das Repository-Regelwerk Vorrang.
+
+- [§ 1 Repository Structure](AGENTS/1_repository-structure.md) regelt die Verzeichnisstruktur.
+
+Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
+Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
+demselben Paragrafen, etwa `1_repository-structure.md` mit
+`§ 1 Repository Structure`. Die Regeldateien führen oben eine Tabelle zu
+wesentlichen Änderungen mit Datum und Commit. Ausführliche Changelogs
+werden ausschließlich in Proposals geführt.
+
 ## Regeln
 
 ### § 5 Repository-Regeln
@@ -267,28 +288,7 @@ Ein fester Kundenrahmen gemäß § 5.9 kann dieselben Styles direkt im Markup w�
 Halte die verfügbaren Funktionsklassen je Bereich im editierbaren Markup.
 Ein führendes `-` kennzeichnet einen deaktivierten Schalter. Setzt ein Scope
 für denselben Schalter einen anderen Zustand, ersetzt er die vorhandene Form.
-Die Sichtbarkeit ganzer Bereiche steuern weiterhin die `show_*`-Felder. Halte
-seitenweit austauschbare Farb-, Schrift-, Rundungs- und Rahmenwerte als
-Variants unter `theme/variants/`. Die gemeinsame Theme-Wurzel ist `theme/`
-mit `elements/` und `variants/` direkt darunter. Layouts und Varianten verwenden
-diese Werte über Tokens und behalten ihre jeweilige Struktur und Funktion.
-
-Lege pro seitenweiter Variant genau eine Datei
-`theme/variants/_variant_<name>.scss` an. Die Datei exportiert genau ein
-Sass-Mixin `variant-<name>`. Das Mixin gibt genau eine CSS-Klasse
-`.variant-<name>` aus. Der Klassenblock enthält ausschließlich
-CSS-Custom-Property-Deklarationen.
-
-Setze regulär nur vorhandene `--nt-*`-Variablen aus Nextrap Style Base.
-Dazu gehören Werte für Schriften, Farben, Rahmen und Hintergründe.
-Verwende semantische Defaults und leite weitere Werte nach Möglichkeit
-von der Primärfarbe ab. Neue `--theme-*`-Variablen erfordern die
-ausdrückliche Zustimmung des Entwicklers.
-
-Lege neben jeder `_style-*.scss` unter `theme/elements/` ein gleichnamiges
-Markdown-Sidecar mit `description` im Front Matter und mindestens einem
-Verwendungsbeispiel ab. Die [Referenz für Element-Styles und Markdown-Sidecars](.agents/skills/modify-theme/references/element-style-sidecars.md)
-ist verbindlich. Ein separates System liest die Sidecars aus. Dokumentiere
-die Scope-Felder und ihre
-Fallbacks bei der Umsetzung. Der [Strukturvorschlag](proposals/2026-11-27-layout-rahmen-und-color-sets.md)
-beschreibt die Ablage und die schrittweise Einführung.
+Die Sichtbarkeit ganzer Bereiche steuern weiterhin die `show_*`-Felder.
+Die Ablage der Styles und Variants regelt [§ 1 Repository Structure](AGENTS/1_repository-structure.md).
+Dokumentiere Scope-Felder und Fallbacks bei der Umsetzung.
+Der [Strukturvorschlag](AGENTS/proposals/2026-11-27-layout-rahmen-und-color-sets.md) beschreibt die schrittweise Einführung.

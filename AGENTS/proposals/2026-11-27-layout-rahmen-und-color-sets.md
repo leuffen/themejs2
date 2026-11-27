@@ -10,6 +10,7 @@
 | 2026-11-27 | dermatthes | §§ 3.1, 5 und 6: Element-Ablage und Markdown-Sidecars verbindlich beschrieben |
 | 2026-11-27 | dermatthes | § 3.2: Dateikonvention, Mixin und zulässige Variant-Tokens festgelegt |
 | 2026-11-27 | dermatthes | § 3.1: Ablage nach Elementfunktion und Ausnahmen für Selektoren präzisiert |
+| 2026-11-27 | dermatthes | §§ 2, 3 und 3.1: Unter AGENTS abgelegt und verbindliches Regelwerk verlinkt |
 
 ## § 1 Ziel
 
@@ -27,7 +28,7 @@ Fälle, in denen zusätzliche Informationen oder eine andere Struktur nötig sin
 | `docs/_src/style.scss` lädt bisherige `.theme-*`-Profile. `theme/shared/_profiles.scss` enthält bereits Profilwerte. | Rein visuelle Werte schrittweise als Variants anbieten. Bestehende Selektoren und öffentliche Sass-Imports während der Migration weiter unterstützen. |
 | `docs/_layouts/theme-dommer.html` erbt von `blank` und enthält Navbar, optionalen Seitentitel, Content Pane und Footer. | Dommer als erstes Beispiel für den gemeinsamen Rahmen übernehmen. Den Content Pane und die vorhandenen Sichtbarkeitsschalter erhalten. |
 | §§ 5.6, 5.9 und 5.10 der `AGENTS.md` beschreiben für Kundenvorlagen einen festen editierbaren Rahmen. | Ein Kundenprojekt behält einen aktiven Rahmen. Klassen am festen Markup und eine Variant benötigen weder zusätzliche Layouts noch einen Dispatcher. |
-| Das [Baukasten-Proposal](2026-11-26-gemeinsame-komponentenstile.md) sieht gemeinsame Varianten vor und nennt `use_navbar` und `use_footer` als Übergang. | Den Baukasten weiterverwenden. Für migrierte Rahmen gilt die Auswahl von Klassen am gemeinsamen Markup. Ein abweichendes Layout bleibt für echte Strukturunterschiede vorgesehen. |
+| Das [Baukasten-Proposal](../../proposals/2026-11-26-gemeinsame-komponentenstile.md) sieht gemeinsame Varianten vor und nennt `use_navbar` und `use_footer` als Übergang. | Den Baukasten weiterverwenden. Für migrierte Rahmen gilt die Auswahl von Klassen am gemeinsamen Markup. Ein abweichendes Layout bleibt für echte Strukturunterschiede vorgesehen. |
 
 Der bisherige Theme-Leitfaden reserviert `style-*` für NTL und NTE. Die neue
 Regel erweitert diese Konvention gezielt auf die drei Rahmen-IDs. Styles
@@ -37,7 +38,8 @@ für den Rahmen verwenden deshalb Selektoren wie `#footer.style-default`.
 
 Die Zielstruktur hat eine Theme-Wurzel `theme/`. Die bisherige Ebene
 `theme/shared/` entfällt im Zielaufbau. Element-Styles liegen direkt unter
-`theme/elements/`, seitenweite Designwerte unter `theme/variants/`.
+`theme/elements/`, seitenweite Designwerte unter `theme/variants/`. Die verbindlichen Regeln
+stehen in [§ 1 Repository Structure](../1_repository-structure.md). [geändert]
 
 | Pfad | Verantwortung |
 |---|---|
@@ -51,14 +53,14 @@ Unter `theme/elements/` sind Web Components und HTML-Tags der Regelfall.
 Das Unterverzeichnis trägt direkt den Tag-Namen, etwa `ntl-hero/`,
 `nte-navbar/` oder `header/`. Eine funktionale Spezialformatierung bleibt
 beim zugehörigen Element. Für eine Öffnungszeiten-Tabelle käme etwa
-`table/_style-open-hours-table.scss` infrage. [geändert]
+`table/_style-open-hours-table.scss` infrage.
 
 Eigenständige ID-Styles sind begründete Ausnahmen für feste Layout-Bereiche
 wie `id_footer/` für `#footer`. Ist für einen Style ein eigener
 Klassenselektor nötig, prüfe zuerst, ob der Style überhaupt in
 `theme/elements/` gehört. `class_<klasse>/` ist eine seltene, zu
 begründende Ausnahme. Verwende für mehrteilige Klassennamen Bindestriche.
-BEM-Notation ist unter `theme/elements/` ausgeschlossen. [neu]
+BEM-Notation ist unter `theme/elements/` ausgeschlossen.
 
 Style-Dateien heißen `_style-<name>.scss`. Der Default-Style liegt in
 `_style-default.scss`, sofern das Element dafür eigenes Styling benötigt.
@@ -73,7 +75,7 @@ Das Front Matter enthält ausschließlich `description` für die automatische
 Beispiel. Ein separates System liest die Sidecars aus. Sie gehören außerhalb
 der Demo-Ausgabe.
 
-Die [Referenz für Element-Styles und Markdown-Sidecars](../.agents/skills/modify-theme/references/element-style-sidecars.md)
+Die [Referenz für Element-Styles und Markdown-Sidecars](../references/element-style-sidecars.md)
 ist verbindlich. Ein zusätzlicher Style setzt eine Funktion oder Komposition
 voraus, die kein vorhandener Style abdeckt. Farbwerte gehören in die
 seitenweite Variant unter `theme/variants/`.

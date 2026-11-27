@@ -1,6 +1,6 @@
 # Regelübersicht für ThemeJS2
 
-Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-Regeln aus `AGENTS.md`.
+Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-Regeln aus `AGENTS.md` und `AGENTS/`. Abschnittsnummern gelten innerhalb ihres jeweiligen Regelwerks.
 
 ## Regeln
 
@@ -45,7 +45,17 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 5.13 | Layoutstruktur und Content Pane | [`AGENTS.md`](AGENTS.md) | • Vor Layout-Umbauten TrunkJS-Regeln prüfen und vorhandene Inhaltsdefinitionen für alle betroffenen Seiten erhalten. |
 | § 5.14 | ContentPane-Shortcuts in Markdown | [`AGENTS.md`](AGENTS.md) | • Einzelne Elemente als eigenständige `#[...]`-Zeile schreiben. Komplexe Strukturen dürfen Raw-HTML verwenden. |
 | § 5.15 | Responsive Zuständigkeit | [`AGENTS.md`](AGENTS.md) | • Responsive-Registrierung dem Theme überlassen und mögliche Seiteneffekte vor der Umsetzung klären. |
-| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Jeden Style mit einem gleichnamigen Markdown-Sidecar beschreiben und seitenweite Variants auf die erlaubten CSS-Variablen begrenzen. |
+| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Für die Style-Ablage und die Variants gilt § 1 Repository Structure. |
+
+### Repository Structure
+
+| Paragraf | Regel | Datei | Zweck |
+| --- | --- | --- | --- |
+| § 1 | Repository Structure | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Zielstruktur des Repositories. |
+| § 1.1 | Verzeichnisse | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Zuständigkeit der Verzeichnisse. |
+| § 1.1.1 | `theme/` | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Gemeinsame Wurzel für Theme-Dateien. |
+| § 1.1.1.1 | `theme/elements/` | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Element-Styles und Markdown-Sidecars. |
+| § 1.1.1.2 | `theme/variants/` | [`1_repository-structure.md`](AGENTS/1_repository-structure.md) | Sass-Dateien für seitenweite CSS-Variablen. |
 
 ## Widerspruchsprüfung
 
