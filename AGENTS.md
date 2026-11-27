@@ -195,6 +195,14 @@ Vor jeder Änderung an einer Code-Regel, Funktion, Methode, Klasse, Komponente
 oder einem Mixin müssen die vorhandenen Zweckkommentare evaluiert werden. Wenn
 sich Zweck oder Verhalten ändert, sind die Kommentare anzupassen.
 
+## Layoutstruktur und Content Pane
+
+Prüfe vor jeder Änderung an der Layoutstruktur die TrunkJS-Regeln für
+`tj-content-pane` und wende sie auf das jeweilige Layout an. Du kannst
+Layout-Elemente ergänzen und vorhandene Inhaltsbereiche neu anordnen.
+Verwende dabei die bestehenden Inhaltsdefinitionen weiter und stelle sicher,
+dass das Layout alle Inhalte der Seiten aufnehmen kann, die es verwenden.
+
 ## ContentPane-Shortcuts in Markdown
 
 In Markdown-Inhalten, die durch `tj-content-pane` mit dem `text-block`-Pre-Parser verarbeitet werden, sind einzelne HTML-Elemente nach Möglichkeit mit der Shortcut-Notation `#[...]` statt als Raw-HTML zu schreiben. Jeder Shortcut muss eine eigene vollständige Zeile belegen; der Inhalt in den eckigen Klammern beschreibt das zu rendernde HTML-Element einschließlich CSS-Selector und Attribute, zum Beispiel `#[i class="bi bi-shield-check" aria-hidden="true"]`, und wird von ContentPane als entsprechendes HTML gerendert. Shortcuts dürfen deshalb nicht inline in Überschriften, Links oder anderen Markdown-Zeilen stehen. Beispiele und Demos verwenden die Notation für einzeln darstellbare Elemente; Raw-HTML bleibt nur für tatsächlich verschachtelte oder komplexe Strukturen, die sich nicht sinnvoll mit Standard-Markdown, Kramdown-Attributen oder einem einzelnen ContentPane-Shortcut ausdrücken lassen.
