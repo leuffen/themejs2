@@ -237,3 +237,7 @@ Komponenten, Module, Varianten, Breakpoints, Slots, Zustände oder öffentliche
 APIs vor der Umsetzung geprüft werden. Wenn Seiteneffekte nicht eindeutig
 ausgeschlossen werden können, muss zuerst der User gefragt werden. Die
 Änderung darf bis zur Klärung nicht umgesetzt werden.
+
+#### § 5.16 Announcements
+
+Für Meldungen ist `@leuffen/announcements` aus [leuffen/leuffen-monorepo, packages/announcements](https://github.com/leuffen/leuffen-monorepo/tree/main/packages/announcements) zu verwenden. Die Daten werden im vorhandenen Script-Tag von `10_blanc.html` über `window.openhours = {{ site.data.openhours | jsonify }};` bereitgestellt. Nutze die Klasse `no-announcements` am Element `<leuffen-announcements>` (bezogen auf dessen Typfilter), um Bereiche per CSS, gegebenenfalls mit `:has()`, dynamisch ein- oder auszublenden.
