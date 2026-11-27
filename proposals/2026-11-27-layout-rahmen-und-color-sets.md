@@ -9,6 +9,7 @@
 | 2026-11-27 | dermatthes | §§ 1–6: Zielstruktur, Variants und verpflichtende Style-Beschreibungen präzisiert |
 | 2026-11-27 | dermatthes | §§ 3.1, 5 und 6: Element-Ablage und Markdown-Sidecars verbindlich beschrieben |
 | 2026-11-27 | dermatthes | § 3.2: Dateikonvention, Mixin und zulässige Variant-Tokens festgelegt |
+| 2026-11-27 | dermatthes | § 3.1: Ablage nach Elementfunktion und Ausnahmen für Selektoren präzisiert |
 
 ## § 1 Ziel
 
@@ -46,11 +47,18 @@ Die Zielstruktur hat eine Theme-Wurzel `theme/`. Die bisherige Ebene
 
 ### § 3.1 `theme/elements/`
 
-Unter `theme/elements/` liegen die Unterverzeichnisse direkt nebeneinander.
-Web Components und HTML-Tags verwenden ihren Tag-Namen, etwa `ntl-hero/`,
-`nte-navbar/` oder `header/`. ID-Selektoren verwenden `id_<id>/`, etwa
-`id_footer/` für `#footer`. Klassenselektoren verwenden `class_<klasse>/`,
-etwa `class_hero__specialties/` für `.hero__specialties`.
+Unter `theme/elements/` sind Web Components und HTML-Tags der Regelfall.
+Das Unterverzeichnis trägt direkt den Tag-Namen, etwa `ntl-hero/`,
+`nte-navbar/` oder `header/`. Eine funktionale Spezialformatierung bleibt
+beim zugehörigen Element. Für eine Öffnungszeiten-Tabelle käme etwa
+`table/_style-open-hours-table.scss` infrage. [geändert]
+
+Eigenständige ID-Styles sind begründete Ausnahmen für feste Layout-Bereiche
+wie `id_footer/` für `#footer`. Ist für einen Style ein eigener
+Klassenselektor nötig, prüfe zuerst, ob der Style überhaupt in
+`theme/elements/` gehört. `class_<klasse>/` ist eine seltene, zu
+begründende Ausnahme. Verwende für mehrteilige Klassennamen Bindestriche.
+BEM-Notation ist unter `theme/elements/` ausgeschlossen. [neu]
 
 Style-Dateien heißen `_style-<name>.scss`. Der Default-Style liegt in
 `_style-default.scss`, sofern das Element dafür eigenes Styling benötigt.
@@ -76,16 +84,16 @@ Lege pro seitenweiter Variant genau eine Datei
 `theme/variants/_variant_<name>.scss` an. Die Datei exportiert genau ein
 Sass-Mixin `variant-<name>`. Das Mixin gibt genau eine CSS-Klasse
 `.variant-<name>` aus. Der Klassenblock enthält ausschließlich
-CSS-Custom-Property-Deklarationen. [neu]
+CSS-Custom-Property-Deklarationen.
 
 Setze regulär nur vorhandene `--nt-*`-Variablen aus Nextrap Style Base.
 Dazu gehören Werte für Schriften, Farben, Rahmen und Hintergründe.
 Verwende semantische Defaults und leite weitere Werte nach Möglichkeit
 von der Primärfarbe ab. Neue `--theme-*`-Variablen erfordern die
-ausdrückliche Zustimmung des Entwicklers. [neu]
+ausdrückliche Zustimmung des Entwicklers.
 
 Für Dommer exportiert `_variant_dommer.scss` das Mixin `variant-dommer`,
-das `.variant-dommer` mit den zugehörigen Token-Werten ausgibt. [neu]
+das `.variant-dommer` mit den zugehörigen Token-Werten ausgibt.
 
 ## § 4 Auswahl und Zuständigkeiten
 
