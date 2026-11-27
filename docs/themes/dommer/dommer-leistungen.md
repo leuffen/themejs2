@@ -1,6 +1,7 @@
 ---
 published: true
 layout: theme-dommer
+show_title: false
 title: Leistungen
 description: Zahnersatz und Implantatprothetik bei Dr. Karsten Dommer in Osnabrück-Westerberg.
   Informationen zu Kronen, Brücken und herausnehmbaren Prothesen.
@@ -14,16 +15,28 @@ shiller:
   source: mueller/leistungen.md
 ---
 
+---
+{: layout="2;ntl-hero.style-dommer.hero-box.dommer-services-hero"}
+
+![](https://cdn.leuffen.de//k-dommer-k207/v2/2/c_gfedcba/IMG_6511.webp)
+{: slot="bg"}
+
+---
+{: layout="2.5;.box.-lg:w-100"}
+
+# {{ page.title }}
+{: .section-h3 layout="3" .sec-box .sec-slide}
+
+---
+{: layout="1.5;ntl-columns.dommer-intro.dommer-services" section-class="xl:preserve-empty" section-style="--start-cols: 2.5; --center-cols: 6; --end-cols: 2.25;"}
+
 ## Zahnmedizinische Leistungen in Osnabrück-Westerberg
-{: layout="ntl-2col" data-kicker="Unsere Schwerpunkte" }
+{: data-kicker="Unsere Schwerpunkte" }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/195/c_gfedcba/AdobeStock_513258614.webp)
 
 Unsere Zahnarztpraxis in Osnabrück-Westerberg bietet Zahnmedizin für Kinder
 und Erwachsene. Unser Schwerpunkt ist Zahnersatz, auch auf Implantaten.
-
----
-{: layout="nte-accordion"}
 
 ### Prophylaxe und professionelle Zahnreinigung
 
@@ -70,12 +83,9 @@ Behandlungsplanung berücksichtigen wir das Alter, die Entwicklung des Gebisses
 und den Zustand der Zähne.
 
 ## Kronen, Brücken und Prothesen
-{: layout="ntl-2col" data-kicker="Versorgungsmöglichkeiten" }
+{: data-kicker="Versorgungsmöglichkeiten" }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/134/c_gfedcba/AdobeStock_631666941.webp)
-
----
-{: layout="nte-accordion"}
 
 ### Wann kommt eine Zahnkrone infrage?
 
@@ -111,7 +121,7 @@ Brücken und Prothesen auf Implantaten.
 — Dr. med. dent. Karsten Dommer
 
 ## Implantatprothetik
-{: layout="ntl-2col" data-kicker="Gut zu wissen" }
+{: data-kicker="Gut zu wissen" }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/12/c_gfedcba/smiling-dentist-explaining-tooth-implantation-2021-09-24-03-53-51-utc.webp)
 
@@ -123,10 +133,6 @@ Dabei geht es um den Zahnersatz auf Implantaten. Das chirurgische Einsetzen der
 künstlichen Zahnwurzeln ist ein eigener Behandlungsschritt und wird hier nicht
 als Leistung unserer Praxis beschrieben.
 
-
-
----
-{: layout="nte-accordion"}
 
 ### Welche Versorgung ist bei einzelnen oder mehreren fehlenden Zähnen möglich?
 
@@ -145,3 +151,11 @@ geeigneten Voraussetzungen möglich. Nicht jede Lösung eignet sich für jeden B
 Entscheidend sind unter anderem die Situation des Kieferknochens und der Zustand
 des umliegenden Gewebes. Vor einer Versorgung muss geprüft werden, ob Implantate
 als tragfähige Grundlage für den vorgesehenen Zahnersatz geeignet sind.
+
+---
+{: layout="2;section.dommer-contact-panel" section-slot="end"}
+
+{% include components/site/dommer-contact.md %}
+
+---
+{: layout="/1.5;"}

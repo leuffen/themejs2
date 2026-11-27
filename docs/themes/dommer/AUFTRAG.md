@@ -1,13 +1,14 @@
-Entwicklung eignes _layout für footer und navbar mit namen theme-dommer. Dieses soll von den Seiten 
-genutzt werden. Angleich an die Referenzseite: 
+Anpassung ges gesamten themes an die vorlage.
 
-Du passt erstmal nur die /docs/themes/dommer/dommer-start.md an.
+Du die dateien unter /docs/themes/dommer/ an und das damit verbundene layout theme-dommer.
 
-Home: https://zahnzentral-melle.de/ (schon erledigt - nur gegencheck)
+Vorlagen (so soll es nachher ausseh:
+Home: https://zahnzentral-melle.de/ 
 Leistungen: https://zahnzentral-melle.de/zahnarzt-leistungen/ 
 
 
 Ziehe die <leuffen-announcements>Momentan keine Meldungen.</leuffen-announcements> wie im beispiel in die top line über dem header. Wenn news da sind 
+
 
 
 lege und administriere eine neue /theme/dommer/index.scss und binde diese ein. 

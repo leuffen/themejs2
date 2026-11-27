@@ -2,21 +2,18 @@
 layout: blank
 ---
 <!-- Bündelt den gemeinsamen Rahmen und die Profil-Styles der Dommer-Seiten. -->
-{% assign navigation_root = page.navigation_root | default: site.navigation_root %}
-{% assign brand_url = page.brand_url | default: '/' | relative_url %}
+{% assign navigation_root = page.navigation_root | default: '' %}
+{% assign brand_url = page.brand_url | default: '/themes/dommer/dommer-start.html' | relative_url %}
 <div class="theme-dommer">
   {% unless page.show_navbar == false %}
+  <leuffen-announcements class="dommer-announcements">Momentan keine Meldungen.</leuffen-announcements>
   <!-- Verwendet dieselben Navigationsziele für Desktop und mobiles Menü. -->
-  <nte-navbar class="style-default fixed" scroll-threshold="500" style="--spacer-height: 104px">
-    <!-- Zeigt aktuelle Meldungen oberhalb der Adress- und Navigationszeile. -->
-    <leuffen-announcements class="dommer-announcements no-announcements">Momentan keine Meldungen.</leuffen-announcements>
-    <nte-navbar-line class="style-default style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
-      <div slot="start" class="site-topbar__info">Lieneschweg 57 · Osnabrück-Westerberg</div>
-    </nte-navbar-line>
-    <nte-navbar-line class="style-default dommer-navigation" style="--brand-height: 64px">
+  <nte-navbar class="style-default">
+    <nte-navbar-line class="style-default dommer-navigation">
       <a slot="start" class="brand-logo fw-bold" href="{{ brand_url | escape }}">Dr. Karsten Dommer</a>
       <nte-nav id="dommer-nav-horizontal" slot="end" class="style-default nav-horizontal" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
         {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang %}
+        <a href="/" style="order: 9999">Zurück</a>
       </nte-nav>
       <nte-burger slot="end" aria-label="Navigation öffnen" aria-controls="dommer-sidebar" static-state onclick="document.getElementById('dommer-sidebar')?.toggle()" style="display: block" style-xl="display: none"></nte-burger>
     </nte-navbar-line>
@@ -43,14 +40,11 @@ layout: blank
   {% endunless %}
 
   <!-- Lässt Content Pane die bestehenden Markdown-Sections unverändert aufbauen. -->
-  {% assign page_content = content | strip %}
-  {% unless page_content == empty %}
   <main id="main" class="mx-auto">
     <tj-content-pane pre-parser="text-block">
       {{ content }}
     </tj-content-pane>
   </main>
-  {% endunless %}
 
   <!-- Setzt den Kontakt in der Lesereihenfolge vor die Links; ab XL steht er rechts neben der Navigation. -->
   {% unless page.show_footer == false %}
@@ -58,7 +52,7 @@ layout: blank
     <div class="container py-3 d-flex flex-column xl:flex-row-reverse justify-content-between align-items-center gap-3 text-center">
       <address class="small mb-0">Zahnarztpraxis Dr. Karsten Dommer · Lieneschweg 57 · Osnabrück-Westerberg</address>
       <nav aria-label="Footer-Navigation">
-        <ul class="list-unstyled d-flex gap-3 mb-0">
+        <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
           {% assign navigation_prefix = navigation_root | append: "/" %}
           {% assign footer_pages = site.pages | where_exp: "item", "item.path contains navigation_prefix" | where_exp: "item", "item.ptags contains 'nav'" | where_exp: "item", "item.published != false" %}
           {% include components/navigation/footer.html items=footer_pages show_icons=false %}

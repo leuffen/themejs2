@@ -28,40 +28,28 @@ shiller:
 {: .section-h3 layout="3" .sec-box .sec-slide}
 
 ---
-{: .section-h4 layout="3;.button-bar"}
-
-
-
-
-
+{: layout="1.5;ntl-columns.dommer-intro" section-class="md:desktop xl:preserve-empty" section-style="--start-cols: 2.5; --center-cols: 6; --end-cols: 2.25;"}
 
 ---
-{: layout="1.5;ntl-columns.dommer-intro" section-class="md:desktop xl:preserve-empty" section-style="--start-cols: 2; --center-cols: 6; --end-cols: 2.75;"}
+{: layout="2;section.dommer-intro-main"}
+
+![](https://cdn.leuffen.de//leu-stock/v2/12/c_gfedcba/smiling-dentist-explaining-tooth-implantation-2021-09-24-03-53-51-utc.webp)
 
 ## Zahnersatz und Implantatprothetik
 {: data-kicker="Unsere Schwerpunkte" }
-
-![](https://cdn.leuffen.de//leu-stock/v2/12/c_gfedcba/smiling-dentist-explaining-tooth-implantation-2021-09-24-03-53-51-utc.webp)
 
 In unserer Zahnarztpraxis Dr. Karsten Dommer am Lieneschweg 57 liegen die Tätigkeitsschwerpunkte auf Prothetik und Implantatprothetik. Dazu gehören Kronen, Brücken und Prothesen sowie implantatgetragene Versorgungen. Welche Form von Zahnersatz infrage kommt, hängt von den jeweiligen Voraussetzungen ab.
 
 In unserer Leistungsübersicht erfahren Sie mehr über die verschiedenen Versorgungsmöglichkeiten.
 
+[Unsere Leistungen](/leistungen){: .btn .btn-primary .rounded-pill}
+
+[Mehr über Dr. Karsten Dommer](/ueber-uns){: .btn .btn-primary .rounded-pill}
+
 ---
 {: layout="2;section.dommer-contact-panel" section-slot="end"}
 
-### Sprechstundenzeiten
-
-<liweco-collapse-openhour-table>
-{% include components/site/opening-hours.html class="table opening-hours" %}
-</liweco-collapse-openhour-table>
-
-Wir bitten um eine Terminvereinbarung.
-
-### Termine
-
-Bitte rufen Sie für eine Terminvereinbarung unter **[{{site.data.general.standorte.default.phone1_text}}](tel:{{site.data.general.standorte.default.phone1}})** an oder klicken Sie
-[hier für einen Doctlib-Termin](/termin)
+{% include components/site/dommer-contact.md %}
 
 
 
