@@ -36,7 +36,7 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 5.4 | Versionen bauen und veröffentlichen | [`AGENTS.md`](AGENTS.md) | • npm-Releases über `release/X.Y.Z` nach erfolgreichem Build veröffentlichen. |
 | § 5.5 | `_root` als Vorlage für Nutzprojekte | [`AGENTS.md`](AGENTS.md) | • `_root` als kopierbare Vorlage mit veröffentlichten Abhängigkeiten und direkt nutzbaren Dev-Skripten pflegen. |
 | § 5.6 | Aufbau und Ziel von Demo und Kundenvorlage | [`AGENTS.md`](AGENTS.md) | • Demo an Kundenumsetzungen ausrichten und die Layouts sowie gemeinsamen Bausteine beider Varianten einordnen. |
-| § 5.7 | Gemeinsame Basis, Theme-Profile und Komponenten-Styles | [`AGENTS.md`](AGENTS.md) | • Theme-Profile für Optik und Komponentenvarianten für Struktur, Slots und Responsivität einsetzen. |
+| § 5.7 | Gemeinsame Basis, Theme-Profile und Komponenten-Styles | [`AGENTS.md`](AGENTS.md) | • Pro NTL-/NTE-Instanz höchstens eine Kompositionsvariante wählen. Ohne Angabe setzt die Komponente ihren Default. |
 | § 5.8 | Demo-Layouts und Seitenverzeichnis | [`AGENTS.md`](AGENTS.md) | • Demo-Rahmen über das Seitenlayout wählen und Beispiele mit ihren Dateipfaden verlinken. |
 | § 5.9 | Fester Rahmen in `_root` | [`AGENTS.md`](AGENTS.md) | • Einen festen Kundenrahmen mit Navbar und Footer sowie dem rahmenlosen `blanco` bereitstellen. |
 | § 5.10 | Zusammenspiel und Synchronisation der beiden Versionen | [`AGENTS.md`](AGENTS.md) | • Gemeinsame Includes und ausgewähltes Rahmen-Markup gezielt abgleichen und beide Varianten prüfen. |

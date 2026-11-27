@@ -145,8 +145,14 @@ mit jeder unterstützten `style-*`-Variante kombinierbar sein. Es darf weder
 Slots oder Inhaltsbereiche ein- und ausblenden noch Reihenfolge, Interaktion,
 Spaltenlogik oder responsive Umbruchregeln umschalten.
 
-Eine Klasse wie `style-default`, `style-ribbon` oder `style-feature-list`
-wählt auf der Komponenteninstanz eine eigenständige Komposition. Der
+Pro NTL- oder NTE-Instanz darf höchstens eine `style-*`-Klasse gesetzt sein.
+Wenn keine Style-Variante angegeben ist, setzt die Komponente automatisch
+`style-default`. ThemeJS2 lässt die Klasse in diesem Fall im Markup und in
+Markdown weg. Eine explizite Klasse wie `style-ribbon` oder
+`style-feature-list` wählt eine vollständige, funktional gebundene Komposition.
+Varianten wie `style-cta` und `style-form` können auf getrennten Instanzen
+verwendet werden. Für eine Instanz wird genau eine davon gewählt.
+Dokumentierte Funktionsmodifikatoren bleiben separat einsetzbar. Der
 Komponenten-Style bestimmt Struktur, Slots und Parts, Anordnung, Reihenfolge,
 responsives Verhalten und die dafür nötigen Layout-Regeln. Ein Abstand mit
 struktureller Wirkung gehört ebenfalls hierher, etwa ein Versatz, der ein

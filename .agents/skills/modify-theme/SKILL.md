@@ -42,7 +42,14 @@ Klärung umgesetzt werden.
   migrierte Seitenrahmen gilt § 5.17 der [Repository-Regeln](../../../AGENTS.md)
   für die Varianten an `#header`, `#navbar` und `#footer`.
 - Lege jede NTL-Darstellung in einer benannten Variant wie `&.style-default`, `&.style-header` oder `&.style-testimonial` ab.
-- NTL-Komponenten wählen automatisch `style-default`, wenn kein Style angegeben ist. Style den Default über `.style-default`; ergänze die Class im Demo-Markup nicht nur zur Aktivierung.
+- NTL- und NTE-Elemente setzen automatisch `style-default`, wenn keine
+  Style-Variante angegeben ist. Hinterlege Default-Regeln unter `.style-default`
+  und lasse die Klasse zur Aktivierung des Defaults im Markup und Markdown weg.
+- Setze pro Komponenteninstanz höchstens eine `style-*`-Klasse. Jede Variante
+  definiert eine vollständige Komposition mit ihrem eigenen Funktionsvertrag.
+  Verwende `style-cta` und `style-form` auf getrennten Instanzen, wenn beide
+  Kompositionen gebraucht werden. Dokumentierte Funktionsmodifikatoren können
+  die gewählte Variante ergänzen.
 - Ergänze eine weitere `style-*`-Variant nur für eine allgemeine Darstellung, niemals für einen Kunden, eine Person, eine Seite oder Beispiel-Content.
 - Style NTE-Content über seine dokumentierte API oder eine eigene allgemeine Variant. Hängt das Styling von einer NTL-Komposition ab, bleibt es innerhalb dieser NTL-Variant und verwendet die Child-Pairing-Struktur aus [references/element-child-structure.md](references/element-child-structure.md).
 - Lege Theme-Styles für eine konkrete `ntl-*`- oder `nte-*`-Komponente immer unter `theme/<theme-name>/elements/<component-name>/` ab. Verwende dort einen komponentenspezifischen Entry wie `nte-navbar.scss`, der die zugehörigen `_style-*.scss`-Varianten lädt. Platziere solche Komponenten-Styles nicht lose im zentralen Theme-Entry, damit Struktur, Variante und Komponentenvertrag am gleichen Ort nachvollziehbar bleiben.
@@ -77,7 +84,7 @@ Content muss in Kramdown bearbeitbar bleiben. Bevorzuge ein vorhandenes NTL-Layo
 
 In Markdown-Dokumenten sollen lange Wörter in `h1`, `h2` und `h3` gezielt mit `&shy;` trennbar gemacht werden, wenn sonst unschöne oder instabile Zeilenumbrüche entstehen. Bevorzuge manuelle Trennstellen im Inhalt statt aggressiver automatischer Worttrennung per CSS.
 
-- **DO:** Gib `layout` direkt an der Überschrift an, deren Section das Layout besitzen soll. Lasse den Index weg, wenn er aus der Überschrift ableitbar ist: `## Titel` gefolgt von `{: layout="ntl-2col.style-default" }`.
+- **DO:** Gib `layout` direkt an der Überschrift an, deren Section das Layout besitzen soll. Lasse den Index weg, wenn er aus der Überschrift ableitbar ist: `## Titel` gefolgt von `{: layout="ntl-2col" }`.
 - **DO:** Verwende `hr[layout]` nur für einen Layout-Wrapper oder eine Layout-Steuerung ohne eigene Überschrift, etwa um mehrere bereits betitelte Bereiche gemeinsam zu umschließen.
 - **DON'T:** Stelle einer Überschrift kein `hr[layout]` voran, wenn die Überschrift das Layout selbst besitzen kann. Das HR öffnet eine zusätzliche Zwischenebene, während die folgende Überschrift eine weitere Section auf ihrer Heading-Ebene erzeugt.
 - **DON'T:** Setze keinen expliziten Layout-Index wie `2;` oder `1.5;`, wenn die Heading-Ebene den Index bereits eindeutig vorgibt.

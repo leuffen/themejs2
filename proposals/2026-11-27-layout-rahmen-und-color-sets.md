@@ -4,6 +4,7 @@
 |---|---|---|
 | 2026-11-27 | dermatthes | §§ 1–6: Proposal angelegt |
 | 2026-11-27 | dermatthes | §§ 2, 4.1, 4.2 und 6: Selektoren, Scope-Vorrang und Prüfung präzisiert |
+| 2026-11-27 | dermatthes | §§ 4.1 und 6: Komponenten-Default und Ausschließlichkeit der Varianten präzisiert |
 
 ## § 1 Ziel
 
@@ -26,7 +27,6 @@ Fälle, in denen zusätzliche Informationen oder eine andere Struktur nötig sin
 Der bisherige Theme-Leitfaden reserviert `style-*` für NTL und NTE. Die neue
 Regel erweitert diese Konvention gezielt auf die drei Rahmen-IDs. Styles
 für den Rahmen verwenden deshalb Selektoren wie `#footer.style-default`.
-[neu]
 
 ## § 3 Vorgeschlagene Ablage
 
@@ -49,8 +49,11 @@ vorgesehen. Eine gemeinsame Darstellung bleibt unter derselben Klasse nutzbar,
 auch wenn mehrere Themes sie verwenden.
 
 Jeder Rahmenbereich hat eine `style-*`-Variante und fällt bei fehlender
-Variantenklasse auf `style-default` zurück. Bei NTL und NTE gilt weiterhin der
-jeweilige Komponentenvertrag. Sticky-Verhalten und Ausblenden beim Scrollen
+Variantenklasse auf `style-default` zurück. NTL- und NTE-Instanzen setzen
+`style-default` selbst, wenn keine Style-Variante angegeben ist. Ihr Quellmarkup
+enthält höchstens eine `style-*`-Klasse. Eine Variante ist eine vollständige
+Komposition. CTA und Formular lassen sich über getrennte Instanzen kombinieren.
+Sticky-Verhalten und Ausblenden beim Scrollen
 sind unabhängige Funktionsklassen. Die jeweils verfügbaren Schalter bleiben
 im editierbaren Markup sichtbar. Ein führendes `-` kennzeichnet eine
 deaktivierte Klasse, etwa `-sticky-top` als inaktives Gegenstück zu
@@ -67,7 +70,7 @@ die Klassen an den jeweiligen Bereich. Wenn eine Konfiguration eine
 Funktionsklasse ändert, muss sie die vorhandene aktive oder deaktivierte Form
 ersetzen. Eine konfigurierte `style-*`-Variante ersetzt `style-default`. Die Namen, Zuordnung und Fallbacks werden bei der Umsetzung
 dokumentiert. Die Sichtbarkeit bleibt über `show_navbar`, `show_title` und
-`show_footer` steuerbar. [geändert]
+`show_footer` steuerbar.
 
 Ein Color Set liefert Farben, Schriftfamilien, Rundungen und Rahmen über Tokens.
 Abstände, die zur Komposition einer Rahmenvariante gehören, bleiben in deren
@@ -103,12 +106,14 @@ auch für migrierte Layouts.
 ## § 6 Abnahme
 
 - Je Bereich greifen Default und ausgewählte Variante mit derselben Layout-Datei.
-  Zwei Themes können dieselbe Variante verwenden.
+  Zwei Themes können dieselbe Variante verwenden. Prüfe bei NTL und NTE den
+  automatischen Default ohne Style-Klasse und eine explizite Variante mit
+  genau einer `style-*`-Klasse. [geändert]
 - Der Wechsel des Color Sets ändert die visuellen Werte. Markup,
   Navigationsauswahl und aktivierte Funktionen bleiben dabei gleich.
 - Sticky und Scroll-Verhalten lassen sich unabhängig von der Palette prüfen.
   Deaktivierte Schalter bleiben im Quellmarkup sichtbar. Mit einem Scope-Wechsel
-  auf den Gegenzustand bleibt genau eine Form des Schalters wirksam. [geändert]
+  auf den Gegenzustand bleibt genau eine Form des Schalters wirksam.
 - Start- und Leistungsseite behalten ihre Navigation und den Content Pane.
   Vite und Jekyll bauen die Seiten. Der visuelle Vergleich verwendet
   393 × 852 und 1280 × 800 Pixel.
