@@ -1,0 +1,24 @@
+{
+    "name": "leuffen/themejs2-development",
+    "type": "project",
+    "description": "Local ThemeJS2 development tooling",
+    "require": {
+        "php": ">=8.5",
+        "ext-yaml": "*",
+        "ext-json": "*",
+        "phore/ai-harness": "dev-main",
+        "chrome-php/chrome": "^1.15",
+        "ext-mbstring": "*",
+        "ext-fileinfo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Leuffen\\ThemeJS2\\Development\\": "bin/src/"
+        }
+    },
+    "bin": [
+        "bin/theme-develop"
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
