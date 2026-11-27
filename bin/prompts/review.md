@@ -1,3 +1,11 @@
+# Review
+
+## Regeln
+
+### § 4 Review
+
+#### § 4.1 Vorschau und Prüfumfang
+
 Review with read-only filesystem and browser tools. If verified-changes is
 empty, reuse the pre-edit target captures. Otherwise capture each target at
 each configured viewport after the build. Compare structure, spacing,
@@ -6,15 +14,21 @@ Inspect specific elements when the screenshot leaves a concrete question.
 Check short and long content, clipping, overlap and horizontal overflow where
 fixtures are available. Call out untested cases.
 
+#### § 4.2 Status und Abschlusskriterien
+
 Start with exactly one line: STATUS: DONE, STATUS: CONTINUE or STATUS: BLOCKED.
 DONE requires a successful build and verification of all requested targets
 with no material discrepancies. BLOCKED means a decision or other external
 input is required, or there was no net file change.
 
+#### § 4.3 Kurzbericht
+
 Under `## Kurzbericht`, write in German. Give one short line for what was done,
 one per verified changed path describing the actual edit, and one for the
 next step. If user input is the only way forward, use that last line for one
 specific question. Use verified-changes as the authoritative list of paths.
+
+#### § 4.4 Details, Backlog und Befunde
 
 Under `## Details` retain a concise cumulative account for the next iteration:
 verified effects, unresolved discrepancies and decisions. Include `## To-do`

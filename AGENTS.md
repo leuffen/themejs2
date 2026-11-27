@@ -1,6 +1,10 @@
 # Repository-Regeln
 
-## Verbindliche Skills
+## Regeln
+
+### § 5 Repository-Regeln
+
+#### § 5.1 Verbindliche Skills
 
 Für Arbeiten in diesem Repository sind die jeweils passenden Skills aus
 `/opt/.agents/skills/` zu beachten. Insbesondere gelten die Regeln des
@@ -25,7 +29,7 @@ Verwende dafür Chrome DevTools über Browserless anstelle des allgemeinen
 `browser-screenshot-with-puppeteer`-Skills; prüfe die betroffenen Vorlagen in
 beiden vorgeschriebenen Viewports vor und nach der Änderung.
 
-## Lokale und veröffentlichte Skills
+#### § 5.2 Lokale und veröffentlichte Skills
 
 Das Verzeichnis `.agents/skills/` enthält ausschließlich Skills für die lokale
 Entwicklung von ThemeJS2. Es darf nicht mit dem npm-Paket veröffentlicht und
@@ -36,7 +40,7 @@ Alle extern genutzten Skills, beispielsweise Bearbeitungs- und Content-Skills, m
 des veröffentlichten npm-Pakets; jeder Skill erhält dort ein eigenes
 Unterverzeichnis.
 
-## Entwicklung, statischer Output und CDN
+#### § 5.3 Entwicklung, statischer Output und CDN
 
 Die Website wird später statisch auf einem CDN gehostet. Vite und Jekyll
 werden ausschließlich lokal für die Entwicklung verwendet. Änderungen an der
@@ -61,7 +65,7 @@ verwendbar oder auslieferbar bezeichnet werden. Fehlgeschlagene Builds müssen
 als solche gemeldet werden; vorhandene alte Build-Dateien dürfen nicht als
 Beleg für einen erfolgreichen aktuellen Build gewertet werden.
 
-## Versionen bauen und veröffentlichen
+#### § 5.4 Versionen bauen und veröffentlichen
 
 Neue npm-Versionen werden ausschließlich durch einen Git-Tag im Format
 `release/X.Y.Z` gebaut und veröffentlicht, zum Beispiel `release/1.0.12`.
@@ -82,7 +86,7 @@ nicht manuell geändert werden. Vor dem Tagging ist lokal mit `npm run build` zu
 prüfen, dass der vorgesehene Commit erfolgreich gebaut werden kann. Bereits bei
 npm veröffentlichte Versionsnummern dürfen nicht erneut verwendet werden.
 
-## `_root` als Vorlage für Nutzprojekte
+#### § 5.5 `_root` als Vorlage für Nutzprojekte
 
 Das Verzeichnis `_root` ist die Basis für aus dem Theme abgeleitete Nutzprojekte.
 Es muss deshalb so gepflegt werden, dass es in ein neues Repository kopiert
@@ -92,7 +96,7 @@ sind in `_root` daher als veröffentlichte semantische Versionen und nicht mit
 `workspace:*` einzutragen. Relative Pfade oder lokale Workspace-Verknüpfungen
 dürfen für die Nutzprojekt-Vorlage nicht erforderlich sein.
 
-## Aufbau und Ziel von Demo und Kundenvorlage
+#### § 5.6 Aufbau und Ziel von Demo und Kundenvorlage
 
 Setze Demos unter `docs/` so nah wie möglich an realen Kundenimplementierungen
 um. Verwende für gleichartige Funktionen dieselben Komponenten, Datenquellen,
@@ -106,11 +110,11 @@ Layouts wiederverwendbar bleiben.
 | --- | --- | --- |
 | Themes | Mehrere Themes für Vergleich und Tests | Genau ein Theme in `_src/style.scss` |
 | Navbar und Footer | Feste Kombinationen unter `_layouts/website*.html` mit Markup unter `_includes/frames/` | Genau eine Navbar direkt in `_layouts/50_navbar.html` und ein Footer direkt in `_layouts/60_footer.html` |
-| Auswahl und Ausblenden | Auswahl durch `layout: website-…` im Frontmatter | Keine Variantenabfrage, Ausblendschalter oder Theme-Switcher-Abhängigkeit |
+| Auswahl und Ausblenden | In bestehenden `website-*`-Layouts Auswahl über `layout:`. Für auf `blank` aufgebaute Layouts gelten die globalen Seitenschalter aus [§ 2.2](bin/prompts/project.md#-22-layout-rahmen-und-sichtbarkeit). | Keine Variantenabfrage, Ausblendschalter oder Theme-Switcher-Abhängigkeit |
 | Alternative Rahmen-Dateien | Seitenlayouts `website-none`, `website-footer-only` und `website-navbar-only` | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
 | Gemeinsame Bausteine | Fachliche Includes mit denselben Namen und Parametern wie in `_root` | Verbindliche gemeinsame Include-Struktur für Kundenprojekte |
 
-## Gemeinsame Basis, Theme-Profile und Komponenten-Styles
+#### § 5.7 Gemeinsame Basis, Theme-Profile und Komponenten-Styles
 
 Die gemeinsame ThemeJS2-Basis stellt die Grunddarstellung aller Komponenten
 und ihre funktionalen Standard-Styles bereit. Eine Website aktiviert ihr
@@ -143,7 +147,7 @@ gehört zur Komponente und wird gezielt an der Instanz ausgewählt. Namen mit
 Theme-Herkunft bleiben nur dann als Komponenten-Style sinnvoll, wenn sie
 eine eigenständige Komposition bezeichnen.
 
-## Demo-Layouts und Seitenverzeichnis
+#### § 5.8 Demo-Layouts und Seitenverzeichnis
 
 Eine Endseite in `docs/` wählt den vollständigen Rahmen über `layout:`.
 Die `website-*`-Layouts erben von `20_body` und binden Navbar,
@@ -157,23 +161,23 @@ ihrem Dateipfad als Beschriftung. Demo-Endseiten erhalten ihre URL aus dem
 Dateinamen und Verzeichnis. Kategorien stehen als Überschriften auf der
 Startseite.
 
-## Fester Rahmen in `_root`
+#### § 5.9 Fester Rahmen in `_root`
 
 Die Kundenvorlage enthält genau einen aktiven Website-Rahmen: Das Markup der gewählten Navbar steht direkt in `_root/docs/_layouts/50_navbar.html`, das des gewählten Footers direkt in `_root/docs/_layouts/60_footer.html`. Individuelle Kundenanpassungen erfolgen in diesen beiden Dateien. Es werden weder Demo-Dispatcher noch `use_navbar`-/`use_footer`-/`skip-navbar`-Abfragen, zusätzliche Rahmenfragmente, Variantenkopien oder Theme-Switcher-Imports und -Abhängigkeiten übernommen. Fachliche Navigationselemente wie das mobile Menü bleiben Bestandteil der festen Navbar. Das rahmenlose `blanco`-Layout hat eine feste Layout-Verknüpfung zu `20_body` und benötigt keine Schaltlogik.
 
-## Zusammenspiel und Synchronisation der beiden Versionen
+#### § 5.10 Zusammenspiel und Synchronisation der beiden Versionen
 
-Die Demo-Kette lautet `10_blanc → 20_body → website-*`. Die Kundenvorlage verwendet weiterhin `10_blanc → 20_body → 50_navbar → 60_footer → 70_main`. `20_body` enthält die gemeinsamen seitenweiten Laufzeit-Bausteine. Fachliche Includes, Slots, Attribute und das gerenderte Markup der gewählten Rahmenvariante müssen in Demo und Kundenvorlage zusammenpassen. Funktionale Gleichheit bezieht sich auf diese gewählte Variante, nicht auf identische Layout-Quelldateien: In der Demo wird sie eingebunden, im Kundenlayout steht ihr Markup direkt. Die Demo-Auswahl selbst gehört ausdrücklich nicht zum Kundenverhalten.
+Für bestehende `website-*`-Layouts lautet die Demo-Kette `10_blanc → 20_body → website-*`. Auf `blank` aufgebaute Layouts verwenden `10_blanc → 20_body → blank → konkretes Layout`. Die Kundenvorlage verwendet weiterhin `10_blanc → 20_body → 50_navbar → 60_footer → 70_main`. `20_body` enthält die gemeinsamen seitenweiten Laufzeit-Bausteine. Fachliche Includes, Slots, Attribute und das gerenderte Markup der gewählten Rahmenvariante müssen in Demo und Kundenvorlage zusammenpassen. Funktionale Gleichheit bezieht sich auf diese gewählte Variante, nicht auf identische Layout-Quelldateien: In der Demo wird sie eingebunden, im Kundenlayout steht ihr Markup direkt. Die Demo-Auswahl selbst gehört ausdrücklich nicht zum Kundenverhalten.
 
 Bei einer Änderung zuerst prüfen, ob sie einen gemeinsamen Include, eine reine Demo-Variante oder den für `_root` gewählten Rahmen betrifft. Gemeinsame Includes unter `components/`, `helpers/` und `fragments/` in beiden Versionen unter identischen Pfaden aktualisieren. Betrifft die Änderung den ausgewählten Kundenrahmen, das entsprechende Demo-Markup gezielt in `50_navbar.html` bzw. `60_footer.html` übernehmen; dabei Layout-Frontmatter und genau ein `{{ content }}` nach der Navbar bzw. vor dem Footer erhalten. Nicht die Demo-Verzeichnisse oder Dispatcher kopieren. Änderungen an anderen Demo-Varianten erzeugen keine weiteren Kundenlayouts. Kundendaten und individuelle Anpassungen dürfen bei späteren Übernahmen nicht durch Demo-Daten überschrieben werden.
 
 Ein neues Kundenprojekt erhält den Inhalt von `_root/` als Projektwurzel und verwendet das veröffentlichte Theme-Paket über seine regulären Package-Imports. Ein Paketupdate ersetzt nicht automatisch die ins Kunden-Repository kopierten Layouts und Includes; notwendige Änderungen an diesen Dateien werden gezielt abgeglichen. Vor Abschluss sowohl die betroffenen Demo-Varianten als auch die feste Kundenversion prüfen: Include-Auflösung, Slots und Markup, genau eine Navbar und ein Footer im normalen Kundenlayout sowie keine verbliebene Demo-Auswahl oder Schaltwerkzeuge in `_root`.
 
-## Include-Namen und `_root` als Quelle der Wahrheit
+#### § 5.11 Include-Namen und `_root` als Quelle der Wahrheit
 
 `_root` ist die Quelle der Wahrheit für die gemeinsame fachliche Include-Struktur und deren öffentliche Namen und Parameter. Diese Pfade bleiben in `docs` und `_root` gleich. Die ausdrücklich demoexklusiven Rahmenvarianten unter `docs/_includes/frames/` sind davon ausgenommen und werden nicht in `_root` nachgebildet. Änderungen an gemeinsamen Include-Namen und -Pfaden, insbesondere Umbenennen, Verschieben, Hinzufügen oder Entfernen, benötigen die ausdrückliche Zustimmung des Users; ohne diese Zustimmung sind nur inhaltliche oder technische Anpassungen bei unveränderter gemeinsamer Struktur zulässig.
 
-## Dokumentation von Code-Blöcken
+#### § 5.12 Dokumentation von Code-Blöcken
 
 Alle Code-Dateien werden nach funktionalen Blöcken kommentiert. Das gilt unter
 anderem für SCSS, CSS, TypeScript, JavaScript, HTML, PHP und Konfigurations-
@@ -195,7 +199,7 @@ Vor jeder Änderung an einer Code-Regel, Funktion, Methode, Klasse, Komponente
 oder einem Mixin müssen die vorhandenen Zweckkommentare evaluiert werden. Wenn
 sich Zweck oder Verhalten ändert, sind die Kommentare anzupassen.
 
-## Layoutstruktur und Content Pane
+#### § 5.13 Layoutstruktur und Content Pane
 
 Prüfe vor jeder Änderung an der Layoutstruktur die TrunkJS-Regeln für
 `tj-content-pane` und wende sie auf das jeweilige Layout an. Du kannst
@@ -203,11 +207,11 @@ Layout-Elemente ergänzen und vorhandene Inhaltsbereiche neu anordnen.
 Verwende dabei die bestehenden Inhaltsdefinitionen weiter und stelle sicher,
 dass das Layout alle Inhalte der Seiten aufnehmen kann, die es verwenden.
 
-## ContentPane-Shortcuts in Markdown
+#### § 5.14 ContentPane-Shortcuts in Markdown
 
 In Markdown-Inhalten, die durch `tj-content-pane` mit dem `text-block`-Pre-Parser verarbeitet werden, sind einzelne HTML-Elemente nach Möglichkeit mit der Shortcut-Notation `#[...]` statt als Raw-HTML zu schreiben. Jeder Shortcut muss eine eigene vollständige Zeile belegen; der Inhalt in den eckigen Klammern beschreibt das zu rendernde HTML-Element einschließlich CSS-Selector und Attribute, zum Beispiel `#[i class="bi bi-shield-check" aria-hidden="true"]`, und wird von ContentPane als entsprechendes HTML gerendert. Shortcuts dürfen deshalb nicht inline in Überschriften, Links oder anderen Markdown-Zeilen stehen. Beispiele und Demos verwenden die Notation für einzeln darstellbare Elemente; Raw-HTML bleibt nur für tatsächlich verschachtelte oder komplexe Strukturen, die sich nicht sinnvoll mit Standard-Markdown, Kramdown-Attributen oder einem einzelnen ContentPane-Shortcut ausdrücken lassen.
 
-## Responsive Zuständigkeit
+#### § 5.15 Responsive Zuständigkeit
 
 `tj-responsive` ist bereits im Theme beziehungsweise in der Website-Struktur
 registriert und wird dort bereitgestellt. Es darf bei der Entwicklung oder
