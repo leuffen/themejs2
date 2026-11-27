@@ -15,6 +15,9 @@ Konflikt hat das Repository-Regelwerk Vorrang.
 Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
 Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
 demselben Paragrafen, etwa `1_Zielsetzung.md` mit `§ 1 Zielsetzung`.
+Referenzen liegen unter `AGENTS/references/` in einem Unterverzeichnis,
+das genauso heißt wie die zugehörige Regeldatei ohne `.md`.
+Zu `2_Theme.md` gehört beispielsweise `AGENTS/references/2_Theme/`.
 
 Pro HTML-Element oder Web-Component-Instanz ist höchstens eine `style-*`-Klasse zulässig. Ein Style kann dokumentierte Modifier mit einem anderen Klassenpräfix anbieten.
 

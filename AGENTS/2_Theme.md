@@ -71,7 +71,7 @@ Das Front Matter enthält ausschließlich `description`. Darunter stehen
 die Verwendung, relevante Voraussetzungen, unterstützte Modifier und
 mindestens ein Beispiel für die eigenständige Funktion.
 Ein separates System liest die Usage-Dateien aus. Sie bleiben außerhalb der
-Demo-Ausgabe. Das [Usage-Beispiel](references/_style-demonstration.usage.md) zeigt
+Demo-Ausgabe. Das [Usage-Beispiel](references/2_Theme/_style-demonstration.usage.md) zeigt
 das Format am dazugehörigen SCSS-Beispiel.
 
 ### § 2.1.3 Benennung eines Elements
@@ -96,7 +96,7 @@ dokumentierte Ausnahme zulässig.
 Zum Beispiel ergibt `class="style-open-hours open-hours-dark"` den
 Selektor `table.style-open-hours.open-hours-dark`. Pro Element bleibt
 eine `style-*`-Klasse zulässig. Die
-[SCSS-Demonstration](references/_style-demonstration.scss) zeigt das Mixin
+[SCSS-Demonstration](references/2_Theme/_style-demonstration.scss) zeigt das Mixin
 mit einem Modifier und die Einbindung im Sass-Einstieg.
 
 ### § 2.1.5 Format der Usage-Beispiele
@@ -144,5 +144,5 @@ ausdrückliche Zustimmung des Entwicklers.
 Für Dommer exportiert `_variant-dommer.scss` das Mixin `variant-dommer`,
 das `.variant-dommer` mit den zugehörigen Token-Werten ausgibt.
 
-Das [Variant-Beispiel](references/_variant-demonstration.scss) zeigt eine
+Das [Variant-Beispiel](references/2_Theme/_variant-demonstration.scss) zeigt eine
 Klasse mit einem konkreten Primärwert und weiteren Nextrap-Tokens.

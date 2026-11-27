@@ -63,7 +63,7 @@ Das Front Matter enthält ausschließlich `description` für die automatische
 Beispiel. Ein separates System liest die Usage-Dateien aus. Sie gehören außerhalb
 der Demo-Ausgabe.
 
-Das [Usage-Beispiel](../references/_style-demonstration.usage.md) zeigt das Format. Ein zusätzlicher Style setzt eine Funktion oder Komposition
+Das [Usage-Beispiel](../references/2_Theme/_style-demonstration.usage.md) zeigt das Format. Ein zusätzlicher Style setzt eine Funktion oder Komposition
 voraus, die kein vorhandener Style abdeckt. Farbwerte gehören in die
 seitenweite Variant unter `theme/variants/`.
 
