@@ -14,6 +14,8 @@ Konflikt hat das Repository-Regelwerk Vorrang.
 - [§ 2 Theme-Verzeichnis](AGENTS/2_Theme.md) regelt Element-Styles und Variants.
 - [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md) beschreibt die Demo unter `docs/`.
 - [§ 4 Libraries](AGENTS/4_Libraries.md) regelt Nextrap und TrunkJS.
+- [§ 5 Skills](AGENTS/5_Skills.md) grenzt ausgelieferte Nutzungs-Skills
+  von Skills für die Repository-Entwicklung ab.
 
 Der Name jeder nummerierten Regeldatei unter `AGENTS/` beginnt mit der
 Nummer des Hauptparagrafen und einem Unterstrich. Der Titel beginnt mit
@@ -59,9 +61,11 @@ Das Verzeichnis `.agents/skills/` enthält ausschließlich Skills für die lokal
 Entwicklung von ThemeJS2. Es darf nicht mit dem npm-Paket veröffentlicht und
 nicht als Ablage für Skills verwendet werden, die Paketnutzer benötigen.
 
-Alle extern genutzten Skills, beispielsweise Bearbeitungs- und Content-Skills, müssen unter
-`skills/<skillName>/` liegen. Das Root-Verzeichnis `skills/` ist Bestandteil
-des veröffentlichten npm-Pakets; jeder Skill erhält dort ein eigenes
+Die für Kundenprojekte bestimmten Nutzungs-Skills, beispielsweise Bearbeitungs-
+und Content-Skills, müssen unter `skills/<skillName>/` liegen. Sie dienen der
+Nutzung von ThemeJS2, nicht der Entwicklung dieses Repositorys; die Abgrenzung
+regelt [§ 5 Skills](AGENTS/5_Skills.md). Das Root-Verzeichnis `skills/` ist
+Bestandteil des veröffentlichten npm-Pakets; jeder Skill erhält dort ein eigenes
 Unterverzeichnis.
 
 #### § 5.3 Entwicklung, statischer Output und CDN
