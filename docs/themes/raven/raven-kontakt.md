@@ -9,7 +9,7 @@ order: 20
 
 <!-- Der bestehende Raven-Kontakt wird als eigene Demo-Seite gezeigt. -->
 ## Kontakt & Anfahrt
-{: layout="ntl-2col.with-justify-top.surface-white" data-kicker="OCP Darmstadt" section-style="--cols: 5;" }
+{: .kicker-line layout="ntl-2col.with-justify-top.surface-white.default-open" data-kicker="OCP Darmstadt" section-style="--cols: 5;" }
 
 **OCP Darmstadt**  
 Dres. Behr, Erben, Primbs, Rau  
@@ -25,7 +25,7 @@ Telefon: (06151) 780750
 </nte-consent-blocker>
 
 ---
-{: layout="nte-accordion.style-default.bottom[exclusive]" }
+{: layout="nte-accordion.bottom.style-process[exclusive]" }
 
 ### Anreise mit Bus und Bahn
 
@@ -45,20 +45,20 @@ Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefr
 ## Schreiben Sie uns
 {: layout="2.1;ntl-2col.style-form" .top }
 
-#[nte-input.style-default type="text" name="name" label="Name" required]
-#[nte-input.style-default type="email" name="email" label="E-Mail" required]
-#[nte-input.style-default type="text" name="telefon" label="Telefon"]
+#[nte-input type="text" name="name" label="Name" required]
+#[nte-input type="email" name="email" label="E-Mail" required]
+#[nte-input type="text" name="telefon" label="Telefon"]
 
 ---
 {: layout=".aside" }
 
-#[nte-input.style-default type="textarea" name="nachricht" label="Nachricht" required]
-#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
+#[nte-input type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
 
 
 <!-- Die Schluss-Section bietet einen klaren Kontaktweg im Raven-Theme. -->
 ## Fragen zu Ihren Beschwerden?
-{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
+{: .kicker-line layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
 
 [Kontakt & Termin]({{ '/themes/raven/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }

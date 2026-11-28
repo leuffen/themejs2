@@ -1,0 +1,9 @@
+// Gibt dem einfachen Footer eine gemeinsame Farbrolle unabhängig vom Seitenprofil.
+@mixin style-default() {
+  #footer.style-default {
+    background: var(--nt-primary);
+    color: var(--nt-text-on-primary);
+
+    a { color: inherit; }
+  }
+}

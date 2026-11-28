@@ -1,0 +1,248 @@
+@use "@nextrap/ntl-hero" as hero;
+
+// Registriert die vollständige Komposition am gewählten Element.
+@mixin style-image-text() {
+  // Bindet die funktionale Hero-Baseline ein und bewahrt die Bild-und-Text-Komposition.
+  ntl-hero.style-image-text {
+    @include hero.default-style($background: var(--nt-surface-muted));
+
+    --height-offset: 12.75rem;
+
+    position: relative;
+    display: block;
+    min-height: clamp(40rem, 56vw, 45rem);
+    color: var(--nt-header);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--nt-surface-raised) 14%, transparent) 0%, color-mix(in srgb, var(--nt-surface-raised) 4%, transparent) 52%, color-mix(in srgb, var(--nt-surface-raised) 16%, transparent) 100%);
+      pointer-events: none;
+    }
+
+    &::part(root) {
+      min-height: inherit;
+      background: var(--nt-surface-muted);
+    }
+
+    &::part(wrapper) {
+      position: relative;
+      min-height: inherit;
+    }
+
+    &::part(content) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      display: block;
+      padding: 0;
+    }
+
+    &[mode="mobile"] {
+      --height-offset: 10.5rem;
+      min-height: 0;
+      background: var(--nt-surface-raised);
+
+      &::after {
+        display: none;
+      }
+
+      &::part(root) {
+        min-height: 0;
+        height: auto;
+        max-height: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      &::part(background) {
+        position: static;
+        order: 1;
+        inset: auto;
+        height: auto;
+      }
+
+      &::part(wrapper) {
+        position: static;
+        order: 2;
+        min-height: 0;
+        display: block;
+      }
+
+      &::part(content) {
+        min-height: 0;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+
+  ntl-hero.style-image-text {
+    [slot="bg"] {
+      display: block;
+      height: 100%;
+      margin: 0;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: saturate(0.76) brightness(1.04);
+      }
+    }
+
+    &[mode="mobile"] {
+      [slot="bg"] {
+        display: block;
+        position: relative;
+        z-index: 0;
+
+        img {
+          aspect-ratio: 1.36;
+        }
+      }
+    }
+  }
+
+  ntl-hero.style-image-text {
+    // Hält den Bild-Hero ohne zusätzlichen Außenabstand direkt am nachfolgenden Ribbon.
+    margin-bottom: 0;
+
+    .box {
+      position: absolute;
+      left: clamp(4rem, 6.25vw, 7.25rem);
+      bottom: clamp(5rem, 7vw, 7rem);
+      z-index: 1;
+      width: min(45rem, calc(100vw - 11rem));
+      margin: 0;
+      padding: var(--nt-spacing-text) var(--nt-spacing-text) var(--nt-spacing-text) 0;
+      background: transparent;
+      color: var(--nt-primary);
+
+      // Stellt sicher, dass die Überschrift die Primärfarbe der gesamten Hero-Box übernimmt.
+      h1 {
+        color: inherit;
+      }
+
+      // Vererbt die Primärfarbe an den Inhalt des Panels.
+      color: var(--nt-primary);
+      --nt-text: var(--nt-primary);
+      --nt-header: var(--nt-primary);
+      --nt-link: var(--nt-primary);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: -100vw;
+        background: color-mix(in srgb, var(--nt-surface-raised) 76%, transparent);
+        z-index: -1;
+      }
+    }
+
+    &[mode="mobile"] {
+      .box {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: auto;
+        margin: 0 1rem;
+        padding: var(--nt-spacing-text);
+        transform: none;
+        background: transparent;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+  // Die Glasfläche verändert nur die Darstellung des vorhandenen Textpanels.
+  ntl-hero.style-image-text.image-text-glass {
+    .box {
+      width: min(66.667%, 45rem);
+      padding: var(--nt-spacing-component);
+      border-radius: var(--nt-border-radius);
+      background: color-mix(in srgb, var(--nt-surface-raised) 25%, transparent);
+      backdrop-filter: blur(2.5rem);
+      --nt-text: var(--nt-secondary);
+      color: var(--nt-text);
+      --nt-header: var(--nt-text);
+
+      &::before { display: none; }
+    }
+
+    &[mode="mobile"] .box {
+      width: auto;
+    }
+  }
+
+  // Überlappt die Bildkante mit einer lesbaren Textfläche statt einer zweiten Hero-Kopie.
+  ntl-hero.style-image-text.image-text-overlap {
+    min-height: 20rem;
+    --min-height: 20rem;
+    --max-height: 25rem;
+
+    > .box {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      inline-size: min(55vw, 44rem);
+      max-inline-size: calc(100vw - 2 * var(--nt-space-4));
+      padding: var(--nt-space-8) var(--nt-spacing-layout);
+      background: color-mix(in srgb, var(--nt-primary) 94%, transparent);
+      color: var(--nt-text-on-primary);
+      --nt-text: var(--nt-text-on-primary);
+      --nt-header: var(--nt-text-on-primary);
+      --nt-link: var(--nt-text-on-primary);
+
+      &::before { display: none; }
+    }
+
+    .sec-box {
+      color: inherit;
+      font-family: var(--nt-font-family-header);
+      overflow-wrap: anywhere;
+    }
+
+    // Schmale Ansichten behalten das Foto; das Panel beginnt über dessen Unterkante.
+    &:is([mode="mobile"], [mode="tablet"]) {
+      --min-height: 25rem;
+      --max-height: none;
+      --top-offset: 19.375rem;
+      --container-width: 100%;
+      min-height: 0;
+
+      &::part(root) { height: auto; display: block; }
+      &::part(background) { position: absolute; inset: 0; height: var(--min-height); }
+      &::part(wrapper) { position: relative; padding-top: var(--top-offset); }
+      &::part(content) { display: flex; align-items: flex-start; justify-content: flex-start; }
+      > .box {
+        inline-size: 100%;
+        max-inline-size: min(100%, 35rem);
+        margin: 0;
+        min-block-size: 11.75rem;
+        padding: var(--nt-spacing-text) var(--nt-spacing-component);
+      }
+      .sec-box { line-height: 1.25; }
+    }
+
+    &[mode="desktop"] > .box {
+      inset-inline-start: max(-5.3125vw, -4.25rem);
+      inset-block-start: var(--nt-space-7);
+    }
+
+    // Kürzere Seitentitel benötigen weniger Panelhöhe, behalten aber dieselben Slots.
+    &.image-text-compact {
+      > .box { min-block-size: 6rem; padding-block: var(--nt-spacing-layout); }
+      &[mode="desktop"] > .box { inset-block-start: clamp(6rem, 14vw, 11.5rem); }
+    }
+  }
+}

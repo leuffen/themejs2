@@ -7,7 +7,7 @@ show_title: false
 # Kartenvarianten
 
 ## Default
-{: layout="ntl-card-row.style-default" section-style="--cols: 6" }
+{: layout="ntl-card-row" section-style="--cols: 6" }
 
 ### Beratung
 

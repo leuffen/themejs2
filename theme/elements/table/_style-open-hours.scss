@@ -1,0 +1,41 @@
+// Richtet Tagesangaben und Zeiten unabhängig von der Seitenpalette kompakt aus.
+@mixin style-open-hours() {
+  table.style-open-hours {
+    width: 100%;
+    margin-block-end: var(--nt-spacing-text);
+    border-collapse: collapse;
+    color: inherit;
+    background: none;
+
+    // Hält Kopf- und Inhaltszellen auch bei mehrzeiligen Zeitangaben bündig.
+    th,
+    td {
+      padding: var(--nt-space-1) 0;
+      color: inherit;
+      vertical-align: top;
+      background: none;
+      border: 0;
+      text-align: left;
+    }
+
+    // Die letzte Spalte zeigt Zeiträume rechts, die Tagesbezeichnung links.
+    tr > :last-child {
+      text-align: right;
+    }
+
+    // Verdichtet dieselbe Tabelle für kleine Kontakt- und Ribbon-Bereiche.
+    &.open-hours-compact {
+      th,
+      td {
+        padding-block: 0;
+      }
+    }
+
+    // Trennt auf Wunsch die einzelnen Tage ohne einen zusätzlichen Tabellenstil.
+    &.open-hours-dividers {
+      tr:not(:last-child) > * {
+        border-block-end: var(--nt-border-width) solid var(--nt-border);
+      }
+    }
+  }
+}

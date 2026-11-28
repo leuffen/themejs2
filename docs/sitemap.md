@@ -1,5 +1,5 @@
 ---
-body_class: theme-osman
+body_class: variant-osman
 description: "Sitemap"
 keywords: ~
 layout: website-default

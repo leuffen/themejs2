@@ -1,0 +1,16 @@
+// Hält den gemeinsamen Section-Rhythmus ausschließlich am äußeren Content-Flow.
+@mixin style-default() {
+  tj-content-pane:where(:not([class*="style-"]), .style-default) {
+    display: block;
+
+    // Jeder weitere Hauptabschnitt erhält genau einen Abstand; verschachtelte Layouts nicht.
+    :where(& > :is(section, ntl-hero, ntl-2col, ntl-card-row, ntl-card-grid, ntl-columns) + :is(section, ntl-hero, ntl-2col, ntl-card-row, ntl-card-grid, ntl-columns)) {
+      margin-block-start: var(--nt-spacing-section);
+    }
+
+    // Das Ribbon dockt als bewusst gewählte Überlappung direkt am vorherigen Bereich an.
+    :where(& > ntl-card-row.style-ribbon.ribbon-overlap) {
+      margin-block-start: 0;
+    }
+  }
+}

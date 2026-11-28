@@ -1,0 +1,149 @@
+@use "sass:meta";
+@use "@nextrap/style-base" as base;
+@use "@nextrap/style-reset" as reset;
+@use "@nextrap/style-elements" as elements;
+@use "@nextrap/style-typography" as typography;
+@use "@nextrap/style-button" as button;
+@use "@nextrap/style-utils" as utils;
+@use "variants/variant-mueller" as mueller;
+@use "variants/variant-raven" as raven;
+@use "variants/variant-unify" as unify;
+@use "variants/variant-epraxis" as epraxis;
+@use "variants/variant-osman" as osman;
+@use "variants/variant-dommer" as dommer;
+
+// Liefert genau eine Theme-Basis; der aufrufende Scope bleibt durch :where spezifitätsfrei.
+@mixin theme() {
+  // Deklariert die vollständige Reihenfolge vor Reset, Fonts oder Komponenten-Ausgabe.
+  @at-root {
+    @layer reset, schemes, themes, website;
+    @layer themes {
+      @layer tokens, base, typography, elements, components, patterns, utilities;
+    }
+  }
+
+  @layer reset {
+    @include reset.reset();
+  }
+
+  @layer schemes {
+    @include base.runtime-scheme-selectors();
+  }
+
+  @layer themes.tokens {
+    @include base.runtime-theme-scoped();
+    --nt-primary: #365c72;
+    --nt-accent: #47677a;
+    --nt-neutral: #6f6f6f;
+    --nt-secondary: #4c4c4c;
+    --nt-font-family: system-ui, sans-serif;
+    --nt-font-family-header: var(--nt-font-family);
+    --nt-font-size: 1rem;
+    --nt-font-size-header: 2rem;
+    --nt-line-height: 1.4;
+    --nt-radius: .5rem;
+    --nt-container-max: 1320px;
+    --nt-text: var(--nt-secondary);
+
+    // Berechnet abgeleitete Tokens dort neu, wo eine Variant ihre Eingaben setzt.
+    // Die öffentlichen Variant-Klassen werden auf body oder einen Nachfahren gesetzt.
+    :where(.variant-mueller, .variant-raven, .variant-unify, .variant-epraxis, .variant-osman, .variant-dommer) {
+      @include base.runtime-theme-scoped();
+      --nt-primary: #365c72;
+      --nt-accent: #47677a;
+      --nt-neutral: #6f6f6f;
+      --nt-secondary: #4c4c4c;
+      --nt-font-family: system-ui, sans-serif;
+      --nt-font-family-header: var(--nt-font-family);
+      --nt-font-size: 1rem;
+      --nt-font-size-header: 2rem;
+      --nt-line-height: 1.4;
+      --nt-radius: .5rem;
+      --nt-container-max: 1320px;
+      --nt-text: var(--nt-secondary);
+    }
+
+    @include mueller.variant-mueller();
+    @include raven.variant-raven();
+    @include unify.variant-unify();
+    @include epraxis.variant-epraxis();
+    @include osman.variant-osman();
+    @include dommer.variant-dommer();
+  }
+
+  @layer themes.base {
+    // Wertet die Tokens am jeweiligen Profilträger aus, statt berechnete Root-Werte zu erben.
+    &, :where(body, .variant-mueller, .variant-raven, .variant-unify, .variant-epraxis, .variant-osman, .variant-dommer) {
+      @include typography.base();
+      background: var(--nt-surface);
+    }
+  }
+
+  @layer themes.typography {
+    @include meta.load-css("../font/_vendor/opensans");
+    @include meta.load-css("../font/_vendor/work-sans");
+    @include meta.load-css("../font/_vendor/font-ubuntu");
+    @include meta.load-css("../font/_vendor/garamond");
+    @include typography.style-typography();
+  }
+
+  @layer themes.elements {
+    @include elements.style-elements();
+    @include meta.load-css("./elements/id_footer/id_footer");
+    @include meta.load-css("./elements/id_header/id_header");
+    @include meta.load-css("./elements/table/table");
+    @include meta.load-css("./elements/ul/ul");
+  }
+
+  @layer themes.components {
+    @include button.style-button();
+    @include meta.load-css("./elements/leuffen-announcements/leuffen-announcements");
+    @include meta.load-css("./elements/nte-accordion-item/nte-accordion-item");
+    @include meta.load-css("./elements/nte-accordion/nte-accordion");
+    @include meta.load-css("./elements/nte-card/nte-card");
+    @include meta.load-css("./elements/nte-consent-blocker/nte-consent-blocker");
+    @include meta.load-css("./elements/nte-input/nte-input");
+    @include meta.load-css("./elements/nte-nav/nte-nav");
+    @include meta.load-css("./elements/nte-navbar/nte-navbar");
+    @include meta.load-css("./elements/nte-offcanvas/nte-offcanvas");
+    @include meta.load-css("./elements/nte-slider/nte-slider");
+    @include meta.load-css("./elements/ntl-2col/ntl-2col");
+    @include meta.load-css("./elements/ntl-card-row/ntl-card-row");
+    @include meta.load-css("./elements/ntl-columns/ntl-columns");
+    @include meta.load-css("./elements/ntl-hero/ntl-hero");
+    @include meta.load-css("./elements/tj-content-pane/tj-content-pane");
+  }
+
+  @layer themes.patterns {
+    @include meta.load-css("./misc/content/_badges");
+    @include meta.load-css("./misc/content/_box-primary");
+    @include meta.load-css("./misc/content/_box-secondary");
+    @include meta.load-css("./misc/content/_card-grid");
+    @include meta.load-css("./misc/content/_content-footer");
+    @include meta.load-css("./misc/content/_content-stack");
+    @include meta.load-css("./misc/content/_data-kicker");
+    @include meta.load-css("./misc/content/_focus-list");
+    @include meta.load-css("./misc/content/_grid-container");
+    @include meta.load-css("./misc/content/_icon-grid");
+    @include meta.load-css("./misc/content/_icon-heading");
+    @include meta.load-css("./misc/content/_lead-serif");
+    @include meta.load-css("./misc/content/_profile-quote");
+    @include meta.load-css("./misc/content/_text-strong");
+    @include meta.load-css("./misc/content/_warning");
+    @include meta.load-css("./dommer/index");
+    @include meta.load-css("./misc/feature-media/_feature-media");
+    @include meta.load-css("./misc/hero-arrows/_hero-arrows");
+    @include meta.load-css("./misc/hero-form/_hero-form");
+    @include meta.load-css("./misc/trust/_trust");
+    @include meta.load-css("./misc/unify/_site-footer");
+  }
+
+  @layer themes.utilities {
+    @include utils.style-utils();
+  }
+
+  // Optionale Website-Deklarationen behalten ihren dokumentierten Override-Layer.
+  @layer website {
+    @content;
+  }
+}

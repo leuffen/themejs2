@@ -1,6 +1,0 @@
-@use "sass:meta";
-
-// Lädt Varianten innerhalb des zuständigen Hosts.
-nte-offcanvas {
-  @include meta.load-css("./style-default");
-}

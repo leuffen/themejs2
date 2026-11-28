@@ -1,0 +1,17 @@
+// Fasst kurze, editierbare Schlagwörter als umbruchfähige Reihe von Textflächen zusammen.
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nt-space-2);
+  justify-content: space-around;
+  align-content: center;
+
+  // Markdown-Absätze bilden einzelne Badges ohne zusätzliche Wrapper.
+  p {
+    width: fit-content;
+    padding: var(--nt-space-2) var(--nt-space-4);
+    border-radius: 50rem;
+    color: var(--nt-primary);
+    background-color: var(--nt-primary-subtle);
+  }
+}

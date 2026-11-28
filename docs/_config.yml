@@ -91,12 +91,16 @@ defaults:
       layout: landing-page
       show_title: false
 
-  # Das Profil bleibt bis zur SCSS-Migration zusätzlich am HTML-Element aktiv.
+  # Die Body-Variant setzt nur visuelle Tokens; der Frame und seine Modifier bleiben unabhängig.
   - scope:
       path: "themes/dommer"
     values:
-      layout: website-default
+      # Aktiviert den eigenen Frame und einen ausdrücklich fiktiven Hinweis nur für diese Demo.
+      layout: website-dommer
+      demo_announcement: "Demo-Meldung: Bitte vereinbaren Sie Ihren Termin vorab."
       theme_profile: dommer
+      navbar_classes: default-dark default-overlay
+      nav_classes: default-dark
       location_id: dommer
       brand_url: /themes/dommer/dommer-start.html
   - scope:
@@ -104,7 +108,6 @@ defaults:
     values:
       layout: website-osman
       theme_profile: osman
-      body_class: theme-osman
       brand_url: /themes/osman/osman-start.html
       contact_url: /themes/osman/osman-start.html#osman-start-kontakt
   - scope:
@@ -112,7 +115,6 @@ defaults:
     values:
       layout: website-mueller
       theme_profile: mueller
-      body_class: theme-mueller
       brand_url: /themes/mueller/mueller-start.html
       contact_url: /themes/mueller/mueller-kontakt.html
   - scope:
@@ -120,7 +122,6 @@ defaults:
     values:
       layout: website-raven
       theme_profile: raven
-      body_class: theme-raven
       brand_url: /themes/raven/raven-start.html
       contact_url: /themes/raven/raven-kontakt.html
   - scope:
@@ -128,7 +129,6 @@ defaults:
     values:
       layout: website-unify
       theme_profile: unify
-      body_class: theme-unify
       brand_url: /themes/unify/unify-start.html
       contact_url: /themes/unify/unify-start.html#kontakt
       about_url: /themes/unify/unify-start.html#geschichte
@@ -142,7 +142,6 @@ defaults:
     values:
       layout: website-default
       theme_profile: epraxis
-      body_class: theme-epraxis
       brand_url: /themes/epraxis/epraxis-start.html
 
 plugins:

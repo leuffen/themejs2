@@ -102,5 +102,5 @@ Optional:
         {%- assign child_items = child_items | strip -%}
     {%- endif -%}
     {%- assign nav_label = node.nav_title | default: node.short_title | default: node.title -%}
-    <nte-nav-item{% if child_items != '' %} submenu-popover{% else %} href="{{ node.url }}"{% endif %}{% if node.order %} style="--order: {{ node.order }}"{% endif %}>{% if node.nav_icon %}<nte-icon slot="icon" class="{{ node.nav_icon }}" aria-hidden="true"></nte-icon>{% endif %}{{ nav_label }}{{ child_items }}</nte-nav-item>
+    <nte-nav-item{% if child_items != '' %} submenu-popover{% else %} href="{{ node.url }}"{% if include.mark_current and node.url == page.url %} current="page"{% endif %}{% endif %}{% if node.order %} style="--order: {{ node.order }}"{% endif %}>{% if node.nav_icon %}<nte-icon slot="icon" class="{{ node.nav_icon }}" aria-hidden="true"></nte-icon>{% endif %}{{ nav_label }}{{ child_items }}</nte-nav-item>
 {%- endfor -%}

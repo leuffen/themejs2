@@ -18,14 +18,16 @@ Styles. ThemeJS2 enthält die Basisregeln und Komponentenstyles.
 ## Einfaches Setup
 
 ```scss
-@use "@leuffen/themejs2/theme/raven" as theme;
+@use "@leuffen/themejs2" as theme;
 
 // Lädt Reset, Scheme, Layer und das Theme global für die ganze Website.
-@include theme.global();
+:where(:root) {
+  @include theme.theme();
+}
 
 // Individuelle Werte der Website überschreiben die Theme-Defaults.
 @layer website {
-  html {
+  :where(body.variant-raven) {
     --nt-primary: #3f4632;
     --nt-font-family: "Work Sans", sans-serif;
     --nt-font-family-header: var(--nt-font-family);
@@ -36,9 +38,10 @@ Styles. ThemeJS2 enthält die Basisregeln und Komponentenstyles.
 Die Primärfarbe `--nt-primary` in der Website ausdrücklich setzen; für die
 Schrift `--nt-font-family` und bei Bedarf `--nt-font-family-header`
 verwenden. Weiterhin stehen die Theme-Vorgaben als Fallback zur Verfügung.
-Andere Themes statt Raven über ihren veröffentlichten Einstiegspunkt laden.
-`theme.global()` ist für ein einzelnes Theme auf der gesamten Website;
-die Multi-Theme-Demo kann weiterhin `theme.theme()` in ihren Selektoren nutzen.
+Die Website verwendet `class="variant-raven"` am Body; andere visuelle
+Profile wählen eine andere `variant-*`-Klasse. Alle Profile teilen denselben
+Root-Entry und dasselbe `theme()`-Mixin. Element-Styles und ihre Usage-Sidecars
+liegen unter `theme/elements/`; eine Variant verändert keine Komposition.
 
 ## Vorhandene Schriften und optische Schriftgröße
 
@@ -47,36 +50,36 @@ Die Module liefern Body- und Heading-Familie sowie zwei getrennte
 Zielmetriken, **ohne** je Schrift eigene CSS-Regeln oder Mixins zu benötigen.
 
 ```scss
-@use "@leuffen/themejs2/theme/raven" as theme;
+@use "@leuffen/themejs2" as theme;
 @use "@leuffen/themejs2/font/garamond-opensans" as font;
 
-@include theme.global();
+:where(:root) {
+  @include theme.theme();
+}
 
 @layer website {
-  html {
+  :where(body.variant-raven) {
     --nt-primary: #3f4632;
     --nt-font-family: #{font.$font-family-base};
     --nt-font-family-header: #{font.$font-family-header};
-    --theme-font-size-adjust: #{font.$font-size-adjust-base};
-    --theme-font-size-adjust-header: #{font.$font-size-adjust-header};
+    font-size-adjust: ex-height #{font.$font-size-adjust-base};
+  }
 
-    // Optional pro Website manuell statt der importierten Werte setzen:
-    // --theme-font-size-adjust: 0.54;
-    // --theme-font-size-adjust-header: 0.70;
+  :where(body.variant-raven) :is(h1, h2, h3, h4, h5, h6) {
+    font-size-adjust: cap-height #{font.$font-size-adjust-header};
   }
 }
 ```
 
-Der globale Theme-Entrypoint setzt `font-size-adjust: ex-height` für
-Fließtext auf `html` und `font-size-adjust: cap-height` auf
-`h1` bis `h6`. Die zwei Zielwerte sind bewusst unabhängig von den
+Das optionale Website-Beispiel setzt `font-size-adjust: ex-height` für
+Fließtext und `font-size-adjust: cap-height` für `h1` bis `h6`. Die zwei Zielwerte sind bewusst unabhängig von den
 normalen Größen-Tokens `--nt-font-size` und `--nt-font-size-header`.
 Mit `font-size-adjust` wird die optische Buchstabenhöhe angeglichen;
 die Schriftgröße und Hierarchie des Themes bleiben erhalten.
 
 Die mit `!default` definierten Sass-Variablen dürfen über
 `@use ".../font/..." with (...)` überschrieben werden. Alternativ
-überschreibe die CSS-Variablen im `website`-Layer wie oben.
+setze die CSS-Properties im `website`-Layer wie oben.
 Die Ausgangswerte 0.50 (x-Höhe) und 0.66 (Versalhöhe) orientieren sich
 an publizierten Font-Metriken von Work Sans. Es sind **gemeinsame
 Referenz-Zielhöhen**, keine gemessenen Individualmetriken der anderen
@@ -94,7 +97,7 @@ Deklarationen und keine festen Ersatz-Schriftgrößen hinzufügen.
 
 ## Layer-Reihenfolge
 
-Die globale Reihenfolge wird ausschließlich von `theme.global()` deklariert:
+Die globale Reihenfolge wird ausschließlich von `theme.theme()` deklariert:
 
 ```scss
 @layer reset, schemes, themes, website;
@@ -112,7 +115,7 @@ Keine zusätzliche Layer-Reihenfolge im Kundenprojekt definieren.
 
 ## Zusätzliche Regeln
 
-Website-Anpassungen gehören nach dem `global()`-Aufruf in den
+Website-Anpassungen gehören nach dem `theme()`-Aufruf in den
 `website`-Layer. CSS/SCSS in einem bereits existierenden benannten Layer
 ergänzt diesen Layer und ersetzt ihn nicht.
 

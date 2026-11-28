@@ -1,0 +1,75 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+@use "@nextrap/nte-card" as card;
+
+// Fasst Kontakt, Navigation und ergänzende Informationen als Footer-Karten zusammen.
+@mixin style-footer() {
+  ntl-card-row.style-footer {
+    @include cardRow.default-style(
+      $container-width: var(--nt-container-width),
+      $cols: 4,
+      $gap: 0px,
+      $inner-padding: 0,
+      $container-background: transparent,
+      $container-border: 0,
+      $container-border-radius: 0
+    );
+    @include cardRow.with-footer-separators(
+      $separator-color: color-mix(in srgb, var(--nt-text-on-secondary) 28%, transparent)
+    );
+
+    // Die gemeinsame Fläche und Kontrastrolle kommen aus der aktiven Variant.
+    padding-block: var(--nt-space-7);
+    color: var(--nt-text-on-secondary);
+    background: var(--nt-secondary);
+
+    &::part(main) {
+      align-items: stretch;
+    }
+
+    // Transparente Cards teilen sich die Footer-Fläche und behalten ihre eigenen Inhalte.
+    > nte-card {
+      @include card.default-style(
+        $innerPadding: var(--nt-space-5),
+        $border: 0,
+        $background-color: transparent,
+        $border-radius: 0,
+        $gap: var(--nt-spacing-text)
+      );
+
+      height: 100%;
+      color: inherit;
+
+      // Entfernt nur den Abschlussabstand der letzten normalen Inhaltsregion.
+      // Nachfolgende Sections oder Akkordeons behalten ihren bisherigen Abstand.
+      > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]):not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]))):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+        margin-bottom: 0;
+      }
+
+      &::part(wrapper) {
+        height: 100%;
+      }
+
+      > :is(h1, h2, h3, h4, h5, h6) {
+        margin: 0;
+        color: inherit;
+        font-size: var(--nt-fs-h5);
+        font-weight: var(--nt-font-weight-bold);
+        text-transform: uppercase;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    // Der Mobile-Stack erhält Abstand statt einer zweiten Spaltenimplementierung.
+    &[mode="mobile"] {
+      --gutter-y: var(--nt-space-6);
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@use "style-default" as default;
+@use "style-card" as card;
+@use "style-cta" as cta;
+@use "style-faq" as faq;
+@use "style-feature" as feature;
+@use "style-feature-grid" as feature-grid;
+@use "style-form" as form;
+@use "style-hero" as hero;
+@use "style-logo-cloud" as logo-cloud;
+@use "style-saas-hero" as saas-hero;
+@use "style-step" as step;
+@use "style-subpage-lead" as subpage-lead;
+@use "style-subscribe" as subscribe;
+@use "style-testimonial" as testimonial;
+@use "style-video" as video;
+
+// Lädt jede funktionale Komposition einmal in den Layer des gemeinsamen Theme-Entrys.
+@include default.style-default();
+@include card.style-card();
+@include cta.style-cta();
+@include faq.style-faq();
+@include feature.style-feature();
+@include feature-grid.style-feature-grid();
+@include form.style-form();
+@include hero.style-hero();
+@include logo-cloud.style-logo-cloud();
+@include saas-hero.style-saas-hero();
+@include step.style-step();
+@include subpage-lead.style-subpage-lead();
+@include subscribe.style-subscribe();
+@include testimonial.style-testimonial();
+@include video.style-video();
+
+// Entfernt den Abschlussabstand einmal für die gemeinsam migrierten Inhaltskompositionen.
+ntl-2col:is(.style-default, .style-testimonial, .style-cta, .style-faq) {
+  > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]):not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]))):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+    margin-bottom: 0;
+  }
+
+  // Behandelt den optionalen Aside-Bereich als unabhängige Inhaltsregion.
+  > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure)[slot="aside"]:not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure)[slot="aside"])):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+    margin-bottom: 0;
+  }
+}

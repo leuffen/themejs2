@@ -1,0 +1,16 @@
+// Erhält eine bestehende Folge von H3-Unterabschnitten mit kompakten Trennlinien.
+.box-secondary {
+  h3 {
+    font-weight: var(--nt-font-weight-base);
+  }
+
+  // Eine Gruppe mit Überschrift erhält denselben Rhythmus wie ihr Nachbar.
+  :has(h3) {
+    margin: 0;
+    padding-block: calc(var(--nt-spacing-text) / 2);
+  }
+
+  :has(h3):not(:last-child) {
+    border-block-end: var(--nt-border-width) solid var(--nt-tertiary-emphasis);
+  }
+}

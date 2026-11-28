@@ -1,0 +1,85 @@
+@use "@nextrap/nte-navbar" as navbar;
+
+// Lädt die Library-Helfer genau einmal und verbindet die editierbaren Frame-Optionen.
+@mixin style-default() {
+  @include navbar.default-style();
+
+  nte-navbar.style-default {
+    --nte-navbar-background: var(--nt-surface);
+    --nte-navbar-background-at-top: var(--nt-surface);
+    --nte-navbar-shadow: 0 var(--nt-space-1) var(--nt-space-4) color-mix(in srgb, var(--nt-black) 12%, transparent);
+    color: var(--nt-text);
+
+    // Aktiviert Positionierung und Linie nur für die gewählte Frame-Instanz.
+    &.default-sticky {
+      --nte-navbar-position: sticky;
+      --nte-navbar-top: 0;
+    }
+
+    &.default-border {
+      border-bottom: var(--nt-border-width) solid var(--nt-border);
+    }
+
+    &.is-scrolled {
+      box-shadow: var(--nte-navbar-shadow);
+    }
+
+    // Brand und Navigation teilen sich die vorhandenen Navbar-Line-Parts.
+    > nte-navbar-line {
+      --background: var(--nt-surface);
+      --text-color: var(--nt-text);
+      --height: var(--brand-height, 64px);
+    }
+
+    > nte-navbar-line.style-topbar {
+      --background: var(--nt-surface-muted);
+    }
+
+    > nte-navbar-line::part(start) {
+      flex: 1 1 auto;
+    }
+
+    > nte-navbar-line > .brand-logo[slot="start"] {
+      inline-size: 100%;
+      block-size: var(--brand-height, 100%);
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    > nte-navbar-line > .brand-logo[slot="start"]:not(:has(> img)) {
+      aspect-ratio: auto;
+    }
+
+    > nte-navbar-line > .brand-logo[slot="start"]:has(> img) {
+      inline-size: auto;
+    }
+
+    // Der dunkle Frame ist ein expliziter Modifier, kein Effekt der Palette.
+    &.default-dark {
+      --nte-navbar-background: var(--nt-primary);
+      --nte-navbar-background-at-top: var(--nt-primary);
+      color: var(--nt-text-on-primary);
+
+      > nte-navbar-line {
+        --background: var(--nt-primary);
+        --text-color: var(--nt-text-on-primary);
+      }
+
+      a { color: inherit; }
+      nte-burger { --color: var(--nt-text-on-primary); }
+    }
+
+    // Überlagert nur einen direkt folgenden Bild-Hero; Unterseiten bleiben im Fluss.
+    &.default-overlay:has(~ main tj-content-pane > ntl-hero.style-image-text:first-child) {
+      position: relative;
+      z-index: 2;
+      margin-block-end: calc(-1 * var(--brand-height, 75px));
+      --nte-navbar-background: transparent;
+      --nte-navbar-background-at-top: transparent;
+
+      > nte-navbar-line {
+        --background: color-mix(in srgb, var(--nt-primary) 90%, transparent);
+      }
+    }
+  }
+}

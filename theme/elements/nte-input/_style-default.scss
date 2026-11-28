@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "@nextrap/nte-input" as input;
+
+// Registriert die vollständige Komposition am gewählten Element.
+@mixin style-default() {
+  // Setzt dieselbe Eingabekomposition mit variabler Feldoptik um.
+  $field-style: map.merge(input.$themeCarbon, (
+    control-background: var(--nt-surface-raised),
+    control-padding-x: var(--nt-spacing-control),
+    border-color: var(--nt-border),
+    border-radius: var(--nt-border-radius)
+  ));
+
+  nte-input.style-default {
+    @include input.default-style($field-style);
+
+    // Schwebende Labels bleiben eine Option am einzelnen Feld.
+    &.hoverlabel {
+      @include input.floating-labels();
+    }
+
+    padding-block-end: var(--nt-space-4);
+  }
+}

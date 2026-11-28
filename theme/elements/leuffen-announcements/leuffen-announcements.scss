@@ -1,0 +1,4 @@
+@use "style-banner" as banner;
+
+// Registriert das wiederverwendbare Meldungsbanner.
+@include banner.style-banner();

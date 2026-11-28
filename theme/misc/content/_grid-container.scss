@@ -1,0 +1,27 @@
+// Erhält das bestehende frei belegbare Light-DOM-Raster für ältere Markdown-Kompositionen.
+.grid-container {
+  --rows: 1;
+  --cols: 1;
+  --gap: var(--nt-spacing-text);
+
+  display: grid;
+  gap: var(--gap);
+  grid-auto-flow: row;
+  justify-items: stretch;
+  align-items: stretch;
+  justify-content: start;
+  align-content: start;
+  grid-template-columns: repeat(var(--cols), auto);
+  grid-template-rows: repeat(var(--rows), auto);
+
+  // Die Autoren legen die vorhandenen Zeilen- und Spaltenpositionen am Kind fest.
+  > * {
+    --row: 1;
+    --col: 1;
+    --row-span: 1;
+    --col-span: 1;
+
+    grid-column: var(--col) / span var(--col-span);
+    grid-row: var(--row) / span var(--row-span);
+  }
+}

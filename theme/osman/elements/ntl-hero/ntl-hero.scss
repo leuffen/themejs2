@@ -1,7 +1,0 @@
-@use "sass:meta";
-
-ntl-hero {
-  @include meta.load-css("./_style-default.scss");
-  @include meta.load-css("./bg/bg.scss");
-  @include meta.load-css("./box/box.scss");
-}

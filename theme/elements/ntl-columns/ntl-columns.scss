@@ -1,0 +1,4 @@
+@use "style-default" as s-default;
+
+// Gibt alle dokumentierten Styles dieses Elements gemeinsam aus.
+@include s-default.style-default();

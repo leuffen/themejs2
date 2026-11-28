@@ -1,0 +1,12 @@
+@use "@nextrap/nte-consent-blocker" as consentBlocker;
+
+// Registriert die vollständige Komposition am gewählten Element.
+@mixin style-default() {
+  // Übernimmt die Darstellung default für nte-consent-blocker.
+
+  // Bindet die öffentliche Komponenten-Baseline samt dokumentiertem 2-Spalten-Pairing an die gemeinsame Standarddarstellung.
+  nte-consent-blocker.style-default {
+    @include consentBlocker.default-style();
+    @include consentBlocker.pairing-ntl-2col-in-nte-consent-blocker();
+  }
+}

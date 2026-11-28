@@ -1,0 +1,8 @@
+@use "@nextrap/ntl-columns" as columns;
+
+// Verwendet die vorhandene Spalten-API, ohne Slots oder Breakpoints nachzubauen.
+@mixin style-default() {
+  ntl-columns.style-default {
+    @include columns.default-style();
+  }
+}

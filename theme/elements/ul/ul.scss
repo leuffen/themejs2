@@ -1,0 +1,8 @@
+@use "style-default" as native-default;
+@use "style-specialties" as specialties;
+
+// Aktiviert zuerst den gemeinsamen nativen Fallback.
+@include native-default.style-default();
+
+// Registriert die Liste fachlicher Schwerpunkte.
+@include specialties.style-specialties();

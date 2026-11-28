@@ -3,33 +3,60 @@
 - [Jekyll Includes Doc](README_INCLUDES.md)
 - [Best Practices](BEST_PRACTICE.md)
 
-## Gemeinsame Komponentenvarianten
+## Gemeinsame Theme-Basis
 
-Neue Projekte können die gemeinsame Basis laden und Farben im Website-Layer
-vorgeben:
+Alle Seiten verwenden denselben Sass-Entry. Er registriert Reset, Schemes,
+Runtime-Tokens, Typografie, Elemente, Komponenten, Variants, Misc und Utilities:
 
 ```scss
-@use "@leuffen/themejs2/theme/shared";
+@use "@leuffen/themejs2" as themejs;
 
-@include shared.global() {
-  --theme-primary: #315b70;
+:where(:root) {
+  @include themejs.theme();
 }
 ```
 
-Das Body-Profil (`theme-mueller`, `theme-osman`, `theme-raven`,
-`theme-epraxis` oder `theme-unify`) legt Farben, Typografie und visuelle
-Details fest. Die gemeinsame Basis gilt auch ohne Profil. Ein Ribbon verwendet
-unter jedem Profil `ntl-card-row.style-ribbon`. Die optionale Klasse
-`with-overlap` versetzt es auf breiten Ansichten über den vorigen Abschnitt.
+Eine optionale Body-Klasse wie `variant-osman`, `variant-mueller`,
+`variant-raven`, `variant-epraxis`, `variant-unify` oder `variant-dommer`
+setzt ausschließlich vorhandene `--nt-*`-Tokens. Ohne Variant gilt die
+gemeinsame Basis. In Jekyll setzt `theme_profile: raven` die Body-Klasse;
+`layout:` wählt unabhängig davon den editierbaren Website-Frame.
 
-Die Komposition wird je Instanz gewählt. Ein Beispiel für einen ContentPane-Hero
-ist `layout="2;ntl-hero.style-mueller"`. Weitere Hero-Stile sind `style-osman`,
-`style-epraxis` und `style-unify`. Der Raven-Einstieg verwendet
-`ntl-2col.style-raven` mit seinem eigenen Slot-Vertrag.
+```html
+<body class="variant-raven">
+  <!-- Eine funktionale Komposition, unabhängig von der gewählten Palette. -->
+  <ntl-2col class="style-testimonial">...</ntl-2col>
+</body>
+```
 
-Das [Seitenverzeichnis der Demo](docs/index.md) verlinkt vollständige Seiten
-und einzelne Bausteine direkt. Die bisherigen Theme-Imports
-stehen weiterhin für bestehende Websites zur Verfügung.
+Element-Styles liegen unter `theme/elements/<tag>/` beziehungsweise `id_<id>/`.
+Jede `_style-*.scss` hat eine benachbarte `.usage.md` mit Voraussetzungen,
+Modifiern und Markdown-/Kramdown-Beispielen. Pro Instanz gilt höchstens eine
+`style-*`-Klasse; NTE/NTL wählen `style-default` automatisch. Modifier wie
+`testimonial-portrait`, `image-text-overlap` oder `ribbon-overlap` ergänzen
+die gewählte Komposition. Eine Variant ändert keine Slots oder Breakpoints.
+
+Die alten Theme-Imports und `all.scss` entfallen. Consumer stellen auf den
+obigen Entry um und ersetzen `theme-*` durch `variant-*`. Herkunftsbezogene
+Style-Namen werden funktional gewählt: Hero-Bildpanels verwenden
+`style-image-text`, redaktionelle Heroes `style-editorial`, Kampagnen
+`style-campaign`; das frühere Raven-Zweispalten-Hero heißt `style-hero`.
+Weitere Zuordnungen stehen in den Sidecars der jeweiligen Elemente.
+
+Website-Anpassungen setzen `--nt-*` direkt auf dem Variant-Träger, damit
+auch abgeleitete Tokens dort neu berechnet werden:
+
+```scss
+@layer website {
+  :where(body.variant-raven) {
+    --nt-primary: #315b70;
+    --nt-radius: .25rem;
+  }
+}
+```
+
+Die [Theme-Architektur](docs/theme-architecture.md) erklärt Layer und Ablage.
+Das [Seitenverzeichnis](docs/index.md) verlinkt die vollständigen Demos.
 
 ## Build on:
 
@@ -76,7 +103,7 @@ werden. Jede npm-Versionsnummer darf nur einmal veröffentlicht werden.
 
 #### How to Change Styles
 
-- For theme-specific changes, edit the CSS of a theme, e.g. `src/epraxis-theme/theme.scss` (not to be confused with the files in `docs/_src`)
+- For theme-specific changes, edit its functional style under `theme/elements/` or its token variant under `theme/variants/`
 - Base styles come from published npm packages: `@nextrap/style-*` and `@trunkjs/*`
 
 

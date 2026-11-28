@@ -1,0 +1,118 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+@use "@nextrap/nte-card" as card;
+
+// Verbindet kompakte Informationskarten zu einem durchgehenden Band.
+@mixin style-ribbon() {
+  ntl-card-row.style-ribbon {
+    @include cardRow.default-style(
+      $cols: 4,
+      $container-width: var(--nt-container-width),
+      $gap: 0px,
+      $inner-padding: 0,
+      $container-background: transparent,
+      $container-border: 0,
+      $container-border-radius: 0
+    );
+    @include cardRow.with-item-separators($separator-color: var(--nt-border));
+
+    // Die Fläche folgt dem vorhandenen Container und erzeugt keinen 100vw-Überlauf.
+    background: var(--nt-surface-raised);
+    color: var(--nt-text);
+
+    &::part(header) {
+      color: var(--nt-header);
+    }
+
+    &::part(main) {
+      align-items: stretch;
+    }
+
+    // Richtet Inhalte und Aktionen gleich hoch aus, ohne die Card-Breiten zu setzen.
+    > nte-card {
+      @include card.default-style(
+        $innerPadding: var(--nt-spacing-component),
+        $gap: var(--nt-spacing-text),
+        $border: 0,
+        $background-color: transparent,
+        $border-radius: 0
+      );
+      @include card.with-region-bleed(image);
+
+      color: inherit;
+
+      // Entfernt nur den Abschlussabstand der letzten normalen Inhaltsregion.
+      // Nachfolgende Sections oder Akkordeons behalten ihren bisherigen Abstand.
+      > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]):not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]))):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+        margin-bottom: 0;
+      }
+
+      &::part(wrapper) {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      &::part(content) {
+        flex: 1 1 auto;
+      }
+
+      > :is(h1, h2, h3, h4, h5, h6) {
+        color: inherit;
+        font-size: var(--nt-font-size);
+        font-weight: var(--nt-font-weight-bold);
+      }
+
+      a {
+        color: var(--nt-link);
+      }
+
+      // Meldungen bleiben editierbarer Content innerhalb derselben Card-Komposition.
+      > leuffen-announcements {
+        display: block;
+        color: inherit;
+
+        [data-owner="leuffen-announcements"] {
+          display: grid;
+          gap: var(--nt-space-2);
+        }
+
+        [data-owner="leuffen-announcement"] {
+          margin: 0;
+          color: inherit;
+        }
+      }
+    }
+
+    // Schaltet vorhandene Farbrollen um; Struktur und Mobile-Stack bleiben gleich.
+    &.ribbon-dark {
+      color: var(--nt-text-on-secondary);
+      background: var(--nt-secondary);
+      --item-separator-color: color-mix(in srgb, var(--nt-text-on-secondary) 24%, transparent);
+
+      &::part(header),
+      > nte-card a {
+        color: inherit;
+      }
+    }
+
+    // Ein explizites Inhaltsband kann auf eigene Row-Einleitung und Row-Footer verzichten.
+    &.ribbon-content-only {
+      &::part(header),
+      &::part(footer) {
+        display: none;
+      }
+    }
+
+    // Das schmale Band behält quadratische Medien und die Komponenten-Trenner.
+    &[mode="mobile"] > nte-card {
+      --image-aspect-ratio: 1;
+    }
+
+    // Überlappung ist eine gewählte Kompositionsoption, kein Effekt der Farb-Variant.
+    &.ribbon-overlap:not([mode="mobile"]) {
+      position: relative;
+      z-index: 3;
+      margin-block-start: calc(-1 * var(--nt-space-8));
+    }
+  }
+}

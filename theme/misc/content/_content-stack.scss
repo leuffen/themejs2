@@ -1,0 +1,7 @@
+// Stapelt vorhandene Inhaltsblöcke, ohne die semantische Slot-Klasse aside zu verändern.
+.content-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nt-spacing-text);
+  height: 100%;
+}

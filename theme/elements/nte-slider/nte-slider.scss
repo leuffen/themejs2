@@ -1,0 +1,4 @@
+@use "style-editorial" as s-editorial;
+
+// Gibt alle dokumentierten Styles dieses Elements gemeinsam aus.
+@include s-editorial.style-editorial();

@@ -1,0 +1,10 @@
+@use "style-default" as native-default;
+@use "./style-open-hours" as openHours;
+@use "./style-timeline" as timeline;
+
+// Aktiviert zuerst den gemeinsamen nativen Fallback.
+@include native-default.style-default();
+
+// Registriert beide funktionalen Tabellenstile im gemeinsamen Theme-Scope.
+@include openHours.style-open-hours();
+@include timeline.style-timeline();

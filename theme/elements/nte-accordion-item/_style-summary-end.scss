@@ -1,0 +1,26 @@
+// Stellt die Zusammenfassung nach den Details dar, ohne deren Interaktion zu ersetzen.
+@mixin style-summary-end() {
+  nte-accordion-item.style-summary-end {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    border: var(--nt-border-width) solid var(--nt-border);
+    border-radius: var(--nt-border-radius-xl);
+    background: var(--nt-surface-muted);
+
+    &::part(content) {
+      order: 0;
+      padding: 0;
+    }
+
+    &::part(summary) {
+      order: 1;
+      padding: var(--nt-spacing-control);
+      background: var(--nt-surface-raised);
+    }
+
+    &[open]::part(summary) {
+      border-top: var(--nt-border-width) solid var(--nt-border);
+    }
+  }
+}

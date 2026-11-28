@@ -1,0 +1,10 @@
+@use "style-default" as s-default;
+@use "style-image-text" as s-image-text;
+@use "style-editorial" as s-editorial;
+@use "style-campaign" as s-campaign;
+
+// Gibt alle dokumentierten Styles dieses Elements gemeinsam aus.
+@include s-default.style-default();
+@include s-image-text.style-image-text();
+@include s-editorial.style-editorial();
+@include s-campaign.style-campaign();

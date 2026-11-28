@@ -12,7 +12,7 @@ show_title: false
 
 <!-- Demonstriert den fokussierten Hero mit Standard-Markdown, NTE-Feldern und lokalen Pfeilassets. -->
 ---
-{: layout="2;ntl-hero.style-default" }
+{: layout="2;ntl-hero.style-campaign" }
 
 # Turn online shoppers into **lifetime customers**
 {: layout="3;.hero-copy" data-kicker="Small business solutions" }
@@ -33,13 +33,13 @@ Rated best over 37k reviews
 ---
 {: layout="4;.hero-form" section-id="kontakt" .sm:desktop }
 
-#[nte-input.style-default.hoverlabel type="text" name="name" label="Your name" required]
-#[nte-input.style-default.hoverlabel type="email" name="email" label="Your email" required]
+#[nte-input.hoverlabel type="text" name="name" label="Your name" required]
+#[nte-input.hoverlabel type="email" name="email" label="Your email" required]
 #[button type="submit" class="btn btn-primary" > Get started]
 
 <!-- Zeigt die Standard-2Col-Variante als helle Produkt- oder Leistungssektion im 7-zu-5-Raster. -->
 ## Interfaces – our core skill
-{: layout="ntl-2col.style-default.reverse" section-style="--cols: 5;" }
+{: layout="ntl-2col.reverse.style-feature" section-style="--cols: 5;" }
 
 Analytic dashboards, platforms, and social networks – we have strong cases in **edtech, recruitment, data privacy**, and finance.
 
@@ -56,7 +56,7 @@ Analytic dashboards, platforms, and social networks – we have strong cases in 
 
 <!-- Nutzt dieselbe Standardvariante mit der bestehenden Surface-Utility für einen kontrastreichen 5-zu-7-Abschnitt. -->
 ## Drive maximum customer-satisfaction
-{: layout="ntl-2col.style-default.surface-secondary" section-style="--cols: 5;" }
+{: layout="ntl-2col.surface-secondary.style-feature" section-style="--cols: 5;" }
 
 Connect with your customers better by giving them an excellent post-purchase experience. Engage customers, reduce queries and build trust with automated tracking notifications and custom branded tracking page.
 
@@ -73,7 +73,7 @@ Connect with your customers better by giving them an excellent post-purchase exp
 
 <!-- Wiederholt das Feature-Muster im 7-zu-5-Raster mit einem editierbaren Linkangebot in der Textspalte. -->
 ## Developing all things digital for designers and agencies.
-{: section-id="produkte" layout="ntl-2col.style-default.reverse" section-style="--cols: 5;" }
+{: section-id="produkte" layout="ntl-2col.reverse.style-feature" section-style="--cols: 5;" }
 
 We help agencies and designers **transform concepts into digital products** that stand the test of time.
 
@@ -167,7 +167,7 @@ Research begins on refining our vision into a platform for communication and rem
 
 <!-- Zeigt die Testimonial-Variante mit austauschbarer Person, Quelle, CTA und frei editierbarem Blockquote. -->
 ## Featured client
-{: layout="ntl-2col.style-testimonial.reverse" section-style="--cols: 6;" }
+{: layout="ntl-2col.style-testimonial.reverse.testimonial-portrait" section-style="--cols: 6;" }
 
 > To say that switching to Unify has been life-changing is an understatement. My business has tripled and I got my life back.
 {: .testimonial-quote }
@@ -226,10 +226,10 @@ Für wachsende Agenturen und Produktteams.
 
 <!-- Kombiniert ein bestehendes NTL mit dem vorhandenen NTE-Accordion für eine responsive FAQ-Sektion. -->
 ## Häufig gestellte Fragen
-{: section-id="fragen" layout="ntl-2col.style-default.reverse.with-justify-top" .aside section-style="--cols: 8;" }
+{: section-id="fragen" layout="ntl-2col.reverse.with-justify-top.style-feature" .aside section-style="--cols: 8;" }
 
 ---
-{: layout="3;nte-accordion.style-default.marker-plus.marker-start" initial-open-index="0" exclusive }
+{: layout="3;nte-accordion.marker-plus.marker-start" initial-open-index="0" exclusive }
 
 #### Welche Inhalte können wir selbst bearbeiten?
 

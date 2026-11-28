@@ -1,0 +1,30 @@
+@use "@nextrap/ntl-hero" as hero;
+
+// Registriert die vollständige Komposition am gewählten Element.
+@mixin style-editorial() {
+  // Zentriert den redaktionellen Einstieg mit optionalem Slider.
+  ntl-hero.style-editorial {
+    @include hero.default-style($background: var(--nt-surface-muted));
+
+    display: block;
+
+
+    &::part(content) {
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+      padding: var(--nt-spacing-layout) var(--nt-container-gutter);
+    }
+
+
+    nte-slider[slot="footer"] {
+      margin-bottom: calc(-1 * (var(--nt-space-8) + var(--nt-space-4)));
+      display: block;
+    }
+
+    &:has(nte-slider) {
+      margin-bottom: calc(var(--nt-space-9) + var(--nt-space-1));
+    }
+
+  }
+}

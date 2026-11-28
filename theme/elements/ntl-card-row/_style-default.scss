@@ -1,0 +1,122 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+@use "@nextrap/nte-card" as card;
+@use "sass:string";
+
+// Teilt die Card-Baseline über alle visuellen Variants und optionalen Modifier.
+@mixin style-default() {
+  // Die Instanz entscheidet über die Spalten; der Style hält Karten und Footer bündig.
+  ntl-card-row.style-default {
+    @include cardRow.default-style(
+      $container-width: var(--nt-container-width),
+      $cols: 4,
+      $gap: var(--nt-spacing-layout),
+      $inner-padding: 0,
+      $container-background: transparent,
+      $container-border: 0,
+      $container-border-radius: 0
+    );
+
+    // Zentriert eine optionale Einleitung über der gemeinsam ausgerichteten Reihe.
+    &::part(header) {
+      max-width: 48rem;
+      margin: 0 auto var(--nt-spacing-component);
+      text-align: center;
+    }
+
+    &::part(main) {
+      align-items: stretch;
+    }
+
+    // Konfiguriert nur direkte Cards; verschachtelte Karten behalten ihren eigenen Style.
+    > nte-card {
+      @include card.default-style(
+        $innerPadding: var(--nt-spacing-component),
+        $border: var(--nt-border-width) solid var(--nt-border),
+        $background-color: var(--nt-surface-raised),
+        $border-radius: var(--nt-radius),
+        $image-aspect-ratio: string.unquote("16 / 9"),
+        $gap: var(--nt-spacing-text)
+      );
+      @include card.with-region-bleed(image);
+
+      align-self: stretch;
+      color: var(--nt-text);
+
+      // Verlinkte und unverlinkte Cards füllen dieselbe Zeilenhöhe.
+      &::part(link) {
+        display: block;
+        height: 100%;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &::part(wrapper) {
+        height: 100%;
+      }
+
+      // Wachsender Content hält optionale Footer auch bei langen Texten unten.
+      &::part(content) {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        gap: var(--nt-spacing-text);
+      }
+
+      > :is(h1, h2, h3, h4, h5, h6) {
+        color: var(--nt-header);
+        font-size: var(--nt-fs-h3);
+        font-weight: var(--nt-font-weight-header);
+        line-height: var(--nt-line-height-header);
+      }
+
+      // Entfernt nur den Abschlussabstand der letzten normalen Inhaltsregion.
+      // Nachfolgende Sections oder Akkordeons behalten ihren bisherigen Abstand.
+      > :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]):not(:has(~ :is(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, figure):not([slot]))):not(:has(~ section:not([layout]))):not(:has(~ nte-accordion)) {
+        margin-bottom: 0;
+      }
+
+      // Eine redaktionelle Nebenkarte bleibt eine normale Card mit sekundärer Fläche.
+      &.aside {
+        --background-color: var(--nt-surface-muted);
+      }
+    }
+
+    // Führt die bisher randlose Inhaltsreihe ohne eigene Style-Kopie fort.
+    &.default-content-only {
+      &::part(header),
+      &::part(footer) {
+        display: none;
+      }
+
+      > nte-card {
+        --border: 0;
+        --border-radius: 0;
+      }
+    }
+
+    // Ergänzt bei Bedarf die vorhandenen responsiven Nextrap-Trenner.
+    &.default-separated {
+      @include cardRow.with-item-separators($separator-color: var(--nt-border));
+    }
+
+    // Das erste Bild bleibt eine normale Card; weitere Bilder tragen den Text als Overlay.
+    &.default-featured[mode="desktop"] > nte-card:not(:first-of-type) {
+      @include card.with-image-overlay();
+    }
+
+    // Mobile Bildkarten verwenden einen kompakten Ausschnitt ohne neue Spaltenlogik.
+    &[mode="mobile"] > nte-card {
+      --image-aspect-ratio: 1;
+    }
+
+    // Der Desktop-Content darf wachsen; die Breite bleibt beim Zwölfspaltenmodell.
+    &[mode="desktop"] > nte-card {
+      &::part(link),
+      &::part(wrapper) {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+      }
+    }
+  }
+}

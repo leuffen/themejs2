@@ -1,0 +1,63 @@
+// Stellt Stationen einer Laufbahn mobil als lesbare Folge von Einträgen dar.
+@mixin style-timeline() {
+  table.style-timeline {
+    width: 100%;
+    margin-block-start: var(--nt-space-7);
+    border-collapse: collapse;
+    border-block-start: var(--nt-border-width) solid var(--nt-border);
+
+    // Die Zeilen enthalten bereits Zeitraum und Beschreibung der Station.
+    thead {
+      display: none;
+    }
+
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    // Trennt Stationen unabhängig von der Länge der jeweiligen Beschreibung.
+    tbody tr {
+      padding-block: var(--nt-space-5);
+      border-block-end: var(--nt-border-width) solid var(--nt-border);
+    }
+
+    td {
+      padding: 0;
+      vertical-align: top;
+    }
+
+    td:first-child {
+      margin-block-end: var(--nt-space-2);
+      color: var(--nt-primary-emphasis);
+      font-weight: var(--nt-font-weight-bold);
+    }
+
+    td:last-child {
+      color: var(--nt-text-muted);
+    }
+
+    // TrunkJS aktiviert den Zeilenmodus über xl:timeline-horizontal.
+    &.timeline-horizontal {
+      tbody {
+        display: table-row-group;
+      }
+
+      tr {
+        display: table-row;
+      }
+
+      td {
+        display: table-cell;
+        padding-block: var(--nt-space-5);
+      }
+
+      td:first-child {
+        width: clamp(10rem, 24vw, 13rem);
+        margin-block-end: 0;
+        padding-inline-end: var(--nt-spacing-component);
+      }
+    }
+  }
+}

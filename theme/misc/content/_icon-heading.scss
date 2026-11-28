@@ -1,0 +1,18 @@
+// Hält ein dekoratives Icon und den zugehörigen Titel in einer gemeinsamen Zeile.
+.icon-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--nt-spacing-control);
+
+  // Nur Icons dieser Komposition erhalten die große, farbige Darstellung.
+  .feature-icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: var(--nt-primary);
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    line-height: 1;
+  }
+}

@@ -1,0 +1,35 @@
+@use "@nextrap/nte-nav" as nav;
+
+// Registriert eine Navigation; Ausrichtung und Kompaktheit sind Instanzoptionen.
+@mixin style-default() {
+  nte-nav.style-default {
+    @include nav.main-navigation();
+
+    // Die bestehenden Nav-Klassen bleiben dokumentierte Library-Modifier.
+    &.nav-horizontal {
+      @include nav.horizontal();
+    }
+
+    &.nav-vertical {
+      @include nav.vertical();
+    }
+
+
+    // Wählt nur die Farbrollen für Navigation auf dunklen Frame-Flächen.
+    &.default-dark {
+      @include nav.main-navigation(
+        $color: var(--nt-text-on-primary),
+        $hover-color: var(--nt-accent),
+        $current-background: var(--nt-accent),
+        $current-color: var(--nt-text-on-accent),
+        $focus-color: var(--nt-accent)
+      );
+    }
+
+    &.default-compact {
+      @include nav.size-small();
+      font-size: var(--nt-font-size-small);
+      font-weight: var(--nt-font-weight-header);
+    }
+  }
+}

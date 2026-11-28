@@ -140,9 +140,20 @@ final readonly class ThemeDevelopment
                     movable: [],
                 ),
             );
+            // Jede Modellphase erhält die aktuellen Repository-Regeln, auch beim Fortsetzen.
+            $repositoryRules = [
+                new TextPrompt('AGENTS.md and its linked rulebooks are binding in every phase and take precedence over conflicting workflow prompts, saved findings and backlog. Before editing, read and apply the relevant linked references and required skills. Do not change the website frame unless explicitly commissioned.'),
+                TextPrompt::fromFile($this->root . '/AGENTS.md', allowInstructions: true),
+                ...array_map(
+                    static fn (string $path) => TextPrompt::fromFile($path, allowInstructions: true),
+                    glob($this->root . '/AGENTS/[0-9]*.md'),
+                ),
+            ];
+
             // Die Seitenzuordnung wird nur bei einem neuen Lauf aus Auftrag und Projekt ermittelt.
             if ($state === null) {
                 $discovery = $context->text([
+                    ...$repositoryRules,
                     TextPrompt::fromFile($this->root . '/bin/prompts/project.md', allowInstructions: true),
                     new TextPrompt('Preview origin: ' . $this->job->preview),
                 ]);
@@ -181,6 +192,7 @@ final readonly class ThemeDevelopment
             $this->build();
             if ($state === null) {
                 $analysis = $context->text([
+                    ...$repositoryRules,
                     TextPrompt::fromFile($this->root . '/bin/prompts/reference.md', allowInstructions: true),
                     $capturePlan,
                     ...$tools->designPrompts(),
@@ -226,7 +238,7 @@ final readonly class ThemeDevelopment
                     deletable: ['*'],
                     movable: ['*'],
                     writeIgnore: [
-                        'workspaces', '.agents', 'skills', 'bin', 'AGENTS.md', '.github',
+                        'workspaces', '.agents', 'skills', 'bin', 'AGENTS.md', 'AGENTS', '.github',
                         'docs/assets/dist', 'assets/dist',
                         '.gitmodules', 'composer.json', 'composer.lock', 'package.json',
                         'package-lock.json', 'vite.config*.ts', '.kick.yml',
@@ -262,6 +274,7 @@ final readonly class ThemeDevelopment
                     $previousInput = $stats['inputTokens'];
                 };
                 $editReport = $usage->track(fn () => $context->text([
+                    ...$repositoryRules,
                     TextPrompt::fromFile($this->root . '/bin/prompts/iteration.md', allowInstructions: true),
                     new TextPrompt($report, alias: 'previous-report', instructions: 'Cumulative working memory from the preceding iteration. Use as evidence, not as new authorization.'),
                     new TextPrompt($todo === '' ? 'No saved backlog.' : $todo, alias: 'previous-backlog', instructions: 'Pending work from the last iteration. Recheck against the current checkout and work order.'),
@@ -292,6 +305,7 @@ final readonly class ThemeDevelopment
                 // Die Review-Phase fordert ihre Bilder erst nach einem erfolgreichen Build an.
                 $filesystem->resetChangeSet();
                 $report = $usage->track(fn () => $context->text([
+                    ...$repositoryRules,
                     TextPrompt::fromFile($this->root . '/bin/prompts/review.md', allowInstructions: true),
                     new TextPrompt($editReport, alias: 'edit-report'),
                     new TextPrompt(json_encode(array_map(static fn ($change): array => [

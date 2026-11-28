@@ -1,0 +1,9 @@
+@use "@nextrap/ntl-hero" as hero;
+
+// Registriert die vollständige Komposition am gewählten Element.
+@mixin style-default() {
+  // Lädt die native Standarddarstellung.
+  ntl-hero.style-default {
+    @include hero.default-style($background: var(--nt-surface-muted));
+  }
+}

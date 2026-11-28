@@ -1,5 +1,5 @@
 ---
-{: layout="1;ntl-hero.theme1" style="--brand-height: 64px"}
+{: layout="1;ntl-hero.style-editorial" style="--brand-height: 64px"}
 
 ![](../assets/header-bg.svg)
 {: layout="2;nte-parallax-bg" slot="bg"}
@@ -11,7 +11,7 @@
 {: layout="[slot='title']" .h1}
 
 ---
-{: layout="2;nte-slider.theme1"}
+{: layout="2;nte-slider.style-editorial"}
 
 ### Top Thema
 
@@ -77,7 +77,7 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
 {: layout="1;.box-primary"}
 
 ---
-{: layout="1.5;ntl-2col.container"}
+{: layout="1.5;ntl-2col.container.default-open"}
 
 # Empfehlung der Redaktion
 {: layout="2"}
