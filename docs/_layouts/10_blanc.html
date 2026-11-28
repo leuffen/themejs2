@@ -97,6 +97,6 @@ layout: null
 {{ content }}
 {% comment %} Der statische Build wird ausschließlich in der Produktionsausgabe geladen; lokal übernimmt Vite die Quellmodule. {% endcomment %}
 {% if jekyll.environment == "production" %}
-<script src="/assets/dist/index.js?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="module" defer></script>
+<script src="/assets/dist/leuffen-tjs2.js?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="module" defer></script>
 {% endif %}
 </html>
