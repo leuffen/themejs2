@@ -1,7 +1,7 @@
 // Skaliert Einleitungen unabhängig von der H1, damit Copy und CTA zusammen sichtbar bleiben.
 .lead-serif {
   color: var(--nt-text-muted);
-  font-family: "Garamond", Georgia, serif;
+  font-family: "EB Garamond", Georgia, serif;
   font-size: clamp(var(--nt-fs-5), 2.4vw, var(--nt-fs-2));
   line-height: 1.34;
 }

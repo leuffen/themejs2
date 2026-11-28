@@ -1,11 +1,11 @@
 
-@use "./_vendor/font-opensans";
-@use "./_vendor/font-garamond";
+@use "./_vendor/opensans";
+@use "./_vendor/garamond";
 
 $font-family-base: 'Open Sans', sans-serif;
 $font-size-base: 1rem !default;
 
-$font-family-header: 'Garamond', serif !default;
+$font-family-header: 'EB Garamond', serif !default;
 $font-size-header: 2rem !default;
 
 // Zielmetriken basierend auf Work Sans (x-Hoehe 0.50 em, Versalhoehe 0.66 em).

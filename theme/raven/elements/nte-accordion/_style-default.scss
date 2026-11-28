@@ -52,7 +52,7 @@
     &::before {
       content: counter(process-step, decimal-leading-zero);
       color: var(--nt-link);
-      font-family: "Garamond", Georgia, serif;
+      font-family: "EB Garamond", Georgia, serif;
       font-size: var(--nt-fs-4);
       font-weight: var(--nt-font-weight-normal);
       line-height: 1.2;
