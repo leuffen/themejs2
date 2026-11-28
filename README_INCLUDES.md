@@ -22,11 +22,12 @@ Die GitHub-Pages-Demo verwendet feste Website-Layouts.
 | `helpers/urls/page.html` | Sprachabhängige Seiten-URL |
 | `helpers/text/remove-line-breaks.html` | Textaufbereitung |
 | `fragments/loader.html` | Seitenweiter Loader |
-| `frames/<variante>/navbar.html`, `frames/<variante>/footer.html` | Markup für feste Demo-Layouts |
 
 ## 1. Standardseite
 
-Eine Seite benötigt nur `layout: website`; Navbar und Footer erscheinen automatisch.
+Eine Seite verwendet `layout: website-default`; Navbar, Page-Header und Footer
+erscheinen standardmäßig. Die Werte `show_navbar`, `show_title` und `show_footer`
+können je Seite auf `false` gesetzt werden.
 Das ausführbare Beispiel liegt unter `docs/pages/includes.md` und ebenso in `_root/docs/pages/includes.md`.
 
 ```liquid
@@ -62,18 +63,20 @@ oder alternativen Rahmenkopien. Das schlanke `blanco`-Layout verwendet direkt
 Die Hauptnavigation verwendet wie Osman2 `ptags: [nav]` und die Verzeichnishierarchie:
 `leistungen/index.md` ist die Kategorie, `leistungen/diagnostik.md` eine direkte Unterseite.
 Beide tragen `ptags: [nav]`; `order` bestimmt die Reihenfolge, `nav_title` einen abweichenden Menütitel.
-Kategorie-Seiten verwenden `layout: index`, das die Unterseiten als Karten ausgibt.
+Kategorie-Seiten können `components/navigation/section-cards.html` direkt verwenden.
 Eltern mit Unterpunkten öffnen das Untermenü; die Kategorie selbst wird dabei nicht als Link ausgegeben.
-Die Demo-Startseite listet die Endseiten direkt nach Quellverzeichnis.
+Die Demo-Websites liegen unter `docs/themes/<name>/`. Jede Seite setzt
+`navigation_root: themes/<name>` und verwendet `ptags: [nav, footer-nav]`.
+Die Demo-Startseite verlinkt alle veröffentlichten Beispiele mit ihrem Dateipfad.
 
 ## 4. Layout-Kette und Vorlage
 
-Die Demo verwendet `10_blanc` → `20_body` → das gewählte Website-Layout. Die Kundenvorlage verwendet ihre feste Navbar- und Footer-Kette.
+Die Demo verwendet `10_blanc` → `20_body` → `blank` → `website-*`.
+Die Kundenvorlage verwendet ihre feste Navbar- und Footer-Kette.
 Die bisherige Stufe `30_script` ist in `20_body` integriert.
-`index`, `legal/legal`, `default` und `website` ergänzen die übernommenen Osman2-Layouts;
-vorhandene Artikel- und Collection-Layouts bleiben nutzbar.
-Die Rahmenfragmente der Demo liegen unter `docs/_includes/frames/`;
-`_layouts/alternatives/` und zusätzliche Rahmenfragmente entfallen in beiden Umgebungen.
+Vorhandene Artikel- und Collection-Layouts bauen auf `website-default` auf.
+Die Website-Layouts enthalten ihr Frame-Markup direkt. Ein anderes Layout wird
+über `layout` gewählt; Header- und Footer-Includes oder Dispatcher entfallen.
 `_root` enthält dieselben fachlichen Includes, Logos und Beispieldaten.
 Der gewählte Website-Rahmen ist dort fest in die beiden Layout-Dateien integriert.
 Unter `_root/docs/_src/style.scss` wird nur das gewählte Osman-Theme geladen.

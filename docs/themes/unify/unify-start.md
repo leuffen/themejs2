@@ -1,12 +1,13 @@
 ---
 layout: website-unify
-body_class: theme-unify
 title: Theme Unify
 description: "Unify-Demo für moderne Business-, Agentur- und Beratungsseiten mit Nextstrap-Layouts."
-ptags:
-  - business
-  - nav
+ptags: [business, nav, footer-nav]
 pid: site
+navigation_root: themes/unify
+short_title: Startseite
+order: 0
+show_title: false
 ---
 
 <!-- Demonstriert den fokussierten Hero mit Standard-Markdown, NTE-Feldern und lokalen Pfeilassets. -->
@@ -30,7 +31,7 @@ Rated best over 37k reviews
 ![Dekorative Pfeile](/assets/unify/three-arrows-1.svg){: .hero-arrows .hero-arrows-end .md:desktop aria-hidden="true" }
 
 ---
-{: layout="4;.hero-form" .sm:desktop }
+{: layout="4;.hero-form" section-id="kontakt" .sm:desktop }
 
 #[nte-input.style-default.hoverlabel type="text" name="name" label="Your name" required]
 #[nte-input.style-default.hoverlabel type="email" name="email" label="Your email" required]
@@ -47,7 +48,7 @@ Analytic dashboards, platforms, and social networks – we have strong cases in 
 - 165 Countries served **globally**
 {: .list-checked }
 
-[Learn more](/pages/beispiele/leistungen/praxis-am-stadtpark.html){: .btn .btn-primary }
+[Learn more](/themes/unify/unify-services.html#leistungen){: .btn .btn-primary }
 
 ![Arbeitsplatz mit digitalem Produkt](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img1.jpg)
 ![Oberfläche eines Analyse-Dashboards](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img4.png)
@@ -64,7 +65,7 @@ Connect with your customers better by giving them an excellent post-purchase exp
 - FREE Email & SMS notifications
 {: .list-checked }
 
-[Learn more](/pages/beispiele/leistungen/praxis-am-stadtpark.html){: .btn .btn-primary }
+[Learn more](/themes/unify/unify-services.html#leistungen){: .btn .btn-primary }
 
 ![Kundin bei einer digitalen Beratung](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img2.jpg)
 ![Auswahlansicht eines digitalen Shops](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img5.png)
@@ -72,16 +73,16 @@ Connect with your customers better by giving them an excellent post-purchase exp
 
 <!-- Wiederholt das Feature-Muster im 7-zu-5-Raster mit einem editierbaren Linkangebot in der Textspalte. -->
 ## Developing all things digital for designers and agencies.
-{: layout="ntl-2col.style-default.reverse" section-style="--cols: 5;" }
+{: section-id="produkte" layout="ntl-2col.style-default.reverse" section-style="--cols: 5;" }
 
 We help agencies and designers **transform concepts into digital products** that stand the test of time.
 
-- [Unify Wallet app](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
-- [Unify debit card](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
-- [Automatic savings](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
-- [Unify Cashout](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
-- [529 college savings](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
-- [Retirement savings](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [Unify Wallet app](/themes/unify/unify-services.html#leistungen)
+- [Unify debit card](/themes/unify/unify-services.html#leistungen)
+- [Automatic savings](/themes/unify/unify-services.html#leistungen)
+- [Unify Cashout](/themes/unify/unify-services.html#leistungen)
+- [529 college savings](/themes/unify/unify-services.html#leistungen)
+- [Retirement savings](/themes/unify/unify-services.html#leistungen)
 {: .feature-links }
 
 ![Designer bei der Arbeit](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img3.jpg)
@@ -90,7 +91,7 @@ We help agencies and designers **transform concepts into digital products** that
 
 <!-- Demonstriert die Timeline-Variante mit sechs austauschbaren Zeitpunkten, Titeln und Beschreibungen. -->
 ## A brief history of Unify
-{: layout="ntl-card-row.style-timeline.with-horizontal-flow" section-style="--cols: 2; --visible-cols-mobile: 4.25; --horizontal-flow-gap: 0px; --horizontal-flow-snap: proximity;" }
+{: section-id="geschichte" layout="ntl-card-row.style-timeline.with-horizontal-flow" section-style="--cols: 2; --visible-cols-mobile: 4.25; --horizontal-flow-gap: 0px; --horizontal-flow-snap: proximity;" }
 
 ### Today
 {: .timeline-period }
@@ -177,7 +178,7 @@ Research begins on refining our vision into a platform for communication and rem
 Director Payments & Risk \| Airbnb
 {: .testimonial-role }
 
-[Read the story](/referenzen){: .btn .btn-secondary }
+[Read the story](/themes/unify/unify-services.html#referenzen){: .btn .btn-secondary }
 
 ![Porträt einer Kundin](https://static.leanea.de/uni-v3.0-docs/assets/img/500x650/img4.jpg)
 
@@ -200,7 +201,7 @@ Alles, was kleine Teams für den Einstieg brauchen.
 - <span class="is-unavailable">Produkt-Support</span>
 - <span class="is-unavailable">Aktivitätsberichte</span>
 
-<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-light }
+<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/themes/unify/unify-start.html#kontakt){: .btn .btn-light }
 {: .footer }
 
 ### Teams
@@ -220,12 +221,12 @@ Für wachsende Agenturen und Produktteams.
 - Produkt-Support
 - Aktivitätsberichte
 
-<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .btn .btn-primary }
+<small>Jederzeit kündbar.<br>Keine Kreditkarte erforderlich.</small> [Kostenlos testen](/themes/unify/unify-start.html#kontakt){: .btn .btn-primary }
 {: .footer }
 
 <!-- Kombiniert ein bestehendes NTL mit dem vorhandenen NTE-Accordion für eine responsive FAQ-Sektion. -->
 ## Häufig gestellte Fragen
-{: layout="ntl-2col.style-default.reverse.with-justify-top" .aside section-style="--cols: 8;" }
+{: section-id="fragen" layout="ntl-2col.style-default.reverse.with-justify-top" .aside section-style="--cols: 8;" }
 
 ---
 {: layout="3;nte-accordion.style-default.marker-plus.marker-start" initial-open-index="0" exclusive }

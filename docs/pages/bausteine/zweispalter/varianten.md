@@ -1,6 +1,7 @@
 ---
-layout: website
+layout: website-default
 title: Zweispalter
+show_title: false
 ---
 
 # Zweispalter

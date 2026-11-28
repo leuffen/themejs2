@@ -1,6 +1,7 @@
 ---
-layout: website
+layout: website-default
 title: Kartenvarianten
+show_title: false
 ---
 
 # Kartenvarianten

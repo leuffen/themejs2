@@ -1,8 +1,11 @@
 ---
 layout: website-mueller
-body_class: theme-mueller
 title: Müller – Leistungen
-ptags: [arzt, nav]
+ptags: [arzt, nav, footer-nav]
+navigation_root: themes/mueller
+short_title: Leistungen
+order: 10
+show_title: false
 ---
 
 <!-- Die Übersicht zeigt die drei Leistungen aus der Scheche-Referenz. -->
@@ -30,4 +33,4 @@ Begleitung bei konservativer und chirurgischer Therapie sowie Vor- und Nachsorge
 ## Sie haben Fragen? Wir helfen gerne weiter
 {: layout="ntl-2col.style-cta" section-style="--cols: 12;" }
 
-[Kontakt]({{ '/pages/beispiele/kontakt/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg }
+[Kontakt]({{ '/themes/mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg }

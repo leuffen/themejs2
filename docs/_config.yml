@@ -42,12 +42,12 @@ collections:
     output: true
     permalink: /landingpages/:path/
 
-# Frontmatter contracts for the ePraxis demo and collection pages.
+# Gemeinsame Frame-Schalter und getrennte Defaults für jede Demo-Website.
 defaults:
   - scope:
       path: ""
     values:
-      layout: default
+      layout: website-default
       show_navbar: true
       show_title: true
       show_footer: true
@@ -56,6 +56,7 @@ defaults:
       type: posts
     values:
       layout: article
+      show_title: false
       content_type: news
       permalink: /news/:year/:month/:day/:title/
   - scope:
@@ -63,31 +64,88 @@ defaults:
       type: wissen
     values:
       layout: article
+      show_title: false
       content_type: wissen
   - scope:
       path: ""
       type: autoren
     values:
       layout: author
+      show_title: false
   - scope:
       path: ""
       type: themen
     values:
       layout: topic
+      show_title: false
   - scope:
       path: ""
       type: partner
     values:
       layout: partner
+      show_title: false
   - scope:
       path: ""
       type: landing_pages
     values:
       layout: landing-page
+      show_title: false
+
+  # Das Profil bleibt bis zur SCSS-Migration zusätzlich am HTML-Element aktiv.
+  - scope:
+      path: "themes/dommer"
+    values:
+      layout: website-default
+      theme_profile: dommer
+      location_id: dommer
+      brand_url: /themes/dommer/dommer-start.html
+  - scope:
+      path: "themes/osman"
+    values:
+      layout: website-osman
+      theme_profile: osman
+      body_class: theme-osman
+      brand_url: /themes/osman/osman-start.html
+      contact_url: /themes/osman/osman-start.html#osman-start-kontakt
+  - scope:
+      path: "themes/mueller"
+    values:
+      layout: website-mueller
+      theme_profile: mueller
+      body_class: theme-mueller
+      brand_url: /themes/mueller/mueller-start.html
+      contact_url: /themes/mueller/mueller-kontakt.html
+  - scope:
+      path: "themes/raven"
+    values:
+      layout: website-raven
+      theme_profile: raven
+      body_class: theme-raven
+      brand_url: /themes/raven/raven-start.html
+      contact_url: /themes/raven/raven-kontakt.html
+  - scope:
+      path: "themes/unify"
+    values:
+      layout: website-unify
+      theme_profile: unify
+      body_class: theme-unify
+      brand_url: /themes/unify/unify-start.html
+      contact_url: /themes/unify/unify-start.html#kontakt
+      about_url: /themes/unify/unify-start.html#geschichte
+      products_url: /themes/unify/unify-start.html#produkte
+      faq_url: /themes/unify/unify-start.html#fragen
+      resources_url: /themes/unify/unify-saas.html#leitfaden
+      services_url: /themes/unify/unify-services.html#leistungen
+      references_url: /themes/unify/unify-services.html#referenzen
+  - scope:
+      path: "themes/epraxis"
+    values:
+      layout: website-default
+      theme_profile: epraxis
+      body_class: theme-epraxis
+      brand_url: /themes/epraxis/epraxis-start.html
 
 plugins:
   - jekyll-optional-front-matter
   - jekyll-sitemap
 
-# Die Demo-Kategorien liegen unter pages; Nutzprojekte beginnen direkt in docs.
-navigation_root: pages

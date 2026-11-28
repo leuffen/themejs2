@@ -1,42 +1,56 @@
 ---
-layout: website
+layout: website-default
 title: ThemeJS2
+show_title: false
 ---
 
-<!-- Der Container begrenzt die Breite des gesamten Verzeichnisses. -->
+<!-- Das Verzeichnis listet veröffentlichte Demo-Seiten unter ihren tatsächlichen Pfaden. -->
 <div class="container" markdown="1">
 
 # ThemeJS2
-
-## Themes
-
-Dommer: [index]({{ '/themes/dommer/dommer-start.html' | relative_url }}) · [Leistungen]({{ '/themes/dommer/dommer-leistungen.html' | relative_url }})
-
-## Seitenverzeichnis
 {: #seitenverzeichnis }
 
+## Themes
+{: #themes }
+
 {% assign demo_pages = site.pages | sort: 'path' %}
-{% assign sections = 'Startseiten|pages/beispiele/startseiten/,Leistungsseiten|pages/beispiele/leistungen/,Kontaktseiten|pages/beispiele/kontakt/,Bausteine|pages/bausteine/,Weitere Seiten|pages/' | split: ',' %}
-{% for section in sections %}
-{% assign fields = section | split: '|' %}
-{% assign folder = fields[1] %}
+{% assign themes = 'Dommer|dommer,Müller|mueller,Osman|osman,Unify|unify,Raven|raven,ePraxis|epraxis' | split: ',' %}
+{% for theme in themes %}
+{% assign fields = theme | split: '|' %}
+{% assign folder = 'themes/' | append: fields[1] | append: '/' %}
 ### {{ fields[0] }}
 
-{% for entry in demo_pages %}
+{% assign theme_pages = demo_pages | sort: 'order' %}
+{% for entry in theme_pages %}
 {% assign prefix = entry.path | slice: 0, folder.size %}
 {% if prefix != folder or entry.published == false %}{% continue %}{% endif %}
-{% if folder == 'pages/' %}
-{% if entry.path contains 'pages/beispiele/' or entry.path contains 'pages/bausteine/' %}{% continue %}{% endif %}
-{% endif %}
-- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+{% unless entry.navigation_root %}{% continue %}{% endunless %}
+- [{{ entry.path }}]({{ entry.url | relative_url }})
 {% endfor %}
+{% endfor %}
+
+## Bausteine
+{: #bausteine }
+
+{% for entry in demo_pages %}
+{% assign prefix = entry.path | slice: 0, 16 %}
+{% if prefix != 'pages/bausteine/' or entry.published == false %}{% continue %}{% endif %}
+- [{{ entry.path }}]({{ entry.url | relative_url }})
+{% endfor %}
+
+## Weitere Seiten
+
+{% for entry in demo_pages %}
+{% assign prefix = entry.path | slice: 0, 6 %}
+{% if prefix != 'pages/' or entry.path contains 'pages/bausteine/' or entry.published == false %}{% continue %}{% endif %}
+- [{{ entry.path }}]({{ entry.url | relative_url }})
 {% endfor %}
 
 ### Dateien und Statusseiten
 
 {% for entry in demo_pages %}
 {% if entry.path contains '/' or entry.path == 'index.md' or entry.published == false %}{% continue %}{% endif %}
-- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+- [{{ entry.path }}]({{ entry.url | relative_url }})
 {% endfor %}
 
 {% for collection in site.collections %}
@@ -47,7 +61,7 @@ Dommer: [index]({{ '/themes/dommer/dommer-start.html' | relative_url }}) · [Lei
 {% assign documents = collection.docs | sort: 'path' %}
 {% for entry in documents %}
 {% if entry.published == false %}{% continue %}{% endif %}
-- [{{ entry.title | default: entry.name }}]({{ entry.url | relative_url }}) · `{{ entry.path }}`
+- [{{ entry.path }}]({{ entry.url | relative_url }})
 {% endfor %}
 {% endfor %}
 
@@ -56,7 +70,7 @@ Dommer: [index]({{ '/themes/dommer/dommer-start.html' | relative_url }}) · [Lei
 {% assign design_templates = site.static_files | where_exp: 'template', "template.path contains '/design-templates/'" | sort: 'path' %}
 {% for template in design_templates %}
 {% unless template.extname == '.html' %}{% continue %}{% endunless %}
-- [{{ template.name }}]({{ template.path | relative_url }}) · `{{ template.path | remove_first: '/' }}`
+- [{{ template.path | remove_first: '/' }}]({{ template.path | relative_url }})
 {% endfor %}
 
 </div>

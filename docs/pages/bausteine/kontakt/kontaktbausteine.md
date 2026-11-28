@@ -1,6 +1,7 @@
 ---
-layout: website
+layout: website-default
 title: Kontaktbausteine
+show_title: false
 ---
 
 # Kontaktbausteine

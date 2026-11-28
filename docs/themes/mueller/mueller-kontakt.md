@@ -1,8 +1,10 @@
 ---
 layout: website-mueller
-body_class: theme-mueller
 title: Müller – Kontakt & Anfahrt
-ptags: [arzt, nav]
+ptags: [arzt, nav, footer-nav]
+navigation_root: themes/mueller
+short_title: Kontakt
+order: 20
 ---
 
 <!-- Übernimmt das Kontaktseitenmuster der Scheche-Referenz in die Müller-Demo. -->

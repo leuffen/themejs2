@@ -1,11 +1,12 @@
 ---
 layout: website-osman
-body_class: theme-osman
 title: Osman Startseite
-ptags:
-  - arzt
-  - nav
+ptags: [arzt, nav, footer-nav]
 pid: site
+navigation_root: themes/osman
+short_title: Startseite
+order: 0
+show_title: false
 ---
 
 <!-- Vollständiger Startseiten-Inhalt aus dermatthes/leu-web-osman2/docs/index.md, Commit 8441247e38e9dda403b42a41f45446b48bd7dd07. Nur Demo-Frontmatter, aufgelöste Öffnungszeiten und absolute Kundenlinks weichen ab. -->

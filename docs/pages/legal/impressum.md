@@ -1,7 +1,5 @@
 ---
-layout: website-osman
-body_class: theme-osman
+layout: website-default
 title: Impressum
-ptags:
-- footernav
+ptags: [footer-nav]
 ---

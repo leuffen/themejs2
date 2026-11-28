@@ -1,6 +1,7 @@
 ---
-layout: website
+layout: website-default
 title: Hero-Varianten
+show_title: false
 ---
 
 # Hero-Varianten
