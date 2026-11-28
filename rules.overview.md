@@ -1,6 +1,6 @@
 # Regelübersicht für ThemeJS2
 
-Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-Regeln aus `AGENTS.md` und `AGENTS/`. Abschnittsnummern gelten innerhalb ihres jeweiligen Regelwerks.
+Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-Regeln aus `AGENTS/index-skill.md` und `AGENTS/`. Abschnittsnummern gelten innerhalb ihres jeweiligen Regelwerks.
 
 ## Regeln
 
@@ -29,23 +29,23 @@ Die Übersicht erfasst die Daemon-Regeln aus `bin/prompts/` und die Repository-R
 | § 4.2 | Status und Abschlusskriterien | [`bin/prompts/review.md`](bin/prompts/review.md) | • `DONE`, `CONTINUE` oder `BLOCKED` anhand von Build, Zielprüfung und Blockern melden. |
 | § 4.3 | Kurzbericht | [`bin/prompts/review.md`](bin/prompts/review.md) | • Auf Deutsch ausgeführte Arbeit, verifizierte Dateipfade und den nächsten Schritt oder eine konkrete Frage nennen. |
 | § 4.4 | Details, Backlog und Befunde | [`bin/prompts/review.md`](bin/prompts/review.md) | • Effekte, Entscheidungen, offene Aufgaben und gültige Messbefunde kompakt fortschreiben. |
-| § 5 | Repository-Regeln | [`AGENTS.md`](AGENTS.md) | • Regelt Entwicklung, Veröffentlichung und die gemeinsamen Verträge von Demo und Kundenvorlage. |
-| § 5.1 | Verbindliche Skills | [`AGENTS.md`](AGENTS.md) | • Passende Skills laden. Bei Nextrap- und visuellen Arbeiten gelten zusätzliche Prüfpflichten. |
-| § 5.2 | Lokale und veröffentlichte Skills | [`AGENTS.md`](AGENTS.md) | • Lokale Skills unter `.agents/skills/` und veröffentlichte Skills unter `skills/` pflegen. |
-| § 5.3 | Entwicklung, statischer Output und CDN | [`AGENTS.md`](AGENTS.md) | • Statisch auslieferbaren CDN-Output erzeugen und den aktuellen Vite-Build prüfen. |
-| § 5.4 | Versionen bauen und veröffentlichen | [`AGENTS.md`](AGENTS.md) | • npm-Releases über `release/X.Y.Z` nach erfolgreichem Build veröffentlichen. |
-| § 5.5 | `_root` als Vorlage für Nutzprojekte | [`AGENTS.md`](AGENTS.md) | • `_root` als kopierbare Vorlage mit veröffentlichten Abhängigkeiten und direkt nutzbaren Dev-Skripten pflegen. |
-| § 5.6 | Aufbau und Ziel von Demo und Kundenvorlage | [`AGENTS.md`](AGENTS.md) | • Demo an Kundenumsetzungen ausrichten und die Layouts sowie gemeinsamen Bausteine beider Varianten einordnen. |
-| § 5.7 | Gemeinsame Basis, Theme-Profile und Komponenten-Styles | [`AGENTS.md`](AGENTS.md) | • Pro NTL-/NTE-Instanz höchstens eine Kompositionsvariante wählen. Ohne Angabe setzt die Komponente ihren Default. |
-| § 5.8 | Demo-Layouts und Seitenverzeichnis | [`AGENTS.md`](AGENTS.md) | • Demo-Rahmen über das Seitenlayout wählen und Beispiele mit ihren Dateipfaden verlinken. |
-| § 5.9 | Fester Rahmen in `_root` | [`AGENTS.md`](AGENTS.md) | • Einen festen Kundenrahmen mit Navbar und Footer sowie dem rahmenlosen `blanco` bereitstellen. |
-| § 5.10 | Zusammenspiel und Synchronisation der beiden Versionen | [`AGENTS.md`](AGENTS.md) | • Gemeinsame Includes und ausgewähltes Rahmen-Markup gezielt abgleichen und beide Varianten prüfen. |
-| § 5.11 | Include-Namen und `_root` als Quelle der Wahrheit | [`AGENTS.md`](AGENTS.md) | • `_root` als Quelle für gemeinsame Include-Verträge verwenden. Strukturänderungen brauchen Zustimmung. |
-| § 5.12 | Dokumentation von Code-Blöcken | [`AGENTS.md`](AGENTS.md) | • Den Zweck zusammengehöriger Code-Blöcke auf Deutsch erklären und die Kommentare bei Verhaltensänderungen aktualisieren. |
-| § 5.13 | Layoutstruktur und Content Pane | [`AGENTS.md`](AGENTS.md) | • Vor Layout-Umbauten TrunkJS-Regeln prüfen und vorhandene Inhaltsdefinitionen für alle betroffenen Seiten erhalten. |
-| § 5.14 | ContentPane-Shortcuts in Markdown | [`AGENTS.md`](AGENTS.md) | • Einzelne Elemente als eigenständige `#[...]`-Zeile schreiben. Komplexe Strukturen dürfen Raw-HTML verwenden. |
-| § 5.15 | Responsive Zuständigkeit | [`AGENTS.md`](AGENTS.md) | • Responsive-Registrierung dem Theme überlassen und mögliche Seiteneffekte vor der Umsetzung klären. |
-| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS.md`](AGENTS.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Für die Style-Ablage und die Variants gilt § 2 Theme-Verzeichnis. |
+| § 5 | Repository-Regeln | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Regelt Entwicklung, Veröffentlichung und die gemeinsamen Verträge von Demo und Kundenvorlage. |
+| § 5.1 | Verbindliche Skills | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Passende Skills laden. Bei Nextrap- und visuellen Arbeiten gelten zusätzliche Prüfpflichten. |
+| § 5.2 | Lokale und veröffentlichte Skills | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Lokale Skills unter `.agents/skills/` und veröffentlichte Skills unter `skills/` pflegen. |
+| § 5.3 | Entwicklung, statischer Output und CDN | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Statisch auslieferbaren CDN-Output erzeugen und den aktuellen Vite-Build prüfen. |
+| § 5.4 | Versionen bauen und veröffentlichen | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • npm-Releases über `release/X.Y.Z` nach erfolgreichem Build veröffentlichen. |
+| § 5.5 | `_root` als Vorlage für Nutzprojekte | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • `_root` als kopierbare Vorlage mit veröffentlichten Abhängigkeiten und direkt nutzbaren Dev-Skripten pflegen. |
+| § 5.6 | Aufbau und Ziel von Demo und Kundenvorlage | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Demo an Kundenumsetzungen ausrichten und die Layouts sowie gemeinsamen Bausteine beider Varianten einordnen. |
+| § 5.7 | Gemeinsame Basis, Theme-Profile und Komponenten-Styles | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Pro NTL-/NTE-Instanz höchstens eine Kompositionsvariante wählen. Ohne Angabe setzt die Komponente ihren Default. |
+| § 5.8 | Demo-Layouts und Seitenverzeichnis | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Demo-Rahmen über das Seitenlayout wählen und Beispiele mit ihren Dateipfaden verlinken. |
+| § 5.9 | Fester Rahmen in `_root` | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Einen festen Kundenrahmen mit Navbar und Footer sowie dem rahmenlosen `blanco` bereitstellen. |
+| § 5.10 | Zusammenspiel und Synchronisation der beiden Versionen | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Gemeinsame Includes und ausgewähltes Rahmen-Markup gezielt abgleichen und beide Varianten prüfen. |
+| § 5.11 | Include-Namen und `_root` als Quelle der Wahrheit | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • `_root` als Quelle für gemeinsame Include-Verträge verwenden. Strukturänderungen brauchen Zustimmung. |
+| § 5.12 | Dokumentation von Code-Blöcken | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Den Zweck zusammengehöriger Code-Blöcke auf Deutsch erklären und die Kommentare bei Verhaltensänderungen aktualisieren. |
+| § 5.13 | Layoutstruktur und Content Pane | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Vor Layout-Umbauten TrunkJS-Regeln prüfen und vorhandene Inhaltsdefinitionen für alle betroffenen Seiten erhalten. |
+| § 5.14 | ContentPane-Shortcuts in Markdown | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Einzelne Elemente als eigenständige `#[...]`-Zeile schreiben. Komplexe Strukturen dürfen Raw-HTML verwenden. |
+| § 5.15 | Responsive Zuständigkeit | [`AGENTS/index-skill.md`](AGENTS/index-skill.md) | • Responsive-Registrierung dem Theme überlassen und mögliche Seiteneffekte vor der Umsetzung klären. |
+| § 5.17 | Navigation, Rahmenvarianten und Variants | [`AGENTS/index-skill.md`](AGENTS/index-skill.md#-517-navigation-rahmenvarianten-und-variants) | • Rahmenvarianten und Funktionsschalter eindeutig auswählen. Für die Style-Ablage und die Variants gilt § 2 Theme-Verzeichnis. |
 
 ### Regelwerke unter `AGENTS/`
 

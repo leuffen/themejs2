@@ -69,7 +69,7 @@ Die vorhandenen Includes und ihre Schnittstellen sind vorgegeben.
 Verwende sie mit ihren vorhandenen Parametern und passe bei Bedarf das
 aufrufende Layout oder die Seite an. Neue Includes und Änderungen an
 bestehenden Includes erfordern vorab eine separate Freigabe. Für
-gemeinsame Pfade gilt [§ 5.11](../AGENTS.md#-511-include-namen-und-_root-als-quelle-der-wahrheit).
+gemeinsame Pfade gilt [§ 5.11](index-skill.md#-511-include-namen-und-_root-als-quelle-der-wahrheit).
 
 Verwende für Hauptnavigation und Footer-Navigation die vorgesehenen
 Includes `components/navigation/main.html` und
@@ -91,8 +91,8 @@ gemeinsamen Laufzeitbausteinen bereit. `blank.html` erbt von `20_body`
 und reicht den Seiteninhalt weiter. Eine konkrete Seite kann mit
 `layout: blank` direkt den initialisierten Dokumentrahmen verwenden.
 Website-Layouts bauen ebenfalls auf `blank` auf. Die Layoutketten
-bestehender Demos sind in [§ 5.8](../AGENTS.md#-58-demo-layouts-und-seitenverzeichnis)
-und [§ 5.10](../AGENTS.md#-510-zusammenspiel-und-synchronisation-der-beiden-versionen)
+bestehender Demos sind in [§ 5.8](index-skill.md#-58-demo-layouts-und-seitenverzeichnis)
+und [§ 5.10](index-skill.md#-510-zusammenspiel-und-synchronisation-der-beiden-versionen)
 beschrieben.
 
 ### § 3.3.2 Website-Default und Varianten

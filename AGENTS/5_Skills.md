@@ -15,12 +15,12 @@ mit dem npm-Paket veröffentlicht.
 
 ## § 5.2 Abgrenzung zu Entwicklungs-Skills
 
-Für Arbeiten an diesem Repository gelten `AGENTS.md`, die darin referenzierten
-Regelwerke und die nach `AGENTS.md` § 5.1 verbindlichen Entwicklungs-Skills.
+Für Arbeiten an diesem Repository gelten `AGENTS/index-skill.md`, die darin referenzierten
+Regelwerke und die nach `AGENTS/index-skill.md` § 5.1 verbindlichen Entwicklungs-Skills.
 Lokale Entwicklungs-Skills liegen unter `.agents/skills/` und werden nicht mit dem
 npm-Paket veröffentlicht.
 
 Pflege unter `skills/` nur Anleitungen, die Nutzer von ThemeJS2 in ihren
 Kundenprojekten benötigen. Repository-interne Entwicklungsabläufe und Regeln
-gehören in `AGENTS.md`, `AGENTS/` oder die dafür vorgesehenen
+gehören in `AGENTS/index-skill.md`, `AGENTS/` oder die dafür vorgesehenen
 Entwicklungs-Skills, nicht in die ausgelieferten Nutzungs-Skills.

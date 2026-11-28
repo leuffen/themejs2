@@ -147,8 +147,8 @@ final readonly class ThemeDevelopment
             );
             // Jede Modellphase erhält die aktuellen Repository-Regeln, auch beim Fortsetzen.
             $repositoryRules = [
-                new TextPrompt('AGENTS.md and its linked rulebooks are binding in every phase and take precedence over conflicting workflow prompts, saved findings and backlog. Before editing, read and apply the relevant linked references and required skills. Do not change the website frame unless explicitly commissioned.'),
-                TextPrompt::fromFile($this->root . '/AGENTS.md', allowInstructions: true),
+                new TextPrompt('AGENTS/index-skill.md and its linked rulebooks are binding in every phase and take precedence over conflicting workflow prompts, saved findings and backlog. Before editing, read and apply the relevant linked references and required skills. Do not change the website frame unless explicitly commissioned.'),
+                TextPrompt::fromFile($this->root . '/AGENTS/index-skill.md', allowInstructions: true),
                 ...array_map(
                     static fn (string $path) => TextPrompt::fromFile($path, allowInstructions: true),
                     glob($this->root . '/AGENTS/[0-9]*.md'),

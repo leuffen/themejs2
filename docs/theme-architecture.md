@@ -108,4 +108,4 @@ Der Dommer-Scope aktiviert sie ausdrücklich. `show_navbar`, `show_title`
 und `show_footer` bleiben für die Sichtbarkeit des Frames zuständig.
 
 Historische Entwicklungsnotizen sind keine Nutzungsanleitung. Verbindlich
-für weitere Änderungen sind `AGENTS.md` und `AGENTS/2_Theme.md`.
+für weitere Änderungen sind `AGENTS/index-skill.md` und `AGENTS/2_Theme.md`.

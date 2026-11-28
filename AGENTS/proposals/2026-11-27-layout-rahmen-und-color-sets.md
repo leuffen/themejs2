@@ -15,7 +15,7 @@ Fälle, in denen zusätzliche Informationen oder eine andere Struktur nötig sin
 | `theme/shared.scss`, `theme/shared/_runtime-settings.scss` und `theme/shared/elements/` bilden bereits eine gemeinsame Sass-Basis. | Einstieg, Token-Mapping und NTL-/NTE-Verträge weiterverwenden. |
 | `docs/_src/style.scss` lädt bisherige `.theme-*`-Profile. `theme/shared/_profiles.scss` enthält bereits Profilwerte. | Rein visuelle Werte schrittweise als Variants anbieten. Bestehende Selektoren und öffentliche Sass-Imports während der Migration weiter unterstützen. |
 | `docs/_layouts/theme-dommer.html` erbt von `blank` und enthält Navbar, optionalen Seitentitel, Content Pane und Footer. | Dommer als erstes Beispiel für den gemeinsamen Rahmen übernehmen. Den Content Pane und die vorhandenen Sichtbarkeitsschalter erhalten. |
-| §§ 5.6, 5.9 und 5.10 der `AGENTS.md` beschreiben für Kundenvorlagen einen festen editierbaren Rahmen. | Ein Kundenprojekt behält einen aktiven Rahmen. Klassen am festen Markup und eine Variant benötigen weder zusätzliche Layouts noch einen Dispatcher. |
+| §§ 5.6, 5.9 und 5.10 der `AGENTS/index-skill.md` beschreiben für Kundenvorlagen einen festen editierbaren Rahmen. | Ein Kundenprojekt behält einen aktiven Rahmen. Klassen am festen Markup und eine Variant benötigen weder zusätzliche Layouts noch einen Dispatcher. |
 | Das [Baukasten-Proposal](../../proposals/2026-11-26-gemeinsame-komponentenstile.md) sieht gemeinsame Varianten vor und nennt `use_navbar` und `use_footer` als Übergang. | Den Baukasten weiterverwenden. Für migrierte Rahmen gilt die Auswahl von Klassen am gemeinsamen Markup. Ein abweichendes Layout bleibt für echte Strukturunterschiede vorgesehen. |
 
 Der bisherige Theme-Leitfaden reserviert `style-*` für NTL und NTE. Die neue
