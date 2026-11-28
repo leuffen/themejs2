@@ -2,11 +2,17 @@ version: '1.0'
 adapter: jekyll-polyglot:1.0
 doc_root: docs
 context_files: .shiller.d/static-context.md
-skills_dir: []
+skills_dir: [
+  ./AGENTS/
+]
 user_rules_file: .shiller.d/user-rules.md
 
 # Optional nach Installation des ThemeJS1-Pakets:
 # template_dir: node_modules/@leuffen/themejs1/_tpl
+
+editable_headers_file: .shiller.d/_editable-headers.conf.yml
+languages: [de]
+default_lang: de
 
 ai:
   web_access: true

@@ -1,0 +1,43 @@
+// Zentrale, unabhängige Website-Konfiguration.
+// Die Werte entsprechen den Eingabe-Tokens aus @nextrap/style-base.
+// !important stellt sicher, dass die vor ThemeJS2 geladene Konfiguration erhalten bleibt.
+
+:root {
+  --nt-primary: #b5835a;
+
+  // Marken- und Statusfarben
+  // --nt-accent: #ff8400 !important;
+  // --nt-neutral: #7e7e7e !important;
+  // --nt-secondary: #6c757d !important;
+  // --nt-tertiary: #17a2b8 !important;
+  // --nt-success: #28a745 !important;
+  // --nt-info: #17a2b8 !important;
+  // --nt-warning: #ffc107 !important;
+  // --nt-danger: #dc3545 !important;
+  // --nt-light: #f8f9fa !important;
+  // --nt-dark: #212529 !important;
+  // --nt-white: #fff !important;
+  // --nt-black: #000 !important;
+
+  // Typografie, Form und Container
+  // --nt-radius: 0.5rem !important;
+  // --nt-font-family: sans-serif !important;
+  // --nt-font-family-header: var(--nt-font-family) !important;
+  // --nt-font-size: 1rem !important;
+  // --nt-font-size-header: 2rem !important;
+  // --nt-font-size-small: 0.875rem !important;
+  // --nt-font-weight-base: 400 !important;
+  // --nt-font-weight-header: 500 !important;
+  // --nt-font-weight-bold: 600 !important;
+  // --nt-line-height: 1.4 !important;
+  // --nt-line-height-header: 1.2 !important;
+  // --nt-container-max: 1320px !important;
+
+  // Abstände bei Bedarf zentral überschreiben
+  // --nt-spacing-text: 1rem !important;
+  // --nt-spacing-control: 0.75rem !important;
+  // --nt-spacing-component: 1.5rem !important;
+  // --nt-spacing-layout: 2rem !important;
+  // --nt-spacing-section: clamp(3rem, 5vw, 6rem) !important;
+  // --nt-container-gutter: 1.5rem !important;
+}
