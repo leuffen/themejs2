@@ -3,7 +3,7 @@ adapter: jekyll-polyglot:1.0
 doc_root: docs
 context_files: .shiller.d/static-context.md
 skills_dir: [
-  ./AGENTS/
+  ./AGENTS
 ]
 user_rules_file: .shiller.d/user-rules.md
 
