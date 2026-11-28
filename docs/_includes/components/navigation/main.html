@@ -96,11 +96,11 @@ Optional:
                 {%- assign child_relative = child_key | remove_first: child_prefix -%}
                 {%- if child_relative == '' or child_relative contains '/' -%}{%- continue -%}{%- endif -%}
                 {%- assign child_label = child.nav_title | default: child.short_title | default: child.title -%}
-                <nte-nav-item href="{{ child.url }}"{% if child.order %} style="--order: {{ child.order }}"{% endif %}>{% if child.nav_icon %}<i slot="icon" class="{{ child.nav_icon }}" aria-hidden="true"></i>{% endif %}{{ child_label }}</nte-nav-item>
+                <nte-nav-item href="{{ child.url }}"{% if child.order %} style="--order: {{ child.order }}"{% endif %}>{% if child.nav_icon %}<nte-icon slot="icon" class="{{ child.nav_icon }}" aria-hidden="true"></nte-icon>{% endif %}{{ child_label }}</nte-nav-item>
             {%- endfor -%}
         {%- endcapture -%}
         {%- assign child_items = child_items | strip -%}
     {%- endif -%}
     {%- assign nav_label = node.nav_title | default: node.short_title | default: node.title -%}
-    <nte-nav-item{% if child_items != '' %} submenu-popover{% else %} href="{{ node.url }}"{% endif %}{% if node.order %} style="--order: {{ node.order }}"{% endif %}>{% if node.nav_icon %}<i slot="icon" class="{{ node.nav_icon }}" aria-hidden="true"></i>{% endif %}{{ nav_label }}{{ child_items }}</nte-nav-item>
+    <nte-nav-item{% if child_items != '' %} submenu-popover{% else %} href="{{ node.url }}"{% endif %}{% if node.order %} style="--order: {{ node.order }}"{% endif %}>{% if node.nav_icon %}<nte-icon slot="icon" class="{{ node.nav_icon }}" aria-hidden="true"></nte-icon>{% endif %}{{ nav_label }}{{ child_items }}</nte-nav-item>
 {%- endfor -%}

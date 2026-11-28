@@ -81,7 +81,7 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 ---
 {: layout="1.5;ntl-card-row.style-noborder.align-buttons" section-style="--cols: 6"}
 
-### <i class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></i> Diagnostik
+### <nte-icon class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></nte-icon> Diagnostik
 {: .header}
 
 Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
@@ -108,7 +108,7 @@ Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine 
 
 
 
-### <i class="bi bi-eye feature-icon" aria-hidden="true"></i> Therapie
+### <nte-icon class="bi bi-eye feature-icon" aria-hidden="true"></nte-icon> Therapie
 {: .header}
 
 Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:
@@ -137,7 +137,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 ---
 {: layout="1.5;#notfall" section-style="--cols: 6"}
 
-## <span class="warning-heading"><i class="bi bi-eye" aria-hidden="true"></i><span>Warnsignale für die Augen – sofort zum Arzt!</span></span>
+## <span class="warning-heading"><nte-icon class="bi bi-eye" aria-hidden="true"></nte-icon><span>Warnsignale für die Augen – sofort zum Arzt!</span></span>
 {: layout="ntl-2col.style-default.with-bg-primary"}
 
 - Plötzliche Sehstörungen oder Sehverlust

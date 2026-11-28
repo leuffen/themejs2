@@ -71,49 +71,49 @@ Build a consistent service experience from first contact to ongoing optimization
 
 ### Mobile first
 
-#[i class="bi-tablet-landscape feature-icon" slot="image"]
+#[nte-icon class="bi bi-tablet-landscape feature-icon" slot="image" aria-hidden="true"]
 
 Every section remains readable and actionable on smaller screens.
 
 ### Made for teams
 
-#[i class="bi-shield-check feature-icon" slot="image"]
+#[nte-icon class="bi bi-shield-check feature-icon" slot="image" aria-hidden="true"]
 
 Designers and developers share the same content contract.
 
 ### Easy integration
 
-#[i class="bi-hdd-network feature-icon" slot="image"]
+#[nte-icon class="bi bi-hdd-network feature-icon" slot="image" aria-hidden="true"]
 
 Connect existing workflows without rebuilding the theme.
 
 ### Flexible delivery
 
-#[i class="bi-gear feature-icon" slot="image"]
+#[nte-icon class="bi bi-gear feature-icon" slot="image" aria-hidden="true"]
 
 Scale from a focused landing page to a broad service portfolio.
 
 ### Documented patterns
 
-#[i class="bi-sliders feature-icon" slot="image"]
+#[nte-icon class="bi bi-sliders feature-icon" slot="image" aria-hidden="true"]
 
 Reuse proven layouts for changing content and audiences.
 
 ### Clear insights
 
-#[i class="bi-journal-text feature-icon" slot="image"]
+#[nte-icon class="bi bi-journal-text feature-icon" slot="image" aria-hidden="true"]
 
 Present meaningful information with a calm visual hierarchy.
 
 ### Automated routines
 
-#[i class="bi-patch-check feature-icon" slot="image"]
+#[nte-icon class="bi bi-patch-check feature-icon" slot="image" aria-hidden="true"]
 
 Reduce repetitive work and focus on valuable customer moments.
 
 ### Measurable results
 
-#[i class="bi-lightbulb feature-icon" slot="image"]
+#[nte-icon class="bi bi-lightbulb feature-icon" slot="image" aria-hidden="true"]
 
 Use robust components that support iteration and learning.
 
