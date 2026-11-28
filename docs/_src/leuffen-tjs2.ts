@@ -1,4 +1,6 @@
 
+// Bündelt die globalen Theme-Styles ohne Website-Anpassungen für die Vorschau.
+import "./leuffen-tjs2.scss";
 import "@leuffen/themejs2";
 
 // Registriert das Spaltenlayout für die Demo über den verlinkten Paket-Entrypoint.

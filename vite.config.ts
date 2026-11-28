@@ -39,7 +39,7 @@ export default defineConfig({
     },
   },
   build: {
-    minify: true,
+    minify: false,
     cssCodeSplit: true,
     emptyOutDir: true,
     sourcemap: true,

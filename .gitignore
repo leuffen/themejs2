@@ -9,7 +9,7 @@ libs/
 # Lokale Browseraufnahmen pro Theme-Development-Lauf.
 /src/.tmp/
 /bin/.tmp/
-/docs/assets/dist/
+# docs/assets/dist/ muss für die Pagebuilder-Vorschau eingecheckt werden.
 
 /workspaces
 .jekyll-metadata
