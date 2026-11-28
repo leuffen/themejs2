@@ -7,9 +7,11 @@
 #### § 4.1 Vorschau und Prüfumfang
 
 Review with read-only filesystem and browser tools. If verified-changes is
-empty, reuse the pre-edit target captures. Otherwise capture each target at
-each configured viewport after the build. Compare structure, spacing,
-typography, responsive behavior and relevant console/network diagnostics.
+empty, reuse the pre-edit target captures. Otherwise open each target with
+`browser_open` at each configured width and height after the build, then call
+`browser_screenshot`. The build closes the previous browser session; query new
+nodeIds before inspecting elements. Compare structure, spacing, typography,
+responsive behavior and relevant `browser_get_console` diagnostics.
 Inspect specific elements when the screenshot leaves a concrete question.
 Check short and long content, clipping, overlap and horizontal overflow where
 fixtures are available. Call out untested cases.
@@ -19,10 +21,15 @@ sections and equivalent controls across mapped pages. Compare before/after
 captures and reference evidence at the same viewport. Verify transparency and
 contrast on actual backgrounds, button dimensions, padding and clickable areas,
 label/icon alignment, surface details and responsive fit. Resolve concrete
-uncertainties with targeted `browser_inspect` measurements; a successful build
-or an overall visual match is not evidence that these details are correct.
+uncertainties with targeted `browser_get_computed_styles` and
+`browser_inspect_node` measurements for nodes from `browser_query_selector`;
+a successful build or an overall visual match is not evidence that these
+details are correct.
 Check affected shared consumers for regressions. Do not claim interaction or
 keyboard verification when the available tools cannot exercise those states.
+Use bounded element captures for sections below the fold as described in
+project.md § 2.8. Retain unavailable lazy-loaded content and touch states as
+coverage gaps.
 
 #### § 4.2 Status und Abschlusskriterien
 

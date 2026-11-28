@@ -6,19 +6,24 @@
 
 #### § 3.1 Referenzen und Baselines
 
-Analyze each configured reference separately before editing. Use
-`browser_capture` once per live URL and configured viewport from capture-plan.
+Analyze each configured reference separately before editing. For each live URL
+and viewport from capture-plan, call `browser_open` with url, width and height,
+then `browser_screenshot`. Compare reference and target at the same viewport.
 Use supplied images or PDFs directly. Capture each local target at each
 configured viewport as the baseline. Derive criteria from the work order
-when a page has no supplied reference.
+when a page has no supplied reference. Follow project.md § 2.8 for bounded
+element captures below the fold and for unavailable lazy-loaded content.
 
 #### § 3.2 Komponentenabgleich und Messungen
 
 Map the sections, layout, typography and spacing to existing NTL/NTE
-composition and theme tokens. Use `browser_inspect` with kind=reference when
-a specific computed value, geometry or rule is unclear. Use a selector
-matching a single element per call. Record measured values, viewport, source
-location when available and relevant console/network diagnostics. Distinguish
+composition and theme tokens. Open the relevant reference or target URL, then
+use `browser_query_selector` to identify the specific element. Read its final
+CSS values with `browser_get_computed_styles`, passing only the needed
+`properties`. Use `browser_inspect_node` for geometry, matched rules and source
+locations. Inspect one returned nodeId at a time; matched rules alone do not
+prove which declaration wins. Record measured values, viewport, source location
+when available and relevant `browser_get_console` diagnostics. Distinguish
 estimates from measurements and note missing design sizes.
 
 Apply the element-by-element checklist in project.md § 2.7 to each reference

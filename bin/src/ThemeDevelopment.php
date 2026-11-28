@@ -10,10 +10,10 @@ use Phore\AiHarness\FileSystem\FileOperationContext;
 use Phore\AiHarness\FileSystem\FileSystemPolicy;
 use Phore\AiHarness\Logging\LogEvent;
 use Phore\AiHarness\Logging\LoggerInterface;
-use Phore\AiHarness\PromptType\MultiPrompt;
 use Phore\AiHarness\PromptType\SystemPrompt;
 use Phore\AiHarness\PromptType\TextPrompt;
 use Phore\AiHarness\ToolType\WebAccessTool;
+use Phore\AiHarness\Tools\Browser\BrowserConnection;
 use Phore\AiHarness\Usage\GlobalUsage;
 use RuntimeException;
 
@@ -31,8 +31,8 @@ final readonly class ThemeDevelopment
         private array $viewports = ['1280x800', '768x1024', '393x852'],
     ) {
         if ($viewports === [] || count(array_unique($viewports)) !== count($viewports)
-            || array_diff($viewports, array_keys(BrowserSession::VIEWPORTS)) !== []) {
-            throw new RuntimeException('Configure a non-empty list of distinct viewport names from BrowserSession::VIEWPORTS.');
+            || array_diff($viewports, ThemeBrowserTools::VIEWPORTS) !== []) {
+            throw new RuntimeException('Configure a non-empty list of distinct viewport names from ThemeBrowserTools::VIEWPORTS.');
         }
     }
 
@@ -45,21 +45,18 @@ final readonly class ThemeDevelopment
      */
     public function run(): int
     {
-        $browser = new BrowserSession($this->job->browser);
-        try {
-            $browser->connect();
-        } finally {
-            $browser->close();
+        // Die optionale Harness-Anbindung vor der ersten kostenpflichtigen Modellanfrage prüfen.
+        if (!class_exists(BrowserConnection::class)) {
+            throw new RuntimeException('Update phore/ai-harness dev-main to include src/Tools/Browser (PR #37).');
         }
-        return $this->runWithBrowser($browser);
+        $connection = (new BrowserConnection($this->job->browser))->open();
+        $connection->disconnect();
+        return $this->runWithBrowser();
     }
 
     /** Startet die Projektanalyse erst nach erfolgreicher Browserprüfung. */
-    private function runWithBrowser(BrowserSession $browser): int
+    private function runWithBrowser(): int
     {
-        if (!class_exists(MultiPrompt::class)) {
-            throw new RuntimeException('Update phore/ai-harness to a version supporting MultiPrompt (PR #35).');
-        }
         // Der Verzeichnis-Lock bleibt bis zum Ende von run() offen und schützt laufende Aufnahmen.
         $directory = $this->root . '/bin/.tmp';
         if (is_link($directory) || (!is_dir($directory) && !mkdir($directory, 0700) && !is_dir($directory))) {
@@ -121,8 +118,9 @@ final readonly class ThemeDevelopment
             ],
         );
 
-        // Die Projektphasen verwenden denselben Kontext bis zum Abschluss.
-        {
+        // Die Projektphasen teilen die Tools; jeder Ausgang gibt ihre Browsersitzung frei.
+        $tools = null;
+        try {
             // Vor dem Checkpoint darf der Agent das gesamte Projekt lesen, aber
             // keine Datei oder Verzeichnisoperation mit Schreibwirkung ausführen.
             $ignored = ['.git', 'vendor', 'node_modules', '.env', '.env.*', '*.pem', '*.key', '.tmp', 'dev.state.yml', 'dev.findings.md', '.theme-develop-*'];
@@ -175,9 +173,9 @@ final readonly class ThemeDevelopment
                 $additionalFindings = $state['additional_findings'];
             }
             $this->job->setPages($pages, $this->root);
-            $tools = new BrowserToolSet($this->job, $browser, $directory, $this->viewports);
+            $tools = new ThemeBrowserTools($this->job, $directory, $this->viewports);
             $context->addToolSet($tools);
-            // Das Modell erhält die exakten URLs und Größen für einzelne Screenshot-Aufrufe.
+            // Vor jeder Aufnahme öffnet das Modell die exakte URL mit identischer Vergleichsauflösung.
             $capturePlan = new TextPrompt(json_encode([
                 'viewports' => $this->viewports,
                 'pages' => array_map(fn (array $page): array => [
@@ -299,7 +297,8 @@ final readonly class ThemeDevelopment
                 $this->saveProjectFindings($findingsPath, $projectFindings, $additionalFindings);
                 if ($changes !== []) {
                     $this->build();
-                    $tools->clearInspectionCache();
+                    // Die Review muss den neuen Build öffnen und darf keinen alten DOM weiterverwenden.
+                    $tools->close();
                 }
 
                 // Die Review-Phase fordert ihre Bilder erst nach einem erfolgreichen Build an.
@@ -375,6 +374,8 @@ final readonly class ThemeDevelopment
 
             fwrite(STDERR, "Stopped: iteration limit reached.\n");
             return 2;
+        } finally {
+            $tools?->close();
         }
     }
 
