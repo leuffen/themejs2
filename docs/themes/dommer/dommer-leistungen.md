@@ -1,6 +1,5 @@
 ---
 published: true
-layout: website-default
 navigation_root: themes/dommer
 location_id: dommer
 show_title: false
@@ -18,7 +17,7 @@ short_title: Leistungen
 ---
 
 ---
-{: layout="2;ntl-hero.image-text-compact.style-image-text.image-text-overlap"}
+{: layout="2;ntl-hero.style-dommer.dommer-inner"}
 
 ![](https://cdn.leuffen.de//k-dommer-k207/v2/2/c_gfedcba/IMG_6511.webp)
 {: slot="bg"}
@@ -32,6 +31,13 @@ short_title: Leistungen
 ---
 {: layout="1.5;ntl-columns.dommer-intro.dommer-services" section-class="xl:preserve-empty" section-style="--start-cols: 2.5; --center-cols: 6; --end-cols: 2.25;"}
 
+## Prophylaxe und professionelle Zahnreinigung
+
+Prophylaxe bedeutet Vorsorge. Die professionelle Zahnreinigung ergänzt die
+häusliche Zahnpflege: Dabei werden auch Beläge an schwer erreichbaren Stellen
+entfernt. Sie ersetzt nicht das tägliche Zähneputzen und die Reinigung der
+Zahnzwischenräume.
+
 ## Zahnmedizinische Leistungen in Osnabrück-Westerberg
 {: data-kicker="Unsere Schwerpunkte" }
 
@@ -39,13 +45,6 @@ short_title: Leistungen
 
 Unsere Zahnarztpraxis in Osnabrück-Westerberg bietet Zahnmedizin für Kinder
 und Erwachsene. Unser Schwerpunkt ist Zahnersatz, auch auf Implantaten.
-
-### Prophylaxe und professionelle Zahnreinigung
-
-Prophylaxe bedeutet Vorsorge. Die professionelle Zahnreinigung ergänzt die
-häusliche Zahnpflege: Dabei werden auch Beläge an schwer erreichbaren Stellen
-entfernt. Sie ersetzt nicht das tägliche Zähneputzen und die Reinigung der
-Zahnzwischenräume.
 
 ### Parodontologie
 

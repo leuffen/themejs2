@@ -1,0 +1,78 @@
+@use "../elements/ntl-hero/style-dommer" as hero;
+@use "../misc/dommer/content";
+
+@include hero.style-dommer();
+
+// Zieht nur die horizontalen Dommer-Menülinks auf Zeilenhöhe und hebt ihre Zustände hervor.
+.variant-dommer #navbar #nav-horizontal > nte-nav-item::part(link) {
+  min-block-size: var(--height, 100px);
+  border-radius: 0;
+}
+
+.variant-dommer #navbar #nav-horizontal > nte-nav-item[current="page"]::part(link),
+.variant-dommer #navbar #nav-horizontal > nte-nav-item::part(link):hover,
+.variant-dommer #navbar #nav-horizontal > nte-nav-item::part(link):focus-visible {
+  background: color-mix(in srgb, var(--nt-primary) 82%, white);
+  color: var(--nt-white, white);
+}
+
+// Hält die Topline und Navbar ohne festen Abstand für umbrochene Meldungen zusammen.
+.variant-dommer .dommer-frame > .dommer-topbar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 3;
+  display: flow-root;
+}
+
+// Überlagert nur den Bild-Hero, nicht den optionalen separaten Seitentitel.
+.variant-dommer .dommer-topbar:has(~ main tj-content-pane > ntl-hero.style-dommer:first-child):not(:has(~ #header)) > #navbar {
+  position: relative;
+  z-index: 2;
+  margin-block-end: calc(-1 * var(--brand-height, 75px));
+  --nte-navbar-background: transparent;
+  --nte-navbar-background-at-top: transparent;
+
+  > nte-navbar-line {
+    --background: color-mix(in srgb, var(--nt-primary) 90%, transparent);
+  }
+}
+
+.variant-dommer .dommer-frame-landing ntl-columns.dommer-intro > section:not([slot]) .btn-accent {
+  max-inline-size: 100%;
+  min-block-size: 46px;
+  padding: 10px 20px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+// Formatiert echte Meldungen und reserviert ohne Meldung keinen Platz.
+.variant-dommer .dommer-topbar > .dommer-topline {
+  background: #b77743;
+  color: #141414;
+  padding-block: 0.625rem;
+  padding-inline: 1.25rem;
+
+  margin: 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+
+  &.no-announcements { display: none; }
+
+  a { color: inherit; }
+}
+
+.variant-dommer ntl-columns.dommer-services > ntl-2col.style-testimonial {
+  margin-block-end: var(--nt-spacing-layout);
+
+  // The shared stacked testimonial reserves space for its raised portrait.
+  // Keep that start margin so the portrait does not cover the preceding text.
+
+  &[mode="desktop"] {
+    margin-block-start: var(--nt-spacing-layout);
+    --cols: 8;
+    --testimonial-image-size: min(100%, 10rem);
+
+    &::part(aside), &::part(main) { min-inline-size: 0; }
+    > p[slot="aside"].auto { height: auto; }
+  }
+}

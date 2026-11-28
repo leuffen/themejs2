@@ -1,0 +1,61 @@
+---
+layout: blank
+---
+<!-- Verwendet den konfigurierten Standort und begrenzt die Navigation auf das Demo-Bundle. -->
+{% assign navigation_root = page.navigation_root | default: '' %}
+{% assign brand_url = page.brand_url | default: '/' | relative_url %}
+{% assign location_id = page.location_id | default: 'default' %}
+{% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
+<div class="dommer-frame{% if page.show_title == false %} dommer-frame-landing{% endif %}">
+{% unless page.show_navbar == false %}
+<!-- Hält Meldung und Navigation beim Scrollen zusammen, auch wenn die Meldung umbricht. -->
+<div class="dommer-topbar">
+<leuffen-announcements class="style-banner dommer-topline">Momentan keine Meldungen.</leuffen-announcements>
+<!-- Platziert die Standortmarke und verwendet dieselben Links in beiden Menüansichten. -->
+<nte-navbar id="navbar" class="style-default {{ page.navbar_classes | default: '-default-dark -default-overlay' | escape }}" style-xs="--brand-height: 75px" style-xl="--brand-height: 100px">
+  <nte-navbar-line style-xs="--height: 75px" style-xl="--height: 100px">
+    <a slot="start" class="brand-logo fw-bold" href="{{ brand_url | escape }}">{{ location.name | escape }}</a>
+    <nte-nav id="nav-horizontal" slot="end" class="nav-horizontal {{ page.nav_classes | default: '-default-dark' | escape }}" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
+      {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang mark_current=true %}
+    </nte-nav>
+    <nte-burger slot="end" aria-label="Navigation öffnen" aria-controls="navigation-sidebar" static-state onclick="document.getElementById('navigation-sidebar')?.toggle()" style="display: block" style-xl="display: none"></nte-burger>
+  </nte-navbar-line>
+</nte-navbar>
+</div>
+<!-- Verschiebt vorhandene Links unterhalb von XL ins Offcanvas. -->
+<nte-offcanvas id="navigation-sidebar" aria-label="Mobile Hauptnavigation">
+  <nte-nav id="nav-vertical" class="nav-vertical" aria-label="Mobile Hauptnavigation" style="--nte-nav-flow: column; --nte-nav-align: stretch"></nte-nav>
+  <tj-element-relocator source="#nav-horizontal" target="#nav-vertical" class="-xl:relocate"></tj-element-relocator>
+</nte-offcanvas>
+{% endunless %}
+<!-- Erhält den optionalen Seitentitel für Seiten ohne eigenen Hero. -->
+{% unless page.show_title == false %}
+<header id="header" class="style-default container py-4">
+  {% if page.hero_image and page.hero_image != empty %}
+  <img class="img-fluid" src="{{ page.hero_image | relative_url | escape }}" alt="{{ page.hero_image_alt | escape }}">
+  {% endif %}
+  <h1>{{ page.title | escape }}</h1>
+  {% if page.description and page.description != empty %}<p>{{ page.description | escape }}</p>{% endif %}
+</header>
+{% endunless %}
+<!-- Übergibt den vollständigen Markdown-Inhalt unverändert an Content Pane. -->
+<nte-feedback></nte-feedback>
+<main id="main" class="mx-auto">
+  <tj-content-pane pre-parser="text-block">
+    {{ content }}
+  </tj-content-pane>
+</main>
+<!-- Hält Kontakt und Footer-Navigation in einer kompakten Abschlussleiste. -->
+{% unless page.show_footer == false %}
+<footer id="footer" class="style-default site-footer mt-5">
+  <div class="container py-3 d-flex flex-column xl:flex-row-reverse justify-content-between align-items-center gap-3 text-center">
+    <address class="small mb-0">{{ location.name | escape }}{% if location.street %} · {{ location.street | escape }}{% endif %}{% if location.city %} · {{ location.zip | escape }} {{ location.city | escape }}{% endif %}</address>
+    <nav aria-label="Footer-Navigation">
+      <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+        {% include components/navigation/footer.html tag="footer-nav" root=navigation_root show_icons=false %}
+      </ul>
+    </nav>
+  </div>
+</footer>
+{% endunless %}
+</div>

@@ -1,7 +1,7 @@
 ---
 version: 1
-job: 2528b69c8d94f44c1aa4bf224d25423dde89d1a0dca2c5500374c50b15e0e045
-rollback_response_id: resp_0053ec99a1885552006b098b3315c487d28c534efb588fdd61
+job: a04f69e6bc5bc0dda84f5a39d4d3a20671253f3f0cadf050d661a587d43840db
+rollback_response_id: resp_0ac50dba11edfa05006b0a59d7e3b487d29bf4a5d9df4670f8
 pages:
 - name: dommer-start
   target: /themes/dommer/dommer-start.html
@@ -12,61 +12,60 @@ pages:
 project_findings: |-
   ### Projektkarte
 
-  | Bereich | Verifizierter Pfad und Befund |
+  | Bereich | Verifizierter Stand |
   |---|---|
-  | Auftrag und Seiten | `docs/themes/dommer/AUFTRAG.md`; `docs/themes/dommer/dommer-start.md` und `docs/themes/dommer/dommer-leistungen.md`. Beide Seiten nutzen `layout: theme-dommer`, deaktivieren den Standardtitel und deklarieren bereits `ntl-hero.style-dommer`. Damit ist `htl-hero` im Auftrag als `ntl-hero` aufgelöst. |
-  | Layout und Rahmen | `docs/_layouts/theme-dommer.html` ist die bestehende Implementierung für beide Seiten. Dort steht `leuffen-announcements` bereits vor der Navigation; die Sichtbarkeit bei leeren Meldungen ist noch zu prüfen. `docs/_layouts/blank.html` und `docs/_layouts/20_body.html` sind die vorhandenen Basislayouts; `docs/_layouts/website-osman.html` ist die Vergleichsimplementierung. Jekyll-Konfiguration: `docs/_config.yml`. |
-  | SCSS | `theme/dommer/index.scss` existiert bereits und ist über `docs/_src/style.scss` (`@include dommer.theme()`) eingebunden. Den Einstieg daher weiterverwenden, statt ihn neu anzulegen. Für den angeforderten gemeinsamen Hero-Partial `_style-dommer.scss` wurde kein bestehender Quellpfad gefunden. |
-  | Komponentenverträge | Content Pane: `workspaces/trunkjs-monorepo/packages/content-pane/skills/content-pane-usage/SKILL.md` (`pre-parser="text-block"`, `#[...]`). Spalten: `workspaces/nextrap-monorepo/nextrap-layout/ntl-columns/src/components/ntl-columns/ntl-columns.ts`. Bestehende Hero-Stile als Vergleich: `theme/medic/elements/ntl-hero/ntl-hero.scss` und `theme/epraxis/elements/ntl-hero/ntl-hero.scss`. |
+  | Auftrag und Seiten | `docs/themes/dommer/AUFTRAG.md`, `dommer-start.md` und `dommer-leistungen.md`. Beide Seiten verwenden bereits `ntl-columns`. |
+  | Frame | Das im Auftrag genannte `theme-dommer` entspricht `docs/_layouts/website-dommer.html`. `docs/_config.yml` wählt diesen Frame nur für `themes/dommer`. |
+  | Meldungen und Navigation | `<leuffen-announcements>` steht bereits vor `#navbar`. Die Dommer-Demo hat zusätzlich eine fiktive Ersatzmeldung. Fixierung und Verhalten ohne Meldungen sind im Browser noch zu prüfen. |
+  | Content Pane | Der Frame übergibt den Markdown-Inhalt einmal an `<tj-content-pane pre-parser="text-block">`. Die lokalen Vertragsreferenzen liegen unter `AGENTS/references/4_Libraries/content-pane-usage/` und `content-pane-layout/`. |
+  | SCSS und Hero | `theme/dommer/index.scss` existiert bereits und wird über `theme/index.scss` eingebunden. Der vorhandene Hero-Style liegt in `theme/elements/ntl-hero/_style-dommer.scss`, mit gleichnamiger Usage-Datei. Der Demo-Einstieg `docs/_src/style.scss` lädt die gemeinsame Theme-Basis. |
 
-  **Referenzabgleich:** Die Startseite gibt die Abfolge aus Hero, Praxiseinführung und Sprechzeiten vor. Für die Leistungsseite zählt neben dem Hero auch die Gliederung der Leistungsübersicht bis zum Sprechzeitenblock. Die Vorlagen dienen der Gestaltung; Texte und Links von Dommer bleiben erhalten. ([zahnzentral-melle.de](https://zahnzentral-melle.de/))
+  Die Startseitenreferenz führt vom Hero zur Praxisvorstellung und zu den Sprechzeiten. Die Leistungsreferenz zeigt nach dem Hero acht Leistungsblöcke und danach die Sprechzeiten. Das ist die inhaltliche Zuordnung; die einzelne FAQ-Section mit Plus vor dem Link kommt aus dem Auftrag. ([zahnzentral-melle.de](https://zahnzentral-melle.de/))
 
-  Die Seitenzuordnung ist eindeutig. Der visuelle Desktop- und Mobilabgleich sowie die Prüfung der Meldungszustände stehen noch aus. In dieser schreibgeschützten Phase wurden keine Dateien geändert.
+  **Noch nicht geändert oder visuell geprüft.** Diese Phase hat nur Lesezugriff und kein Browserless-Werkzeug. Offen sind der Vorher-Vergleich bei **393 × 852** und **1280 × 800**, die Detailprüfung der Komponentenverträge und anschließend Umsetzung, Build und Nachher-Vergleich.
+
+  Der in `AGENTS.md` § 5.1 verlangte Skill `modify-theme` war unter `/opt/.agents/skills/modify-theme/SKILL.md` im bereitgestellten Dateisystem nicht auflösbar; das Werkzeug meldete „Pfad existiert nicht oder liegt außerhalb des Roots“, keine Zugriffsverweigerung. Die lokale Fassung unter `.agents/skills/modify-theme/SKILL.md` und der Browserless-Skill unter `.agents/skills/browserless-screenshots-debugging/SKILL.md` waren lesbar.
 
   ## Reference inspection findings
 
-  - **Gemessen:** Die Referenz-Startseite ist bei `1280 × 800` insgesamt `1385 px` hoch. `browser_inspect` meldet für `.teaserbox` `Zilla Slab`, `30 px` und Weiß (`rgb(255, 255, 255)`); die Ansicht meldet `0` fehlgeschlagene Bilder. Die konkrete CSS-Quelldatei wurde im ausgewerteten Inspektionsausschnitt nicht verifiziert.
-  - **Aus den Screenshots abgelesen, nicht per DOM vermessen:** In beiden Referenzen ist die Topline am Desktop rund `44 px`, mobil rund `56 px` hoch. Der mobile Inhaltsrand liegt bei rund `30 px`, in Dommer bei rund `32 px`. Weitere Designgrößen waren nicht vorgegeben.
-  - **Im gerenderten Dommer-DOM bestätigt:** Beide Seiten verwenden bereits `tj-responsive`, `tj-content-pane[pre-parser="text-block"]`, `ntl-hero.style-dommer` und `ntl-columns` mit dem Kontaktblock in `slot="end"`. Die Spaltenkomponente rendert in den Captures im Desktop- bzw. Mobilmodus. Ein Austausch dieser Komponenten ist nicht nötig.
-  - **Meldungen und Diagnostik:** Alle vier Zielaufnahmen zeigen den leeren Zustand mit `.no-announcements` ohne sichtbare Leiste. Der aktive Zustand wurde nur in der Referenz beobachtet und muss für Dommer noch separat geprüft werden. Die zuletzt abgefragte Browserkonsole enthielt lediglich einen jQuery-Migrate-Logeintrag; das ist keine vollständige Konsolen- oder Netzwerkprüfung aller Ansichten.
+  - Die Baseline rendert auf beiden Seiten bereits `ntl-hero.style-dommer` und `ntl-columns`. Die Leistungsseite verwendet zusätzlich den vorhandenen Modifier `dommer-inner`. `theme/dommer/index.scss` ist bereits zentral eingebunden; ein zweiter SCSS-Einstieg ist nicht nötig.
+  - Das gerenderte Markup zeigt `leuffen-announcements.no-announcements` und zugleich den sichtbaren, separat konfigurierten Demo-Ersatztext. Eine aktive echte Meldung war in der Baseline nicht vorhanden.
+  - Die gezielte Inspektion der Startseiten-Navbar bei **393 × 852**, DPR 1, ergab `position: relative`, `font-family: system-ui, sans-serif` und `font-size: 16px`. Die Ansicht meldete außerdem ein fehlgeschlagenes Bild; die betroffene Ressource wurde nicht identifiziert.
+  - Die Referenzseiten sind nur Vergleichsgrundlage. Änderungen betreffen den Dommer-Demo-Frame und seine Seiten; andere Frames und die Kundenvorlage wurden nicht geändert oder visuell geprüft.
 additional_findings: |-
-  - **Quellen und Struktur:** `docs/_src/style.scss` bindet `theme/dommer/index.scss` ein; dieser Einstieg lädt `theme/dommer/_style-dommer.scss`. Über `docs/_layouts/theme-dommer.html` verwenden beide Seiten je ein `main` mit `tj-content-pane[pre-parser="text-block"]`, `ntl-hero.style-dommer` und `ntl-columns` mit dem Kontaktblock im Endslot. Die Topline-Regel in `theme/dommer/index.scss` prüft den dokumentierten Marker `[data-owner='leuffen-announcement']`.
-  - **Leistungen, Ziel, 1280 × 800:** `.dommer-announcements` hat laut Inspektion `boxModel: null`. Die Ansicht meldet `3960 px` Dokumenthöhe und einen nicht zugeordneten Bildfehler.
-  - **Navigation, Leistungen, Ziel, 1280 × 800:** Für `#dommer-nav-horizontal nte-nav-item[current='page']` wurden am Host `rgb(4, 59, 95)` und `system-ui, sans-serif` gemessen. Das sind keine Messwerte des sichtbaren Links im Shadow DOM.
-  - **Typografie und Geometrie:** Referenz-Startseite, 1280 × 800: `.teaserbox` verwendet gemessen `Zilla Slab`, `30 px` und Weiß. Die Referenz-Topline ist aus den Aufnahmen auf rund `44 px` am Desktop und `56 px` mobil abgelesen. Ziel-Startseite, 393 × 852: `.dommer-contact-panel` verwendet gemessen `16 px`, `system-ui, sans-serif` und `rgb(4, 59, 95)`.
-  - **Konsole:** Die Leistungsinspektion zeigt Vite-Verbindung und Content-Pane-Verarbeitung sowie Warnungen zum Lit-Entwicklungsmodus, zum Offcanvas-Update und zu nicht mehr verbundenen `tj-responsive`-Elementen. Keine dieser Meldungen konnte dem Bildfehler zugeordnet werden.
-completed_iteration: 9
-report: "STATUS: BLOCKED\n\n## Kurzbericht\n\nVorhandene Desktop- und Mobilaufnahmen
-  beider Dommer-Seiten ausgewertet; der leere Meldungszustand wurde zusätzlich auf
-  der Desktop-Leistungsseite überprüft.  \nKeine verifizierten Dateiänderungen in
-  dieser Iteration.  \nAls Nächstes kurze und mehrzeilige aktive Testmeldungen in
-  der Vorschau prüfen und die mobile Navigation interaktiv testen.\n\n## Details\n\n-
-  **Topline und Navigation:** Ohne Meldung bleiben in den vorhandenen Aufnahmen weder
-  Platzhalter noch Leerraum. Der aktive Desktop-Link ist sichtbar hervorgehoben; mobil
-  sind Burger und beide Offcanvas-Links vorhanden. Aktive Meldungen, Öffnen und Schließen
-  des Menüs, Tastaturfokus sowie der Kontrast am sichtbaren Link wurden nicht verifiziert.\n-
-  **Hero und Inhalt:** Bei 1280 × 800 liegt die Startseitenbox im Bild, die Leistungsbox
-  überlappt dessen Unterkante. Bei 393 × 852 bricht der lange Startseitentitel in
-  der Aufnahme ohne sichtbaren Beschnitt um; „Leistungen“ bleibt einzeilig. Alle 13
-  Leistungsthemen sind ohne Aufklappen lesbar. Der Kontaktblock steht rechts auf Desktop
-  und folgt mobil auf den jeweiligen Hauptinhalt.\n- **Offene Abweichungen:** Typografie
-  und Abstände in Einführung und Footer weichen weiterhin von der Vorlage ab. Das
-  dekorative Zahnmotiv fehlt auf der Leistungsseite. Die zusätzlichen Dommer-Abschnitte
-  bleiben erhalten. In den Aufnahmen ist kein horizontaler Überlauf erkennbar; die
-  Scrollbreite wurde nicht gemessen.\n- **Statusgrund:** Für diese Iteration liegt
-  keine Netto-Dateiänderung vor. Der Review verwendet daher die vorhandenen Aufnahmen;
-  es gab keine erneute Abnahme nach einem Änderungsbuild.\n\n## To-do\n\n1. **P1 –
-  Topline und Navigation:** Auf beiden Seiten bei beiden Viewports kurze und mehrzeilige
-  aktive Meldungen prüfen. Die Leiste muss oberhalb der Navigation stehen, mobil ohne
-  Überlauf umbrechen und im leeren Zustand keinen Platz belegen. Burger, Links und
-  Fokus per Maus und Tastatur testen; Kontrast am sichtbaren aktiven Link messen.\n2.
-  **P2 – Gestaltung:** Typografie und Abstände von Einführung und Footer weiter angleichen.
-  Das Zahnmotiv auf der Leistungsseite ergänzen, ohne Text oder Bedienelemente zu
-  überdecken. Dommer-Inhalte und Links beibehalten.\n3. **P2 – Diagnostik:** Scrollbreite
-  auf beiden Seiten messen, lange Titel bei Zwischenbreiten prüfen und reproduzierbare
-  Bildfehler einem Element oder Request zuordnen."
+  - `docs/_config.yml` weist dem Dommer-Bundle `website-dommer` zu. `docs/_layouts/website-dommer.html` gruppiert Meldung und Navbar in `.dommer-topbar`; `theme/dommer/index.scss` setzt den Wrapper auf `position: sticky`.
+  - Im zuletzt gerenderten DOM von **Leistungen bei 393 × 852** fehlt `.dommer-topbar`. Die Inspektion von `#navbar` ergab `position: static` und `font-family: system-ui, sans-serif`. Die Ursache der Abweichung ist nicht bestätigt.
+  - Beide Seiten verwenden bereits `ntl-hero.style-dommer` und `ntl-columns`; die Leistungsseite zusätzlich `dommer-inner`. Der Dommer-SCSS-Einstieg ist bereits zentral eingebunden.
+  - Die mobile Leistungs-Preview meldete ein fehlgeschlagenes Bild. Die betroffene Ressource wurde nicht identifiziert.
+completed_iteration: 3
+report: "STATUS: BLOCKED\n\n## Kurzbericht\n\nDer Review hat keine neuen Dateiänderungen
+  bestätigt. Die letzte mobile Leistungs-Preview zeigt nicht den Dommer-Frame, der
+  im Quellstand konfiguriert ist.  \n**Nächster Schritt:** Jekyll/Vite mit dem aktuellen
+  Checkout neu starten und die Dommer-Preview erneut bereitstellen.\n\n## Details\n\n|
+  Seite · Viewport | Bestätigt | Offen |\n|---|---|---|\n| Start · 1280 × 800 und
+  393 × 852 | Vorige Aufnahmen zeigen eine initial geschlossene FAQ mit Plus links
+  vor der Frage. Die Sprechzeiten stehen am Desktop rechts und mobil unter der Einführung.
+  | FAQ per Klick und Tastatur, sichtbarer Fokus und visuelle Prüfung nach dem Build.
+  |\n| Leistungen · 1280 × 800 | In der bisherigen Aufnahme überlappt die Hero-Box
+  die Bildkante; die Sprechzeiten stehen rechts. | Kompakte Leistungsübersicht, gültige
+  Detail-Links und Prüfung gegen den aktuellen Build. |\n| Leistungen · 393 × 852
+  | Die letzte Aufnahme zeigt keinen leeren Meldungsstreifen. Die Navbar steht oberhalb
+  des Hero-Bilds statt darüber. Hauptinhalt und Sprechzeiten stapeln sich. | Gemeinsame
+  Fixierung beim Scrollen, Darstellung mit aktiver und mehrzeiliger Meldung sowie
+  geöffnetes Offcanvas. |\n\nDie Aufnahmen belegen weder Tastaturbedienung noch Klickflächen,
+  gemessenen Kontrast oder horizontalen Overflow. Ein erfolgreicher aktueller `vite
+  build` ist nicht nachgewiesen.\n\n## To-do\n\n1. **P1 · Beide:** Preview und Quellstand
+  abgleichen. Anschließend das Scrollverhalten von Navbar und Topline mit und ohne
+  Meldung prüfen, einschließlich mehrzeiliger Meldung, Offcanvas und Sprungzielen.\n2.
+  **P1 · Leistungen:** Vorhandene Dommer-Leistungen als kurze, einheitliche Blöcke
+  in `ntl-columns` darstellen. Detail-Links nur mit gültigem Ziel setzen.\n3. **P1
+  · Start:** Einführung und Sprechzeiten auf den Referenzaufbau kürzen, genau eine
+  FAQ-Section mit Plus behalten und ihre Bedienung prüfen.\n4. **P2 · Beide:** Roboto
+  und Mona Sans einbinden und das Laden verifizieren. Hero-Proportionen, Transparenz,
+  Kontrast und Bedienelemente nach erfolgreichem Build in beiden Viewports prüfen."
 todo: |-
-  1. **P1 – Topline und Navigation:** Auf beiden Seiten bei beiden Viewports kurze und mehrzeilige aktive Meldungen prüfen. Die Leiste muss oberhalb der Navigation stehen, mobil ohne Überlauf umbrechen und im leeren Zustand keinen Platz belegen. Burger, Links und Fokus per Maus und Tastatur testen; Kontrast am sichtbaren aktiven Link messen.
-  2. **P2 – Gestaltung:** Typografie und Abstände von Einführung und Footer weiter angleichen. Das Zahnmotiv auf der Leistungsseite ergänzen, ohne Text oder Bedienelemente zu überdecken. Dommer-Inhalte und Links beibehalten.
-  3. **P2 – Diagnostik:** Scrollbreite auf beiden Seiten messen, lange Titel bei Zwischenbreiten prüfen und reproduzierbare Bildfehler einem Element oder Request zuordnen.
+  1. **P1 · Beide:** Preview und Quellstand abgleichen. Anschließend das Scrollverhalten von Navbar und Topline mit und ohne Meldung prüfen, einschließlich mehrzeiliger Meldung, Offcanvas und Sprungzielen.
+  2. **P1 · Leistungen:** Vorhandene Dommer-Leistungen als kurze, einheitliche Blöcke in `ntl-columns` darstellen. Detail-Links nur mit gültigem Ziel setzen.
+  3. **P1 · Start:** Einführung und Sprechzeiten auf den Referenzaufbau kürzen, genau eine FAQ-Section mit Plus behalten und ihre Bedienung prüfen.
+  4. **P2 · Beide:** Roboto und Mona Sans einbinden und das Laden verifizieren. Hero-Proportionen, Transparenz, Kontrast und Bedienelemente nach erfolgreichem Build in beiden Viewports prüfen.
 ...

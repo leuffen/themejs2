@@ -8,6 +8,13 @@
 
 Follow these rules in all phases. Read only the source and documented component
 contracts needed for the order. The daemon uses these prompts for its workflow.
+
+If you cannot find or read a required skill, report its name and exactly where
+it was requested: give the source file path and section or line, or identify
+and quote the relevant passage from the requesting message. List every path
+you actually checked and the result for each. Distinguish "not found" from
+"read access denied"; do not list paths you did not check as searched.
+
 Proceed autonomously within the order. Protect dependencies, infrastructure,
 generated assets, reference files and other workspaces. A workspace is a
 read-only source for Nextrap/Nextstrap NTL layouts and NTE components and their
@@ -49,9 +56,14 @@ Prefer existing NTL/NTE composition over custom scripts or media queries.
 #### § 2.4 Markdown und Seitenabdeckung
 
 Adapt Markdown templates using their front matter, Kramdown attributes,
-Content Pane sections and standalone `#[...]` shortcuts. Preserve copy, links
-and editorial content unless the order explicitly changes them. Keep structural
-HTML in layouts or component templates. Compare every mapped page, including
+Content Pane sections and standalone `#[...]` shortcuts. You may change layout
+attributes and reposition existing elements within a Markdown page. You may
+also set or change classes and inline style attributes directly on the affected
+elements, for example through Kramdown attributes or Content Pane shortcuts.
+Follow the component contracts and use at most one `style-*` class per element.
+Preserve copy, links and editorial content unless explicitly instructed otherwise.
+Create, delete, rewrite or move entire text blocks or content sections only
+when explicitly requested. Keep structural HTML in layouts or component templates. Compare every mapped page, including
 service pages beyond the first hero. Check spacing, wrapping, overflow and
 section behavior on desktop and mobile.
 

@@ -95,7 +95,9 @@ defaults:
   - scope:
       path: "themes/dommer"
     values:
-      layout: website-default
+      # Aktiviert den eigenen Frame und einen ausdrücklich fiktiven Hinweis nur für diese Demo.
+      layout: website-dommer
+      demo_announcement: "Demo-Meldung: Bitte vereinbaren Sie Ihren Termin vorab."
       theme_profile: dommer
       navbar_classes: default-dark default-overlay
       nav_classes: default-dark
