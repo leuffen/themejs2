@@ -227,6 +227,10 @@ Ein neues Kundenprojekt erhält den Inhalt von `_root/` als Projektwurzel und ve
 
 #### § 5.12 Dokumentation von Code-Blöcken
 
+Die Formatierungsregeln in [`.editorconfig`](.editorconfig) sind Teil des
+verbindlichen Code-Stils. Wende bei neuen und geänderten Dateien die für den
+jeweiligen Dateityp geltenden Regeln an.
+
 Alle Code-Dateien werden nach funktionalen Blöcken kommentiert. Das gilt unter
 anderem für SCSS, CSS, TypeScript, JavaScript, HTML, PHP und Konfigurations-
 oder Markup-Dateien.

@@ -22,6 +22,11 @@ nte-navbar-line.style-default > .brand-logo[slot="start"] {
   text-decoration: none;
 }
 
+// Verhindert, dass die verfügbare Breite eines Textlogos die Navbar-Höhe bestimmt.
+nte-navbar-line.style-default > .brand-logo[slot="start"]:not(:has(> img)) {
+  aspect-ratio: auto;
+}
+
 // Lässt bei Bildlogos die feste Höhe zusammen mit dem Brand-Seitenverhältnis die Breite bestimmen.
 nte-navbar-line.style-default > .brand-logo[slot="start"]:has(> img) {
   inline-size: auto;
