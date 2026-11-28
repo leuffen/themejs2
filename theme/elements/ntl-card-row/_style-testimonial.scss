@@ -1,0 +1,147 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+@use "@nextrap/nte-card" as card;
+
+// Teilt Portrait, Zitat und Quellenangabe zwischen Raster und vertikaler Folge.
+@mixin style-testimonial() {
+  ntl-card-row.style-testimonial {
+    @include cardRow.default-style(
+      $container-width: var(--nt-container-width),
+      $cols: 4,
+      $gap: var(--nt-space-5),
+      $inner-padding: 0,
+      $container-background: transparent,
+      $container-border: 0,
+      $container-border-radius: 0
+    );
+
+    // Die Einleitung bleibt unabhängig von Anzahl und Länge der Kundenstimmen.
+    &::part(header) {
+      max-width: 44rem;
+      margin: 0 auto var(--nt-space-8);
+      color: var(--nt-header);
+      text-align: center;
+    }
+
+    &::part(main) {
+      align-items: stretch;
+      min-width: 0;
+    }
+
+    // Direkte Cards bilden eine gemeinsame Zitat-Komposition mit kleinem Portrait.
+    > nte-card {
+      @include card.default-style(
+        $innerPadding: var(--nt-space-5),
+        $border: var(--nt-border-width) solid var(--nt-border),
+        $background-color: var(--nt-surface-raised),
+        $border-radius: var(--nt-radius),
+        $image-aspect-ratio: 1,
+        $gap: var(--nt-spacing-text)
+      );
+
+      min-width: 0;
+      height: 100%;
+      color: var(--nt-text);
+
+      &::part(wrapper) {
+        height: 100%;
+        min-width: 0;
+        box-shadow: 0 var(--nt-space-2) var(--nt-space-5)
+          color-mix(in srgb, var(--nt-text) 8%, transparent);
+      }
+
+      // Avatare bleiben klein; das Zitat trägt die inhaltliche Hierarchie.
+      &::part(image) {
+        width: var(--nt-space-7);
+        height: var(--nt-space-7);
+        overflow: hidden;
+        border-radius: 50%;
+      }
+
+      > [slot="image"] {
+        width: var(--nt-space-7);
+        height: var(--nt-space-7);
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      blockquote {
+        margin: 0 0 var(--nt-space-4);
+        color: var(--nt-header);
+        font-size: var(--nt-font-size);
+        line-height: var(--nt-line-height);
+        overflow-wrap: anywhere;
+      }
+
+      > p:last-child {
+        margin-bottom: 0;
+        color: var(--nt-text-muted);
+        font-size: var(--nt-font-size-small);
+        overflow-wrap: anywhere;
+      }
+    }
+
+    // Die dunkle Bühne verändert nur die vorhandenen Flächen- und Kontrastrollen.
+    &.testimonial-dark {
+      color: var(--nt-text-on-secondary);
+      background: var(--nt-secondary);
+
+      &::part(header) {
+        color: inherit;
+        text-align: start;
+        margin-inline: 0;
+      }
+    }
+
+    // Die vertikale Folge verwendet denselben Zitatvertrag und eine schmalere Lesefläche.
+    &.testimonial-list {
+      --container-width: min(var(--nt-container-width), 52rem);
+      --gutter-y: var(--nt-space-6);
+
+      > nte-card {
+        &::part(image),
+        > [slot="image"] {
+          width: var(--nt-space-8);
+          height: var(--nt-space-8);
+        }
+
+        blockquote {
+          font-style: italic;
+        }
+      }
+    }
+
+    // Auf schmalen Ansichten bleibt der vorhandene Mobile-Stack oder Horizontal-Flow zuständig.
+    &[mode="mobile"] {
+      &::part(header) {
+        margin-bottom: var(--nt-space-6);
+      }
+
+      > nte-card::part(content) {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+    }
+
+    // Eine dekorative Führung verbindet die versetzten Stimmen ohne feste Kartenanzahl.
+    &.testimonial-list[mode="desktop"] {
+      &::part(main) {
+        position: relative;
+        isolation: isolate;
+      }
+
+      &::part(main)::before {
+        position: absolute;
+        z-index: -1;
+        inset-block: 0;
+        inset-inline-start: 50%;
+        border-inline-start: var(--nt-space-1) dashed var(--nt-accent);
+        content: "";
+        pointer-events: none;
+      }
+
+      > nte-card:nth-of-type(even) {
+        margin-inline-start: auto;
+      }
+    }
+  }
+}

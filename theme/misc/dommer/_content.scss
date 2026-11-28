@@ -1,0 +1,93 @@
+// Erhält den vorhandenen Columns-Autorenvertrag als isoliertes Inhaltsmuster.
+ntl-columns.style-default.dommer-services {
+  // Trennt Leistungsgruppen, ohne Abstände innerhalb von Akkordeons zu beeinflussen.
+  > section:not([slot]) + section:not([slot]) {
+    margin-block-start: var(--nt-spacing-layout);
+  }
+
+  > section:not([slot]) > section + section {
+    margin-block-start: var(--nt-spacing-component);
+  }
+
+  // Ein eingebettetes Testimonial darf nicht über die schmale Hauptspalte hinausragen.
+  > ntl-2col.style-testimonial[mode="desktop"] {
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  > section:not([slot]) {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  img {
+    max-inline-size: 100%;
+  }
+}
+
+// Hält Einleitung und seitlichen Kontakt im vorhandenen Columns-Layout zusammen.
+ntl-columns.style-default.dommer-intro {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--nt-container-width);
+  margin-inline: auto;
+  margin-block-start: 0;
+  padding-block-end: var(--nt-spacing-section);
+  padding-block-start: calc(2 * var(--nt-spacing-text));
+  padding-inline: var(--nt-spacing-text);
+
+  // Das Bildmaß beschreibt die vorhandene Komposition, keine zusätzliche Token-Skala.
+  > section:not([slot]) > p > img {
+    max-inline-size: min(100%, 33.25rem);
+    block-size: auto;
+  }
+
+  // Der schmalere Bildausschnitt ist durch den bestehenden Leistungs-Modifier gewählt.
+  &.dommer-services > section:not([slot]) > p > img {
+    max-inline-size: min(100%, 19rem);
+  }
+
+  // Die bereits vorhandene Columns-API entscheidet über Zeilen- oder Stapellayout.
+  &:not(.mobile):is(.desktop, [mode="desktop"])::part(wrapper) {
+    align-items: start;
+  }
+}
+
+// Bündelt Kontakttexte auf der semantischen Akzentfläche der gewählten Palette.
+.dommer-contact-panel {
+  box-sizing: border-box;
+  inline-size: 100%;
+  container-type: inline-size;
+  padding: var(--nt-spacing-component);
+  background: var(--nt-accent);
+  color: var(--nt-text-on-accent);
+  overflow-wrap: anywhere;
+
+  // Überschriften und Links behalten denselben lesbaren Kontrast zum Panel.
+  h3,
+  a {
+    color: inherit;
+  }
+
+  > section + section {
+    margin-block-start: var(--nt-spacing-component);
+    padding-block-start: var(--nt-spacing-component);
+    border-block-start: var(--nt-border-width) solid color-mix(in srgb, var(--nt-white) 75%, transparent);
+  }
+
+  > section > :last-child {
+    margin-block-end: 0;
+  }
+
+  // Die verfügbare Panelbreite begrenzt die Überschrift bei langen deutschen Begriffen.
+  h3:lang(de) {
+    font-size: clamp(1.125rem, 10.5cqi, 1.625rem);
+    hyphens: auto;
+  }
+
+  a[href^="tel:"] {
+    display: inline-block;
+    max-inline-size: 100%;
+  }
+}

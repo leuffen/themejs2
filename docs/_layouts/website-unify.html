@@ -11,15 +11,15 @@ layout: blank
 
 {% unless page.show_navbar == false %}
 <!-- Stellt für die Unify-Demo den kompakten Business-Header mit klar getrennten Navigations- und Aktionsbereichen bereit. -->
-<nte-navbar id="navbar" class="style-unify with-shadow-on-scroll" style="--nte-navbar-position: sticky; --nte-navbar-scroll-threshold: 12">
+<nte-navbar id="navbar" class="style-business with-shadow-on-scroll" style="--nte-navbar-position: sticky; --nte-navbar-scroll-threshold: 12">
     <nte-navbar-line class="with-shrink-on-scroll" style="--height: 75px; --height-scrolled: 60px">
-        <a slot="start" class="brand-logo unify-brand" href="{{ brand_url | escape }}" aria-label="Unify Startseite">
-            <span class="unify-brand__mark" aria-hidden="true">U</span><span>nify</span>
+        <a slot="start" class="brand-logo brand-wordmark" href="{{ brand_url | escape }}" aria-label="Unify Startseite">
+            <span class="brand-mark" aria-hidden="true">U</span><span>nify</span>
         </a>
 
         <nte-nav
             id="unify-main-navigation-horizontal"
-            class="style-unify"
+            class="nav-horizontal default-compact"
             slot="center"
             aria-label="Hauptnavigation"
             style="--nte-nav-flow: row; --nte-nav-align: stretch"
@@ -28,7 +28,7 @@ layout: blank
             <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
         </nte-nav>
 
-        <div slot="end" class="unify-navbar-actions navbar-control" style="display: none" style-xl="display: flex">
+        <div slot="end" class="navbar-actions navbar-control" style="display: none" style-xl="display: flex">
             <a href="{{ page.contact_url | default: page.brand_url | default: '/' | relative_url | escape }}" class="btn btn-secondary">Sign up</a>
         </div>
 
@@ -49,7 +49,7 @@ layout: blank
     <div slot="header"><strong>Navigation</strong></div>
     <nte-nav
         id="unify-main-navigation-vertical"
-        class="style-unify-vertical"
+        class="nav-vertical default-compact"
         aria-label="Mobile Hauptnavigation"
         style="--nte-nav-flow: column; --nte-nav-align: stretch"
     ></nte-nav>

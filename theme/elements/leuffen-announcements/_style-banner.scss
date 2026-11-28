@@ -1,0 +1,22 @@
+// Zeigt aktuelle Meldungen als Banner und schließt den ausdrücklich gemeldeten Leerzustand.
+@mixin style-banner() {
+  leuffen-announcements.style-banner {
+    display: block;
+    padding: var(--nt-spacing-control) var(--nt-spacing-text);
+    background: var(--nt-accent);
+    color: var(--nt-text-on-accent);
+    text-align: center;
+    font-weight: var(--nt-font-weight-bold);
+    line-height: var(--nt-line-height);
+    overflow-wrap: anywhere;
+
+    // Verwendet den Zustand der Announcement-Library statt eigener Inhaltsdetektion.
+    &.no-announcements {
+      display: none;
+    }
+
+    [data-owner="leuffen-announcement"] {
+      margin: 0;
+    }
+  }
+}

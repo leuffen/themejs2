@@ -1,6 +1,0 @@
-@use "@nextrap/ntl-hero" as hero;
-
-// Erhält die native Bild- und Slot-Basis für die überlagerte Textfläche.
-&.style-dommer {
-  @include hero.default-style();
-}

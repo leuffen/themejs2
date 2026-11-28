@@ -1,6 +1,0 @@
-@use "@nextrap/ntl-hero" as hero;
-
-// Lädt die native Standarddarstellung.
-&.style-default {
-  @include hero.default-style();
-}

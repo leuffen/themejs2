@@ -1,1 +1,6 @@
-@use "@leuffen/themejs2/all";
+@use "@leuffen/themejs2" as themejs;
+
+// Alle Kompositionen teilen sich dieselbe Basis; die Body-Variant wählt nur visuelle Tokens.
+:where(:root) {
+  @include themejs.theme();
+}

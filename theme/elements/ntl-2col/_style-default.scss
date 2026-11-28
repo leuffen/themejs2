@@ -1,0 +1,96 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Registriert dieselbe Bild-/Text-Basis für alle Paletten; die Slots bleiben unverändert.
+@mixin style-default() {
+  ntl-2col.style-default {
+    @include twoCol.default-style(
+      $innerPadding: var(--nt-spacing-text),
+      $gap: var(--nt-spacing-layout),
+      $background: transparent,
+      $border: 0,
+      $border-radius: var(--nt-border-radius),
+      $objectFit: cover,
+      $justify: none
+    );
+
+    // Einzelmedien reichen an den Rahmen; Text behält den gemeinsamen Innenabstand.
+    @include twoCol.with-media-frame($enabled: false);
+
+    // Äußere Aktionen fluchten mit den Textkanten innerhalb des Wrappers.
+    &::part(footer) {
+      padding: var(--nt-spacing-text);
+    }
+
+    // Reine Bildspalten erhalten auch neben kurzen Texten eine belastbare Proportion.
+    &:has(> p[slot="aside"].auto)::part(aside) {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    // Rahmenlose Inhalte benötigen keinen zusätzlichen Innenrand.
+    &.default-open {
+      --inner-padding: 0px;
+    }
+
+    // Rahmen und Hervorhebung teilen dieselbe Geometrie und lassen alle Slots sichtbar.
+    &:is(.default-framed, .default-featured) {
+      --inner-padding: var(--nt-spacing-component);
+      --border: var(--nt-border-width) solid var(--nt-border);
+      --border-radius: var(--nt-border-radius-xl);
+    }
+
+    &.default-framed {
+      @include twoCol.with-wrapper-bg-color(var(--nt-surface-raised));
+    }
+
+    &.default-featured {
+      @include twoCol.with-wrapper-bg-color(var(--nt-primary-subtle));
+    }
+
+    // Getönte Textspalten verwenden den öffentlichen Divider ohne eigene Gap-Logik.
+    &.default-primary {
+      @include twoCol.with-background-and-divider(
+        $gap: var(--nt-spacing-layout),
+        $background: var(--nt-primary-subtle),
+        $divider-color: var(--nt-border)
+      );
+    }
+
+    // Das Bild steht mobil regulär zuerst; der dokumentierte Modifier wählt Text zuerst.
+    &[mode="mobile"] {
+      --gap: var(--nt-spacing-text);
+
+      &:has(> p[slot="aside"].auto)::part(aside) {
+        aspect-ratio: 7 / 5;
+      }
+
+      &.default-text-first:has(> p[slot="aside"].auto)::part(main) {
+        order: 1;
+      }
+
+      &.default-text-first:has(> p[slot="aside"].auto)::part(aside) {
+        order: 2;
+        margin-block-start: 0;
+      }
+
+      &.default-text-first:has(> p[slot="aside"].auto):not(:has(> [slot="bottom"]))::part(aside) {
+        margin-block-end: calc(-1 * var(--inner-padding));
+      }
+    }
+
+    // Text/Text-Kompositionen behalten den Trenner; Medien verwenden ihren eigenen Rand.
+    &[mode="desktop"] {
+      &:has(> p[slot="aside"].auto)::part(aside) {
+        min-height: clamp(18rem, 25vw, 22rem);
+      }
+
+      &:not(:has(> p[slot="aside"].auto, > :is(img, nte-image, nte-consent-blocker)[slot="aside"])):not(.default-primary, .default-open) {
+        @include twoCol.with-background-and-divider(
+          $gap: var(--nt-spacing-layout),
+          $background: null,
+          $divider-color: var(--nt-border)
+        );
+      }
+    }
+  }
+}

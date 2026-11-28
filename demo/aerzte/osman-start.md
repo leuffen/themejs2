@@ -1,9 +1,9 @@
 
 ---
-{: layout="1;.theme-osman"}
+{: layout="1;.variant-osman"}
 
 ---
-{: layout="2;ntl-hero.hero-box" }
+{: layout="2;ntl-hero.style-image-text" }
 
 ![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
 {: slot="bg"}
@@ -19,7 +19,7 @@
 <leuffen-announcements>Momentan keine Meldungen.</leuffen-announcements>
 
 [Termin online buchen](/karriere){: .btn .btn-primary }
-{: .footer }
+{: .footer .content-footer }
 
 ### Standorte
 
@@ -29,7 +29,7 @@
 Wir bitten um eine Terminvereinbarung.
 
 [Privattermin für Makulauntersuchung buchen](/karriere){: .btn .btn-primary}
-{: .footer }
+{: .footer .content-footer }
 
 ### Notfälle & Schmerzpatienten
 
@@ -38,7 +38,7 @@ Wir bitten um eine Terminvereinbarung.
 Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den zahnärztlichen Notdienst oder den Notruf unter [112](tel:112).
 
 [Online bewerten](/karriere){: .btn .btn-primary}
-{: .footer }
+{: .footer .content-footer }
 
 ## Herzlich Willkommen in der Augenpraxis Osman
 {: layout="ntl-2col"}
@@ -72,7 +72,7 @@ Zur umfassenden Diagnostik zählen die Messung des Augeninnendrucks, Gesichtsfel
 - Katarakt (Grauer Star) und Nachstar
 
 [Mehr erfahren](/karriere){: .btn .btn-primary}
-{: .footer }
+{: .footer .content-footer }
 
 ### Therapie
 
@@ -85,7 +85,7 @@ Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf �
 - YAG-Laser-Kapsulotomie bei sekundären Linsentrübung (Nachstar)
 
 [Mehr erfahren](/karriere){: .btn .btn-primary}
-{: .footer }
+{: .footer .content-footer }
 
 ## Warnsignale für die Augen – Sofort zum Arzt!
 {: layout="ntl-2col"}
@@ -116,7 +116,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 - die Augenklinik Frankfurt-Höchst
 
 ### Mitgliedschaften
-{: section-class="aside" }
+{: section-class="aside content-stack" }
 
 - Landesärztekammer Hessen
 - Euretina
@@ -163,7 +163,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 Test Test Test
 
 ---
-{: layout="3;nte-accordion" .aside}
+{: layout="3;nte-accordion" .aside .content-stack}
 
 #### AaAaaaaaaa
 
@@ -176,7 +176,7 @@ dpoqwjdpioqwjdoijqwoid
 ## Footer
 
 <footer>
-    <ntl-card-row class="footer-separators" style="--cols: 4">
+    <ntl-card-row class="style-footer" style="--cols: 4">
         <nte-card>
             <h3>Kontakt</h3>
 						Augenarzt Dr. Osman<br>

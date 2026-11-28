@@ -1,0 +1,22 @@
+@use "./style-default" as default;
+@use "./style-ribbon" as ribbon;
+@use "./style-footer" as footer;
+@use "./style-feature-list" as feature-list;
+@use "./style-metrics" as metrics;
+@use "./style-pricing" as pricing;
+@use "./style-stories" as stories;
+@use "./style-testimonial" as testimonial;
+@use "./style-timeline" as timeline;
+@use "./style-tool-gallery" as tool-gallery;
+
+// Registriert jede Kartenkomposition einmal innerhalb des gemeinsamen Theme-Layers.
+@include default.style-default();
+@include ribbon.style-ribbon();
+@include footer.style-footer();
+@include feature-list.style-feature-list();
+@include metrics.style-metrics();
+@include pricing.style-pricing();
+@include stories.style-stories();
+@include testimonial.style-testimonial();
+@include timeline.style-timeline();
+@include tool-gallery.style-tool-gallery();

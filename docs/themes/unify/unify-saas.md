@@ -38,7 +38,7 @@ Need a custom plan? [Contact sales](/themes/unify/unify-start.html#kontakt)
 
 <!-- Leitet den wiederverwendbaren Drei-Schritt-Guide mit einer zentrierten Inhaltsüberschrift ein. -->
 ## Let's start your 3-step guide
-{: section-id="leitfaden" layout="ntl-2col.style-default" .header .text-center section-style="--cols: 12;" }
+{: section-id="leitfaden" layout="ntl-2col.style-feature" .header .text-center section-style="--cols: 12;" }
 
 We developed this guide to make it easier to find information about starting a business and setting up your site.
 {: .header .text-center }
@@ -151,7 +151,7 @@ Need a new website? Unify is quick, affordable, and ready to tell your story. Wa
 
 <!-- Ordnet vier austauschbare Stimmen als versetzte, responsive Vertrauenskette an. -->
 ## Loved by businesses and individuals across the globe
-{: layout="ntl-card-row.style-testimonial-list" section-style="--cols: 7;" }
+{: layout="ntl-card-row.style-testimonial.testimonial-list" section-style="--cols: 7;" }
 
 ### Nicole Grazioso
 

@@ -1,0 +1,44 @@
+// Hält kurze Schwerpunkte als einfache Liste mit optionaler horizontaler Komposition.
+@mixin style-specialties() {
+  ul.style-specialties {
+    display: grid;
+    gap: var(--nt-space-2);
+    margin: 0 0 var(--nt-space-7);
+    padding: 0;
+    color: var(--nt-primary);
+    list-style: none;
+    font-size: var(--nt-font-size-small);
+    font-weight: var(--nt-font-weight-bold);
+    letter-spacing: .11em;
+    line-height: var(--nt-line-height);
+    text-transform: uppercase;
+
+    // Die Reihenfolge bleibt bei beliebig vielen Einträgen die Autorenreihenfolge.
+    > li {
+      display: block;
+      margin: 0;
+    }
+
+    // TrunkJS schaltet den umbruchfähigen Zeilenmodus per xl:specialties-horizontal.
+    &.specialties-horizontal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--nt-space-2) var(--nt-space-4);
+
+      > li {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      // Rein dekorative Punkte trennen Einträge; es wird kein Inhalt ergänzt.
+      > li:not(:last-child)::after {
+        content: "";
+        width: 3px;
+        height: 3px;
+        margin-inline-start: var(--nt-space-4);
+        border-radius: 50%;
+        background: var(--nt-accent);
+      }
+    }
+  }
+}

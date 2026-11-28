@@ -1,0 +1,116 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+@use "@nextrap/nte-card" as card;
+
+// Registriert die funktionale metrics-Komposition unabhängig von der Farb-Variant.
+@mixin style-metrics() {
+  // Stellt Kennzahlen als flaches, gleichwertiges Raster ohne dekorative Kartenrahmen dar.
+
+  // Überlässt die Spaltenbreite dem Seiten-Markup und definiert nur Rhythmus und Ausrichtung.
+  ntl-card-row.style-metrics {
+    --breakpoint: sm, md;
+
+    @include cardRow.default-style(
+      $container-width: var(--nt-container-width),
+      $gap: var(--nt-space-6),
+      $inner-padding: 0,
+      $container-background: transparent,
+      $container-border: 0,
+      $container-border-radius: 0
+    );
+    @include cardRow.with-item-separators($separator-color: var(--nt-border));
+
+    // Hält Kennzahlen an einer gemeinsamen Oberkante und lässt variable Beschreibungen wachsen.
+    &::part(main) {
+      align-items: stretch;
+      min-width: 0;
+    }
+
+    // Hält die technisch erforderliche Row-Überschrift für Hilfstechnologien verfügbar, ohne Layoutfläche zu belegen.
+    &::part(header) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    // Unterdrückt den vom Mixin vorbereiteten Zeilentrenner im mobilen Kennzahlen-Stack.
+    &[mode="mobile"] > nte-card::after {
+      display: none;
+    }
+
+    // Verbindet Kennzahlen optisch mit einer benachbarten dunklen Testimonial-Fläche.
+    &.metrics-dark {
+      box-sizing: border-box;
+      padding-block-start: 0;
+      color: color-mix(in srgb, var(--nt-text-on-secondary) 72%, transparent);
+      background: var(--nt-secondary);
+
+      > nte-card::after {
+        display: none;
+      }
+    }
+  }
+
+  // Übersetzt Card-Children in reduzierte Kennzahlblöcke mit hervorgehobenem Wert.
+
+  // Bindet die flache Kennzahloptik ausschließlich an die Metrics-Komposition.
+  ntl-card-row.style-metrics {
+    > nte-card {
+      @include card.default-style(
+        $innerPadding: var(--nt-space-3),
+        $border: 0,
+        $background-color: transparent,
+        $border-radius: 0,
+        $gap: var(--nt-spacing-text)
+      );
+
+      min-width: 0;
+      color: var(--nt-text);
+
+      // Ordnet den Kennzahlentitel als ruhige Beschriftung oberhalb des Werts ein.
+      &::part(header) {
+        color: var(--nt-header);
+        font-size: 1.125rem;
+        font-weight: var(--nt-font-weight-bold);
+        line-height: 1.3;
+      }
+
+      // Hebt den ersten starken Wert unabhängig von dessen konkretem Inhalt hervor.
+      strong:first-child {
+        display: block;
+        margin-bottom: var(--nt-space-2);
+        color: var(--nt-primary);
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        line-height: 1.2;
+      }
+
+      // Entfernt überflüssigen Außenraum am Ende kurzer Kennzahlbeschreibungen.
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Zentriert den mobilen Kennzahlen-Stack und begrenzt seine Zeilenlänge.
+    &[mode="mobile"] > nte-card {
+      text-align: center;
+    }
+
+    // Bewahrt Wertkontrast und sekundäre Textrollen auf der dunklen Services-Bühne.
+    &.metrics-dark > nte-card {
+      color: color-mix(in srgb, var(--nt-text-on-secondary) 72%, transparent);
+
+      &::part(header) {
+        color: var(--nt-text-on-secondary);
+      }
+
+      strong:first-child {
+        color: var(--nt-primary);
+      }
+    }
+  }
+}

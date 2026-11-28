@@ -1,0 +1,120 @@
+@use "@nextrap/ntl-card-row" as cardRow;
+@use "sass:string";
+@use "@nextrap/nte-card" as card;
+
+// Registriert die funktionale tool-gallery-Komposition unabhängig von der Farb-Variant.
+@mixin style-tool-gallery() {
+  // Ordnet Werkzeuge, Integrationen und bildgestützte Angebote als ruhige, wiederverwendbare Übersicht an.
+
+  // Nutzt das vorhandene Zwölfspaltenmodell für vier gleichwertige Galeriekarten pro Desktop-Zeile.
+  ntl-card-row.style-tool-gallery {
+    @include cardRow.default-style(
+      $container-width: var(--nt-container-width),
+      $cols: 3,
+      $gap: var(--nt-space-5),
+      $inner-padding: 0,
+      $container-background: transparent,
+      $container-border: 0,
+      $container-border-radius: 0
+    );
+
+    // Begrenzt die Einleitung auf eine gut lesbare Zeilenlänge und führt mittig in die Auswahl.
+    &::part(header) {
+      max-width: 44rem;
+      margin: 0 auto var(--nt-space-8);
+      text-align: center;
+    }
+
+    // Streckt alle Einträge auf eine gemeinsame Zeilenhöhe, auch wenn ihre Texte unterschiedlich lang sind.
+    &::part(main) {
+      align-items: stretch;
+    }
+
+    // Stapelt Karten auf schmalen Ansichten über die volle verfügbare Breite.
+    &[mode="mobile"] {
+      --gutter-y: var(--nt-space-5);
+
+      &::part(header) {
+        margin-bottom: var(--nt-space-6);
+      }
+    }
+  }
+
+  // Formt Card-Children der Tool-Galerie zu flachen Bildkacheln mit belastbarer Textbreite.
+
+
+  // Bindet die Bildkarten ausschließlich an die gleichnamige Card-Row-Komposition.
+  ntl-card-row.style-tool-gallery {
+    > nte-card {
+      @include card.default-style(
+        $innerPadding: var(--nt-space-4),
+        $border: 0,
+        $background-color: transparent,
+        $border-radius: 0,
+        $image-aspect-ratio: string.unquote("4 / 3"),
+        $gap: var(--nt-spacing-text)
+      );
+
+      min-width: 0;
+      height: 100%;
+      color: var(--nt-text);
+
+      // Die Referenz zeigt freie Medienkacheln; unterschiedliche Bildquellen dürfen die Geometrie nicht verändern.
+      &::part(wrapper) {
+        height: 100%;
+        min-width: 0;
+        box-shadow: none;
+      }
+
+      &::part(image) {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        border-radius: var(--nt-radius);
+        background: var(--nt-surface-muted);
+        aspect-ratio: 4 / 3;
+      }
+
+      > [slot="image"] {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      // Hält Titel und optionale Beschreibung in einem kompakten, flexiblen Textblock zusammen.
+      &::part(content) {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        gap: var(--nt-space-2);
+        min-width: 0;
+        padding-inline: 0;
+      }
+
+      > :is(h2, h3, h4):first-child {
+        margin: 0;
+        color: var(--nt-header);
+        font-size: 1rem;
+        font-weight: var(--nt-font-weight-bold);
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+      }
+
+      > p:last-child {
+        margin-bottom: 0;
+        overflow-wrap: anywhere;
+      }
+    }
+
+    // Nutzt mobil die ganze Kartenbreite und schützt lange Werkzeugnamen vor horizontalem Überlauf.
+    &[mode="mobile"] > nte-card {
+      min-width: 0;
+
+      &::part(wrapper),
+      &::part(content) {
+        min-width: 0;
+      }
+    }
+  }
+}

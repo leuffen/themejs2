@@ -1,0 +1,15 @@
+// Fasst Blau, Salbei und die Meldungsfarbe als bestehende Nextrap-Farbrollen zusammen.
+@mixin variant-dommer() {
+  .variant-dommer {
+    --nt-primary: #043b5f;
+    --nt-secondary: #00101a;
+    --nt-accent: #99b599;
+    --nt-accent-hover: #a9c2a9;
+    --nt-accent-active: #91ad91;
+    --nt-warning: #9d542b;
+    --nt-text: #043b5f;
+    --nt-font-family-header: Georgia, serif;
+    --nt-text-on-accent: var(--nt-text);
+    --nt-text-on-warning: var(--nt-white);
+  }
+}

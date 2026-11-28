@@ -1,0 +1,4 @@
+@use "./style-default" as default;
+
+// Registriert die Baseline für eigenständige Cards im gemeinsamen Theme-Layer.
+@include default.style-default();

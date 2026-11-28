@@ -12,7 +12,7 @@ show_title: false
 
 <!-- Erweitert die bestehende Bild-/Text-Komposition zu einem Services-Einstieg mit editierbarem Kundenbeleg. -->
 # Start your journey with **Unify**
-{: layout="ntl-2col.style-default" section-style="--cols: 6; --breakpoint: sm;" }
+{: layout="ntl-2col.style-feature" section-style="--cols: 6; --breakpoint: sm;" }
 
 > Amazing people to work with. Very fast and professional partner.
 
@@ -25,7 +25,7 @@ Director Payments & Risk \| Airbnb
 
 <!-- Nutzt die vorhandene Zweispalten-Baseline für Werkzeugauswahl und editierbares Produktbild. -->
 ## Fast and easy
-{: layout="ntl-2col.style-default.reverse-desktop" .header .text-center section-style="--cols: 6;" }
+{: layout="ntl-2col.reverse-desktop.style-feature" .header .text-center section-style="--cols: 6;" }
 
 We enrich human lives through the thoughtful application of design and technology.
 {: .header .text-center }
@@ -137,7 +137,7 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
 ## Loved by business and individuals across the globe
-{: layout="ntl-card-row.style-testimonial-slider.with-horizontal-flow.surface-secondary" section-style="--cols: 4; --visible-cols-mobile: 1.15;" }
+{: layout="ntl-card-row.style-testimonial.testimonial-dark.with-horizontal-flow" section-style="--cols: 4; --visible-cols-mobile: 1.15;" }
 
 ### Nicole Grazioso
 
@@ -173,7 +173,7 @@ Entrepreneur \| Happy customer
 
 <!-- Übernimmt die flache Kennzahlenkomposition des bestehenden Themes für die drei Referenzmetriken. -->
 ## Service results
-{: layout="ntl-card-row.style-metrics.surface-secondary" section-style="--cols: 4;" }
+{: layout="ntl-card-row.style-metrics.metrics-dark" section-style="--cols: 4;" }
 
 ### Accuracy rate
 
@@ -234,7 +234,7 @@ Millions of people expect a great customer experience. A shared design language 
 ---
 {: layout="3;.hero-form.aside" }
 
-#[nte-input.style-default.hoverlabel type="email" name="email" label="Enter email" required]
+#[nte-input.hoverlabel type="email" name="email" label="Enter email" required]
 #[button type="submit" class="btn btn-primary" > Subscribe]
 
 [Create a free account](/themes/unify/unify-start.html#kontakt){: .subscribe-account }

@@ -1,0 +1,4 @@
+@use "style-summary-end" as summary-end;
+
+// Registriert die eigenständige Detail-Komposition.
+@include summary-end.style-summary-end();

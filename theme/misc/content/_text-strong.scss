@@ -1,0 +1,5 @@
+// Hebt einen Hinweis in der normalen Textrolle hervor.
+.text-strong {
+  color: var(--nt-text);
+  font-weight: var(--nt-font-weight-bold);
+}

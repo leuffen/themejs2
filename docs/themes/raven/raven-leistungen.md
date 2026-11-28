@@ -24,7 +24,7 @@ Die Unterseiten nutzen dieselbe klare medizinische Sprache wie die Startseite, b
 
 <!-- Zeigt den wiederkehrenden Artikelaufbau aus Bild, Leitgedanke, Fließtext und nachgelagerten Detailpunkten. -->
 ## Orthopädie, Unfallchirurgie und Sporttraumatologie
-{: layout="ntl-2col.with-justify-top.surface-white" section-style="--cols: 7;" data-kicker="Beispiel: Artikelabschnitt" }
+{: .kicker-line layout="ntl-2col.with-justify-top.surface-white.default-open" section-style="--cols: 7;" data-kicker="Beispiel: Artikelabschnitt" }
 
 Eine fundierte Therapie beginnt mit einer präzisen medizinischen Einordnung.
 {: .lead-serif }
@@ -36,7 +36,7 @@ Ziel ist eine Therapie, die wissenschaftlich fundiert ist und eine sichere sowie
 ![Medizinische Diagnostik des Bewegungsapparates](https://cdn.leuffen.de//leu-stock/v2/275/c_gfedcba/AdobeStock_1132657049.webp)
 
 ---
-{: layout="nte-accordion.style-default.bottom[exclusive]" }
+{: layout="nte-accordion.bottom.style-process[exclusive]" }
 
 ### Sportverletzungen
 
@@ -56,7 +56,7 @@ Versorgung akuter orthopädischer und unfallchirurgischer Fragestellungen mit kl
 
 <!-- Dreht die Bild-/Text-Verteilung für aufeinanderfolgende Unterseitenabschnitte, ohne einen weiteren Style einzuführen. -->
 ## Funktionelle Orthopädie & Präzisionsdiagnostik
-{: layout="ntl-2col.reverse-desktop.with-justify-top" section-style="--cols: 7;" data-kicker="Beispiel: alternierender Artikel" }
+{: .kicker-line layout="ntl-2col.reverse-desktop.with-justify-top.default-open" section-style="--cols: 7;" data-kicker="Beispiel: alternierender Artikel" }
 
 Die richtige Therapie beginnt mit der richtigen Diagnose.
 {: .lead-serif }
@@ -69,7 +69,7 @@ Moderne Orthopädie bedeutet, Ursachen zu identifizieren, anstatt ausschließlic
 
 <!-- Bildet die Themenübersichten aus Einblicke als editierbares dreispaltiges Kartenraster ab. -->
 ## Medizinische Themenfelder
-{: layout="ntl-card-row.style-default" section-style="--cols: 4;" }
+{: layout="ntl-card-row" section-style="--cols: 4;" }
 
 Wiederkehrende Themen aus Orthopädie, Sporttraumatologie, Bewegungsanalyse und regenerativer Medizin lassen sich als kurze Einstiegskarten abbilden.
 {: .header }
@@ -100,7 +100,7 @@ Funktionelle Orthopädie als Grundlage präziser Diagnostik und individualisiert
 
 <!-- Demonstriert lange strukturierte Profildaten seitlich neben dem einordnenden Text statt als nachgelagerten Vollbreitenblock. -->
 ## Werdegang und fachlicher Hintergrund
-{: layout="ntl-2col.with-justify-top.surface-white" section-style="--cols: 5;" data-kicker="Beispiel: strukturierte Daten" }
+{: .kicker-line layout="ntl-2col.with-justify-top.surface-white.default-open" section-style="--cols: 5;" data-kicker="Beispiel: strukturierte Daten" }
 
 Universitäre Ausbildung und klinische Erfahrung in Orthopädie, Unfallchirurgie und Sportmedizin.
 {: .lead-serif }
@@ -113,11 +113,11 @@ Universitäre Ausbildung und klinische Erfahrung in Orthopädie, Unfallchirurgie
 | Studium & Promotion | Ruprecht-Karls-Universität Heidelberg |
 | Facharztausbildung | Universitätsklinikum Heidelberg · Klinikum Aschaffenburg-Alzenau · Universitätsklinikum Frankfurt |
 | Fachgesellschaften | DGOU · GOTS · DGMSM · DGSP · humedica e. V. |
-{: .timeline-table .aside }
+{: .style-timeline .aside }
 
 <!-- Übernimmt die kompakte organisatorische Informationsform der Kontakt-Unterseite als normale Markdown-Liste. -->
 ## Patienten&shy;informationen
-{: layout="ntl-2col.reverse.with-justify-top" .aside section-style="--cols: 6;" data-kicker="Beispiel: Informationsliste" }
+{: .kicker-line layout="ntl-2col.reverse.with-justify-top.default-open" .aside section-style="--cols: 6;" data-kicker="Beispiel: Informationsliste" }
 
 Organisatorische Hinweise für einen Termin lassen sich ohne Sonderkomponente als klar gegliederte Liste pflegen.
 {: .lead-serif }
@@ -130,7 +130,7 @@ Organisatorische Hinweise für einen Termin lassen sich ohne Sonderkomponente al
 
 <!-- Schließt Unterseiten mit einer klaren nächsten Aktion statt einem weiteren Inhaltsraster ab. -->
 ## Wie geht es weiter?
-{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Weiterführende Seiten" section-style="--cols: 6;" }
+{: .kicker-line layout="ntl-2col.style-card.reverse" .aside data-kicker="Weiterführende Seiten" section-style="--cols: 6;" }
 
 Vertiefende Inhalte können von jeder Unterseite gezielt zum medizinischen Ansatz, zum Profil oder zur Kontaktaufnahme führen.
 {: .lead-serif }

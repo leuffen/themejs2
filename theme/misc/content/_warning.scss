@@ -1,0 +1,20 @@
+// Hält ein Warnsymbol am Titel, ohne einen zusätzlichen Breakpoint einzuführen.
+.warning-heading {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--nt-spacing-text);
+
+  // Funktioniert mit den vorhandenen Icon-Tags und normalen i-Elementen.
+  :is(i, nte-icon) {
+    color: var(--nt-primary);
+    font-size: clamp(var(--nt-fs-2), 3vw, var(--nt-fs-1));
+    line-height: 1;
+  }
+}
+
+// Betont einen kurzen Handlungsaufruf innerhalb desselben Hinweisbereichs.
+.warning-emergency {
+  margin: 0;
+  font-weight: var(--nt-font-weight-bold);
+  text-transform: uppercase;
+}

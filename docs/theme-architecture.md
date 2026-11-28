@@ -1,170 +1,111 @@
-# Theme architecture
+# Gemeinsame Theme-Architektur
 
-ThemeJS2 uses four styling responsibilities and an explicit CSS cascade-layer contract.
+ThemeJS2 veröffentlicht genau ein Sass-Mixin `theme()` über `index.scss`.
+`theme/index.scss` registriert sämtliche Styles. Der TypeScript-Entry
+registriert weiterhin die Web Components; Sass ersetzt keine Komponenten.
 
-## Cascade layers
+## Einbindung
 
-Consuming stylesheets register the shared order before emitting theme CSS:
+```scss
+@use "@leuffen/themejs2" as themejs;
+
+:where(:root) {
+  @include themejs.theme();
+}
+```
+
+Der `:where(...)`-Scope hat Spezifität 0. Für normale Websites steht die
+optionale Variant auf `body`, etwa `class="variant-dommer"`. Im Jekyll-Frame
+erzeugt `theme_profile: dommer` diese Klasse. Der gemeinsame Entry erzeugt
+den Runtime-Tokenbaum sowohl im Root-Scope als auch am jeweiligen
+Variant-Träger. Dadurch reagieren abgeleitete Farben, Größen und Abstände
+auf dessen Eingaben. Auch Grundtypografie wird dort ausgewertet.
+
+## Zuständigkeiten
+
+| Ablage | Verantwortung |
+| --- | --- |
+| `theme/elements/<tag>/_style-*.scss` | Funktionale Komposition einschließlich Parts, Slots, responsiver Regeln und Modifier |
+| `theme/elements/id_<id>/_style-*.scss` | Begründete feste Frame-Bereiche, etwa `#header` und `#footer` |
+| `theme/variants/_variant-*.scss` | Je ein `variant-*`-Mixin mit einer Klasse und ausschließlich bekannten `--nt-*`-Deklarationen |
+| `theme/misc/<name>/_*.scss` | Verbleibende wiederverwendbare Content-Muster und dokumentierte Ausnahmen |
+
+Style-Dateien exportieren ein `style-<name>()`-Mixin, das den passenden
+Element-Selektor registriert. Ein CSS-Entry im Elementverzeichnis bindet
+seine Mixins ein. `theme/index.scss` lädt diese Entries und Misc-Partials
+mit `meta.load-css` im passenden Layer; reine Mixin-Dateien werden mit
+`@use` und `@include` aufgerufen. Der Root-Entry exportiert ausschließlich
+`theme()`.
+
+Zu jedem Style gehört eine benachbarte `.usage.md`. Ihr Front Matter
+enthält nur `description`. NTL und im Content nutzbare Elemente beginnen
+mit Markdown und Kramdown-Attributen für `tj-content-pane`; reine
+Frame-Elemente verwenden HTML. Die Sidecars liegen außerhalb der Demo.
+
+## Komposition und visuelle Werte
+
+Pro Element gilt höchstens eine `style-*`-Klasse. Ohne expliziten Style
+wählen NTL/NTE automatisch `style-default`. Funktionsunterschiede werden
+durch ihren Namen erkennbar, beispielsweise `style-testimonial`,
+`style-pricing`, `style-form` oder `style-hero`. Eng verwandte Darstellungen
+teilen sich einen Style und dessen dokumentierte Modifier.
+
+```markdown
+## Erfahrungen
+{: layout="ntl-2col.style-testimonial.testimonial-portrait" }
+
+> Eine verständliche Beratung hat mir sehr geholfen.
+
+Anna Beispiel
+
+![Porträt](/assets/human.svg)
+{: .aside }
+```
+
+Eine `variant-*` ändert Farben, Schriften, Rahmen und visuelle Abstände.
+Slots, Reihenfolge, Spalten und Umbrüche bleiben beim gewählten Element-Style.
+Eine Variantenänderung schaltet deshalb keine funktionale Komposition um.
+Es gibt kein paralleles `--theme-*`-Token-System.
+
+## Cascade
+
+Der Entry deklariert vor der ersten CSS- oder Font-Ausgabe:
 
 ```scss
 @layer reset, schemes, themes, website;
-
 @layer themes {
   @layer tokens, base, typography, elements, components, patterns, utilities;
 }
 ```
 
-Osman emits its mixin output into these named layers. Native element defaults belong to `themes.elements`, after typography and before components. A website can add declarations to any named theme layer when it intentionally participates in that stage, while final project exceptions belong to `website` and override normal theme declarations regardless of selector specificity.
+| Layer | Inhalt |
+| --- | --- |
+| `reset` | Nextrap Reset |
+| `schemes` | Dokumentweites Light-/Dark-Schema |
+| `themes.tokens` | Runtime-Ableitungen, Defaults und Variants |
+| `themes.base`, `themes.typography` | Grunddarstellung, Fonts und Typografie |
+| `themes.elements`, `themes.components` | Native Elemente, feste IDs und Web Components |
+| `themes.patterns` | Misc und Content-Muster |
+| `themes.utilities` | Nextrap Utilities |
+| `website` | Website-spezifische Anpassungen |
 
-```scss
-@layer themes.elements {
-  :where(.theme-osman ul:not(.list)) {
-    @include elements.list();
-  }
-}
+Der `website`-Layer hat bei normalen Deklarationen Vorrang.
+`!important` kehrt die Layer-Reihenfolge um und ist kein Override-Konzept.
+Die Basis verwendet semantische `--nt-*`-Variablen; Website-Anpassungen
+setzen sie auf demselben Element, das die Variant trägt.
 
-@layer website {
-  :where(.theme-osman) {
-    --theme-primary: #005d75;
-  }
-}
-```
+## Migration
 
-Keep normal theme declarations free of `!important`: important declarations reverse the cascade-layer priority. Unlayered normal CSS also wins over layered normal CSS, so new website styles should consistently use the documented `website` layer rather than mixing both approaches.
+Separate Theme-Entries, das alte `shared/` und `all.scss` sind entfernt.
+Consumer verwenden den gemeinsamen Root-Entry. Aus `theme-osman` wird
+`variant-osman`; die Komposition wird ausdrücklich an der Instanz gewählt.
+Die bestehenden Demo-Inhalte sind auf diese Namen umgestellt.
 
-## 1. Theme inputs
+`website-default` übernimmt seine optionalen Navbar-Modifier aus
+`navbar_classes` und die horizontalen Nav-Modifier aus `nav_classes`.
+Ohne Werte bleiben `-default-dark` und `-default-overlay` deaktiviert.
+Der Dommer-Scope aktiviert sie ausdrücklich. `show_navbar`, `show_title`
+und `show_footer` bleiben für die Sichtbarkeit des Frames zuständig.
 
-`--theme-*` is the public, browser-editable configuration of a theme. Brand colors, typography, base radius, container width and similar intentional design choices are defined here.
-
-```css
-.theme-osman {
-  --theme-primary: #2b94d6;
-  --theme-neutral: #6f6f6f;
-  --theme-font-family: "Open Sans", sans-serif;
-  --theme-radius: .5rem;
-  --theme-container-max: 1320px;
-}
-```
-
-Customer overrides and DevTools experiments should normally change these variables, not Nextrap internals.
-
-## 2. Mapping to Nextrap
-
-The theme maps its public inputs onto Nextrap's `--nt-*` inputs. `@nextrap/style-base` then derives mechanical design-system values at runtime in CSS. Do not mirror derived NT values back into theme variables. Direct `--nt-*` overrides are a low-level escape hatch.
-
-## 3. Additional theme semantics
-
-A small number of additional `--theme-*` variables may describe repeated cross-component design language. Do not duplicate component structure in variable names.
-
-## 4. Component styles
-
-Each component gets exactly one directory below `elements/`. That directory contains its entry file and one partial per visual style/variant.
-
-```text
-elements/
-  ntl-card-row/
-    ntl-card-row.scss
-    _style-default.scss
-    _style-noborder.scss
-    _style-ribbon.scss
-    _style-ribbon-top.scss
-
-  ntl-hero/
-    ntl-hero.scss
-    _style-default.scss
-```
-
-Do not create nested directories for child components such as `ntl-card-row/nte-card/`. A style partial describes the complete visual composition of that parent variant, including the configuration of nested components that is specific to that variant.
-
-For example:
-
-```scss
-&.style-default {
-  @include cardRow.default-style(...);
-
-  &::part(container) {
-    ...
-  }
-
-  &[mode="mobile"] nte-card {
-    --image-aspect-ratio: 1;
-  }
-
-  &[mode="desktop"] nte-card {
-    --image-aspect-ratio: 16/9;
-  }
-}
-```
-
-This keeps all rules needed to understand `ntl-card-row.style-default` in one file. If a nested `nte-card` is styled differently for `style-ribbon`, those rules belong in `_style-ribbon.scss`, not in a second child-component hierarchy.
-
-The component entry file should only load the available styles:
-
-```scss
-ntl-card-row {
-  @include meta.load-css("./_style-default.scss");
-  @include meta.load-css("./_style-noborder.scss");
-  @include meta.load-css("./_style-ribbon.scss");
-}
-```
-
-Use Nextrap mixins for behavior or variants the component already understands. Use exported `::part()` selectors for precise styling. Component-specific custom properties should remain limited; do not introduce variables merely to avoid a clear `::part()` rule.
-
-### Ownership rule
-
-A style partial owns everything that is visually necessary for that variant:
-
-- the parent component mixins and parts;
-- responsive/mode-specific rules;
-- nested child-component configuration;
-- slot/content rules that only make sense in that variant.
-
-A child gets its own top-level component directory only when it has an independent theme style outside the parent composition.
-
-## Native HTML element defaults
-
-Themes should define their intended default appearance for native HTML elements in the `html-elements` layer. When Nextrap provides a semantic base class, check only that base class to opt out.
-
-```scss
-:where(table:not(.table)) {
-  @include elements.table();
-  @include elements.table-striped();
-}
-
-:where(ul:not(.list)) {
-  // Neutral unordered-list base style only.
-}
-```
-
-Decorative list markers such as `list-diamond` are normally content decisions and must be selected explicitly with classes, for example in Kramdown via `{: .list .list-diamond }`. Define such decorations globally in `html-elements` only as a deliberate exception for a tightly scoped content area or for a theme whose entire content language requires that marker everywhere.
-
-Utility classes remain composable with these defaults.
-
-## Customer/project layer
-
-A customer normally changes public theme inputs:
-
-```css
-.theme-customer {
-  --theme-primary: #005d75;
-  --theme-radius: 0;
-}
-```
-
-True component-specific exceptions target a part directly.
-
-## Decision order
-
-1. Change a public `--theme-*` input when the theme design changes.
-2. Add/change a theme semantic only for a repeated cross-component decision.
-3. Use an existing component mixin for a known component variant.
-4. Style an exported `::part()` for a precise component adjustment.
-5. Keep child-component rules in the parent style partial when they belong to that composition.
-6. Add raw customer-specific selectors only for genuine exceptions.
-7. Override `--nt-*` directly only as a low-level escape hatch.
-
-Avoid `!important`; fix cascade ownership or component defaults instead where possible.
-
-## Sass vs CSS
-
-Sass remains responsible for selectors, mixin composition, loops/code generation and conditional bundle structure. CSS custom properties are responsible for runtime values and mechanical derivation.
+Historische Entwicklungsnotizen sind keine Nutzungsanleitung. Verbindlich
+für weitere Änderungen sind `AGENTS.md` und `AGENTS/2_Theme.md`.

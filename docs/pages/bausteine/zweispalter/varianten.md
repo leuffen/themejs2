@@ -7,7 +7,7 @@ show_title: false
 # Zweispalter
 
 ## Raven
-{: layout="ntl-2col.style-raven" }
+{: layout="ntl-2col.style-hero" }
 
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 

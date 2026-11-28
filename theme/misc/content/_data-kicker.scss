@@ -1,0 +1,46 @@
+// Zeigt den editierbaren Kicker aus einem Attribut vor der zugehörigen Überschrift.
+:is(h1, h2, h3, h4, h5, h6)[data-kicker]::before {
+  content: attr(data-kicker);
+  display: block;
+  margin-block-end: var(--nt-space-1);
+  color: var(--nt-primary);
+  font-family: var(--nt-font-family);
+  font-size: var(--nt-font-size-small);
+  line-height: var(--nt-line-height);
+  font-weight: var(--nt-font-weight-header);
+}
+
+// Ergänzt eine dekorative Linie, ohne Text oder Heading-Level zu verändern.
+:is(h1, h2, h3, h4, h5, h6).kicker-line[data-kicker]::before {
+  margin-block-end: var(--nt-space-5);
+  padding-inline-start: calc(var(--nt-space-6) + var(--nt-space-3));
+  color: color-mix(in srgb, var(--nt-accent) 70%, var(--nt-header));
+  background: linear-gradient(currentColor, currentColor) left center / var(--nt-space-6) var(--nt-border-width) no-repeat;
+  font-weight: var(--nt-font-weight-bold);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+// Bewahrt den editierbaren Kicker als eigenes span in bestehenden Content-Vorlagen.
+span.kicker {
+  display: block;
+  margin-block: var(--nt-spacing-text);
+  color: var(--nt-accent);
+  font-size: var(--nt-font-size-root);
+  font-weight: var(--nt-font-weight-header);
+  text-transform: uppercase;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+
+  // Die Linie ist Dekoration; der Text steht weiterhin im Dokument.
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    margin-inline-end: var(--nt-space-2);
+    border-block-end: 2px solid currentColor;
+    vertical-align: middle;
+  }
+}

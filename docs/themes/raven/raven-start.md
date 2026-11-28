@@ -11,7 +11,7 @@ show_title: false
 ---
 
 # Medizin mit Präzision
-{: layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" section-style="--cols: 6;" }
+{: .kicker-line layout="ntl-2col.style-hero" data-kicker="Facharzt für Orthopädie und Unfallchirurgie" section-style="--cols: 6;" }
 
 Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktionell gedacht und auf nachhaltige Belastbarkeit ausgerichtet.
 {: .lead-serif }
@@ -19,7 +19,7 @@ Evidenzbasierte Medizin des Bewegungsapparates – präzise eingeordnet, funktio
 - Sporttraumatologie
 - Funktionelle Orthopädie
 - Regenerative Medizin
-{: .hero__specialties .xl:desktop aria-label="Medizinische Schwerpunkte" }
+{: .style-specialties .xl:specialties-horizontal aria-label="Medizinische Schwerpunkte" }
 
 Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Einordnung und einem klaren Blick auf langfristige Belastbarkeit.
 
@@ -29,7 +29,7 @@ Dr. med. Tim Raven verbindet orthopädische Expertise mit sportmedizinischer Ein
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ---
-{: layout="2;ntl-card-row.style-ribbon" section-style="--cols: 2;" }
+{: layout="2;ntl-card-row.style-ribbon.ribbon-dark" section-style="--cols: 2;" }
 
 ### News
 {: section-style="--cols: 4;" }
@@ -53,7 +53,7 @@ Sporttraumatologie und Return to Sport.
 Ärztlich tätig im OCP Darmstadt.
 
 ## Präzision statt Standard&shy;therapie.
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 7;" }
+{: .kicker-line layout="ntl-2col.reverse.with-justify-top.surface-white.default-open" .aside data-kicker="Medizinischer Ansatz" section-style="--cols: 7;" }
 
 Im Mittelpunkt steht nicht das möglichst schnelle Anwenden einer Methode, sondern die saubere medizinische Einordnung der Beschwerde – auf Grundlage von Funktion, Belastung, Biomechanik und aktueller Evidenz.
 {: .lead-serif }
@@ -78,13 +78,13 @@ Konservative und funktionserhaltende Möglichkeiten werden differenziert geprüf
 Ziel ist nicht nur kurzfristige Beschwerdefreiheit, sondern die sichere Rückkehr zu Alltag, Training und sportlicher Leistungsfähigkeit.
 
 ## So entsteht die medizinische Ein&shy;ordnung.
-{: layout="ntl-2col.with-justify-top.surface-primary" data-kicker="Vom Befund zur Entscheidung" section-style="--cols: 5;" }
+{: .kicker-line layout="ntl-2col.with-justify-top.surface-primary.default-open" data-kicker="Vom Befund zur Entscheidung" section-style="--cols: 5;" }
 
 Ein strukturierter Prozess schafft die Grundlage für nachvollziehbare Therapieentscheidungen – konservativ, regenerativ oder operativ.
 {: .lead-serif }
 
 ---
-{: layout="nte-accordion.style-default.aside[initial-open-index='0'][exclusive]" }
+{: layout="nte-accordion.aside.style-process[initial-open-index='0'][exclusive]" }
 
 ### Anamnese und Kontext
 
@@ -103,7 +103,7 @@ Klinischer Befund, Bildgebung und weitere Diagnostik werden im Gesamtzusammenhan
 Aus der Diagnose entsteht ein nachvollziehbarer Plan – konservativ, regenerativ, operativ oder interdisziplinär.
 
 ## Dr. med. Tim Raven
-{: layout="ntl-2col.reverse-desktop" data-kicker="Fachärztliche Perspektive" section-style="--cols: 7;" }
+{: .kicker-line layout="ntl-2col.reverse-desktop.default-open" data-kicker="Fachärztliche Perspektive" section-style="--cols: 7;" }
 
 „Mein Ziel ist eine Medizin, die präzise erklärt, nachvollziehbar entscheidet und die langfristige Funktion in den Mittelpunkt stellt.“
 {: .profile-quote }
@@ -115,12 +115,12 @@ Dr. Raven verbindet die fachärztliche Perspektive aus Orthopädie und Unfallchi
 | Studium & Promotion | Ruprecht-Karls-Universität Heidelberg |
 | Facharztausbildung | Universitätsklinikum Heidelberg · Klinikum Aschaffenburg-Alzenau · Universitätsklinikum Frankfurt |
 | Mitgliedschaften | DGOU · GOTS · DGMSM · DGSP · humedica e. V. |
-{: .timeline-table .xl:desktop }
+{: .style-timeline .xl:timeline-horizontal }
 
 ![](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80)
 
 ## Kompetenz rund um Bewegung und Belast&shy;barkeit.
-{: layout="ntl-2col.reverse.with-justify-bottom.surface-white" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
+{: .kicker-line layout="ntl-2col.reverse.with-justify-bottom.surface-white.default-open" .aside data-kicker="Medizinische Schwerpunkte" section-style="--cols: 7;" }
 
 Schwerpunkte in Diagnostik, Therapieeinordnung und belastungsorientierter Betreuung des Bewegungsapparates.
 
@@ -148,7 +148,7 @@ Strukturierte Belastungssteuerung für eine sichere, nachvollziehbare Rückkehr 
 Moderne konservative Orthopädie mit Fokus auf Funktionserhalt, Bewegungsqualität und langfristige Belastbarkeit.
 
 ## Aktuell tätig im OCP Darmstadt.
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 7;" }
+{: .kicker-line layout="ntl-2col.reverse.with-justify-top.surface-white.default-open" .aside data-kicker="Aktuelle Tätigkeit" section-style="--cols: 7;" }
 
 Aktuell ist Dr. Raven im OCP Darmstadt tätig. Termine und organisatorische Rückfragen erfolgen über den dortigen Praxisstandort.
 {: .lead-serif }
@@ -180,10 +180,10 @@ Rheinstraße 97
 | Mittwoch | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
 | Donnerstag | 08:00&#8288;–&#8288;13:00 · 14:00&#8288;–&#8288;17:00 |
 | Freitag | 08:00&#8288;–&#8288;13:00 |
-{: .opening-hours .bottom aria-label="Sprechzeiten" }
+{: .style-open-hours .bottom aria-label="Sprechzeiten" }
 
 ## Termin&shy;vereinbarung über das OCP Darmstadt.
-{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Termin & Kontakt" section-style="--cols: 5;" }
+{: .kicker-line layout="ntl-2col.style-card.reverse" .aside data-kicker="Termin & Kontakt" section-style="--cols: 5;" }
 
 Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das OCP Darmstadt. Dort erhalten Sie alle Informationen zu Sprechzeiten, Anfahrt und Zugang.
 {: .lead-serif }
@@ -191,7 +191,7 @@ Terminvereinbarungen und organisatorische Rückfragen erfolgen aktuell über das
 [Termin buchen](/themes/raven/raven-kontakt.html){: .btn .btn-accent .btn-lead .btn-glow .btn-glow-on-view .mb-0 }
 
 ## Häufig gestellte Fragen
-{: layout="ntl-2col.reverse.with-justify-top.surface-white" .aside data-kicker="FAQ" section-style="--cols: 6;" }
+{: .kicker-line layout="ntl-2col.reverse.with-justify-top.surface-white.default-open" .aside data-kicker="FAQ" section-style="--cols: 6;" }
 
 ---
 {: layout="nte-accordion.style-faq[exclusive]" }
@@ -213,7 +213,7 @@ Bewegung, Stabilität, Kraft, Belastung und biomechanische Zusammenhänge werden
 Regenerative Therapieansätze werden wissenschaftlich und indikationsbezogen eingeordnet. Welche Behandlung sinnvoll ist, richtet sich nach Diagnose, Befund und individueller Situation.
 
 ## Kontakt & Anfahrt
-{: layout="ntl-2col.with-justify-top.surface-white" data-kicker="OCP Darmstadt" section-style="--cols: 5;" }
+{: .kicker-line layout="ntl-2col.with-justify-top.surface-white.default-open" data-kicker="OCP Darmstadt" section-style="--cols: 5;" }
 
 **OCP Darmstadt**  
 Dres. Behr, Erben, Primbs, Rau  
@@ -230,7 +230,7 @@ Termine und organisatorische Rückfragen erfolgen über den Praxisstandort des O
 </nte-consent-blocker>
 
 ---
-{: layout="nte-accordion.style-default.bottom[exclusive]" }
+{: layout="nte-accordion.bottom.style-process[exclusive]" }
 
 ### Anreise mit Bus und Bahn
 
@@ -250,20 +250,20 @@ Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefr
 ## Schreiben Sie uns
 {: layout="2.1;ntl-2col.style-form" .top }
 
-#[nte-input.style-default type="text" name="name" label="Name" required]
-#[nte-input.style-default type="email" name="email" label="E-Mail" required]
-#[nte-input.style-default type="text" name="telefon" label="Telefon"]
+#[nte-input type="text" name="name" label="Name" required]
+#[nte-input type="email" name="email" label="E-Mail" required]
+#[nte-input type="text" name="telefon" label="Telefon"]
 
 ---
 {: layout=".aside" }
 
-#[nte-input.style-default type="textarea" name="nachricht" label="Nachricht" required]
-#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
+#[nte-input type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
 
 
 <!-- Die Schluss-Section bietet einen klaren Kontaktweg im Raven-Theme. -->
 ## Fragen zu Ihren Beschwerden?
-{: layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
+{: .kicker-line layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
 
 [Kontakt & Termin]({{ '/themes/raven/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }

@@ -4,7 +4,7 @@ import "@trunkjs/responsive";
 
 
 
-// Registriert die im Theme verwendeten Web Components; die zugehörigen Styles bleiben parallel in all.scss gepflegt.
+// Registriert die im Theme verwendeten Web Components; die gemeinsame Sass-API liegt in theme/index.scss.
 import "@nextrap/nte-navbar";
 import "@nextrap/nte-nav";
 import "@nextrap/nte-burger";
@@ -24,6 +24,7 @@ import "@leuffen/announcements";
 
 // Registriert die Layout- und Inhaltskomponenten, die Theme-Seiten direkt verwenden.
 import "@nextrap/ntl-2col";
+import "@nextrap/ntl-columns";
 import "@nextrap/ntl-hero";
 import "@nextrap/nte-slider";
 import "@nextrap/ntl-card-row";

@@ -1,0 +1,6 @@
+@use "style-default" as s-default;
+@use "style-business" as s-business;
+
+// Gibt alle dokumentierten Styles dieses Elements gemeinsam aus.
+@include s-default.style-default();
+@include s-business.style-business();

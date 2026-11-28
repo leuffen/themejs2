@@ -12,7 +12,7 @@ show_title: false
 <!-- Vollständiger Startseiten-Inhalt aus dermatthes/leu-web-osman2/docs/index.md, Commit 8441247e38e9dda403b42a41f45446b48bd7dd07. Nur Demo-Frontmatter, aufgelöste Öffnungszeiten und absolute Kundenlinks weichen ab. -->
 
 ---
-{: layout="2;ntl-hero.style-default.hero-box" }
+{: layout="2;ntl-hero.style-image-text" }
 
 ![](https://cdn.leuffen.de/osman-k21///v2/51/c_f/251017-51.webp)
 {: slot="bg"}
@@ -26,12 +26,12 @@ show_title: false
 {: .text-primary  }
 
 ---
-{: layout="2;ntl-card-row.style-ribbon-top.align-buttons" section-style="--cols: 4"}
+{: layout="2;ntl-card-row.style-ribbon.align-buttons.ribbon-content-only" section-style="--cols: 4"}
 
 ### Sprechstundenzeiten
 
 <!-- Statische Ausgabe von components/site/opening-hours.html mit docs/_data/openhours.yml aus dem Quellcommit. -->
-<table class="opening-hours">
+<table class="style-open-hours open-hours-compact open-hours-dividers">
   <tbody>
     <tr><th scope="row">Mo, Di, Do</th><td>08:00 - 15:30</td></tr>
     <tr><th scope="row">Mi, Fr</th><td>08:00 - 12:00</td></tr>
@@ -39,14 +39,14 @@ show_title: false
 </table>
 
 [Termin online buchen](https://termine.augenarzt-osman.de/appointment/search){: .btn .btn-primary .w-100 target="_blank" rel="noopener"}
-{: .footer }
+{: .footer .content-footer }
 
 ### Spezielle Makulauntersuchungen
 
 Hinweis - Spezielle Makulauntersuchung für Privatpatienten und Selbstzahler.
 
 [Privattermin buchen](https://www.jameda.de/bassel-osman/augenarzt/wiesbaden){: .btn .btn-primary .w-100 target="_blank" rel="noopener"}
-{: .footer }
+{: .footer .content-footer }
 
 ### Aktuelle Meldungen
 
@@ -55,10 +55,10 @@ Hinweis - Spezielle Makulauntersuchung für Privatpatienten und Selbstzahler.
 <p class="text-strong pt-5">Ihre Meinung ist uns wichtig!</p>
 
 [Online bewerten](https://g.page/r/CYxj2x5Bp8TsEBM/review){: .btn .btn-primary .w-100 target="_blank" rel="noopener"}
-{: .footer }
+{: .footer .content-footer }
 
 ## Herzlich Willkommen in der Augenpraxis Osman
-{: layout="ntl-2col.style-default"}
+{: layout="ntl-2col"}
 
 Moderne Augenheilkunde in Wiesbaden –
 für den Erhalt Ihrer Augengesundheit und Sehkraft durch Erfahrung, Präzision und neueste Technologie.
@@ -76,21 +76,21 @@ Unsere Augenpraxis in der Wiesbadener Innenstadt empfängt Sie in einer modernen
 ![Gerät zur modernen Augendiagnostik](https://cdn.leuffen.de//leu-stock/v2/80/77-51_gfedcba/AdobeStock_386634192_Editorial_Use_Only.webp)
 ![Augenuntersuchung in der Augenpraxis Osman](https://cdn.leuffen.de//osman-k21/v2/15/c_gfedcba/DSC05900.webp)
 ![Fachärztliche Augenuntersuchung](https://cdn.leuffen.de//leu-stock/v2/79/95-71_gfedcba/AdobeStock_284428528.webp)
-{: layout="nte-image" .aside }
+{: layout="nte-image" .aside .content-stack }
 
 ---
-{: layout="1.5;ntl-card-row.style-noborder.align-buttons" section-style="--cols: 6"}
+{: layout="1.5;ntl-card-row.default-content-only.align-buttons" section-style="--cols: 6"}
 
 ### <nte-icon class="bi bi-clipboard2-pulse feature-icon" aria-hidden="true"></nte-icon> Diagnostik
-{: .header}
+{: .header .icon-heading}
 
 Wir bieten moderne, individuell angepasste Diagnostik für eine präzise Beurteilung Ihrer Augen.
 
 [Mehr erfahren](https://www.augenarzt-osman.de/leistungen/diagnostik.html){: .btn .btn-primary .mt-3 .w-100 }
-{: .footer }
+{: .footer .content-footer }
 
 ---
-{: layout="nte-accordion.style-default"}
+{: layout="nte-accordion"}
 
 #### Netzhauterkrankungen (Medical Retina)
 
@@ -109,15 +109,15 @@ Wir beraten Sie umfassend und klären mit moderner Diagnostik, ob und wann eine 
 
 
 ### <nte-icon class="bi bi-eye feature-icon" aria-hidden="true"></nte-icon> Therapie
-{: .header}
+{: .header .icon-heading}
 
 Ergänzend zu unseren konservativen Behandlungen bieten wir – je nach Bedarf – folgende mikroinvasive Therapieverfahren an:
 
 [Mehr erfahren](https://www.augenarzt-osman.de/leistungen/therapien.html){: .btn .btn-primary .mt-3 .w-100 }
-{: .footer }
+{: .footer .content-footer }
 
 ---
-{: layout="nte-accordion.style-default"}
+{: layout="nte-accordion"}
 
 #### Behandlung von Makula- und Netzhauterkrankungen
 
@@ -138,7 +138,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 {: layout="1.5;#notfall" section-style="--cols: 6"}
 
 ## <span class="warning-heading"><nte-icon class="bi bi-eye" aria-hidden="true"></nte-icon><span>Warnsignale für die Augen – sofort zum Arzt!</span></span>
-{: layout="ntl-2col.style-default.with-bg-primary"}
+{: layout="ntl-2col.default-primary"}
 
 - Plötzliche Sehstörungen oder Sehverlust
 - Lichtblitze und bunte Ringe um Lichtquellen
@@ -149,7 +149,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 {: .list .list-diamond }
 
 ### Nicht abwarten – schnelles Handeln kann Ihr Augenlicht retten!
-{: layout=".aside"}
+{: layout=".aside.content-stack"}
 
 **Notfallbehandlung**
 {: .warning-emergency}
@@ -157,7 +157,7 @@ Dazu zählen unter anderem die selektive Lasertrabekuloplastik (SLT) beim Offenw
 In akuten Notfällen außerhalb der Sprechzeiten wenden Sie sich bitte an den ärztlichen Bereitschaftsdienst unter der Telefonnummer 116 117.
 
 ## Kooperationen
-{: layout="2;ntl-2col.style-default"}
+{: layout="2;ntl-2col"}
 
 Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Augenkliniken der Region zusammen:
 
@@ -169,7 +169,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 {: .list .list-diamond }
 
 ### Mitgliedschaften
-{: section-class="aside" }
+{: section-class="aside content-stack" }
 
 
 ![Bundesverband Deutscher Ophthalmochirurgen (BDOC)](https://cdn.leuffen.de//osman-k21/v2/63/57-13_a/01Bundesverband-Deutscher-Ophthalmochirurgen-BDOC.webp)
@@ -183,7 +183,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 
 
 ## Über uns – Modifier `with-justify-center`
-{: layout="ntl-2col.style-default.reverse.with-justify-center"}
+{: layout="ntl-2col.reverse.with-justify-center"}
 
 ![](https://cdn.leuffen.de//osman-k21///v2/18/c_g/DSC06603.webp)
 
@@ -195,7 +195,7 @@ Eine vertrauensvolle Betreuung unserer Patienten, eine offene Kommunikation und 
 
 <!-- Ergänzt Kontakt und Anfahrt aus der OSMan-Elementübersicht direkt im Startseitenvergleich. -->
 ## Hier finden Sie uns
-{: #osman-start-anfahrt layout="ntl-2col.style-default" data-kicker="Kontakt & Anfahrt"}
+{: #osman-start-anfahrt layout="ntl-2col" data-kicker="Kontakt & Anfahrt"}
 
 
 <!-- Hält das Karten-iframe im direkten Template des Privacy-Wrappers bis zur Zustimmung inaktiv. -->
@@ -213,7 +213,7 @@ Rheinstr. 59<br>
 Der Zugang zur Praxis ist über unseren Aufzug **barrierefrei** möglich.
 
 ---
-{: layout=".aside" }
+{: layout=".aside.content-stack" }
 
 
 Sie erreichen uns mit den **Buslinien 6, 16, 3, 33, 28, 22 und N10** (Haltestelle Landesbibliothek).
@@ -227,7 +227,7 @@ Sie erreichen uns mit den **Buslinien 6, 16, 3, 33, 28, 22 und N10** (Haltestell
 <!-- Zeigt das vollständige Kontaktformular einschließlich Footer; der abbrechbare Submit bleibt lokal. -->
 
 ## Schreiben Sie uns. Wir melden uns umgehend bei Ihnen.
-{: #osman-start-kontakt layout="ntl-2col.style-default"}
+{: #osman-start-kontakt layout="ntl-2col"}
 
 Für Rückfragen und Terminwünsche sind wir gerne für Sie da. Nutzen Sie die für Sie passende Kontaktmöglichkeit.
 
@@ -243,21 +243,21 @@ Für Rückfragen und Terminwünsche sind wir gerne für Sie da. Nutzen Sie die f
 {: layout="2;tj-form#osman-start-form" }
 
 ## Schreiben Sie uns
-{: #osman-start-formular layout="2.1;ntl-2col.style-default" .top }
+{: #osman-start-formular layout="2.1;ntl-2col" .top }
 
-#[nte-input.style-default.hoverlabel type="text" name="name" label="Name" required]
-#[nte-input.style-default.hoverlabel type="email" name="email" label="E-Mail" required]
-#[nte-input.style-default.hoverlabel type="text" name="telefon" label="Telefon"]
+#[nte-input.hoverlabel type="text" name="name" label="Name" required]
+#[nte-input.hoverlabel type="email" name="email" label="E-Mail" required]
+#[nte-input.hoverlabel type="text" name="telefon" label="Telefon"]
 
 ---
-{: layout=".aside" }
+{: layout=".aside.content-stack" }
 
-#[nte-input.style-default.hoverlabel type="textarea" name="nachricht" label="Nachricht" required]
-#[nte-input.style-default type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
+#[nte-input.hoverlabel type="textarea" name="nachricht" label="Nachricht" required]
+#[nte-input type="checkbox" name="datenschutz" label="Ich akzeptiere die Datenschutzerklärung" required]
 #[button type="submit" class="btn btn-primary" > Absenden]
 
 ---
-{: layout=".footer.small"}
+{: layout=".footer.content-footer.small"}
 
 Bitte senden Sie uns per E-Mail keine medizinischen Notfälle. In dringenden Fällen kontaktieren Sie uns bitte telefonisch oder wenden Sie sich außerhalb der Sprechzeiten an den augenärztlichen Bereitschaftsdienst.
 

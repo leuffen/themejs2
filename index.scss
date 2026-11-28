@@ -1,4 +1,2 @@
-// Must be loaded
-// theme file must be @used additonally
-
-
+// Veröffentlicht ausschließlich die gemeinsame Sass-API.
+@forward "theme/index" show theme;

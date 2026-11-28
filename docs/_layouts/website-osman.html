@@ -8,7 +8,7 @@ layout: blank
 {% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
 {% unless page.show_navbar == false %}
 <!-- Bewahrt die Osman-Topbar und verwendet für beide Menüs die aktuelle Website-Navigation. -->
-<nte-navbar id="navbar" class="style-default fixed autoborder" scroll-threshold="500" style="--spacer-height: 104px">
+<nte-navbar id="navbar" class="default-sticky default-border" scroll-threshold="500" style="--spacer-height: 104px">
     <nte-navbar-line class="style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
         <div slot="start" class="site-topbar__info">
             {% if location.phone1_text %}
@@ -74,7 +74,7 @@ layout: blank
     </nte-navbar-line>
 </nte-navbar>
 
-<nte-offcanvas id="navSidebar" aria-label="Mobile Hauptnavigation">
+<nte-offcanvas class="-lg:default-full-width" id="navSidebar" aria-label="Mobile Hauptnavigation">
 
     <nte-nav
         id="osman-main-navigation-vertical"

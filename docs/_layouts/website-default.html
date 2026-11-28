@@ -6,15 +6,15 @@ layout: blank
 {% assign brand_url = page.brand_url | default: '/' | relative_url %}
 {% assign location_id = page.location_id | default: 'default' %}
 {% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
-<!-- Hält profilabhängige Direktkind-Styles am gemeinsamen Frame statt am technischen Body. -->
-<div{% if page.theme_profile %} class="theme-{{ page.theme_profile | escape }}"{% endif %}>
+<!-- Der Frame bleibt unabhängig von der am Body gewählten Variant. -->
+<div>
 {% unless page.show_navbar == false %}
-<leuffen-announcements class="announcements">Momentan keine Meldungen.</leuffen-announcements>
+<leuffen-announcements class="style-banner">Momentan keine Meldungen.</leuffen-announcements>
 <!-- Verwendet dieselben Navigationsziele für Desktop und mobiles Menü. -->
-<nte-navbar id="navbar" class="style-default">
-  <nte-navbar-line class="style-default navbar-line">
+<nte-navbar id="navbar" class="style-default {{ page.navbar_classes | default: '-default-dark -default-overlay' | escape }}" style="--brand-height: 75px" style-xl="--brand-height: 100px">
+  <nte-navbar-line class="navbar-line" style="--height: 75px" style-xl="--height: 100px">
     <a slot="start" class="brand-logo fw-bold" href="{{ brand_url | escape }}">{{ location.name | escape }}</a>
-    <nte-nav id="nav-horizontal" slot="end" class="style-default nav-horizontal" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
+    <nte-nav id="nav-horizontal" slot="end" class="nav-horizontal {{ page.nav_classes | default: '-default-dark' | escape }}" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
       {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang %}
 
         <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>

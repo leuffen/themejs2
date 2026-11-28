@@ -11,7 +11,7 @@ show_title: false
 
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 
-{: layout="1;ntl-hero.style-mueller" }
+{: layout="1;ntl-hero.style-image-text.image-text-glass" }
 
 {: layout="2;.box" }
 
@@ -20,7 +20,7 @@ Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 
 ---
-{: layout="1;ntl-hero.style-osman" }
+{: layout="1;ntl-hero.style-image-text" }
 
 ![Illustration zur Praxis]({{ '/assets/header-bg.svg' | relative_url }})
 {: slot="bg" }
@@ -34,7 +34,7 @@ Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 {: layout="/1;" }
 
 ## Raven
-{: layout="ntl-2col.style-raven" }
+{: layout="ntl-2col.style-hero" }
 
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 
@@ -42,12 +42,12 @@ Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 {: .aside }
 
 ## ePraxis
-{: layout="ntl-hero.style-epraxis" }
+{: layout="ntl-hero.style-editorial" }
 
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 
 ## Unify
-{: layout="ntl-hero.style-unify" }
+{: layout="ntl-hero.style-campaign" }
 
 Ein klarer Einstieg mit kurzer Beschreibung und einer weiterführenden Aktion.
 

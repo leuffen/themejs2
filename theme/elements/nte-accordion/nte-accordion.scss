@@ -1,0 +1,8 @@
+@use "style-default" as s-default;
+@use "style-faq" as s-faq;
+@use "style-process" as s-process;
+
+// Gibt alle dokumentierten Styles dieses Elements gemeinsam aus.
+@include s-default.style-default();
+@include s-faq.style-faq();
+@include s-process.style-process();

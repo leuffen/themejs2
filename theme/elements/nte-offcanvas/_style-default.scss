@@ -1,0 +1,31 @@
+@use "@nextrap/nte-offcanvas" as offcanvas;
+
+// Hält das mobile Menü im vorhandenen Dialog- und Fokusvertrag.
+@mixin style-default() {
+  nte-offcanvas.style-default {
+    @include offcanvas.default-style();
+    color: var(--nt-header);
+
+    // Begrenzt die Seitenleiste ohne einen zweiten Breakpoint-Mechanismus.
+    &::part(offcanvas) {
+      width: min(26rem, 100vw);
+      background: var(--nt-surface-raised);
+    }
+
+    // Lässt die Schließen-Aktion auch bei langen Navigationslisten erreichbar.
+    &::part(header) {
+      display: flex;
+      justify-content: flex-end;
+      padding: var(--nt-spacing-component) var(--nt-spacing-component) 0;
+    }
+
+    &::part(main) {
+      padding: var(--nt-spacing-text) var(--nt-spacing-component);
+    }
+
+    // Die Website kann die volle Breite über TrunkJS gezielt einschalten.
+    &.default-full-width::part(offcanvas) {
+      width: 100vw;
+    }
+  }
+}

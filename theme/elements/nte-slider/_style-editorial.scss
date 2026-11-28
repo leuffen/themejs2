@@ -1,0 +1,66 @@
+// Registriert die vollständige Komposition am gewählten Element.
+@mixin style-editorial() {
+  nte-slider.style-editorial {
+      --nav-inset: -42px ;
+      --nav-button-size: 50px;
+      --nav-button-bg: var(--nt-surface-raised);
+      --nav-button-color: var(--nt-primary);
+      --indicator-size: 12px;
+      --indicator-gap: 8px;
+      --indicator-color: var(--nt-surface-raised);
+      --indicator-active-color: var(--nt-primary);
+      --transition-duration: 0.5s;
+      --aspect-ratio: none;
+
+      padding: 1rem;
+      background: var(--nt-surface-raised);
+      border-radius: 1rem;
+      overflow: hidden;
+      height: auto;
+
+      nte-slide::part(wrapper) {
+          grid-template-columns: 4fr 5fr;
+      }
+
+
+      nte-slide::part(content) {
+          height: 100%;
+          background: var(--nt-secondary);
+          padding: 4rem 0 4rem 4rem;
+      }
+
+      nte-slide::part(gradient) {
+          background: transparent
+          linear-gradient(
+                  90deg,
+                  var(--nt-secondary),
+                  color-mix(in srgb, var(--nt-secondary), transparent 100%)
+          );
+      }
+
+      p:has(img) {
+          margin: 0 ;
+          height: 100%;
+
+          > img {
+              height: 100%;
+          }
+      }
+      nte-slide {
+          --nt-text: var(--nt-white);
+
+          height: 100%;
+          border-radius: 0.7rem;
+          overflow: hidden;
+          margin-bottom: 0 ;
+
+          p {
+              color: var(--nt-white);
+              margin-bottom: var(--nt-spacing-text);
+          }
+
+      }
+
+
+  }
+}

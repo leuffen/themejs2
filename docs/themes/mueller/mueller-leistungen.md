@@ -10,7 +10,7 @@ show_title: false
 
 <!-- Die Übersicht zeigt die drei Leistungen aus der Scheche-Referenz. -->
 # Unsere Behandlungen
-{: layout="ntl-2col" section-style="--cols: 12;" }
+{: layout="ntl-2col.default-framed" section-style="--cols: 12;" }
 
 Innere Medizin, Diabetologie und Adipositasbehandlung bilden das Leistungsspektrum dieser Referenzpraxis.
 

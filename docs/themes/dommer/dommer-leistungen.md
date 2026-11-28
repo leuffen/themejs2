@@ -18,7 +18,7 @@ short_title: Leistungen
 ---
 
 ---
-{: layout="2;ntl-hero.style-dommer.hero-box.dommer-services-hero"}
+{: layout="2;ntl-hero.image-text-compact.style-image-text.image-text-overlap"}
 
 ![](https://cdn.leuffen.de//k-dommer-k207/v2/2/c_gfedcba/IMG_6511.webp)
 {: slot="bg"}

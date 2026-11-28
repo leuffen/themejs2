@@ -1,0 +1,8 @@
+@use "@nextrap/style-elements" as elements;
+
+// Verwendet die native Nextrap-Baseline, solange keine andere Darstellung gewählt ist.
+@mixin style-default() {
+  ul:where(:not([class*="style-"]):not(.list), .style-default) {
+    @include elements.list();
+  }
+}

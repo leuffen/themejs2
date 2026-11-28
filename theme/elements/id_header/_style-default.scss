@@ -1,0 +1,12 @@
+// Hält Bild, Titel und Beschreibung des editierbaren Seitenheaders im Inhaltsmaß.
+@mixin style-default() {
+  #header.style-default {
+    max-inline-size: var(--nt-container-width);
+    margin-inline: auto;
+
+    > img {
+      max-inline-size: 100%;
+      block-size: auto;
+    }
+  }
+}

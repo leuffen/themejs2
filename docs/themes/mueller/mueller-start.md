@@ -12,7 +12,7 @@ show_title: false
 
 <!-- Das Scheche-Seitenmuster demonstriert die Müller-Komposition. -->
 ---
-{: layout="2;ntl-hero.hero-box"}
+{: layout="2;ntl-hero.style-image-text.image-text-glass"}
 
 ![](https://cdn.leuffen.de//leu-stock/v2/31/c_gfedcba/AdobeStock_114414482.webp)
 {: slot="bg"}
@@ -40,10 +40,10 @@ Außerhalb der Öffnungszeiten erreichen Sie den Notdienst unter [112](tel:112).
 
 ### Unsere Sprechzeiten
 
-{% include components/site/opening-hours.html class="table opening-hours" %}
+{% include components/site/opening-hours.html class="table style-open-hours open-hours-compact" %}
 
 ## Ein Herz für Sie und Ihre Gesundheit
-{: layout="ntl-2col" data-kicker="Arztpraxis Dr. med. Elmar Scheche in Norden" }
+{: layout="ntl-2col.default-framed" data-kicker="Arztpraxis Dr. med. Elmar Scheche in Norden" }
 
 Wir bieten erstklassige medizinische Leistungen auf höchstem Niveau im Bereich
 Innere Medizin und Diabetologie. Professionelle Betreuung,
@@ -115,7 +115,7 @@ einfühlsam behandeln.“
 — Dr. med. Elmar Scheche
 
 ## Ein Team mit Herz
-{: layout="ntl-2col" data-kicker="Ein kompetentes Team für moderne Medizin" }
+{: layout="ntl-2col.default-framed" data-kicker="Ein kompetentes Team für moderne Medizin" }
 
 ![Praxisteam](https://cdn.leuffen.de//scheche-k30/v2/4/76-51_gfedcba/IMG_3388-mod.webp)
 

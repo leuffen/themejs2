@@ -1,0 +1,59 @@
+// Bildet editierbare Informationseinheiten mit ruhigen Trennlinien statt großer Kartenflächen.
+.card-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: var(--nt-spacing-layout);
+  border-top: var(--nt-border-width) solid var(--nt-border);
+}
+
+// Lässt jede Einheit bei längeren Texten intrinsisch wachsen und trennt die Zeilen ohne doppelte Linien.
+.card-grid > section {
+  min-width: 0;
+  // Mobile Karten benötigen die ganze Textbreite innerhalb des Section-Containers.
+  padding: var(--nt-spacing-component) 0;
+  border-bottom: var(--nt-border-width) solid var(--nt-border);
+}
+
+// Hält Kartentitel deutlich kleiner als die übergeordnete Section-Überschrift.
+.card-grid > section > :is(h3, h4, h5, h6) {
+  margin-bottom: var(--nt-spacing-text);
+  color: var(--nt-primary-emphasis);
+  font-size: var(--nt-font-size);
+  font-weight: var(--nt-font-weight-bold);
+}
+
+// Übernimmt den serifengeprägten Copy-Stil der Vorlage für kompakte Informationstexte.
+.card-grid > section > p {
+  margin-bottom: 0;
+  color: var(--nt-text-muted);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: var(--nt-font-size);
+}
+
+// Aktiviert zwei gleichwertige Spalten über die vorhandene Responsive-Klasse.
+.card-grid.desktop {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid.desktop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--nt-border-width);
+  background: var(--nt-border);
+  transform: translateX(calc(var(--nt-border-width) / -2));
+  pointer-events: none;
+}
+
+// Bewahrt die innere Trennung im zweispaltigen Desktop-Raster.
+.card-grid.desktop > section {
+  padding-inline: var(--nt-spacing-component);
+}
+
+// Zieht eine nachgelagerte Sprechzeiten-Tabelle unter beiden Informationsspalten über die komplette Rasterbreite.
+.card-grid.desktop > section:has(> table.style-open-hours) {
+  grid-column: 1 / -1;
+}

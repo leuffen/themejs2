@@ -3,7 +3,8 @@ layout: 10_blanc
 ---
 
 
-<body{% if page.theme_profile %} class="theme-{{ page.theme_profile | escape }}"{% endif %}>
+<!-- Die Variant lebt am Body, damit Token-Ableitungen und Grundtypografie am selben Element wirken. -->
+<body class="{{ page.body_class | escape }}{% if page.theme_profile %} variant-{{ page.theme_profile | escape }}{% endif %}">
 {% include fragments/loader.html %}
 <tj-loader>
 <micx-cdn-image-loader default-size-adjust=":1;1200:1">

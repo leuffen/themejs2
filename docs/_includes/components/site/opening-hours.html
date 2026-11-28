@@ -3,10 +3,10 @@ Renders opening hours as a semantic table.
 
 Optional:
 - hours: collection of rows with day and time; defaults to site.data.openhours.table
-- class: CSS class; defaults to "opening-hours"
+- class: CSS class; defaults to "style-open-hours"
 {%- endcomment -%}
 {%- assign hours = include.hours | default: site.data.openhours.table -%}
-{%- assign table_class = include.class | default: "opening-hours" -%}
+{%- assign table_class = include.class | default: "style-open-hours" -%}
 {%- if hours and hours != empty -%}
 <table class="{{ table_class | escape }}">
   <tbody>

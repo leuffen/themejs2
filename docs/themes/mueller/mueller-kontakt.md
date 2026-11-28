@@ -9,7 +9,7 @@ order: 20
 
 <!-- Übernimmt das Kontaktseitenmuster der Scheche-Referenz in die Müller-Demo. -->
 ## Unsere Arztpraxis befindet sich in Norden
-{: layout="ntl-2col" data-kicker="Kontakt & Anfahrt"}
+{: layout="ntl-2col.default-framed" data-kicker="Kontakt & Anfahrt"}
 
 <!-- Die Karte verwendet die Anschrift aus dem Projektkontext statt der globalen Raven-Daten. -->
 <!-- Das iframe bleibt bis zur Zustimmung im inaktiven Template. -->
@@ -31,7 +31,7 @@ E-Mail: [praxis@scheche.net](mailto:praxis@scheche.net)
 Barrierefreier Zugang per Aufzug möglich.
 
 ## Kontaktieren Sie uns für einen Termin!
-{: layout="ntl-2col" section-style="--cols: 12;"}
+{: layout="ntl-2col.default-framed" section-style="--cols: 12;"}
 
 [Jetzt anrufen](tel:+4949316806){: .btn .btn-primary}
 

@@ -12,8 +12,8 @@ ptags:
 - epraxis
 published: true
 
-body-class: theme-epraxis
-theme_classes: "theme-epraxis theme-mueller"
+body-class: variant-epraxis
+theme_classes: "variant-epraxis variant-mueller"
 
 seoScore: 8
 short_title: Blog Artikel

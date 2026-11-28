@@ -17,7 +17,7 @@ shiller:
   source: mueller/index.md
 ---
 ---
-{: layout="2;ntl-hero.style-dommer.hero-box"}
+{: layout="2;ntl-hero.style-image-text.image-text-overlap"}
 
 ![](https://cdn.leuffen.de//k-dommer-k207/v2/2/c_gfedcba/IMG_6511.webp)
 {: slot="bg"}
@@ -43,9 +43,9 @@ In unserer Zahnarztpraxis Dr. Karsten Dommer am Lieneschweg 57 liegen die Tätig
 
 In unserer Leistungsübersicht erfahren Sie mehr über die verschiedenen Versorgungsmöglichkeiten.
 
-[Unsere Leistungen]({{ '/themes/dommer/dommer-leistungen.html' | relative_url }}){: .btn .btn-primary .rounded-pill}
+[Unsere Leistungen]({{ '/themes/dommer/dommer-leistungen.html' | relative_url }}){: .btn .btn-accent .rounded-pill}
 
-[Mehr über Dr. Karsten Dommer](/ueber-uns){: .btn .btn-primary .rounded-pill}
+[Mehr über Dr. Karsten Dommer](/ueber-uns){: .btn .btn-accent .rounded-pill}
 
 ---
 {: layout="2;section.dommer-contact-panel" section-slot="end"}
@@ -58,13 +58,13 @@ In unserer Leistungsübersicht erfahren Sie mehr über die verschiedenen Versorg
 {: layout="/1.5;"}
 
 ## Werden Sie Teil unseres Teams
-{: layout="ntl-2col" data-kicker="Jobs & Bewerbung" section-style="--cols: 8;" }
+{: layout="ntl-2col.default-framed" data-kicker="Jobs & Bewerbung" section-style="--cols: 8;" }
 
 ![](https://cdn.leuffen.de//leu-stock/v2/147/c_gfedcba/AdobeStock_131548362.webp)
 
 Wir suchen neue Mitarbeiter für unser Team. Werden Sie Teil unseres Teams und unterstützen Sie uns bei der medizinischen Versorgung unserer Patienten. Wir freuen uns auf Ihre Bewerbung.
 
-[Offene Stellen & Bewerbung](/karriere){: .btn .btn-primary .btn-lg .rounded-pill .mb-3}
+[Offene Stellen & Bewerbung](/karriere){: .btn .btn-accent .btn-lg .rounded-pill .mb-3}
 
 
 
@@ -94,7 +94,7 @@ Zu unseren Versorgungsmöglichkeiten gehören herausnehmbare Zahnprothesen. Auch
 {: layout="2;.container"}
 
 
-[Unsere Leistungen]({{ '/themes/dommer/dommer-leistungen.html' | relative_url }}){: .btn .btn-primary .btn-lg .rounded-pill .mb-5}
+[Unsere Leistungen]({{ '/themes/dommer/dommer-leistungen.html' | relative_url }}){: .btn .btn-accent .btn-lg .rounded-pill .mb-5}
 {: .text-center}
 
 
@@ -112,7 +112,7 @@ Zu unseren Versorgungsmöglichkeiten gehören herausnehmbare Zahnprothesen. Auch
 
 
 ## Ihr Zahnarzt und unsere Praxis
-{: layout="ntl-2col" data-kicker="Lernen Sie uns kennen" }
+{: layout="ntl-2col.default-framed" data-kicker="Lernen Sie uns kennen" }
 
 {% assign location_id = page.location_id | default: 'default' %}
 {% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
@@ -128,7 +128,7 @@ Zu unseren Versorgungsmöglichkeiten gehören herausnehmbare Zahnprothesen. Auch
 
 Dr. Karsten Dommer erhielt 1998 seine Approbation als Zahnarzt und promovierte 2000. Lernen Sie seinen beruflichen Werdegang näher kennen.
 
-[Mehr über Dr. Karsten Dommer](/ueber-uns){: .btn .btn-primary .rounded-pill }
+[Mehr über Dr. Karsten Dommer](/ueber-uns){: .btn .btn-accent .rounded-pill }
 
 ## Häufig gestellte Fragen
 {: layout="ntl-2col.style-faq" }

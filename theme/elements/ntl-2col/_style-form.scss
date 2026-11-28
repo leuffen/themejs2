@@ -1,0 +1,38 @@
+@use "@nextrap/ntl-2col" as twoCol;
+
+// Registriert die vollständige form-Komposition unabhängig vom Seitenprofil.
+@mixin style-form() {
+  // Richtet Formular und Begleitinhalt an einer gemeinsamen oberen Kante aus.
+  ntl-2col.style-form {
+    @include twoCol.default-style(
+      $innerPadding: var(--nt-space-4),
+      $gap: var(--nt-spacing-layout),
+      $background: transparent,
+      $border: 0,
+      $border-radius: 0,
+      $objectFit: none
+    );
+
+    // Lässt kurze und lange Formularspalten an derselben oberen Kante beginnen.
+    &::part(wrapper) {
+      align-items: flex-start;
+    }
+
+    // Hält Eingabefelder auch innerhalb von Markdown-Absätzen auf voller Spaltenbreite.
+    p {
+      display: block;
+      width: 100%;
+      inline-size: 100%;
+    }
+    // Vermeidet zusätzliche Einrückung gegenüber den übrigen mobilen Inhaltskanten.
+    &[mode="mobile"] {
+      --inner-padding: 0px;
+      --gap: var(--nt-space-5);
+
+      &::part(container) {
+        width: var(--nt-container-width);
+        margin-inline: auto;
+      }
+    }
+  }
+}

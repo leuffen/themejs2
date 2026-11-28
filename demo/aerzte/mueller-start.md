@@ -1,9 +1,9 @@
 
 ---
-{: layout="1;.theme-mueller"}
+{: layout="1;.variant-mueller"}
 
 ---
-{: layout="2;ntl-hero.hero-box" }
+{: layout="2;ntl-hero.style-image-text.image-text-glass" }
 
 ![](https://cdn.leuffen.de//r-beverungen-k163///v2/39/128-91_f/Eingang_Praxis20025-16.webp)
 {: slot="bg"}
@@ -50,7 +50,7 @@ Wir bieten auch eine [Video-Sprechstunde](/video) an.
 Außerhalb der Sprechstundenzeiten wenden Sie sich bitte an den KV-Bereitschaftsdienst unter der Telefonnummer [116 117](tel:116 117) oder den Notruf unter [112](tel:112).
 
 ## Hausarztpraxis in Höxter-Lüchtringen
-{: layout="ntl-2col" }
+{: layout="ntl-2col.default-framed" }
 
 > Individuelle und professionelle medizinische Versorgung
 
@@ -86,7 +86,7 @@ Mit modernen Geräten bieten wir EKG, Belastungs-EKG, Langzeit-EKG, Blutdruckmes
 Wir bieten Hausbesuche, kleine chirurgische Eingriffe, Disease Management Programme (DMP) für chronische Erkrankungen, einen Rezeptservice sowie reisemedizinische Beratung für unsere Stammpatient*innen.
 
 ## Warnsignale für die Augen – Sofort zum Arzt!
-{: layout="ntl-2col"}
+{: layout="ntl-2col.default-framed"}
 
 - Plötzliche Sehstörungen oder Sehverlust 
 - Lichtblitze und bunte Ringe um Lichtquellen 
@@ -101,7 +101,7 @@ __Notfallbehandlung__
 <br />In akuten Notfällen außerhalb der Sprechzeiten wenden Sie sich bitte an den ärztlichen Bereitschaftsdienst unter der Telefonnummer 116 117.
 
 ---
-{: layout="2;ntl-2col.aside-padding"}
+{: layout="2;ntl-2col.aside-padding.default-framed"}
 
 ### Kooperationen
 
@@ -131,7 +131,7 @@ Für eine optimale medizinische Versorgung arbeiten wir eng mit renommierten Aug
 {: .align-grid-items }
 
 ## Lernen Sie uns kennen
-{: layout="ntl-2col.reverse"}
+{: layout="ntl-2col.reverse.default-framed"}
 
 > Ihr vertrauensvolles Team
 
@@ -142,7 +142,7 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 [Erfahren Sie mehr über uns...](/karriere){: .btn .btn-primary .mb-3}
 
 ## Kontakt und Anfahrt
-{: layout="ntl-2col"}
+{: layout="ntl-2col.default-framed"}
 
 <style>
     .google-maps-consent {
@@ -154,7 +154,7 @@ Unser freundliches und kompetentes Team unterstützt Sie mit langjähriger Erfah
 {: layout="nte-consent-blocker.google-maps-consent" .top  }
 
 ## Section
-{: layout="ntl-2col" }
+{: layout="ntl-2col.default-framed" }
 
 > So finden Sie uns
 
@@ -175,7 +175,7 @@ dpoqwjdpioqwjdoijqwoid
 {: layout="2" }
 
 <footer>
-    <ntl-card-row class="footer-separators" style="--cols: 4">
+    <ntl-card-row class="style-footer" style="--cols: 4">
         <nte-card>
             <h3>Kontakt</h3>
 						Augenarzt Dr. Osman<br>

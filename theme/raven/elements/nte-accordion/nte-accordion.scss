@@ -1,8 +1,0 @@
-// Lädt Ravens wiederverwendbare Prozess- und Detaildarstellung über den öffentlichen Accordion-Vertrag.
-@use "sass:meta";
-
-// Bindet die visuellen Baselines ausschließlich an dokumentierte Style-Varianten.
-nte-accordion {
-  @include meta.load-css("./_style-default.scss");
-  @include meta.load-css("./_style-faq.scss");
-}

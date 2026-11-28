@@ -1,4 +1,0 @@
-@use "sass:meta";
-
-// Loads Raven's dark navbar presentation after the shared navbar defaults.
-@include meta.load-css("./_style-raven.scss");

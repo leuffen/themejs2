@@ -87,7 +87,8 @@ bleiben unabhängig vom eigenständigen HMR-Dialog des Vite-Plugins.
 
 ## Theme-Konfiguration
 
-In `_root` wird genau ein Theme unter `_src` konfiguriert. Parallele Varianten
+Alle Websites laden unter `_src` dieselbe gemeinsame `theme()`-Basis;
+eine `variant-*`-Klasse am Body wählt das visuelle Profil. Parallele Varianten
 unter `docs/_layouts/website-*.html` gehören zur Präsentations- und
 Testumgebung.
 
@@ -102,8 +103,8 @@ theme_profile: raven
 
 Das Layout erbt von `blank` und enthält Navbar, Page-Header, Content Pane und
 Footer direkt. `website-default` basiert auf dem bisherigen Dommer-Frame.
-`theme_profile` aktiviert unabhängig davon die visuelle Body-Klasse; die
-bestehenden SCSS-Entries verwenden zusätzlich `body_class` am HTML-Element.
+`theme_profile` aktiviert unabhängig davon die visuelle Body-Klasse
+`variant-<name>`. Separate Theme-SCSS-Entries entfallen.
 `show_navbar`, `show_title` und `show_footer` ersetzen reduzierte Frame-Layouts.
 
 Das Seitenverzeichnis auf `docs/index.md` verlinkt die Endseiten direkt.
@@ -112,7 +113,8 @@ Der Dateipfad unter `docs/` bestimmt die URL der Demo-Seite.
 ### Übergang von `docs/` zum Kundenprojekt
 
 1. `_root/` als Projektwurzel kopieren; Jekyll-Inhalte liegen darin unter `docs/`.
-2. Genau ein Theme unter `docs/_src/style.scss` konfigurieren; die Vorlage verwendet Osman.
+2. Die gemeinsame Sass-API unter `docs/_src/style.scss` laden und eine
+   passende Body-Variant wählen, etwa `variant-osman`.
 3. Kundendaten in `docs/_data/` eintragen. Die Vorlage enthält genau einen festen Rahmen:
    Navbar-Markup in `docs/_layouts/50_navbar.html`, Footer-Markup in `docs/_layouts/60_footer.html`.
 4. Für einen anderen Kundenrahmen das gewünschte Demo-Markup in diese Dateien übernehmen
