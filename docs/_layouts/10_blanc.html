@@ -66,7 +66,12 @@ layout: null
         window.mapUrl = '{{ site.data.general.map_url }}';
     </script>
 
-    <!-- User custom styles -->
+    {% comment %} Lädt die globale Theme-Basis vor den individuellen Styles; lokal übernimmt Vite das Quellmodul. {% endcomment %}
+    {% if jekyll.environment == "production" %}
+    <link rel="stylesheet" href="/assets/dist/leuffen-tjs2.css?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="text/css" media="all">
+    {% endif %}
+
+    <!-- Lädt die individuellen Styles nach der Theme-Basis. -->
     <link rel="stylesheet" href="/assets/custom.css?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="text/css" media="all">
 
 
@@ -92,7 +97,6 @@ layout: null
 {{ content }}
 {% comment %} Der statische Build wird ausschließlich in der Produktionsausgabe geladen; lokal übernimmt Vite die Quellmodule. {% endcomment %}
 {% if jekyll.environment == "production" %}
-<link rel="stylesheet" href="/assets/dist/style.css?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="text/css" media="all">
 <script src="/assets/dist/index.js?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="module" defer></script>
 {% endif %}
 </html>
