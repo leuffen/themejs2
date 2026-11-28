@@ -139,7 +139,7 @@ werden separat in der Karte erhalten. Nur der letzte Bericht wird
 weitergereicht; die initiale Karte ist bereits im Checkpoint. Die Provider-Cache-Treffer werden gemessen; Checkpointing
 garantiert sie nicht.
 
-Neben der Auftragsdatei liegt `dev.findings.md` mit der Datei-Landkarte und
+Neben der Auftragsdatei liegt `_dev.findings.md` mit der Datei-Landkarte und
 späteren Ergänzungen. `dev.state.yml` wird ab dem Referenz-Checkpoint
 atomar aktualisiert. Die Datei enthält dessen Provider-Response-ID sowie
 Seitenzuordnung, Fortschritt und letzten Prüfbericht. Beide Dateien bleiben
@@ -151,7 +151,7 @@ Iteration beginnt erneut; vorherige Dateiänderungen bleiben bestehen.
 Vor dem ersten Checkpoint startet die Analyse erneut. Bei einem geänderten
 Auftrag oder einem nicht mehr verfügbaren Provider-Checkpoint den alten
 Zustand bei Bedarf archivieren und mit `bin/theme-develop -n auftrag.md`
-neu starten. `-n` löscht `dev.state.yml` und leert `dev.findings.md`, bevor
+neu starten. `-n` löscht `dev.state.yml` und leert `_dev.findings.md`, bevor
 die Referenz neu aufgenommen wird. Bereits bearbeitete Projektdateien werden
 nicht zurückgesetzt. Ohne `-n` warnt das CLI, wenn
 es einen gespeicherten Checkpoint wiederverwendet. Pro Auftragsverzeichnis

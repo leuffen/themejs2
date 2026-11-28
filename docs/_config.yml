@@ -20,9 +20,9 @@ exclude:
   - "~*"
   - "stats.html"
   # Lokale Auftragsnotizen und Provider-Cursor gehören nicht in den statischen Output.
-  - "dev.findings.md"
+  - "_dev.findings.md"
   - "dev.state.yml"
-  - "**/dev.findings.md"
+  - "**/_dev.findings.md"
   - "**/dev.state.yml"
 
 collections:

@@ -82,7 +82,7 @@ final readonly class ThemeDevelopment
 
         // Der dauerhafte Auftragszustand bleibt getrennt von temporären Laufartefakten.
         $jobDirectory = dirname($this->job->file);
-        $findingsPath = $jobDirectory . '/dev.findings.md';
+        $findingsPath = $jobDirectory . '/_dev.findings.md';
         $statePath = $jobDirectory . '/dev.state.yml';
         if (in_array($this->job->file, [$findingsPath, $statePath], true)) {
             throw new RuntimeException('The work order cannot be a reserved development artifact: ' . $this->job->file);
@@ -130,7 +130,7 @@ final readonly class ThemeDevelopment
         try {
             // Vor dem Checkpoint darf der Agent das gesamte Projekt lesen, aber
             // keine Datei oder Verzeichnisoperation mit Schreibwirkung ausführen.
-            $ignored = ['.git', 'vendor', 'node_modules', '.env', '.env.*', '*.pem', '*.key', '.tmp', 'dev.state.yml', 'dev.findings.md', '.theme-develop-*'];
+            $ignored = ['.git', 'vendor', 'node_modules', '.env', '.env.*', '*.pem', '*.key', '.tmp', 'dev.state.yml', '_dev.findings.md', '.theme-develop-*'];
             new AiFileSystem(
                 $this->root,
                 context: $context,

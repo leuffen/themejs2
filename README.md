@@ -55,7 +55,7 @@ auch abgeleitete Tokens dort neu berechnet werden:
 }
 ```
 
-Die [Theme-Architektur](docs/theme-architecture.md) erklärt Layer und Ablage.
+Die [Theme-Architektur](docs/_theme-architecture.md) erklärt Layer und Ablage.
 Das [Seitenverzeichnis](docs/index.md) verlinkt die vollständigen Demos.
 
 ## Build on:

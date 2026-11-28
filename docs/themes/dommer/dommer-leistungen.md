@@ -156,7 +156,7 @@ als tragfähige Grundlage für den vorgesehenen Zahnersatz geeignet sind.
 ---
 {: layout="2;section.dommer-contact-panel" section-slot="end"}
 
-{% include components/site/dommer-contact.md %}
+{% include components/site/_dommer-contact.md %}
 
 ---
 {: layout="/1.5;"}

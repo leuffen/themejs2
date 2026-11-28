@@ -14,7 +14,7 @@ project_findings: |-
 
   | Bereich | Verifizierter Stand |
   |---|---|
-  | Auftrag und Seiten | `docs/themes/dommer/AUFTRAG.md`, `dommer-start.md` und `dommer-leistungen.md`. Beide Seiten verwenden bereits `ntl-columns`. |
+  | Auftrag und Seiten | `docs/themes/dommer/_AUFTRAG.md`, `dommer-start.md` und `dommer-leistungen.md`. Beide Seiten verwenden bereits `ntl-columns`. |
   | Frame | Das im Auftrag genannte `theme-dommer` entspricht `docs/_layouts/website-dommer.html`. `docs/_config.yml` wählt diesen Frame nur für `themes/dommer`. |
   | Meldungen und Navigation | `<leuffen-announcements>` steht bereits vor `#navbar`. Die Dommer-Demo hat zusätzlich eine fiktive Ersatzmeldung. Fixierung und Verhalten ohne Meldungen sind im Browser noch zu prüfen. |
   | Content Pane | Der Frame übergibt den Markdown-Inhalt einmal an `<tj-content-pane pre-parser="text-block">`. Die lokalen Vertragsreferenzen liegen unter `AGENTS/references/4_Libraries/content-pane-usage/` und `content-pane-layout/`. |
