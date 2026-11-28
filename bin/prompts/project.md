@@ -141,3 +141,37 @@ Record checked criteria, concrete findings and untested or inapplicable cases.
 Distinguish required reference/order discrepancies from optional improvements.
 Do not redesign intentional reference details or expand the edit scope.
 Apply repository side-effect and approval rules before implementing changes.
+
+#### § 2.8 Browser-Workflow und Kontextbudget
+
+Use the unchanged AI Harness browser tools for rendered evidence. Choose exact
+URLs and viewport sizes from capture-plan when calling `browser_open`; pass
+width and height as integers. Reference and target use the same CSS viewport
+dimensions at DPR 1. Before switching pages or viewports, call `browser_close`
+and then `browser_open` to start a fresh context. Navigation alone reuses the
+current context. There is one current page, with no implicit switch between
+reference and target. The Harness enforces allowed origins and its general
+viewport bounds; capture-plan defines the comparison scope.
+
+`browser_screenshot` captures the visible viewport and includes a small,
+sanitized DOM outline by default. Use `browser_query_selector` to find a
+specific element, then pass its nodeId to `browser_screenshot` for a bounded
+element image, including sections below the fold. Prefer individual sections
+over the full body so downscaling does not hide details. The tools do not
+automatically scroll to trigger lazy loading or emulate touch/mobile devices.
+Mark unavailable content or interaction states as untested; narrow viewports
+verify responsive layout only.
+
+Use `browser_get_html` for additional sanitized structural records within the
+needed subtree and depth. Query one element before requesting computed styles
+or source rules. Pass a short `properties` list to `browser_get_computed_styles`
+or `browser_inspect_node`; omitting it makes all properties available through
+bounded pages. Use computed values to check the result and source-mapped rule
+locations to find editable sources. Unresolved maps are not proof of a source.
+
+Follow nextCursor only when a concrete question needs another page; preserve
+the query scope and filters. Do not exhaust every cursor or dump all styles,
+DOM nodes or console entries. `browser_get_console` accepts levels and limit
+for focused diagnostics. `browser_reload`, navigation and `browser_close`
+invalidate previous nodeIds and cursors. After the host build, reopen the page
+with `browser_open` and query it again; do not keep nodeIds in saved findings.

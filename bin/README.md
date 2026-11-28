@@ -2,14 +2,19 @@
 
 Das lokale PHP-Binary entwickelt ein Theme iterativ anhand einer oder mehrerer
 Referenzseiten bzw. Design-Dateien. Der Agent verwendet Phore AI Harness,
-die Daemon-Regeln unter `bin/prompts/` und einen isolierten Browserless-Chromium-Context.
+die Daemon-Regeln unter `bin/prompts/` und die Browser-Erweiterung des AI Harness
+mit einem isolierten Browserless-Chromium-Context.
 
 ## Start
 
 Voraussetzungen: PHP 8.5, Composer, PHP-YAML, PHP-mbstring, Node-Abhängigkeiten,
 Jekyll, API-Zugang gemäß Phore AI Harness und der vorhandene Kickstart-Stack.
-Die neue MultiPrompt-API aus [Harness PR #35](https://github.com/phore/phore-ai-harness/pull/35)
-muss in dev-main verfügbar sein. Führe im Projektverzeichnis aus:
+Benötigt wird `phore/ai-harness` auf `dev-main` mit der Browser-Erweiterung aus
+[Harness PR #37](https://github.com/phore/phore-ai-harness/pull/37).
+`chrome-php/chrome` wird bereits von diesem Entwicklungsprojekt bereitgestellt;
+die Erweiterung im Harness lädt das Modul optional und meldet bei fehlendem
+Modul oder unerreichbarem Endpoint eine `BrowserUnavailableException`.
+Führe im Projektverzeichnis aus:
 
 ```bash
 composer install
@@ -37,14 +42,63 @@ Typografie und Abstände; erhalte die editierbare Content-Struktur.
 
 `CONF_VIEWPORTS` in `bin/theme-develop` legt Auswahl und Reihenfolge der
 Auflösungen fest. Standard: 1280×800 und 393×852 (DPR 1). Weitere
-Profile werden in `BrowserSession::VIEWPORTS` definiert. Das Modell ruft
-`browser_capture` für jede konfigurierte URL und Auflösung einzeln auf. Das
-Tool liefert einen Screenshot über die volle Dokumenthöhe und den
-Gerüst-HTML-Code des sichtbaren Dokuments: nur `<body>`, ohne `<script>`-Tags
-und ohne Inhalt von `<style>`-Tags. `browser_inspect` kann bei Bedarf einen
-Light-DOM-Knoten in einer konfigurierten Auflösung untersuchen. Das letzte
-Ergebnis je Auflösung bleibt bis zum nächsten Build fürs Blättern im Cache.
-Statische Design-Dateien besitzen keinen inspizierbaren DOM.
+Profile sind 1440×900 und 768×1024. Der `capture-plan` gibt dem Agenten die
+Auftragsseiten und Vergleichsauflösungen vor. Referenz und Preview werden in
+derselben Auflösung verglichen. Statische Design-Dateien besitzen keinen
+inspizierbaren DOM.
+
+## Browsertools und Kontextgrenzen
+
+Die Implementierung für Verbindung, DOM, CSS, Source Maps und Konsole liegt in
+[`phore/ai-harness/src/Tools/Browser`](https://github.com/phore/phore-ai-harness/tree/main/src/Tools/Browser).
+`ThemeDevelopment` konfiguriert die gemeinsame `BrowserSession` und registriert
+direkt `Phore\AiHarness\Tools\Browser\BrowserToolSet`. Alle Tool-Definitionen
+und Ergebnisse stammen unverändert aus dem Harness. Der Auftrag liefert die
+Seiten und Viewports; statische Designvorlagen werden als normale Bild- oder
+PDF-Prompts übergeben.
+
+1. `browser_open(url, width, height)` öffnet eine exakte URL aus `capture-plan`,
+   etwa mit `width=1280` und `height=800`.
+2. `browser_screenshot()` liefert den sichtbaren Viewport als PNG und eine
+   kleine bereinigte DOM-Struktur. `browser_get_html` liefert bei Bedarf
+   weitere begrenzte Strukturdatensätze mit Knotenreferenzen und Attributen;
+   Kommentare, Skripte, Styles und Event-Handler werden entfernt.
+3. `browser_query_selector` findet gezielt Elemente. Mit deren `nodeId` liefern
+   `browser_get_computed_styles` die berechneten Werte und
+   `browser_inspect_node` Geometrie, CSS-Regeln und verfügbare Source-Map-Quellen.
+   Ein `properties`-Filter wie `["font-size", "line-height"]` begrenzt die
+   Abfrage; ohne Filter sind alle Werte über begrenzte Seiten abrufbar.
+   Passende CSS-Regeln allein belegen keine gewinnende Deklaration.
+4. `browser_get_console` liefert begrenzte Konsoleneinträge mit optionalen
+   `levels`-Filtern. `nextCursor` wird nur für konkret benötigte Fortsetzungen
+   mit unveränderten Abfrageparametern verwendet.
+
+Die bisherigen Ganzseitenaufnahmen werden durch Viewport-Aufnahmen und
+gezielte Elementbilder ersetzt. `browser_screenshot(nodeId)` kann auch einen
+Abschnitt unterhalb des sichtbaren Bereichs aufnehmen; große Knoten werden
+begrenzt skaliert. Für Details einzelne Abschnitte auswählen. Automatisches
+Scrollen zum Auslösen von Lazy Loading und Touch-/Mobilgeräte-Emulation gehören
+nicht zur Harness-API. Schmale Viewports prüfen das responsive Layout;
+ungeprüfte Lazy-Load-Inhalte und Interaktionszustände bleiben im Prüfbericht
+als Abdeckungslücken sichtbar.
+
+Es gibt jeweils eine aktuelle Seite. Navigation verwirft alte Knotenreferenzen
+und Cursor und verwendet den vorhandenen Browsercontext weiter. Vor einem
+Seiten- oder Viewportwechsel verlangen die Prompts `browser_close`, gefolgt von
+`browser_open`, damit der Vergleich mit einem neuen Context beginnt.
+
+Die erlaubten Origins stammen aus der Preview und den konkreten Live-Referenzen
+des Auftrags. Der Harness erzwingt diese Origins und seine allgemeinen
+Viewportgrenzen; die Auswahl der konkreten Seiten und Vergleichsgrößen folgt
+dem `capture-plan`. Bei einer Weiterleitung auf einen nicht freigegebenen Origin
+muss die kanonische Referenz-URL im Auftrag stehen.
+
+`browser_reload` lädt die aktuelle Seite neu. Nach einem Build schließt der
+Host die Sitzung; die Review beginnt mit `browser_open` und neuen
+Knotenabfragen. `browser_close` und das Laufende geben den Browsercontext frei.
+Screenshotbilder und DOM-Metadaten gehen als Harness-`MultiPrompt` direkt an die
+AI. Zusätzliche lokale PNG-Kopien werden nicht gespeichert; dafür bietet der
+Harness derzeit keinen Ergebnis-Hook. `bin/.tmp/` enthält die Laufberichte.
 
 ## Internetrecherche
 
@@ -80,7 +134,7 @@ im Debug-Modus. Der kumulative Bericht enthält unter
 Project Findings neue oder korrigierte Erkenntnisse seit der initialen Karte.
 Dazu gehören die DevTools-Messwerte mit Seitenname, Viewport, Selektor,
 Computed Styles, Box Model, CSS-Regeln, nachweisbaren Quelldateien und
-relevanten Console-/Network-Fehlern. Auch die initialen Referenz-Findings
+relevanten Konsolenfehlern. Auch die initialen Referenz-Findings
 werden separat in der Karte erhalten. Nur der letzte Bericht wird
 weitergereicht; die initiale Karte ist bereits im Checkpoint. Die Provider-Cache-Treffer werden gemessen; Checkpointing
 garantiert sie nicht.
@@ -113,8 +167,9 @@ und nächstem Schritt. `--debug` zeigt zusätzlich Tool- und Diagnoseausgaben.
 Der ausführliche Bericht und das Backlog werden als Arbeitskontext weitergegeben.
 Wenn eine Entscheidung alle weiteren Arbeiten blockiert, gibt die CLI die
 konkrete Frage aus. Die Antwort kann im Auftrag ergänzt werden. Danach mit
-`-n` neu starten. Auch Checkpoints älterer Agent-Regeln benötigen `-n`. Screenshots und Zwischenberichte liegen direkt im von Git ignorierten
-Ordner `bin/.tmp/`. Ein neuer Lauf leert den Ordner vor der ersten Aufnahme;
+`-n` neu starten. Auch Checkpoints älterer Agent-Regeln benötigen `-n`.
+Zwischenberichte liegen im von Git ignorierten Ordner `bin/.tmp/`. Ein neuer
+Lauf leert den Ordner vor der Referenzanalyse;
 parallele Läufe im selben Checkout werden abgewiesen. Das Binary
 pusht oder merged keine Änderungen.
 
