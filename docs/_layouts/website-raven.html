@@ -58,8 +58,8 @@ layout: blank
             aria-label="Hauptnavigation"
             style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto"
         >
-            <a href="{{ '/' | relative_url }}#seitenverzeichnis">Seitenübersicht</a>
             {% include components/navigation/main.html tag="nav" lang=page.lang root=navigation_root max_depth=2 %}
+            <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
         </nte-nav>
 
         <nte-burger

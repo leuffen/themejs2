@@ -13,7 +13,7 @@ layout: blank
     <a slot="start" class="brand-logo fw-bold" href="{{ brand_url | escape }}">{{ location.name | escape }}</a>
     <nte-nav id="nav-horizontal" slot="end" class="style-default nav-horizontal" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
       {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang %}
-      <a href="{{ '/' | relative_url }}" style="order: 9999">Zurück</a>
+      <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
     </nte-nav>
     <nte-burger slot="end" aria-label="Navigation öffnen" aria-controls="navigation-sidebar" static-state onclick="document.getElementById('navigation-sidebar')?.toggle()" style="display: block" style-xl="display: none"></nte-burger>
   </nte-navbar-line>

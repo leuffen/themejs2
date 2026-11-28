@@ -24,8 +24,8 @@ layout: blank
             aria-label="Hauptnavigation"
             style="--nte-nav-flow: row; --nte-nav-align: stretch"
         >
-            <nte-nav-item href="{{ '/' | relative_url }}#seitenverzeichnis">Seitenübersicht</nte-nav-item>
             {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang %}
+            <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
         </nte-nav>
 
         <div slot="end" class="unify-navbar-actions navbar-control" style="display: none" style-xl="display: flex">
