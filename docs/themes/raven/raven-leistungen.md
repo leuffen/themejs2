@@ -1,11 +1,13 @@
 ---
 layout: website-raven
-body_class: theme-raven
 title: Raven – Leistungen
 description: "Raven-Leistungsseite mit medizinischen Schwerpunkten und Kontaktaktion."
-ptags:
-  - arzt
+ptags: [arzt, nav, footer-nav]
 pid: raven-subpage
+navigation_root: themes/raven
+short_title: Leistungen
+order: 10
+show_title: false
 ---
 
 <!-- Bündelt die wiederkehrenden Unterseitenmuster der bisherigen Raven-Website in einer einzigen Migrationsreferenz. -->
@@ -133,5 +135,5 @@ Organisatorische Hinweise für einen Termin lassen sich ohne Sonderkomponente al
 Vertiefende Inhalte können von jeder Unterseite gezielt zum medizinischen Ansatz, zum Profil oder zur Kontaktaufnahme führen.
 {: .lead-serif }
 
-[Medizinischer Ansatz](/pages/beispiele/startseiten/raven-start.html){: .btn .btn-light .btn-lead }
-[Kontakt & Anfahrt]({{ '/pages/beispiele/kontakt/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }
+[Medizinischer Ansatz](/themes/raven/raven-start.html){: .btn .btn-light .btn-lead }
+[Kontakt & Anfahrt]({{ '/themes/raven/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }

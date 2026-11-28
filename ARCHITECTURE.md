@@ -88,7 +88,7 @@ bleiben unabhängig vom eigenständigen HMR-Dialog des Vite-Plugins.
 ## Theme-Konfiguration
 
 In `_root` wird genau ein Theme unter `_src` konfiguriert. Parallele Varianten
-wie `docs/_includes/frames` gehören ausschließlich in die Präsentations- und
+unter `docs/_layouts/website-*.html` gehören zur Präsentations- und
 Testumgebung.
 
 ### Layout-Auswahl in der Demo
@@ -100,10 +100,11 @@ layout: website-raven
 theme_profile: raven
 ```
 
-Das Layout erbt von `20_body` und bindet Navbar, Inhalt und Footer mit festen
-Include-Pfaden ein. `theme_profile` aktiviert unabhängig davon die visuelle
-Body-Klasse. Reduzierte Rahmen stehen als `website-none`,
-`website-navbar-only` und `website-footer-only` zur Verfügung.
+Das Layout erbt von `blank` und enthält Navbar, Page-Header, Content Pane und
+Footer direkt. `website-default` basiert auf dem bisherigen Dommer-Frame.
+`theme_profile` aktiviert unabhängig davon die visuelle Body-Klasse; die
+bestehenden SCSS-Entries verwenden zusätzlich `body_class` am HTML-Element.
+`show_navbar`, `show_title` und `show_footer` ersetzen reduzierte Frame-Layouts.
 
 Das Seitenverzeichnis auf `docs/index.md` verlinkt die Endseiten direkt.
 Der Dateipfad unter `docs/` bestimmt die URL der Demo-Seite.
@@ -119,7 +120,8 @@ Der Dateipfad unter `docs/` bestimmt die URL der Demo-Seite.
    Den festen Kundenrahmen direkt in seinen Layout-Dateien pflegen.
 5. Gemeinsame fachliche Includes unter `components/`, `helpers/` und `fragments/` synchron halten.
 6. Kategorie-Seiten wie Osman2 als `leistungen/index.md` und direkte Unterseiten organisieren;
-   `ptags: [nav]` nimmt sie ins Menü auf. Nur die Demo verwendet `navigation_root: pages`.
+   `ptags: [nav]` nimmt sie ins Menü auf. Die Demo setzt pro Seite
+   `navigation_root: themes/<name>` und bündelt ihre Websites unter `docs/themes/`.
 
 Leuffen-Logos liegen in beiden Umgebungen unter `assets/leuffen/`.
 Die öffentlichen Include-Pfade, Parameter und Beispiele stehen in [README_INCLUDES.md](README_INCLUDES.md).

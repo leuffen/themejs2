@@ -122,10 +122,11 @@ Die [Agent-Regeln](prompts/project.md) beschreiben, wie `theme-develop` mit
 Layouts und Markdown-Vorlagen arbeitet. Die Auswahl von Farbvariablen und
 anderen Theme-Tokens ist im [SCSS-Skill](../skills/edit-scss/SKILL.md) beschrieben.
 
-Dommer nutzt für Start- und Leistungsseite `theme-dommer`. Dieses Layout erbt
-über `blank` von `20_body`. Die Startseite setzt `show_title: false`, damit ihr
-Hero den Seitentitelbereich übernimmt. Die übrigen Themes sind noch nicht auf
-`blank` umgestellt.
+Dommer nutzt für Start- und Leistungsseite `website-default`. Alle
+`website-*`-Layouts erben über `blank` von `20_body` und enthalten ihren Frame
+direkt. Die Website-Beispiele liegen unter `docs/themes/<name>/`; Unify behält
+die Namen `unify-start`, `unify-saas` und `unify-services`. Seiten mit eigenem
+Hero setzen `show_title: false`, damit kein zusätzlicher Page-Header erscheint.
 
 Die Dommer-Beispiele setzen Navigationswurzel und Standort im Front Matter.
 Der manuelle Link „Zurück“ auf `/` in der horizontalen Navigation zeigt, wie

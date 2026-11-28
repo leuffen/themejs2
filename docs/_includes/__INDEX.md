@@ -2,7 +2,8 @@
 
 `docs/_includes/` und `_root/docs/_includes/` verwenden die aktuelle Struktur von Osman2.
 Die alten Verzeichnisse `el/`, `do/` und `part/` entfallen.
-Feste Demo-Layouts verwenden Markup aus `docs/_includes/frames/`.
+Website-Layouts enthalten Navbar, Page-Header, Content Pane und Footer direkt.
+Die Includes bleiben auf wiederverwendbare fachliche Bausteine beschränkt.
 
 | Pfad relativ zu `_includes/` | Aufgabe |
 | --- | --- |
@@ -22,4 +23,3 @@ Feste Demo-Layouts verwenden Markup aus `docs/_includes/frames/`.
 | `helpers/urls/page.html` | Sprachabhängige Seiten-URL |
 | `helpers/text/remove-line-breaks.html` | Textaufbereitung |
 | `fragments/loader.html` | Seitenweiter Loader |
-| `frames/<variante>/navbar.html`, `frames/<variante>/footer.html` | Austauschbare Rahmen nur in `docs/` |

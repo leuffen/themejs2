@@ -1,5 +1,5 @@
 ---
-layout: website
+layout: website-default
 title: Includes verwenden
 ---
 
@@ -16,7 +16,7 @@ title: Includes verwenden
 {% include helpers/i18n/translate.html key="Kontakt" %}
 
 <ul>
-{% include components/navigation/footer.html tag="subfooter" %}
+{% include components/navigation/footer.html tag="footer-nav" root="pages/legal" %}
 </ul>
 
 ## 3. Seite bearbeiten

@@ -1,9 +1,150 @@
 ---
-layout: 20_body
+layout: blank
 ---
+<!-- Verbindet den Unify-Frame mit den Daten des gewählten Standorts. -->
+{% assign navigation_root = page.navigation_root | default: '' %}
+{% assign brand_url = page.brand_url | default: '/' | relative_url %}
+{% assign location_id = page.location_id | default: 'default' %}
+{% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
+<!-- Lädt die in der Originalvorlage verwendete Inter-Schrift ausschließlich für Seiten mit Unify-Website-Rahmen. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
 
-{% include frames/unify/navbar.html %}
+{% unless page.show_navbar == false %}
+<!-- Stellt für die Unify-Demo den kompakten Business-Header mit klar getrennten Navigations- und Aktionsbereichen bereit. -->
+<nte-navbar id="navbar" class="style-unify with-shadow-on-scroll" style="--nte-navbar-position: sticky; --nte-navbar-scroll-threshold: 12">
+    <nte-navbar-line class="with-shrink-on-scroll" style="--height: 75px; --height-scrolled: 60px">
+        <a slot="start" class="brand-logo unify-brand" href="{{ brand_url | escape }}" aria-label="Unify Startseite">
+            <span class="unify-brand__mark" aria-hidden="true">U</span><span>nify</span>
+        </a>
 
-{% include fragments/website-content.html content=content %}
+        <nte-nav
+            id="unify-main-navigation-horizontal"
+            class="style-unify"
+            slot="center"
+            aria-label="Hauptnavigation"
+            style="--nte-nav-flow: row; --nte-nav-align: stretch"
+        >
+            {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang %}
+            <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
+        </nte-nav>
 
-{% include frames/unify/footer.html %}
+        <div slot="end" class="unify-navbar-actions navbar-control" style="display: none" style-xl="display: flex">
+            <a href="{{ page.contact_url | default: page.brand_url | default: '/' | relative_url | escape }}" class="btn btn-secondary">Sign up</a>
+        </div>
+
+        <nte-burger
+            slot="end"
+            aria-label="Navigation öffnen"
+            aria-controls="unifyNavSidebar"
+            static-state
+            onclick="document.getElementById('unifyNavSidebar')?.toggle()"
+            style="display: block"
+            style-xl="display: none"
+        ></nte-burger>
+    </nte-navbar-line>
+</nte-navbar>
+
+<!-- Überführt dieselben Navigationspunkte auf kleinen Ansichten in das bestehende Offcanvas-Muster. -->
+<nte-offcanvas id="unifyNavSidebar" aria-label="Mobile Hauptnavigation">
+    <div slot="header"><strong>Navigation</strong></div>
+    <nte-nav
+        id="unify-main-navigation-vertical"
+        class="style-unify-vertical"
+        aria-label="Mobile Hauptnavigation"
+        style="--nte-nav-flow: column; --nte-nav-align: stretch"
+    ></nte-nav>
+    <tj-element-relocator
+        source="#unify-main-navigation-horizontal"
+        target="#unify-main-navigation-vertical"
+        class="-xl:relocate"
+    ></tj-element-relocator>
+</nte-offcanvas>
+{% endunless %}
+
+<!-- Zeigt den Seitentitel und optional das konfigurierte Headerbild und die Beschreibung. -->
+{% unless page.show_title == false %}
+<header id="header" class="style-default container py-4">
+  {% if page.hero_image and page.hero_image != empty %}
+  <img class="img-fluid" src="{{ page.hero_image | relative_url | escape }}" alt="{{ page.hero_image_alt | escape }}">
+  {% endif %}
+  <h1>{{ page.title | escape }}</h1>
+  {% if page.description and page.description != empty %}
+  <p>{{ page.description | escape }}</p>
+  {% endif %}
+</header>
+{% endunless %}
+
+<!-- Lässt Content Pane die bestehenden Markdown-Sections unverändert aufbauen. -->
+<nte-feedback></nte-feedback>
+<main id="main" class="mx-auto">
+  <tj-content-pane pre-parser="text-block">
+    {{ content }}
+  </tj-content-pane>
+</main>
+
+
+{% unless page.show_footer == false %}
+<!-- Bewahrt die Unify-Komposition und bezieht Demo-Ziele aus den Scope-Defaults. -->
+<footer id="footer" class="style-default unify-footer">
+  <div class="unify-footer__container">
+    <!-- Verbindet die Abschlussbotschaft mit dem konfigurierten Kontaktziel. -->
+    <div class="unify-footer__cta xl:desktop">
+      <p>Werden Sie Teil einer wachsenden<br><strong>digitalen Erfolgsgeschichte.</strong></p>
+      <a class="btn btn-primary" href="{{ page.contact_url | default: page.brand_url | default: '/' | relative_url | escape }}">Projekt starten</a>
+    </div>
+
+    <!-- Gruppiert die Bundle-Seiten und vorhandenen Inhaltsabschnitte. -->
+    <nav class="unify-footer__links xl:desktop" aria-label="Footer Navigation">
+      <section class="unify-footer__column">
+        <h2>Unify</h2>
+        <ul>
+          {% include components/navigation/footer.html tag="footer-nav" root=navigation_root show_icons=false %}
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Unternehmen</h2>
+        <ul>
+          <li><a href="{{ page.about_url | default: page.brand_url | default: '/' | relative_url | escape }}">Über uns</a></li>
+          <li><a href="{{ page.references_url | default: page.brand_url | default: '/' | relative_url | escape }}">Referenzen</a></li>
+          <li><a class="unify-footer__link-accent" href="{{ page.contact_url | default: page.brand_url | default: '/' | relative_url | escape }}">Kontakt</a></li>
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Ressourcen</h2>
+        <ul>
+          <li><a href="{{ page.resources_url | default: page.brand_url | default: '/' | relative_url | escape }}">Leitfaden</a></li>
+          <li><a href="{{ page.faq_url | default: page.brand_url | default: '/' | relative_url | escape }}">Häufige Fragen</a></li>
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Leistungen</h2>
+        <ul>
+          <li><a href="{{ page.services_url | default: page.brand_url | default: '/' | relative_url | escape }}">Services</a></li>
+          <li><a href="{{ page.products_url | default: page.brand_url | default: '/' | relative_url | escape }}">Produkte</a></li>
+        </ul>
+      </section>
+      <section class="unify-footer__column">
+        <h2>Informationen</h2>
+        <ul>
+          {% include components/navigation/footer.html tag="footer-nav" root="pages/legal" show_icons=false %}
+          <li><a href="{{ page.contact_url | default: page.brand_url | default: '/' | relative_url | escape }}">Anfrage</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <!-- Verwendet dieselben Standort- und Social-Daten wie die übrigen Website-Frames. -->
+    <div class="unify-footer__bottom">
+      <div class="unify-footer__meta">
+        <span>© {{ location.name | escape }} {{ site.time | date: '%Y' }}</span>
+        <a href="{{ '/pages/legal/impressum.html' | relative_url }}">Impressum</a>
+        <a href="{{ '/pages/legal/datenschutz.html' | relative_url }}">Datenschutz</a>
+      </div>
+      <div class="unify-footer__social" aria-label="Social Links">
+        {% for social in site.data.general.social_links %}
+        <a href="{{ social.url | escape }}" aria-label="{{ social.label | escape }}">{{ social.label | escape }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</footer>
+{% endunless %}

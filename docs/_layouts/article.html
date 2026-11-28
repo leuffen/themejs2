@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: website-default
+show_title: false
 ---
 {% assign author_doc = nil %}
 {% if page.author_slug %}{% assign author_doc = site.autoren | where: "author_slug", page.author_slug | first %}{% endif %}

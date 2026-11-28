@@ -97,15 +97,16 @@ beschrieben.
 
 ### § 3.3.2 Website-Default und Varianten
 
-Der Standard-Frame ist als `docs/_layouts/website-default.html` vorgesehen.
+Der Standard-Frame liegt unter `docs/_layouts/website-default.html`.
 Seiten wählen ihn mit `layout: website-default` im Front Matter oder über
 Config-Defaults, ohne `.html`. Includes sind Bausteine innerhalb des Layouts,
 nicht der Mechanismus zur Layout-Auswahl.
 
-Aktuell fehlt `website-default.html`: `default.html` nutzt `layout: website`;
-`website.html` bindet Navbar, Content und Footer per Includes ein. Dommer nutzt
-`layout: theme-dommer`. Die [Frame-Referenz](references/3_Docs/_layouts/Website.Default.html)
-entspricht dem Dommer-Layout und trägt noch den alten Dateinamen.
+`website-default` übernimmt den bisherigen Dommer-Frame ohne feste Bindung
+an ein Theme-Profil. Die [Frame-Referenz](references/3_Docs/_layouts/website-default.html)
+zeigt denselben Aufbau. Die Varianten `website-osman`, `website-mueller`,
+`website-raven` und `website-unify` enthalten ihre abweichenden Frames direkt;
+die bisherigen Frame-Includes und reduzierten Layouts entfallen.
 
 Der Frame zeigt Navbar, optionalen Page-Header, `{{ content }}` im Main-Bereich
 und Footer. Unterseiten nutzen denselben Page-Header mit ihren
@@ -158,7 +159,7 @@ Zielrepositories.
 
 ### § 3.7.3 Layout und sichtbare Frame-Bereiche
 
-Vorgesehen ist `layout: website-default` gemäß § 3.3.2; andere Website-Layouts
+Der Standard ist `layout: website-default` gemäß § 3.3.2; andere Website-Layouts
 sind bei Bedarf möglich. Gemeinsame Layout-Defaults stehen in `_config.yml`
 (§ 3.8), Overrides im Front Matter der Seite.
 

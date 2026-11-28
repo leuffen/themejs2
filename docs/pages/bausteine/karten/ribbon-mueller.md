@@ -1,7 +1,8 @@
 ---
-layout: website
+layout: website-default
 title: Ribbon im Theme Müller
 theme_profile: mueller
+show_title: false
 ---
 
 # Ribbon im Theme Müller

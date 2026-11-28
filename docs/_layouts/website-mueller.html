@@ -1,9 +1,216 @@
 ---
-layout: 20_body
+layout: blank
 ---
+<!-- Verbindet die Default-Navbar und den Müller-Footer mit den Daten des gewählten Standorts. -->
+{% assign navigation_root = page.navigation_root | default: '' %}
+{% assign brand_url = page.brand_url | default: '/' | relative_url %}
+{% assign location_id = page.location_id | default: 'default' %}
+{% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
+{% unless page.show_navbar == false %}
+<!-- Verwendet dieselben Navigationsziele für Desktop und mobiles Menü. -->
+<nte-navbar id="navbar" class="style-default">
+  <nte-navbar-line class="style-default navbar-line">
+    <a slot="start" class="brand-logo fw-bold" href="{{ brand_url | escape }}">{{ location.name | escape }}</a>
+    <nte-nav id="nav-horizontal" slot="end" class="style-default nav-horizontal" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
+      {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang %}
+      <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
+    </nte-nav>
+    <nte-burger slot="end" aria-label="Navigation öffnen" aria-controls="navigation-sidebar" static-state onclick="document.getElementById('navigation-sidebar')?.toggle()" style="display: block" style-xl="display: none"></nte-burger>
+  </nte-navbar-line>
+</nte-navbar>
 
-{% include frames/default/navbar.html %}
+<!-- Verschiebt die vorhandenen Links unterhalb von XL in das mobile Menü. -->
+<nte-offcanvas id="navigation-sidebar" aria-label="Mobile Hauptnavigation">
+  <nte-nav id="nav-vertical" class="style-default nav-vertical" aria-label="Mobile Hauptnavigation" style="--nte-nav-flow: column; --nte-nav-align: stretch"></nte-nav>
+  <tj-element-relocator source="#nav-horizontal" target="#nav-vertical" class="-xl:relocate"></tj-element-relocator>
+</nte-offcanvas>
+{% endunless %}
 
-{% include fragments/website-content.html content=content %}
+<!-- Zeigt den Seitentitel und optional das konfigurierte Headerbild und die Beschreibung. -->
+{% unless page.show_title == false %}
+<header id="header" class="style-default container py-4">
+  {% if page.hero_image and page.hero_image != empty %}
+  <img class="img-fluid" src="{{ page.hero_image | relative_url | escape }}" alt="{{ page.hero_image_alt | escape }}">
+  {% endif %}
+  <h1>{{ page.title | escape }}</h1>
+  {% if page.description and page.description != empty %}
+  <p>{{ page.description | escape }}</p>
+  {% endif %}
+</header>
+{% endunless %}
 
-{% include frames/mueller/footer.html %}
+<!-- Lässt Content Pane die bestehenden Markdown-Sections unverändert aufbauen. -->
+<nte-feedback></nte-feedback>
+<main id="main" class="mx-auto">
+  <tj-content-pane pre-parser="text-block">
+    {{ content }}
+  </tj-content-pane>
+</main>
+
+
+<!-- Hält den eigenständigen Footer direkt im Website-Layout. -->
+{% unless page.show_footer == false %}
+<!-- Bewahrt die vier Spalten und die Abschlussleisten der Müller-Demo. -->
+<style>
+  #footer {
+    --footer-background: var(--nt-secondary);
+    --footer-text-color: var(--nt-text-on-secondary);
+    --footer-muted-color: color-mix(in srgb, var(--nt-text-on-secondary) 74%, transparent);
+    --footer-border-color: color-mix(in srgb, var(--nt-text-on-secondary) 18%, transparent);
+    --footer-link-color: var(--nt-text-on-secondary);
+    --footer-link-hover-color: var(--nt-primary-subtle);
+    --subfooter-background: var(--nt-dark);
+    --minifooter-background: var(--nt-black);
+  }
+
+  /* Entfernt den regulären Footer-Abstand, wenn ein abschließender CTA direkt in den Footer übergeht. */
+  main:has(ntl-2col.style-cta:last-child) + #footer {
+    margin-top: 0;
+  }
+
+  #footer :is(p, address, table, td, span) {
+    color: inherit;
+  }
+
+  #footer h2 {
+    color: var(--footer-text-color);
+    font-size: var(--nt-fs-h5);
+    font-weight: var(--nt-font-weight-bold);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  #footer a {
+    color: var(--footer-link-color);
+    text-decoration-color: transparent;
+    text-underline-offset: .2em;
+    transition: color .2s ease, text-decoration-color .2s ease;
+  }
+
+  #footer a:hover,
+  #footer a:focus-visible {
+    color: var(--footer-link-hover-color);
+    text-decoration-color: currentColor;
+  }
+
+  #footer a:focus-visible {
+    outline: var(--nt-border-width) solid currentColor;
+    outline-offset: var(--nt-space-1);
+  }
+
+  #footer .mueller-footer__top {
+    color: var(--footer-muted-color);
+  }
+
+  #footer .mueller-footer__links a,
+  #footer .mueller-footer__contact a {
+    color: var(--footer-link-color);
+  }
+
+  #footer .openhours {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #footer .openhours td {
+    padding: .12rem .4rem .12rem 0;
+    vertical-align: top;
+  }
+
+  #footer .openhours td:first-child {
+    white-space: nowrap;
+    font-weight: var(--nt-font-weight-bold);
+  }
+
+  #footer .mueller-footer__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #footer .mueller-footer__social svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+</style>
+
+{% comment %}Verwendet einen festen Credit-Datensatz statt einer vom Dateipfad abhängigen Auswahl.{% endcomment %}
+{% assign footer_credit = site.data.defaults.footers | first %}
+
+<footer
+  id="footer"
+  class="style-default"
+  style="position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--footer-background);color:var(--footer-text-color);border-top:1px solid var(--footer-border-color);"
+>
+  <div class="mueller-footer__top container py-4">
+    <div class="row gy-4">
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-contact">
+        <h2 id="footer-mueller-contact" class="mb-3">{% include helpers/i18n/translate.html key="Kontakt" %}</h2>
+        <div class="mueller-footer__contact small">
+          {% include components/contact/address.html standort=location_id %}
+        </div>
+      </section>
+
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-info">
+        <h2 id="footer-mueller-info" class="mb-3">Info</h2>
+        <p class="small mb-0">{{ location.desc | default: location.fachrichtung | default: page.description | escape }}</p>
+      </section>
+
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-links">
+        <h2 id="footer-mueller-links" class="mb-3">Links</h2>
+        <ul class="mueller-footer__links list-unstyled d-flex flex-column gap-2 small mb-0">
+          {% include components/navigation/footer.html tag="footer-nav" root=navigation_root %}
+        </ul>
+      </section>
+
+      <section class="-xl:col-12 xl:col-3" aria-labelledby="footer-mueller-hours">
+        <h2 id="footer-mueller-hours" class="mb-3">Öffnungszeiten</h2>
+        <div class="small">
+          {% include components/site/opening-hours.html %}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div style="background:var(--subfooter-background);color:var(--footer-muted-color);border-top:1px solid var(--footer-border-color);">
+    <div class="container py-3">
+      <div class="d-flex flex-column xl:flex-row xl:align-items-center xl:justify-content-between gap-3 small">
+        <nav aria-label="Sitemap und rechtliche Navigation">
+          <ul class="list-unstyled d-flex flex-column xl:flex-row gap-2 xl:gap-3 mb-0">
+            {% include components/navigation/footer.html tag="footer-nav" root="pages/legal" %}
+          </ul>
+        </nav>
+
+        <div class="mueller-footer__social d-flex align-items-center gap-3" aria-label="Social Media">
+          {% assign social_icons = site.data.social_icons %}
+          {% for icon in social_icons %}
+            {% assign url_key = icon.name | append: '_url' %}
+            {% assign icon_url = page[url_key] | default: site[url_key] %}
+            {% if icon_url and icon_url != '' %}
+              <a href="{{ icon_url }}" target="_blank" rel="noopener" aria-label="{{ icon.title }}">{{ icon.svg }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--minifooter-background);color:var(--footer-muted-color);border-top:1px solid var(--footer-border-color);">
+    <div class="container py-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 small text-center">
+        <span>© {{ location.name | escape }} {{ site.time | date: '%Y' }}</span>
+        <a class="d-inline-flex align-items-center text-decoration-none" href="{{ footer_credit.logo_href }}" aria-label="{{ footer_credit.logo_label }}">
+          <img width="67" height="22" src="{{ footer_credit.logo_url }}" style="height:22px;" alt="{{ footer_credit.logo_alt }}">
+        </a>
+        <a class="text-decoration-none" href="{{ footer_credit.text_href }}">{{ footer_credit.text }}</a>
+        <a class="d-inline-flex align-items-center text-decoration-none" rel="nofollow" href="{% include helpers/urls/pagebuilder.html %}" title="Seite editieren">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endunless %}

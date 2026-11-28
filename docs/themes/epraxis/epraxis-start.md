@@ -1,16 +1,17 @@
 ---
-layout: website
-body_class: theme-epraxis
+layout: website-default
 title: ePraxis Start
-theme_classes: "theme-epraxis theme-medic"
 description: "Meta Description Text"
 
-ptags:
-  - epraxis
+ptags: [epraxis, nav, footer-nav]
 articles_related:
   - MAIN
   - TEST1
   - TEST2
+navigation_root: themes/epraxis
+short_title: Startseite
+order: 0
+show_title: false
 ---
 
 

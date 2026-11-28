@@ -1,9 +1,347 @@
 ---
-layout: 20_body
+layout: blank
 ---
+<!-- Verbindet die vorhandene Topbar und den Raven-Footer mit den Daten des gewählten Standorts. -->
+{% assign navigation_root = page.navigation_root | default: '' %}
+{% assign brand_url = page.brand_url | default: '/' | relative_url %}
+{% assign location_id = page.location_id | default: 'default' %}
+{% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
+{% unless page.show_navbar == false %}
+<!-- Bewahrt die Osman-Topbar und verwendet für beide Menüs die aktuelle Website-Navigation. -->
+<nte-navbar id="navbar" class="style-default fixed autoborder" scroll-threshold="500" style="--spacer-height: 104px">
+    <nte-navbar-line class="style-topbar hide-on-scroll" style="--height: 40px; --background: #f3f3f3; --text-color: #666666">
+        <div slot="start" class="site-topbar__info">
+            {% if location.phone1_text %}
+                <span>Tel. {{ location.phone1_text }}</span>
+            {% endif %}
+            {% if location.email %}
+                <span class="site-topbar__sep">|</span>
+                <a href="mailto:{{ location.email }}">{{ location.email }}</a>
+            {% endif %}
+            {% if location.street or location.zip or location.city %}
+                <span class="site-topbar__sep">|</span>
+                <a href="{{ location.map_link }}" target="_blank" rel="noopener" aria-label="Praxisstandort in Google Maps öffnen">{{ location.street }}{% if location.zip or location.city %}, {% endif %}{{ location.zip }} {{ location.city }}</a>
+            {% endif %}
+        </div>
+        <a slot="end" href="{{ page.contact_url | default: location.termin_url | relative_url | escape }}" class="btn btn-primary btn-sm">Termin online buchen</a>
+        <div slot="end" class="btn-group">
+            <button
+                id="osman-language-toggle"
+                class="btn btn-hover btn-sm dropdown-toggle"
+                type="button"
+                popovertarget="osman-language-menu"
+                aria-controls="osman-language-menu"
+            >
+                <nte-icon class="bi bi-globe2 me-1" aria-hidden="true"></nte-icon>
+                DE
+            </button>
+            <ul id="osman-language-menu" class="dropdown-menu" popover="auto" aria-labelledby="osman-language-toggle">
+                <li><a href="{{ page.url | relative_url }}" lang="de" hreflang="de" aria-current="true">Deutsch</a></li>
+            </ul>
+        </div>
+    </nte-navbar-line>
 
-{% include frames/osman/navbar.html %}
+    <nte-navbar-line class="style-default" style="--brand-height: 64px">
+        <a slot="start" class="brand-logo" href="{{ brand_url | escape }}" aria-label="{{ location.name | default: site.data.general.logoalt }}">
+            <img
+                src="{{ site.data.general.logo | default: "/assets/leuffen/leuffen-logo-big.svg" }}"
+                alt="{{ site.data.general.logoalt | default: location.name }}"
+                class="loader-image"
+                height="64"
+            />
+        </a>
 
-{% include fragments/website-content.html content=content %}
+        <nte-nav
+            id="osman-main-navigation-horizontal"
+            class="style-default nav-horizontal"
+            slot="end"
+            aria-label="Hauptnavigation"
+            style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto"
+        >
+            {% include components/navigation/main.html tag="nav" lang=page.lang root=navigation_root max_depth=2 %}
+            <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
+        </nte-nav>
 
-{% include frames/raven/footer.html %}
+        <nte-burger
+            slot="end"
+            aria-label="Navigation öffnen"
+            aria-controls="navSidebar"
+            static-state
+            onclick="document.getElementById('navSidebar')?.toggle()"
+            style="display: block"
+            style-xl="display: none"
+        ></nte-burger>
+    </nte-navbar-line>
+</nte-navbar>
+
+<nte-offcanvas id="navSidebar" aria-label="Mobile Hauptnavigation">
+
+    <nte-nav
+        id="osman-main-navigation-vertical"
+        class="style-default nav-vertical"
+        aria-label="Mobile Hauptnavigation"
+        style="--nte-nav-flow: column; --nte-nav-align: stretch"
+    ></nte-nav>
+    <tj-element-relocator
+        source="#osman-main-navigation-horizontal"
+        target="#osman-main-navigation-vertical"
+        class="-xl:relocate"
+    ></tj-element-relocator>
+</nte-offcanvas>
+{% endunless %}
+
+<!-- Zeigt den Seitentitel und optional das konfigurierte Headerbild und die Beschreibung. -->
+{% unless page.show_title == false %}
+<header id="header" class="style-default container py-4">
+  {% if page.hero_image and page.hero_image != empty %}
+  <img class="img-fluid" src="{{ page.hero_image | relative_url | escape }}" alt="{{ page.hero_image_alt | escape }}">
+  {% endif %}
+  <h1>{{ page.title | escape }}</h1>
+  {% if page.description and page.description != empty %}
+  <p>{{ page.description | escape }}</p>
+  {% endif %}
+</header>
+{% endunless %}
+
+<!-- Lässt Content Pane die bestehenden Markdown-Sections unverändert aufbauen. -->
+<nte-feedback></nte-feedback>
+<main id="main" class="mx-auto">
+  <tj-content-pane pre-parser="text-block">
+    {{ content }}
+  </tj-content-pane>
+</main>
+
+
+<!-- Hält den eigenständigen Footer direkt im Website-Layout. -->
+{% unless page.show_footer == false %}
+<!-- Bewahrt die Raven-Kontaktspalten und die eigene Abschlussleiste. -->
+<style>
+  #footer {
+    --footer-background: #1e1e1e;
+    --footer-surface: var(--nt-secondary, #272c20);
+    --footer-text-color: rgba(255, 255, 255, 0.92);
+    --footer-muted-color: rgba(255, 255, 255, 0.64);
+    --footer-border-color: rgba(255, 255, 255, 0.12);
+    --footer-accent-color: var(--nt-accent, #b8734a);
+    --footer-credit-background: rgba(0, 0, 0, 0.18);
+  }
+
+  #footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #footer .raven-footer__top {
+    display: grid;
+    gap: 2rem;
+  }
+
+  #footer .raven-footer__brand strong {
+    display: block;
+    margin-bottom: 0.875rem;
+    color: var(--footer-text-color);
+    font-size: clamp(1.375rem, 2vw, 1.875rem);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #footer .raven-footer__brand p,
+  #footer .raven-footer__links a,
+  #footer .raven-footer__meta,
+  #footer .raven-footer__credit {
+    color: var(--footer-muted-color);
+    line-height: 1.62;
+  }
+
+  #footer .raven-footer__leuffen-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  #footer .raven-footer__section-title {
+    margin: 0 0 1rem;
+    color: var(--footer-text-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #footer .raven-footer__links {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #footer .raven-footer__links a:hover,
+  #footer .raven-footer__credit a:hover:not(.raven-footer__leuffen) {
+    color: var(--footer-text-color);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  #footer .raven-footer__credit a.raven-footer__leuffen:hover,
+  #footer .raven-footer__credit a.raven-footer__leuffen:focus-visible {
+    text-decoration: none;
+  }
+
+  #footer .raven-footer__cta {
+    color: var(--footer-text-color) !important;
+  }
+
+  #footer .raven-footer__leuffen {
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  #footer .raven-footer__leuffen-logo {
+    position: relative;
+    width: 67px;
+    height: 22px;
+    flex: 0 0 auto;
+  }
+
+  #footer .raven-footer__leuffen-logo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: opacity 0.25s ease;
+  }
+
+  #footer .raven-footer__leuffen-logo-soft {
+    opacity: 0.9;
+  }
+
+  #footer .raven-footer__leuffen-logo-full {
+    opacity: 0;
+  }
+
+  #footer .raven-footer__leuffen:hover .raven-footer__leuffen-logo-soft,
+  #footer .raven-footer__leuffen:focus-visible .raven-footer__leuffen-logo-soft {
+    opacity: 0;
+  }
+
+  #footer .raven-footer__leuffen:hover .raven-footer__leuffen-logo-full,
+  #footer .raven-footer__leuffen:focus-visible .raven-footer__leuffen-logo-full {
+    opacity: 1;
+  }
+
+  #footer .raven-footer__bottom {
+    background: var(--footer-credit-background);
+    border-top: 1px solid var(--footer-border-color);
+  }
+
+  #footer .raven-footer__credit {
+    display: grid;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  #footer .raven-footer__credit-start,
+  #footer .raven-footer__credit-center,
+  #footer .raven-footer__credit-end {
+    min-width: 0;
+  }
+
+  #footer .raven-footer__credit-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  #footer .raven-footer__credit-end {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 1200px) {
+    #footer .raven-footer__top {
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      align-items: start;
+    }
+
+    #footer .raven-footer__credit {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      text-align: left;
+    }
+
+    #footer .raven-footer__credit-start {
+      justify-self: start;
+    }
+
+    #footer .raven-footer__credit-center {
+      justify-self: center;
+    }
+
+    #footer .raven-footer__credit-end {
+      justify-self: end;
+      justify-content: flex-end;
+    }
+  }
+</style>
+
+<footer
+  id="footer"
+  class="style-default mt-5"
+  style="position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--footer-background);color:var(--footer-text-color);border-top:1px solid var(--footer-border-color);"
+>
+  <div class="container py-5">
+    <div class="raven-footer__top">
+      <section class="raven-footer__brand" aria-labelledby="footer-raven-brand">
+        <strong id="footer-raven-brand">{{ location.name | escape }}</strong>
+        <p class="mb-3">{{ location.fachrichtung | default: location.desc }}<br>{{ location.desc }}</p>
+        <p class="raven-footer__meta mb-0">{{ location.street }}<br>{{ location.zip }} {{ location.city }}</p>
+      </section>
+
+      <section aria-labelledby="footer-raven-contact">
+        <h3 id="footer-raven-contact" class="raven-footer__section-title">Kontakt</h3>
+        <div class="raven-footer__links">
+          <a href="{{ page.contact_url | default: location.termin_url | relative_url | escape }}" class="raven-footer__cta">Termin buchen</a>
+          <a href="tel:{{ location.phone1 }}">{{ location.phone1_text }}</a>
+          <a href="mailto:{{ location.email }}">{{ location.email }}</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="footer-raven-legal">
+        <h3 id="footer-raven-legal" class="raven-footer__section-title">Navigation</h3>
+        <ul class="raven-footer__links">
+          {% include components/navigation/footer.html tag="footer-nav" root=navigation_root %}
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="raven-footer__bottom">
+    <div class="container py-3">
+      <div class="raven-footer__credit small">
+        <span class="raven-footer__credit-start">© {{ site.data.general.name | default: site.data.general.logoalt }} {{ site.time | date: '%Y' }}</span>
+        <div class="raven-footer__credit-center">
+          <a class="raven-footer__leuffen" href="https://leuffen.de" aria-label="leuffen.de – Webdesign für Ärzte">
+            <span class="raven-footer__leuffen-text">Webdesign für Ärzte</span>
+            <span class="raven-footer__leuffen-logo" aria-hidden="true">
+              <img class="raven-footer__leuffen-logo-soft" width="67" height="22" src="/assets/leuffen/leuffen-logo-soft.svg" alt="" loading="lazy">
+              <img class="raven-footer__leuffen-logo-full" width="67" height="22" src="/assets/leuffen/leuffen-logo-white.svg" alt="" loading="lazy">
+            </span>
+          </a>
+        </div>
+        <div class="raven-footer__credit-end">
+          <a class="d-inline-flex align-items-center" rel="nofollow" href="{% include helpers/urls/pagebuilder.html %}" title="Seite editieren">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endunless %}

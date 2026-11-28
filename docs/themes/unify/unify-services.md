@@ -1,12 +1,13 @@
 ---
 layout: website-unify
-body_class: theme-unify
 title: Theme Unify Services
 description: "Unify-Services-Demo mit editierbaren Nextstrap-Layouts nach der Unify-Services-Landingpage."
-ptags:
-  - business
-  - services
+ptags: [business, services, nav, footer-nav]
 pid: site
+navigation_root: themes/unify
+short_title: Services
+order: 20
+show_title: false
 ---
 
 <!-- Erweitert die bestehende Bild-/Text-Komposition zu einem Services-Einstieg mit editierbarem Kundenbeleg. -->
@@ -31,9 +32,9 @@ We enrich human lives through the thoughtful application of design and technolog
 
 ### Fully customizable rules to match your unique needs
 
-- [**Advanced tools** — Use thoroughly considered libraries to manage your business.](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
-- [**Smart dashboards** — Combine proven components and get started quickly.](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
-- [**Powerful features** — Reduce the effort required to create a modern service experience.](/pages/beispiele/leistungen/praxis-am-stadtpark.html)
+- [**Advanced tools** — Use thoroughly considered libraries to manage your business.](/themes/unify/unify-services.html#leistungen)
+- [**Smart dashboards** — Combine proven components and get started quickly.](/themes/unify/unify-services.html#leistungen)
+- [**Powerful features** — Reduce the effort required to create a modern service experience.](/themes/unify/unify-services.html#leistungen)
 {: .list-checked }
 
 ![Smart service dashboard](https://static.leanea.de/uni-v3.0-docs/assets/img/mockups/img7.png)
@@ -63,56 +64,56 @@ The powerful and flexible theme for all kinds of businesses.
 
 <!-- Verdichtet acht austauschbare Servicevorteile mit einer flachen, wiederverwendbaren Feature-Liste. -->
 ## Everything teams need to move faster
-{: layout="ntl-card-row.style-feature-list" section-style="--cols: 3;" }
+{: section-id="leistungen" layout="ntl-card-row.style-feature-list" section-style="--cols: 3;" }
 
 Build a consistent service experience from first contact to ongoing optimization.
 {: .header }
 
 ### Mobile first
 
-#[i class="bi-tablet-landscape feature-icon" slot="image"]
+#[nte-icon class="bi bi-tablet-landscape feature-icon" slot="image" aria-hidden="true"]
 
 Every section remains readable and actionable on smaller screens.
 
 ### Made for teams
 
-#[i class="bi-shield-check feature-icon" slot="image"]
+#[nte-icon class="bi bi-shield-check feature-icon" slot="image" aria-hidden="true"]
 
 Designers and developers share the same content contract.
 
 ### Easy integration
 
-#[i class="bi-hdd-network feature-icon" slot="image"]
+#[nte-icon class="bi bi-hdd-network feature-icon" slot="image" aria-hidden="true"]
 
 Connect existing workflows without rebuilding the theme.
 
 ### Flexible delivery
 
-#[i class="bi-gear feature-icon" slot="image"]
+#[nte-icon class="bi bi-gear feature-icon" slot="image" aria-hidden="true"]
 
 Scale from a focused landing page to a broad service portfolio.
 
 ### Documented patterns
 
-#[i class="bi-sliders feature-icon" slot="image"]
+#[nte-icon class="bi bi-sliders feature-icon" slot="image" aria-hidden="true"]
 
 Reuse proven layouts for changing content and audiences.
 
 ### Clear insights
 
-#[i class="bi-journal-text feature-icon" slot="image"]
+#[nte-icon class="bi bi-journal-text feature-icon" slot="image" aria-hidden="true"]
 
 Present meaningful information with a calm visual hierarchy.
 
 ### Automated routines
 
-#[i class="bi-patch-check feature-icon" slot="image"]
+#[nte-icon class="bi bi-patch-check feature-icon" slot="image" aria-hidden="true"]
 
 Reduce repetitive work and focus on valuable customer moments.
 
 ### Measurable results
 
-#[i class="bi-lightbulb feature-icon" slot="image"]
+#[nte-icon class="bi bi-lightbulb feature-icon" slot="image" aria-hidden="true"]
 
 Use robust components that support iteration and learning.
 
@@ -131,7 +132,7 @@ Have apps your team relies on every day? Bring them together in a few clicks.
 - ![More integrations](https://static.leanea.de/uni-v3.0-docs/assets/svg/components/plus-icon.svg)
 {: .logo-cloud .with-labels .bottom }
 
-[See all integrations](/pages/beispiele/leistungen/praxis-am-stadtpark.html){: .btn .btn-primary }
+[See all integrations](/themes/unify/unify-services.html#leistungen){: .btn .btn-primary }
 {: .footer }
 
 <!-- Ordnet Kundenstimmen mit der vorhandenen Testimonial-Variante als responsive Vertrauenskette an. -->
@@ -194,7 +195,7 @@ this year alone
 
 <!-- Nutzt das neutrale Kartenraster für variable Kundenstories mit Bild, Beschreibung und echter Linkaktion. -->
 ## We work with companies with big ideas
-{: layout="ntl-card-row.style-stories" section-style="--cols: 4;" }
+{: section-id="referenzen" layout="ntl-card-row.style-stories" section-style="--cols: 4;" }
 
 Start with proven patterns, then customize them to fit your style and professional needs.
 {: .header }
@@ -206,25 +207,25 @@ Start with proven patterns, then customize them to fit your style and profession
 
 Millions of people expect a great customer experience. A shared design language makes the work behind it easier to scale while keeping every interaction recognizable.
 
-[Read customer story](/referenzen){: .footer }
+[Read customer story](/themes/unify/unify-services.html#referenzen){: .footer }
 
 ### Making tracks with global payments
 
 ![Team discussing a service concept](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img1.jpg)
 
-[Read customer story](/referenzen){: .footer }
+[Read customer story](/themes/unify/unify-services.html#referenzen){: .footer }
 
 ### The road to global expansion
 
 ![Colleagues reviewing a product](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img2.jpg)
 
-[Read customer story](/referenzen){: .footer }
+[Read customer story](/themes/unify/unify-services.html#referenzen){: .footer }
 
 ### Four questions with a service leader
 
 ![Founder working on a growth plan](https://static.leanea.de/uni-v3.0-docs/assets/img/580x480/img4.jpg)
 
-[Read customer story](/referenzen){: .footer }
+[Read customer story](/themes/unify/unify-services.html#referenzen){: .footer }
 
 <!-- Beendet den Inhalt mit der kompakten Subscribe-Variante und der vorhandenen Formularsprache. -->
 ## Get industry insights that you won't delete, straight in your inbox
@@ -236,4 +237,4 @@ Millions of people expect a great customer experience. A shared design language 
 #[nte-input.style-default.hoverlabel type="email" name="email" label="Enter email" required]
 #[button type="submit" class="btn btn-primary" > Subscribe]
 
-[Create a free account](/pages/beispiele/kontakt/praxis-am-stadtpark.html){: .subscribe-account }
+[Create a free account](/themes/unify/unify-start.html#kontakt){: .subscribe-account }

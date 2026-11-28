@@ -137,9 +137,9 @@ Layouts wiederverwendbar bleiben.
 | Bereich | GitHub-Pages-Demo `docs/` | Kundenvorlage `_root/docs/` |
 | --- | --- | --- |
 | Themes | Mehrere Themes für Vergleich und Tests | Genau ein Theme in `_src/style.scss` |
-| Navbar und Footer | Feste Kombinationen unter `_layouts/website*.html` mit Markup unter `_includes/frames/` | Genau eine Navbar direkt in `_layouts/50_navbar.html` und ein Footer direkt in `_layouts/60_footer.html` |
-| Auswahl und Ausblenden | In bestehenden `website-*`-Layouts Auswahl über `layout:`. Für auf `blank` aufgebaute Layouts gelten die globalen Seitenschalter aus [§ 2.2](bin/prompts/project.md#-22-layout-rahmen-und-sichtbarkeit). | Keine Variantenabfrage, Ausblendschalter oder Theme-Switcher-Abhängigkeit |
-| Alternative Rahmen-Dateien | Seitenlayouts `website-none`, `website-footer-only` und `website-navbar-only` | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
+| Navbar und Footer | Feste Kombinationen mit direktem Markup unter `_layouts/website-*.html` | Genau eine Navbar direkt in `_layouts/50_navbar.html` und ein Footer direkt in `_layouts/60_footer.html` |
+| Auswahl und Ausblenden | Auswahl über `layout:`. Alle Website-Layouts bauen auf `blank` auf und verwenden die globalen Seitenschalter aus [§ 2.2](bin/prompts/project.md#-22-layout-rahmen-und-sichtbarkeit). | Keine Variantenabfrage, Ausblendschalter oder Theme-Switcher-Abhängigkeit |
+| Reduzierte Rahmen | `show_navbar`, `show_title` und `show_footer` am gewählten Website-Layout | Keine alternativen Rahmenkopien und kein `_includes/_styles/` |
 | Gemeinsame Bausteine | Fachliche Includes mit denselben Namen und Parametern wie in `_root` | Verbindliche gemeinsame Include-Struktur für Kundenprojekte |
 
 Bei Theme-Anpassungen haben Theme-SCSS und die Markdown-Seiten Vorrang. Layouts
@@ -201,11 +201,12 @@ eine eigenständige Komposition bezeichnen.
 Für Zweck und Grundsätze der Demo gilt [§ 3 Docs-Verzeichnis](AGENTS/3_Docs.md).
 
 Eine Endseite in `docs/` wählt den vollständigen Rahmen über `layout:`.
-Die `website-*`-Layouts erben von `20_body` und binden Navbar,
-Inhaltsbereich und Footer in fester Reihenfolge ein. Die Navbar- und
-Footer-Fragmente unter `docs/_includes/frames/` haben feste Include-Pfade.
-`website-none`, `website-footer-only` und `website-navbar-only` bieten
-die reduzierten Rahmen. Theme-Profile bleiben unabhängig vom Layout.
+Die `website-*`-Layouts erben von `blank` und enthalten Navbar,
+optionalen Page-Header, Content Pane und Footer in fester Reihenfolge direkt.
+`website-default` stellt den Standard-Frame bereit; strukturell abweichende
+Frames verwenden eigene `website-<name>.html`-Dateien. Die globalen
+`show_*`-Schalter ersetzen reduzierte Frame-Layouts. Theme-Profile bleiben
+unabhängig vom Layout.
 
 Die Demo-Startseite verlinkt alle veröffentlichten Beispiele direkt mit
 ihrem Dateipfad als Beschriftung. Demo-Endseiten erhalten ihre URL aus dem
@@ -218,7 +219,7 @@ Die Kundenvorlage enthält genau einen aktiven Website-Rahmen: Das Markup der ge
 
 #### § 5.10 Zusammenspiel und Synchronisation der beiden Versionen
 
-Für bestehende `website-*`-Layouts lautet die Demo-Kette `10_blanc → 20_body → website-*`. Auf `blank` aufgebaute Layouts verwenden `10_blanc → 20_body → blank → konkretes Layout`. Die Kundenvorlage verwendet weiterhin `10_blanc → 20_body → 50_navbar → 60_footer → 70_main`. `20_body` enthält die gemeinsamen seitenweiten Laufzeit-Bausteine. Fachliche Includes, Slots, Attribute und das gerenderte Markup der gewählten Rahmenvariante müssen in Demo und Kundenvorlage zusammenpassen. Funktionale Gleichheit bezieht sich auf diese gewählte Variante, nicht auf identische Layout-Quelldateien: In der Demo wird sie eingebunden, im Kundenlayout steht ihr Markup direkt. Die Demo-Auswahl selbst gehört ausdrücklich nicht zum Kundenverhalten.
+Die Demo-Kette lautet `10_blanc → 20_body → blank → website-*`. Die Kundenvorlage verwendet weiterhin `10_blanc → 20_body → 50_navbar → 60_footer → 70_main`. `20_body` enthält die gemeinsamen seitenweiten Laufzeit-Bausteine. Fachliche Includes, Slots, Attribute und das gerenderte Markup der gewählten Rahmenvariante müssen in Demo und Kundenvorlage zusammenpassen. Funktionale Gleichheit bezieht sich auf diese gewählte Variante, nicht auf identische Layout-Quelldateien: In der Demo steht das Frame-Markup direkt im gewählten Website-Layout, im Kundenprojekt in den festen Navbar- und Footer-Layouts. Die Demo-Auswahl selbst gehört ausdrücklich nicht zum Kundenverhalten.
 
 Bei einer Änderung zuerst prüfen, ob sie einen gemeinsamen Include, eine reine Demo-Variante oder den für `_root` gewählten Rahmen betrifft. Gemeinsame Includes unter `components/`, `helpers/` und `fragments/` in beiden Versionen unter identischen Pfaden aktualisieren. Betrifft die Änderung den ausgewählten Kundenrahmen, das entsprechende Demo-Markup gezielt in `50_navbar.html` bzw. `60_footer.html` übernehmen; dabei Layout-Frontmatter und genau ein `{{ content }}` nach der Navbar bzw. vor dem Footer erhalten. Nicht die Demo-Verzeichnisse oder Dispatcher kopieren. Änderungen an anderen Demo-Varianten erzeugen keine weiteren Kundenlayouts. Kundendaten und individuelle Anpassungen dürfen bei späteren Übernahmen nicht durch Demo-Daten überschrieben werden.
 
@@ -226,9 +227,13 @@ Ein neues Kundenprojekt erhält den Inhalt von `_root/` als Projektwurzel und ve
 
 #### § 5.11 Include-Namen und `_root` als Quelle der Wahrheit
 
-`_root` ist die Quelle der Wahrheit für die gemeinsame fachliche Include-Struktur und deren öffentliche Namen und Parameter. Diese Pfade bleiben in `docs` und `_root` gleich. Die ausdrücklich demoexklusiven Rahmenvarianten unter `docs/_includes/frames/` sind davon ausgenommen und werden nicht in `_root` nachgebildet. Änderungen an gemeinsamen Include-Namen und -Pfaden, insbesondere Umbenennen, Verschieben, Hinzufügen oder Entfernen, benötigen die ausdrückliche Zustimmung des Users; ohne diese Zustimmung sind nur inhaltliche oder technische Anpassungen bei unveränderter gemeinsamer Struktur zulässig.
+`_root` ist die Quelle der Wahrheit für die gemeinsame fachliche Include-Struktur und deren öffentliche Namen und Parameter. Diese Pfade bleiben in `docs` und `_root` gleich. Die demoexklusiven Website-Layouts sind davon ausgenommen und werden nicht als Varianten in `_root` nachgebildet. Änderungen an gemeinsamen Include-Namen und -Pfaden, insbesondere Umbenennen, Verschieben, Hinzufügen oder Entfernen, benötigen die ausdrückliche Zustimmung des Users; ohne diese Zustimmung sind nur inhaltliche oder technische Anpassungen bei unveränderter gemeinsamer Struktur zulässig.
 
 #### § 5.12 Dokumentation von Code-Blöcken
+
+Die Formatierungsregeln in [`.editorconfig`](.editorconfig) sind Teil des
+verbindlichen Code-Stils. Wende bei neuen und geänderten Dateien die für den
+jeweiligen Dateityp geltenden Regeln an.
 
 Alle Code-Dateien werden nach funktionalen Blöcken kommentiert. Das gilt unter
 anderem für SCSS, CSS, TypeScript, JavaScript, HTML, PHP und Konfigurations-

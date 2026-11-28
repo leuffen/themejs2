@@ -1,13 +1,13 @@
 ---
 layout: website-mueller
-body_class: theme-mueller
 title: Theme Müller
 description: "Meta Description Text"
-theme_classes: "default theme-medic-osman"
-ptags:
-  - arzt
-  - nav
+ptags: [arzt, nav, footer-nav]
 pid: site
+navigation_root: themes/mueller
+short_title: Startseite
+order: 0
+show_title: false
 ---
 
 <!-- Das Scheche-Seitenmuster demonstriert die Müller-Komposition. -->
@@ -25,7 +25,7 @@ pid: site
 # Ihre Praxis für Innere Medizin und Diabetologie in Norden
 {: layout="3"}
 
-[Jetzt Termin online vereinbaren]({{ '/pages/beispiele/kontakt/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg}
+[Jetzt Termin online vereinbaren]({{ '/themes/mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg}
 
 ---
 {: layout="2;ntl-card-row.style-ribbon.align-buttons"}
@@ -50,7 +50,7 @@ Innere Medizin und Diabetologie. Professionelle Betreuung,
 Früherkennungsuntersuchungen, Individualprophylaxe, hochwertige Behandlungen und
 mehr.
 
-[Kontaktieren Sie uns für einen Termin!]({{ '/pages/beispiele/kontakt/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary}
+[Kontaktieren Sie uns für einen Termin!]({{ '/themes/mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary}
 
 ![](https://cdn.leuffen.de//leu-stock/v2/32/304-205_gfedcba/AdobeStock_138200241.webp)
 
@@ -69,7 +69,7 @@ Wir sind spezialisiert auf die Versorgung im Bereich Innere Medizin.
 - Sonographische Untersuchungen
 - Beratung und Therapie bei gastroenterologischen Beschwerden
 
-[]({{ '/pages/beispiele/leistungen/mueller-leistungen.html' | relative_url }}){: slot="link" }
+[]({{ '/themes/mueller/mueller-leistungen.html' | relative_url }}){: slot="link" }
 
 ### Diabetologie
 
@@ -83,7 +83,7 @@ Wir sind spezialisiert in der Versorgung und Betreuung von Diabetespatienten.
 - Schulung und Aufklärung
 - Interdisziplinäre Zusammenarbeit
 
-[]({{ '/pages/beispiele/leistungen/mueller-leistungen.html' | relative_url }}){: slot="link" }
+[]({{ '/themes/mueller/mueller-leistungen.html' | relative_url }}){: slot="link" }
 
 ### Adipositasbehandlung
 
@@ -97,7 +97,7 @@ Betreuung und Unterstützung auf Ihrem Weg zur Gewichtsreduktion.
 - Vorsorge
 - Nachsorge
 
-[]({{ '/pages/beispiele/leistungen/mueller-leistungen.html' | relative_url }}){: slot="link" }
+[]({{ '/themes/mueller/mueller-leistungen.html' | relative_url }}){: slot="link" }
 
 ---
 {: layout="2;ntl-2col.style-testimonial"}
@@ -126,9 +126,9 @@ Sie werden in unserer Praxis von einem kompetenten Team behandelt.
 Unterstützt werden die Behandler durch ein intensiv geschultes und langjährig
 erfahrenes Team von medizinischen Assistenten.
 
-[Mehr zu uns...]({{ '/pages/beispiele/startseiten/mueller-start.html' | relative_url }}){: .btn .btn-primary }
+[Mehr zu uns...]({{ '/themes/mueller/mueller-start.html' | relative_url }}){: .btn .btn-primary }
 
 ## Sie haben Fragen? Wir helfen gerne weiter
 {: layout="ntl-2col.style-cta" section-style="--cols: 12;"}
 
-[Kontakt]({{ '/pages/beispiele/kontakt/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg}
+[Kontakt]({{ '/themes/mueller/mueller-kontakt.html' | relative_url }}){: .btn .btn-primary .btn-lg}

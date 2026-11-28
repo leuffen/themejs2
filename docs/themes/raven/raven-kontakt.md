@@ -1,8 +1,10 @@
 ---
 layout: website-raven
-body_class: theme-raven
 title: Raven – Kontakt & Termin
-ptags: [arzt, nav]
+ptags: [arzt, nav, footer-nav]
+navigation_root: themes/raven
+short_title: Kontakt
+order: 20
 ---
 
 <!-- Der bestehende Raven-Kontakt wird als eigene Demo-Seite gezeigt. -->
@@ -59,4 +61,4 @@ Die Praxis befindet sich im 2. Obergeschoss und ist mit dem Fahrstuhl barrierefr
 ## Fragen zu Ihren Beschwerden?
 {: layout="ntl-2col.style-card.reverse" .aside data-kicker="Kontakt & Termin" section-style="--cols: 6;" }
 
-[Kontakt & Termin]({{ '/pages/beispiele/kontakt/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }
+[Kontakt & Termin]({{ '/themes/raven/raven-kontakt.html' | relative_url }}){: .btn .btn-accent .btn-lead }

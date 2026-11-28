@@ -1,0 +1,67 @@
+---
+layout: blank
+---
+<!-- Initialisiert den editierbaren Website-Frame mit den Daten des gewählten Standorts. -->
+{% assign navigation_root = page.navigation_root | default: '' %}
+{% assign brand_url = page.brand_url | default: '/' | relative_url %}
+{% assign location_id = page.location_id | default: 'default' %}
+{% assign location = site.data.general.standorte[location_id] | default: site.data.general.standorte.default %}
+<!-- Hält profilabhängige Direktkind-Styles am gemeinsamen Frame statt am technischen Body. -->
+<div{% if page.theme_profile %} class="theme-{{ page.theme_profile | escape }}"{% endif %}>
+{% unless page.show_navbar == false %}
+<leuffen-announcements class="announcements">Momentan keine Meldungen.</leuffen-announcements>
+<!-- Verwendet dieselben Navigationsziele für Desktop und mobiles Menü. -->
+<nte-navbar id="navbar" class="style-default">
+  <nte-navbar-line class="style-default navbar-line">
+    <a slot="start" class="brand-logo fw-bold" href="{{ brand_url | escape }}">{{ location.name | escape }}</a>
+    <nte-nav id="nav-horizontal" slot="end" class="style-default nav-horizontal" aria-label="Hauptnavigation" style="--nte-nav-flow: row; --nte-nav-align: stretch; width: auto">
+      {% include components/navigation/main.html tag="nav" root=navigation_root lang=page.lang %}
+      <nte-nav-item href="/" style="--order: 10" class="style-default" role="listitem">Zurück /</nte-nav-item>
+    </nte-nav>
+    <nte-burger slot="end" aria-label="Navigation öffnen" aria-controls="navigation-sidebar" static-state onclick="document.getElementById('navigation-sidebar')?.toggle()" style="display: block" style-xl="display: none"></nte-burger>
+  </nte-navbar-line>
+</nte-navbar>
+
+<!-- Verschiebt die vorhandenen Links unterhalb von XL in das mobile Menü. -->
+<nte-offcanvas id="navigation-sidebar" aria-label="Mobile Hauptnavigation">
+  <nte-nav id="nav-vertical" class="style-default nav-vertical" aria-label="Mobile Hauptnavigation" style="--nte-nav-flow: column; --nte-nav-align: stretch"></nte-nav>
+  <tj-element-relocator source="#nav-horizontal" target="#nav-vertical" class="-xl:relocate"></tj-element-relocator>
+</nte-offcanvas>
+{% endunless %}
+
+<!-- Zeigt den Seitentitel und optional das konfigurierte Headerbild und die Beschreibung. -->
+{% unless page.show_title == false %}
+<header id="header" class="style-default container py-4">
+  {% if page.hero_image and page.hero_image != empty %}
+  <img class="img-fluid" src="{{ page.hero_image | relative_url | escape }}" alt="{{ page.hero_image_alt | escape }}">
+  {% endif %}
+  <h1>{{ page.title | escape }}</h1>
+  {% if page.description and page.description != empty %}
+  <p>{{ page.description | escape }}</p>
+  {% endif %}
+</header>
+{% endunless %}
+
+<!-- Lässt Content Pane die bestehenden Markdown-Sections unverändert aufbauen. -->
+<nte-feedback></nte-feedback>
+<main id="main" class="mx-auto">
+  <tj-content-pane pre-parser="text-block">
+    {{ content }}
+  </tj-content-pane>
+</main>
+
+<!-- Setzt den Kontakt in der Lesereihenfolge vor die Links; ab XL steht er rechts neben der Navigation. -->
+{% unless page.show_footer == false %}
+<footer id="footer" class="style-default site-footer mt-5">
+  <div class="container py-3 d-flex flex-column xl:flex-row-reverse justify-content-between align-items-center gap-3 text-center">
+    <address class="small mb-0">{{ location.name | escape }}{% if location.street %} · {{ location.street | escape }}{% endif %}{% if location.city %} · {{ location.zip | escape }} {{ location.city | escape }}{% endif %}</address>
+    <nav aria-label="Footer-Navigation">
+      <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+        {% include components/navigation/footer.html tag="footer-nav" root=navigation_root show_icons=false %}
+      </ul>
+    </nav>
+  </div>
+  <div class="container pb-3 text-center small">© {{ location.name | escape }} {{ site.time | date: '%Y' }}</div>
+</footer>
+{% endunless %}
+</div>

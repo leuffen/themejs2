@@ -1,23 +1,20 @@
 ---
 published: true
-layout: theme-dommer
+layout: website-default
 navigation_root: themes/dommer
-brand_url: /themes/dommer/dommer-start.html
 location_id: dommer
 show_title: false
 title: Leistungen
-navigation_root: themes/dommer   ## Setzen damit nur diese demo angezeigt wird (nur für themejs2 demo)
 description: Zahnersatz und Implantatprothetik bei Dr. Karsten Dommer in Osnabrück-Westerberg.
   Informationen zu Kronen, Brücken und herausnehmbaren Prothesen.
-ptags:
-- nav
-- footer-nav
+ptags: [nav, footer-nav]
 order: 10
 shiller:
   tags:
   - mueller
   target: leistungen.md
   source: mueller/leistungen.md
+short_title: Leistungen
 ---
 
 ---
