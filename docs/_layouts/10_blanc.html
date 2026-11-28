@@ -66,6 +66,9 @@ layout: null
         window.mapUrl = '{{ site.data.general.map_url }}';
     </script>
 
+    <!-- User custom styles -->
+    <link rel="stylesheet" href="/assets/custom.css?{{ site.time | date: '%Y%m%d%H%M%S' }}" type="text/css" media="all">
+
 
     <!-- für jede Anschrift anlegen -->
     <template id="google-maps-default">
