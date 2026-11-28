@@ -144,11 +144,14 @@ Apply repository side-effect and approval rules before implementing changes.
 
 #### § 2.8 Browser-Workflow und Kontextbudget
 
-Use the AI Harness browser tools for rendered evidence. `browser_open` accepts
-only exact URLs and viewport sizes from capture-plan. Pass width and height as
-integers. Reference and target use the same CSS viewport dimensions at DPR 1.
-Opening another page or viewport closes the previous session; there is one
-current page, with no implicit switch between reference and target.
+Use the unchanged AI Harness browser tools for rendered evidence. Choose exact
+URLs and viewport sizes from capture-plan when calling `browser_open`; pass
+width and height as integers. Reference and target use the same CSS viewport
+dimensions at DPR 1. Before switching pages or viewports, call `browser_close`
+and then `browser_open` to start a fresh context. Navigation alone reuses the
+current context. There is one current page, with no implicit switch between
+reference and target. The Harness enforces allowed origins and its general
+viewport bounds; capture-plan defines the comparison scope.
 
 `browser_screenshot` captures the visible viewport and includes a small,
 sanitized DOM outline by default. Use `browser_query_selector` to find a

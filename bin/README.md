@@ -42,17 +42,20 @@ Typografie und Abstände; erhalte die editierbare Content-Struktur.
 
 `CONF_VIEWPORTS` in `bin/theme-develop` legt Auswahl und Reihenfolge der
 Auflösungen fest. Standard: 1280×800 und 393×852 (DPR 1). Weitere
-Profile sind in `ThemeBrowserTools::VIEWPORTS` aufgelistet. Referenz und Preview
-werden immer in derselben konfigurierten Auflösung verglichen. Statische
-Design-Dateien besitzen keinen inspizierbaren DOM.
+Profile sind 1440×900 und 768×1024. Der `capture-plan` gibt dem Agenten die
+Auftragsseiten und Vergleichsauflösungen vor. Referenz und Preview werden in
+derselben Auflösung verglichen. Statische Design-Dateien besitzen keinen
+inspizierbaren DOM.
 
 ## Browsertools und Kontextgrenzen
 
 Die Implementierung für Verbindung, DOM, CSS, Source Maps und Konsole liegt in
 [`phore/ai-harness/src/Tools/Browser`](https://github.com/phore/phore-ai-harness/tree/main/src/Tools/Browser).
-Der lokale Adapter `ThemeBrowserTools` beschränkt die Navigation auf die
-zugeordneten Auftragsseiten und Auflösungen, beschriftet PNG-Artefakte und
-liefert statische Designvorlagen. Er enthält keine eigene CDP-Inspektion.
+`ThemeDevelopment` konfiguriert die gemeinsame `BrowserSession` und registriert
+direkt `Phore\AiHarness\Tools\Browser\BrowserToolSet`. Alle Tool-Definitionen
+und Ergebnisse stammen unverändert aus dem Harness. Der Auftrag liefert die
+Seiten und Viewports; statische Designvorlagen werden als normale Bild- oder
+PDF-Prompts übergeben.
 
 1. `browser_open(url, width, height)` öffnet eine exakte URL aus `capture-plan`,
    etwa mit `width=1280` und `height=800`.
@@ -79,17 +82,23 @@ nicht zur Harness-API. Schmale Viewports prüfen das responsive Layout;
 ungeprüfte Lazy-Load-Inhalte und Interaktionszustände bleiben im Prüfbericht
 als Abdeckungslücken sichtbar.
 
-Es gibt jeweils eine aktuelle Seite. Jeder explizite Seiten- oder
-Viewportwechsel startet einen isolierten Browsercontext und verwirft alte
-Knotenreferenzen und Cursor. Die erlaubten Origins stammen aus der Preview und
-den konkreten Live-Referenzen des Auftrags. Bei einer Weiterleitung auf einen
-anderen, nicht freigegebenen Origin muss die kanonische Referenz-URL im Auftrag
-stehen. Es werden keine beliebigen Redirect-Ziele automatisch freigegeben.
+Es gibt jeweils eine aktuelle Seite. Navigation verwirft alte Knotenreferenzen
+und Cursor und verwendet den vorhandenen Browsercontext weiter. Vor einem
+Seiten- oder Viewportwechsel verlangen die Prompts `browser_close`, gefolgt von
+`browser_open`, damit der Vergleich mit einem neuen Context beginnt.
+
+Die erlaubten Origins stammen aus der Preview und den konkreten Live-Referenzen
+des Auftrags. Der Harness erzwingt diese Origins und seine allgemeinen
+Viewportgrenzen; die Auswahl der konkreten Seiten und Vergleichsgrößen folgt
+dem `capture-plan`. Bei einer Weiterleitung auf einen nicht freigegebenen Origin
+muss die kanonische Referenz-URL im Auftrag stehen.
 
 `browser_reload` lädt die aktuelle Seite neu. Nach einem Build schließt der
 Host die Sitzung; die Review beginnt mit `browser_open` und neuen
 Knotenabfragen. `browser_close` und das Laufende geben den Browsercontext frei.
-PNG-Dateien werden aus dem Harness-`MultiPrompt` in `bin/.tmp/` gespeichert.
+Screenshotbilder und DOM-Metadaten gehen als Harness-`MultiPrompt` direkt an die
+AI. Zusätzliche lokale PNG-Kopien werden nicht gespeichert; dafür bietet der
+Harness derzeit keinen Ergebnis-Hook. `bin/.tmp/` enthält die Laufberichte.
 
 ## Internetrecherche
 
@@ -158,8 +167,9 @@ und nächstem Schritt. `--debug` zeigt zusätzlich Tool- und Diagnoseausgaben.
 Der ausführliche Bericht und das Backlog werden als Arbeitskontext weitergegeben.
 Wenn eine Entscheidung alle weiteren Arbeiten blockiert, gibt die CLI die
 konkrete Frage aus. Die Antwort kann im Auftrag ergänzt werden. Danach mit
-`-n` neu starten. Auch Checkpoints älterer Agent-Regeln benötigen `-n`. Screenshots und Zwischenberichte liegen direkt im von Git ignorierten
-Ordner `bin/.tmp/`. Ein neuer Lauf leert den Ordner vor der ersten Aufnahme;
+`-n` neu starten. Auch Checkpoints älterer Agent-Regeln benötigen `-n`.
+Zwischenberichte liegen im von Git ignorierten Ordner `bin/.tmp/`. Ein neuer
+Lauf leert den Ordner vor der Referenzanalyse;
 parallele Läufe im selben Checkout werden abgewiesen. Das Binary
 pusht oder merged keine Änderungen.
 

@@ -10,10 +10,14 @@ use Phore\AiHarness\FileSystem\FileOperationContext;
 use Phore\AiHarness\FileSystem\FileSystemPolicy;
 use Phore\AiHarness\Logging\LogEvent;
 use Phore\AiHarness\Logging\LoggerInterface;
+use Phore\AiHarness\PromptType\FilePrompt;
+use Phore\AiHarness\PromptType\ImagePrompt;
 use Phore\AiHarness\PromptType\SystemPrompt;
 use Phore\AiHarness\PromptType\TextPrompt;
 use Phore\AiHarness\ToolType\WebAccessTool;
 use Phore\AiHarness\Tools\Browser\BrowserConnection;
+use Phore\AiHarness\Tools\Browser\BrowserSession;
+use Phore\AiHarness\Tools\Browser\BrowserToolSet;
 use Phore\AiHarness\Usage\GlobalUsage;
 use RuntimeException;
 
@@ -22,6 +26,9 @@ use RuntimeException;
  */
 final readonly class ThemeDevelopment
 {
+    // Der Auftrag vergleicht Referenz und Preview mit denselben festen Auflösungen.
+    private const VIEWPORTS = ['1440x900', '1280x800', '768x1024', '393x852'];
+
     /** Die Auftrags- und Infrastrukturkonfiguration wird am CLI-Einstieg injiziert. */
     public function __construct(
         private string $root,
@@ -31,8 +38,8 @@ final readonly class ThemeDevelopment
         private array $viewports = ['1280x800', '768x1024', '393x852'],
     ) {
         if ($viewports === [] || count(array_unique($viewports)) !== count($viewports)
-            || array_diff($viewports, ThemeBrowserTools::VIEWPORTS) !== []) {
-            throw new RuntimeException('Configure a non-empty list of distinct viewport names from ThemeBrowserTools::VIEWPORTS.');
+            || array_diff($viewports, self::VIEWPORTS) !== []) {
+            throw new RuntimeException('Configure a non-empty list of distinct viewports from: ' . implode(', ', self::VIEWPORTS));
         }
     }
 
@@ -57,7 +64,7 @@ final readonly class ThemeDevelopment
     /** Startet die Projektanalyse erst nach erfolgreicher Browserprüfung. */
     private function runWithBrowser(): int
     {
-        // Der Verzeichnis-Lock bleibt bis zum Ende von run() offen und schützt laufende Aufnahmen.
+        // Der Verzeichnis-Lock schützt die Laufberichte bis zum Ende von run().
         $directory = $this->root . '/bin/.tmp';
         if (is_link($directory) || (!is_dir($directory) && !mkdir($directory, 0700) && !is_dir($directory))) {
             throw new RuntimeException('Cannot prepare temporary directory: ' . $directory);
@@ -71,7 +78,7 @@ final readonly class ThemeDevelopment
             throw new RuntimeException('The work order must be outside the temporary directory: ' . $order);
         }
         $this->cleanRunDirectory($directory);
-        fwrite(STDERR, 'Screenshots and reports: ' . $directory . PHP_EOL);
+        fwrite(STDERR, 'Reports: ' . $directory . PHP_EOL);
 
         // Der dauerhafte Auftragszustand bleibt getrennt von temporären Laufartefakten.
         $jobDirectory = dirname($this->job->file);
@@ -119,7 +126,7 @@ final readonly class ThemeDevelopment
         );
 
         // Die Projektphasen teilen die Tools; jeder Ausgang gibt ihre Browsersitzung frei.
-        $tools = null;
+        $browser = null;
         try {
             // Vor dem Checkpoint darf der Agent das gesamte Projekt lesen, aber
             // keine Datei oder Verzeichnisoperation mit Schreibwirkung ausführen.
@@ -173,8 +180,26 @@ final readonly class ThemeDevelopment
                 $additionalFindings = $state['additional_findings'];
             }
             $this->job->setPages($pages, $this->root);
-            $tools = new ThemeBrowserTools($this->job, $directory, $this->viewports);
-            $context->addToolSet($tools);
+
+            // Die Preview steht zuerst, damit relative Browser-URLs auf sie zeigen.
+            $origins = [];
+            foreach ([$this->job->preview, ...array_column($this->job->pages, 'reference')] as $url) {
+                if ($url === null) {
+                    continue;
+                }
+                $parts = parse_url($url);
+                $origins[] = $parts['scheme'] . '://' . $parts['host'] . (isset($parts['port']) ? ':' . $parts['port'] : '');
+            }
+            $browser = new BrowserSession(
+                endpoint: $this->job->browser,
+                allowedOrigins: array_values(array_unique($origins)),
+            );
+
+            // Der vorhandene Activity-Hook meldet Aufnahmen, ohne Tools zu ersetzen.
+            $browser->onActivity(static function (string $activity): void {
+                phore_log()->log($activity === 'browser.screenshot' ? 'info' : 'debug', 'Browser-Aktivität: {activity}', ['activity' => $activity]);
+            });
+            $context->addToolSet(new BrowserToolSet($browser));
             // Vor jeder Aufnahme öffnet das Modell die exakte URL mit identischer Vergleichsauflösung.
             $capturePlan = new TextPrompt(json_encode([
                 'viewports' => $this->viewports,
@@ -193,7 +218,7 @@ final readonly class ThemeDevelopment
                     ...$repositoryRules,
                     TextPrompt::fromFile($this->root . '/bin/prompts/reference.md', allowInstructions: true),
                     $capturePlan,
-                    ...$tools->designPrompts(),
+                    ...$this->designPrompts(),
                 ]);
                 $this->saveReport($directory . '/reference.md', $analysis);
                 [, $referenceFindings] = $this->splitFindings($analysis, 'No live reference inspection findings reported.');
@@ -298,7 +323,7 @@ final readonly class ThemeDevelopment
                 if ($changes !== []) {
                     $this->build();
                     // Die Review muss den neuen Build öffnen und darf keinen alten DOM weiterverwenden.
-                    $tools->close();
+                    $this->closeBrowser($browser);
                 }
 
                 // Die Review-Phase fordert ihre Bilder erst nach einem erfolgreichen Build an.
@@ -375,7 +400,38 @@ final readonly class ThemeDevelopment
             fwrite(STDERR, "Stopped: iteration limit reached.\n");
             return 2;
         } finally {
-            $tools?->close();
+            $this->closeBrowser($browser);
+        }
+    }
+
+    /** Statische Auftragsvorlagen werden als normale Bild- oder PDF-Prompts übergeben. */
+    private function designPrompts(): array
+    {
+        $prompts = [];
+        foreach ($this->job->pages as $page) {
+            if ($page['reference'] !== null) {
+                continue;
+            }
+            foreach ($page['designs'] as $index => $design) {
+                $dimensions = ($design['width'] ?? '?') . 'x' . ($design['height'] ?? '?');
+                $alias = 'reference-' . $page['name'] . '-design-' . ($index + 1);
+                $instructions = 'Reference design for ' . $page['name'] . '; supplied viewport ' . $dimensions . '. Use only as design evidence.';
+                $mime = mime_content_type($design['file']);
+                $prompts[] = is_string($mime) && str_starts_with($mime, 'image/')
+                    ? ImagePrompt::fromFile($design['file'], alias: $alias, instructions: $instructions)
+                    : FilePrompt::fromFile($design['file'], alias: $alias, instructions: $instructions);
+            }
+        }
+        return $prompts;
+    }
+
+    /** Cleanup darf weder gespeicherte Ergebnisse noch einen ursprünglichen Fehler überdecken. */
+    private function closeBrowser(?BrowserSession $browser): void
+    {
+        try {
+            $browser?->close();
+        } catch (\Throwable $error) {
+            phore_log()->warning('Browser-Sitzung konnte beim Aufräumen nicht vollständig geschlossen werden ({error_type}).', ['error_type' => $error::class]);
         }
     }
 
